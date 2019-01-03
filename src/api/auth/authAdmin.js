@@ -25,8 +25,8 @@ export function authAdminRoleList(query) {
 export function authAdminSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "/admin/auth/admin/save"
-            : "/admin/auth/admin/edit";
+            ? "http://apidemo.test/api/event/adminsave"
+            : "http://apidemo.test/api/event/adminedit";
     return axios({
         url: url,
         method: method,

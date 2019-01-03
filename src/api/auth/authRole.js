@@ -24,7 +24,7 @@ export function authRoleAuthList(query) {
 // 添加
 export function authRoleAuth(data) {
     return axios({
-        url: "/admin/auth/role/auth",
+        url: "http://apidemo.test/api/event/roleAuth",
         method: "post",
         data: data
     });
@@ -33,7 +33,7 @@ export function authRoleAuth(data) {
 // 保存
 export function authRoleSave(data, formName, method = "post") {
     let url =
-        formName === "add" ? "/admin/auth/role/save" : "/admin/auth/role/edit";
+        formName === "add" ? "http://apidemo.test/api/event/roleSave" : "http://apidemo.test/api/event/roleEdit";
     return axios({
         url: url,
         method: method,

@@ -8,7 +8,7 @@ import axios from "../../utils/axios";
 // 列表
 export function adSiteList(query) {
     return axios({
-        url: "/admin/ad/site/index",
+        url: "http://apidemo.test/api/event/siteIndex",
         method: "get",
         params: query
     });
@@ -17,7 +17,7 @@ export function adSiteList(query) {
 // 广告列表
 export function adSiteAdList(query) {
     return axios({
-        url: "/admin/ad/site/adList",
+        url: "http://apidemo.test/api/event/siteList",
         method: "get",
         params: query
     });
@@ -26,7 +26,7 @@ export function adSiteAdList(query) {
 // 保存
 export function adSiteSave(data, formName, method = "post") {
     var url =
-        formName === "add" ? "/admin/ad/site/save" : "/admin/ad/site/edit";
+        formName === "add" ? "http://apidemo.test/api/event/siteSave" : "http://apidemo.test/api/event/siteEdit";
     return axios({
         url: url,
         method: method,
@@ -37,7 +37,7 @@ export function adSiteSave(data, formName, method = "post") {
 // 删除
 export function adSiteDelete(data) {
     return axios({
-        url: "/admin/ad/site/delete",
+        url: "http://apidemo.test/api/event/siteDelete",
         method: "post",
         data: data
     });

@@ -182,7 +182,7 @@ export const asyncRouterMap = [
         redirect: "/adManage/adSite",
         component: Home,
         icon: "guanggao",
-        name: "广告相关",
+        name: "广告相关1112",
         meta: {
             authRule: ["ad_manage"]
         },
