@@ -17,7 +17,7 @@ export function adSiteList(query) {
 // 广告列表
 export function adSiteAdList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/siteList",
+        url: "http://apidemo.test/api/event/siteAdList",
         method: "get",
         params: query
     });
