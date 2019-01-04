@@ -44,7 +44,7 @@ export function authRoleSave(data, formName, method = "post") {
 // 删除
 export function authRoleDelete(data) {
     return axios({
-        url: "/admin/auth/role/delete",
+        url: "http://apidemo.test/api/event/roleDelete",
         method: "post",
         data: data
     });

@@ -25,8 +25,8 @@ export function authAdminRoleList(query) {
 export function authAdminSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/adminsave"
-            : "http://apidemo.test/api/event/adminedit";
+            ? "http://apidemo.test/api/event/adminSave"
+            : "http://apidemo.test/api/event/adminEdit";
     return axios({
         url: url,
         method: method,
@@ -37,7 +37,7 @@ export function authAdminSave(data, formName, method = "post") {
 // 删除管理员
 export function authAdminDelete(data) {
     return axios({
-        url: "/admin/auth/admin/delete",
+        url: "http://apidemo.test/api/event/adminDelete",
         method: "post",
         data: data
     });

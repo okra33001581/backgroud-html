@@ -5,7 +5,7 @@ import axios from "../../utils/axios";
 // 获取信息
 export function userInfo(id, token) {
     return axios({
-        url: "http://apidemo.test/api/event/loginInfoa",
+        url: "http://apidemo.test/api/event/loginInfo",
         method: "get",
         // headers: {
         //     "x-adminid": "*",
@@ -33,7 +33,7 @@ export function logout(uid, token) {
 
 export function password(data) {
     return axios({
-        url: "http://apidemo.test/api/event/password",
+        url: "http://apidemo.test/api/event/loginPassword",
         method: "post",
         data: data
     });

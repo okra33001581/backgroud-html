@@ -26,8 +26,8 @@ export function authPermissionRuleTree(query) {
 export function authPermissionRuleSave(data, formName, method = "post") {
     let url =
         formName !== "edit"
-            ? "/admin/auth/permission_rule/save"
-            : "/admin/auth/permission_rule/edit";
+            ? "http://apidemo.test/api/event/permissionRuleSave"
+            : "http://apidemo.test/api/event/permissionRuleEdit";
     return axios({
         url: url,
         method: method,
@@ -38,7 +38,7 @@ export function authPermissionRuleSave(data, formName, method = "post") {
 // 删除
 export function authPermissionRuleDelete(data) {
     return axios({
-        url: "/admin/auth/permission_rule/delete",
+        url: "http://apidemo.test/api/event/permissionRuleDelete",
         method: "post",
         data: data
     });
