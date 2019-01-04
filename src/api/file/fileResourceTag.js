@@ -6,7 +6,7 @@ import axios from "../../utils/axios";
 // 列表
 export function fileResourceTagList(query) {
     return axios({
-        url: "/admin/file/resource_tag/index",
+        url: "http://apidemo.test/api/event/resourceTagIndex",
         method: "get",
         params: query
     });
@@ -15,7 +15,7 @@ export function fileResourceTagList(query) {
 // 创建分组
 export function fileResourceTagAdd(data) {
     return axios({
-        url: "/admin/file/resource_tag/add",
+        url: "http://apidemo.test/api/event/resourceTagAdd",
         method: "post",
         data: data
     });

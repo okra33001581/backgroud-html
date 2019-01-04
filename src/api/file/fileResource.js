@@ -6,7 +6,7 @@ import axios from "../../utils/axios";
 // 列表
 export function fileResourceList(query) {
     return axios({
-        url: "/admin/file/resource/index",
+        url: "http://apidemo.test/api/event/resourceIndex",
         method: "get",
         params: query
     });
