@@ -28,22 +28,39 @@
                 </el-button-group>
             </el-form-item>
         </el-form>
-        <el-table
+        <!--<el-table
             v-loading="loading"
             :data="list"
             style="width: 100%;"
-            max-height="500">
+            max-height="500">-->
+            <el-table
+                    v-loading="loading"
+                    :key="tableKey"
+                    :data="list"
+                    border
+                    fit
+                    highlight-current-row
+                    style="width: 100%;"
+                    @sort-change="sortChange">
             <el-table-column
                 label="用户 ID"
                 prop="id"
+                sortable="custom"
                 fixed>
+                <template slot-scope="scope">
+                    <span>{{ scope.row.id }}</span>
+                </template>
             </el-table-column>
+
             <el-table-column
                 label="用户名"
                 prop="username"
+                sortable="custom"
                 fixed>
             </el-table-column>
+
             <el-table-column
+                sortable="custom"
                 label="状态">
                 <template slot-scope="scope">
                     <el-tag :type="scope.row.status | statusFilterType">{{scope.row.status | statusFilterName}}</el-tag>
@@ -52,6 +69,7 @@
             <el-table-column
                 label="登录时间"
                 with="300"
+                sortable="custom"
                 :show-overflow-tooltip="true">
                 <template slot-scope="scope">
                     <i class="el-icon-time"></i>
@@ -59,6 +77,7 @@
                 </template>
             </el-table-column>
             <el-table-column
+                sortable="custom"
                 label="登录IP">
                 <template slot-scope="scope">
                     <span>{{ scope.row.last_login_ip }}</span>
@@ -82,6 +101,8 @@
             layout="prev, pager, next"
             :total="total">
         </el-pagination>
+
+        <!--<pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />-->
 
         <!--表单-->
         <el-dialog
@@ -164,6 +185,7 @@ export default {
                 limit: 20,
                 role_id: ""
             },
+            tableKey: 0,
             list: [],
             total: 0,
             loading: true,
@@ -234,6 +256,20 @@ export default {
                     this.total = 0;
                     this.roles = [];
                 });
+        },
+        sortChange(data) {
+            const { prop, order } = data
+            if (prop === 'id') {
+                this.sortByID(order)
+            }
+        },
+        sortByID(order) {
+            if (order === 'ascending') {
+                this.listQuery.sort = '+id'
+            } else {
+                this.listQuery.sort = '-id'
+            }
+            this.handleFilter()
         },
         getRoleList() {
             authAdminRoleList(this.query)

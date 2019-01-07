@@ -20,27 +20,40 @@
                 </el-button-group>
             </el-form-item>
         </el-form>
-        <el-table
+       <!-- <el-table
             v-loading="loading"
             :data="list"
             style="width: 100%;"
-            max-height="500">
+            max-height="500">-->
+            <el-table
+                    v-loading="listLoading"
+                    :key="tableKey"
+                    :data="list"
+                    border
+                    fit
+                    highlight-current-row
+                    style="width: 100%;"
+                    @sort-change="sortChange">
             <el-table-column
                 label="角色 ID"
-                prop="id">
+                prop="id"
+                sortable="custom">
             </el-table-column>
             <el-table-column
                 label="角色名称"
-                prop="name">
+                prop="name"
+                sortable="custom">
             </el-table-column>
             <el-table-column
-                label="状态">
+                label="状态"
+                sortable="custom">
                 <template slot-scope="scope">
                     <el-tag :type="scope.row.status | statusFilterType">{{scope.row.status | statusFilterName}}</el-tag>
                 </template>
             </el-table-column>
             <el-table-column
                 label="描述"
+                sortable="custom"
                 :show-overflow-tooltip="true">
                 <template slot-scope="scope">
                     <span>{{ scope.row.remark }}</span>
