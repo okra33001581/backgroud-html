@@ -31,12 +31,12 @@
                            @click.native="handleLogin()">登录
                 </el-button>
             </div>
-            <div>
+            <!--<div>
                 <el-button type="primary" style="width:100%;margin-bottom:30px;"
                            @click='showDialog = true'>
                     第三方登录
                 </el-button>
-            </div>
+            </div>-->
         </el-form>
 
         <el-dialog title="第三方验证" :visible.sync="showDialog">

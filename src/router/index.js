@@ -149,7 +149,7 @@ export const asyncRouterMap = [
                     {
                         path: "authAdmin",
                         component: authAdmin,
-                        name: "管理员管理",
+                        name: "商户管理",
                         icon: "0",
                         meta: {
                             authRule: ["admin/auth.admin/index"]
