@@ -259,8 +259,9 @@ export default {
                     }
                     this.authDefaultCheckedKeys = [];
                     this.authDefaultCheckedKeys = tempCheckedKeys;
+                    this.$refs.tree.setCheckedKeys([1]);
                     tempCheckedKeys[33] = 1;
-                    this.$refs.tree.setCheckedKeys(tempCheckedKeys);
+                    // this.$refs.tree.setCheckedKeys(tempCheckedKeys);
 
                     // this.$refs.tree.setCurrentNode({
                     //     id:12,
@@ -313,7 +314,7 @@ export default {
                     }
                     this.authDefaultCheckedKeys = [];
                     this.authDefaultCheckedKeys = tempCheckedKeys;
-                    this.$refs.tree.setCheckedKeys(tempCheckedKeys);
+                    this.$refs.tree.setCheckedKeys([33]);
                 })
                 .catch(() => {});
         },
