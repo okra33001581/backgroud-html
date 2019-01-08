@@ -65,6 +65,7 @@
                 width="200">
                 <template slot-scope="scope">
                     <el-button type="text" size="small" @click.native="handleAuth(scope.row.id)">授权</el-button>
+                    <el-button type="text" size="small" @click.native="handleAuthByUser(scope.row.id)">查看</el-button>
                     <el-button type="text" size="small" @click.native="handleForm(scope.$index, scope.row)">编辑</el-button>
                     <el-button type="text" size="small" @click.native="handleDel(scope.$index, scope.row)" :loading="deleteLoading">删除</el-button>
                 </template>
@@ -138,6 +139,7 @@
 import {
     authRoleList,
     authRoleAuthList,
+    authRoleAuthListByUser,
     authRoleAuth,
     authRoleSave,
     authRoleDelete
@@ -257,7 +259,61 @@ export default {
                     }
                     this.authDefaultCheckedKeys = [];
                     this.authDefaultCheckedKeys = tempCheckedKeys;
-                    // this.$refs.tree.setCheckedKeys(tempCheckedKeys);
+                    tempCheckedKeys[33] = 1;
+                    this.$refs.tree.setCheckedKeys(tempCheckedKeys);
+
+                    // this.$refs.tree.setCurrentNode({
+                    //     id:12,
+                    //     label:'产品简介'
+                    // })
+
+                    // this.$refs.tree.setChecked('305890105',true,false)
+                })
+                .catch(() => {});
+        },
+        // 显示授权界面
+        handleAuthByUser(roleId) {
+            this.authFormData.role_id = roleId;
+            this.authFormData.auth_rules = [];
+            this.authList = [];
+            authRoleAuthListByUser({ id: roleId })
+                .then(response => {
+                    if (response.code) {
+                        this.authFormVisible = false;
+                        this.$message({
+                            message: response.message,
+                            type: "error"
+                        });
+                        return;
+                    }
+                    this.authFormVisible = true;
+                    this.authList = response.data.auth_list || [];
+                    const checkedKeys = response.data.checked_keys || [];
+                    let tempCheckedKeys = [];
+                    let id = null;
+                    let node = null;
+                    let getTreeNode = function(arr, id) {
+                        for (let i in arr) {
+                            let tempNode = arr[i];
+                            if (tempNode.id === id) {
+                                // 找到了，就不找了
+                                node = tempNode;
+                            }
+                            // 如果还有子节点，再继续找
+                            getTreeNode(tempNode.children, id);
+                        }
+                    };
+                    for (let i in checkedKeys) {
+                        id = checkedKeys[i];
+                        getTreeNode(this.authList, id);
+                        if (node && node.children.length <= 0) {
+                            // 如果下面没有子节点，则加入
+                            tempCheckedKeys.push(id);
+                        }
+                    }
+                    this.authDefaultCheckedKeys = [];
+                    this.authDefaultCheckedKeys = tempCheckedKeys;
+                    this.$refs.tree.setCheckedKeys(tempCheckedKeys);
                 })
                 .catch(() => {});
         },

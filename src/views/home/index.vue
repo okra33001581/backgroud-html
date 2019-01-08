@@ -48,6 +48,8 @@
                 </div>
 
                 <div class="header-right">
+                    <!--<i class="el-icon-setting"></i>-->
+                    <i class="el-icon-setting" style="margin-right: 15px"></i>
                     <el-dropdown trigger="click">
                         <!--<i class="el-icon-setting" style="margin-right: 15px"></i>-->
                         <span>{{username}}<i class="el-icon-arrow-down el-icon--right"></i></span>

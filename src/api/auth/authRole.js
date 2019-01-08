@@ -30,6 +30,15 @@ export function authRoleAuth(data) {
     });
 }
 
+// 添加
+export function authRoleAuthListByUser(data) {
+    return axios({
+        url: "http://apidemo.test/api/event/roleAuthListByUser",
+        method: "get",
+        data: data
+    });
+}
+
 // 保存
 export function authRoleSave(data, formName, method = "post") {
     let url =
