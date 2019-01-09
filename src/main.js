@@ -23,6 +23,8 @@ Object.keys(filters).forEach(key => {
 
 Vue.config.productionTip = false;
 
+
+
 let data = JSON.parse(window.sessionStorage.getItem('user'))
 if (data){
     //这里是防止用户手动刷新页面，整个app要重新加载,动态新增的路由，会消失，所以我们重新add一次

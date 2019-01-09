@@ -142,11 +142,11 @@
                         <el-radio label="2">未验证</el-radio>
                     </el-radio-group>
                 </el-form-item>
-                <!--<el-form-item label="角色">
+                <el-form-item label="角色">
                     <el-checkbox-group v-model="formData.roles">
                         <el-checkbox v-for="item in roles" :key="item.id" :label="item.id">{{item.name}}</el-checkbox>
                     </el-checkbox-group>
-                </el-form-item>-->
+                </el-form-item>
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideForm">取消</el-button>
@@ -363,9 +363,10 @@
             getRoleList() {
                 authAdminRoleList(this.query)
                     .then(response => {
-                        this.roles = response.data.list || [];
+                        this.roles = response.list || [];
                     })
-                    .catch(() => {
+                    .catch((e) => {
+                        console.log(e)
                         this.roles = [];
                     });
             },
