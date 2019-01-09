@@ -14,6 +14,7 @@ import adminRouter from "../views/userManage/admin/router.vue";
 import authAdmin from "../views/userManage/admin/authAdmin.vue";
 import authRole from "../views/userManage/admin/authRole.vue";
 import authPermissionRule from "../views/userManage/admin/authPermissionRule.vue";
+import Main1 from '@/components/Main'
 
 // 上传相关
 import tinymce from "../views/components/tinymce-demo.vue";
@@ -70,7 +71,10 @@ export const constantRouterMap = [
         component: Home,
         redirect: "/readme",
         name: "首页",
-        hidden: true
+        hidden: true,
+        children: [
+            { path: 'main', component: Main1 , name: 'dsds',leaf:true,hidden:true,}
+        ]
     },
     {
         path: "/readme",
