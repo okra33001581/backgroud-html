@@ -1,7 +1,7 @@
 /**
  * Created by lk on 17/6/4.
  */
-import axios from "../utils/axios";
+import axios from "../../utils/axios";
 
 // 获取列表
 export function authAdminList(query) {

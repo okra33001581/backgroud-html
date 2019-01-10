@@ -24,6 +24,71 @@ import upload from "../views/components/upload-demo.vue";
 import adSite from "../views/adManage/adSite.vue";
 import ad from "../views/adManage/ad.vue";
 
+
+import transaction from "../views/transaction/transaction.vue";
+import account from "../views/transaction/account.vue";
+import platTransfer from "../views/transaction/plat-transfer.vue";
+import auditType from "../views/develop/auditType.vue";
+import sysSetting from "../views/develop/sysSetting.vue";
+import user from "../views/user/user.vue";
+import userIpAnalysis from "../views/user/userIpAnalysis.vue";
+import userPrizeSet from "../views/user/userPrizeSet.vue";
+
+import basisWay from "../views/basis/basisWay.vue";
+import clientTerminal from "../views/basis/clientTerminal.vue";
+import lotteryCenter from "../views/basis/lotteryCenter.vue";
+import lotteryType from "../views/basis/lotteryType.vue";
+import lotteryWay from "../views/basis/lotteryWay.vue";
+import serialLottery from "../views/basis/serialLottery.vue";
+import serialWay from "../views/basis/serialWay.vue";
+import terminal from "../views/basis/terminal.vue";
+import transactionType from "../views/basis/transactionType.vue";
+import wayGroup from "../views/basis/wayGroup.vue";
+import wayGroupLottery from "../views/basis/wayGroupLottery.vue";
+import wayType from "../views/basis/wayType.vue";
+
+import riskProjects from "../views/lottery/riskProjects.vue";
+import trail from "../views/lottery/trail.vue";
+import projects from "../views/lottery/projects.vue";
+import draw from "../views/lottery/draw.vue";
+import warn from "../views/lottery/warn.vue";
+import exception from "../views/lottery/exception.vue";
+
+import day from "../views/report/day.vue";
+import month from "../views/report/month.vue";
+import termReport from "../views/report/termReport.vue";
+import dayLottery from "../views/report/dayLottery.vue";
+import monthReport from "../views/report/monthReport.vue";
+import userDay from "../views/report/userDay.vue";
+import userMonth from "../views/report/userMonth.vue";
+import userDayLottery from "../views/report/userDayLottery.vue";
+import way from "../views/report/way.vue";
+import userWay from "../views/report/userWay.vue";
+import merchantDay from "../views/report/merchantDay.vue";
+import merchantMonth from "../views/report/merchantMonth.vue";
+
+import merchantApiLog from "../views/log/merchantApiLog.vue";
+import adminLog from "../views/log/adminLog.vue";
+import userManageLog from "../views/log/userManageLog.vue";
+
+import term from "../views/setting/term.vue";
+import serial from "../views/setting/serial.vue";
+import lottery from "../views/setting/lottery.vue";
+import prizeGroup from "../views/setting/prizeGroup.vue";
+import betLimit from "../views/setting/betLimit.vue";
+// import sysSetting from "../views/setting/sysSetting.vue";
+import district from "../views/setting/district.vue";
+import domain from "../views/setting/domain.vue";
+
+import bulletin from "../views/bulletin/bulletin.vue";
+import bulletinType from "../views/bulletin/bulletinType.vue";
+
+import merchant from "../views/merchant/merchant.vue";
+import merchantIp from "../views/merchant/merchantIp.vue";
+import merchantAccount from "../views/merchant/merchantAccount.vue";
+import merchantLottery from "../views/merchant/merchantLottery.vue";
+
+
 // Vue.use(VueRouter);
 
 const err401 = r =>
@@ -224,7 +289,7 @@ export const asyncRouterMap = [
         // noDropdown: true,
         children: [
             {
-                path: "events",
+                path: "eventsa",
                 component: adSite,
                 name: "活动管理",
                 icon: "0",
@@ -233,7 +298,7 @@ export const asyncRouterMap = [
                 }
             },
             {
-                path: "events",
+                path: "eventsb",
                 component: adSite,
                 name: "活动条件",
                 icon: "0",
@@ -242,7 +307,7 @@ export const asyncRouterMap = [
                 }
             },
             {
-                path: "events",
+                path: "eventsc",
                 component: adSite,
                 name: "活动奖励",
                 icon: "0",
@@ -262,32 +327,32 @@ export const asyncRouterMap = [
         ]
     },
     {
-        path: "/events2",
+        path: "/events122",
         redirect: "/events/events",
         component: Home,
         icon: "guanggao",
         name: "开发管理",
         meta: {
-            authRule: ["events/events/index"]
+            authRule: ["develop/sysSetting/index"]
         },
         // noDropdown: true,
         children: [
             {
-                path: "events",
-                component: adSite,
+                path: "develop/sysSetting/index",
+                component: sysSetting,
                 name: "系统设置",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["develop/sysSetting/index"]
                 }
             },
             {
-                path: "events",
-                component: adSite,
+                path: "develop/auditType/index",
+                component: auditType,
                 name: "审核类型",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["develop/auditType/index"]
                 }
             }
         ]
@@ -304,30 +369,30 @@ export const asyncRouterMap = [
         // noDropdown: true,
         children: [
             {
-                path: "events",
-                component: adSite,
+                path: "user/user/index",
+                component: user,
                 name: "用户管理",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["user/user/index"]
                 }
             },
             {
-                path: "events",
-                component: adSite,
+                path: "user/userIpAnalysis/index",
+                component: userIpAnalysis,
                 name: "用户登录IP分析",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["user/userIpAnalysis/index"]
                 }
             },
             {
-                path: "events",
-                component: adSite,
+                path: "user/userPrizeSet/index",
+                component: userPrizeSet,
                 name: "用户奖金组",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["user/userPrizeSet/index"]
                 }
             }
         ]
@@ -344,21 +409,21 @@ export const asyncRouterMap = [
         // noDropdown: true,
         children: [
             {
-                path: "events",
-                component: adSite,
+                path: "bulletin/bulletin/index",
+                component: bulletin,
                 name: "公告",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["bulletin/bulletin/index"]
                 }
             },
             {
-                path: "events",
-                component: adSite,
+                path: "bulletin/bulletinType/index",
+                component: bulletinType,
                 name: "公告类型",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["bulletin/bulletinType/index"]
                 }
             }
         ]
@@ -375,111 +440,111 @@ export const asyncRouterMap = [
         // noDropdown: true,
         children: [
             {
-                path: "events",
-                component: adSite,
+                path: "events8",
+                component: wayType,
                 name: "玩法类型",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["basis/wayType/index"]
                 }
             },
             {
-                path: "events",
-                component: adSite,
+                path: "events9",
+                component: basisWay,
                 name: "基础玩法",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["basis/basisWay/index"]
                 }
             },
             {
-                path: "events",
-                component: adSite,
+                path: "events10",
+                component: lotteryType,
                 name: "基础投注方式",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["basis/lotteryType/index"]
                 }
             },
             {
-                path: "events",
-                component: adSite,
+                path: "events11",
+                component: serialWay,
                 name: "系列玩法",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["basis/serialWay/index"]
                 }
             },
             {
-                path: "events",
-                component: adSite,
+                path: "events12",
+                component: lotteryWay,
                 name: "投注方式与玩法关系",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["basis/lotteryWay/index"]
                 }
             },
             {
-                path: "events",
-                component: adSite,
+                path: "events13",
+                component: wayGroup,
                 name: "玩法组",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["basis/wayGroup/index"]
                 }
             },
             {
-                path: "events",
-                component: adSite,
+                path: "events14",
+                component: lotteryCenter,
                 name: "开奖中心",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["basis/lotteryCenter/index"]
                 }
             },
             {
-                path: "events",
-                component: adSite,
+                path: "events15",
+                component: transactionType,
                 name: "账变类型",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["basis/transactionType/index"]
                 }
             },
             {
-                path: "events",
-                component: adSite,
+                path: "events16",
+                component: terminal,
                 name: "终端",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["basis/terminal/index"]
                 }
             },
             {
-                path: "events",
-                component: adSite,
+                path: "events17",
+                component: clientTerminal,
                 name: "客户终端发布",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["basis/clientTerminal/index"]
                 }
             },
             {
-                path: "events",
-                component: adSite,
+                path: "events18",
+                component: serialLottery,
                 name: "系列投注方式",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["basis/serialLottery/index"]
                 }
             },
             {
-                path: "events",
-                component: adSite,
+                path: "events19",
+                component: wayGroupLottery,
                 name: "玩法组所属投注方式",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["basis/wayGroupLottery/index"]
                 }
             }
         ]
@@ -496,29 +561,29 @@ export const asyncRouterMap = [
         // noDropdown: true,
         children: [
             {
-                path: "events",
-                component: adSite,
+                path: "setting/term/index",
+                component: term,
                 name: "奖期",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["setting/term/index"]
                 }
             },
             {
-                path: "events",
-                component: adSite,
+                path: "setting/serial/index",
+                component: serial,
                 name: "系列",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["setting/serial/index"]
                 }
             }, {
-                path: "events",
-                component: adSite,
+                path: "setting/lottery/index",
+                component: lottery,
                 name: "彩种",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["setting/lottery/index"]
                 }
             }
         ]
@@ -535,29 +600,53 @@ export const asyncRouterMap = [
         // noDropdown: true,
         children: [
             {
-                path: "events",
-                component: adSite,
+                path: "lottery/projects/index",
+                component: projects,
                 name: "注单",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["lottery/projects/index"]
                 }
             },
             {
-                path: "events",
-                component: adSite,
+                path: "lottery/trail/index",
+                component: trail,
                 name: "追号",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["lottery/trail/index"]
                 }
-            }, {
-                path: "events",
-                component: adSite,
+            },{
+                path: "lottery/riskProjects/index",
+                component: riskProjects,
                 name: "风险注单",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["lottery/riskProjects/index"]
+                }
+            },{
+                path: "lottery/draw/index",
+                component: draw,
+                name: "开奖",
+                icon: "0",
+                meta: {
+                    authRule: ["lottery/draw/index"]
+                }
+            },{
+                path: "lottery/warn/index",
+                component: warn,
+                name: "告警记录",
+                icon: "0",
+                meta: {
+                    authRule: ["lottery/warn/index"]
+                }
+            },{
+                path: "lottery/exception/index",
+                component: exception,
+                name: "开奖异常处理",
+                icon: "0",
+                meta: {
+                    authRule: ["lottery/exception/index"]
                 }
             }
         ]
@@ -574,109 +663,102 @@ export const asyncRouterMap = [
         // noDropdown: true,
         children: [
             {
-                path: "events",
-                component: adSite,
+                path: "report/day/index",
+                component: day,
                 name: "日投注报表",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["report/day/index"]
                 }
             },
             {
-                path: "events",
-                component: adSite,
+                path: "report/month/index",
+                component: month,
                 name: "月投注报表",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["report/month/index"]
                 }
             },{
-                path: "events",
-                component: adSite,
+                path: "report/termReport/index",
+                component: termReport,
                 name: "单期投注报表",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["report/termReport/index"]
                 }
             },{
-                path: "events",
-                component: adSite,
+                path: "report/dayLottery/index",
+                component: dayLottery,
                 name: "日彩种报表",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["report/dayLottery/index"]
                 }
             },{
-                path: "events",
-                component: adSite,
-                name: "风险注单",
-                icon: "0",
-                meta: {
-                    authRule: ["events/events/index"]
-                }
-            },{
-                path: "events",
-                component: adSite,
+                path: "report/monthReport/index",
+                component: monthReport,
                 name: "月彩种报表",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["report/monthReport/index"]
                 }
             },{
-                path: "events",
-                component: adSite,
+                path: "report/userDay/index",
+                component: userDay,
                 name: "用户日报表",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["report/userDay/index"]
                 }
             },{
-                path: "events",
-                component: adSite,
+                path: "report/userMonth/index",
+                component: userMonth,
                 name: "用户月报表",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["report/userMonth/index"]
                 }
             },{
-                path: "events",
-                component: adSite,
+                path: "report/userDayLottery/index",
+                component: userDayLottery,
                 name: "用户日彩种报表",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["report/userDayLottery/index"]
                 }
             },{
-                path: "events",
-                component: adSite,
+                path: "report/way/index",
+                component: way,
                 name: "投注方式报表",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["report/way/index"]
                 }
             },{
-                path: "events",
-                component: adSite,
+                path: "report/userWay/index",
+                component: userWay,
                 name: "用户投注方式报表",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["report/userWay/index"]
                 }
-            },{
-                path: "events",
-                component: adSite,
+            },
+            {
+                path: "report/merchantDay/index",
+                component: merchantDay,
                 name: "商户日报表",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["report/merchantDay/index"]
                 }
             },{
-                path: "events",
-                component: adSite,
+                path: "report/merchantMonth/index",
+                component: merchantMonth,
                 name: "商户月报表",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["report/merchantMonth/index"]
                 }
             }
         ]
@@ -693,39 +775,39 @@ export const asyncRouterMap = [
         // noDropdown: true,
         children: [
             {
-                path: "events",
-                component: adSite,
+                path: "merchant/merchant/index",
+                component: merchant,
                 name: "商户列表",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["merchant/merchant/index"]
                 }
             },
             {
-                path: "events",
-                component: adSite,
+                path: "merchant/merchantIp/index",
+                component: merchantIp,
                 name: "商户IP白名单",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["merchant/merchantIp/index"]
                 }
             },
             {
-                path: "events",
-                component: adSite,
+                path: "merchant/merchantAccount/index",
+                component: merchantAccount,
                 name: "商户账户",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["merchant/merchantAccount/index"]
                 }
             },
             {
-                path: "events",
-                component: adSite,
+                path: "merchant/merchantLottery/index",
+                component: merchantLottery,
                 name: "商户关闭彩种",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["merchant/merchantLottery/index"]
                 }
             }
         ]
@@ -742,25 +824,26 @@ export const asyncRouterMap = [
         // noDropdown: true,
         children: [
             {
-                path: "events",
-                component: adSite,
+                path: "setting/district/index",
+                component: district,
                 name: "地区",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["setting/district/index"]
                 }
             },
             {
-                path: "events",
-                component: adSite,
+                path: "setting/domain/index",
+                component: domain,
                 name: "域名管理",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["setting/domain/index"]
                 }
-            },
+            }
+            /*,
             {
-                path: "events",
+                path: "events45",
                 component: adSite,
                 name: "文件上传信息",
                 icon: "0",
@@ -769,14 +852,14 @@ export const asyncRouterMap = [
                 }
             },
             {
-                path: "events",
+                path: "events46",
                 component: adSite,
                 name: "实时通知设置",
                 icon: "0",
                 meta: {
                     authRule: ["events/events/index"]
                 }
-            }
+            }*/
         ]
     },
     {
@@ -791,7 +874,7 @@ export const asyncRouterMap = [
         // noDropdown: true,
         children: [
             {
-                path: "events",
+                path: "events47",
                 component: adSite,
                 name: "管理员列表",
                 icon: "0",
@@ -800,7 +883,7 @@ export const asyncRouterMap = [
                 }
             },
             {
-                path: "events",
+                path: "events48",
                 component: adSite,
                 name: "创建管理员",
                 icon: "0",
@@ -809,7 +892,7 @@ export const asyncRouterMap = [
                 }
             },
             {
-                path: "events",
+                path: "events49",
                 component: adSite,
                 name: "修改密码",
                 icon: "0",
@@ -818,7 +901,7 @@ export const asyncRouterMap = [
                 }
             },
             {
-                path: "events",
+                path: "events50",
                 component: adSite,
                 name: "管理员角色",
                 icon: "0",
@@ -827,7 +910,7 @@ export const asyncRouterMap = [
                 }
             },
             {
-                path: "events",
+                path: "events51",
                 component: adSite,
                 name: "创建管理员角色",
                 icon: "0",
@@ -836,7 +919,7 @@ export const asyncRouterMap = [
                 }
             },
             {
-                path: "events",
+                path: "events52",
                 component: adSite,
                 name: "管理员角色分配",
                 icon: "0",
@@ -858,30 +941,30 @@ export const asyncRouterMap = [
         // noDropdown: true,
         children: [
             {
-                path: "events",
-                component: adSite,
+                path: "transaction/account/index",
+                component: account,
                 name: "账户",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["transaction/account/index"]
                 }
             },
             {
-                path: "events",
-                component: adSite,
+                path: "transaction/transaction/index",
+                component: transaction,
                 name: "账变",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["transaction/transaction/index"]
                 }
             },
             {
-                path: "events",
-                component: adSite,
+                path: "transaction/platTransfer/index",
+                component: platTransfer,
                 name: "平台转账记录",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["transaction/platTransfer/index"]
                 }
             }
         ]
@@ -898,12 +981,12 @@ export const asyncRouterMap = [
         // noDropdown: true,
         children: [
             {
-                path: "events",
-                component: adSite,
+                path: "setting/prizeGroup/index",
+                component: prizeGroup,
                 name: "奖金组",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["setting/prizeGroup/index"]
                 }
             }
         ]
@@ -920,16 +1003,16 @@ export const asyncRouterMap = [
         // noDropdown: true,
         children: [
             {
-                path: "events",
-                component: adSite,
+                path: "setting/betLimit/index",
+                component: betLimit,
                 name: "投注限额",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["setting/betLimit/index"]
                 }
             },
             {
-                path: "events",
+                path: "events58",
                 component: adSite,
                 name: "系统设置",
                 icon: "0",
@@ -951,30 +1034,30 @@ export const asyncRouterMap = [
         // noDropdown: true,
         children: [
             {
-                path: "events",
-                component: adSite,
+                path: "log/merchantApiLog/index",
+                component: merchantApiLog,
                 name: "商户api记录",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["log/merchantApiLog/index"]
                 }
             },
             {
-                path: "events",
-                component: adSite,
+                path: "log/adminLog/index",
+                component: adminLog,
                 name: "管理员日志",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["log/adminLog/index"]
                 }
             },
             {
-                path: "events",
-                component: adSite,
+                path: "log/userManageLog/index",
+                component: userManageLog,
                 name: "用户管理日志",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["log/userManageLog/index"]
                 }
             }
         ]
@@ -991,7 +1074,7 @@ export const asyncRouterMap = [
         // noDropdown: true,
         children: [
             {
-                path: "events",
+                path: "events62",
                 component: adSite,
                 name: "更新奖期列表缓存",
                 icon: "0",
