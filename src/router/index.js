@@ -211,5 +211,794 @@ export const asyncRouterMap = [
                 }
             }
         ]
-    }
+    },
+    {
+        path: "/events1",
+        redirect: "/events/events",
+        component: Home,
+        icon: "guanggao",
+        name: "活动相关",
+        meta: {
+            authRule: ["events/events/index"]
+        },
+        // noDropdown: true,
+        children: [
+            {
+                path: "events",
+                component: adSite,
+                name: "活动管理",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "活动条件",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "活动奖励",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "eventsUserPrize",
+                component: ad,
+                name: "奖励管理",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            }
+        ]
+    },
+    {
+        path: "/events2",
+        redirect: "/events/events",
+        component: Home,
+        icon: "guanggao",
+        name: "开发管理",
+        meta: {
+            authRule: ["events/events/index"]
+        },
+        // noDropdown: true,
+        children: [
+            {
+                path: "events",
+                component: adSite,
+                name: "系统设置",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "审核类型",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            }
+        ]
+    },
+    {
+        path: "/events3",
+        redirect: "/events/events",
+        component: Home,
+        icon: "guanggao",
+        name: "用户管理",
+        meta: {
+            authRule: ["events/events/index"]
+        },
+        // noDropdown: true,
+        children: [
+            {
+                path: "events",
+                component: adSite,
+                name: "用户管理",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "用户登录IP分析",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "用户奖金组",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            }
+        ]
+    },
+    {
+        path: "/events4",
+        redirect: "/events/events",
+        component: Home,
+        icon: "guanggao",
+        name: "公告管理",
+        meta: {
+            authRule: ["events/events/index"]
+        },
+        // noDropdown: true,
+        children: [
+            {
+                path: "events",
+                component: adSite,
+                name: "公告",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "公告类型",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            }
+        ]
+    },
+    {
+        path: "/events5",
+        redirect: "/events/events",
+        component: Home,
+        icon: "guanggao",
+        name: "核心",
+        meta: {
+            authRule: ["events/events/index"]
+        },
+        // noDropdown: true,
+        children: [
+            {
+                path: "events",
+                component: adSite,
+                name: "玩法类型",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "基础玩法",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "基础投注方式",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "系列玩法",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "投注方式与玩法关系",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "玩法组",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "开奖中心",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "账变类型",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "终端",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "客户终端发布",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "系列投注方式",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "玩法组所属投注方式",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            }
+        ]
+    },
+    {
+        path: "/events6",
+        redirect: "/events/events",
+        component: Home,
+        icon: "guanggao",
+        name: "彩种",
+        meta: {
+            authRule: ["events/events/index"]
+        },
+        // noDropdown: true,
+        children: [
+            {
+                path: "events",
+                component: adSite,
+                name: "奖期",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "系列",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            }, {
+                path: "events",
+                component: adSite,
+                name: "彩种",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            }
+        ]
+    },
+    {
+        path: "/events7",
+        redirect: "/events/events",
+        component: Home,
+        icon: "guanggao",
+        name: "投注",
+        meta: {
+            authRule: ["events/events/index"]
+        },
+        // noDropdown: true,
+        children: [
+            {
+                path: "events",
+                component: adSite,
+                name: "注单",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "追号",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            }, {
+                path: "events",
+                component: adSite,
+                name: "风险注单",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            }
+        ]
+    },
+    {
+        path: "/events8",
+        redirect: "/events/events",
+        component: Home,
+        icon: "guanggao",
+        name: "报表统计",
+        meta: {
+            authRule: ["events/events/index"]
+        },
+        // noDropdown: true,
+        children: [
+            {
+                path: "events",
+                component: adSite,
+                name: "日投注报表",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "月投注报表",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },{
+                path: "events",
+                component: adSite,
+                name: "单期投注报表",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },{
+                path: "events",
+                component: adSite,
+                name: "日彩种报表",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },{
+                path: "events",
+                component: adSite,
+                name: "风险注单",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },{
+                path: "events",
+                component: adSite,
+                name: "月彩种报表",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },{
+                path: "events",
+                component: adSite,
+                name: "用户日报表",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },{
+                path: "events",
+                component: adSite,
+                name: "用户月报表",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },{
+                path: "events",
+                component: adSite,
+                name: "用户日彩种报表",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },{
+                path: "events",
+                component: adSite,
+                name: "投注方式报表",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },{
+                path: "events",
+                component: adSite,
+                name: "用户投注方式报表",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },{
+                path: "events",
+                component: adSite,
+                name: "商户日报表",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },{
+                path: "events",
+                component: adSite,
+                name: "商户月报表",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            }
+        ]
+    },
+    {
+        path: "/events9",
+        redirect: "/events/events",
+        component: Home,
+        icon: "guanggao",
+        name: "商户管理",
+        meta: {
+            authRule: ["events/events/index"]
+        },
+        // noDropdown: true,
+        children: [
+            {
+                path: "events",
+                component: adSite,
+                name: "商户列表",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "商户IP白名单",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "商户账户",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "商户关闭彩种",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            }
+        ]
+    },
+    {
+        path: "/events10",
+        redirect: "/events/events",
+        component: Home,
+        icon: "guanggao",
+        name: "基础信息",
+        meta: {
+            authRule: ["events/events/index"]
+        },
+        // noDropdown: true,
+        children: [
+            {
+                path: "events",
+                component: adSite,
+                name: "地区",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "域名管理",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "文件上传信息",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "实时通知设置",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            }
+        ]
+    },
+    {
+        path: "/events11",
+        redirect: "/events/events",
+        component: Home,
+        icon: "guanggao",
+        name: "管理员",
+        meta: {
+            authRule: ["events/events/index"]
+        },
+        // noDropdown: true,
+        children: [
+            {
+                path: "events",
+                component: adSite,
+                name: "管理员列表",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "创建管理员",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "修改密码",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "管理员角色",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "创建管理员角色",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "管理员角色分配",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            }
+        ]
+    },
+    {
+        path: "/events12",
+        redirect: "/events/events",
+        component: Home,
+        icon: "guanggao",
+        name: "资金",
+        meta: {
+            authRule: ["events/events/index"]
+        },
+        // noDropdown: true,
+        children: [
+            {
+                path: "events",
+                component: adSite,
+                name: "账户",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "账变",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "平台转账记录",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            }
+        ]
+    },
+    {
+        path: "/events13",
+        redirect: "/events/events",
+        component: Home,
+        icon: "guanggao",
+        name: "奖金设置",
+        meta: {
+            authRule: ["events/events/index"]
+        },
+        // noDropdown: true,
+        children: [
+            {
+                path: "events",
+                component: adSite,
+                name: "奖金组",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            }
+        ]
+    },
+    {
+        path: "/events14",
+        redirect: "/events/events",
+        component: Home,
+        icon: "guanggao",
+        name: "系统设置",
+        meta: {
+            authRule: ["events/events/index"]
+        },
+        // noDropdown: true,
+        children: [
+            {
+                path: "events",
+                component: adSite,
+                name: "投注限额",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "系统设置",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            }
+        ]
+    },
+    {
+        path: "/events15",
+        redirect: "/events/events",
+        component: Home,
+        icon: "guanggao",
+        name: "日志管理",
+        meta: {
+            authRule: ["events/events/index"]
+        },
+        // noDropdown: true,
+        children: [
+            {
+                path: "events",
+                component: adSite,
+                name: "商户api记录",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "管理员日志",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            },
+            {
+                path: "events",
+                component: adSite,
+                name: "用户管理日志",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            }
+        ]
+    },
+    {
+        path: "/events16",
+        redirect: "/events/events",
+        component: Home,
+        icon: "guanggao",
+        name: "系统维护",
+        meta: {
+            authRule: ["events/events/index"]
+        },
+        // noDropdown: true,
+        children: [
+            {
+                path: "events",
+                component: adSite,
+                name: "更新奖期列表缓存",
+                icon: "0",
+                meta: {
+                    authRule: ["events/events/index"]
+                }
+            }
+        ]
+    },
 ];
