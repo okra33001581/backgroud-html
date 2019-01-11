@@ -54,8 +54,19 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
-            <!--<el-table-column
+            <el-table-column label="			上级				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			用户名				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			昵称				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			账户余额				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			奖金组				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			冻结				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			最后登录时间				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			创建时间				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			是否代理				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			是否测试 				" prop="id" sortable="custom" fixed></el-table-column>
+
+            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"
                 sortable="custom"
@@ -64,7 +75,7 @@
                 <template slot-scope="scope">
                     <span>{{ scope.row.id }}</span>
                 </template>
-            </el-table-column>-->
+            </el-table-column>&ndash;&gt;
 
             <el-table-column
                     label="用户名"
@@ -96,7 +107,7 @@
                 <template slot-scope="scope">
                     <span>{{ scope.row.last_login_ip }}</span>
                 </template>
-            </el-table-column>
+            </el-table-column>-->
             <el-table-column
                     label="操作"
                     fixed="right">

@@ -55,60 +55,59 @@
                 style="width: 100%;"
                 @sort-change="sortChange">
             <el-table-column label="			I D				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			游戏类别				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			名称				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			类型				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			乐透类型				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			标识符				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			开售时间				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			截止时间				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			每日奖期数				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			追号奖期数				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			用户名				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			是否测试				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			金额				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			账变类型				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			创建者				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			审核者				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			备注				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="			状态				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			排序值				" prop="id" sortable="custom" fixed></el-table-column>
-            <!-- <el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
-             &lt;!&ndash;<el-table-column
-                 label="用户 ID"
-                 prop="id"
-                 sortable="custom"
-                 align="center"
-                 fixed>
-                 <template slot-scope="scope">
-                     <span>{{ scope.row.id }}</span>
-                 </template>
-             </el-table-column>&ndash;&gt;
+            <el-table-column label="			创建时间 				" prop="id" sortable="custom" fixed></el-table-column>
 
-             <el-table-column
-                     label="用户名"
-                     prop="username"
-                     sortable="custom"
-                     fixed>
-             </el-table-column>
+            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            &lt;!&ndash;<el-table-column
+                label="用户 ID"
+                prop="id"
+                sortable="custom"
+                align="center"
+                fixed>
+                <template slot-scope="scope">
+                    <span>{{ scope.row.id }}</span>
+                </template>
+            </el-table-column>&ndash;&gt;
 
-             <el-table-column
-                     sortable="custom"
-                     label="状态" prop="status">
-                 <template slot-scope="scope">
-                     <el-tag :type="scope.row.status | statusFilterType">{{scope.row.status | statusFilterName}}</el-tag>
-                 </template>
-             </el-table-column>
-             <el-table-column
-                     label="登录时间"
-                     with="300"
-                     sortable="custom"
-                     :show-overflow-tooltip="true" prop="last_login_time">
-                 <template slot-scope="scope">
-                     <i class="el-icon-time"></i>
-                     <span>{{ scope.row.last_login_time }}</span>
-                 </template>
-             </el-table-column>
-             <el-table-column
-                     sortable="custom"
-                     label="登录IP" prop="last_login_ip">
-                 <template slot-scope="scope">
-                     <span>{{ scope.row.last_login_ip }}</span>
-                 </template>
-             </el-table-column>-->
+            <el-table-column
+                    label="用户名"
+                    prop="username"
+                    sortable="custom"
+                    fixed>
+            </el-table-column>
+
+            <el-table-column
+                    sortable="custom"
+                    label="状态" prop="status">
+                <template slot-scope="scope">
+                    <el-tag :type="scope.row.status | statusFilterType">{{scope.row.status | statusFilterName}}</el-tag>
+                </template>
+            </el-table-column>
+            <el-table-column
+                    label="登录时间"
+                    with="300"
+                    sortable="custom"
+                    :show-overflow-tooltip="true" prop="last_login_time">
+                <template slot-scope="scope">
+                    <i class="el-icon-time"></i>
+                    <span>{{ scope.row.last_login_time }}</span>
+                </template>
+            </el-table-column>
+            <el-table-column
+                    sortable="custom"
+                    label="登录IP" prop="last_login_ip">
+                <template slot-scope="scope">
+                    <span>{{ scope.row.last_login_ip }}</span>
+                </template>
+            </el-table-column>-->
             <el-table-column
                     label="操作"
                     fixed="right">
@@ -176,6 +175,7 @@
         authAdminSave,
         authAdminDelete
     } from "../../api/auth/authAdmin";
+    // import { requestLogin } from '@/api/api';
 
     const formJson = {
         id: "",

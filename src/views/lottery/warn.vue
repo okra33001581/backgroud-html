@@ -54,8 +54,19 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
-            <!--<el-table-column
+            <el-table-column label="			彩种				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			奖期				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			开奖号码				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			告警类型				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			错误编码				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			错误消息				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			最早开奖时间				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			日志id				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			修改时间				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			Status 				" prop="id" sortable="custom" fixed></el-table-column>
+
+            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"
                 sortable="custom"
@@ -64,7 +75,7 @@
                 <template slot-scope="scope">
                     <span>{{ scope.row.id }}</span>
                 </template>
-            </el-table-column>-->
+            </el-table-column>&ndash;&gt;
 
             <el-table-column
                     label="用户名"
@@ -96,7 +107,7 @@
                 <template slot-scope="scope">
                     <span>{{ scope.row.last_login_ip }}</span>
                 </template>
-            </el-table-column>
+            </el-table-column>-->
             <el-table-column
                     label="操作"
                     fixed="right">

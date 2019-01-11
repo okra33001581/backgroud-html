@@ -54,8 +54,25 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
-            <!--<el-table-column
+            <el-table-column label="			I D				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			游戏类别				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			类型				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			乐透类型				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			名称				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			标识符				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			中奖号码排序				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			星				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			直选投注码数量				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			返点类型				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			Max Percent Group 				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			最高奖金组				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			最高实际奖金组				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			最高投注奖金组				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			投注码长度				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			关联至系列				" prop="id" sortable="custom" fixed></el-table-column>
+
+            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"
                 sortable="custom"
@@ -64,7 +81,7 @@
                 <template slot-scope="scope">
                     <span>{{ scope.row.id }}</span>
                 </template>
-            </el-table-column>-->
+            </el-table-column>&ndash;&gt;
 
             <el-table-column
                     label="用户名"
@@ -96,7 +113,7 @@
                 <template slot-scope="scope">
                     <span>{{ scope.row.last_login_ip }}</span>
                 </template>
-            </el-table-column>
+            </el-table-column>-->
             <el-table-column
                     label="操作"
                     fixed="right">

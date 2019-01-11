@@ -54,61 +54,58 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			I D				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			游戏类别				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			名称				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			类型				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			乐透类型				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			标识符				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			开售时间				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			截止时间				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			每日奖期数				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			追号奖期数				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			平台名				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			平台唯一标识				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			平台分配的标识				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="			状态				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			排序值				" prop="id" sortable="custom" fixed></el-table-column>
-            <!-- <el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
-             &lt;!&ndash;<el-table-column
-                 label="用户 ID"
-                 prop="id"
-                 sortable="custom"
-                 align="center"
-                 fixed>
-                 <template slot-scope="scope">
-                     <span>{{ scope.row.id }}</span>
-                 </template>
-             </el-table-column>&ndash;&gt;
+            <el-table-column label="			页面iframe Url				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			推送数据url				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			支持查询接口				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			Free Data Url 				" prop="id" sortable="custom" fixed></el-table-column>
 
-             <el-table-column
-                     label="用户名"
-                     prop="username"
-                     sortable="custom"
-                     fixed>
-             </el-table-column>
+            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            &lt;!&ndash;<el-table-column
+                label="用户 ID"
+                prop="id"
+                sortable="custom"
+                align="center"
+                fixed>
+                <template slot-scope="scope">
+                    <span>{{ scope.row.id }}</span>
+                </template>
+            </el-table-column>&ndash;&gt;
 
-             <el-table-column
-                     sortable="custom"
-                     label="状态" prop="status">
-                 <template slot-scope="scope">
-                     <el-tag :type="scope.row.status | statusFilterType">{{scope.row.status | statusFilterName}}</el-tag>
-                 </template>
-             </el-table-column>
-             <el-table-column
-                     label="登录时间"
-                     with="300"
-                     sortable="custom"
-                     :show-overflow-tooltip="true" prop="last_login_time">
-                 <template slot-scope="scope">
-                     <i class="el-icon-time"></i>
-                     <span>{{ scope.row.last_login_time }}</span>
-                 </template>
-             </el-table-column>
-             <el-table-column
-                     sortable="custom"
-                     label="登录IP" prop="last_login_ip">
-                 <template slot-scope="scope">
-                     <span>{{ scope.row.last_login_ip }}</span>
-                 </template>
-             </el-table-column>-->
+            <el-table-column
+                    label="用户名"
+                    prop="username"
+                    sortable="custom"
+                    fixed>
+            </el-table-column>
+
+            <el-table-column
+                    sortable="custom"
+                    label="状态" prop="status">
+                <template slot-scope="scope">
+                    <el-tag :type="scope.row.status | statusFilterType">{{scope.row.status | statusFilterName}}</el-tag>
+                </template>
+            </el-table-column>
+            <el-table-column
+                    label="登录时间"
+                    with="300"
+                    sortable="custom"
+                    :show-overflow-tooltip="true" prop="last_login_time">
+                <template slot-scope="scope">
+                    <i class="el-icon-time"></i>
+                    <span>{{ scope.row.last_login_time }}</span>
+                </template>
+            </el-table-column>
+            <el-table-column
+                    sortable="custom"
+                    label="登录IP" prop="last_login_ip">
+                <template slot-scope="scope">
+                    <span>{{ scope.row.last_login_ip }}</span>
+                </template>
+            </el-table-column>-->
             <el-table-column
                     label="操作"
                     fixed="right">

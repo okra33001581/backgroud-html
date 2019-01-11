@@ -5,7 +5,7 @@ if (process.env.NODE_ENV === "development") {
     Vue.use(VueRouter);
 }
 
-import { ROUTER_MODE } from "../config/app";
+import {ROUTER_MODE} from "../config/app";
 
 import Home from "../views/home/index.vue";
 
@@ -34,18 +34,11 @@ import user from "../views/user/user.vue";
 import userIpAnalysis from "../views/user/userIpAnalysis.vue";
 import userPrizeSet from "../views/user/userPrizeSet.vue";
 
-import basisWay from "../views/basis/basisWay.vue";
-import clientTerminal from "../views/basis/clientTerminal.vue";
-import lotteryCenter from "../views/basis/lotteryCenter.vue";
-import lotteryType from "../views/basis/lotteryType.vue";
-import lotteryWay from "../views/basis/lotteryWay.vue";
-import serialLottery from "../views/basis/serialLottery.vue";
-import serialWay from "../views/basis/serialWay.vue";
-import terminal from "../views/basis/terminal.vue";
-import transactionType from "../views/basis/transactionType.vue";
-import wayGroup from "../views/basis/wayGroup.vue";
-import wayGroupLottery from "../views/basis/wayGroupLottery.vue";
-import wayType from "../views/basis/wayType.vue";
+import paymentplatforms from "../views/basis/payment-platforms.vue";
+import paymenttypes from "../views/basis/payment-types.vue";
+import terminals from "../views/basis/terminals.vue";
+import thirdplats from "../views/basis/third-plats.vue";
+import transactiontypes from "../views/basis/transaction-types.vue";
 
 import riskProjects from "../views/lottery/riskProjects.vue";
 import trail from "../views/lottery/trail.vue";
@@ -54,18 +47,23 @@ import draw from "../views/lottery/draw.vue";
 import warn from "../views/lottery/warn.vue";
 import exception from "../views/lottery/exception.vue";
 
-import day from "../views/report/day.vue";
-import month from "../views/report/month.vue";
-import termReport from "../views/report/termReport.vue";
-import dayLottery from "../views/report/dayLottery.vue";
-import monthReport from "../views/report/monthReport.vue";
-import userDay from "../views/report/userDay.vue";
-import userMonth from "../views/report/userMonth.vue";
-import userDayLottery from "../views/report/userDayLottery.vue";
-import way from "../views/report/way.vue";
-import userWay from "../views/report/userWay.vue";
-import merchantDay from "../views/report/merchantDay.vue";
-import merchantMonth from "../views/report/merchantMonth.vue";
+import issueprofits from "../views/report/issue-profits.vue";
+import lotterymonthprofits from "../views/report/lottery-month-profits.vue";
+import lotterywayprofits from "../views/report/lottery-way-profits.vue";
+import statlotteryprofits from "../views/report/stat-lottery-profits.vue";
+import statmonthprofits from "../views/report/stat-month-profits.vue";
+import statprofits from "../views/report/stat-profits.vue";
+import teamlotteryprofits from "../views/report/team-lottery-profits.vue";
+import teamlotterywayprofits from "../views/report/team-lottery-way-profits.vue";
+import teammonthprofits from "../views/report/team-month-profits.vue";
+import teamprofits from "../views/report/team-profits.vue";
+import terminalprofits from "../views/report/terminal-profits.vue";
+import userlotteryprofits from "../views/report/user-lottery-profits.vue";
+import userlotterywayprofits from "../views/report/user-lottery-way-profits.vue";
+import usermonthprofits from "../views/report/user-month-profits.vue";
+import userprofits from "../views/report/user-profits.vue";
+import wayprofits from "../views/report/way-profits.vue";
+
 
 import merchantApiLog from "../views/log/merchantApiLog.vue";
 import adminLog from "../views/log/adminLog.vue";
@@ -79,6 +77,7 @@ import betLimit from "../views/setting/betLimit.vue";
 // import sysSetting from "../views/setting/sysSetting.vue";
 import district from "../views/setting/district.vue";
 import domain from "../views/setting/domain.vue";
+import sysconfigs from "../views/setting/sys-configs.vue";
 
 import bulletin from "../views/bulletin/bulletin.vue";
 import bulletinType from "../views/bulletin/bulletinType.vue";
@@ -88,6 +87,29 @@ import merchantIp from "../views/merchant/merchantIp.vue";
 import merchantAccount from "../views/merchant/merchantAccount.vue";
 import merchantLottery from "../views/merchant/merchantLottery.vue";
 
+import neweventconditions from "../views/events/new-event-conditions.vue";
+import neweventprizes from "../views/events/new-event-prizes.vue";
+import neweventuserprizes from "../views/events/new-event-user-prizes.vue";
+import newevents from "../views/events/new-events.vue";
+
+
+import accounts from "../views/fund/accounts.vue";
+import bankdeposits from "../views/fund/bank-deposits.vue";
+import commissionsstatistics from "../views/fund/commissions-statistics.vue";
+import deposits from "../views/fund/deposits.vue";
+import dividends from "../views/fund/dividends.vue";
+import exceptiondeposits from "../views/fund/exception-deposits.vue";
+import losecommissions from "../views/fund/lose-commissions.vue";
+import manualdeposits from "../views/fund/manual-deposits.vue";
+import manualwithdraws from "../views/fund/manual-withdraws.vue";
+import plattransferrecords from "../views/fund/plat-transfer-records.vue";
+import transactions from "../views/fund/transactions.vue";
+import withdrawals from "../views/fund/withdrawals.vue";
+
+
+import adinfos from "../views/ad/ad-infos.vue";
+import adlocations from "../views/ad/ad-locations.vue";
+import adtypes from "../views/ad/ad-types.vue";
 
 // Vue.use(VueRouter);
 
@@ -138,7 +160,7 @@ export const constantRouterMap = [
         name: "首页",
         hidden: true,
         children: [
-            { path: 'main', component: Main1 , name: 'dsds',leaf:true,hidden:true,}
+            {path: 'main', component: Main1, name: 'dsds', leaf: true, hidden: true,}
         ]
     },
     {
@@ -289,39 +311,39 @@ export const asyncRouterMap = [
         // noDropdown: true,
         children: [
             {
-                path: "eventsa",
-                component: adSite,
-                name: "活动管理",
-                icon: "0",
-                meta: {
-                    authRule: ["events/events/index"]
-                }
-            },
-            {
-                path: "eventsb",
-                component: adSite,
+                path: "events/new-event-conditions/index",
+                component: neweventconditions,
                 name: "活动条件",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["events/new-event-conditions/index"]
                 }
             },
             {
-                path: "eventsc",
-                component: adSite,
+                path: "events/new-event-prizes/index",
+                component: neweventprizes,
                 name: "活动奖励",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["events/new-event-prizes/index"]
                 }
             },
             {
-                path: "eventsUserPrize",
-                component: ad,
-                name: "奖励管理",
+                path: "events/new-events/index",
+                component: newevents,
+                name: "活动内容",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["events/new-events/index"]
+                }
+            },
+            {
+                path: "events/new-event-user-prizes/index",
+                component: neweventuserprizes,
+                name: "活动会员奖励",
+                icon: "0",
+                meta: {
+                    authRule: ["events/new-event-user-prizes/index"]
                 }
             }
         ]
@@ -440,111 +462,48 @@ export const asyncRouterMap = [
         // noDropdown: true,
         children: [
             {
-                path: "events8",
-                component: wayType,
-                name: "玩法类型",
+                path: "basis/third-plats/index",
+                component: thirdplats,
+                name: "第三方平台",
                 icon: "0",
                 meta: {
-                    authRule: ["basis/wayType/index"]
+                    authRule: ["basis/third-plats/index"]
                 }
             },
             {
-                path: "events9",
-                component: basisWay,
-                name: "基础玩法",
+                path: "basis/transaction-types/index",
+                component: transactiontypes,
+                name: "账变类型",
                 icon: "0",
                 meta: {
-                    authRule: ["basis/basisWay/index"]
+                    authRule: ["basis/transaction-types/index"]
                 }
             },
             {
-                path: "events10",
-                component: lotteryType,
-                name: "基础投注方式",
+                path: "basis/payment-platforms/index",
+                component: paymentplatforms,
+                name: "支付平台",
                 icon: "0",
                 meta: {
-                    authRule: ["basis/lotteryType/index"]
+                    authRule: ["basis/payment-platforms/index"]
                 }
             },
             {
-                path: "events11",
-                component: serialWay,
-                name: "系列玩法",
+                path: "basis/terminals/index",
+                component: terminals,
+                name: "终端",
                 icon: "0",
                 meta: {
-                    authRule: ["basis/serialWay/index"]
+                    authRule: ["basis/terminals/index"]
                 }
             },
             {
                 path: "events12",
-                component: lotteryWay,
-                name: "投注方式与玩法关系",
+                component: paymenttypes,
+                name: "Payment Type",
                 icon: "0",
                 meta: {
-                    authRule: ["basis/lotteryWay/index"]
-                }
-            },
-            {
-                path: "events13",
-                component: wayGroup,
-                name: "玩法组",
-                icon: "0",
-                meta: {
-                    authRule: ["basis/wayGroup/index"]
-                }
-            },
-            {
-                path: "events14",
-                component: lotteryCenter,
-                name: "开奖中心",
-                icon: "0",
-                meta: {
-                    authRule: ["basis/lotteryCenter/index"]
-                }
-            },
-            {
-                path: "events15",
-                component: transactionType,
-                name: "账变类型",
-                icon: "0",
-                meta: {
-                    authRule: ["basis/transactionType/index"]
-                }
-            },
-            {
-                path: "events16",
-                component: terminal,
-                name: "终端",
-                icon: "0",
-                meta: {
-                    authRule: ["basis/terminal/index"]
-                }
-            },
-            {
-                path: "events17",
-                component: clientTerminal,
-                name: "客户终端发布",
-                icon: "0",
-                meta: {
-                    authRule: ["basis/clientTerminal/index"]
-                }
-            },
-            {
-                path: "events18",
-                component: serialLottery,
-                name: "系列投注方式",
-                icon: "0",
-                meta: {
-                    authRule: ["basis/serialLottery/index"]
-                }
-            },
-            {
-                path: "events19",
-                component: wayGroupLottery,
-                name: "玩法组所属投注方式",
-                icon: "0",
-                meta: {
-                    authRule: ["basis/wayGroupLottery/index"]
+                    authRule: ["basis/payment-types/index"]
                 }
             }
         ]
@@ -616,7 +575,7 @@ export const asyncRouterMap = [
                 meta: {
                     authRule: ["lottery/trail/index"]
                 }
-            },{
+            }, {
                 path: "lottery/riskProjects/index",
                 component: riskProjects,
                 name: "风险注单",
@@ -624,7 +583,7 @@ export const asyncRouterMap = [
                 meta: {
                     authRule: ["lottery/riskProjects/index"]
                 }
-            },{
+            }, {
                 path: "lottery/draw/index",
                 component: draw,
                 name: "开奖",
@@ -632,7 +591,7 @@ export const asyncRouterMap = [
                 meta: {
                     authRule: ["lottery/draw/index"]
                 }
-            },{
+            }, {
                 path: "lottery/warn/index",
                 component: warn,
                 name: "告警记录",
@@ -640,7 +599,7 @@ export const asyncRouterMap = [
                 meta: {
                     authRule: ["lottery/warn/index"]
                 }
-            },{
+            }, {
                 path: "lottery/exception/index",
                 component: exception,
                 name: "开奖异常处理",
@@ -656,109 +615,141 @@ export const asyncRouterMap = [
         redirect: "/events/events",
         component: Home,
         icon: "guanggao",
-        name: "报表统计",
+        name: "报表",
         meta: {
             authRule: ["events/events/index"]
         },
         // noDropdown: true,
         children: [
             {
-                path: "report/day/index",
-                component: day,
-                name: "日投注报表",
+                path: "report/stat-profits/index",
+                component: statprofits,
+                name: "日盈亏报表",
                 icon: "0",
                 meta: {
-                    authRule: ["report/day/index"]
+                    authRule: ["report/stat-profits/index"]
                 }
             },
             {
-                path: "report/month/index",
-                component: month,
-                name: "月投注报表",
+                path: "report/issue-profits/index",
+                component: issueprofits,
+                name: "单期盈亏记录",
                 icon: "0",
                 meta: {
-                    authRule: ["report/month/index"]
+                    authRule: ["report/issue-profits/index"]
                 }
-            },{
-                path: "report/termReport/index",
-                component: termReport,
-                name: "单期投注报表",
+            }, {
+                path: "report/stat-lottery-profits/index",
+                component: statlotteryprofits,
+                name: "日彩种盈亏",
                 icon: "0",
                 meta: {
-                    authRule: ["report/termReport/index"]
+                    authRule: ["report/stat-lottery-profits/index"]
                 }
-            },{
-                path: "report/dayLottery/index",
-                component: dayLottery,
-                name: "日彩种报表",
+            }, {
+                path: "report/stat-month-profits/index",
+                component: statmonthprofits,
+                name: "月盈亏统计",
                 icon: "0",
                 meta: {
-                    authRule: ["report/dayLottery/index"]
+                    authRule: ["report/stat-month-profits/index"]
                 }
-            },{
-                path: "report/monthReport/index",
-                component: monthReport,
-                name: "月彩种报表",
+            }, {
+                path: "report/lottery-month-profits/index",
+                component: lotterymonthprofits,
+                name: "月彩种盈亏统计",
                 icon: "0",
                 meta: {
-                    authRule: ["report/monthReport/index"]
+                    authRule: ["report/lottery-month-profits/index"]
                 }
-            },{
-                path: "report/userDay/index",
-                component: userDay,
-                name: "用户日报表",
+            }, {
+                path: "report/team-profits/index",
+                component: teamprofits,
+                name: "团队盈亏",
                 icon: "0",
                 meta: {
-                    authRule: ["report/userDay/index"]
+                    authRule: ["report/team-profits/index"]
                 }
-            },{
-                path: "report/userMonth/index",
-                component: userMonth,
-                name: "用户月报表",
+            }, {
+                path: "report/user-profits/index",
+                component: userprofits,
+                name: "用户盈亏",
                 icon: "0",
                 meta: {
-                    authRule: ["report/userMonth/index"]
+                    authRule: ["report/user-profits/index"]
                 }
-            },{
-                path: "report/userDayLottery/index",
-                component: userDayLottery,
-                name: "用户日彩种报表",
+            }, {
+                path: "report/user-month-profits/index",
+                component: usermonthprofits,
+                name: "月用户盈亏报表",
                 icon: "0",
                 meta: {
-                    authRule: ["report/userDayLottery/index"]
+                    authRule: ["report/user-month-profits/index"]
                 }
-            },{
-                path: "report/way/index",
-                component: way,
-                name: "投注方式报表",
+            }, {
+                path: "report/team-month-profits/index",
+                component: teammonthprofits,
+                name: "月团队盈亏报表",
                 icon: "0",
                 meta: {
-                    authRule: ["report/way/index"]
+                    authRule: ["report/team-month-profits/index"]
                 }
-            },{
-                path: "report/userWay/index",
-                component: userWay,
-                name: "用户投注方式报表",
+            }, {
+                path: "report/user-lottery-profits/index",
+                component: userlotteryprofits,
+                name: "用户日彩种盈亏",
                 icon: "0",
                 meta: {
-                    authRule: ["report/userWay/index"]
+                    authRule: ["report/user-lottery-profits/index"]
                 }
             },
             {
-                path: "report/merchantDay/index",
-                component: merchantDay,
-                name: "商户日报表",
+                path: "report/team-lottery-profits/index",
+                component: teamlotteryprofits,
+                name: "团队日彩种盈亏",
                 icon: "0",
                 meta: {
-                    authRule: ["report/merchantDay/index"]
+                    authRule: ["report/team-lottery-profits/index"]
                 }
-            },{
-                path: "report/merchantMonth/index",
-                component: merchantMonth,
-                name: "商户月报表",
+            }, {
+                path: "report/way-profits/index",
+                component: wayprofits,
+                name: "投注方式盈亏",
                 icon: "0",
                 meta: {
-                    authRule: ["report/merchantMonth/index"]
+                    authRule: ["report/way-profits/index"]
+                }
+            }, {
+                path: "report/lottery-way-profits/index",
+                component: lotterywayprofits,
+                name: "彩种投注方式盈亏",
+                icon: "0",
+                meta: {
+                    authRule: ["report/lottery-way-profits/index"]
+                }
+            }, {
+                path: "report/user-lottery-way-profits/index",
+                component: userlotterywayprofits,
+                name: "用户彩种投注方式盈亏",
+                icon: "0",
+                meta: {
+                    authRule: ["report/user-lottery-way-profits/index"]
+                }
+            }, {
+                path: "report/team-lottery-way-profits/index",
+                component: teamlotterywayprofits,
+                name: "团队彩种投注方式盈亏",
+                icon: "0",
+                meta: {
+                    authRule: ["report/team-lottery-way-profits/index"]
+                }
+            }, {
+                path: "report/terminal-profits/index",
+                component: terminalprofits,
+                name: "终端盈亏",
+                icon: "0",
+                meta: {
+                    authRule: ["report/terminal-profits/index"]
                 }
             }
         ]
@@ -941,32 +932,122 @@ export const asyncRouterMap = [
         // noDropdown: true,
         children: [
             {
-                path: "transaction/account/index",
-                component: account,
+                path: "fund/accounts/index",
+                component: accounts,
                 name: "账户",
                 icon: "0",
                 meta: {
-                    authRule: ["transaction/account/index"]
+                    authRule: ["fund/accounts/index"]
                 }
             },
             {
-                path: "transaction/transaction/index",
-                component: transaction,
+                path: "fund/transactions/index",
+                component: transactions,
                 name: "账变",
                 icon: "0",
                 meta: {
-                    authRule: ["transaction/transaction/index"]
+                    authRule: ["fund/transactions/index"]
                 }
             },
             {
-                path: "transaction/platTransfer/index",
-                component: platTransfer,
-                name: "平台转账记录",
+                path: "fund/deposits/index",
+                component: deposits,
+                name: "充值记录（第三方）",
                 icon: "0",
                 meta: {
-                    authRule: ["transaction/platTransfer/index"]
+                    authRule: ["fund/deposits/index"]
+                }
+            },
+            {
+                path: "fund/bank-deposits/index",
+                component: bankdeposits,
+                name: "充值记录（支付宝）",
+                icon: "0",
+                meta: {
+                    authRule: ["fund/bank-deposits/index"]
                 }
             }
+            ,
+            {
+                path: "fund/exception-deposits/index",
+                component: exceptiondeposits,
+                name: "异常充值记录",
+                icon: "0",
+                meta: {
+                    authRule: ["fund/exception-deposits/index"]
+                }
+            }
+            ,
+            {
+                path: "fund/withdrawals/index",
+                component: withdrawals,
+                name: "Withdrawals",
+                icon: "0",
+                meta: {
+                    authRule: ["fund/withdrawals/index"]
+                }
+            }
+            ,
+            {
+                path: "fund/manual-deposits/index",
+                component: manualdeposits,
+                name: "手动充值",
+                icon: "0",
+                meta: {
+                    authRule: ["fund/manual-deposits/index"]
+                }
+            }
+            ,
+            {
+                path: "fund/manual-withdraws/index",
+                component: manualwithdraws,
+                name: "手动提现",
+                icon: "0",
+                meta: {
+                    authRule: ["fund/manual-withdraws/index"]
+                }
+            }
+            ,
+            {
+                path: "fund/dividends/index",
+                component: dividends,
+                name: "分红",
+                icon: "0",
+                meta: {
+                    authRule: ["fund/dividends/index"]
+                }
+            }
+            ,
+            {
+                path: "fund/lose-commissions/index",
+                component: losecommissions,
+                name: "输值佣金",
+                icon: "0",
+                meta: {
+                    authRule: ["fund/lose-commissions/index"]
+                }
+            }
+            ,
+            {
+                path: "fund/commissions-statistics/index",
+                component: commissionsstatistics,
+                name: "佣金统计发放记录",
+                icon: "0",
+                meta: {
+                    authRule: ["fund/commissions-statistics/index"]
+                }
+            }
+            ,
+            {
+                path: "fund/plat-transfer-records/index",
+                component: plattransferrecords,
+                name: "Plat Transfer Record",
+                icon: "0",
+                meta: {
+                    authRule: ["fund/plat-transfer-records/index"]
+                }
+            }
+
         ]
     },
     {
@@ -1012,12 +1093,12 @@ export const asyncRouterMap = [
                 }
             },
             {
-                path: "events58",
-                component: adSite,
+                path: "setting/sys-configs/index",
+                component: sysconfigs,
                 name: "系统设置",
                 icon: "0",
                 meta: {
-                    authRule: ["events/events/index"]
+                    authRule: ["setting/sys-configs/index"]
                 }
             }
         ]
@@ -1084,4 +1165,42 @@ export const asyncRouterMap = [
             }
         ]
     },
+    {
+        path: "/events16",
+        redirect: "/events/events",
+        component: Home,
+        icon: "guanggao",
+        name: "广告",
+        meta: {
+            authRule: ["events/events/index"]
+        },
+        // noDropdown: true,
+        children: [
+            {
+                path: "ad/ad-types/index",
+                component: adtypes,
+                name: "广告类型",
+                icon: "0",
+                meta: {
+                    authRule: ["ad/ad-types/index"]
+                }
+            },{
+                path: "ad/ad-locations/index",
+                component: adlocations,
+                name: "广告位",
+                icon: "0",
+                meta: {
+                    authRule: ["ad/ad-locations/index"]
+                }
+            },{
+                path: "ad/ad-infos/index",
+                component: adinfos,
+                name: "广告内容",
+                icon: "0",
+                meta: {
+                    authRule: ["ad/ad-infos/index"]
+                }
+            }
+        ]
+    }
 ];

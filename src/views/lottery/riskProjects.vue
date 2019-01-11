@@ -54,8 +54,29 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
-            <!--<el-table-column
+            <el-table-column label="			I D				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			编号				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			追号 Id				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			用户名				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			倍数				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			彩种				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			奖期				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			截止时间				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			玩法				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			投注号码				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			模式				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			金额				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			奖金				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			中投比				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			投注时间				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			I P				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			状态 				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			I P 				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			状态 				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			派奖状态 				" prop="id" sortable="custom" fixed></el-table-column>
+
+            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"
                 sortable="custom"
@@ -64,7 +85,7 @@
                 <template slot-scope="scope">
                     <span>{{ scope.row.id }}</span>
                 </template>
-            </el-table-column>-->
+            </el-table-column>&ndash;&gt;
 
             <el-table-column
                     label="用户名"
@@ -96,7 +117,7 @@
                 <template slot-scope="scope">
                     <span>{{ scope.row.last_login_ip }}</span>
                 </template>
-            </el-table-column>
+            </el-table-column>-->
             <el-table-column
                     label="操作"
                     fixed="right">
