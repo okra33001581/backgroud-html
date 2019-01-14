@@ -54,16 +54,16 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			上级				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			用户名				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			昵称				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			账户余额				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			奖金组				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			冻结				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			最后登录时间				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			创建时间				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			是否代理				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			是否测试 				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			上级				" prop="parent" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			用户名				" prop="username" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			昵称				" prop="nickname" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			账户余额				" prop="account_available" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			奖金组				" prop="prize_group" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			冻结				" prop="blocked" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			最后登录时间				" prop="signin_at" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			创建时间				" prop="created_at" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			是否代理				" prop="is_agent" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			是否测试 				" prop="is_tester" sortable="custom" fixed></el-table-column>
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
@@ -170,11 +170,8 @@
 
 <script>
     import {
-        authAdminList,
-        authAdminRoleList,
-        authAdminSave,
-        authAdminDelete
-    } from "../../api/auth/authAdmin";
+        userIndex
+    } from "../../api/users";
 
     const formJson = {
         id: "",
@@ -308,7 +305,7 @@
             },
             getList() {
                 this.loading = true;
-                authAdminList(this.query)
+                userIndex(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list || [];

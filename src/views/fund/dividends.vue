@@ -54,27 +54,27 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			年				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			月				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			批次				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			开始日期				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			截止日期				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			用户名				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			是否测试				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			投注				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			奖金				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			佣金				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			促销奖金				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			输值佣金				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			盈利				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			合法销量				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			比例				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			金额				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			低销量次数				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			状态				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			审核管理员				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			审核时间				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			发放时间				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			年				" prop="year" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			月				" prop="month" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			批次				" prop="batch" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			开始日期				" prop="begin_date" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			截止日期				" prop="end_date" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			用户名				" prop="username" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			是否测试				" prop="is_tester" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			投注				" prop="turnover" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			奖金				" prop="prize" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			佣金				" prop="commission" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			促销奖金				" prop="bonus" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			输值佣金				" prop="lose_commission" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			盈利				" prop="profit" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			合法销量				" prop="valid_sales" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			比例				" prop="rate" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			金额				" prop="amount" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			低销量次数				" prop="low_sale_times" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			状态				" prop="status" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			审核管理员				" prop="auditor" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			审核时间				" prop="verified_at" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			发放时间				" prop="sent_at" sortable="custom" fixed></el-table-column>
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
@@ -181,12 +181,8 @@
 
 <script>
     import {
-        authAdminList,
-        authAdminRoleList,
-        authAdminSave,
-        authAdminDelete
-    } from "../../api/auth/authAdmin";
-    // import { requestLogin } from '@/api/api';
+        manuDividends
+    } from "../../api/fund";
 
     const formJson = {
         id: "",
@@ -320,7 +316,7 @@
             },
             getList() {
                 this.loading = true;
-                authAdminList(this.query)
+                manuDividends(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list || [];

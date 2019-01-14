@@ -55,14 +55,14 @@
                 style="width: 100%;"
                 @sort-change="sortChange">
             <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			活动 Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			级别				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			类型				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			目标值				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			起始值				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			最少人数				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			指定的彩种 Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			状态 				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			活动 Id				" prop="event_id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			级别				" prop="level" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			类型				" prop="type" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			目标值				" prop="target_value" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			起始值				" prop="start_value" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			最少人数				" prop="attendance_number_limit" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			指定的彩种 Id				" prop="lottery_id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			状态 				" prop="status" sortable="custom" fixed></el-table-column>
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
@@ -169,12 +169,8 @@
 
 <script>
     import {
-        authAdminList,
-        authAdminRoleList,
-        authAdminSave,
-        authAdminDelete
-    } from "../../api/auth/authAdmin";
-    // import { requestLogin } from '@/api/api';
+        eventConditonsIndex
+    } from "../../api/events";
 
     const formJson = {
         id: "",
@@ -308,7 +304,7 @@
             },
             getList() {
                 this.loading = true;
-                authAdminList(this.query)
+                eventConditonsIndex(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list || [];
@@ -371,7 +367,7 @@
                 this.handleFilter()
             },
             getRoleList() {
-                authAdminRoleList(this.query)
+                eventConditonsIndex(this.query)
                     .then(response => {
                         this.roles = response.list || [];
                     })

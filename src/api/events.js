@@ -1,16 +1,46 @@
 /**
  * Created by lk on 17/6/4.
  */
-import axios from "../../utils/axios";
-
+import axios from "../utils/axios";
 // 获取列表
-export function authAdminList(query) {
+export function eventIndex(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/eventIndex",
         method: "get",
         params: query
     });
 }
+
+// 获取列表
+export function eventUserPrizeIndex(query) {
+    return axios({
+        url: "http://apidemo.test/api/event/eventUserPrizeIndex",
+        method: "get",
+        params: query
+    });
+}
+
+// 获取列表
+export function adInfosIndex(query) {
+    return axios({
+        url: "http://apidemo.test/api/event/adInfosIndex",
+        method: "get",
+        params: query
+    });
+}
+
+// 获取列表
+export function eventConditonsIndex(query) {
+    return axios({
+        url: "http://apidemo.test/api/event/eventConditonsIndex",
+        method: "get",
+        params: query
+    });
+}
+
+
+
+
 
 // 获取角色列表
 export function authAdminRoleList(query) {

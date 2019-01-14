@@ -2,15 +2,45 @@
  * Created by lk on 17/6/4.
  */
 import axios from "../utils/axios";
-
 // 获取列表
-export function sysConfigIndex(query) {
+export function adTypeIndex(query) {
     return axios({
-        url: "http://apidemo.test/api/event/sysConfigIndex",
+        url: "http://apidemo.test/api/event/adTypeIndex",
         method: "get",
         params: query
     });
 }
+
+// 获取列表
+export function adLocationIndex(query) {
+    return axios({
+        url: "http://apidemo.test/api/event/adLocationIndex",
+        method: "get",
+        params: query
+    });
+}
+
+// 获取列表
+export function eventPrizeIndex(query) {
+    return axios({
+        url: "http://apidemo.test/api/event/eventPrizeIndex",
+        method: "get",
+        params: query
+    });
+}
+
+// 获取列表
+export function eventConditonsIndex(query) {
+    return axios({
+        url: "http://apidemo.test/api/event/eventConditonsIndex",
+        method: "get",
+        params: query
+    });
+}
+
+
+
+
 
 // 获取角色列表
 export function authAdminRoleList(query) {

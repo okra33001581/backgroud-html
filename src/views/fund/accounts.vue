@@ -54,14 +54,14 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			用户名				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			是否测试				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			余额				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			冻结金额				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			可用余额				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			可提现余额				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			不可提现金额				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			更新时间 				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			用户名				" prop="username" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			是否测试				" prop="is_tester" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			余额				" prop="balance" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			冻结金额				" prop="frozen" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			可用余额				" prop="available" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			可提现余额				" prop="withdrawable" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			不可提现金额				" prop="prohibit_amount" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			更新时间 				" prop="updated_at" sortable="custom" fixed></el-table-column>
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
@@ -168,11 +168,8 @@
 
 <script>
     import {
-        authAdminList,
-        authAdminRoleList,
-        authAdminSave,
-        authAdminDelete
-    } from "../../api/auth/authAdmin";
+        accoundIndex
+    } from "../../api/fund";
     // import { requestLogin } from '@/api/api';
 
     const formJson = {
@@ -307,7 +304,7 @@
             },
             getList() {
                 this.loading = true;
-                authAdminList(this.query)
+                accoundIndex(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list || [];

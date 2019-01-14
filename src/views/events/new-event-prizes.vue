@@ -55,21 +55,21 @@
                 style="width: 100%;"
                 @sort-change="sortChange">
             <el-table-column label="			I D				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			任务id 				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			任务条件等级 				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			类别 				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			发放类别				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			奖励值				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			类别条件一				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			类别条件二				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			是否需要验正 				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			发放对象				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			派发上限周期 				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			周期内可派发的数量 				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			建立派发时机 				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			个人领取限制 ( 负1 = 无限) 				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			触发时间 				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			状态				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			任务id 				" prop="event_id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			任务条件等级 				" prop="level" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			类别 				" prop="type" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			发放类别				" prop="gift_type" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			奖励值				" prop="gift_value" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			类别条件一				" prop="condition_1" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			类别条件二				" prop="condition_2" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			是否需要验正 				" prop="need_verify" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			发放对象				" prop="send_people_type" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			派发上限周期 				" prop="send_limit_cycle" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			周期内可派发的数量 				" prop="send_limit_count" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			建立派发时机 				" prop="send_type" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			个人领取限制 ( 负1 = 无限) 				" prop="personal_limit_count" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			触发时间 				" prop="trigger_date" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			状态				" prop="status" sortable="custom" fixed></el-table-column>
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
@@ -176,12 +176,8 @@
 
 <script>
     import {
-        authAdminList,
-        authAdminRoleList,
-        authAdminSave,
-        authAdminDelete
-    } from "../../api/auth/authAdmin";
-    // import { requestLogin } from '@/api/api';
+        eventPrizeIndex
+    } from "../../api/events";
 
     const formJson = {
         id: "",
@@ -315,7 +311,7 @@
             },
             getList() {
                 this.loading = true;
-                authAdminList(this.query)
+                eventPrizeIndex(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list || [];

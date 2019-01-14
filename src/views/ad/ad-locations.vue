@@ -55,16 +55,16 @@
                 style="width: 100%;"
                 @sort-change="sortChange">
             <el-table-column label="			I D				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			名称				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			类型				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			描述				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			文本长度				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			宽度				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			高度				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			关闭				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			滚动时间				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			创建时间				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			更新时间				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			名称				" prop="name" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			类型				" prop="type_name" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			描述				" prop="description" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			文本长度				" prop="text_length" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			宽度				" prop="pic_width" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			高度				" prop="pic_height" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			关闭				" prop="is_closed" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			滚动时间				" prop="roll_time" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			创建时间				" prop="created_at" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			更新时间				" prop="updated_at" sortable="custom" fixed></el-table-column>
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
@@ -171,12 +171,8 @@
 
 <script>
     import {
-        authAdminList,
-        authAdminRoleList,
-        authAdminSave,
-        authAdminDelete
-    } from "../../api/auth/authAdmin";
-    // import { requestLogin } from '@/api/api';
+        adLocationIndex
+    } from "../../api/ad";
 
     const formJson = {
         id: "",
@@ -310,7 +306,7 @@
             },
             getList() {
                 this.loading = true;
-                authAdminList(this.query)
+                adLocationIndex(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list || [];

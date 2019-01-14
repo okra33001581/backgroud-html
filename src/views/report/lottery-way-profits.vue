@@ -54,20 +54,21 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			系列				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			日期				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			游戏类别				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			彩种	上级用户			" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			投注方式				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			投注用户数				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			净注单数				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			净投注				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			净奖金				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			净佣金				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			净盈利				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			盈利率				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			投注额占比				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			更新时间 				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			系列				" prop="series_id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			日期				" prop="date" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			游戏类别				" prop="game_type" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			彩种			" prop="lottery_id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			上级用户			" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			投注方式				" prop="way" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			投注用户数				" prop="bought_count" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			净注单数				" prop="net_prj_count" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			净投注				" prop="net_turnover" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			净奖金				" prop="net_prize" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			净佣金				" prop="net_commission" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			净盈利				" prop="net_profit" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			盈利率				" prop="profit_margin" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			投注额占比				" prop="turnover_ratio" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			更新时间 				" prop="updated_at" sortable="custom" fixed></el-table-column>
 
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
@@ -175,11 +176,8 @@
 
 <script>
     import {
-        authAdminList,
-        authAdminRoleList,
-        authAdminSave,
-        authAdminDelete
-    } from "../../api/auth/authAdmin";
+        lotteryWayProfitsIndex
+    } from "../../api/report";
 
     const formJson = {
         id: "",
@@ -313,7 +311,7 @@
             },
             getList() {
                 this.loading = true;
-                authAdminList(this.query)
+                lotteryWayProfitsIndex(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list || [];

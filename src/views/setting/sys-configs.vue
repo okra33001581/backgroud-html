@@ -54,15 +54,15 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			上级				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			标题				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			键				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			值				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			默认值				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			数据类型				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			控件类型				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			校验方法				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			排序值 				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			上级				" prop="parent_id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			标题				" prop="title" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			键				" prop="item" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			值				" prop="value" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			默认值				" prop="default_value" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			数据类型				" prop="data_type" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			控件类型				" prop="form_face" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			校验方法				" prop="validation" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			排序值 				" prop="sequence" sortable="custom" fixed></el-table-column>
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
@@ -169,11 +169,8 @@
 
 <script>
     import {
-        authAdminList,
-        authAdminRoleList,
-        authAdminSave,
-        authAdminDelete
-    } from "../../api/auth/authAdmin";
+        sysConfigIndex
+    } from "../../api/develop";
 
     const formJson = {
         id: "",
@@ -307,7 +304,7 @@
             },
             getList() {
                 this.loading = true;
-                authAdminList(this.query)
+                sysConfigIndex(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list || [];

@@ -55,30 +55,30 @@
                 style="width: 100%;"
                 @sort-change="sortChange">
 
-            <el-table-column label="日期" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="用户名 " prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="是否测试" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="用户类型" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="上级用户" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="奖金组" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="开户数" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="首充人数" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="首充" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="团队开户总数" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="团队首冲总次数 " prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="团队首冲总金额 " prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="充值总次数 " prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="充值总额" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="提款总数" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="提现总额" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="投注 " prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="A G投注" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="G A投注" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="奖金 " prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="促销奖金" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="佣金" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="输值佣金" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="盈利" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="日期" prop="date" sortable="custom" fixed></el-table-column>
+            <el-table-column label="用户名 " prop="username" sortable="custom" fixed></el-table-column>
+            <el-table-column label="是否测试" prop="is_tester" sortable="custom" fixed></el-table-column>
+            <el-table-column label="用户类型" prop="user_type" sortable="custom" fixed></el-table-column>
+            <el-table-column label="上级用户" prop="parent_user" sortable="custom" fixed></el-table-column>
+            <el-table-column label="奖金组" prop="prize_group" sortable="custom" fixed></el-table-column>
+            <el-table-column label="开户数" prop="registered_count" sortable="custom" fixed></el-table-column>
+            <el-table-column label="首充人数" prop="first_deposit_countc" sortable="custom" fixed></el-table-column>
+            <el-table-column label="首充" prop="first_deposit" sortable="custom" fixed></el-table-column>
+            <el-table-column label="团队开户总数" prop="team_registered_count" sortable="custom" fixed></el-table-column>
+            <el-table-column label="团队首冲总次数 " prop="team_first_deposit_count" sortable="custom" fixed></el-table-column>
+            <el-table-column label="团队首冲总金额 " prop="team_first_deposit" sortable="custom" fixed></el-table-column>
+            <el-table-column label="充值总次数 " prop="deposit_times" sortable="custom" fixed></el-table-column>
+            <el-table-column label="充值总额" prop="deposit" sortable="custom" fixed></el-table-column>
+            <el-table-column label="提款总数" prop="withdraw_times" sortable="custom" fixed></el-table-column>
+            <el-table-column label="提现总额" prop="withdrawal" sortable="custom" fixed></el-table-column>
+            <el-table-column label="投注 " prop="turnover" sortable="custom" fixed></el-table-column>
+            <el-table-column label="A G投注" prop="ag_turnover" sortable="custom" fixed></el-table-column>
+            <el-table-column label="G A投注" prop="ga_turnover" sortable="custom" fixed></el-table-column>
+            <el-table-column label="奖金 " prop="prize" sortable="custom" fixed></el-table-column>
+            <el-table-column label="促销奖金" prop="bonus" sortable="custom" fixed></el-table-column>
+            <el-table-column label="佣金" prop="commission" sortable="custom" fixed></el-table-column>
+            <el-table-column label="输值佣金" prop="lose_commission" sortable="custom" fixed></el-table-column>
+            <el-table-column label="盈利" prop="profit" sortable="custom" fixed></el-table-column>
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
@@ -185,11 +185,8 @@
 
 <script>
     import {
-        authAdminList,
-        authAdminRoleList,
-        authAdminSave,
-        authAdminDelete
-    } from "../../api/auth/authAdmin";
+        teamProfitsIndex
+    } from "../../api/report";
 
     const formJson = {
         id: "",
@@ -323,7 +320,7 @@
             },
             getList() {
                 this.loading = true;
-                authAdminList(this.query)
+                teamProfitsIndex(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list || [];

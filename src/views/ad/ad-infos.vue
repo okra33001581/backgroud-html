@@ -54,15 +54,15 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			广告位				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			广告文本内容				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			广告图片				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			是否关闭				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			U Rl				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Notice Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			创建者				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			创建时间				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			顺序 				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			广告位				" prop="name" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			广告文本内容				" prop="content" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			广告图片				" prop="pic_url" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			是否关闭				" prop="is_closed" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			U Rl				" prop="redirect_url" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			Notice Id				" prop="notice_id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			创建者				" prop="creator" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			创建时间				" prop="created_at" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			顺序 				" prop="sequence" sortable="custom" fixed></el-table-column>
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
@@ -169,12 +169,8 @@
 
 <script>
     import {
-        authAdminList,
-        authAdminRoleList,
-        authAdminSave,
-        authAdminDelete
-    } from "../../api/auth/authAdmin";
-    // import { requestLogin } from '@/api/api';
+        adInfosIndex
+    } from "../../api/ad";
 
     const formJson = {
         id: "",
@@ -308,7 +304,7 @@
             },
             getList() {
                 this.loading = true;
-                authAdminList(this.query)
+                adInfosIndex(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list || [];

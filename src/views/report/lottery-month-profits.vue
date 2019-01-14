@@ -55,19 +55,19 @@
                 style="width: 100%;"
                 @sort-change="sortChange">
 
-            <el-table-column label="年" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="月" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="年" prop="year" sortable="custom" fixed></el-table-column>
+            <el-table-column label="月" prop="month" sortable="custom" fixed></el-table-column>
             <el-table-column label="Game Type" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="彩种" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="系列" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="投注用户数" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="净注单数" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="净投注" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="净奖金" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="净佣金" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="净盈利" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="盈利率" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="投注额占比 " prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="彩种" prop="lottery_id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="系列" prop="series_id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="投注用户数" prop="bought_count" sortable="custom" fixed></el-table-column>
+            <el-table-column label="净注单数" prop="net_prj_count" sortable="custom" fixed></el-table-column>
+            <el-table-column label="净投注" prop="net_turnover" sortable="custom" fixed></el-table-column>
+            <el-table-column label="净奖金" prop="net_prize" sortable="custom" fixed></el-table-column>
+            <el-table-column label="净佣金" prop="net_commission" sortable="custom" fixed></el-table-column>
+            <el-table-column label="净盈利" prop="net_profit" sortable="custom" fixed></el-table-column>
+            <el-table-column label="盈利率" prop="profit_margin" sortable="custom" fixed></el-table-column>
+            <el-table-column label="投注额占比 " prop="turnover_ratio" sortable="custom" fixed></el-table-column>
 
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
@@ -175,11 +175,8 @@
 
 <script>
     import {
-        authAdminList,
-        authAdminRoleList,
-        authAdminSave,
-        authAdminDelete
-    } from "../../api/auth/authAdmin";
+        lotteryMonthProfitsIndex
+    } from "../../api/report";
 
     const formJson = {
         id: "",
@@ -313,7 +310,7 @@
             },
             getList() {
                 this.loading = true;
-                authAdminList(this.query)
+                lotteryMonthProfitsIndex(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list || [];

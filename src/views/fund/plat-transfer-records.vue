@@ -54,14 +54,14 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			用户名				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			频道				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			订单编号				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			金额				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			转账类型				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			状态				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			描述				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			审核描述 				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			用户名				" prop="username" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			频道				" prop="plat_id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			订单编号				" prop="bill_no" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			金额				" prop="amount" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			转账类型				" prop="type" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			状态				" prop="status" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			描述				" prop="description" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			审核描述 				" prop="verify_note" sortable="custom" fixed></el-table-column>
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
@@ -168,12 +168,8 @@
 
 <script>
     import {
-        authAdminList,
-        authAdminRoleList,
-        authAdminSave,
-        authAdminDelete
-    } from "../../api/auth/authAdmin";
-    // import { requestLogin } from '@/api/api';
+        platTransferRecordsIndex
+    } from "../../api/fund";
 
     const formJson = {
         id: "",
@@ -307,7 +303,7 @@
             },
             getList() {
                 this.loading = true;
-                authAdminList(this.query)
+                platTransferRecordsIndex(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list || [];

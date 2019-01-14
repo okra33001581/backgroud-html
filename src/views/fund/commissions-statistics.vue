@@ -55,17 +55,17 @@
                 style="width: 100%;"
                 @sort-change="sortChange">
             <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			统计时间周期（某天）				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			游戏类别				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			彩种				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			用户名				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			是否测试				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			父级关系链				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			佣金发放比例				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			投注额				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			佣金金额				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			状态				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			发放时间 				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			统计时间周期（某天）				" prop="date" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			游戏类别				" prop="game_type" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			彩种				" prop="lottery_id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			用户名				" prop="username" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			是否测试				" prop="is_tester" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			父级关系链				" prop="user_forefather_ids" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			佣金发放比例				" prop="rate" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			投注额				" prop="turnover" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			佣金金额				" prop="amount" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			状态				" prop="status" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			发放时间 				" prop="sent_at" sortable="custom" fixed></el-table-column>
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
@@ -172,13 +172,9 @@
 
 <script>
     import {
-        authAdminList,
-        authAdminRoleList,
-        authAdminSave,
-        authAdminDelete
-    } from "../../api/auth/authAdmin";
+        commissionsStatisticsIndex
+    } from "../../api/fund";
     // import { requestLogin } from '@/api/api';
-
     const formJson = {
         id: "",
         password: "",
@@ -311,7 +307,7 @@
             },
             getList() {
                 this.loading = true;
-                authAdminList(this.query)
+                commissionsStatisticsIndex(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list || [];

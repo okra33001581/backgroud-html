@@ -55,20 +55,20 @@
                 style="width: 100%;"
                 @sort-change="sortChange">
             <el-table-column label="			编号				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			终端				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			创建时间				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			用户名				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			是否测试				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			描述				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			彩种				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			投注方式				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			金额模式				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			金额				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			账户余额				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			备注				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			附加信息				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			I P				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			管理员 				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			终端				" prop="terminal_id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			创建时间				" prop="created_at" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			用户名				" prop="username" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			是否测试				" prop="is_tester" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			描述				" prop="description" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			彩种				" prop="lottery_id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			投注方式				" prop="way_id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			金额模式				" prop="coefficient" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			金额				" prop="amount" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			账户余额				" prop="available" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			备注				" prop="note" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			附加信息				" prop="tag" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			I P				" prop="ip" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			管理员 				" prop="administrator" sortable="custom" fixed></el-table-column>
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
@@ -175,12 +175,8 @@
 
 <script>
     import {
-        authAdminList,
-        authAdminRoleList,
-        authAdminSave,
-        authAdminDelete
-    } from "../../api/auth/authAdmin";
-    // import { requestLogin } from '@/api/api';
+        transactionIndex
+    } from "../../api/fund";
 
     const formJson = {
         id: "",
@@ -314,7 +310,7 @@
             },
             getList() {
                 this.loading = true;
-                authAdminList(this.query)
+                transactionIndex(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list || [];

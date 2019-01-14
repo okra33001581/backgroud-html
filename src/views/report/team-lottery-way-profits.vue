@@ -54,21 +54,22 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			日期				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			用户名				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			是否测试				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			User Type	上级用户			" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			奖金组				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			游戏类别				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			彩种				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			投注方式				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			系列				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			投注				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			奖金				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			促销奖金				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			佣金				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			输值佣金				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			盈利 				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			日期				" prop="date" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			用户名				" prop="username" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			是否测试				" prop="is_tester" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			User Type			" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			上级用户			" prop="parent_user" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			奖金组				" prop="prize_group" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			游戏类别				" prop="game_type" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			彩种				" prop="lottery_id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			投注方式				" prop="way" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			系列				" prop="series_id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			投注				" prop="turnover" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			奖金				" prop="prize" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			促销奖金				" prop="bonus" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			佣金				" prop="commission" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			输值佣金				" prop="lose_commission" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			盈利 				" prop="profit" sortable="custom" fixed></el-table-column>
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
@@ -175,11 +176,8 @@
 
 <script>
     import {
-        authAdminList,
-        authAdminRoleList,
-        authAdminSave,
-        authAdminDelete
-    } from "../../api/auth/authAdmin";
+        teamLotteryWayProfitsIndex
+    } from "../../api/report";
 
     const formJson = {
         id: "",
@@ -313,7 +311,7 @@
             },
             getList() {
                 this.loading = true;
-                authAdminList(this.query)
+                teamLotteryWayProfitsIndex(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list || [];

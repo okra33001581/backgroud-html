@@ -55,11 +55,11 @@
                 style="width: 100%;"
                 @sort-change="sortChange">
             <el-table-column label="			用户名				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			I P				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			是否测试				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			总代				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			昵称				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			I P				" prop="ip" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			是否测试				" prop="is_tester" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			总代				" prop="top_agent" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			昵称				" prop="nickname" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			Created At				" prop="created_at" sortable="custom" fixed></el-table-column>
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
@@ -166,11 +166,8 @@
 
 <script>
     import {
-        authAdminList,
-        authAdminRoleList,
-        authAdminSave,
-        authAdminDelete
-    } from "../../api/auth/authAdmin";
+        userLoginIpsIndex
+    } from "../../api/users";
 
     const formJson = {
         id: "",
@@ -367,7 +364,7 @@
                 this.handleFilter()
             },
             getRoleList() {
-                authAdminRoleList(this.query)
+                userLoginIpsIndex(this.query)
                     .then(response => {
                         this.roles = response.list || [];
                     })

@@ -55,23 +55,23 @@
                 style="width: 100%;"
                 @sort-change="sortChange">
             <el-table-column label="			I D				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			用户名				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			真实姓名				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			是否测试				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			总代				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			上级				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			创建时间				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			金额				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			支付渠道				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			银行名称				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			附言				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			付款人				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			加币时间				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			状态				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			渠道订单号				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			订单时间				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			提交凭证人员				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			审核人员				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			用户名				" prop="username" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			真实姓名				" prop="realname" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			是否测试				" prop="is_tester" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			总代				" prop="top_agent" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			上级				" prop="user_parent" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			创建时间				" prop="created_at" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			金额				" prop="amount" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			支付渠道				" prop="platform" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			银行名称				" prop="bank_id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			附言				" prop="postscript" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			付款人				" prop="payer_name" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			加币时间				" prop="put_at" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			状态				" prop="status" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			渠道订单号				" prop="service_order_no" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			订单时间				" prop="service_time" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			提交凭证人员				" prop="accepter" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			审核人员				" prop="auditor" sortable="custom" fixed></el-table-column>
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
@@ -178,12 +178,8 @@
 
 <script>
     import {
-        authAdminList,
-        authAdminRoleList,
-        authAdminSave,
-        authAdminDelete
-    } from "../../api/auth/authAdmin";
-    // import { requestLogin } from '@/api/api';
+        bankDepositIndex
+    } from "../../api/fund";
 
     const formJson = {
         id: "",
@@ -317,7 +313,7 @@
             },
             getList() {
                 this.loading = true;
-                authAdminList(this.query)
+                bankDepositIndex(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list || [];

@@ -55,23 +55,23 @@
                 style="width: 100%;"
                 @sort-change="sortChange">
             <el-table-column label="			I D				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			用户名				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			户名				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			是否测试				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Risk_Items				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			申请时间				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			金额				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			大额				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			银行名称				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Withdrawal_Type				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			审核受理时间				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			完成时间				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			状态				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			编号				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Ip				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			审核受理人员				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			汇款人员				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			汇款审核人员 				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			用户名				" prop="username" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			户名				" prop="account_name" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			是否测试				" prop="is_tester" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			Risk_Items				" prop="risk_items" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			申请时间				" prop="request_time" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			金额				" prop="amount" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			大额				" prop="is_large" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			银行名称				" prop="bank" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			Withdrawal_Type				" prop="withdrawal_type" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			审核受理时间				" prop="verify_accepted_at" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			完成时间				" prop="finish_time" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			状态				" prop="formatted_status" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			编号				" prop="serial_number" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			Ip				" prop="ip" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			审核受理人员				" prop="verify_accepter" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			汇款人员				" prop="withdrawal_accepter" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			汇款审核人员 				" prop="remittance_auditor" sortable="custom" fixed></el-table-column>
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
@@ -178,12 +178,8 @@
 
 <script>
     import {
-        authAdminList,
-        authAdminRoleList,
-        authAdminSave,
-        authAdminDelete
-    } from "../../api/auth/authAdmin";
-    // import { requestLogin } from '@/api/api';
+        withdrawalsIndex
+    } from "../../api/fund";
 
     const formJson = {
         id: "",
@@ -380,7 +376,7 @@
                 this.handleFilter()
             },
             getRoleList() {
-                authAdminRoleList(this.query)
+                withdrawalsIndex(this.query)
                     .then(response => {
                         this.roles = response.list || [];
                     })

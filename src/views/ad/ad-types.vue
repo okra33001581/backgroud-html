@@ -55,9 +55,9 @@
                 style="width: 100%;"
                 @sort-change="sortChange">
             <el-table-column label="			I D				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			类型				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			创建时间				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			更新时间 				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			类型				" prop="type_name" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			创建时间				" prop="created_at" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			更新时间 				" prop="updated_at" sortable="custom" fixed></el-table-column>
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
@@ -164,12 +164,8 @@
 
 <script>
     import {
-        authAdminList,
-        authAdminRoleList,
-        authAdminSave,
-        authAdminDelete
-    } from "../../api/auth/authAdmin";
-    // import { requestLogin } from '@/api/api';
+        adTypeIndex
+    } from "../../api/ad";
 
     const formJson = {
         id: "",
@@ -303,7 +299,7 @@
             },
             getList() {
                 this.loading = true;
-                authAdminList(this.query)
+                adTypeIndex(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list || [];

@@ -54,10 +54,10 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			操作动作				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			创建时间				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			操作人				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			备注 	上级用户			" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			操作动作				" prop="action" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			创建时间				" prop="created_at" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			操作人				" prop="username" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			备注 	上级用户			" prop="comment" sortable="custom" fixed></el-table-column>
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
@@ -164,11 +164,8 @@
 
 <script>
     import {
-        authAdminList,
-        authAdminRoleList,
-        authAdminSave,
-        authAdminDelete
-    } from "../../api/auth/authAdmin";
+        adminLogIndex
+    } from "../../api/log";
 
     const formJson = {
         id: "",
@@ -302,7 +299,7 @@
             },
             getList() {
                 this.loading = true;
-                authAdminList(this.query)
+                adminLogIndex(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list || [];

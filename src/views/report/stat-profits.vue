@@ -32,28 +32,28 @@
                 @sort-change="sortChange">
 
 
-            <el-table-column label="日期" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="周" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="新总代数" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="新用户数" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="登录用户数" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="投注用户数" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="净注单数" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="首充 " prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="净充值 " prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="净提现 " prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="净投注 " prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="A G流水" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="G A投注" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="净奖金 " prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="净促销奖金 " prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="净输值佣金 " prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="净佣金 " prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="净分红" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="净盈利 " prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="盈利率 " prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="单均投注 " prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="人均投注" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="日期" prop="date" sortable="custom" fixed></el-table-column>
+            <el-table-column label="周" prop="week" sortable="custom" fixed></el-table-column>
+            <el-table-column label="新总代数" prop="registered_top_agent_count" sortable="custom" fixed></el-table-column>
+            <el-table-column label="新用户数" prop="registered_count" sortable="custom" fixed></el-table-column>
+            <el-table-column label="登录用户数" prop="signed_count" sortable="custom" fixed></el-table-column>
+            <el-table-column label="投注用户数" prop="bought_count" sortable="custom" fixed></el-table-column>
+            <el-table-column label="净注单数" prop="net_prj_count" sortable="custom" fixed></el-table-column>
+            <el-table-column label="首充 " prop="first_deposit" sortable="custom" fixed></el-table-column>
+            <el-table-column label="净充值 " prop="net_deposit" sortable="custom" fixed></el-table-column>
+            <el-table-column label="净提现 " prop="net_withdrawal" sortable="custom" fixed></el-table-column>
+            <el-table-column label="净投注 " prop="net_turnover" sortable="custom" fixed></el-table-column>
+            <el-table-column label="A G流水" prop="ag_net_turnover" sortable="custom" fixed></el-table-column>
+            <el-table-column label="G A投注" prop="ga_net_turnover" sortable="custom" fixed></el-table-column>
+            <el-table-column label="净奖金 " prop="net_prize" sortable="custom" fixed></el-table-column>
+            <el-table-column label="净促销奖金 " prop="net_bonus" sortable="custom" fixed></el-table-column>
+            <el-table-column label="净输值佣金 " prop="net_lose_commission" sortable="custom" fixed></el-table-column>
+            <el-table-column label="净佣金 " prop="net_commission" sortable="custom" fixed></el-table-column>
+            <el-table-column label="净分红" prop="net_share" sortable="custom" fixed></el-table-column>
+            <el-table-column label="净盈利 " prop="net_profit" sortable="custom" fixed></el-table-column>
+            <el-table-column label="盈利率 " prop="profit_margin" sortable="custom" fixed></el-table-column>
+            <el-table-column label="单均投注 " prop="prj_avg_turnover" sortable="custom" fixed></el-table-column>
+            <el-table-column label="人均投注" prop="user_avg_turnover" sortable="custom" fixed></el-table-column>
             <!--<el-table-column
                     sortable="custom"
                     label="状态" prop="status">
@@ -140,11 +140,8 @@
 
 <script>
     import {
-        authAdminList,
-        authAdminRoleList,
-        authAdminSave,
-        authAdminDelete
-    } from "../../api/auth/authAdmin";
+        profitIndex
+    } from "../../api/report";
 
     const formJson = {
         id: "",
@@ -278,7 +275,7 @@
             },
             getList() {
                 this.loading = true;
-                authAdminList(this.query)
+                profitIndex(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list || [];

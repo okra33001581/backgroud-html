@@ -55,15 +55,15 @@
                 style="width: 100%;"
                 @sort-change="sortChange">
             <el-table-column label="			I D				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			用户名				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			是否测试				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			金额				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			账变类型				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			创建者				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			审核者				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			备注				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			状态				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			创建时间 				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			用户名				" prop="username" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			是否测试				" prop="is_tester" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			金额				" prop="amount" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			账变类型				" prop="transaction_description" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			创建者				" prop="creator" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			审核者				" prop="auditor" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			备注				" prop="note" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			状态				" prop="status" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			创建时间 				" prop="created_at" sortable="custom" fixed></el-table-column>
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
@@ -170,12 +170,8 @@
 
 <script>
     import {
-        authAdminList,
-        authAdminRoleList,
-        authAdminSave,
-        authAdminDelete
-    } from "../../api/auth/authAdmin";
-    // import { requestLogin } from '@/api/api';
+        menuDepositIndex
+    } from "../../api/fund";
 
     const formJson = {
         id: "",
@@ -309,7 +305,7 @@
             },
             getList() {
                 this.loading = true;
-                authAdminList(this.query)
+                menuDepositIndex(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list || [];

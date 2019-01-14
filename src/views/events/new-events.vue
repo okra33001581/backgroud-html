@@ -55,18 +55,25 @@
                 style="width: 100%;"
                 @sort-change="sortChange">
             <el-table-column label="			I D				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			名称 				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Identifier				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			活动描述 				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			名称 				" prop="title" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			Identifier				" prop="identifier" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			活动描述 				" prop="description" sortable="custom" fixed></el-table-column>
             <el-table-column label="			活动页类型 				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			计算周期				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			是否领取型				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			领取后完成天数				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			状态				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			是否多等级奖赏				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			是否为单等级条件				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			活动开始时间 				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			活动结束时间 				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			计算周期				" prop="calculate_cycle" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			是否领取型				" prop="is_receive" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			领取后完成天数				" prop="after_receive_day_limit" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			状态				" prop="status" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			是否多等级奖赏				" prop="is_get_mulite_prize" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			是否为单等级条件				" prop="is_single_condition" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			活动开始时间 				" prop="start_time" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			活动结束时间 				" prop="end_time" sortable="custom" fixed></el-table-column>
+
+            <!--<el-table-column-->
+                    <!--label="用户名"-->
+                    <!--prop="username"-->
+                    <!--sortable="custom"-->
+                    <!--fixed>-->
+            <!--</el-table-column>-->
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
@@ -173,12 +180,8 @@
 
 <script>
     import {
-        authAdminList,
-        authAdminRoleList,
-        authAdminSave,
-        authAdminDelete
-    } from "../../api/auth/authAdmin";
-    // import { requestLogin } from '@/api/api';
+        eventIndex
+    } from "../../api/events";
 
     const formJson = {
         id: "",
@@ -312,7 +315,7 @@
             },
             getList() {
                 this.loading = true;
-                authAdminList(this.query)
+                eventIndex(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list || [];

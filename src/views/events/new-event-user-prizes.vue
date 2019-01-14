@@ -55,21 +55,21 @@
                 style="width: 100%;"
                 @sort-change="sortChange">
             <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			活动 Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			用户				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			是否测试				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			级别				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			类型				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			奖品类型				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			奖励数值(数字)				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			奖励数值(文字)				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			状态				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			发放时间				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			领第几次				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			审核时间				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			创建时间				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			更新时间 				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			状态				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			活动 Id				" prop="event_id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			用户				" prop="username" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			是否测试				" prop="is_tester" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			级别				" prop="level" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			类型				" prop="type" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			奖品类型				" prop="gift_type" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			奖励数值(数字)				" prop="gift_value" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			奖励数值(文字)				" prop="gift_value_text" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			状态				" prop="status" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			发放时间				" prop="sended_prize_at" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			领第几次				" prop="already_received_num" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			审核时间				" prop="verified_at" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			创建时间				" prop="created_at" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			更新时间 				" prop="updated_at" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			状态				" prop="状态" sortable="custom" fixed></el-table-column>
 
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
@@ -177,12 +177,8 @@
 
 <script>
     import {
-        authAdminList,
-        authAdminRoleList,
-        authAdminSave,
-        authAdminDelete
-    } from "../../api/auth/authAdmin";
-    // import { requestLogin } from '@/api/api';
+        eventUserPrizeIndex
+    } from "../../api/events";
 
     const formJson = {
         id: "",
@@ -316,7 +312,7 @@
             },
             getList() {
                 this.loading = true;
-                authAdminList(this.query)
+                eventUserPrizeIndex(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list || [];
