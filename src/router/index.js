@@ -9,12 +9,81 @@ import {ROUTER_MODE} from "../config/app";
 
 import Home from "../views/home/index.vue";
 
+
+// begin
+// 网站管理
+import qrconfig_list from "../views/hwin/site-management/qrconfig_list.vue";
+import rotationconfig_list from "../views/hwin/site-management/rotationconfig_list.vue";
+import systemconfig_imagelist from "../views/hwin/site-management/systemconfig_imagelist.vue";
+import systemconfig_set from "../views/hwin/site-management/systemconfig_set.vue";
+import floatwindowconfig_list from "../views/hwin/site-management/floatwindowconfig_list.vue";
+import information_companylist from "../views/hwin/site-management/information_companylist.vue";
+import information_list from "../views/hwin/site-management/information_list.vue";
+import lotterygroup_sort from "../views/hwin/site-management/lotterygroup_sort.vue";
+import proxyiptables_blackcontainlist from "../views/hwin/site-management/proxyiptables_blackcontainlist.vue";
+
+import marquee_list from "../views/hwin/notice-management/marquee_list.vue";
+import message_list from "../views/hwin/notice-management/message_list.vue";
+import notice_list from "../views/hwin/notice-management/notice_list.vue";
+import push_list from "../views/hwin/notice-management/push_list.vue";
+import betlimit_list from "../views/hwin/play-management/betlimit_list.vue";
+import lotteryrisk_list from "../views/hwin/play-management/lotteryrisk_list.vue";
+import pgame_list from "../views/hwin/play-management/pgame_list.vue";
+import proxygames_list from "../views/hwin/play-management/proxygames_list.vue";
+import finance_index from "../views/hwin/report-management/finance_index.vue";
+import operation_profit from "../views/hwin/report-management/operation_profit.vue";
+import pgame_playlist from "../views/hwin/report-management/pgame_playlist.vue";
+import preport_profit from "../views/hwin/report-management/preport_profit.vue";
+import user_report from "../views/hwin/report-management/user_report.vue";
+// import floatwindowconfig_list from "../views/hwin/site-management/floatwindowconfig_list.vue";
+// import information_companylist from "../views/hwin/site-management/information_companylist.vue";
+// import information_list from "../views/hwin/site-management/information_list.vue";
+// import lotterygroup_sort from "../views/hwin/site-management/lotterygroup_sort.vue";
+// import proxyiptables_blackcontainlist from "../views/hwin/site-management/proxyiptables_blackcontainlist.vue";
+// import qrconfig_list from "../views/hwin/site-management/qrconfig_list.vue";
+// import rotationconfig_list from "../views/hwin/site-management/rotationconfig_list.vue";
+// import systemconfig_imagelist from "../views/hwin/site-management/systemconfig_imagelist.vue";
+// import systemconfig_set from "../views/hwin/site-management/systemconfig_set.vue";
+import user_infolist from "../views/hwin/user-management/user_infolist.vue";
+import user_inoutcash from "../views/hwin/user-management/user_inoutcash.vue";
+import user_mainlist from "../views/hwin/user-management/user_mainlist.vue";
+import user_monitor from "../views/hwin/user-management/user_monitor.vue";
+import user_reviewlist from "../views/hwin/user-management/user_reviewlist.vue";
+import user_usercard from "../views/hwin/user-management/user_usercard.vue";
+import user_userlayer from "../views/hwin/user-management/user_userlayer.vue";
+import user_validuser from "../views/hwin/user-management/user_validuser.vue";
+import proxycommission_list from "../views/hwin/delegate-management/proxycommission_list.vue";
+import proxycommission_proxylist from "../views/hwin/delegate-management/proxycommission_proxylist.vue";
+import activity_list from "../views/hwin/event-management/activity_list.vue";
+import cash_orderlist from "../views/hwin/fund-management/cash_orderlist.vue";
+import cash_paysetting from "../views/hwin/fund-management/cash_paysetting.vue";
+import cash_rakeback from "../views/hwin/fund-management/cash_rakeback.vue";
+import cash_withdrawlist from "../views/hwin/fund-management/cash_withdrawlist.vue";
+import companymoney_list from "../views/hwin/fund-management/companymoney_list.vue";
+import fastpaymoney_list from "../views/hwin/fund-management/fastpaymoney_list.vue";
+import layerchart_index from "../views/hwin/fund-management/layerchart_index.vue";
+import manualpayconfirm_list from "../views/hwin/fund-management/manualpayconfirm_list.vue";
+import manualpay_save from "../views/hwin/fund-management/manualpay_save.vue";
+import payaccount_list from "../views/hwin/fund-management/payaccount_list.vue";
+import paygroup_list from "../views/hwin/fund-management/paygroup_list.vue";
+import transferorder_list from "../views/hwin/fund-management/transferorder_list.vue";
+import tripartite_list from "../views/hwin/fund-management/tripartite_list.vue";
+import userbetscheck_list from "../views/hwin/fund-management/userbetscheck_list.vue";
+import log_adminlog from "../views/hwin/log-management/log_adminlog.vue";
+import log_domainlog from "../views/hwin/log-management/log_domainlog.vue";
+import log_loginlog from "../views/hwin/log-management/log_loginlog.vue";
+import proxy_grouplist from "../views/hwin/merchant-management/proxy_grouplist.vue";
+import proxy_memberlist from "../views/hwin/merchant-management/proxy_memberlist.vue";
+
+// end
+
 // 管理组相关
 import adminRouter from "../views/userManage/admin/router.vue";
 import authAdmin from "../views/userManage/admin/authAdmin.vue";
 import authRole from "../views/userManage/admin/authRole.vue";
 import authPermissionRule from "../views/userManage/admin/authPermissionRule.vue";
 import Main1 from '@/components/Main'
+
 
 // 上传相关
 import tinymce from "../views/components/tinymce-demo.vue";
@@ -269,29 +338,92 @@ export const asyncRouterMap = [
         ]
     },
     {
-        path: "/adManage",
-        redirect: "/adManage/adSite",
+        path: "/hwin",
+        redirect: "/proxyiptables/authAdmin/index",
         component: Home,
-        icon: "guanggao",
-        name: "广告相关",
+        icon: "jiaose",
+        name: "网站管理",
         meta: {
             authRule: ["ad_manage"]
         },
         // noDropdown: true,
         children: [
             {
-                path: "adSite",
-                component: adSite,
-                name: "广告位管理",
+                path: "proxyiptables_blackcontainlist",
+                component: proxyiptables_blackcontainlist,
+                name: "IP限制",
                 icon: "0",
                 meta: {
-                    authRule: ["admin/ad_site/index"]
+                    authRule: ["admin/auth_admin/index"]
                 }
             },
             {
-                path: "ad",
-                component: ad,
-                name: "广告管理",
+                path: "systemconfig_set",
+                component: systemconfig_set,
+                name: "系统参数设定",
+                icon: "0",
+                meta: {
+                    authRule: ["admin/ad/index"]
+                }
+            },
+            {
+                path: "systemconfig_imagelist",
+                component: systemconfig_imagelist,
+                name: "网站图标设置",
+                icon: "0",
+                meta: {
+                    authRule: ["admin/ad/index"]
+                }
+            },
+            {
+                path: "qrconfig_list",
+                component: qrconfig_list,
+                name: "二维码设置",
+                icon: "0",
+                meta: {
+                    authRule: ["admin/ad/index"]
+                }
+            },
+            {
+                path: "rotationconfig_list",
+                component: rotationconfig_list,
+                name: "首页轮播设定",
+                icon: "0",
+                meta: {
+                    authRule: ["admin/ad/index"]
+                }
+            },
+            {
+                path: "floatwindowconfig_list",
+                component: floatwindowconfig_list,
+                name: "浮动窗口",
+                icon: "0",
+                meta: {
+                    authRule: ["admin/ad/index"]
+                }
+            },
+            {
+                path: "information_list",
+                component: information_list,
+                name: "资讯中心",
+                icon: "0",
+                meta: {
+                    authRule: ["admin/ad/index"]
+                }
+            },
+            {
+                path: "information_companylist",
+                component: information_companylist,
+                name: "公司简介",
+                icon: "0",
+                meta: {
+                    authRule: ["admin/ad/index"]
+                }
+            },
+            {
+                path: "lotterygroup_sort",
+                component: lotterygroup_sort,
+                name: "菜单排序",
                 icon: "0",
                 meta: {
                     authRule: ["admin/ad/index"]
@@ -304,46 +436,28 @@ export const asyncRouterMap = [
         redirect: "/events/events",
         component: Home,
         icon: "guanggao",
-        name: "活动相关",
+        name: "商户账号管理",
         meta: {
             authRule: ["events/events/index"]
         },
         // noDropdown: true,
         children: [
             {
-                path: "events/new-event-conditions/index",
-                component: neweventconditions,
-                name: "活动条件",
+                path: "proxy_grouplist",
+                component: proxy_grouplist,
+                name: "商户组别列表",
                 icon: "0",
                 meta: {
                     authRule: ["events/new-event-conditions/index"]
                 }
             },
             {
-                path: "events/new-event-prizes/index",
-                component: neweventprizes,
-                name: "活动奖励",
+                path: "proxy_memberlist",
+                component: proxy_memberlist,
+                name: "商户成员列表",
                 icon: "0",
                 meta: {
                     authRule: ["events/new-event-prizes/index"]
-                }
-            },
-            {
-                path: "events/new-events/index",
-                component: newevents,
-                name: "活动内容",
-                icon: "0",
-                meta: {
-                    authRule: ["events/new-events/index"]
-                }
-            },
-            {
-                path: "events/new-event-user-prizes/index",
-                component: neweventuserprizes,
-                name: "活动会员奖励",
-                icon: "0",
-                meta: {
-                    authRule: ["events/new-event-user-prizes/index"]
                 }
             }
         ]
@@ -353,25 +467,79 @@ export const asyncRouterMap = [
         redirect: "/events/events",
         component: Home,
         icon: "guanggao",
-        name: "开发管理",
+        name: "用户管理",
         meta: {
             authRule: ["develop/sysSetting/index"]
         },
         // noDropdown: true,
         children: [
             {
-                path: "develop/sysSetting/index",
-                component: sysSetting,
-                name: "系统设置",
+                path: "user_mainlist",
+                component: user_mainlist,
+                name: "用户列表",
                 icon: "0",
                 meta: {
                     authRule: ["develop/sysSetting/index"]
                 }
             },
             {
-                path: "develop/auditType/index",
-                component: auditType,
-                name: "审核类型",
+                path: "user_infolist",
+                component: user_infolist,
+                name: "会员资料",
+                icon: "0",
+                meta: {
+                    authRule: ["develop/auditType/index"]
+                }
+            },
+            {
+                path: "user_userlayer",
+                component: user_userlayer,
+                name: "层级管理",
+                icon: "0",
+                meta: {
+                    authRule: ["develop/auditType/index"]
+                }
+            },
+            {
+                path: "user_usercard",
+                component: user_usercard,
+                name: "用户银行卡管理",
+                icon: "0",
+                meta: {
+                    authRule: ["develop/auditType/index"]
+                }
+            },
+            {
+                path: "user_validuser",
+                component: user_validuser,
+                name: "有效会员列表",
+                icon: "0",
+                meta: {
+                    authRule: ["develop/auditType/index"]
+                }
+            },
+            {
+                path: "user_inoutcash",
+                component: user_inoutcash,
+                name: "出入款统计",
+                icon: "0",
+                meta: {
+                    authRule: ["develop/auditType/index"]
+                }
+            },
+            {
+                path: "user_reviewlist",
+                component: user_reviewlist,
+                name: "安全信息审核",
+                icon: "0",
+                meta: {
+                    authRule: ["develop/auditType/index"]
+                }
+            },
+            {
+                path: "user_monitor",
+                component: user_monitor,
+                name: "多账户监测",
                 icon: "0",
                 meta: {
                     authRule: ["develop/auditType/index"]
@@ -384,34 +552,133 @@ export const asyncRouterMap = [
         redirect: "/events/events",
         component: Home,
         icon: "guanggao",
-        name: "用户管理",
+        name: "现金管理",
         meta: {
             authRule: ["events/events/index"]
         },
         // noDropdown: true,
         children: [
             {
-                path: "user/user/index",
-                component: user,
-                name: "用户管理",
+                path: "paygroup_list",
+                component: paygroup_list,
+                name: "支付类型管理",
                 icon: "0",
                 meta: {
                     authRule: ["user/user/index"]
                 }
             },
             {
-                path: "user/userIpAnalysis/index",
-                component: userIpAnalysis,
-                name: "用户登录IP分析",
+                path: "cash_paysetting",
+                component: cash_paysetting,
+                name: "支付设定",
                 icon: "0",
                 meta: {
                     authRule: ["user/userIpAnalysis/index"]
                 }
             },
             {
-                path: "user/userPrizeSet/index",
-                component: userPrizeSet,
-                name: "用户奖金组",
+                path: "payaccount_list",
+                component: payaccount_list,
+                name: "入款账号管理",
+                icon: "0",
+                meta: {
+                    authRule: ["user/userPrizeSet/index"]
+                }
+            },
+            {
+                path: "tripartite_list",
+                component: tripartite_list,
+                name: "三方账号管理",
+                icon: "0",
+                meta: {
+                    authRule: ["user/userPrizeSet/index"]
+                }
+            },
+            {
+                path: "layerchart_index",
+                component: layerchart_index,
+                name: "层级状态图",
+                icon: "0",
+                meta: {
+                    authRule: ["user/userPrizeSet/index"]
+                }
+            },
+            {
+                path: "userbetscheck_list",
+                component: userbetscheck_list,
+                name: "即时稽核",
+                icon: "0",
+                meta: {
+                    authRule: ["user/userPrizeSet/index"]
+                }
+            },
+            {
+                path: "transferorder_list",
+                component: transferorder_list,
+                name: "转账记录",
+                icon: "0",
+                meta: {
+                    authRule: ["user/userPrizeSet/index"]
+                }
+            },
+            {
+                path: "cash_withdrawlist",
+                component: cash_withdrawlist,
+                name: "出款管理",
+                icon: "0",
+                meta: {
+                    authRule: ["user/userPrizeSet/index"]
+                }
+            },
+            {
+                path: "manualpay_save",
+                component: manualpay_save,
+                name: "人工存提",
+                icon: "0",
+                meta: {
+                    authRule: ["user/userPrizeSet/index"]
+                }
+            },
+            {
+                path: "manualpayconfirm_list",
+                component: manualpayconfirm_list,
+                name: "人工存提审核",
+                icon: "0",
+                meta: {
+                    authRule: ["user/userPrizeSet/index"]
+                }
+            },
+            {
+                path: "companymoney_list",
+                component: companymoney_list,
+                name: "公司入款记录",
+                icon: "0",
+                meta: {
+                    authRule: ["user/userPrizeSet/index"]
+                }
+            },
+            {
+                path: "fastpaymoney_list",
+                component: fastpaymoney_list,
+                name: "三方入款记录",
+                icon: "0",
+                meta: {
+                    authRule: ["user/userPrizeSet/index"]
+                }
+            },
+            {
+                path: "cash_orderlist",
+                component: cash_orderlist,
+                name: "账变列表",
+                icon: "0",
+                meta: {
+                    authRule: ["user/userPrizeSet/index"]
+                }
+            },
+            {
+                path: "cash_rakeback",
+                component: cash_rakeback,
+                name: "返水",
                 icon: "0",
                 meta: {
                     authRule: ["user/userPrizeSet/index"]
@@ -424,25 +691,43 @@ export const asyncRouterMap = [
         redirect: "/events/events",
         component: Home,
         icon: "guanggao",
-        name: "公告管理",
+        name: "游戏管理",
         meta: {
             authRule: ["events/events/index"]
         },
         // noDropdown: true,
         children: [
             {
-                path: "bulletin/bulletin/index",
-                component: bulletin,
-                name: "公告",
+                path: "proxygames_list",
+                component: proxygames_list,
+                name: "三方游戏",
                 icon: "0",
                 meta: {
                     authRule: ["bulletin/bulletin/index"]
                 }
             },
             {
-                path: "bulletin/bulletinType/index",
-                component: bulletinType,
-                name: "公告类型",
+                path: "pgame_list",
+                component: pgame_list,
+                name: "彩票游戏",
+                icon: "0",
+                meta: {
+                    authRule: ["bulletin/bulletinType/index"]
+                }
+            },
+            {
+                path: "betlimit_list",
+                component: betlimit_list,
+                name: "投注限额",
+                icon: "0",
+                meta: {
+                    authRule: ["bulletin/bulletinType/index"]
+                }
+            },
+            {
+                path: "lotteryrisk_list",
+                component: lotteryrisk_list,
+                name: "游戏风控",
                 icon: "0",
                 meta: {
                     authRule: ["bulletin/bulletinType/index"]
@@ -455,55 +740,28 @@ export const asyncRouterMap = [
         redirect: "/events/events",
         component: Home,
         icon: "guanggao",
-        name: "核心",
+        name: "代理与佣金",
         meta: {
             authRule: ["events/events/index"]
         },
         // noDropdown: true,
         children: [
             {
-                path: "basis/third-plats/index",
-                component: thirdplats,
-                name: "第三方平台",
+                path: "proxycommission_list",
+                component: proxycommission_list,
+                name: "代理默认配额设置",
                 icon: "0",
                 meta: {
                     authRule: ["basis/third-plats/index"]
                 }
             },
             {
-                path: "basis/transaction-types/index",
-                component: transactiontypes,
-                name: "账变类型",
+                path: "proxycommission_proxylist",
+                component: proxycommission_proxylist,
+                name: "代理推广链接",
                 icon: "0",
                 meta: {
                     authRule: ["basis/transaction-types/index"]
-                }
-            },
-            {
-                path: "basis/payment-platforms/index",
-                component: paymentplatforms,
-                name: "支付平台",
-                icon: "0",
-                meta: {
-                    authRule: ["basis/payment-platforms/index"]
-                }
-            },
-            {
-                path: "basis/terminals/index",
-                component: terminals,
-                name: "终端",
-                icon: "0",
-                meta: {
-                    authRule: ["basis/terminals/index"]
-                }
-            },
-            {
-                path: "events12",
-                component: paymenttypes,
-                name: "Payment Type",
-                icon: "0",
-                meta: {
-                    authRule: ["basis/payment-types/index"]
                 }
             }
         ]
@@ -513,33 +771,49 @@ export const asyncRouterMap = [
         redirect: "/events/events",
         component: Home,
         icon: "guanggao",
-        name: "彩种",
+        name: "报表管理",
         meta: {
             authRule: ["events/events/index"]
         },
         // noDropdown: true,
         children: [
             {
-                path: "setting/term/index",
-                component: term,
-                name: "奖期",
+                path: "operation_profit",
+                component: operation_profit,
+                name: "运营报表",
                 icon: "0",
                 meta: {
                     authRule: ["setting/term/index"]
                 }
             },
             {
-                path: "setting/serial/index",
-                component: serial,
-                name: "系列",
+                path: "user_report",
+                component: user_report,
+                name: "用户报表",
                 icon: "0",
                 meta: {
                     authRule: ["setting/serial/index"]
                 }
             }, {
-                path: "setting/lottery/index",
-                component: lottery,
-                name: "彩种",
+                path: "finance_index",
+                component: finance_index,
+                name: "财务报表",
+                icon: "0",
+                meta: {
+                    authRule: ["setting/lottery/index"]
+                }
+            }, {
+                path: "pgame_playlist",
+                component: pgame_playlist,
+                name: "彩票报表",
+                icon: "0",
+                meta: {
+                    authRule: ["setting/lottery/index"]
+                }
+            }, {
+                path: "preport_profit",
+                component: preport_profit,
+                name: "平台报表",
                 icon: "0",
                 meta: {
                     authRule: ["setting/lottery/index"]
@@ -552,60 +826,19 @@ export const asyncRouterMap = [
         redirect: "/events/events",
         component: Home,
         icon: "guanggao",
-        name: "投注",
+        name: "活动管理",
         meta: {
             authRule: ["events/events/index"]
         },
         // noDropdown: true,
         children: [
             {
-                path: "lottery/projects/index",
-                component: projects,
-                name: "注单",
+                path: "activity_list",
+                component: activity_list,
+                name: "活动列表",
                 icon: "0",
                 meta: {
                     authRule: ["lottery/projects/index"]
-                }
-            },
-            {
-                path: "lottery/trail/index",
-                component: trail,
-                name: "追号",
-                icon: "0",
-                meta: {
-                    authRule: ["lottery/trail/index"]
-                }
-            }, {
-                path: "lottery/riskProjects/index",
-                component: riskProjects,
-                name: "风险注单",
-                icon: "0",
-                meta: {
-                    authRule: ["lottery/riskProjects/index"]
-                }
-            }, {
-                path: "lottery/draw/index",
-                component: draw,
-                name: "开奖",
-                icon: "0",
-                meta: {
-                    authRule: ["lottery/draw/index"]
-                }
-            }, {
-                path: "lottery/warn/index",
-                component: warn,
-                name: "告警记录",
-                icon: "0",
-                meta: {
-                    authRule: ["lottery/warn/index"]
-                }
-            }, {
-                path: "lottery/exception/index",
-                component: exception,
-                name: "开奖异常处理",
-                icon: "0",
-                meta: {
-                    authRule: ["lottery/exception/index"]
                 }
             }
         ]
@@ -615,496 +848,50 @@ export const asyncRouterMap = [
         redirect: "/events/events",
         component: Home,
         icon: "guanggao",
-        name: "报表",
+        name: "公告管理",
         meta: {
             authRule: ["events/events/index"]
         },
         // noDropdown: true,
         children: [
             {
-                path: "report/stat-profits/index",
-                component: statprofits,
-                name: "日盈亏报表",
+                path: "message_list",
+                component: message_list,
+                name: "站内信列表",
                 icon: "0",
                 meta: {
                     authRule: ["report/stat-profits/index"]
                 }
             },
             {
-                path: "report/issue-profits/index",
-                component: issueprofits,
-                name: "单期盈亏记录",
+                path: "push_list",
+                component: push_list,
+                name: "移动端推送",
                 icon: "0",
                 meta: {
                     authRule: ["report/issue-profits/index"]
                 }
             }, {
-                path: "report/stat-lottery-profits/index",
-                component: statlotteryprofits,
-                name: "日彩种盈亏",
+                path: "notice_list",
+                component: notice_list,
+                name: "公告列表",
                 icon: "0",
                 meta: {
                     authRule: ["report/stat-lottery-profits/index"]
                 }
             }, {
-                path: "report/stat-month-profits/index",
-                component: statmonthprofits,
-                name: "月盈亏统计",
+                path: "marquee_list",
+                component: marquee_list,
+                name: "跑马灯列表",
                 icon: "0",
                 meta: {
                     authRule: ["report/stat-month-profits/index"]
-                }
-            }, {
-                path: "report/lottery-month-profits/index",
-                component: lotterymonthprofits,
-                name: "月彩种盈亏统计",
-                icon: "0",
-                meta: {
-                    authRule: ["report/lottery-month-profits/index"]
-                }
-            }, {
-                path: "report/team-profits/index",
-                component: teamprofits,
-                name: "团队盈亏",
-                icon: "0",
-                meta: {
-                    authRule: ["report/team-profits/index"]
-                }
-            }, {
-                path: "report/user-profits/index",
-                component: userprofits,
-                name: "用户盈亏",
-                icon: "0",
-                meta: {
-                    authRule: ["report/user-profits/index"]
-                }
-            }, {
-                path: "report/user-month-profits/index",
-                component: usermonthprofits,
-                name: "月用户盈亏报表",
-                icon: "0",
-                meta: {
-                    authRule: ["report/user-month-profits/index"]
-                }
-            }, {
-                path: "report/team-month-profits/index",
-                component: teammonthprofits,
-                name: "月团队盈亏报表",
-                icon: "0",
-                meta: {
-                    authRule: ["report/team-month-profits/index"]
-                }
-            }, {
-                path: "report/user-lottery-profits/index",
-                component: userlotteryprofits,
-                name: "用户日彩种盈亏",
-                icon: "0",
-                meta: {
-                    authRule: ["report/user-lottery-profits/index"]
-                }
-            },
-            {
-                path: "report/team-lottery-profits/index",
-                component: teamlotteryprofits,
-                name: "团队日彩种盈亏",
-                icon: "0",
-                meta: {
-                    authRule: ["report/team-lottery-profits/index"]
-                }
-            }, {
-                path: "report/way-profits/index",
-                component: wayprofits,
-                name: "投注方式盈亏",
-                icon: "0",
-                meta: {
-                    authRule: ["report/way-profits/index"]
-                }
-            }, {
-                path: "report/lottery-way-profits/index",
-                component: lotterywayprofits,
-                name: "彩种投注方式盈亏",
-                icon: "0",
-                meta: {
-                    authRule: ["report/lottery-way-profits/index"]
-                }
-            }, {
-                path: "report/user-lottery-way-profits/index",
-                component: userlotterywayprofits,
-                name: "用户彩种投注方式盈亏",
-                icon: "0",
-                meta: {
-                    authRule: ["report/user-lottery-way-profits/index"]
-                }
-            }, {
-                path: "report/team-lottery-way-profits/index",
-                component: teamlotterywayprofits,
-                name: "团队彩种投注方式盈亏",
-                icon: "0",
-                meta: {
-                    authRule: ["report/team-lottery-way-profits/index"]
-                }
-            }, {
-                path: "report/terminal-profits/index",
-                component: terminalprofits,
-                name: "终端盈亏",
-                icon: "0",
-                meta: {
-                    authRule: ["report/terminal-profits/index"]
                 }
             }
         ]
     },
     {
         path: "/events9",
-        redirect: "/events/events",
-        component: Home,
-        icon: "guanggao",
-        name: "商户管理",
-        meta: {
-            authRule: ["events/events/index"]
-        },
-        // noDropdown: true,
-        children: [
-            {
-                path: "merchant/merchant/index",
-                component: merchant,
-                name: "商户列表",
-                icon: "0",
-                meta: {
-                    authRule: ["merchant/merchant/index"]
-                }
-            },
-            {
-                path: "merchant/merchantIp/index",
-                component: merchantIp,
-                name: "商户IP白名单",
-                icon: "0",
-                meta: {
-                    authRule: ["merchant/merchantIp/index"]
-                }
-            },
-            {
-                path: "merchant/merchantAccount/index",
-                component: merchantAccount,
-                name: "商户账户",
-                icon: "0",
-                meta: {
-                    authRule: ["merchant/merchantAccount/index"]
-                }
-            },
-            {
-                path: "merchant/merchantLottery/index",
-                component: merchantLottery,
-                name: "商户关闭彩种",
-                icon: "0",
-                meta: {
-                    authRule: ["merchant/merchantLottery/index"]
-                }
-            }
-        ]
-    },
-    {
-        path: "/events10",
-        redirect: "/events/events",
-        component: Home,
-        icon: "guanggao",
-        name: "基础信息",
-        meta: {
-            authRule: ["events/events/index"]
-        },
-        // noDropdown: true,
-        children: [
-            {
-                path: "setting/district/index",
-                component: district,
-                name: "地区",
-                icon: "0",
-                meta: {
-                    authRule: ["setting/district/index"]
-                }
-            },
-            {
-                path: "setting/domain/index",
-                component: domain,
-                name: "域名管理",
-                icon: "0",
-                meta: {
-                    authRule: ["setting/domain/index"]
-                }
-            }
-            /*,
-            {
-                path: "events45",
-                component: adSite,
-                name: "文件上传信息",
-                icon: "0",
-                meta: {
-                    authRule: ["events/events/index"]
-                }
-            },
-            {
-                path: "events46",
-                component: adSite,
-                name: "实时通知设置",
-                icon: "0",
-                meta: {
-                    authRule: ["events/events/index"]
-                }
-            }*/
-        ]
-    },
-    {
-        path: "/events11",
-        redirect: "/events/events",
-        component: Home,
-        icon: "guanggao",
-        name: "管理员",
-        meta: {
-            authRule: ["events/events/index"]
-        },
-        // noDropdown: true,
-        children: [
-            {
-                path: "events47",
-                component: adSite,
-                name: "管理员列表",
-                icon: "0",
-                meta: {
-                    authRule: ["events/events/index"]
-                }
-            },
-            {
-                path: "events48",
-                component: adSite,
-                name: "创建管理员",
-                icon: "0",
-                meta: {
-                    authRule: ["events/events/index"]
-                }
-            },
-            {
-                path: "events49",
-                component: adSite,
-                name: "修改密码",
-                icon: "0",
-                meta: {
-                    authRule: ["events/events/index"]
-                }
-            },
-            {
-                path: "events50",
-                component: adSite,
-                name: "管理员角色",
-                icon: "0",
-                meta: {
-                    authRule: ["events/events/index"]
-                }
-            },
-            {
-                path: "events51",
-                component: adSite,
-                name: "创建管理员角色",
-                icon: "0",
-                meta: {
-                    authRule: ["events/events/index"]
-                }
-            },
-            {
-                path: "events52",
-                component: adSite,
-                name: "管理员角色分配",
-                icon: "0",
-                meta: {
-                    authRule: ["events/events/index"]
-                }
-            }
-        ]
-    },
-    {
-        path: "/events12",
-        redirect: "/events/events",
-        component: Home,
-        icon: "guanggao",
-        name: "资金",
-        meta: {
-            authRule: ["events/events/index"]
-        },
-        // noDropdown: true,
-        children: [
-            {
-                path: "fund/accounts/index",
-                component: accounts,
-                name: "账户",
-                icon: "0",
-                meta: {
-                    authRule: ["fund/accounts/index"]
-                }
-            },
-            {
-                path: "fund/transactions/index",
-                component: transactions,
-                name: "账变",
-                icon: "0",
-                meta: {
-                    authRule: ["fund/transactions/index"]
-                }
-            },
-            {
-                path: "fund/deposits/index",
-                component: deposits,
-                name: "充值记录（第三方）",
-                icon: "0",
-                meta: {
-                    authRule: ["fund/deposits/index"]
-                }
-            },
-            {
-                path: "fund/bank-deposits/index",
-                component: bankdeposits,
-                name: "充值记录（支付宝）",
-                icon: "0",
-                meta: {
-                    authRule: ["fund/bank-deposits/index"]
-                }
-            }
-            ,
-            {
-                path: "fund/exception-deposits/index",
-                component: exceptiondeposits,
-                name: "异常充值记录",
-                icon: "0",
-                meta: {
-                    authRule: ["fund/exception-deposits/index"]
-                }
-            }
-            ,
-            {
-                path: "fund/withdrawals/index",
-                component: withdrawals,
-                name: "Withdrawals",
-                icon: "0",
-                meta: {
-                    authRule: ["fund/withdrawals/index"]
-                }
-            }
-            ,
-            {
-                path: "fund/manual-deposits/index",
-                component: manualdeposits,
-                name: "手动充值",
-                icon: "0",
-                meta: {
-                    authRule: ["fund/manual-deposits/index"]
-                }
-            }
-            ,
-            {
-                path: "fund/manual-withdraws/index",
-                component: manualwithdraws,
-                name: "手动提现",
-                icon: "0",
-                meta: {
-                    authRule: ["fund/manual-withdraws/index"]
-                }
-            }
-            ,
-            {
-                path: "fund/dividends/index",
-                component: dividends,
-                name: "分红",
-                icon: "0",
-                meta: {
-                    authRule: ["fund/dividends/index"]
-                }
-            }
-            ,
-            {
-                path: "fund/lose-commissions/index",
-                component: losecommissions,
-                name: "输值佣金",
-                icon: "0",
-                meta: {
-                    authRule: ["fund/lose-commissions/index"]
-                }
-            }
-            ,
-            {
-                path: "fund/commissions-statistics/index",
-                component: commissionsstatistics,
-                name: "佣金统计发放记录",
-                icon: "0",
-                meta: {
-                    authRule: ["fund/commissions-statistics/index"]
-                }
-            }
-            ,
-            {
-                path: "fund/plat-transfer-records/index",
-                component: plattransferrecords,
-                name: "Plat Transfer Record",
-                icon: "0",
-                meta: {
-                    authRule: ["fund/plat-transfer-records/index"]
-                }
-            }
-
-        ]
-    },
-    {
-        path: "/events13",
-        redirect: "/events/events",
-        component: Home,
-        icon: "guanggao",
-        name: "奖金设置",
-        meta: {
-            authRule: ["events/events/index"]
-        },
-        // noDropdown: true,
-        children: [
-            {
-                path: "setting/prizeGroup/index",
-                component: prizeGroup,
-                name: "奖金组",
-                icon: "0",
-                meta: {
-                    authRule: ["setting/prizeGroup/index"]
-                }
-            }
-        ]
-    },
-    {
-        path: "/events14",
-        redirect: "/events/events",
-        component: Home,
-        icon: "guanggao",
-        name: "系统设置",
-        meta: {
-            authRule: ["events/events/index"]
-        },
-        // noDropdown: true,
-        children: [
-            {
-                path: "setting/betLimit/index",
-                component: betLimit,
-                name: "投注限额",
-                icon: "0",
-                meta: {
-                    authRule: ["setting/betLimit/index"]
-                }
-            },
-            {
-                path: "setting/sys-configs/index",
-                component: sysconfigs,
-                name: "系统设置",
-                icon: "0",
-                meta: {
-                    authRule: ["setting/sys-configs/index"]
-                }
-            }
-        ]
-    },
-    {
-        path: "/events15",
         redirect: "/events/events",
         component: Home,
         icon: "guanggao",
@@ -1115,90 +902,30 @@ export const asyncRouterMap = [
         // noDropdown: true,
         children: [
             {
-                path: "log/merchantApiLog/index",
-                component: merchantApiLog,
-                name: "商户api记录",
+                path: "log_domainlog",
+                component: log_domainlog,
+                name: "域名统计",
                 icon: "0",
                 meta: {
-                    authRule: ["log/merchantApiLog/index"]
+                    authRule: ["merchant/merchant/index"]
                 }
             },
             {
-                path: "log/adminLog/index",
-                component: adminLog,
-                name: "管理员日志",
+                path: "log_loginlog",
+                component: log_loginlog,
+                name: "用户登入查询",
                 icon: "0",
                 meta: {
-                    authRule: ["log/adminLog/index"]
+                    authRule: ["merchant/merchantIp/index"]
                 }
             },
             {
-                path: "log/userManageLog/index",
-                component: userManageLog,
-                name: "用户管理日志",
+                path: "log_adminlog",
+                component: log_adminlog,
+                name: "管理员日志列表",
                 icon: "0",
                 meta: {
-                    authRule: ["log/userManageLog/index"]
-                }
-            }
-        ]
-    },
-    {
-        path: "/events16",
-        redirect: "/events/events",
-        component: Home,
-        icon: "guanggao",
-        name: "系统维护",
-        meta: {
-            authRule: ["events/events/index"]
-        },
-        // noDropdown: true,
-        children: [
-            {
-                path: "events62",
-                component: adSite,
-                name: "更新奖期列表缓存",
-                icon: "0",
-                meta: {
-                    authRule: ["events/events/index"]
-                }
-            }
-        ]
-    },
-    {
-        path: "/events16",
-        redirect: "/events/events",
-        component: Home,
-        icon: "guanggao",
-        name: "广告",
-        meta: {
-            authRule: ["events/events/index"]
-        },
-        // noDropdown: true,
-        children: [
-            {
-                path: "ad/ad-types/index",
-                component: adtypes,
-                name: "广告类型",
-                icon: "0",
-                meta: {
-                    authRule: ["ad/ad-types/index"]
-                }
-            },{
-                path: "ad/ad-locations/index",
-                component: adlocations,
-                name: "广告位",
-                icon: "0",
-                meta: {
-                    authRule: ["ad/ad-locations/index"]
-                }
-            },{
-                path: "ad/ad-infos/index",
-                component: adinfos,
-                name: "广告内容",
-                icon: "0",
-                meta: {
-                    authRule: ["ad/ad-infos/index"]
+                    authRule: ["merchant/merchantAccount/index"]
                 }
             }
         ]

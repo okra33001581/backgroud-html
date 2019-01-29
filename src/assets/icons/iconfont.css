@@ -51,3 +51,10 @@
 
 .icon-xiaochengxu:before { content: "\e61e"; }
 
+.icon-baobiao1:before {
+  content: "\e647";
+}
+
+.icon-baobiao:before {
+  content: "\e63b";
+}

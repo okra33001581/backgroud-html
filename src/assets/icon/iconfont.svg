@@ -1,0 +1,29 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<!--
+2013-9-30: Created.
+-->
+<svg>
+<metadata>
+Created by iconfont
+</metadata>
+<defs>
+
+<font id="iconfont" horiz-adv-x="1024" >
+  <font-face
+    font-family="iconfont"
+    font-weight="500"
+    font-stretch="normal"
+    units-per-em="1024"
+    ascent="896"
+    descent="-128"
+  />
+    <missing-glyph />
+    
+    <glyph glyph-name="baobiao" unicode="&#58939;" d="M0 896h1024v-1024H0zM160.256-105.536h63.168v309.12h-63.168v-309.12M363.264-105.536h63.04V344.64h-63.04v-450.176M590.464-105.536h63.104V466.816h-63.104v-572.352M803.136-105.536h58.24V621.952h-58.24v-727.488M860.544 670.208l15.744 200.704-212.8-47.808 74.176-60.096-211.456-206.464L423.872 621.44 125.696 318.848l35.328-38.592 267.648 273.792 102.336-65.024 250.496 245.44M0-128h61.824V896H0v-1024M0-67.904h1024V-128H0z"  horiz-adv-x="1024" />
+
+    
+
+
+  </font>
+</defs></svg>
