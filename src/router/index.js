@@ -236,7 +236,7 @@ export const constantRouterMap = [
         path: "/readme",
         component: Home,
         redirect: "/readme/main",
-        icon: "shouye",
+        icon: "mainpage",
         name: "控制台",
         noDropdown: true,
         children: [
@@ -251,7 +251,7 @@ export const constantRouterMap = [
         redirect: "/components/uploadList",
         component: Home,
         name: "components",
-        icon: "tongyong",
+        icon: "delete",
         children: [
             {
                 path: "uploadList",
@@ -289,7 +289,7 @@ export const asyncRouterMap = [
         path: "/userManage",
         redirect: "/userManage/adminManage/index",
         component: Home,
-        icon: "guanliyuan1",
+        icon: "delete",
         name: "用户管理",
         meta: {
             authRule: ["user_manage"]
@@ -301,7 +301,7 @@ export const asyncRouterMap = [
                 component: adminRouter,
                 redirect: "/userManage/authAdmin/index",
                 name: "管理组",
-                icon: "0",
+                icon: "delete",
                 meta: {
                     authRule: ["user_manage/admin_manage"]
                 },
@@ -310,7 +310,7 @@ export const asyncRouterMap = [
                         path: "authAdmin",
                         component: authAdmin,
                         name: "商户管理",
-                        icon: "0",
+                        icon: "delete",
                         meta: {
                             authRule: ["admin/auth_admin/index"]
                         }
@@ -319,7 +319,7 @@ export const asyncRouterMap = [
                         path: "authRole",
                         component: authRole,
                         name: "角色管理",
-                        icon: "0",
+                        icon: "delete",
                         meta: {
                             authRule: ["admin/auth_role/index"]
                         }
@@ -328,7 +328,7 @@ export const asyncRouterMap = [
                         path: "authPermissionRule",
                         component: authPermissionRule,
                         name: "权限管理",
-                        icon: "0",
+                        icon: "delete",
                         meta: {
                             authRule: ["admin/auth_permission_rule/index"]
                         }
@@ -341,7 +341,7 @@ export const asyncRouterMap = [
         path: "/hwin",
         redirect: "/proxyiptables/authAdmin/index",
         component: Home,
-        icon: "baobiao",
+        icon: "sitemanagement",
         name: "网站管理",
         meta: {
             authRule: ["ad_manage"]
@@ -352,7 +352,7 @@ export const asyncRouterMap = [
                 path: "proxyiptables_blackcontainlist",
                 component: proxyiptables_blackcontainlist,
                 name: "IP限制",
-                icon: "0",
+                icon: "proxyiptables_blackcontainlist",
                 meta: {
                     authRule: ["admin/auth_admin/index"]
                 }
@@ -361,7 +361,7 @@ export const asyncRouterMap = [
                 path: "systemconfig_set",
                 component: systemconfig_set,
                 name: "系统参数设定",
-                icon: "0",
+                icon: "systemconfig_set",
                 meta: {
                     authRule: ["admin/ad/index"]
                 }
@@ -370,7 +370,7 @@ export const asyncRouterMap = [
                 path: "systemconfig_imagelist",
                 component: systemconfig_imagelist,
                 name: "网站图标设置",
-                icon: "0",
+                icon: "systemconfig_imagelist",
                 meta: {
                     authRule: ["admin/ad/index"]
                 }
@@ -379,7 +379,7 @@ export const asyncRouterMap = [
                 path: "qrconfig_list",
                 component: qrconfig_list,
                 name: "二维码设置",
-                icon: "0",
+                icon: "qrconfig_list",
                 meta: {
                     authRule: ["admin/ad/index"]
                 }
@@ -388,7 +388,7 @@ export const asyncRouterMap = [
                 path: "rotationconfig_list",
                 component: rotationconfig_list,
                 name: "首页轮播设定",
-                icon: "0",
+                icon: "rotationconfig_list",
                 meta: {
                     authRule: ["admin/ad/index"]
                 }
@@ -397,7 +397,7 @@ export const asyncRouterMap = [
                 path: "floatwindowconfig_list",
                 component: floatwindowconfig_list,
                 name: "浮动窗口",
-                icon: "0",
+                icon: "floatwindowconfig_list",
                 meta: {
                     authRule: ["admin/ad/index"]
                 }
@@ -406,7 +406,7 @@ export const asyncRouterMap = [
                 path: "information_list",
                 component: information_list,
                 name: "资讯中心",
-                icon: "0",
+                icon: "information_list",
                 meta: {
                     authRule: ["admin/ad/index"]
                 }
@@ -415,7 +415,7 @@ export const asyncRouterMap = [
                 path: "information_companylist",
                 component: information_companylist,
                 name: "公司简介",
-                icon: "0",
+                icon: "information_companylist",
                 meta: {
                     authRule: ["admin/ad/index"]
                 }
@@ -424,7 +424,7 @@ export const asyncRouterMap = [
                 path: "lotterygroup_sort",
                 component: lotterygroup_sort,
                 name: "菜单排序",
-                icon: "0",
+                icon: "lotterygroup_sort",
                 meta: {
                     authRule: ["admin/ad/index"]
                 }
@@ -435,7 +435,7 @@ export const asyncRouterMap = [
         path: "/events1",
         redirect: "/events/events",
         component: Home,
-        icon: "guanggao",
+        icon: "merchantmanagement",
         name: "商户账号管理",
         meta: {
             authRule: ["events/events/index"]
@@ -446,7 +446,7 @@ export const asyncRouterMap = [
                 path: "proxy_grouplist",
                 component: proxy_grouplist,
                 name: "商户组别列表",
-                icon: "0",
+                icon: "proxy_grouplist",
                 meta: {
                     authRule: ["events/new-event-conditions/index"]
                 }
@@ -455,7 +455,7 @@ export const asyncRouterMap = [
                 path: "proxy_memberlist",
                 component: proxy_memberlist,
                 name: "商户成员列表",
-                icon: "0",
+                icon: "proxy_memberlist",
                 meta: {
                     authRule: ["events/new-event-prizes/index"]
                 }
@@ -466,7 +466,7 @@ export const asyncRouterMap = [
         path: "/events122",
         redirect: "/events/events",
         component: Home,
-        icon: "guanggao",
+        icon: "usermanagement",
         name: "用户管理",
         meta: {
             authRule: ["develop/sysSetting/index"]
@@ -477,7 +477,7 @@ export const asyncRouterMap = [
                 path: "user_mainlist",
                 component: user_mainlist,
                 name: "用户列表",
-                icon: "0",
+                icon: "user_mainlist",
                 meta: {
                     authRule: ["develop/sysSetting/index"]
                 }
@@ -486,7 +486,7 @@ export const asyncRouterMap = [
                 path: "user_infolist",
                 component: user_infolist,
                 name: "会员资料",
-                icon: "0",
+                icon: "user_infolist",
                 meta: {
                     authRule: ["develop/auditType/index"]
                 }
@@ -495,7 +495,7 @@ export const asyncRouterMap = [
                 path: "user_userlayer",
                 component: user_userlayer,
                 name: "层级管理",
-                icon: "0",
+                icon: "user_userlayer",
                 meta: {
                     authRule: ["develop/auditType/index"]
                 }
@@ -504,7 +504,7 @@ export const asyncRouterMap = [
                 path: "user_usercard",
                 component: user_usercard,
                 name: "用户银行卡管理",
-                icon: "0",
+                icon: "user_usercard",
                 meta: {
                     authRule: ["develop/auditType/index"]
                 }
@@ -513,7 +513,7 @@ export const asyncRouterMap = [
                 path: "user_validuser",
                 component: user_validuser,
                 name: "有效会员列表",
-                icon: "0",
+                icon: "user_validuser",
                 meta: {
                     authRule: ["develop/auditType/index"]
                 }
@@ -522,7 +522,7 @@ export const asyncRouterMap = [
                 path: "user_inoutcash",
                 component: user_inoutcash,
                 name: "出入款统计",
-                icon: "0",
+                icon: "user_inoutcash",
                 meta: {
                     authRule: ["develop/auditType/index"]
                 }
@@ -531,7 +531,7 @@ export const asyncRouterMap = [
                 path: "user_reviewlist",
                 component: user_reviewlist,
                 name: "安全信息审核",
-                icon: "0",
+                icon: "user_reviewlist",
                 meta: {
                     authRule: ["develop/auditType/index"]
                 }
@@ -540,7 +540,7 @@ export const asyncRouterMap = [
                 path: "user_monitor",
                 component: user_monitor,
                 name: "多账户监测",
-                icon: "0",
+                icon: "user_monitor",
                 meta: {
                     authRule: ["develop/auditType/index"]
                 }
@@ -551,7 +551,7 @@ export const asyncRouterMap = [
         path: "/events3",
         redirect: "/events/events",
         component: Home,
-        icon: "guanggao",
+        icon: "fundmanagement",
         name: "现金管理",
         meta: {
             authRule: ["events/events/index"]
@@ -562,7 +562,7 @@ export const asyncRouterMap = [
                 path: "paygroup_list",
                 component: paygroup_list,
                 name: "支付类型管理",
-                icon: "0",
+                icon: "paygroup_list",
                 meta: {
                     authRule: ["user/user/index"]
                 }
@@ -571,7 +571,7 @@ export const asyncRouterMap = [
                 path: "cash_paysetting",
                 component: cash_paysetting,
                 name: "支付设定",
-                icon: "0",
+                icon: "cash_paysetting",
                 meta: {
                     authRule: ["user/userIpAnalysis/index"]
                 }
@@ -580,7 +580,7 @@ export const asyncRouterMap = [
                 path: "payaccount_list",
                 component: payaccount_list,
                 name: "入款账号管理",
-                icon: "0",
+                icon: "payaccount_list",
                 meta: {
                     authRule: ["user/userPrizeSet/index"]
                 }
@@ -589,7 +589,7 @@ export const asyncRouterMap = [
                 path: "tripartite_list",
                 component: tripartite_list,
                 name: "三方账号管理",
-                icon: "0",
+                icon: "tripartite_list",
                 meta: {
                     authRule: ["user/userPrizeSet/index"]
                 }
@@ -598,7 +598,7 @@ export const asyncRouterMap = [
                 path: "layerchart_index",
                 component: layerchart_index,
                 name: "层级状态图",
-                icon: "0",
+                icon: "layerchart_index",
                 meta: {
                     authRule: ["user/userPrizeSet/index"]
                 }
@@ -607,7 +607,7 @@ export const asyncRouterMap = [
                 path: "userbetscheck_list",
                 component: userbetscheck_list,
                 name: "即时稽核",
-                icon: "0",
+                icon: "userbetscheck_list",
                 meta: {
                     authRule: ["user/userPrizeSet/index"]
                 }
@@ -616,7 +616,7 @@ export const asyncRouterMap = [
                 path: "transferorder_list",
                 component: transferorder_list,
                 name: "转账记录",
-                icon: "0",
+                icon: "transferorder_list",
                 meta: {
                     authRule: ["user/userPrizeSet/index"]
                 }
@@ -625,7 +625,7 @@ export const asyncRouterMap = [
                 path: "cash_withdrawlist",
                 component: cash_withdrawlist,
                 name: "出款管理",
-                icon: "0",
+                icon: "cash_withdrawlist",
                 meta: {
                     authRule: ["user/userPrizeSet/index"]
                 }
@@ -634,7 +634,7 @@ export const asyncRouterMap = [
                 path: "manualpay_save",
                 component: manualpay_save,
                 name: "人工存提",
-                icon: "0",
+                icon: "manualpay_save",
                 meta: {
                     authRule: ["user/userPrizeSet/index"]
                 }
@@ -643,7 +643,7 @@ export const asyncRouterMap = [
                 path: "manualpayconfirm_list",
                 component: manualpayconfirm_list,
                 name: "人工存提审核",
-                icon: "0",
+                icon: "manualpayconfirm_list",
                 meta: {
                     authRule: ["user/userPrizeSet/index"]
                 }
@@ -652,7 +652,7 @@ export const asyncRouterMap = [
                 path: "companymoney_list",
                 component: companymoney_list,
                 name: "公司入款记录",
-                icon: "0",
+                icon: "companymoney_list",
                 meta: {
                     authRule: ["user/userPrizeSet/index"]
                 }
@@ -661,7 +661,7 @@ export const asyncRouterMap = [
                 path: "fastpaymoney_list",
                 component: fastpaymoney_list,
                 name: "三方入款记录",
-                icon: "0",
+                icon: "fastpaymoney_list",
                 meta: {
                     authRule: ["user/userPrizeSet/index"]
                 }
@@ -670,7 +670,7 @@ export const asyncRouterMap = [
                 path: "cash_orderlist",
                 component: cash_orderlist,
                 name: "账变列表",
-                icon: "0",
+                icon: "cash_orderlist",
                 meta: {
                     authRule: ["user/userPrizeSet/index"]
                 }
@@ -679,7 +679,7 @@ export const asyncRouterMap = [
                 path: "cash_rakeback",
                 component: cash_rakeback,
                 name: "返水",
-                icon: "0",
+                icon: "cash_rakeback",
                 meta: {
                     authRule: ["user/userPrizeSet/index"]
                 }
@@ -690,7 +690,7 @@ export const asyncRouterMap = [
         path: "/events4",
         redirect: "/events/events",
         component: Home,
-        icon: "guanggao",
+        icon: "playmanagement",
         name: "游戏管理",
         meta: {
             authRule: ["events/events/index"]
@@ -701,7 +701,7 @@ export const asyncRouterMap = [
                 path: "proxygames_list",
                 component: proxygames_list,
                 name: "三方游戏",
-                icon: "0",
+                icon: "proxygames_list",
                 meta: {
                     authRule: ["bulletin/bulletin/index"]
                 }
@@ -710,7 +710,7 @@ export const asyncRouterMap = [
                 path: "pgame_list",
                 component: pgame_list,
                 name: "彩票游戏",
-                icon: "0",
+                icon: "pgame_list",
                 meta: {
                     authRule: ["bulletin/bulletinType/index"]
                 }
@@ -719,7 +719,7 @@ export const asyncRouterMap = [
                 path: "betlimit_list",
                 component: betlimit_list,
                 name: "投注限额",
-                icon: "0",
+                icon: "betlimit_list",
                 meta: {
                     authRule: ["bulletin/bulletinType/index"]
                 }
@@ -728,7 +728,7 @@ export const asyncRouterMap = [
                 path: "lotteryrisk_list",
                 component: lotteryrisk_list,
                 name: "游戏风控",
-                icon: "0",
+                icon: "lotteryrisk_list",
                 meta: {
                     authRule: ["bulletin/bulletinType/index"]
                 }
@@ -739,8 +739,8 @@ export const asyncRouterMap = [
         path: "/events5",
         redirect: "/events/events",
         component: Home,
-        icon: "guanggao",
-        name: "代理与佣金",
+        icon: "agentmanagent",
+        name: "与代理佣金",
         meta: {
             authRule: ["events/events/index"]
         },
@@ -750,7 +750,7 @@ export const asyncRouterMap = [
                 path: "proxycommission_list",
                 component: proxycommission_list,
                 name: "代理默认配额设置",
-                icon: "0",
+                icon: "proxycommission_list",
                 meta: {
                     authRule: ["basis/third-plats/index"]
                 }
@@ -759,7 +759,7 @@ export const asyncRouterMap = [
                 path: "proxycommission_proxylist",
                 component: proxycommission_proxylist,
                 name: "代理推广链接",
-                icon: "0",
+                icon: "proxycommission_proxylist",
                 meta: {
                     authRule: ["basis/transaction-types/index"]
                 }
@@ -770,7 +770,7 @@ export const asyncRouterMap = [
         path: "/events6",
         redirect: "/events/events",
         component: Home,
-        icon: "guanggao",
+        icon: "reportmanagent",
         name: "报表管理",
         meta: {
             authRule: ["events/events/index"]
@@ -781,7 +781,7 @@ export const asyncRouterMap = [
                 path: "operation_profit",
                 component: operation_profit,
                 name: "运营报表",
-                icon: "0",
+                icon: "operation_profit",
                 meta: {
                     authRule: ["setting/term/index"]
                 }
@@ -790,7 +790,7 @@ export const asyncRouterMap = [
                 path: "user_report",
                 component: user_report,
                 name: "用户报表",
-                icon: "0",
+                icon: "user_report",
                 meta: {
                     authRule: ["setting/serial/index"]
                 }
@@ -798,7 +798,7 @@ export const asyncRouterMap = [
                 path: "finance_index",
                 component: finance_index,
                 name: "财务报表",
-                icon: "0",
+                icon: "finance_index",
                 meta: {
                     authRule: ["setting/lottery/index"]
                 }
@@ -806,7 +806,7 @@ export const asyncRouterMap = [
                 path: "pgame_playlist",
                 component: pgame_playlist,
                 name: "彩票报表",
-                icon: "0",
+                icon: "pgame_playlist",
                 meta: {
                     authRule: ["setting/lottery/index"]
                 }
@@ -814,7 +814,7 @@ export const asyncRouterMap = [
                 path: "preport_profit",
                 component: preport_profit,
                 name: "平台报表",
-                icon: "0",
+                icon: "preport_profit",
                 meta: {
                     authRule: ["setting/lottery/index"]
                 }
@@ -825,7 +825,7 @@ export const asyncRouterMap = [
         path: "/events7",
         redirect: "/events/events",
         component: Home,
-        icon: "guanggao",
+        icon: "eventmanagement",
         name: "活动管理",
         meta: {
             authRule: ["events/events/index"]
@@ -836,7 +836,7 @@ export const asyncRouterMap = [
                 path: "activity_list",
                 component: activity_list,
                 name: "活动列表",
-                icon: "0",
+                icon: "activity_list",
                 meta: {
                     authRule: ["lottery/projects/index"]
                 }
@@ -847,7 +847,7 @@ export const asyncRouterMap = [
         path: "/events8",
         redirect: "/events/events",
         component: Home,
-        icon: "guanggao",
+        icon: "noticemanagement",
         name: "公告管理",
         meta: {
             authRule: ["events/events/index"]
@@ -858,7 +858,7 @@ export const asyncRouterMap = [
                 path: "message_list",
                 component: message_list,
                 name: "站内信列表",
-                icon: "0",
+                icon: "message_list",
                 meta: {
                     authRule: ["report/stat-profits/index"]
                 }
@@ -867,7 +867,7 @@ export const asyncRouterMap = [
                 path: "push_list",
                 component: push_list,
                 name: "移动端推送",
-                icon: "0",
+                icon: "push_list",
                 meta: {
                     authRule: ["report/issue-profits/index"]
                 }
@@ -875,7 +875,7 @@ export const asyncRouterMap = [
                 path: "notice_list",
                 component: notice_list,
                 name: "公告列表",
-                icon: "0",
+                icon: "notice_list",
                 meta: {
                     authRule: ["report/stat-lottery-profits/index"]
                 }
@@ -883,7 +883,7 @@ export const asyncRouterMap = [
                 path: "marquee_list",
                 component: marquee_list,
                 name: "跑马灯列表",
-                icon: "0",
+                icon: "marquee_list",
                 meta: {
                     authRule: ["report/stat-month-profits/index"]
                 }
@@ -894,7 +894,7 @@ export const asyncRouterMap = [
         path: "/events9",
         redirect: "/events/events",
         component: Home,
-        icon: "guanggao",
+        icon: "Userlog",
         name: "日志管理",
         meta: {
             authRule: ["events/events/index"]
@@ -905,7 +905,7 @@ export const asyncRouterMap = [
                 path: "log_domainlog",
                 component: log_domainlog,
                 name: "域名统计",
-                icon: "0",
+                icon: "log_domainlog1",
                 meta: {
                     authRule: ["merchant/merchant/index"]
                 }
@@ -914,7 +914,7 @@ export const asyncRouterMap = [
                 path: "log_loginlog",
                 component: log_loginlog,
                 name: "用户登入查询",
-                icon: "0",
+                icon: "log_adminlog",
                 meta: {
                     authRule: ["merchant/merchantIp/index"]
                 }
@@ -923,7 +923,7 @@ export const asyncRouterMap = [
                 path: "log_adminlog",
                 component: log_adminlog,
                 name: "管理员日志列表",
-                icon: "0",
+                icon: "log_adminlog",
                 meta: {
                     authRule: ["merchant/merchantAccount/index"]
                 }
