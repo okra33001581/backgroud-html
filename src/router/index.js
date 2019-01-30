@@ -341,7 +341,7 @@ export const asyncRouterMap = [
         path: "/hwin",
         redirect: "/proxyiptables/authAdmin/index",
         component: Home,
-        icon: "jiaose",
+        icon: "baobiao",
         name: "网站管理",
         meta: {
             authRule: ["ad_manage"]
