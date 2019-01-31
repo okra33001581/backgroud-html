@@ -102,8 +102,7 @@ router.beforeEach((to, from, next) => {
                         .dispatch("filterRouter", { accessedRouters })
                         .then(() => {});
                 })
-                .catch((e) => {
-                    console.log(e)
+                .catch(() => {
                     store.dispatch("fedLogout").then(() => {
                         Message.error("验证失败,请重新登录");
                         let redirect = to.fullPath;
