@@ -66,7 +66,7 @@
                 <template slot-scope="scope">
                     <el-button type="text" size="small" @click.native="handleAuth(scope.row.id)">授权</el-button>
                     <el-button type="text" size="small" @click.native="handleAuthByUser(scope.row.id)">查看</el-button>
-                    <el-button type="text" size="small" @click.native="handleForm(scope.$index, scope.row)">编辑</el-button>
+                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑</el-button>
                     <el-button type="text" size="small" @click.native="handleDel(scope.$index, scope.row)" :loading="deleteLoading">删除</el-button>
                 </template>
             </el-table-column>
