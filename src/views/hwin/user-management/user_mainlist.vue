@@ -26,8 +26,8 @@
             <el-form-item>
                 <el-button-group>
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
-                    <el-button type="primary" icon="search" @click="onSubmit">查询</el-button>
-                    <el-button type="primary" @click.native="handleForm(null,null)">新增</el-button>
+                    <el-button type="primary" icon="el-icon-search" @click="onSubmit">查询</el-button>
+                    <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">新增</el-button>
                 </el-button-group>
             </el-form-item>
         </el-form>
@@ -118,12 +118,23 @@
             </el-table-column>
         </el-table>
 
+        <!--<el-pagination-->
+                <!--:page-size="query.limit"-->
+                <!--@current-change="handleCurrentChange"-->
+                <!--layout="prev, pager, next"-->
+                <!--:total="total">-->
+        <!--</el-pagination>-->
+
         <el-pagination
-                :page-size="query.limit"
+                @size-change="handleSizeChange"
                 @current-change="handleCurrentChange"
-                layout="prev, pager, next"
-                :total="total">
+                :current-page="currentPage"
+                :page-sizes="[15, 30, 50, 100]"
+                :page-size="pageSize"
+                layout="total, sizes, prev, pager, next, jumper"
+                :total="currentTotal">
         </el-pagination>
+
 
         <!--<pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />-->
 
