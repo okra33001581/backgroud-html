@@ -26,7 +26,7 @@
             :props="defaultProps"
             node-key="id"
             default-expand-all
-            :expand-on-click-node="false"
+            :expand-on-click-node="true"
             :render-content="renderContent">
         </el-tree>
 
@@ -137,9 +137,9 @@ export default {
         /*eslint-disable */
         renderContent (h, { node, data, store }) {
             return (
-                <span style="flex: 2; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
+                <span style="flex: 2; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;background-color:#FFFFF0">
                 <span>
-                <span title={ data.name } >{node.label}</span>
+                <span title={ data.name } class="el-icon-mobile-phone">{node.label}</span>
             </span>
             <span>
             <el-button style="font-size: 12px;" icon="el-icon-plus" type="primary" on-click={ () => this.handleForm(node, data, 'add') }>添加子菜单</el-button>
