@@ -137,14 +137,15 @@ export default {
         /*eslint-disable */
         renderContent (h, { node, data, store }) {
             return (
-                <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
+                <span style="flex: 2; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
                 <span>
-                <span title={ data.name }>{node.label}</span>
+                <span title={ data.name } >{node.label}</span>
             </span>
             <span>
-            <el-button style="font-size: 12px;" type="text" on-click={ () => this.handleForm(node, data, 'add') }>添加子菜单</el-button>
-            <el-button style="font-size: 12px;" type="text" on-click={ () => this.handleForm(node, data, 'edit') }>编辑</el-button>
-            <el-button style="font-size: 12px;" type="text" on-click={ () => this.handleDel(node, data) }>删除</el-button>
+            <el-button style="font-size: 12px;" icon="el-icon-plus" type="primary" on-click={ () => this.handleForm(node, data, 'add') }>添加子菜单</el-button>
+            <el-button style="font-size: 12px;" icon="el-icon-edit" type="primary" on-click={ () => this.handleForm(node, data, 'edit') }>编辑</el-button>
+            <el-button style="font-size: 12px;" icon="el-icon-delete" type="danger" on-click={ () => this.handleDel(node, data) }>删除</el-button>
+
             </span>
             </span>)
         },
