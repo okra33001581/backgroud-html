@@ -54,11 +54,16 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Status				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>
+
+            <el-table-column label="					排序		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					状态		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					名称		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					电脑版图片		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					手机版图片		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					链接地址		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					更新时间		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					操作者		" prop="id" sortable="custom" fixed></el-table-column>
+
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column

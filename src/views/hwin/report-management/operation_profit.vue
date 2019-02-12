@@ -54,11 +54,36 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Status				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>
+
+
+            <!--用户名
+            所属组
+            总入款
+            总取款
+            有效盈利
+            投注总额
+            中奖金额
+            返点总额
+            游戏盈亏
+            优惠总额
+            系统扣减
+            余额-->
+
+
+            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					用户名		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					所属组		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					总入款		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					总取款		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					有效盈利		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					投注总额		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					中奖金额		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					返点总额		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					游戏盈亏		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					优惠总额		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					系统扣减		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					余额		" prop="id" sortable="custom" fixed></el-table-column>
+
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column

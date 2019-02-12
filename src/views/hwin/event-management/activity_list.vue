@@ -54,11 +54,27 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Status				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>
+
+
+            <!--排序值
+            活动名称
+            开始时间
+            结束时间
+            显示终端
+            编辑时间
+            操作人员
+            活动状态
+-->
+            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					排序值		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					活动名称		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					开始时间		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					结束时间		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					显示终端		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					编辑时间		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					操作人员		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					活动状态		" prop="id" sortable="custom" fixed></el-table-column>
+
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column

@@ -55,10 +55,10 @@
                 style="width: 100%;"
                 @sort-change="sortChange">
             <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Status				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			图标				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			预览				" prop="id" sortable="custom" fixed></el-table-column>
+            <!--<el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>-->
+            <!--<el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>-->
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column

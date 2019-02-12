@@ -54,11 +54,19 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Status				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>
+
+            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					账号		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					姓名		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					可用余额		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					存入项目		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					存入金额		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					存款优惠		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					综合打码量稽核		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					常态性稽核		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					备注		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					会员备注		" prop="id" sortable="custom" fixed></el-table-column>
+
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column

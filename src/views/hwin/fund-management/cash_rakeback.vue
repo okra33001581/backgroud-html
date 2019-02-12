@@ -54,11 +54,29 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Status				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>
+
+
+            <!--投注日期
+            用户名
+            有效投注额
+            返水比例
+            返水金额
+            发放时间
+            发放人
+            审核备注
+            审核状态
+            -->
+            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					投注日期		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					用户名		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					有效投注额		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					返水比例		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					返水金额		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					发放时间		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					发放人		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					审核备注		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					审核状态		" prop="id" sortable="custom" fixed></el-table-column>
+
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column

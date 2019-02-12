@@ -54,11 +54,32 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Status				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>
+
+
+           <!-- ID
+            会员账号
+            提交时间
+            审核时间
+            IP
+            类型
+            修改详情
+            申请人
+            审核人
+            备注
+            状态-->
+
+            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					会员账号		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					提交时间		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					审核时间		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					IP		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					类型		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					修改详情		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					申请人		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					审核人		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					备注		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					状态		" prop="id" sortable="custom" fixed></el-table-column>
+
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column

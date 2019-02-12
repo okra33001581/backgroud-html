@@ -54,11 +54,16 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
+
+
+            <!--一级代理	有效会员	新增用户	总存款	总出款-->
+
             <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Status				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			一级代理				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			有效会员				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			新增用户				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			总存款				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			总出款				" prop="id" sortable="custom" fixed></el-table-column>
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column

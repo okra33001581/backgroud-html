@@ -54,11 +54,34 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Status				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>
+
+
+            <!--序号
+            添加时间
+            层级
+            支付类型
+            银行名称
+            银行账号
+            账号别名
+            收款人
+            附言
+            温馨提示
+            二维码
+            操作人
+-->
+            <el-table-column label="					序号		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					添加时间		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					层级		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					支付类型		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					银行名称		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					银行账号		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					账号别名		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					收款人		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					附言		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					温馨提示		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					二维码		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					操作人		" prop="id" sortable="custom" fixed></el-table-column>
+
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column

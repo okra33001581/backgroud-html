@@ -54,11 +54,29 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Status				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>
+
+
+            <!--日期
+            ip量
+            注册人数
+            活跃数
+            首存人数
+            首存金额
+            入款人数
+            入款次数
+            出款次数
+
+-->
+            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					日期		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					ip量		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					注册人数		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					活跃数		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					首存人数		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					首存金额		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					入款人数		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					入款次数		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					出款次数		" prop="id" sortable="custom" fixed></el-table-column>
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column

@@ -54,11 +54,24 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Status				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>
+
+
+            <!--ID-->
+            <!--账号-->
+            <!--昵称-->
+            <!--使用语言-->
+            <!--所属组-->
+            <!--是否锁定-->
+            <!--在线状态-->
+
+            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					账号		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					昵称		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					使用语言		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					所属组		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					是否锁定		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					在线状态		" prop="id" sortable="custom" fixed></el-table-column>
+
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column

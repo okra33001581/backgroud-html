@@ -2,6 +2,10 @@
 
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
+
+            <vue-datepicker-local v-model="range"></vue-datepicker-local>
+    <!--</div>-->
+
             <el-form-item class="query-form-item">
                 <el-input v-model="query.username" placeholder="用户名"></el-input>
             </el-form-item>
@@ -54,11 +58,16 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
+
+
+            <!--域名-->
+            <!--总访问人数-->
+            <!--总访问量-->
+
             <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Status				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			域名				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			总访问人数				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			总访问量				" prop="id" sortable="custom" fixed></el-table-column>
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column

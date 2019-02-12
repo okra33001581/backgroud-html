@@ -54,11 +54,41 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Status				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>
+
+
+            <!--用户ID
+            用户名
+            真实姓名
+            所属组
+            上级代理
+            用户层级
+            昵称
+            QQ号
+            微信号
+            手机号
+            邮箱
+            账户余额
+            最后在线
+            最后登录日期
+            注册日期
+-->
+            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					用户ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					用户名		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					真实姓名		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					所属组		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					上级代理		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					用户层级		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					昵称		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					QQ号		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					微信号		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					手机号		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					邮箱		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					账户余额		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					最后在线		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					最后登录日期		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					注册日期		" prop="id" sortable="custom" fixed></el-table-column>
+
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column

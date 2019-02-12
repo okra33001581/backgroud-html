@@ -54,11 +54,30 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Status				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>
+
+
+            <!--订单号
+            时间
+            会员账号
+            类型
+            平台
+            收入
+            支出
+            可用金额
+            IP地址
+            备注
+-->
+            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					订单号		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					时间		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					会员账号		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					类型		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					平台		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					收入		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					支出		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					可用金额		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					IP地址		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					备注		" prop="id" sortable="custom" fixed></el-table-column>
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column

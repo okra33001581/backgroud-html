@@ -54,11 +54,16 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
+
+
+            <!--用户名	重复项目	重复值	重复人数	重复用户-->
+
             <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Status				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			用户名				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			重复项目				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			重复值				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			重复人数				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			重复用户				" prop="id" sortable="custom" fixed></el-table-column>
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column

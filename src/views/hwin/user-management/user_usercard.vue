@@ -54,11 +54,34 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Status				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>
+
+
+            <!--ID
+            状态
+            账号名
+            一代名称
+            银行
+            省市
+            卡号
+            支行名称
+            真实姓名
+            是否黑名单
+            累计金额
+            增加时间
+-->
+            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					状态		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					账号名		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					一代名称		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					银行		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					省市		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					卡号		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					支行名称		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					真实姓名		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					是否黑名单		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					累计金额		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					增加时间		" prop="id" sortable="custom" fixed></el-table-column>
+
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column

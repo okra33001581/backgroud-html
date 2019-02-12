@@ -54,11 +54,25 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Status				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>
+
+
+            <!--排序值
+            公告状态
+            标题
+            发送版本
+            编辑日期
+            发布人员
+            公告类型-->
+
+            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					排序值		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					公告状态		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					标题		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					发送版本		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					编辑日期		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					发布人员		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					公告类型		" prop="id" sortable="custom" fixed></el-table-column>
+
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column

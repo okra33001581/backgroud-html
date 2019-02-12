@@ -54,11 +54,34 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Status				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>
+
+
+            <!--游戏
+            日期
+            期号
+            投注人数
+            中奖人数
+            中奖人数比例
+            注单数
+            中奖注单数
+            中奖注单比例
+            下注总额
+            返奖总额
+            亏损比
+-->
+            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					游戏		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					日期		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					期号		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					投注人数		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					中奖人数		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					中奖人数比例		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					注单数		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					中奖注单数		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					中奖注单比例		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					下注总额		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					返奖总额		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					亏损比		" prop="id" sortable="custom" fixed></el-table-column>
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column

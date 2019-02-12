@@ -54,11 +54,33 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Status				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>
+
+
+           <!-- 在线状态
+            用户名
+            所属组
+            用户层级
+            所属上级
+            返点
+            账户余额
+            累计充值
+            累计投注
+            注册日期
+            用户状态-->
+
+            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					在线状态		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					用户名		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					所属组		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					用户层级		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					所属上级		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					返点		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					账户余额		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					累计充值		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					累计投注		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					注册日期		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					用户状态		" prop="id" sortable="custom" fixed></el-table-column>
+
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column

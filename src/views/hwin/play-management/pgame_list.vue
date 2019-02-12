@@ -54,11 +54,30 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Status				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>
+
+
+
+            <!--游戏
+            类型
+            周期（天）
+            周期（秒）
+            销售时间（开始）
+            销售时间（结束）
+            状态
+            排序
+            属性
+-->
+            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					游戏		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					类型		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					周期（天）		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					周期（秒）		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					销售时间（开始）		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					销售时间（结束）		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					状态		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					排序		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					属性		" prop="id" sortable="custom" fixed></el-table-column>
+
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column

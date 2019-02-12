@@ -54,11 +54,43 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Status				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>
+
+
+            <!--层级
+            订单号
+            会员账号
+            姓名
+            出款类型
+            手续费
+            实际出款
+            出款状态
+            申请时间
+            确认时间
+            风控
+            风控人
+            出款操作
+            操作人
+            前台备注
+            后台备注
+-->
+            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					层级		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					订单号		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					会员账号		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					姓名		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					出款类型		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					手续费		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					实际出款		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					出款状态		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					申请时间		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					确认时间		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					风控		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					风控人		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					出款操作		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					操作人		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					前台备注		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					后台备注		" prop="id" sortable="custom" fixed></el-table-column>
+
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column

@@ -54,11 +54,18 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
+
+
+            <!--IP地址/地区-->
+            <!--说明-->
+
+            <!--添加日期-->
+            <!--操作-->
             <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Status				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			 IP地址/地区 				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			说明				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			添加日期				" prop="id" sortable="custom" fixed></el-table-column>
+            <!--<el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>-->
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column

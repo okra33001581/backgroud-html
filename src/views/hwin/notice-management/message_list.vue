@@ -54,11 +54,26 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Status				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>
+
+
+            <!--ID
+            状态
+            是否已删
+            标题
+            消息类型
+            发送组
+            接收用户
+            发送时间
+-->
+            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					状态		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					是否已删		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					标题		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					消息类型		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					发送组		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					接收用户		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					发送时间		" prop="id" sortable="custom" fixed></el-table-column>
+
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column

@@ -54,11 +54,38 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Status				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>
+
+
+            <!--ID
+            存款日期
+            存款额
+            优惠
+            实际有效投注	优惠稽核	常态稽核
+            需要扣除金额
+            备注
+            综合打码量
+            是否达到
+            常态打码量
+            放宽额度
+            是否达到
+            不需扣除费用-->
+
+
+
+            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					存款日期		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					存款额		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					优惠		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					实际有效投注 优惠稽核   常态稽核		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					需要扣除金额		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					备注		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					综合打码量		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					是否达到		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					常态打码量		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					放宽额度		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					是否达到		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					不需扣除费用		" prop="id" sortable="custom" fixed></el-table-column>
+
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column

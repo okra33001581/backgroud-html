@@ -54,11 +54,31 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Status				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>
+
+
+            <!--用户名
+            所属组
+            投注总额
+            有效投注
+            中奖总额
+            返点总额
+            游戏盈亏
+            盈利率
+            注单量
+            活跃数
+            -->
+            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					用户名		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					所属组		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					投注总额		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					有效投注		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					中奖总额		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					返点总额		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					游戏盈亏		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					盈利率		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					注单量		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					活跃数		" prop="id" sortable="custom" fixed></el-table-column>
+
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column

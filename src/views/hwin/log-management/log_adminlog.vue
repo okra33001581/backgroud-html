@@ -54,11 +54,24 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Status				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>
+
+
+            <!--编号
+            子账号
+            操作名称
+            日志内容
+            IP
+            Cookies
+            时间
+-->
+            <el-table-column label="					编号		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					子账号		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					操作名称		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					日志内容		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					IP		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					Cookies		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					时间		" prop="id" sortable="custom" fixed></el-table-column>
+
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
@@ -68,6 +81,7 @@
                 align="center"
                 fixed>
                 <template slot-scope="scope">
+
                     <span>{{ scope.row.id }}</span>
                 </template>
             </el-table-column>&ndash;&gt;

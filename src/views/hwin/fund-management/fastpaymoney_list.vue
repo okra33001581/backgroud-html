@@ -54,11 +54,36 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Status				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>
+
+
+            <!--层级
+            订单号
+            收款账号
+            支付类型
+            会员账号
+            充值金额
+            实际入款
+            申请日期
+            确认日期
+            操作人
+            状态
+            备注
+            操作-->
+
+            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					层级		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					订单号		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					收款账号		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					支付类型		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					会员账号		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					充值金额		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					实际入款		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					申请日期		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					确认日期		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					操作人		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					状态		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					备注		" prop="id" sortable="custom" fixed></el-table-column>
+
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column

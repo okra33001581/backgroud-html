@@ -54,11 +54,34 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Status				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>
+
+
+            <!--日期
+            公司入款
+            第三方存入
+            存款存入
+            普通存入
+            给予优惠
+            总返点
+            银行卡出款
+            三方出款
+            会员出款被扣除金额
+            人工取款
+            小计-->
+
+            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					日期		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					公司入款		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					第三方存入		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					存款存入		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					普通存入		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					给予优惠		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					总返点		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					银行卡出款		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					三方出款		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					会员出款被扣除金额		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					人工取款		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					小计		" prop="id" sortable="custom" fixed></el-table-column>
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column

@@ -54,11 +54,25 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Status				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>
+
+
+            <!--编号
+            用户名
+            登入信息
+            IP地址
+            位置
+            访问网址
+            登入日期
+-->
+            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					编号		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					用户名		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					登入信息		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					IP地址		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					位置		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					访问网址		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					登入日期		" prop="id" sortable="custom" fixed></el-table-column>
+
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column

@@ -54,11 +54,17 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
+
+
+            <!--推送时间
+            标题
+            类型
+            操作人-->
             <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Status				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			推送时间				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			标题				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			类型				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			操作人				" prop="id" sortable="custom" fixed></el-table-column>
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column

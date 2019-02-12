@@ -54,11 +54,35 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Status				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>
+
+
+
+           <!-- ID
+            层级名称
+            优先级	加入条件
+            会员人数
+            备注
+            支付平台选项设定
+            投注限额
+            存款次数
+            存款总额
+            最大存款额度
+            提款次数
+            提款总额-->
+
+
+            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					层级名称		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					优先级    加入条件		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					会员人数		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					备注		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					支付平台选项设定		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					投注限额		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					存款次数		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					存款总额		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					最大存款额度		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					提款次数		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					提款总额		" prop="id" sortable="custom" fixed></el-table-column>
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
