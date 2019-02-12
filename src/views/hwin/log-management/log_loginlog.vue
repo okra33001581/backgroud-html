@@ -2,17 +2,50 @@
 
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
+
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="用户名"></el-input>
+                <el-date-picker
+                        v-model="query.beginDate"
+                        type="date"
+                        placeholder="开始日期"
+                        :picker-options="pickerOptions0">
+                </el-date-picker>
+                <el-date-picker
+                        v-model="query.endDate"
+                        type="date"
+                        placeholder="结束日期"
+                        :picker-options="pickerOptions1">
+                </el-date-picker>
             </el-form-item>
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="状态">
+                <el-select v-model="query.status2" placeholder="分类">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="禁用" value="0"></el-option>
-                    <el-option label="正常" value="1"></el-option>
-                    <el-option label="未验证" value="2"></el-option>
+                    <el-option label="登入成功" value="0"></el-option>
+                    <el-option label="注册成功" value="1"></el-option>
+                    <el-option label="密码错误" value="2"></el-option>
+                    <el-option label="登陆冻结账号" value="3"></el-option>
+                    <el-option label="其他错误" value="4"></el-option>
                 </el-select>
             </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.status1" placeholder="标题">
+                    <el-option label="全部" value=""></el-option>
+                    <el-option label="用户名" value="0"></el-option>
+                    <el-option label="IP地址" value="1"></el-option>
+                </el-select>
+            </el-form-item>
+
+
+
+            <el-form-item class="query-form-item">
+                <el-input v-model="query.username" placeholder="关键字"></el-input>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
+            <el-checkbox>稽查</el-checkbox>
+            </el-form-item>
+
             <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
                 <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key"/>
             </el-select>-->

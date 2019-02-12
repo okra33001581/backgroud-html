@@ -2,17 +2,101 @@
 
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
+
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="用户名"></el-input>
+                <el-date-picker
+                        v-model="query.beginDate"
+                        type="date"
+                        placeholder="开始日期"
+                        :picker-options="pickerOptions0">
+                </el-date-picker>
+                <el-date-picker
+                        v-model="query.endDate"
+                        type="date"
+                        placeholder="结束日期"
+                        :picker-options="pickerOptions1">
+                </el-date-picker>
             </el-form-item>
+
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="状态">
-                    <el-option label="全部" value=""></el-option>
-                    <el-option label="禁用" value="0"></el-option>
-                    <el-option label="正常" value="1"></el-option>
-                    <el-option label="未验证" value="2"></el-option>
+                <el-select v-model="query.status" placeholder="日志类型">
+                    <el-option label="全部" value="0"></el-option>
+                    <el-option label="更新信息" value="2"></el-option>
+                    <el-option label="在线会员图" value="4"></el-option>
+                    <el-option label="IP限制" value="359"></el-option>
+                    <el-option label="系统参数设定" value="20"></el-option>
+                    <el-option label="网站图标设置" value="216"></el-option>
+                    <el-option label="二维码设置" value="79"></el-option>
+                    <el-option label="首页轮播设定" value="97"></el-option>
+                    <el-option label="浮动窗口" value="98"></el-option>
+                    <el-option label="资讯中心" value="89"></el-option>
+                    <el-option label="公司简介" value="248"></el-option>
+                    <el-option label="菜单排序" value="349"></el-option>
+                    <el-option label="用户列表" value="22"></el-option>
+                    <el-option label="会员资料" value="26"></el-option>
+                    <el-option label="层级管理" value="29"></el-option>
+                    <el-option label="用户银行卡管理" value="27"></el-option>
+                    <el-option label="有效会员列表" value="44"></el-option>
+                    <el-option label="出入款统计" value="45"></el-option>
+                    <el-option label="安全信息审核" value="112"></el-option>
+                    <el-option label="多账户监测" value="343"></el-option>
+                    <el-option label="三方游戏" value="280"></el-option>
+                    <el-option label="投注限额" value="251"></el-option>
+                    <el-option label="运营报表" value="169"></el-option>
+                    <el-option label="用户报表" value="312"></el-option>
+                    <el-option label="财务报表" value="221"></el-option>
+                    <el-option label="平台报表" value="274"></el-option>
+                    <el-option label="域名统计" value="52"></el-option>
+                    <el-option label="用户登入查询" value="51"></el-option>
+                    <el-option label="管理员日志列表" value="50"></el-option>
+                    <el-option label="活动列表" value="132"></el-option>
+                    <el-option label="站内信列表" value="60"></el-option>
+                    <el-option label="移动端推送" value="344"></el-option>
+                    <el-option label="公告列表" value="53"></el-option>
+                    <el-option label="跑马灯列表" value="236"></el-option>
+                    <el-option label="支付类型管理" value="348"></el-option>
+                    <el-option label="支付设定" value="158"></el-option>
+                    <el-option label="入款账号管理" value="136"></el-option>
+                    <el-option label="三方账号管理" value="127"></el-option>
+                    <el-option label="层级状态图" value="151"></el-option>
+                    <el-option label="即时稽核" value="159"></el-option>
+                    <el-option label="转账记录" value="275"></el-option>
+                    <el-option label="出款管理" value="165"></el-option>
+                    <el-option label="人工存提" value="142"></el-option>
+                    <el-option label="人工存提审核" value="141"></el-option>
+                    <el-option label="公司入款记录" value="157"></el-option>
+                    <el-option label="三方入款记录" value="186"></el-option>
+                    <el-option label="账变列表" value="114"></el-option>
+                    <el-option label="返水" value="285"></el-option>
+                    <el-option label="单期盈亏报表导出" value="33"></el-option>
+                    <el-option label="用户输赢排行导出" value="28"></el-option>
+                    <el-option label="单期盈亏报表" value="40"></el-option>
+                    <el-option label="商户游戏状态设置" value="356"></el-option>
+                    <el-option label="开元平台报表" value="25"></el-option>
+                    <el-option label="首存名单" value="313"></el-option>
+                    <el-option label="活跃数名单" value="314"></el-option>
+                    <el-option label="用户报表图表" value="315"></el-option>
+                    <el-option label="支付类型管理修改" value="357"></el-option>
+                    <el-option label="棋牌列表" value="353"></el-option>
                 </el-select>
             </el-form-item>
+
+            <el-form-item class="query-form-item">
+            <el-input v-model="query.username" placeholder="子账号"></el-input>
+        </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-input v-model="query.username" placeholder="IP"></el-input>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-input v-model="query.username" placeholder="Cookies"></el-input>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-input v-model="query.username" placeholder="日志内容(模糊)"></el-input>
+            </el-form-item>
+
             <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
                 <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key"/>
             </el-select>-->

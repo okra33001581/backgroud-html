@@ -2,10 +2,21 @@
 
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
-
-            <vue-datepicker-local v-model="range"></vue-datepicker-local>
-    <!--</div>-->
-
+            <el-form-item class="query-form-item">
+            <el-date-picker
+                    v-model="query.beginDate"
+                    type="date"
+                    placeholder="开始日期"
+                    :picker-options="pickerOptions0">
+            </el-date-picker>
+            <el-date-picker
+                    v-model="query.endDate"
+                    type="date"
+                    placeholder="结束日期"
+                    :picker-options="pickerOptions1">
+            </el-date-picker>
+            </el-form-item>
+<!--
             <el-form-item class="query-form-item">
                 <el-input v-model="query.username" placeholder="用户名"></el-input>
             </el-form-item>
@@ -16,7 +27,7 @@
                     <el-option label="正常" value="1"></el-option>
                     <el-option label="未验证" value="2"></el-option>
                 </el-select>
-            </el-form-item>
+            </el-form-item>-->
             <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
                 <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key"/>
             </el-select>-->
