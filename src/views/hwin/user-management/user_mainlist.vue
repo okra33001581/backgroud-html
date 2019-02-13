@@ -2,17 +2,115 @@
 
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
-            <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="用户名"></el-input>
-            </el-form-item>
+
             <el-form-item class="query-form-item">
                 <el-select v-model="query.status" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="禁用" value="0"></el-option>
-                    <el-option label="正常" value="1"></el-option>
-                    <el-option label="未验证" value="2"></el-option>
+                    <el-option label="用户名" value="0"></el-option>
+                    <el-option label="所属上级" value="1"></el-option>
                 </el-select>
             </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-input v-model="query.username" placeholder="用户名"></el-input>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.status" placeholder="所属组">
+                    <el-option label="不限" value=""></el-option>
+                    <el-option label="一级代理" value="0"></el-option>
+                    <el-option label="代理用户" value="1"></el-option>
+                    <el-option label="会员用户" value="2"></el-option>
+                </el-select>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.status" placeholder="用户状态">
+                    <el-option label="全部用户" value=""></el-option>
+                    <el-option label="启用" value="0"></el-option>
+                    <el-option label="停用" value="1"></el-option>
+                </el-select>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.status" placeholder="所属层级">
+                    <el-option value="-1" label="不限"></el-option>
+                    <el-option value="0" label="未分层"></el-option>
+                    <el-option value="1" label="vip3"></el-option>
+                    <el-option value="2" label="vip4"></el-option>
+                    <el-option value="3" label="vip5"></el-option>
+                    <el-option value="4" label="vip6"></el-option>
+                    <el-option value="7" label="vip2"></el-option>
+                    <el-option value="8" label="vip8"></el-option>
+                    <el-option value="9" label="vip.7"></el-option>
+                    <el-option value="10" label="vip10"></el-option>
+                    <el-option value="11" label="v11"></el-option>
+                </el-select>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.status" placeholder="状态">
+                    <el-option label="不限" value=""></el-option>
+                    <el-option label="账户余额" value="0"></el-option>
+                    <el-option label="可用余额" value="1"></el-option>
+                    <el-option label="未结算金额" value="2"></el-option>
+                    <el-option label="累计充值" value="2"></el-option>
+                </el-select>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-date-picker
+                        v-model="query.beginDate"
+                        type="date"
+                        placeholder="min"
+                        :picker-options="pickerOptions0">
+                </el-date-picker>
+                <el-date-picker
+                        v-model="query.endDate"
+                        type="date"
+                        placeholder="max"
+                        :picker-options="pickerOptions1">
+                </el-date-picker>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-date-picker
+                        v-model="query.beginDate"
+                        type="date"
+                        placeholder="开始时间"
+                        :picker-options="pickerOptions0">
+                </el-date-picker>
+                <el-date-picker
+                        v-model="query.endDate"
+                        type="date"
+                        placeholder="结束时间"
+                        :picker-options="pickerOptions1">
+                </el-date-picker>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.status" placeholder="状态">
+                    <el-option label="不限" value=""></el-option>
+                    <el-option label="在线" value="0"></el-option>
+                    <el-option label="离线" value="1"></el-option>
+                </el-select>
+            </el-form-item>
+
+
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.status" placeholder="最后在线">
+                    <el-option label="不限" value=""></el-option>
+                    <el-option label="小于" value="0"></el-option>
+                    <el-option label="等于" value="1"></el-option>
+                    <el-option label="大于" value="2"></el-option>
+                </el-select>
+            </el-form-item>
+
+
+            <el-form-item class="query-form-item">
+                <el-input v-model="query.username" placeholder="用户名"></el-input>
+            </el-form-item>
+
             <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
                 <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key"/>
             </el-select>-->

@@ -2,17 +2,56 @@
 
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
+
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="用户名"></el-input>
+                <el-select v-model="query.status" placeholder="银行卡状态">
+                    <el-option label="全部" value=""></el-option>
+                    <el-option label="正常" value="0"></el-option>
+                    <el-option label="删除" value="1"></el-option>
+                </el-select>
             </el-form-item>
+
             <el-form-item class="query-form-item">
                 <el-select v-model="query.status" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="禁用" value="0"></el-option>
-                    <el-option label="正常" value="1"></el-option>
-                    <el-option label="未验证" value="2"></el-option>
+                    <el-option label="卡号" value="0"></el-option>
+                    <el-option label="用户名" value="1"></el-option>
                 </el-select>
             </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-input v-model="query.username" placeholder="卡号/用户名"></el-input>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-input v-model="query.username" placeholder="真实姓名"></el-input>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-date-picker
+                        v-model="query.beginDate"
+                        type="date"
+                        placeholder="min"
+                        :picker-options="pickerOptions0">
+                </el-date-picker>
+                <el-date-picker
+                        v-model="query.endDate"
+                        type="date"
+                        placeholder="max"
+                        :picker-options="pickerOptions1">
+                </el-date-picker>
+            </el-form-item>
+
+
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.status" placeholder="是否为黑名单">
+                    <el-option label="全部类型" value=""></el-option>
+                    <el-option label="正常卡" value="0"></el-option>
+                    <el-option label="黑名单" value="1"></el-option>
+                </el-select>
+            </el-form-item>
+
+
             <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
                 <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key"/>
             </el-select>-->

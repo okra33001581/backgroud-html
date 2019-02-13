@@ -2,16 +2,184 @@
 
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
+
+
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="用户名"></el-input>
+                <el-select v-model="query.status" placeholder="玩法类型">
+                    <el-option label="全部" value=""></el-option>
+                    <el-option label="官方玩法" value="0"></el-option>
+                    <el-option label="信用玩法" value="2"></el-option>
+                </el-select>
             </el-form-item>
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="状态">
-                    <el-option label="全部" value=""></el-option>
-                    <el-option label="禁用" value="0"></el-option>
-                    <el-option label="正常" value="1"></el-option>
-                    <el-option label="未验证" value="2"></el-option>
+                <el-select v-model="query.status1" placeholder="游戏名称">
+                    <el-option label="全部游戏" value="0"> </el-option>
+                    <el-option label="江西多乐彩(官)" value="1"></el-option>
+                    <el-option label="江西多乐彩(信)" value="2"></el-option>
+                    <el-option label="广东十一选五(官)" value="3"></el-option>
+                    <el-option label="广东十一选五(信)" value="4"></el-option>
+                    <el-option label="十一运夺金(官)" value="5"></el-option>
+                    <el-option label="新疆时时彩(官)" value="6"></el-option>
+                    <el-option label="上海时时乐(官)" value="7"></el-option>
+                    <el-option label="北京快乐八(官)" value="8"></el-option>
+                    <el-option label="重庆时时彩(官)" value="9"></el-option>
+                    <el-option label="福彩3D(官)" value="10"></el-option>
+                    <el-option label="排列三、五(官)" value="11"></el-option>
+                    <el-option label="江苏快三(官)" value="12"></el-option>
+                    <el-option label="江苏快三(信)" value="13"></el-option>
+                    <el-option label="天津时时彩(信)" value="14"></el-option>
+                    <el-option label="天津时时彩(官)" value="15"></el-option>
+                    <el-option label="香港六合彩(信)" value="16"></el-option>
+                    <el-option label="安徽快三(官)" value="17"></el-option>
+                    <el-option label="安徽快三(信)" value="18"></el-option>
+                    <el-option label="一路发财(官)" value="19"></el-option>
+                    <el-option label="五福临门(官)" value="20"></el-option>
+                    <el-option label="十全十美(信)" value="21"></el-option>
+                    <el-option label="十全十美(官)" value="22"></el-option>
+                    <el-option label="北京PK拾(信)" value="23"></el-option>
+                    <el-option label="重庆时时彩(信)" value="24"></el-option>
+                    <el-option label="北京PK拾(官)" value="25"></el-option>
+                    <el-option label="五福临门(信)" value="26"></el-option>
+                    <el-option label="一路发财(信)" value="27"></el-option>
+                    <el-option label="十一运夺金(信)" value="28"></el-option>
+                    <el-option label="幸运飞艇(信)" value="29"></el-option>
+                    <el-option label="幸运飞艇(官)" value="30"></el-option>
+                    <el-option label="广西快三(官)" value="31"></el-option>
+                    <el-option label="广西快三(信)" value="32"></el-option>
+                    <el-option label="新加坡快三(信)" value="33"></el-option>
+                    <el-option label="新加坡快三(官)" value="34"></el-option>
+                    <el-option label="夏威夷快三(信)" value="35"></el-option>
+                    <el-option label="夏威夷快三(官)" value="36"></el-option>
+                    <el-option label="十分六合彩(信)" value="37"></el-option>
+                    <el-option label="极速六合彩(信)" value="38"></el-option>
+                    <el-option label="极速赛马(信)" value="39"></el-option>
+                    <el-option label="极速赛马(官)" value="40"></el-option>
+                    <el-option label="极速十一选五(信)" value="41"></el-option>
+                    <el-option label="极速十一选五(官)" value="42"></el-option>
+                    <el-option label="五分六合彩(信)" value="43"></el-option>
+                    <el-option label="三分赛车(信)" value="44"></el-option>
+                    <el-option label="三分赛车(官)" value="45"></el-option>
+                    <el-option label="甘肃快三(信)" value="46"></el-option>
+                    <el-option label="甘肃快三(官)" value="47"></el-option>
+                    <el-option label="吉林快三(官)" value="48"></el-option>
+                    <el-option label="吉林快三(信)" value="49"></el-option>
+                    <el-option label="河北快三(信)" value="50"></el-option>
+                    <el-option label="河北快三(官)" value="51"></el-option>
+                    <el-option label="北京快三(信)" value="52"></el-option>
+                    <el-option label="北京快三(官)" value="53"></el-option>
+                    <el-option label="上海快三(官)" value="54"></el-option>
+                    <el-option label="上海快三(信)" value="55"></el-option>
+                    <el-option label="极速快三(信)" value="56"></el-option>
+                    <el-option label="极速快三(官)" value="57"></el-option>
+                    <el-option label="3D北京PK拾(信)" value="58"></el-option>
+                    <el-option label="3D北京PK拾(官)" value="59"></el-option>
+                    <el-option label="3D幸运飞艇(信)" value="60"></el-option>
+                    <el-option label="3D幸运飞艇(官)" value="61"></el-option>
+                    <el-option label="3D极速快三(官)" value="62"></el-option>
+                    <el-option label="3D极速快三(信)" value="63"></el-option>
+                    <el-option label="3D极速赛马(信)" value="64"></el-option>
+                    <el-option label="3D极速赛马(官)" value="65"></el-option>
+                    <el-option label="一分快三1(官)" value="66"></el-option>
+                    <el-option label="一分快三1(信)" value="67"></el-option>
+                    <el-option label="时时分分彩1(官)" value="68"></el-option>
+                    <el-option label="时时分分彩1(信)" value="69"></el-option>
+                    <el-option label="一分PK拾1(信)" value="70"></el-option>
+                    <el-option label="一分PK拾1(官)" value="71"></el-option>
+                    <el-option label="一分十一选五(官)" value="72"></el-option>
+                    <el-option label="一分十一选五(信)" value="73"></el-option>
+                    <el-option label="新疆时时彩(信)" value="74"></el-option>
+                    <el-option label="一分六合彩(信)" value="75"></el-option>
+
                 </el-select>
+            </el-form-item>
+
+
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.status2" placeholder="游戏玩法">
+                    <el-option label="全部" value=""></el-option>
+
+                </el-select>
+            </el-form-item>
+
+
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.status3" placeholder="中奖状态">
+                    <el-option label="全部" value=""></el-option>
+                    <el-option label="未判断"  value="73"></el-option>
+                    <el-option label="中奖" value="74"></el-option>
+                    <el-option label="未中奖" value="75"></el-option>
+                </el-select>
+            </el-form-item>
+
+
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.status4" placeholder="中奖状态">
+                    <el-option label="全部" value=""></el-option>
+                    <el-option label="正常"  value="73"></el-option>
+                    <el-option label="用户撤单" value="74"></el-option>
+                    <el-option label="系统撤单" value="75"></el-option>
+                </el-select>
+            </el-form-item>
+
+
+            <el-form-item class="query-form-item">
+                <el-date-picker
+                        v-model="query.beginDate"
+                        type="date"
+                        placeholder="开始时间"
+                        :picker-options="pickerOptions0">
+                </el-date-picker>
+                <el-date-picker
+                        v-model="query.endDate"
+                        type="date"
+                        placeholder="结束时间"
+                        :picker-options="pickerOptions1">
+                </el-date-picker>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.status33" placeholder="状态">
+                    <el-option label="全部" value=""></el-option>
+                    <el-option label="逆序" value="0"></el-option>
+                    <el-option label="顺序" value="2"></el-option>
+                </el-select>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.status331" placeholder="状态">
+                    <el-option label="全部" value=""></el-option>
+                    <el-option label="奖金" value="0"></el-option>
+                    <el-option label="倍数" value="2"></el-option>
+                </el-select>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-date-picker
+                        v-model="query.beginDate"
+                        type="date"
+                        placeholder="开始时间"
+                        :picker-options="pickerOptions0">
+                </el-date-picker>
+                <el-date-picker
+                        v-model="query.endDate"
+                        type="date"
+                        placeholder="结束时间"
+                        :picker-options="pickerOptions1">
+                </el-date-picker>
+            </el-form-item>
+
+
+
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.status331" placeholder="状态">
+                    <el-option label="全部" value=""></el-option>
+                    <el-option label="用户名" value="0"></el-option>
+                    <el-option label="注单" value="2"></el-option>
+                </el-select>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-input v-model="query.username" placeholder="期数"></el-input>
             </el-form-item>
             <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
                 <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key"/>

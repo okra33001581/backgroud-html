@@ -2,15 +2,68 @@
 
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
+
+
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="用户名"></el-input>
+                <el-date-picker
+                        v-model="query.beginDate"
+                        type="date"
+                        placeholder="开始时间"
+                        :picker-options="pickerOptions0">
+                </el-date-picker>
+                <el-date-picker
+                        v-model="query.endDate"
+                        type="date"
+                        placeholder="结束时间"
+                        :picker-options="pickerOptions1">
+                </el-date-picker>
             </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-date-picker
+                        v-model="query.beginDate"
+                        type="date"
+                        placeholder="最小金额"
+                        :picker-options="pickerOptions0">
+                </el-date-picker>
+                <el-date-picker
+                        v-model="query.endDate"
+                        type="date"
+                        placeholder="最大金额"
+                        :picker-options="pickerOptions1">
+                </el-date-picker>
+            </el-form-item>
+
+
             <el-form-item class="query-form-item">
                 <el-select v-model="query.status" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="禁用" value="0"></el-option>
-                    <el-option label="正常" value="1"></el-option>
-                    <el-option label="未验证" value="2"></el-option>
+                    <el-option label="用户名" value="0"></el-option>
+                    <el-option label="订单编号" value="1"></el-option>
+                </el-select>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-input v-model="query.username" placeholder="用户名"></el-input>
+            </el-form-item>
+
+
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.status" placeholder="转账平台">
+                    <el-option label="全部" value=""></el-option>
+                    <el-option label="主账户" value="0"></el-option>
+                    <el-option label="开元棋牌" value="1"></el-option>
+                    <el-option label="乐游棋牌" value="2"></el-option>
+                </el-select>
+            </el-form-item>
+
+
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.status" placeholder="状态">
+                    <el-option label="全部" value=""></el-option>
+                    <el-option label="成功" value="0"></el-option>
+                    <el-option label="失败" value="1"></el-option>
+                    <el-option label="未处理" value="2"></el-option>
                 </el-select>
             </el-form-item>
             <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">

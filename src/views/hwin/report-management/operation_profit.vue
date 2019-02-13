@@ -2,17 +2,54 @@
 
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
+
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="用户名"></el-input>
+                <el-date-picker
+                        v-model="query.beginDate"
+                        type="date"
+                        placeholder="开始时间"
+                        :picker-options="pickerOptions0">
+                </el-date-picker>
+                <el-date-picker
+                        v-model="query.endDate"
+                        type="date"
+                        placeholder="结束时间"
+                        :picker-options="pickerOptions1">
+                </el-date-picker>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
+            <el-button>昨天</el-button>
+                <el-button>今天</el-button>
+                <el-button>上周</el-button>
+                <el-button>本周</el-button>
+                <el-button>上月</el-button>
+                <el-button>本月</el-button>
+                <el-button>近三月</el-button>
+            </el-form-item>
+
+
+            <el-form-item class="query-form-item">
+                <el-input v-model="query.username" placeholder="查询账号"></el-input>
             </el-form-item>
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="状态">
+                <el-select v-model="query.status" placeholder="游戏平台">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="禁用" value="0"></el-option>
-                    <el-option label="正常" value="1"></el-option>
-                    <el-option label="未验证" value="2"></el-option>
+                    <el-option label="彩票" value="0"></el-option>
+                    <el-option label="开元棋牌" value="1"></el-option>
+                    <el-option label="乐游棋牌" value="2"></el-option>
                 </el-select>
             </el-form-item>
+
+
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.status1" placeholder="模式">
+                    <el-option label="总表" value=""></el-option>
+                    <el-option label="日表" value="0"></el-option>
+                    <el-option label="月表" value="2"></el-option>
+                </el-select>
+            </el-form-item>
+
             <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
                 <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key"/>
             </el-select>-->

@@ -2,17 +2,62 @@
 
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
+
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="用户名"></el-input>
-            </el-form-item>
-            <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="状态">
-                    <el-option label="全部" value=""></el-option>
-                    <el-option label="禁用" value="0"></el-option>
-                    <el-option label="正常" value="1"></el-option>
-                    <el-option label="未验证" value="2"></el-option>
+                <el-select v-model="query.status" placeholder="消息类型">
+                    <el-option value=" label="全部"></el-option>
+                    <el-option value="288" label="充提消息"></el-option>
+                    <el-option value="87" label="用户私信"></el-option>
+                    <el-option value="289" label="监控用户消息"></el-option>
+                    <el-option value="291" label="大额撤单消息"></el-option>
+                    <el-option value="290" label="财务每日消息"></el-option>
+                    <el-option value="474" label="系统消息"></el-option>
+                    <el-option value="473" label="活动消息"></el-option>
+                    <el-option value="0" label="中奖消息"></el-option>
                 </el-select>
             </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-input v-model="query.username" placeholder="接收用户名"></el-input>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.status1" placeholder="读取状态">
+                    <el-option label="全部" value=""></el-option>
+                    <el-option label="未读" value="0"></el-option>
+                    <el-option label="已阅读" value="1"></el-option>
+                </el-select>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.status2" placeholder="删除状态">
+                    <el-option label="全部" value=""></el-option>
+                    <el-option label="未删" value="0"></el-option>
+                    <el-option label="已删除" value="1"></el-option>
+                </el-select>
+            </el-form-item>
+
+
+            <el-form-item class="query-form-item">
+                <el-input v-model="query.username" placeholder="消息标题"></el-input>
+            </el-form-item>
+
+
+            <el-form-item class="query-form-item">
+                <el-date-picker
+                        v-model="query.beginDate"
+                        type="date"
+                        placeholder="开始时间"
+                        :picker-options="pickerOptions0">
+                </el-date-picker>
+                <el-date-picker
+                        v-model="query.endDate"
+                        type="date"
+                        placeholder="结束时间"
+                        :picker-options="pickerOptions1">
+                </el-date-picker>
+            </el-form-item>
+
             <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
                 <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key"/>
             </el-select>-->

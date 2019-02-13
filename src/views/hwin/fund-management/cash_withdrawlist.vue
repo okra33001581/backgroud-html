@@ -2,17 +2,115 @@
 
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
+
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="用户名"></el-input>
+                <el-date-picker
+                        v-model="query.beginDate"
+                        type="date"
+                        placeholder="开始时间"
+                        :picker-options="pickerOptions0">
+                </el-date-picker>
+                <el-date-picker
+                        v-model="query.endDate"
+                        type="date"
+                        placeholder="结束时间"
+                        :picker-options="pickerOptions1">
+                </el-date-picker>
             </el-form-item>
+
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="状态">
-                    <el-option label="全部" value=""></el-option>
-                    <el-option label="禁用" value="0"></el-option>
-                    <el-option label="正常" value="1"></el-option>
-                    <el-option label="未验证" value="2"></el-option>
+                <el-date-picker
+                        v-model="query.beginDate"
+                        type="date"
+                        placeholder="开始时间"
+                        :picker-options="pickerOptions0">
+                </el-date-picker>
+                <el-date-picker
+                        v-model="query.endDate"
+                        type="date"
+                        placeholder="结束时间"
+                        :picker-options="pickerOptions1">
+                </el-date-picker>
+            </el-form-item>
+
+
+            <el-form-item class="query-form-item">
+                <el-date-picker
+                        v-model="query.beginDate"
+                        type="date"
+                        placeholder="min"
+                        :picker-options="pickerOptions0">
+                </el-date-picker>
+                <el-date-picker
+                        v-model="query.endDate"
+                        type="date"
+                        placeholder="max"
+                        :picker-options="pickerOptions1">
+                </el-date-picker>
+            </el-form-item>
+
+
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.status" placeholder="刷新">
+                    <el-option label="不刷新" value=""></el-option>
+                    <el-option label="30s" value="0"></el-option>
+                    <el-option label="60s" value="1"></el-option>
+                    <el-option label="120s" value="2"></el-option>
+                    <el-option label="180s" value="2"></el-option>
                 </el-select>
             </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.status" placeholder="出款类型">
+                    <el-option label="全部" value=""></el-option>
+                    <el-option label="人工出款" value="0"></el-option>
+                    <el-option label="三方出款" value="2"></el-option>
+                </el-select>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.status" placeholder="出款状态">
+                    <el-option label="全部" value=""></el-option>
+                    <el-option label="未处理" value="0"></el-option>
+                    <el-option label="预备出款" value="2"></el-option>
+                    <el-option label="已出款" value="2"></el-option>
+                    <el-option label="已取消" value="2"></el-option>
+                </el-select>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.status" placeholder="审核状态">
+                    <el-option label="全部" value=""></el-option>
+                    <el-option label="已通过" value="0"></el-option>
+                    <el-option label="已拒绝" value="2"></el-option>
+                    <el-option label="待审核" value="2"></el-option>
+                </el-select>
+            </el-form-item>
+
+
+            <el-form-item class="query-form-item">
+                <el-input v-model="query.username" placeholder="订单号"></el-input>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-input v-model="query.username" placeholder="会员账号"></el-input>
+            </el-form-item>
+
+
+            <el-form-item class="query-form-item">
+                <el-checkbox label="vip2">vip2</el-checkbox>
+                <el-checkbox label="vip2">vip3</el-checkbox>
+                <el-checkbox label="vip2">vip4</el-checkbox>
+                <el-checkbox label="vip2">vip5</el-checkbox>
+                <el-checkbox label="vip2">vip6</el-checkbox>
+                <el-checkbox label="vip2">vip7</el-checkbox>
+                <el-checkbox label="vip2">vip8</el-checkbox>
+                <el-checkbox label="vip2">vip9</el-checkbox>
+                <el-checkbox label="vip2">vip10</el-checkbox>
+                <el-checkbox label="vip2">vip11</el-checkbox>
+                <el-checkbox label="vip2">vip12</el-checkbox>
+            </el-form-item>
+
             <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
                 <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key"/>
             </el-select>-->

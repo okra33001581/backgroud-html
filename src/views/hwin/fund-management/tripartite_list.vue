@@ -3,16 +3,50 @@
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="用户名"></el-input>
-            </el-form-item>
-            <el-form-item class="query-form-item">
                 <el-select v-model="query.status" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="禁用" value="0"></el-option>
-                    <el-option label="正常" value="1"></el-option>
-                    <el-option label="未验证" value="2"></el-option>
+                    <el-option label="启用" value="0"></el-option>
+                    <el-option label="停用" value="2"></el-option>
                 </el-select>
             </el-form-item>
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.status" placeholder="三方类型">
+                    <el-option label="全部" value=""></el-option>
+                    <el-option label="入款" value="0"></el-option>
+                    <el-option label="出款" value="1"></el-option>
+                </el-select>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.status" placeholder="支付类型">
+                    <el-option value="-1" label="全部"></el-option>
+                    <el-option value="1" label="网银"></el-option>
+                    <el-option value="2" label="支付宝"></el-option>
+                    <el-option value="3" label="微信支付"></el-option>
+                    <el-option value="4" label="手机网银"></el-option>
+                    <el-option value="5" label="支付宝WAP"></el-option>
+                    <el-option value="6" label="微信支付WAP"></el-option>
+                    <el-option value="7" label="QQ钱包"></el-option>
+                    <el-option value="8" label="QQ钱包WAP"></el-option>
+                    <el-option value="9" label="银联"></el-option>
+                    <el-option value="10" label="京东"></el-option>
+                    <el-option value="11" label="百度"></el-option>
+                    <el-option value="12" label="支付宝H5"></el-option>
+                    <el-option value="13" label="微信支付H5"></el-option>
+                    <el-option value="14" label="银联WAP"></el-option>
+                    <el-option value="15" label="银联H5"></el-option>
+                    <el-option value="16" label="QQH5"></el-option>
+                    <el-option value="17" label="京东WAP"></el-option>
+                    <el-option value="18" label="京东H5"></el-option>
+                    <el-option value="19" label="百度WAP"></el-option>
+                    <el-option value="20" label="百度H5"></el-option>
+                    <el-option value="21" label="快捷支付"></el-option>
+                </el-select>
+            </el-form-item>
+            <el-form-item class="query-form-item">
+                <el-input v-model="query.username" placeholder="三方公司"></el-input>
+            </el-form-item>
+
             <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
                 <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key"/>
             </el-select>-->
