@@ -165,25 +165,17 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                <el-form-item label="游戏名称" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
-                </el-form-item>
+                <el-form-item label="			ID     		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			游戏    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			类型    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			周期（天）  		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			周期（秒）  		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			销售时间（开始）		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			销售时间（结束）		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			状态    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			排序    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			属性    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
 
-                <el-form-item label="彩种类型" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
-                </el-form-item>
-
-                <el-form-item label="游戏图标" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
-                </el-form-item>
-
-                <el-form-item label="游戏杀率" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
-                </el-form-item>
-
-                <el-form-item label="游戏排序" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
-                </el-form-item>
 
             </el-form>
             <div slot="footer" class="dialog-footer">

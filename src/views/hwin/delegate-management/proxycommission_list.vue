@@ -138,15 +138,11 @@
                 width="85%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
-                <el-form-item label="代理层级" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
-                </el-form-item>
-                <el-form-item label="返点等级" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
-                </el-form-item>
-                <el-form-item label="默认配额" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
-                </el-form-item>
+                <el-form-item label="			Id  		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			代理层级		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			返点 		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			默认配额		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+
 
             </el-form>
             <div slot="footer" class="dialog-footer">

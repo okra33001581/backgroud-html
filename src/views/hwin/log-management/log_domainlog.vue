@@ -149,10 +149,15 @@
                 width="85%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
-                <el-form-item label="用户名" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
-                </el-form-item>
-                <el-form-item label="登录密码" prop="password">
+
+                <el-form-item label="			Id     		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			域名    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			总访问人数  		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			总访问量   		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+
+
+
+                <!--<el-form-item label="登录密码" prop="password">
                     <el-input type="password" v-model="formData.password" auto-complete="off"></el-input>
                 </el-form-item>
                 <el-form-item label="确认密码" prop="checkPassword">
@@ -169,7 +174,7 @@
                     <el-checkbox-group v-model="formData.roles">
                         <el-checkbox v-for="item in roles" :key="item.id" :label="item.id">{{item.name}}</el-checkbox>
                     </el-checkbox-group>
-                </el-form-item>
+                </el-form-item>-->
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideForm">关闭</el-button>
