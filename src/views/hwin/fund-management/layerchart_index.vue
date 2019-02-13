@@ -33,13 +33,13 @@
         </el-form>
         <!--<el-table
             v-loading="loading"
-            :data="list"
+            :data="list" stripe
             style="width: 100%;"
             max-height="500">-->
         <!--<el-table
                 v-loading="loading"
                 :key="tableKey"
-                :data="list"
+                :data="list" stripe
                 border
                 fit
                 highlight-current-row
@@ -48,7 +48,7 @@
         <el-table
                 v-loading="loading"
                 :key="tableKey"
-                :data="list"
+                :data="list" stripe
                 border
                 fit
                 highlight-current-row

@@ -9,7 +9,7 @@
     <el-table
       v-loading="listLoading"
       ref="multipleTable"
-      :data="list"
+      :data="list" stripe
       element-loading-text="拼命加载中"
       border
       fit

@@ -35,7 +35,7 @@
         <el-table
                 v-loading="loading"
                 :key="tableKey"
-                :data="list"
+                :data="list" stripe
                 border
                 fit
                 highlight-current-row
