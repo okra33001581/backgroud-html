@@ -127,7 +127,7 @@
         <el-table
                 v-loading="loading"
                 :key="tableKey"
-                :data="list"
+                :data="list" stripe
                 border
                 fit
                 highlight-current-row
@@ -151,20 +151,20 @@
             操作-->
 
 
-            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					订单号		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					会员账号		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					存款人姓名/昵称		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					申请金额		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					入款优惠		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					附言码		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					充值订单尾号		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					存入银行账号		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					申请时间		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					确认时间		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					操作人		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					状态		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					备注		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					ID		" prop="id" align="center" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					订单号		" prop="id" align="center" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					会员账号		" prop="id" align="center" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					存款人姓名/昵称		" prop="id" align="center" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					申请金额		" prop="id" align="center" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					入款优惠		" prop="id" align="center" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					附言码		" prop="id" align="center" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					充值订单尾号		" prop="id" align="center" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					存入银行账号		" prop="id" align="center" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					申请时间		" prop="id" align="center" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					确认时间		" prop="id" align="center" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					操作人		" prop="id" align="center" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					状态		" prop="id" align="center" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					备注		" prop="id" align="center" sortable="custom" fixed></el-table-column>
 
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
