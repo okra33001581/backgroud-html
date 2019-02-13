@@ -266,27 +266,132 @@
                 width="85%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
-                <el-form-item label="用户名" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
-                </el-form-item>
-                <el-form-item label="登录密码" prop="password">
-                    <el-input type="password" v-model="formData.password" auto-complete="off"></el-input>
-                </el-form-item>
-                <el-form-item label="确认密码" prop="checkPassword">
-                    <el-input type="password" v-model="formData.checkPassword" auto-complete="off"></el-input>
-                </el-form-item>
-                <el-form-item label="状态" prop="status">
+
+                <el-form-item label="账号类型" prop="status">
                     <el-radio-group v-model="formData.status">
-                        <el-radio label="0">禁用</el-radio>
-                        <el-radio label="1">正常</el-radio>
-                        <el-radio label="2">未验证</el-radio>
+                        <el-radio label="0">代理</el-radio>
+                        <el-radio label="1">会员</el-radio>
                     </el-radio-group>
                 </el-form-item>
-                <el-form-item label="角色">
-                    <el-checkbox-group v-model="formData.roles">
-                        <el-checkbox v-for="item in roles" :key="item.id" :label="item.id">{{item.name}}</el-checkbox>
-                    </el-checkbox-group>
+
+                <el-form-item label="所属上级" prop="username">
+                    <el-input v-model="formData.username" auto-complete="off"></el-input>
                 </el-form-item>
+                <el-form-item label="会员账号" prop="username">
+                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="登录密码" prop="username">
+                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="昵称" prop="username">
+                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="备注" prop="username">
+                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item class="query-form-item">
+                    <el-select v-model="query.status" placeholder="返点设置">
+                        <el-option value="0.078" label="7.8%------1956"></el-option>
+                        <el-option value="0.077" label="7.7%------1954"></el-option>
+                        <el-option value="0.076" label="7.6%------1952"></el-option>
+                        <el-option value="0.075" label="7.5%------1950"></el-option>
+                        <el-option value="0.074" label="7.4%------1948"></el-option>
+                        <el-option value="0.073" label="7.3%------1946"></el-option>
+                        <el-option value="0.072" label="7.2%------1944"></el-option>
+                        <el-option value="0.071" label="7.1%------1942"></el-option>
+                        <el-option value="0.07" label="7.0%------1940"></el-option>
+                        <el-option value="0.069" label="6.9%------1938"></el-option>
+                        <el-option value="0.068" label="6.8%------1936"></el-option>
+                        <el-option value="0.067" label="6.7%------1934"></el-option>
+                        <el-option value="0.066" label="6.6%------1932"></el-option>
+                        <el-option value="0.065" label="6.5%------1930"></el-option>
+                        <el-option value="0.064" label="6.4%------1928"></el-option>
+                        <el-option value="0.063" label="6.3%------1926"></el-option>
+                        <el-option value="0.062" label="6.2%------1924"></el-option>
+                        <el-option value="0.061" label="6.1%------1922"></el-option>
+                        <el-option value="0.06" label="6.0%------1920"></el-option>
+                        <el-option value="0.059" label="5.9%------1918"></el-option>
+                        <el-option value="0.058" label="5.8%------1916"></el-option>
+                        <el-option value="0.057" label="5.7%------1914"></el-option>
+                        <el-option value="0.056" label="5.6%------1912"></el-option>
+                        <el-option value="0.055" label="5.5%------1910"></el-option>
+                        <el-option value="0.054" label="5.4%------1908"></el-option>
+                        <el-option value="0.053" label="5.3%------1906"></el-option>
+                        <el-option value="0.052" label="5.2%------1904"></el-option>
+                        <el-option value="0.051" label="5.1%------1902"></el-option>
+                        <el-option value="0.05" label="5.0%------1900"></el-option>
+                        <el-option value="0.049" label="4.9%------1898"></el-option>
+                        <el-option value="0.048" label="4.8%------1896"></el-option>
+                        <el-option value="0.047" label="4.7%------1894"></el-option>
+                        <el-option value="0.046" label="4.6%------1892"></el-option>
+                        <el-option value="0.045" label="4.5%------1890"></el-option>
+                        <el-option value="0.044" label="4.4%------1888"></el-option>
+                        <el-option value="0.043" label="4.3%------1886"></el-option>
+                        <el-option value="0.042" label="4.2%------1884"></el-option>
+                        <el-option value="0.041" label="4.1%------1882"></el-option>
+                        <el-option value="0.04" label="4.0%------1880"></el-option>
+                        <el-option value="0.039" label="3.9%------1878"></el-option>
+                        <el-option value="0.038" label="3.8%------1876"></el-option>
+                        <el-option value="0.037" label="3.7%------1874"></el-option>
+                        <el-option value="0.036" label="3.6%------1872"></el-option>
+                        <el-option value="0.035" label="3.5%------1870"></el-option>
+                        <el-option value="0.034" label="3.4%------1868"></el-option>
+                        <el-option value="0.033" label="3.3%------1866"></el-option>
+                        <el-option value="0.032" label="3.2%------1864"></el-option>
+                        <el-option value="0.031" label="3.1%------1862"></el-option>
+                        <el-option value="0.03" label="3.0%------1860"></el-option>
+                        <el-option value="0.029" label="2.9%------1858"></el-option>
+                        <el-option value="0.028" label="2.8%------1856"></el-option>
+                        <el-option value="0.027" label="2.7%------1854"></el-option>
+                        <el-option value="0.026" label="2.6%------1852"></el-option>
+                        <el-option value="0.025" label="2.5%------1850"></el-option>
+                        <el-option value="0.024" label="2.4%------1848"></el-option>
+                        <el-option value="0.023" label="2.3%------1846"></el-option>
+                        <el-option value="0.022" label="2.2%------1844"></el-option>
+                        <el-option value="0.021" label="2.1%------1842"></el-option>
+                        <el-option value="0.02" label="2.0%------1840"></el-option>
+                        <el-option value="0.019" label="1.9%------1838"></el-option>
+                        <el-option value="0.018" label="1.8%------1836"></el-option>
+                        <el-option value="0.017" label="1.7%------1834"></el-option>
+                        <el-option value="0.016" label="1.6%------1832"></el-option>
+                        <el-option value="0.015" label="1.5%------1830"></el-option>
+                        <el-option value="0.014" label="1.4%------1828"></el-option>
+                        <el-option value="0.013" label="1.3%------1826"></el-option>
+                        <el-option value="0.012" label="1.2%------1824"></el-option>
+                        <el-option value="0.011" label="1.1%------1822"></el-option>
+                        <el-option value="0.0099999999999999" label="1.0%------1820"></el-option>
+                        <el-option value="0.0089999999999999" label="0.9%------1818"></el-option>
+                        <el-option value="0.0079999999999999" label="0.8%------1816"></el-option>
+                        <el-option value="0.0069999999999999" label="0.7%------1814"></el-option>
+                        <el-option value="0.0059999999999999" label="0.6%------1812"></el-option>
+                        <el-option value="0.0049999999999999" label="0.5%------1810"></el-option>
+                        <el-option value="0.0039999999999999" label="0.4%------1808"></el-option>
+                        <el-option value="0.0029999999999999" label="0.3%------1806"></el-option>
+                        <el-option value="0.0019999999999999" label="0.2%------1804"></el-option>
+                        <el-option value="0.00099999999999994" label="0.1%------1802"></el-option>
+                        <el-option value="0" label="0------1800"></el-option>
+                    </el-select>
+                </el-form-item>
+
+                <el-form-item class="query-form-item">
+                    <el-select v-model="query.status" placeholder="最后在线">
+                        <el-option value="7" label="vip2"></el-option>
+                        <el-option value="1" label="vip3"></el-option>
+                        <el-option value="2" label="vip4"></el-option>
+                        <el-option value="3" label="vip5"></el-option>
+                        <el-option value="4" label="vip6"></el-option>
+                        <el-option value="8" label="vip8"></el-option>
+                        <el-option value="0" label="未分层"></el-option>
+                        <el-option value="9" label="vip.7"></el-option>
+                        <el-option value="10" label="vip10"></el-option>
+                        <el-option value="11" label="v11"></el-option>
+                    </el-select>
+                </el-form-item>
+
+
+
+
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideForm">取消</el-button>

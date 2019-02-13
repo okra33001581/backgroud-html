@@ -156,27 +156,58 @@
                 width="85%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
-                <el-form-item label="用户名" prop="username">
+                <el-form-item label="层级名称" prop="username">
                     <el-input v-model="formData.username" auto-complete="off"></el-input>
                 </el-form-item>
-                <el-form-item label="登录密码" prop="password">
-                    <el-input type="password" v-model="formData.password" auto-complete="off"></el-input>
+
+                <el-form-item label="存款次数" prop="username">
+                    <el-input v-model="formData.username" auto-complete="off"></el-input>
                 </el-form-item>
-                <el-form-item label="确认密码" prop="checkPassword">
-                    <el-input type="password" v-model="formData.checkPassword" auto-complete="off"></el-input>
+
+                <el-form-item label="存款总额" prop="username">
+                    <el-input v-model="formData.username" auto-complete="off"></el-input>
                 </el-form-item>
-                <el-form-item label="状态" prop="status">
-                    <el-radio-group v-model="formData.status">
-                        <el-radio label="0">禁用</el-radio>
-                        <el-radio label="1">正常</el-radio>
-                        <el-radio label="2">未验证</el-radio>
-                    </el-radio-group>
+
+                <el-form-item label="单笔最大存款额" prop="username">
+                    <el-input v-model="formData.username" auto-complete="off"></el-input>
                 </el-form-item>
-                <el-form-item label="角色">
-                    <el-checkbox-group v-model="formData.roles">
-                        <el-checkbox v-for="item in roles" :key="item.id" :label="item.id">{{item.name}}</el-checkbox>
-                    </el-checkbox-group>
+
+                <el-form-item label="提款次数" prop="username">
+                    <el-input v-model="formData.username" auto-complete="off"></el-input>
                 </el-form-item>
+
+                <el-form-item label="提款总额" prop="username">
+                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item label="优先级" prop="username">
+                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item label="备注" prop="username">
+                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                </el-form-item>
+
+                    <el-form-item label="支付设定" prop="username">
+                    <el-select v-model="formData.status" placeholder="支付设定">
+                        <el-option value="11" label="新用户层级"></el-option>
+                        <el-option value="26" label="普通用户层级"></el-option>
+                        <el-option value="32" label="代理用户层级"></el-option>
+                        <el-option value="33" label="VIP"></el-option>
+                        <el-option value="36" label="普通会员"></el-option>
+                        <el-option value="37" label="vip10"></el-option>
+                        <el-option value="39" label="vip11"></el-option>
+                    </el-select>
+                </el-form-item>
+
+                    <el-form-item label="投注限额" prop="username">
+                    <el-select v-model="formData.status" placeholder="投注限额">
+                        <el-option value="22" label="彩种投注限额"></el-option>
+                        <el-option value="30" label="新增限额"></el-option>
+                    </el-select>
+                </el-form-item>
+
+
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideForm">取消</el-button>

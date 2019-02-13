@@ -194,27 +194,127 @@
                 width="85%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
-                <el-form-item label="用户名" prop="username">
+
+                <el-form-item label="账号名" prop="username">
                     <el-input v-model="formData.username" auto-complete="off"></el-input>
                 </el-form-item>
-                <el-form-item label="登录密码" prop="password">
-                    <el-input type="password" v-model="formData.password" auto-complete="off"></el-input>
+
+                <el-form-item class="query-form-item" label="银行" >
+                    <el-select v-model="query.status" placeholder="银行">
+                        <el-option value="1" selected="" label="中国工商银行"></el-option>
+                        <el-option value="3" label="中国建设银行"></el-option>
+                        <el-option value="4" label="中国招商银行"></el-option>
+                        <el-option value="5" label="中国民生银行"></el-option>
+                        <el-option value="6" label="中国邮政储蓄银行"></el-option>
+                        <el-option value="7" label="中国银行"></el-option>
+                        <el-option value="8" label="中国交通银行"></el-option>
+                        <el-option value="9" label="中国兴业银行"></el-option>
+                        <el-option value="10" label="中国光大银行"></el-option>
+                        <el-option value="11" label="中信银行"></el-option>
+                        <el-option value="12" label="华夏银行"></el-option>
+                        <el-option value="13" label="浦发银行"></el-option>
+                        <el-option value="14" label="广发银行"></el-option>
+                        <el-option value="15" label="北京银行"></el-option>
+                        <el-option value="16" label="平安银行"></el-option>
+                        <el-option value="21" label="广州银行"></el-option>
+                        <el-option value="22" label="广州农商银行"></el-option>
+                        <el-option value="23" label="顺德农商银行"></el-option>
+                        <el-option value="24" label="北京农商银行"></el-option>
+                        <el-option value="25" label="杭州银行"></el-option>
+                        <el-option value="26" label="温州银行"></el-option>
+                        <el-option value="27" label="上海农商银行"></el-option>
+                        <el-option value="28" label="上海银行"></el-option>
+                        <el-option value="29" label="尧都农商银行"></el-option>
+                        <el-option value="30" label="渤海银行"></el-option>
+                        <el-option value="31" label="浙商银行"></el-option>
+                        <el-option value="32" label="浙江稠州商业银行"></el-option>
+                        <el-option value="33" label="晋商银行"></el-option>
+                        <el-option value="34" label="晋城银行"></el-option>
+                        <el-option value="35" label="汉口银行"></el-option>
+                        <el-option value="36" label="东莞银行"></el-option>
+                        <el-option value="37" label="东莞农村商业银行"></el-option>
+                        <el-option value="38" label="宁波银行"></el-option>
+                        <el-option value="39" label="南京银行"></el-option>
+                        <el-option value="40" label="邯郸银行"></el-option>
+                        <el-option value="41" label="郑州银行"></el-option>
+                        <el-option value="42" label="九江银行"></el-option>
+                        <el-option value="43" label="盛京银行"></el-option>
+                        <el-option value="44" label="安徽农信社"></el-option>
+                        <el-option value="45" label="甘肃银行"></el-option>
+                        <el-option value="46" label="甘肃农村信用社"></el-option>
+                        <el-option value="47" label="锦州银行"></el-option>
+                        <el-option value="48" label="齐鲁银行"></el-option>
+                        <el-option value="49" label="贵州银行"></el-option>
+                        <el-option value="50" label="bea东亚银行"></el-option>
+                        <el-option value="51" label="厦门银行"></el-option>
+                        <el-option value="52" label="洛阳银行"></el-option>
+                        <el-option value="53" label="深圳农商银行"></el-option>
+                        <el-option value="54" label="贵阳银行"></el-option>
+                        <el-option value="55" label="广西农村信用社"></el-option>
+                        <el-option value="56" label="哈尔滨银行"></el-option>
+                        <el-option value="57" label="昆山农村商业银行"></el-option>
+                        <el-option value="58" label="浙江民泰商业银行"></el-option>
+                        <el-option value="59" label="广东农村信用社"></el-option>
+                        <el-option value="60" label="河南信用社"></el-option>
+                        <el-option value="61" label="成都银行"></el-option>
+                        <el-option value="62" label="山东农村信用社"></el-option>
+                        <el-option value="63" label="江苏农村信用社"></el-option>
+                        <el-option value="64" label="江西农村信用社"></el-option>
+                        <el-option value="65" label="贵州农村信用社"></el-option>
+                        <el-option value="66" label="青海农村信用社"></el-option>
+                        <el-option value="67" label="超级银行"></el-option>
+                        <el-option value="101" label="微信支付"></el-option>
+                        <el-option value="102" label="支付宝支付"></el-option>
+                    </el-select>
                 </el-form-item>
-                <el-form-item label="确认密码" prop="checkPassword">
-                    <el-input type="password" v-model="formData.checkPassword" auto-complete="off"></el-input>
+
+                <el-form-item class="query-form-item" label="省市" >
+                    <el-select v-model="query.status" placeholder="省市">
+                        <el-option value="1" selected="" label="北京"></el-option>
+                        <el-option value="2" label="上海"></el-option>
+                        <el-option value="3" label="天津"></el-option>
+                        <el-option value="4" label="重庆"></el-option>
+                        <el-option value="5" label="内蒙古"></el-option>
+                        <el-option value="6" label="山西"></el-option>
+                        <el-option value="7" label="河北"></el-option>
+                        <el-option value="8" label="辽宁"></el-option>
+                        <el-option value="9" label="吉林"></el-option>
+                        <el-option value="10" label="黑龙江"></el-option>
+                        <el-option value="11" label="江苏"></el-option>
+                        <el-option value="12" label="安徽"></el-option>
+                        <el-option value="13" label="山东"></el-option>
+                        <el-option value="14" label="浙江"></el-option>
+                        <el-option value="15" label="江西"></el-option>
+                        <el-option value="16" label="福建"></el-option>
+                        <el-option value="17" label="湖南"></el-option>
+                        <el-option value="18" label="湖北"></el-option>
+                        <el-option value="19" label="河南"></el-option>
+                        <el-option value="20" label="广东"></el-option>
+                        <el-option value="21" label="海南"></el-option>
+                        <el-option value="22" label="广西"></el-option>
+                        <el-option value="23" label="贵州"></el-option>
+                        <el-option value="24" label="四川"></el-option>
+                        <el-option value="25" label="云南"></el-option>
+                        <el-option value="26" label="陕西"></el-option>
+                        <el-option value="27" label="甘肃"></el-option>
+                        <el-option value="28" label="宁夏"></el-option>
+                        <el-option value="29" label="青海"></el-option>
+                        <el-option value="30" label="新疆"></el-option>
+                        <el-option value="31" label="西藏"></el-option>
+                        <el-option value="32" label="香港"></el-option>
+                        <el-option value="33" label="澳门"></el-option>
+                        <el-option value="34" label="台湾"></el-option>
+                    </el-select>
                 </el-form-item>
-                <el-form-item label="状态" prop="status">
-                    <el-radio-group v-model="formData.status">
-                        <el-radio label="0">禁用</el-radio>
-                        <el-radio label="1">正常</el-radio>
-                        <el-radio label="2">未验证</el-radio>
-                    </el-radio-group>
+
+
+                <el-form-item label="卡号" prop="username">
+                    <el-input v-model="formData.username" auto-complete="off"></el-input>
                 </el-form-item>
-                <el-form-item label="角色">
-                    <el-checkbox-group v-model="formData.roles">
-                        <el-checkbox v-for="item in roles" :key="item.id" :label="item.id">{{item.name}}</el-checkbox>
-                    </el-checkbox-group>
+                <el-form-item label="支行名称" prop="username">
+                    <el-input v-model="formData.username" auto-complete="off"></el-input>
                 </el-form-item>
+
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideForm">取消</el-button>

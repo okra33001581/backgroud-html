@@ -178,27 +178,68 @@
                 width="85%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
-                <el-form-item label="用户名" prop="username">
+
+                <el-form-item class="query-form-item" label="账号分组" >
+                    <el-select v-model="query.status" placeholder="账号分组">
+                        <el-option value="11" selected="TRUE" label="&nbsp;&nbsp;全权限"></el-option>
+                        <el-option value="22" label="测试"></el-option>
+                        <el-option value="30" label="323232"></el-option>
+                        <el-option value="34" label="开心"></el-option>
+                        <el-option value="32" label="111"></el-option>
+                        <el-option value="31" label="客服"></el-option>
+                        <el-option value="93" label="ceshi"></el-option>
+                        <el-option value="33" label="323232(复制组)"></el-option>
+                        <el-option value="42" label="u1"></el-option>
+                        <el-option value="46" label="qw"></el-option>
+                        <el-option value="74" label="d"></el-option>
+                        <el-option value="89" label="a"></el-option>
+                        <el-option value="94" label="入款1"></el-option>
+                        <el-option value="95" label="rukuan1"></el-option>
+                        <el-option value="99" label="66666"></el-option>
+                        <el-option value="104" label="测试VIP"></el-option>
+                        <el-option value="23" label="对对对"></el-option>
+                        <el-option value="77" label="rrr"></el-option>
+                        <el-option value="80" label="qqqww"></el-option>
+                        <el-option value="83" label="qqqwww"></el-option>
+                        <el-option value="85" label="rrr(复制组)"></el-option>
+                        <el-option value="24" label="222"></el-option>
+                        <el-option value="27" label="yyy"></el-option>
+                        <el-option value="59" label="湖公园建于一"></el-option>
+                        <el-option value="97" label="yyy(复制组)"></el-option>
+                        <el-option value="37" label="123"></el-option>
+                        <el-option value="39" label="zzz"></el-option>
+                        <el-option value="96" label="yyy1"></el-option>
+                        <el-option value="25" label="问问"></el-option>
+                        <el-option value="41" label="okk"></el-option>
+                        <el-option value="50" label="22222"></el-option>
+                        <el-option value="48" label="11"></el-option>
+                        <el-option value="98" label="都为23二位"></el-option>
+                        <el-option value="70" label="sadsada"></el-option>
+                    </el-select>
+                </el-form-item>
+
+                <el-form-item label="账号名称" prop="username">
                     <el-input v-model="formData.username" auto-complete="off"></el-input>
                 </el-form-item>
-                <el-form-item label="登录密码" prop="password">
+
+                <el-form-item label="账号昵称" prop="username">
+                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item class="query-form-item" label="账号语言" >
+                    <el-select v-model="query.status" placeholder="账号语言">
+                        <el-option value="22" label="简体中文"></el-option>
+                        <el-option value="30" label="English(美国)"></el-option>
+                    </el-select>
+                </el-form-item>
+
+                <el-form-item label="账号密码" prop="password">
                     <el-input type="password" v-model="formData.password" auto-complete="off"></el-input>
                 </el-form-item>
                 <el-form-item label="确认密码" prop="checkPassword">
                     <el-input type="password" v-model="formData.checkPassword" auto-complete="off"></el-input>
                 </el-form-item>
-                <el-form-item label="状态" prop="status">
-                    <el-radio-group v-model="formData.status">
-                        <el-radio label="0">禁用</el-radio>
-                        <el-radio label="1">正常</el-radio>
-                        <el-radio label="2">未验证</el-radio>
-                    </el-radio-group>
-                </el-form-item>
-                <el-form-item label="角色">
-                    <el-checkbox-group v-model="formData.roles">
-                        <el-checkbox v-for="item in roles" :key="item.id" :label="item.id">{{item.name}}</el-checkbox>
-                    </el-checkbox-group>
-                </el-form-item>
+
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideForm">取消</el-button>
