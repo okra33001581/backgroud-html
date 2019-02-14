@@ -55,7 +55,19 @@
             <el-table-column label="					状态		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					名称		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					电脑版图片		" prop="id" sortable="custom" fixed></el-table-column>
+
+            <template slot-scope="scope">
+                <img  :src="scope.row.imgPath" alt="" style="width: 50px;height: 50px">
+            </template>
+
+
             <el-table-column label="					手机版图片		" prop="id" sortable="custom" fixed></el-table-column>
+
+            <template slot-scope="scope">
+                <img  :src="scope.row.imgPath" alt="" style="width: 50px;height: 50px">
+            </template>
+
+
             <el-table-column label="					链接地址		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					更新时间		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					操作者		" prop="id" sortable="custom" fixed></el-table-column>
