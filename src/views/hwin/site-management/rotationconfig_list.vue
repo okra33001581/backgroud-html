@@ -54,18 +54,34 @@
             <el-table-column label="					排序		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					状态		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					名称		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					电脑版图片		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					电脑版图片		" prop="id" sortable="custom" fixed>
 
-            <template slot-scope="scope">
-                <img  :src="scope.row.imgPath" alt="" style="width: 50px;height: 50px">
-            </template>
+                <template slot-scope="scope">
+                    <el-popover
+                            placement="right"
+                            title=""
+                            trigger="hover">
+                        <img src="../../images/1.png"/>
+                        <img slot="reference" src="../../images/1.png" :alt="id" style="max-height: 50px;max-width: 130px">
+                    </el-popover>
+                </template>
 
+            </el-table-column>
 
-            <el-table-column label="					手机版图片		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					手机版图片		" prop="id" sortable="custom" fixed>
 
-            <template slot-scope="scope">
-                <img  :src="scope.row.imgPath" alt="" style="width: 50px;height: 50px">
-            </template>
+                <template slot-scope="scope">
+                    <el-popover
+                            placement="right"
+                            title=""
+                            trigger="hover">
+                        <img src="../../images/1.png"/>
+                        <img slot="reference" src="../../images/1.png" :alt="id" style="max-height: 50px;max-width: 130px">
+                    </el-popover>
+                </template>
+
+            </el-table-column>
+
 
 
             <el-table-column label="					链接地址		" prop="id" sortable="custom" fixed></el-table-column>

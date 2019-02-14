@@ -56,7 +56,19 @@
                 @sort-change="sortChange">
             <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="			图标				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			预览				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			预览				" prop="id" sortable="custom" fixed>
+
+                <template slot-scope="scope">
+                    <el-popover
+                            placement="right"
+                            title=""
+                            trigger="hover">
+                        <img src="../../images/1.png"/>
+                        <img slot="reference" src="../../images/1.png" :alt="id" style="max-height: 50px;max-width: 130px">
+                    </el-popover>
+                </template>
+
+            </el-table-column>
             <!--<el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>-->
             <!--<el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>-->
 
