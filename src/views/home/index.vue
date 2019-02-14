@@ -63,7 +63,21 @@
                 <!--</el-dropdown>-->
             <!--</div>-->
 
-            <div class="header-right">
+            <div class="header-middle">
+                <el-dropdown trigger="click">
+                    <!--<i class="el-icon-setting" style="margin-right: 15px"></i>-->
+                    <span>Fund</span><i class="el-icon-arrow-down el-icon--right"></i>
+                    <el-dropdown-menu slot="dropdown">
+                        <el-dropdown-item><span @click="handlePassword">入款</span></el-dropdown-item>
+                        <el-dropdown-item><span @click="loginOut">出款</span></el-dropdown-item>
+                        <el-dropdown-item disabled divided>风控</el-dropdown-item>
+                    </el-dropdown-menu>
+                </el-dropdown>
+
+            </div>
+
+
+                <div class="header-right">
                 <el-dropdown trigger="click">
                     <!--<i class="el-icon-setting" style="margin-right: 15px"></i>-->
                     <span>{{username}}</span><i class="el-icon-arrow-down el-icon--right"></i>
@@ -432,6 +446,16 @@ export default {
     height: 130%;
     line-height: 60px;
     @include clearfix;
+}
+
+
+.header-middle {
+    position: absolute;
+    right: 77px;
+    display: flex;
+    width: 80px;
+    height: 100%;
+    margin-left: 10px;
 }
 
 .header-right {
