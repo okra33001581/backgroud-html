@@ -201,7 +201,7 @@
                 </template>
             </el-table-column>-->
             <el-table-column
-                    label="操作"
+                    label="操作" width="260"
                     fixed="right">
                 <template slot-scope="scope">
                     <el-button type="primary" size="small" icon="el-icon-view" @click.native="handleForm(scope.$index, scope.row)">查看

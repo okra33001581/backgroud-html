@@ -195,8 +195,8 @@
                 </template>
             </el-table-column>-->
             <el-table-column
-                    label="操作"
-                    fixed="right">
+                    label="操作" width="260"
+                    fixed>
                 <template slot-scope="scope">
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
                     </el-button>
