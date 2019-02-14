@@ -68,9 +68,9 @@
                     <!--<i class="el-icon-setting" style="margin-right: 15px"></i>-->
                     <span>Fund</span><i class="el-icon-arrow-down el-icon--right"></i>
                     <el-dropdown-menu slot="dropdown">
-                        <el-dropdown-item><span @click="handlePassword">入款</span></el-dropdown-item>
-                        <el-dropdown-item><span @click="loginOut">出款</span></el-dropdown-item>
-                        <el-dropdown-item disabled divided>风控</el-dropdown-item>
+                        <el-dropdown-item><span @click="handleInfund">入款</span></el-dropdown-item>
+                        <el-dropdown-item><span @click="handleOutfund">出款</span></el-dropdown-item>
+                        <el-dropdown-item><span @click="handleRiskfund">风控</span></el-dropdown-item>
                     </el-dropdown-menu>
                 </el-dropdown>
 
@@ -284,6 +284,19 @@ export default {
                         message: "操作失败"
                     });
                 });
+        },
+
+        // companymoney_list
+        handleInfund() {
+            window.location.href = '../events3/companymoney_list';
+        },
+        // cash_withdrawlist
+        handleOutfund() {
+            window.location.href = '../events3/cash_withdrawlist';
+        },
+        // lotteryrisk_list
+        handleRiskfund() {
+            window.location.href = '../events4/lotteryrisk_list';
         },
         // 显示修改密码界面
         handlePassword() {
