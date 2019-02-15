@@ -72,9 +72,29 @@
             <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					入款方式		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					支付类型		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					排序值		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					属性		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					支付类型别名		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					排序值		" prop="id" sortable="custom" fixed>
+
+                <template scope="scope">
+                    <el-input size="small" v-model="scope.row.languageCode" placeholder="请输入排序值"
+                    ></el-input>
+                </template>
+
+            </el-table-column>
+
+            <el-table-column label="					属性		" prop="id" sortable="custom" fixed>
+                <template slot-scope="scope">
+                    <el-checkbox  v-model="scope.row.isCheck1">热门</el-checkbox>
+                </template>
+            </el-table-column>
+            <el-table-column label="					支付类型别名		" prop="id" sortable="custom" fixed>
+
+                <template scope="scope">
+                    <el-input size="small" v-model="scope.row.languageCode" placeholder="请输入支付类型别名"
+                    ></el-input>
+                </template>
+
+            </el-table-column>
+
             <el-table-column label="					菜单状态		" prop="id" sortable="custom" fixed></el-table-column>
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>

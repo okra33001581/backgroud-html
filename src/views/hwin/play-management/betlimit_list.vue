@@ -55,7 +55,15 @@
                 style="width: 100%;"
                 @sort-change="sortChange">
             <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			名称				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					名称		" prop="id" sortable="custom" fixed>
+
+                <template scope="scope">
+                    <el-input size="small" v-model="scope.row.languageCode" placeholder="请输入名称"
+                    ></el-input>
+                </template>
+
+            </el-table-column>
+
             <!--<el-table-column label="			Status				" prop="id" sortable="custom" fixed></el-table-column>-->
             <!--<el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>-->
             <!--<el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>-->

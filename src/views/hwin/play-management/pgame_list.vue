@@ -41,13 +41,6 @@
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
                     <el-button type="primary" icon="el-icon-search" @click="onSubmit">查询</el-button>
                     <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">新增</el-button>
-                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">玩法群组
-                    </el-button>
-                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">奖金设定
-                    </el-button>
-                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">奖金期间
-                    </el-button>
-                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">停售</el-button>
                     </el-button-group>
             </el-form-item>
         </el-form>
@@ -95,8 +88,22 @@
             <el-table-column label="					销售时间（开始）		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					销售时间（结束）		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					状态		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					排序		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					属性		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					排序值		" prop="id" sortable="custom" fixed>
+
+                <template scope="scope">
+                    <el-input size="small" v-model="scope.row.languageCode" placeholder="请输入排序值"
+                    ></el-input>
+                </template>
+
+            </el-table-column>
+            <el-table-column label="					属性		" prop="id" sortable="custom"  width="250" fixed>
+                <template slot-scope="scope">
+                    <el-checkbox  v-model="scope.row.isCheck1">热门</el-checkbox>
+                    <el-checkbox  v-model="scope.row.isCheck2">推荐</el-checkbox>
+                    <el-checkbox  v-model="scope.row.isCheck3">新上</el-checkbox>
+                </template>
+
+            </el-table-column>
 
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
@@ -143,13 +150,20 @@
                 </template>
             </el-table-column>-->
             <el-table-column
-                    label="操作" width="260"
+                    label="操作" width="600"
                     fixed="right">
                 <template slot-scope="scope">
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
                     </el-button>
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
                     </el-button>
+                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">玩法群组
+                    </el-button>
+                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">奖金设定
+                    </el-button>
+                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">奖金期间
+                    </el-button>
+                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">停售</el-button>
                 </template>
             </el-table-column>
         </el-table>
