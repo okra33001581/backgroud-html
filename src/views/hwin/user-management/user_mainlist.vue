@@ -226,7 +226,7 @@
                 </template>
             </el-table-column>-->
             <el-table-column
-                    label="操作" width="260"
+                    label="操作" width="850"
                     fixed="right">
                 <template slot-scope="scope">
 
@@ -236,6 +236,13 @@
                     </el-button>
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
                     </el-button>
+                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleForm(scope.$index, scope.row)">冻结</el-button>
+                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleForm(scope.$index, scope.row)">调点</el-button>
+                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleForm(scope.$index, scope.row)">下注记录</el-button>
+                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleForm(scope.$index, scope.row)">锁卡</el-button>
+                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleForm(scope.$index, scope.row)">配额设置</el-button>
+                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleForm(scope.$index, scope.row)">修改上级</el-button>
+                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleForm(scope.$index, scope.row)">解锁</el-button>
                 </template>
             </el-table-column>
         </el-table>

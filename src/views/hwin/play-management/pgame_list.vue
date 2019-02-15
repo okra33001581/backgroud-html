@@ -41,7 +41,14 @@
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
                     <el-button type="primary" icon="el-icon-search" @click="onSubmit">查询</el-button>
                     <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">新增</el-button>
-                </el-button-group>
+                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">玩法群组
+                    </el-button>
+                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">奖金设定
+                    </el-button>
+                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">奖金期间
+                    </el-button>
+                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">停售</el-button>
+                    </el-button-group>
             </el-form-item>
         </el-form>
         <!--<el-table

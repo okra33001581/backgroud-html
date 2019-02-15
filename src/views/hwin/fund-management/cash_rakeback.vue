@@ -139,13 +139,15 @@
                 </template>
             </el-table-column>-->
             <el-table-column
-                    label="操作" width="260"
+                    label="操作" width="460"
                     fixed="right">
                 <template slot-scope="scope">
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
                     </el-button>
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
                     </el-button>
+                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">审核通过</el-button>
+                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">审核拒绝</el-button>
                 </template>
             </el-table-column>
         </el-table>

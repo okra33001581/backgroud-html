@@ -120,6 +120,10 @@
                     </el-button>
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
                     </el-button>
+                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleForm(scope.$index, scope.row)">置顶</el-button>
+                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleForm(scope.$index, scope.row)">解除置顶</el-button>
+
+
                 </template>
             </el-table-column>
         </el-table>
