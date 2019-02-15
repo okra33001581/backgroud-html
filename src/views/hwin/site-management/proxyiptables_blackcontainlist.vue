@@ -6,11 +6,7 @@
                 <el-input v-model="query.username" placeholder="用户名"></el-input>
             </el-form-item>-->
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="类别">
-                    <el-option label="全部" value=""></el-option>
-                    <el-option label="限制访问" value="0"></el-option>
-                    <el-option label="例外 IP" value="1"></el-option>
-                </el-select>
+                <el-input v-model="input" placeholder="请输入内容"></el-input>
             </el-form-item>
             <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
                 <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key"/>
