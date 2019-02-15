@@ -109,6 +109,7 @@
             增加时间
 -->
             <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					状态		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					账号名		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					一代名称		" prop="id" sortable="custom" fixed></el-table-column>

@@ -66,6 +66,7 @@
             <!--用户名	重复项目	重复值	重复人数	重复用户-->
 
             <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="			用户名				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="			重复项目				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="			重复值				" prop="id" sortable="custom" fixed></el-table-column>

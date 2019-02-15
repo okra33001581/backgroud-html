@@ -150,6 +150,7 @@
             操作-->
 
             <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					层级		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					订单号		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					收款账号		" prop="id" sortable="custom" fixed></el-table-column>

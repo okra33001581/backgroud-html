@@ -74,6 +74,7 @@
             类型
             操作人-->
             <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="			推送时间				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="			标题				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="			类型				" prop="id" sortable="custom" fixed></el-table-column>

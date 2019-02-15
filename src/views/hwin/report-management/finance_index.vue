@@ -64,6 +64,7 @@
             小计-->
 
             <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					日期		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					公司入款		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					第三方存入		" prop="id" sortable="custom" fixed></el-table-column>

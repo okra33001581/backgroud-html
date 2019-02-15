@@ -136,6 +136,7 @@
             注册日期
 -->
             <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					用户ID		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					用户名		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					真实姓名		" prop="id" sortable="custom" fixed></el-table-column>

@@ -170,6 +170,7 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
                 <el-form-item label="			ID    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
                 <el-form-item label="			投注日期   		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="			用户名       		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="			有效投注额  		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>

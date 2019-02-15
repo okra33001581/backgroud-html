@@ -65,6 +65,7 @@
             活动状态
 -->
             <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					排序值		" prop="id" sortable="custom" fixed>
 
                 <template scope="scope">

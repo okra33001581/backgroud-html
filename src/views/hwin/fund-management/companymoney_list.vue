@@ -152,6 +152,7 @@
 
 
             <el-table-column label="					ID		" prop="id" align="center" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					订单号		" prop="id" align="center" sortable="custom" fixed></el-table-column>
             <el-table-column label="					会员账号		" prop="id" align="center" sortable="custom" fixed></el-table-column>
             <el-table-column label="					存款人姓名/昵称		" prop="id" align="center" sortable="custom" fixed></el-table-column>

@@ -103,6 +103,7 @@
             备注
 -->
             <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					代理账号		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					邀请码		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					绑定域名		" prop="id" sortable="custom" fixed></el-table-column>

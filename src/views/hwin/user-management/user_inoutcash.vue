@@ -109,6 +109,7 @@
             优惠总额
 -->
             <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					注册时间		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					登录时间		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					用户名		" prop="id" sortable="custom" fixed></el-table-column>

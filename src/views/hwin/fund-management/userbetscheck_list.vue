@@ -66,6 +66,7 @@
 
 
             <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					存款日期		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					存款额		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					优惠		" prop="id" sortable="custom" fixed></el-table-column>

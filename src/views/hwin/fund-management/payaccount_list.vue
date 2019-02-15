@@ -69,6 +69,7 @@
             操作人
 -->
             <el-table-column label="					序号		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					添加时间		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					层级		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					支付类型		" prop="id" sortable="custom" fixed></el-table-column>

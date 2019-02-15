@@ -87,6 +87,7 @@
             活跃数
             -->
             <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					用户名		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					所属组		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					投注总额		" prop="id" sortable="custom" fixed></el-table-column>

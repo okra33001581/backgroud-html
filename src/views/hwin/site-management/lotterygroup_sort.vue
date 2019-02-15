@@ -55,6 +55,8 @@
                 style="width: 100%;"
                 @sort-change="sortChange">
             <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
+
             <el-table-column label="					名称		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					排序值		" prop="id" sortable="custom" fixed>
 

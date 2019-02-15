@@ -111,6 +111,7 @@
             状态-->
 
             <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					会员账号		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					提交时间		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					审核时间		" prop="id" sortable="custom" fixed></el-table-column>
