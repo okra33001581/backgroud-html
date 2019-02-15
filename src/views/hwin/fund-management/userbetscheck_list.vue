@@ -69,15 +69,20 @@
             <el-table-column label="					存款日期		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					存款额		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					优惠		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					实际有效投注 优惠稽核   常态稽核		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					实际有效投注		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					优惠稽核		" prop="id" fixed>
+                <el-table-column label="					综合打码量		" prop="id" sortable="custom" fixed></el-table-column>
+                <el-table-column label="					是否达到		" prop="id" sortable="custom" fixed></el-table-column>
+            </el-table-column>
+            <el-table-column label="					常态稽核		" prop="id" fixed>
+                <el-table-column label="					常态打码量		" prop="id" sortable="custom" fixed></el-table-column>
+                <el-table-column label="					放宽额度		" prop="id" sortable="custom" fixed></el-table-column>
+                <el-table-column label="					是否达到		" prop="id" sortable="custom" fixed></el-table-column>
+                <el-table-column label="					不需扣除费用		" prop="id" sortable="custom" fixed></el-table-column>
+            </el-table-column>
             <el-table-column label="					需要扣除金额		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					备注		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					综合打码量		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					是否达到		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					常态打码量		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					放宽额度		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					是否达到		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					不需扣除费用		" prop="id" sortable="custom" fixed></el-table-column>
+
 
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
@@ -156,8 +161,8 @@
                 <el-form-item label="			存款日期 		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="			存款额  		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="			优惠  		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			实际有效投注 优惠稽核   常态稽核		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			需要扣除金额 		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <!--<el-form-item label="			实际有效投注 优惠稽核   常态稽核		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>-->
+                <!--<el-form-item label="			需要扣除金额 		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>-->
                 <el-form-item label="			备注  		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="			综合打码量 		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="			是否达到 		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
