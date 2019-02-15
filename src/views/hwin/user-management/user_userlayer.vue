@@ -75,16 +75,41 @@
 
             <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					层级名称		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					优先级    加入条件		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					优先级		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					会员人数		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					备注		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					支付平台选项设定		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					投注限额		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					存款次数		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					存款总额		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					最大存款额度		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					提款次数		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					提款总额		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					支付平台选项设定		" prop="id" sortable="custom" fixed>
+                <template slot-scope="scope">
+                    <el-select v-model="scope.row.languageCode1" placeholder="支付平台选项设定">
+                        <el-option label="新用户层级" value=""></el-option>
+                        <el-option label="普通用户层级" value="0"></el-option>
+                        <el-option label="代理用户层级" value="1"></el-option>
+                        <el-option label="VIP" value="2"></el-option>
+                        <el-option label="普通会员" value="2"></el-option>
+                        <el-option label="vip10" value="2"></el-option>
+                        <el-option label="vip11" value="2"></el-option>
+                    </el-select>
+                </template>
+            </el-table-column>
+
+            <el-table-column label="					投注限额		" prop="id" sortable="custom" fixed>
+                <template slot-scope="scope">
+                    <el-select v-model="scope.row.languageCode2" placeholder="投注限额">
+                        <el-option label="彩种投注限额" value=""></el-option>
+                        <el-option label="新增限额" value="0"></el-option>
+                    </el-select>
+                </template>
+            </el-table-column>
+
+            <el-table-column label="					加入条件		" prop="id" sortable="custom" fixed>
+                <el-table-column label="					存款次数		" prop="id" sortable="custom" fixed></el-table-column>
+                <el-table-column label="					存款总额		" prop="id" sortable="custom" fixed></el-table-column>
+                <el-table-column label="					最大存款额度		" prop="id" sortable="custom" fixed></el-table-column>
+                <el-table-column label="					提款次数		" prop="id" sortable="custom" fixed></el-table-column>
+                <el-table-column label="					提款总额		" prop="id" sortable="custom" fixed></el-table-column>
+            </el-table-column>
+
+
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column

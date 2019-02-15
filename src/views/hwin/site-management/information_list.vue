@@ -61,7 +61,14 @@
 
 
             <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					排序值		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					排序值		" prop="id" sortable="custom" fixed>
+
+                <template scope="scope">
+                    <el-input size="small" v-model="scope.row.languageCode" placeholder="请输入排序值"
+                    ></el-input>
+                </template>
+
+            </el-table-column>
             <el-table-column label="					资讯类型		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					资讯标题		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					最后更新时间		" prop="id" sortable="custom" fixed></el-table-column>

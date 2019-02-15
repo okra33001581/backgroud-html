@@ -51,7 +51,14 @@
                 style="width: 100%;"
                 @sort-change="sortChange">
 
-            <el-table-column label="					排序		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					排序值		" prop="id" sortable="custom" fixed>
+
+                <template scope="scope">
+                    <el-input size="small" v-model="scope.row.languageCode" placeholder="请输入排序值"
+                    ></el-input>
+                </template>
+
+            </el-table-column>
             <el-table-column label="					状态		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					名称		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					电脑版图片		" prop="id" sortable="custom" fixed>

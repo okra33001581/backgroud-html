@@ -56,8 +56,23 @@
                 @sort-change="sortChange">
             <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					名称		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					排序值		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					属性		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					排序值		" prop="id" sortable="custom" fixed>
+
+                <template scope="scope">
+                    <el-input size="small" v-model="scope.row.languageCode" placeholder="请输入排序值"
+                    ></el-input>
+                </template>
+
+            </el-table-column>
+            <el-table-column label="					属性		" prop="id" sortable="custom" fixed>
+
+                <template slot-scope="scope">
+                    <el-checkbox  v-model="scope.row.isCheck1">热门</el-checkbox>
+                    <el-checkbox  v-model="scope.row.isCheck2">推荐</el-checkbox>
+                    <el-checkbox  v-model="scope.row.isCheck3">新上</el-checkbox>
+                </template>
+
+            </el-table-column>
 
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>

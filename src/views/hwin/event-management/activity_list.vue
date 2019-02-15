@@ -65,7 +65,14 @@
             活动状态
 -->
             <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					排序值		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					排序值		" prop="id" sortable="custom" fixed>
+
+                <template scope="scope">
+                    <el-input size="small" v-model="scope.row.languageCode" placeholder="请输入排序值"
+                    ></el-input>
+                </template>
+
+            </el-table-column>
             <el-table-column label="					活动名称		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					开始时间		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					结束时间		" prop="id" sortable="custom" fixed></el-table-column>
