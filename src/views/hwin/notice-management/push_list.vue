@@ -75,7 +75,7 @@
             操作人-->
             <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			推送时间				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			推送时间				" prop="id" :formatter="formatSex" sortable="custom" fixed></el-table-column>
             <el-table-column label="			标题				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="			类型				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="			操作人				" prop="id" sortable="custom" fixed></el-table-column>
@@ -331,6 +331,21 @@
                         this.total = 0;
                         this.roles = [];
                     });
+            },
+            formatSex: function (row, column) {
+                var date = new Date();
+                var seperator1 = "-";
+                var year = date.getFullYear();
+                var month = date.getMonth() + 1;
+                var strDate = date.getDate();
+                if (month >= 1 && month <= 9) {
+                    month = "0" + month;
+                }
+                if (strDate >= 0 && strDate <= 9) {
+                    strDate = "0" + strDate;
+                }
+                var currentdate = year + seperator1 + month + seperator1 + strDate;
+                return currentdate
             },
             /*sortChange2(data) {
                 const { prop, order } = data
