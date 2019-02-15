@@ -60,7 +60,7 @@
             <!--名称-->
 
             <el-table-column label="			编号				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			名称				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			名称				" prop="id" :formatter="formatSex" sortable="custom" fixed></el-table-column>
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
@@ -134,8 +134,46 @@
                 width="85%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
-                <el-form-item label="			编号		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			名称		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				名称	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				达到有效投注额是否免手续费	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				每天可出款次数	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				每天免手续费次数	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				出款上限	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				手续费	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				每笔手续费上限	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				出款下限	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				存款优惠	" prop="username">
+                    <template>
+                        <el-radio v-model="formData.username" label="1">是</el-radio>
+                        <el-radio v-model="formData.username" label="2">否</el-radio>
+                    </template>
+                </el-form-item>
+                <el-form-item label="				优惠标准（元）	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				优惠百分比(%)	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				优惠上限金额	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				入款上限	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				入款下限	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				综合额度流水审核	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				常态性流水审核	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				常态性流水放宽额度	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				常态性流水审核行政费率	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				存款优惠	" prop="username">
+                    <template>
+                        <el-radio v-model="formData.username" label="1">是</el-radio>
+                        <el-radio v-model="formData.username" label="2">否</el-radio>
+                    </template>
+                </el-form-item>
+                <el-form-item label="				优惠标准（元）	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				优惠百分比(%)	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				优惠上限金额	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				入款上限	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				入款下限	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				综合额度流水审核	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				常态性流水审核	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				常态性流水放宽额度	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				常态性流水审核行政费率	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+
+
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideForm">取消</el-button>
@@ -298,6 +336,9 @@
                         this.total = 0;
                         this.roles = [];
                     });
+            },
+            formatSex: function (row, column) {
+                return "代理用户层级" + row.id
             },
             /*sortChange2(data) {
                 const { prop, order } = data

@@ -55,7 +55,8 @@
                 style="width: 100%;"
                 @sort-change="sortChange">
             <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
+            <!--<el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>-->
             <el-table-column label="			Status				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>
@@ -133,51 +134,143 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                <el-form-item label="				打开首页是否需要登录	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				打开首页是否需要登录	" prop="username">
+                    <template>
+                        <el-radio v-model="formData.username" label="1">是</el-radio>
+                        <el-radio v-model="formData.username" label="2">否</el-radio>
+                    </template>
+                </el-form-item>
                 <el-form-item label="				网页标题	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="				网页关键词	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="				网页描述	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="				平台名称	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				免费试玩	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				节日皮肤	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				是否开启前台维护	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				免费试玩	" prop="username">
+                    <template>
+                        <el-checkbox-group v-model="checkList">
+                            <el-checkbox label="pc端"></el-checkbox>
+                            <el-checkbox label="移动端"></el-checkbox>
+                        </el-checkbox-group>
+                    </template>
+                </el-form-item>
+                <el-form-item label="				节日皮肤	" prop="username">
+                    <template>
+                        <el-select v-model="value4" clearable placeholder="请选择">
+                            <el-option label="全部" value=""></el-option>
+                            <el-option label="禁用" value="0"></el-option>
+                            <el-option label="正常" value="1"></el-option>
+                        </el-select>
+                    </template>
+                </el-form-item>
+                <el-form-item label="				是否开启前台维护	" prop="username">
+                    <template>
+                        <el-radio v-model="formData.username" label="1">是</el-radio>
+                        <el-radio v-model="formData.username" label="2">否</el-radio>
+                    </template>
+                </el-form-item>
                 <el-form-item label="				前台维护描述	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="				前台维护时间	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				是否开放网页版注册	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				是否开放网页版注册	" prop="username">
+                    <template>
+                        <el-radio v-model="formData.username" label="1">是</el-radio>
+                        <el-radio v-model="formData.username" label="2">否</el-radio>
+                    </template>
+                </el-form-item>
                 <el-form-item label="				网页版注册默认代理	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="				网页版注册默认返点	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="				最大投注返点设定	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="				推广返点设定	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				是否开放手机版注册	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				是否开放手机版注册	" prop="username">
+                    <template>
+                        <el-radio v-model="formData.username" label="1">是</el-radio>
+                        <el-radio v-model="formData.username" label="2">否</el-radio>
+                    </template>
+                </el-form-item>
                 <el-form-item label="				APP注册代理设定	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="				APP注册代理返点	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				自主注册默认用户类型	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				是否允许代理开设同返点下级	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				自主注册默认用户类型	" prop="username">
+                    <template>
+                        <el-radio v-model="formData.username" label="1">是</el-radio>
+                        <el-radio v-model="formData.username" label="2">否</el-radio>
+                    </template>
+                </el-form-item>
+                <el-form-item label="				是否允许代理开设同返点下级	" prop="username">
+                    <template>
+                        <el-radio v-model="formData.username" label="1">是</el-radio>
+                        <el-radio v-model="formData.username" label="2">否</el-radio>
+                    </template>
+                </el-form-item>
                 <el-form-item label="				免费试玩用户默认返点	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				用户自主注册需要填写的信息	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				代理开设下级需要填写的用户信息	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				用户自主注册需要填写的信息	" prop="username">
+                    <template>
+                        <el-checkbox-group v-model="checkList">
+                            <el-checkbox label="pc端"></el-checkbox>
+                            <el-checkbox label="移动端"></el-checkbox>
+                        </el-checkbox-group>
+                    </template>
+                </el-form-item>
+                <el-form-item label="				代理开设下级需要填写的用户信息	" prop="username">
+                    <template>
+                        <el-checkbox-group v-model="checkList">
+                            <el-checkbox label="pc端"></el-checkbox>
+                            <el-checkbox label="移动端"></el-checkbox>
+                        </el-checkbox-group>
+                    </template>
+                </el-form-item>
                 <el-form-item label="				单次人工出款上限	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="				单次人工存入上限	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				充值金额是否自动添加小数点	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				充值金额是否自动添加小数点	" prop="username">
+                    <template>
+                        <el-radio v-model="formData.username" label="1">是</el-radio>
+                        <el-radio v-model="formData.username" label="2">否</el-radio>
+                    </template>
+                </el-form-item>
                 <el-form-item label="				出款开启风控审核	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="				银行卡绑定上限	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="				新增绑定首张银行卡在XX分钟之内不允许提款	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				是否启用快速充值链接	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				是否启用快速充值链接	" prop="username">
+                    <template>
+                        <el-radio v-model="formData.username" label="1">是</el-radio>
+                        <el-radio v-model="formData.username" label="2">否</el-radio>
+                    </template>
+                </el-form-item>
                 <el-form-item label="				快速充值链接	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="				允许出款时间	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="				密码输错几次冻结账号	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="				同个IP一天内允许登入多少个账号	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				谷歌动态验证码登录	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				谷歌动态验证码登录	" prop="username">
+                    <template>
+                        <el-radio v-model="formData.username" label="1">是</el-radio>
+                        <el-radio v-model="formData.username" label="2">否</el-radio>
+                    </template>
+                </el-form-item>
                 <el-form-item label="				有效投注达到多少视为有效会员	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				同一账号一人在线	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				同一账号一人在线	" prop="username">
+                    <template>
+                        <el-radio v-model="formData.username" label="1">是</el-radio>
+                        <el-radio v-model="formData.username" label="2">否</el-radio>
+                    </template>
+                </el-form-item>
                 <el-form-item label="				在线客服链接	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="				在线QQ客服链接	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="				客服热线电话	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				QQ客服链接开关	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				QQ客服链接开关	" prop="username">
+                    <template>
+                        <el-radio v-model="formData.username" label="1">是</el-radio>
+                        <el-radio v-model="formData.username" label="2">否</el-radio>
+                    </template>
+                </el-form-item>
                 <el-form-item label="				中奖人数比例	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="				中奖注单比例	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="				亏损比	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				前台转账方式	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="				前台转账方式	" prop="username">
+                    <template>
+                        <el-checkbox-group v-model="checkList">
+                            <el-checkbox label="pc端"></el-checkbox>
+                            <el-checkbox label="移动端"></el-checkbox>
+                        </el-checkbox-group>
+                    </template>
+
+                </el-form-item>
 
 
 
