@@ -157,11 +157,11 @@
                     </el-button>
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
                     </el-button>
-                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">玩法群组
+                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleWayGroupForm(scope.$index, scope.row)">玩法群组
                     </el-button>
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">奖金设定
                     </el-button>
-                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">奖金期间
+                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handlePrizePeriodForm(scope.$index, scope.row)">奖金期间
                     </el-button>
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">停售</el-button>
                 </template>
@@ -204,6 +204,46 @@
                 <el-button type="primary" @click.native="formSubmit()" :loading="formLoading">提交</el-button>
             </div>
         </el-dialog>
+
+        <!--表单-->
+        <el-dialog
+                :title="formMap[formName]"
+                :visible.sync="formWayGroupVisible"
+                :before-close="hideWayGroupForm"
+                width="85%"
+                top="5vh">
+            <el-form :model="formData" :rules="formRules" ref="dataForm">
+
+                <el-form-item label="			ID     		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			游戏    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+                <el-button @click.native="hideWayGroupForm">取消</el-button>
+                <el-button type="primary" @click.native="formSubmit()" :loading="formLoading">提交</el-button>
+            </div>
+        </el-dialog>
+
+        <!--表单-->
+        <el-dialog
+                :title="formMap[formName]"
+                :visible.sync="formPrizePeriodVisible"
+                :before-close="hidePrizePeriodForm"
+                width="85%"
+                top="5vh">
+            <el-form :model="formData" :rules="formRules" ref="dataForm">
+
+                <el-form-item label="			ID     		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			游戏    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+                <el-button @click.native="hidePrizePeriodForm">取消</el-button>
+                <el-button type="primary" @click.native="formSubmit()" :loading="formLoading">提交</el-button>
+            </div>
+        </el-dialog>
+
+
     </div>
 
 </template>
@@ -279,7 +319,11 @@
                     edit: "编辑"
                 },
                 formLoading: false,
-                formVisible: false,
+                formWayGroupLoading: false,
+                formPrizePeriodLoading: false,
+
+                formWayGroupVisible: false,
+                formPrizePeriodVisible: false,
                 formData: formJson,
                 formRules: {},
                 addRules: {
@@ -428,9 +472,66 @@
                 this.$refs["dataForm"].resetFields();
                 return true;
             },
+
+            // 隐藏表单
+            hideWayGroupForm() {
+                // 更改值
+                this.formWayGroupVisible = !this.formWayGroupVisible;
+                // 清空表单
+                this.$refs["dataForm"].resetFields();
+                return true;
+            },
+            // 隐藏表单
+            hidePrizePeriodForm() {
+                // 更改值
+                this.formPrizePeriodVisible = !this.formPrizePeriodVisible;
+                // 清空表单
+                this.$refs["dataForm"].resetFields();
+                return true;
+            },
             // 显示表单
             handleForm(index, row) {
                 this.formVisible = true;
+                this.formData = Object.assign({}, formJson);
+                if (row !== null) {
+                    this.formData = Object.assign({}, row);
+                }
+                this.formData.status += ""; // 转为字符串（解决默认选中的时候字符串和数字不能比较的问题）
+                this.formName = "add";
+                this.formRules = this.addRules;
+                if (index !== null) {
+                    this.index = index;
+                    this.formName = "edit";
+                    this.formRules = this.editRules;
+                }
+                // 清空验证信息表单
+                if (this.$refs["dataForm"]) {
+                    this.$refs["dataForm"].clearValidate();
+                }
+            },
+            // 显示表单
+            handleWayGroupForm(index, row) {
+                this.formWayGroupVisible = true;
+                this.formData = Object.assign({}, formJson);
+                if (row !== null) {
+                    this.formData = Object.assign({}, row);
+                }
+                this.formData.status += ""; // 转为字符串（解决默认选中的时候字符串和数字不能比较的问题）
+                this.formName = "add";
+                this.formRules = this.addRules;
+                if (index !== null) {
+                    this.index = index;
+                    this.formName = "edit";
+                    this.formRules = this.editRules;
+                }
+                // 清空验证信息表单
+                if (this.$refs["dataForm"]) {
+                    this.$refs["dataForm"].clearValidate();
+                }
+            },
+            // 显示表单
+            handlePrizePeriodForm(index, row) {
+                this.formPrizePeriodVisible = true;
                 this.formData = Object.assign({}, formJson);
                 if (row !== null) {
                     this.formData = Object.assign({}, row);
