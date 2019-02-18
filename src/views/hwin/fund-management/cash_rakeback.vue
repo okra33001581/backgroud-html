@@ -6,7 +6,7 @@
                 <el-input v-model="query.username" placeholder="用户名"></el-input>
             </el-form-item>
 
-            <el-for-mitem class="query-form-item">
+            <el-form-item class="query-form-item">
                 <el-date-picker
                         v-model="query.beginDate"
                         type="date"
@@ -19,7 +19,7 @@
                         placeholder="结束时间"
                         :picker-options="pickerOptions1">
                 </el-date-picker>
-            </el-for-mitem>
+            </el-form-item>
 
             <el-form-item class="query-form-item">
                 <el-select v-model="query.status" placeholder="审核状态">

@@ -151,9 +151,19 @@
             <el-form :model="formData" :rules="formRules" ref="dataForm">
                 <el-form-item label="			Id		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="			名称		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			排序值		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			属性		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-
+                <el-form-item label="			排序值		" prop="username">
+                    <template scope="scope">
+                        <el-input size="small" v-model="formData.languageCode" placeholder="请输入排序值"
+                        ></el-input>
+                    </template>
+                </el-form-item>
+                <el-form-item label="			属性		" prop="username">
+                    <template slot-scope="scope">
+                        <el-checkbox  v-model="formData.isCheck1">热门</el-checkbox>
+                        <el-checkbox  v-model="formData.isCheck2">推荐</el-checkbox>
+                        <el-checkbox  v-model="formData.isCheck3">新上</el-checkbox>
+                    </template>
+                </el-form-item>
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideForm">取消</el-button>

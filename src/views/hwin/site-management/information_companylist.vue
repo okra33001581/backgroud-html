@@ -144,8 +144,8 @@
 
                 <el-form-item label="显示方式" prop="status">
                     <el-radio-group v-model="formData.status">
-                        <el-radio label="0">输入内容</el-radio>
-                        <el-radio label="1">使用外链</el-radio>
+                        <el-radio label="0"> 启用</el-radio>
+                        <el-radio label="1">停用</el-radio>
                     </el-radio-group>
                 </el-form-item>
 

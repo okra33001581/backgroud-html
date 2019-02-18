@@ -172,9 +172,23 @@
                 <el-form-item label="			ID    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="			入款方式   		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="			支付类型   		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			排序值       		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			属性    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			支付类型别名 		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			排序值       		" prop="username">
+                    <template scope="scope">
+                        <el-input size="small" v-model="formData.languageCode" placeholder="请输入排序值"
+                        ></el-input>
+                    </template>
+                </el-form-item>
+                <el-form-item label="			属性    		" prop="username">
+                    <template slot-scope="scope">
+                        <el-checkbox  v-model="formData.isCheck1">热门</el-checkbox>
+                    </template>
+                </el-form-item>
+                <el-form-item label="			支付类型别名 		" prop="username">
+                    <template scope="scope">
+                        <el-input size="small" v-model="formData.languageCode" placeholder="请输入支付类型别名"
+                        ></el-input>
+                    </template>
+                </el-form-item>
                 <el-form-item label="			菜单状态   		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
 
             </el-form>
