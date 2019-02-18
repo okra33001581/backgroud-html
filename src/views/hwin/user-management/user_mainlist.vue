@@ -414,29 +414,33 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                <el-form-item label="账号类型1112121" prop="status">
-                    <el-radio-group v-model="formData.status">
-                        <el-radio label="0">代理</el-radio>
-                        <el-radio label="1">会员</el-radio>
-                    </el-radio-group>
-                </el-form-item>
-
-                <el-form-item label="所属上级" prop="username">
+                <el-form-item label="会员名称" prop="username">
                     <el-input v-model="formData.username" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item class="query-form-item">
-                    <el-select v-model="query.status" placeholder="返点设置">
-                        <el-option value="0.078" label="7.8%------1956"></el-option>
-                        <el-option value="0.077" label="7.7%------1954"></el-option>
-                    </el-select>
+                <el-form-item label="冻结范围" prop="status">
+                    <el-radio-group v-model="formData.status">
+                        <el-radio label="0">仅冻结此用户不冻结其下级</el-radio>
+                        <el-radio label="1">冻结此用户和所有下级</el-radio>
+                    </el-radio-group>
                 </el-form-item>
 
-                <el-form-item class="query-form-item">
-                    <el-select v-model="query.status" placeholder="最后在线">
-                        <el-option value="7" label="vip2"></el-option>
-                    </el-select>
+                <el-form-item label="冻结方式" prop="status">
+                    <el-radio-group v-model="formData.status">
+                        <el-radio label="0">完全冻结</el-radio>
+                        <el-radio label="1">可登录，查看帮助中心，不可投注，不可充提</el-radio>
+                        <el-radio label="1">不可投注，可充提，查看用户列表和报表、帮助中心</el-radio>
+                    </el-radio-group>
                 </el-form-item>
+
+                <el-form-item label="在线客服"  prop="status">
+                    <el-checkbox v-model="checked">允许访问在线客服</el-checkbox>
+                </el-form-item>
+
+                <el-form-item label="冻结原因" prop="username">
+                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                </el-form-item>
+
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideLockForm">取消</el-button>
@@ -454,27 +458,33 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                <el-form-item label="账号类型Adjust" prop="status">
-                    <el-radio-group v-model="formData.status">
-                        <el-radio label="0">代理</el-radio>
-                        <el-radio label="1">会员</el-radio>
-                    </el-radio-group>
-                </el-form-item>
-
-                <el-form-item label="所属上级" prop="username">
+                <el-form-item label="上级账号" prop="username">
                     <el-input v-model="formData.username" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item class="query-form-item">
-                    <el-select v-model="query.status" placeholder="返点设置">
-                        <el-option value="0.078" label="7.8%------1956"></el-option>
-                        <el-option value="0.077" label="7.7%------1954"></el-option>
-                    </el-select>
+                <el-form-item label="返点级别" prop="username">
+                    <el-input v-model="formData.username" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item class="query-form-item">
-                    <el-select v-model="query.status" placeholder="最后在线">
-                        <el-option value="7" label="vip2"></el-option>
+                <el-form-item label="当前账号" prop="username">
+                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item label="返点级别" prop="username">
+                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item label="下级账号" prop="username">
+                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item label="返点级别" prop="username">
+                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item class="query-form-item" label="调整用户返点为">
+                    <el-select v-model="query.status" placeholder="10.0%------2000">
+                        <el-option value="7" label="10.0%------2000"></el-option>
                     </el-select>
                 </el-form-item>
             </el-form>
@@ -532,29 +542,37 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                <el-form-item label="账号类型formBankCardUnLockVisible" prop="status">
-                    <el-radio-group v-model="formData.status">
-                        <el-radio label="0">代理</el-radio>
-                        <el-radio label="1">会员</el-radio>
-                    </el-radio-group>
-                </el-form-item>
-
-                <el-form-item label="所属上级" prop="username">
+                <el-form-item label="用户账号" prop="username">
                     <el-input v-model="formData.username" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item class="query-form-item">
-                    <el-select v-model="query.status" placeholder="返点设置">
-                        <el-option value="0.078" label="7.8%------1956"></el-option>
-                        <el-option value="0.077" label="7.7%------1954"></el-option>
-                    </el-select>
+                <el-form-item label="第一步：
+第一步绑定银行卡信息" prop="username">
+                    <el-input v-model="formData.username" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item class="query-form-item">
-                    <el-select v-model="query.status" placeholder="最后在线">
-                        <el-option value="7" label="vip2"></el-option>
-                    </el-select>
+
+                <el-form-item label="第二步：
+账户余额" prop="username">
+                    <el-input v-model="formData.username" auto-complete="off"></el-input>
                 </el-form-item>
+
+
+                <el-form-item label="第三步：
+近期登录信息" prop="username">
+                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                </el-form-item>
+
+
+                <el-form-item label="第四步：
+最近充值所使用的银行卡信息" prop="username">
+                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                </el-form-item>
+
+
+
+
+
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideBankCardUnLockForm">取消</el-button>
@@ -571,26 +589,16 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                <el-form-item label="账号类型formEditParentVisible" prop="status">
-                    <el-radio-group v-model="formData.status">
-                        <el-radio label="0">代理</el-radio>
-                        <el-radio label="1">会员</el-radio>
-                    </el-radio-group>
-                </el-form-item>
-
-                <el-form-item label="所属上级" prop="username">
+                <el-form-item label="当前上级账号" prop="username">
                     <el-input v-model="formData.username" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item class="query-form-item">
-                    <el-select v-model="query.status" placeholder="返点设置">
-                        <el-option value="0.078" label="7.8%------1956"></el-option>
-                        <el-option value="0.077" label="7.7%------1954"></el-option>
-                    </el-select>
+                <el-form-item label="返点级别" prop="username">
+                    <el-input v-model="formData.username" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item class="query-form-item">
-                    <el-select v-model="query.status" placeholder="最后在线">
+                <el-form-item label="修改上级账号" class="query-form-item">
+                    <el-select v-model="query.status" placeholder="修改上级账号">
                         <el-option value="7" label="vip2"></el-option>
                     </el-select>
                 </el-form-item>
