@@ -618,29 +618,37 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                <el-form-item label="账号类型formEditParentVisible" prop="status">
-                    <el-radio-group v-model="formData.status">
-                        <el-radio label="0">代理</el-radio>
-                        <el-radio label="1">会员</el-radio>
-                    </el-radio-group>
-                </el-form-item>
+                <template>
+                    <el-table
+                            :data="tableData"
+                            stripe
+                            style="width: 100%">
+                        <el-table-column
+                                prop="date"
+                                label="返点等级"
+                                width="180">
+                        </el-table-column>
+                        <el-table-column
+                                prop="name"
+                                label="topallen拥有数量"
+                                width="180">
+                        </el-table-column>
+                        <el-table-column
+                                prop="address"
+                                label="topallen剩余数量">
+                        </el-table-column>
+                        <el-table-column
+                                prop="address"
+                                label="修改剩余数量">
+                        </el-table-column>
+                        <el-table-column
+                                prop="address"
+                                label="您的配额">
+                        </el-table-column>
+                    </el-table>
+                </template>
 
-                <el-form-item label="所属上级" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
-                </el-form-item>
 
-                <el-form-item class="query-form-item">
-                    <el-select v-model="query.status" placeholder="返点设置">
-                        <el-option value="0.078" label="7.8%------1956"></el-option>
-                        <el-option value="0.077" label="7.7%------1954"></el-option>
-                    </el-select>
-                </el-form-item>
-
-                <el-form-item class="query-form-item">
-                    <el-select v-model="query.status" placeholder="最后在线">
-                        <el-option value="7" label="vip2"></el-option>
-                    </el-select>
-                </el-form-item>
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideQuotaForm">取消</el-button>
@@ -696,6 +704,23 @@
                     role_id: "",
                     sort: '+id'
                 },
+                tableData: [{
+                    date: '2016-05-02',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1518 弄'
+                }, {
+                    date: '2016-05-04',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1517 弄'
+                }, {
+                    date: '2016-05-01',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1519 弄'
+                }, {
+                    date: '2016-05-03',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1516 弄'
+                }],
                 tableKey: 0,
                 sortOptions: [{label: 'ID Ascending', key: '+id'}, {
                     label: 'ID Descending',

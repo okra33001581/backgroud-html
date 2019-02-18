@@ -159,7 +159,7 @@
                     </el-button>
                     <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleWayGroupForm(scope.$index, scope.row)">玩法群组
                     </el-button>
-                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">奖金设定
+                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handlePrizeForm(scope.$index, scope.row)">奖金设定
                     </el-button>
                     <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handlePrizePeriodForm(scope.$index, scope.row)">奖金期间
                     </el-button>
@@ -214,8 +214,55 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                <el-form-item label="			ID     		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			游戏    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+
+            <template>
+                <el-table
+                        :data="tableData"
+                        stripe
+                        style="width: 100%">
+                    <el-table-column
+                            prop="date"
+                            label="玩法群"
+                            width="180">
+                    </el-table-column>
+                    <el-table-column
+                            prop="name"
+                            label="显示排序"
+                            width="180">
+                        <template slot-scope="scope">
+                            <el-input v-model="formData.username" auto-complete="off"></el-input>
+                        </template>
+                    </el-table-column>
+                    <el-table-column
+                            prop="address"
+                            label="默认显示">
+                        <template slot-scope="scope">
+                            <el-radio label="默认"></el-radio>
+                        </template>
+                    </el-table-column>
+                </el-table>
+            </template>
+
+              <!--  <el-form-item label="整合" prop="username">
+                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                    <el-radio label="0">默认显示</el-radio>
+                </el-form-item>
+
+                <el-form-item label="三字" prop="username">
+                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                    <el-radio label="0">默认显示</el-radio>
+                </el-form-item>
+
+                <el-form-item label="双面盘" prop="username">
+                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                    <el-radio label="0">默认显示</el-radio>
+                </el-form-item>
+
+                <el-form-item label="龙虎斗" prop="username">
+                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                    <el-radio label="0">默认显示</el-radio>
+                </el-form-item>-->
+
 
             </el-form>
             <div slot="footer" class="dialog-footer">
@@ -233,12 +280,143 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                <el-form-item label="			ID     		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			游戏    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-
+                <template>
+                    <el-table
+                            :data="tableData"
+                            stripe
+                            style="width: 100%">
+                        <el-table-column
+                                prop="date"
+                                label="游戏"
+                                width="180">
+                        </el-table-column>
+                        <el-table-column
+                                prop="date"
+                                label="开奖周期"
+                                width="180">
+                        </el-table-column>
+                        <el-table-column
+                                prop="name"
+                                label="销售开始时间"
+                                width="180">
+                        </el-table-column>
+                        <el-table-column
+                                prop="address"
+                                label="第一期截止时间">
+                        </el-table-column>
+                        <el-table-column
+                                prop="address"
+                                label="销售截止时间">
+                        </el-table-column>
+                        <el-table-column
+                                prop="address"
+                                label="开奖周期(秒)">
+                        </el-table-column>
+                        <el-table-column
+                                prop="address"
+                                label="允许录入号码时间(秒)">
+                        </el-table-column>
+                        <el-table-column
+                                prop="address"
+                                label="状态">
+                        </el-table-column>
+                    </el-table>
+                </template>
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hidePrizePeriodForm">取消</el-button>
+                <el-button type="primary" @click.native="formSubmit()" :loading="formLoading">提交</el-button>
+            </div>
+        </el-dialog>
+
+
+        <!--表单-->
+        <el-dialog
+                :title="formMap[formName]"
+                :visible.sync="formPrizeVisible"
+                :before-close="hidePrizeForm"
+                width="85%"
+                top="5vh">
+            <el-form :model="formData" :rules="formRules" ref="dataForm">
+
+                <template>
+                    <el-table
+                            :data="tableData"
+                            stripe
+                            style="width: 100%">
+                        <el-table-column
+                                prop="date"
+                                label="玩法组	"
+                                width="180">
+                        </el-table-column>
+                        <el-table-column
+                                prop="date"
+                                label="玩法名称	"
+                                width="180">
+                        </el-table-column>
+                        <el-table-column
+                                prop="name"
+                                label="奖金等级	"
+                                width="180">
+                        </el-table-column>
+                        <el-table-column
+                                prop="address"
+                                label="修改确认	">
+                            <template slot-scope="scope">
+                                <el-checkbox :checked="scope.row.isKey== 1"/>
+                            </template>
+                        </el-table-column>
+                        <el-table-column
+                                prop="address"
+                                label="最低奖金	">
+                            <template slot-scope="scope">
+                                <el-input v-model="formData.username" auto-complete="off"></el-input>
+                            </template>
+                        </el-table-column>
+                        <el-table-column
+                                prop="address"
+                                label="总利润	">
+                        </el-table-column>
+                        <el-table-column
+                                prop="address"
+                                label="修改确认	">
+                            <template slot-scope="scope">
+                                <el-checkbox :checked="scope.row.isKey== 1"/>
+                            </template>
+                        </el-table-column>
+                        <el-table-column
+                                prop="address"
+                                label="最高返点	">
+                            <template slot-scope="scope">
+                                <el-input v-model="formData.username" auto-complete="off"></el-input>
+                            </template>
+                        </el-table-column>
+                        <el-table-column
+                                prop="address"
+                                label="最高奖金		">
+                            <template slot-scope="scope">
+                                <el-input v-model="formData.username" auto-complete="off" readonly="readonly"></el-input>
+                            </template>
+                        </el-table-column>
+                        <el-table-column
+                                prop="address"
+                                label="公司抽水		">
+                            <template slot-scope="scope">
+                                <el-input v-model="formData.username" auto-complete="off" readonly="readonly"></el-input>
+                            </template>
+                        </el-table-column>
+                        <el-table-column
+                                prop="address"
+                                label="保存确认">
+                            <template slot-scope="scope">
+                                <el-checkbox :checked="scope.row.isKey== 1"/>
+                            </template>
+                        </el-table-column>
+                    </el-table>
+                </template>
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+                <el-button @click.native="hidePrizeForm">取消</el-button>
                 <el-button type="primary" @click.native="formSubmit()" :loading="formLoading">提交</el-button>
             </div>
         </el-dialog>
@@ -264,6 +442,7 @@
         status: "1",
         roles: []
     };
+
     export default {
         data() {
             let validatePass = (rule, value, callback) => {
@@ -284,6 +463,23 @@
             };
             return {
                 roles: [],
+                tableData: [{
+                    date: '2016-05-02',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1518 弄'
+                }, {
+                    date: '2016-05-04',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1517 弄'
+                }, {
+                    date: '2016-05-01',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1519 弄'
+                }, {
+                    date: '2016-05-03',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1516 弄'
+                }],
                 query: {
                     username: "",
                     status: "",
@@ -321,9 +517,12 @@
                 formLoading: false,
                 formWayGroupLoading: false,
                 formPrizePeriodLoading: false,
+                formPrizeLoading: false,
 
                 formWayGroupVisible: false,
                 formPrizePeriodVisible: false,
+                formPrizeVisible: false,
+
                 formData: formJson,
                 formRules: {},
                 addRules: {
@@ -489,6 +688,14 @@
                 this.$refs["dataForm"].resetFields();
                 return true;
             },
+            // 隐藏表单
+            hidePrizeForm() {
+                // 更改值
+                this.formPrizeVisible = !this.formPrizeVisible;
+                // 清空表单
+                this.$refs["dataForm"].resetFields();
+                return true;
+            },
             // 显示表单
             handleForm(index, row) {
                 this.formVisible = true;
@@ -532,6 +739,26 @@
             // 显示表单
             handlePrizePeriodForm(index, row) {
                 this.formPrizePeriodVisible = true;
+                this.formData = Object.assign({}, formJson);
+                if (row !== null) {
+                    this.formData = Object.assign({}, row);
+                }
+                this.formData.status += ""; // 转为字符串（解决默认选中的时候字符串和数字不能比较的问题）
+                this.formName = "add";
+                this.formRules = this.addRules;
+                if (index !== null) {
+                    this.index = index;
+                    this.formName = "edit";
+                    this.formRules = this.editRules;
+                }
+                // 清空验证信息表单
+                if (this.$refs["dataForm"]) {
+                    this.$refs["dataForm"].clearValidate();
+                }
+            },
+            // 显示表单
+            handlePrizeForm(index, row) {
+                this.formPrizeVisible = true;
                 this.formData = Object.assign({}, formJson);
                 if (row !== null) {
                     this.formData = Object.assign({}, row);
