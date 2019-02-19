@@ -193,21 +193,21 @@
 
                 <el-form-item label="" prop="username">
                     <template slot-scope="scope">
-                        <el-checkbox  v-model="scope.row.isCheck1">全部层级</el-checkbox>
+                        <el-checkbox  v-model="formData.isCheck1">全部层级</el-checkbox>
                     </template>
                 </el-form-item>
 
                 <el-form-item label="" prop="username">
                     <template slot-scope="scope">
-                        <el-checkbox  v-model="scope.row.isCheck1">vip2</el-checkbox>
-                        <el-checkbox  v-model="scope.row.isCheck2">vip3</el-checkbox>
-                        <el-checkbox  v-model="scope.row.isCheck3">vip4</el-checkbox>
-                        <el-checkbox  v-model="scope.row.isCheck3">vip5</el-checkbox>
-                        <el-checkbox  v-model="scope.row.isCheck3">vip6</el-checkbox>
-                        <el-checkbox  v-model="scope.row.isCheck3">vip8</el-checkbox>
-                        <el-checkbox  v-model="scope.row.isCheck3">vip7</el-checkbox>
-                        <el-checkbox  v-model="scope.row.isCheck3">vip10</el-checkbox>
-                        <el-checkbox  v-model="scope.row.isCheck3">v11</el-checkbox>
+                        <el-checkbox  v-model="formData.isCheck1">vip2</el-checkbox>
+                        <el-checkbox  v-model="formData.isCheck2">vip3</el-checkbox>
+                        <el-checkbox  v-model="formData.isCheck3">vip4</el-checkbox>
+                        <el-checkbox  v-model="formData.isCheck3">vip5</el-checkbox>
+                        <el-checkbox  v-model="formData.isCheck3">vip6</el-checkbox>
+                        <el-checkbox  v-model="formData.isCheck3">vip8</el-checkbox>
+                        <el-checkbox  v-model="formData.isCheck3">vip7</el-checkbox>
+                        <el-checkbox  v-model="formData.isCheck3">vip10</el-checkbox>
+                        <el-checkbox  v-model="formData.isCheck3">v11</el-checkbox>
                     </template>
                 </el-form-item>
 
