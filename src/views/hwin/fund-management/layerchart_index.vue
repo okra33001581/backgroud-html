@@ -3,14 +3,12 @@
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="用户名"></el-input>
+                <el-input v-model="query.username" placeholder="商户名"></el-input>
             </el-form-item>
             <el-form-item class="query-form-item">
                 <el-select v-model="query.status" placeholder="状态">
-                    <el-option label="全部" value=""></el-option>
-                    <el-option label="禁用" value="0"></el-option>
-                    <el-option label="正常" value="1"></el-option>
-                    <el-option label="未验证" value="2"></el-option>
+                    <el-option label="商户启用图" value=""></el-option>
+                    <el-option label="商户停用图 value="0"></el-option>
                 </el-select>
             </el-form-item>
             <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
@@ -27,7 +25,7 @@
                 <el-button-group>
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
                     <el-button type="primary" icon="el-icon-search" @click="onSubmit">查询</el-button>
-                    <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">新增</el-button>
+                    <!--<el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">新增</el-button>-->
                 </el-button-group>
             </el-form-item>
         </el-form>
@@ -54,11 +52,20 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">
-            <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Status				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			商户名称		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			支付名称		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			启用		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			vip2		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			vip3		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			vip4		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			vip5		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			vip6		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			vip8		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			未分层		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			vip.7		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			vip10		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			v11		" prop="id" sortable="custom" fixed></el-table-column>
+
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
@@ -103,7 +110,7 @@
                     <span>{{ scope.row.last_login_ip }}</span>
                 </template>
             </el-table-column>-->
-            <el-table-column
+            <!--<el-table-column
                     label="操作" width="260"
                     fixed="right">
                 <template slot-scope="scope">
@@ -112,7 +119,7 @@
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
                     </el-button>
                 </template>
-            </el-table-column>
+            </el-table-column>-->
         </el-table>
 
         <el-pagination

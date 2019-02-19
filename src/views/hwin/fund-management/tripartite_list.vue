@@ -164,11 +164,11 @@
                     </el-button>
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
                     </el-button>
+                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">启用</el-button>
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">停用</el-button>
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">置顶</el-button>
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">解除置顶</el-button>
-                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">启用</el-button>
-                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">停用</el-button>
+                    <!--<el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">停用</el-button>-->
                 </template>
             </el-table-column>
         </el-table>
@@ -192,12 +192,23 @@
             <el-form :model="formData" :rules="formRules" ref="dataForm">
 
                 <el-form-item label="" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                    <template slot-scope="scope">
+                        <el-checkbox  v-model="scope.row.isCheck1">全部层级</el-checkbox>
+                    </template>
                 </el-form-item>
 
-
                 <el-form-item label="" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                    <template slot-scope="scope">
+                        <el-checkbox  v-model="scope.row.isCheck1">vip2</el-checkbox>
+                        <el-checkbox  v-model="scope.row.isCheck2">vip3</el-checkbox>
+                        <el-checkbox  v-model="scope.row.isCheck3">vip4</el-checkbox>
+                        <el-checkbox  v-model="scope.row.isCheck3">vip5</el-checkbox>
+                        <el-checkbox  v-model="scope.row.isCheck3">vip6</el-checkbox>
+                        <el-checkbox  v-model="scope.row.isCheck3">vip8</el-checkbox>
+                        <el-checkbox  v-model="scope.row.isCheck3">vip7</el-checkbox>
+                        <el-checkbox  v-model="scope.row.isCheck3">vip10</el-checkbox>
+                        <el-checkbox  v-model="scope.row.isCheck3">v11</el-checkbox>
+                    </template>
                 </el-form-item>
 
 

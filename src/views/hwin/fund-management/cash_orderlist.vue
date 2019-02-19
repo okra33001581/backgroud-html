@@ -169,6 +169,7 @@
             备注
 -->
             <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					订单号		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					时间		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					会员账号		" prop="id" sortable="custom" fixed></el-table-column>

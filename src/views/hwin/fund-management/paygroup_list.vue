@@ -144,9 +144,11 @@
                     label="操作" width="260"
                     fixed="right">
                 <template slot-scope="scope">
-                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
+                   <!-- <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
+                    </el-button>-->
+                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleDel(scope.$index, scope.row)">显示
                     </el-button>
-                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
+                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleDel(scope.$index, scope.row)">隐藏
                     </el-button>
                 </template>
             </el-table-column>
