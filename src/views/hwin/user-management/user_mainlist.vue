@@ -458,35 +458,70 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                <el-form-item label="上级账号" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
-                </el-form-item>
+                <table width="1200" border=1 cellpadding=0 cellspacing=0 class="ui-jqgrid-htable ui-common-table table table-bordered" style="margin-top: 35px" aria-labelledby="gbox_table_list"  role="presentation">
+                    <thead>
+                    <tr class="ui-jqgrid-labels">
+                        <th colspan="4" >调点</th>
+                    </tr>
+                    </thead>
+                    <tr>
+                        <td width="324" class="center">上级账号</td>
+                        <td width="521" class="center"><el-input style="width:350px;" v-model="formData.username" auto-complete="off"></el-input></td>
+                        <td width="157" class="center">返点级别</td>
+                        <td width="178" class="center" id="free2"><el-input style="width:150px;" v-model="formData.username" auto-complete="off"></el-input></td>
+                    </tr>
+                    <tr>
+                        <td class="center">当前账号</td>
+                        <td class="center"><el-input style="width:350px;" v-model="formData.username" auto-complete="off"></el-input></td>
+                        <td class="center">返点级别</td>
+                        <td class="center"><el-input style="width:150px;" v-model="formData.username" auto-complete="off"></el-input></td>
+                    </tr>
+                    <tr>
+                        <td class="center">下级账号</td>
+                        <td class="center"><el-input style="width:350px;" v-model="formData.username" auto-complete="off"></el-input></td>
+                        <td class="center">返点级别</td>
+                        <td class="center"><el-input style="width:150px;" v-model="formData.username" auto-complete="off"></el-input></td>
+                    </tr>
+                    <tr>
+                        <td class="center">调整用户返点为</td>
+                        <td class="center">
+                            <el-select v-model="query.status" placeholder="10.0%------2000">
+                                <el-option value="7" label="10.0%------2000"></el-option>
+                            </el-select>
+                        </td>
+                        <td class="center">&nbsp;</td>
+                        <td class="center">&nbsp;</td>
+                    </tr>
+                </table>
 
-                <el-form-item label="返点级别" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
-                </el-form-item>
 
-                <el-form-item label="当前账号" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
-                </el-form-item>
+                <!-- <el-form-item label="上级账号" prop="username">
+                     <el-input v-model="formData.username" auto-complete="off"></el-input>
+                 </el-form-item>
 
-                <el-form-item label="返点级别" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
-                </el-form-item>
+                 <el-form-item label="返点级别" prop="username">
+                     <el-input v-model="formData.username" auto-complete="off"></el-input>
+                 </el-form-item>
 
-                <el-form-item label="下级账号" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
-                </el-form-item>
+                 <el-form-item label="当前账号" prop="username">
+                     <el-input v-model="formData.username" auto-complete="off"></el-input>
+                 </el-form-item>
 
-                <el-form-item label="返点级别" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
-                </el-form-item>
+                 <el-form-item label="返点级别" prop="username">
+                     <el-input v-model="formData.username" auto-complete="off"></el-input>
+                 </el-form-item>
 
-                <el-form-item class="query-form-item" label="调整用户返点为">
-                    <el-select v-model="query.status" placeholder="10.0%------2000">
-                        <el-option value="7" label="10.0%------2000"></el-option>
-                    </el-select>
-                </el-form-item>
+                 <el-form-item label="下级账号" prop="username">
+                     <el-input v-model="formData.username" auto-complete="off"></el-input>
+                 </el-form-item>
+
+                 <el-form-item label="返点级别" prop="username">
+                     <el-input v-model="formData.username" auto-complete="off"></el-input>
+                 </el-form-item>
+
+                 <el-form-item class="query-form-item" label="调整用户返点为">
+
+                 </el-form-item>-->
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideAdjustForm">取消</el-button>
