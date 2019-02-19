@@ -3,7 +3,7 @@
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="用户名"></el-input>
+                <el-input v-model="query.username" placeholder="商户名"></el-input>
             </el-form-item>
             <el-form-item class="query-form-item">
                 <el-select v-model="query.status" placeholder="状态">
@@ -120,7 +120,7 @@
                     <span>{{ scope.row.last_login_ip }}</span>
                 </template>
             </el-table-column>-->
-            <el-table-column
+            <!--<el-table-column
                     label="操作" width="260"
                     fixed="right">
                 <template slot-scope="scope">
@@ -129,7 +129,7 @@
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
                     </el-button>
                 </template>
-            </el-table-column>
+            </el-table-column>-->
         </el-table>
 
         <el-pagination

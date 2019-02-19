@@ -178,7 +178,7 @@
                     </el-radio-group>
                 </el-form-item>
 
-                <el-form-item label="内容" prop="内容">
+                <el-form-item label="内容" prop="status">
                     <el-input type="textarea" v-model="formData.password" auto-complete="off"></el-input>
                 </el-form-item>
 

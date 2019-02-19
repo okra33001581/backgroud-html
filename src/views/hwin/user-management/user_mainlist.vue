@@ -235,8 +235,8 @@
 
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
                     </el-button>
-                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
-                    </el-button>
+                    <!--<el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
+                    </el-button>-->
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleLockForm(scope.$index, scope.row)">冻结</el-button>
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleAdjustForm(scope.$index, scope.row)">调点</el-button>
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleProject(scope.$index, scope.row)">下注记录</el-button>
