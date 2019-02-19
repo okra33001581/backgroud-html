@@ -68,7 +68,12 @@
 
             <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					排序值		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					排序值		" prop="id" sortable="custom" fixed>
+                <template scope="scope">
+                    <el-input size="small" v-model="scope.row.languageCode" placeholder="请输入排序值"
+                    ></el-input>
+                </template>
+            </el-table-column>
             <el-table-column label="					公告状态		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					标题		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					发送版本		" prop="id" sortable="custom" fixed></el-table-column>
