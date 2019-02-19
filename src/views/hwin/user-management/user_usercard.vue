@@ -201,7 +201,7 @@
                     <el-input v-model="formData.username" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item class="query-form-item" label="银行" >
+                <el-form-item prop="username" label="银行" >
                     <el-select v-model="query.status" placeholder="银行">
                         <el-option value="1" selected="" label="中国工商银行"></el-option>
                         <el-option value="3" label="中国建设银行"></el-option>
@@ -270,7 +270,7 @@
                     </el-select>
                 </el-form-item>
 
-                <el-form-item class="query-form-item" label="省市" >
+                <el-form-item prop="username" label="省市" >
                     <el-select v-model="query.status" placeholder="省市">
                         <el-option value="1" selected="" label="北京"></el-option>
                         <el-option value="2" label="上海"></el-option>

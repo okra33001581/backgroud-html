@@ -167,7 +167,7 @@
                     <span>{{ scope.row.last_login_ip }}</span>
                 </template>
             </el-table-column>-->
-            <el-table-column
+            <!--<el-table-column
                     label="操作" width="260"
                     fixed="right">
                 <template slot-scope="scope">
@@ -176,7 +176,7 @@
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
                     </el-button>
                 </template>
-            </el-table-column>
+            </el-table-column>-->
         </el-table>
 
         <el-pagination
