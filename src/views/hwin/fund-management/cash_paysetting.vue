@@ -134,45 +134,256 @@
                 width="85%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
-                <el-form-item label="				名称	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				达到有效投注额是否免手续费	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				每天可出款次数	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				每天免手续费次数	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				出款上限	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				手续费	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				每笔手续费上限	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				出款下限	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				存款优惠	" prop="username">
-                    <template>
-                        <el-radio v-model="formData.username" label="1">是</el-radio>
-                        <el-radio v-model="formData.username" label="2">否</el-radio>
-                    </template>
-                </el-form-item>
-                <el-form-item label="				优惠标准（元）	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				优惠百分比(%)	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				优惠上限金额	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				入款上限	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				入款下限	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				综合额度流水审核	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				常态性流水审核	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				常态性流水放宽额度	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				常态性流水审核行政费率	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				存款优惠	" prop="username">
-                    <template>
-                        <el-radio v-model="formData.username" label="1">是</el-radio>
-                        <el-radio v-model="formData.username" label="2">否</el-radio>
-                    </template>
-                </el-form-item>
-                <el-form-item label="				优惠标准（元）	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				优惠百分比(%)	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				优惠上限金额	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				入款上限	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				入款下限	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				综合额度流水审核	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				常态性流水审核	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				常态性流水放宽额度	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				常态性流水审核行政费率	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <div class="ibox-content" style="padding: 10px;">
+                    <div class="jqGrid_wrapper">
+                        <div class="ui-jqgrid " id="gbox_table_list" dir="ltr" style="width: 100%">
+                            <div class="jqgrid-overlay ui-overlay" id="lui_table_list"></div>
+                            <div class="ui-jqgrid-view table-responsive" role="grid" id="gview_table_list">
+                                <div class="ui-jqgrid-hdiv">
+                                    <div class="ui-jqgrid-hbox">
+                                        <table border=1 cellspacing=0 cellpadding=0 class="ui-jqgrid-htable ui-common-table table table-bordered" aria-labelledby="gbox_table_list"  role="presentation" width="161">
+                                            <thead>
+                                            <tr class="ui-jqgrid-labels">
+                                                <th>名称</th>
+                                            </tr>
+                                            </thead>
+                                            <tr>
+                                                <td class="center">
+                                                    <template>
+                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                    </template>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <table width="1200" border=1 cellspacing=0 cellpadding=0 class="ui-jqgrid-htable ui-common-table table table-bordered" style="margin-top: 35px" aria-labelledby="gbox_table_list"  role="presentation">
+                                            <thead>
+                                            <tr class="ui-jqgrid-labels">
+                                                <th colspan="4" >出款手续费</th>
+                                            </tr>
+                                            </thead>
+                                            <tr>
+                                                <td width="324" class="center">达到有效投注额是否免手续费</td>
+                                                <template>
+                                                    <el-radio v-model="formData.username" label="1">是</el-radio>
+                                                    <el-radio v-model="formData.username" label="2">否</el-radio>
+                                                </template>
+                                                <td width="157" class="center">每天免手续费次数</td>
+                                                <td width="178" class="center" id="free">
+                                                    <template>
+                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                    </template>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="center">手续费<span id="withdraw_chargemax" >                                    </span></td>
+                                                <td class="center">
+                                                    <template>
+                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                    </template>
+                                                    %
+                                                    <label>
+                                                        <input type="radio" name="withdraw_chargetype" value="0" checked="checked">
+                                                        百分比 </label>
+                                                    <label>
+                                                        <input type="radio" name="withdraw_chargetype" value="1" >
+                                                        固定金额 </label>
+                                                    <span id="withdraw_chargemax2" >&nbsp;&nbsp;每笔手续费上限：
+                                                        <template>
+                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                    </template>
+  </span></td>
+                                                <td class="center">每天可出款次数</td>
+                                                <td class="center">
+                                                    <template>
+                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                    </template>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="center">出款上限</td>
+                                                <td class="center">
+                                                    <template>
+                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                    </template>
+                                                </td>
+                                                <td class="center">出款下限</td>
+                                                <td class="center">
+                                                    <template>
+                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                    </template>
+                                                </td>
+                                            </tr>
+                                        </table>
 
+                                        <table  border=1 cellspacing=0 cellpadding=0 class="ui-jqgrid-htable ui-common-table table table-bordered" style="margin-top: 35px" aria-labelledby="gbox_table_list"  role="presentation">
+                                            <thead>
+                                            <tr class="ui-jqgrid-labels" role="row">
+                                                <th>入款设定</th>
+                                                <th>线上入款</th>
+                                                <th>公司入款</th>
+                                            </tr>
+                                            </thead>
+                                            <tr>
+                                                <td class="center">存款优惠</td>
+                                                <td>
+                                                    <template>
+                                                        <el-radio v-model="formData.username" label="1">首次</el-radio>
+                                                        <el-radio v-model="formData.username" label="2">每次</el-radio>
+                                                        <el-radio v-model="formData.username" label="2">无优惠</el-radio>
+                                                    </template>
+                                                </td>
+                                                <td>
+                                                    <template>
+                                                        <el-radio v-model="formData.username" label="1">首次</el-radio>
+                                                        <el-radio v-model="formData.username" label="2">每次</el-radio>
+                                                        <el-radio v-model="formData.username" label="2">无优惠</el-radio>
+                                                    </template>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="center">优惠标准（元）</td>
+                                                <td>
+                                                    <template>
+                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                    </template>
+                                                </td>
+                                                <td>
+                                                    <template>
+                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                    </template>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="center">优惠百分比(%)</td>
+                                                <td>
+                                                    <template>
+                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                    </template>
+                                                    %负数为手续费
+                                                </td>
+                                                <td>
+                                                    <template>
+                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                    </template>
+                                                    %负数为手续费
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="center">优惠上限金额</td>
+                                                <td>
+                                                    <template>
+                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                    </template>
+                                                </td>
+                                                <td>
+                                                    <template>
+                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                    </template>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="center">入款上限</td>
+                                                <td>
+                                                    <template>
+                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                    </template>
+                                                </td>
+                                                <td>
+                                                    <template>
+                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                    </template>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="center">入款下限</td>
+                                                <td>
+                                                    <template>
+                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                    </template>
+                                                </td>
+                                                <td>
+                                                    <template>
+                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                    </template>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="center">综合额度流水审核</td>
+                                                <td>
+                                                    <template>
+                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                    </template>
+                                                    <template>
+                                                        <el-radio v-model="formData.username" label="1">是</el-radio>
+                                                        <el-radio v-model="formData.username" label="2">否</el-radio>
+                                                    </template>
+                                                </td>
+                                                <td>
+                                                    <template>
+                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                    </template>
+                                                    <template>
+                                                        <el-radio v-model="formData.username" label="1">是</el-radio>
+                                                        <el-radio v-model="formData.username" label="2">否</el-radio>
+                                                    </template>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="center">常态性流水审核</td>
+                                                <td>
+                                                    <template>
+                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                    </template>%
+                                                    <template>
+                                                        <el-radio v-model="formData.username" label="1">是</el-radio>
+                                                        <el-radio v-model="formData.username" label="2">否</el-radio>
+                                                    </template>
+                                                </td>
+                                                <td>
+                                                    <template>
+                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                    </template>%
+                                                    <template>
+                                                        <el-radio v-model="formData.username" label="1">是</el-radio>
+                                                        <el-radio v-model="formData.username" label="2">否</el-radio>
+                                                    </template>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="center">常态性流水放宽额度</td>
+                                                <td>
+                                                    <template>
+                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                    </template>%
+                                                </td>
+                                                <td>
+                                                    <template>
+                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                    </template>%
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="center">常态性流水审核行政费率</td>
+                                                <td>
+                                                    <template>
+                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                    </template>
+                                                    %
+                                                </td>
+                                                <td>
+                                                    <template>
+                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                    </template>
+                                                    %
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </el-form>
             <div slot="footer" class="dialog-footer">

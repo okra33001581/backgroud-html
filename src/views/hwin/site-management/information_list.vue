@@ -129,8 +129,8 @@
                     </el-button>
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
                     </el-button>
-                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleForm(scope.$index, scope.row)">置顶</el-button>
-                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleForm(scope.$index, scope.row)">解除置顶</el-button>
+                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">置顶</el-button>
+                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">解除置顶</el-button>
 
 
                 </template>
@@ -163,7 +163,7 @@
                 </el-form-item>
 
 
-                <el-form-item class="query-form-item">
+                <el-form-item label="状态"  prop="username">
                     <el-select v-model="query.status" placeholder="状态">
                         <el-option label="全部" value=""></el-option>
                         <el-option label="正常" value="0"></el-option>
@@ -172,7 +172,7 @@
                 </el-form-item>
 
                 <el-form-item label="分类" prop="status">
-                    <el-radio-group v-model="formData.status">
+                    <el-radio-group v-model="formData.status" label="分类">
                         <el-radio label="0">新闻</el-radio>
                         <el-radio label="1">技巧</el-radio>
                     </el-radio-group>

@@ -23,13 +23,13 @@
                 </el-select>
             </el-form-item>-->
 
-            <el-form-item>
+           <!-- <el-form-item>
                 <el-button-group>
-                    <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
-                    <el-button type="primary" icon="el-icon-search" @click="onSubmit">查询</el-button>
-                    <!--<el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">新增</el-button>-->
+                    &lt;!&ndash;<el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
+                    <el-button type="primary" icon="el-icon-search" @click="onSubmit">查询</el-button>&ndash;&gt;
+                    &lt;!&ndash;<el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">新增</el-button>&ndash;&gt;
                 </el-button-group>
-            </el-form-item>
+            </el-form-item>-->
         </el-form>
         <!--<el-table
             v-loading="loading"
@@ -119,8 +119,8 @@
                 <template slot-scope="scope">
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
                     </el-button>
-                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
-                    </el-button>
+                   <!-- <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
+                    </el-button>-->
                 </template>
             </el-table-column>
         </el-table>
