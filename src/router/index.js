@@ -246,7 +246,7 @@ export const constantRouterMap = [
             }
         ]
     },
-    {
+    /*{
         path: "/components",
         redirect: "/components/uploadList",
         component: Home,
@@ -274,7 +274,7 @@ export const constantRouterMap = [
                 component: upload
             }
         ]
-    }
+    }*/
 ];
 
 export default new VueRouter({
@@ -290,7 +290,7 @@ export const asyncRouterMap = [
         redirect: "/userManage/adminManage/index",
         component: Home,
         icon: "delete",
-        name: "用户管理",
+        name: "商户管理",
         meta: {
             authRule: ["user_manage"]
         },
@@ -431,7 +431,7 @@ export const asyncRouterMap = [
             }
         ]
     },
-    {
+    /*{
         path: "/events1",
         redirect: "/events/events",
         component: Home,
@@ -461,7 +461,7 @@ export const asyncRouterMap = [
                 }
             }
         ]
-    },
+    },*/
     {
         path: "/events122",
         redirect: "/events/events",
