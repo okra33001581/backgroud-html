@@ -53,6 +53,13 @@
     import TodoList from './components/TodoList'
     import BoxCard from './components/BoxCard'
 
+    import '../../../theme/index.css'
+    import ElementUI from 'element-ui'
+    import Vue from 'vue'
+
+    Vue.use(ElementUI)
+
+
     const lineChartData = {
         newVisitis: {
             expectedData: [100, 120, 161, 134, 105, 160, 165],
