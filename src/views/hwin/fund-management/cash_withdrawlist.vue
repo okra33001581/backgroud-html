@@ -97,7 +97,60 @@
             </el-form-item>
 
 
-            <el-form-item class="query-form-item">
+
+           <!-- <el-form-item class="query-form-item">
+                <el-select v-model="query.status" placeholder="刷新">
+                    &lt;!&ndash;<el-option label="不刷新" value=""></el-option>&ndash;&gt;
+                    &lt;!&ndash;<el-option label="30s" value="0"></el-option>&ndash;&gt;
+                    &lt;!&ndash;<el-option label="60s" value="1"></el-option>&ndash;&gt;
+                    &lt;!&ndash;<el-option label="120s" value="2"></el-option>&ndash;&gt;
+                    &lt;!&ndash;<el-option label="180s" value="2"></el-option>&ndash;&gt;
+
+                    <el-checkbox label="vip2" value="0"></el-checkbox>
+                    <el-checkbox label="vip3" value="0"></el-checkbox>
+                    <el-checkbox label="vip4" value="0"></el-checkbox>
+                    <el-checkbox label="vip5" value="0"></el-checkbox>
+                    <el-checkbox label="vip6" value="0"></el-checkbox>
+                    <el-checkbox label="vip7" value="0"></el-checkbox>
+                    <el-checkbox label="vip8" value="0"></el-checkbox>
+                    <el-checkbox label="vip9" value="0"></el-checkbox>
+                    <el-checkbox label="vip10" value="0"></el-checkbox>
+                    <el-checkbox label="vip11" value="0"></el-checkbox>
+                    <el-checkbox label="vip12" value="0"></el-checkbox>
+
+                </el-select>
+            </el-form-item>-->
+
+
+            <!--<template>-->
+                <el-form-item class="query-form-item">
+                <el-select v-model="value5" multiple placeholder="请选择">
+                    <el-option
+                            v-for="item in options"
+                            :key="item.value"
+                            :label="item.label"
+                            :value="item.value">
+                    </el-option>
+                </el-select>
+                </el-form-item>
+                <!--<el-select
+                        v-model="value11"
+                        multiple
+                        collapse-tags
+                        style="margin-left: 20px;"
+                        placeholder="请选择">
+                    <el-option
+                            v-for="item in options"
+                            :key="item.value"
+                            :label="item.label"
+                            :value="item.value">
+                    </el-option>
+                </el-select>-->
+            <!--</template>-->
+
+
+
+           <!-- <el-form-item class="query-form-item">
                 <el-checkbox label="vip2">vip2</el-checkbox>
                 <el-checkbox label="vip2">vip3</el-checkbox>
                 <el-checkbox label="vip2">vip4</el-checkbox>
@@ -109,7 +162,7 @@
                 <el-checkbox label="vip2">vip10</el-checkbox>
                 <el-checkbox label="vip2">vip11</el-checkbox>
                 <el-checkbox label="vip2">vip12</el-checkbox>
-            </el-form-item>
+            </el-form-item>-->
 
             <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
                 <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key"/>
@@ -355,6 +408,24 @@
                 list: [],
                 total: 0,
                 loading: true,
+                options: [{
+                    value: '选项1',
+                    label: '黄金糕'
+                }, {
+                    value: '选项2',
+                    label: '双皮奶'
+                }, {
+                    value: '选项3',
+                    label: '蚵仔煎'
+                }, {
+                    value: '选项4',
+                    label: '龙须面'
+                }, {
+                    value: '选项5',
+                    label: '北京烤鸭'
+                }],
+                value5: [],
+                // value11: [],
                 index: null,
                 formName: null,
                 formMap: {
