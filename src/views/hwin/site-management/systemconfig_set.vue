@@ -143,8 +143,11 @@
                         <td>打开首页是否需要登录</td>
                         <td>
                             <template>
-                                <el-radio v-model="formData.username" label="1">是</el-radio>
-                                <el-radio v-model="formData.username" label="2">否</el-radio>
+                                <el-switch
+                                        v-model="value3"
+                                        active-text="是"
+                                        inactive-text="否">
+                                </el-switch>
                             </template>
                         </td>
                         <td>如果设置为是，则只有登入之后才能查看首页，及游戏等</td>
@@ -220,8 +223,13 @@
                         <td>是否开启前台维护</td>
                         <td>
                             <template>
-                                <el-radio v-model="formData.username" label="1">是</el-radio>
-                                <el-radio v-model="formData.username" label="2">否</el-radio>
+                               <!-- <el-radio v-model="formData.username" label="1">是</el-radio>
+                                <el-radio v-model="formData.username" label="2">否</el-radio>-->
+                                <el-switch
+                                        v-model="value3"
+                                        active-text="是"
+                                        inactive-text="否">
+                                </el-switch>
                             </template>
                         <td>是否开启公司前台维护</td>
                         <!-- 名称第一条 end -->
@@ -252,8 +260,11 @@
                         <td>是否开放网页版注册</td>
                         <td>
                             <template>
-                                <el-radio v-model="formData.username" label="1">是</el-radio>
-                                <el-radio v-model="formData.username" label="2">否</el-radio>
+                                <el-switch
+                                        v-model="value3"
+                                        active-text="是"
+                                        inactive-text="否">
+                                </el-switch>
                             </template>
                         <td>是否显示网页版注册按钮，让用户注册</td>
                         <!-- 名称第一条 end -->
@@ -297,8 +308,11 @@
                         <td>是否开放手机版注册</td>
                         <td>
                             <template>
-                                <el-radio v-model="formData.username" label="1">是</el-radio>
-                                <el-radio v-model="formData.username" label="2">否</el-radio>
+                                <el-switch
+                                        v-model="value3"
+                                        active-text="是"
+                                        inactive-text="否">
+                                </el-switch>
                             </template>
                         <td>是否显示手机版注册按钮，让用户注册</td>
                     </tr>
@@ -323,8 +337,11 @@
                         <td>自主注册默认用户类型</td>
                         <td>
                             <template>
-                                <el-radio v-model="formData.username" label="1">是</el-radio>
-                                <el-radio v-model="formData.username" label="2">否</el-radio>
+                                <el-switch
+                                        v-model="value3"
+                                        active-text="是"
+                                        inactive-text="否">
+                                </el-switch>
                             </template>
                         <td>平台自身的注册链接及代理开放的注册链接将受此参数影响</td>
                     </tr>
@@ -333,8 +350,11 @@
                         <td>是否允许代理开设同返点下级</td>
                         <td>
                             <template>
-                                <el-radio v-model="formData.username" label="1">是</el-radio>
-                                <el-radio v-model="formData.username" label="2">否</el-radio>
+                                <el-switch
+                                        v-model="value3"
+                                        active-text="是"
+                                        inactive-text="否">
+                                </el-switch>
                             </template>
                         <td>是否允许前台代理用户增加或调整下级账号与自身返点相同</td>
                     </tr>
@@ -411,8 +431,11 @@
                         <td>充值金额是否自动添加小数点</td>
                         <td>
                             <template>
-                                <el-radio v-model="formData.username" label="1">是</el-radio>
-                                <el-radio v-model="formData.username" label="2">否</el-radio>
+                                <el-switch
+                                        v-model="value3"
+                                        active-text="是"
+                                        inactive-text="否">
+                                </el-switch>
                             </template>
                         <td>添加小数点为了更好识别是谁入的款项</td>
                     </tr>
@@ -445,8 +468,11 @@
                         <td>是否启用快速充值链接</td>
                         <td>
                             <template>
-                                <el-radio v-model="formData.username" label="1">是</el-radio>
-                                <el-radio v-model="formData.username" label="2">否</el-radio>
+                                <el-switch
+                                        v-model="value3"
+                                        active-text="是"
+                                        inactive-text="否">
+                                </el-switch>
                             </template>
                         <td>设定是否启用快速充值功能</td>
                     </tr>
@@ -509,8 +535,11 @@
                         <td>谷歌动态验证码登录</td>
                         <td>
                             <template>
-                                <el-radio v-model="formData.username" label="1">是</el-radio>
-                                <el-radio v-model="formData.username" label="2">否</el-radio>
+                                <el-switch
+                                        v-model="value3"
+                                        active-text="是"
+                                        inactive-text="否">
+                                </el-switch>
                             </template>
                         <td>是否启用谷歌动态验证码登录</td>
                     </tr>
@@ -533,8 +562,11 @@
                         <td>同一账号一人在线</td>
                         <td>
                             <template>
-                                <el-radio v-model="formData.username" label="1">是</el-radio>
-                                <el-radio v-model="formData.username" label="2">否</el-radio>
+                                <el-switch
+                                        v-model="value3"
+                                        active-text="是"
+                                        inactive-text="否">
+                                </el-switch>
                             </template>
                         <td>只允许同一账号一人登录</td>
                     </tr>
@@ -567,8 +599,11 @@
                         <td>QQ客服链接开关</td>
                         <td>
                             <template>
-                                <el-radio v-model="formData.username" label="1">是</el-radio>
-                                <el-radio v-model="formData.username" label="2">否</el-radio>
+                                <el-switch
+                                        v-model="value3"
+                                        active-text="是"
+                                        inactive-text="否">
+                                </el-switch>
                             </template>
                         <td>启用或不启用QQ在线客服链接</td>
                     </tr>
@@ -677,6 +712,8 @@
                     role_id: "",
                     sort: '+id'
                 },
+                value3: true,
+                value4: true,
                 tableKey: 0,
                 sortOptions: [{label: 'ID Ascending', key: '+id'}, {
                     label: 'ID Descending',
