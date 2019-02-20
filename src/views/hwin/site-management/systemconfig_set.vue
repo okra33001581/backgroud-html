@@ -488,23 +488,23 @@
                         <!--  隐藏PC端前台充值处“hot”图标显示位置  -->
                         <td>允许出款时间</td>
                         <td>
-                            <el-form-item class="query-form-item">
-                                <el-date-picker
-                                        v-model="query.beginDate"
-                                        type="date"
-                                        placeholder="开始时间"
-                                        :picker-options="pickerOptions0">
-                                </el-date-picker>
-                                <el-date-picker
-                                        v-model="query.endDate"
-                                        type="date"
-                                        placeholder="结束时间"
-                                        :picker-options="pickerOptions1">
-                                </el-date-picker>
-                            </el-form-item>
-
-
-
+                            <template>
+                                <el-time-picker
+                                        v-model="value2"
+                                        :picker-options="{
+      selectableRange: '18:30:00 - 20:30:00'
+    }"
+                                        placeholder="任意时间点">
+                                </el-time-picker>
+                                <el-time-picker
+                                        arrow-control
+                                        v-model="value3"
+                                        :picker-options="{
+      selectableRange: '18:30:00 - 20:30:00'
+    }"
+                                        placeholder="任意时间点">
+                                </el-time-picker>
+                            </template>
                         </td>
                         <td>每天在指定的时间段内，允许用户申请出款，超出时间段，则不允许申请出款</td>
                     </tr>
@@ -714,6 +714,8 @@
                 },
                 value3: true,
                 value4: true,
+                value2: new Date(2016, 9, 10, 18, 40),
+                value3: new Date(2016, 9, 10, 18, 40),
                 tableKey: 0,
                 sortOptions: [{label: 'ID Ascending', key: '+id'}, {
                     label: 'ID Descending',
