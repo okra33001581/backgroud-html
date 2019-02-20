@@ -149,6 +149,14 @@ export default {
             </span>
             </span>)
         },
+        //设置表格第一行的颜色
+        getRowClass({ row, column, rowIndex, columnIndex }) {
+            if (rowIndex == 0) {
+                return 'background:#F2F2F2'
+            } else {
+                return ''
+            }
+        },
         onSubmit() {
             this.getList();
         },

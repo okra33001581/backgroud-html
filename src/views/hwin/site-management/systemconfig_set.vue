@@ -45,8 +45,13 @@
                 border
                 fit
                 highlight-current-row
-                style="width: 100%;"
-                @sort-change="sortChange">
+                style="width: 100%"
+                @sort-change="sortChange"
+                element-loading-text="拼命加载中"
+                element-loading-spinner="el-icon-loading"
+                element-loading-background="rgba(0, 0, 0, 0.8)"
+                :header-cell-style="getRowClass"
+                >
             <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
             <!--<el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>-->
@@ -793,22 +798,30 @@
                 this.query.page = 1
                 this.getList()
             },
-            sortChange: function (column) {
-                // console.log(column)
-                // console.log(prop)
-                // console.log(order)
-                const {prop, order} = column
-                if (prop === 'id') {
-                    this.sortByID(order)
-                } else if (prop === 'username') {
-                    this.sortByUserName(order)
-                } else if (prop === 'status') {
-                    this.sortByStatus(order)
-                } else if (prop === 'last_login_time') {
-                    this.sortByLastLoginTime(order)
-                } else if (prop === 'last_login_ip') {
-                    this.sortByLastLoginIp(order)
+            //设置表格第一行的颜色
+            getRowClass({ row, column, rowIndex, columnIndex }) {
+                if (rowIndex == 0) {
+                    return 'background:#F2F2F2'
+                } else {
+                    return ''
                 }
+            },
+            sortChange: function (column) {
+            // console.log(column)
+            // console.log(prop)
+            // console.log(order)
+            const {prop, order} = column
+            if (prop === 'id') {
+                this.sortByID(order)
+            } else if (prop === 'username') {
+                this.sortByUserName(order)
+            } else if (prop === 'status') {
+                this.sortByStatus(order)
+            } else if (prop === 'last_login_time') {
+                this.sortByLastLoginTime(order)
+            } else if (prop === 'last_login_ip') {
+                this.sortByLastLoginIp(order)
+            }
             },
             getList() {
                 this.loading = true;

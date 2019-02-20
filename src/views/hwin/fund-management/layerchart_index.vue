@@ -51,7 +51,11 @@
                 fit
                 highlight-current-row
                 style="width: 100%;"
-                @sort-change="sortChange">
+                @sort-change="sortChange"
+                element-loading-text="拼命加载中"
+                element-loading-spinner="el-icon-loading"
+                element-loading-background="rgba(0, 0, 0, 0.8)"
+                :header-cell-style="getRowClass">
             <el-table-column label="			商户名称		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="			支付名称		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="			启用		" prop="id" sortable="custom" fixed></el-table-column>
@@ -282,6 +286,14 @@
                     query: this.query
                 });
                 this.getList();
+            },
+            //设置表格第一行的颜色
+            getRowClass({ row, column, rowIndex, columnIndex }) {
+                if (rowIndex == 0) {
+                    return 'background:#F2F2F2'
+                } else {
+                    return ''
+                }
             },
             handleCurrentChange(val) {
                 this.query.page = val;
