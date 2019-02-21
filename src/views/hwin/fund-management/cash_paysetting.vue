@@ -135,7 +135,7 @@
                 :title="formMap[formName]"
                 :visible.sync="formVisible"
                 :before-close="hideForm"
-                width="85%"
+                width="70%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
                 <div class="ibox-content" style="padding: 10px;">

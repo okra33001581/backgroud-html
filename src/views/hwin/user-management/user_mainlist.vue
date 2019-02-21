@@ -411,7 +411,7 @@
                 :title="formMap[formName]"
                 :visible.sync="formLockVisible"
                 :before-close="hideLockForm"
-                width="85%"
+                width="45%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
 
@@ -455,7 +455,7 @@
                 :title="formMap[formName]"
                 :visible.sync="formAdjustVisible"
                 :before-close="hideAdjustForm"
-                width="85%"
+                width="65%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
 
@@ -535,11 +535,11 @@
                 :title="formMap[formName]"
                 :visible.sync="formBankCardLockVisible"
                 :before-close="hideBankCardLockForm"
-                width="85%"
+                width="35%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                <el-form-item label="账号类型handleBankCardLockForm" prop="status">
+                <el-form-item label="账号类型" prop="status">
                     <el-radio-group v-model="formData.status">
                         <el-radio label="0">代理</el-radio>
                         <el-radio label="1">会员</el-radio>
@@ -574,7 +574,7 @@
                 :title="formMap[formName]"
                 :visible.sync="formBankCardUnLockVisible"
                 :before-close="hideBankCardUnLockForm"
-                width="85%"
+                width="35%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
 
@@ -621,7 +621,7 @@
                 :title="formMap[formName]"
                 :visible.sync="formEditParentVisible"
                 :before-close="hideEditParentForm"
-                width="85%"
+                width="35%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
 

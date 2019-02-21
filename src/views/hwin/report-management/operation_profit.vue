@@ -196,7 +196,7 @@
                 :title="formMap[formName]"
                 :visible.sync="formVisible"
                 :before-close="hideForm"
-                width="85%"
+                width="35%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
                 <el-form-item label="					" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
