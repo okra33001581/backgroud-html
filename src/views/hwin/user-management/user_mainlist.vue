@@ -172,7 +172,7 @@
             注册日期
             用户状态-->
 
-            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <!--<el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>-->
             <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					在线状态		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					用户名		" prop="id" sortable="custom" fixed></el-table-column>
@@ -180,11 +180,11 @@
             <el-table-column label="					用户层级		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					所属上级		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					返点		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					账户余额		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					累计充值		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					累计投注		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					注册日期		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					用户状态		" prop="id" sortable="custom" fixed></el-table-column>
+            <!--<el-table-column label="					账户余额		" prop="id" sortable="custom" fixed></el-table-column>-->
+            <!--<el-table-column label="					累计充值		" prop="id" sortable="custom" fixed></el-table-column>-->
+            <!--<el-table-column label="					累计投注		" prop="id" sortable="custom" fixed></el-table-column>-->
+            <!--<el-table-column label="					注册日期		" prop="id" sortable="custom" fixed></el-table-column>-->
+            <!--<el-table-column label="					用户状态		" prop="id" sortable="custom" fixed></el-table-column>-->
 
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
@@ -277,12 +277,12 @@
                 :title="formMap[formName]"
                 :visible.sync="formVisible"
                 :before-close="hideForm"
-                width="85%"
+                width="65%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
                 <el-tabs type="border-card">
                     <el-tab-pane label="基本资料修改">
-                        <table width="1200" border=1px cellpadding=0 cellspacing=0 class="ui-jqgrid-htable ui-common-table table table-bordered" style="margin-top: 35px" aria-labelledby="gbox_table_list"  role="presentation">
+                        <table width="1000" border=1px cellpadding=0 cellspacing=0 class="ui-jqgrid-htable ui-common-table table table-bordered" style="margin-top: 35px" aria-labelledby="gbox_table_list"  role="presentation">
                             <tr>
                                 <td width="324" class="center">所属上级</td>
                                 <td width="521" class="center"><el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input></td>
