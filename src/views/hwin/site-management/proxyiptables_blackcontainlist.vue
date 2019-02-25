@@ -166,6 +166,9 @@
                 <el-button type="primary" @click.native="formSubmit()" :loading="formLoading">提交</el-button>
             </div>
         </el-dialog>
+        <div class="test">
+
+        </div>
     </div>
 
 </template>
@@ -187,6 +190,7 @@
         roles: []
     };
     export default {
+        name : 'test',
         data() {
             let validatePass = (rule, value, callback) => {
                 if (value === "") {
@@ -244,6 +248,8 @@
                 formVisible: false,
                 formData: formJson,
                 formRules: {},
+
+
                 addRules: {
                     username: [
                         {required: true, message: "请输入姓名", trigger: "blur"}
@@ -272,8 +278,15 @@
                         {required: true, message: "请选择状态", trigger: "change"}
                     ]
                 },
-                deleteLoading: false
-            };
+                deleteLoading: false,
+                websock: null,
+            }
+        },
+        created() {
+            this.initWebSocket();
+        },
+        destroyed() {
+            this.websock.close() //离开路由之后断开websocket连接
         },
         methods: {
             onSubmit() {
@@ -346,8 +359,6 @@
                 }
                 this.handleFilter()
             },
-
-
             sortByUserName(order) {
                 if (order === 'ascending') {
                     this.query.sort = '+username'
@@ -418,107 +429,133 @@
                     this.$refs["dataForm"].clearValidate();
                 }
             },
-            formSubmit() {
-                this.$refs["dataForm"].validate(valid => {
-                    if (valid) {
-                        this.formLoading = true;
-                        let data = Object.assign({}, this.formData);
-                        authAdminSave(data, this.formName).then(response => {
-                            this.formLoading = false;
-                            if (response.code) {
-                                this.$message({
-                                    message: response.message,
-                                    type: "error"
-                                });
-                            } else {
-                                this.$message({
-                                    message: "操作成功",
-                                    type: "success"
-                                });
-                                // 向头部添加数据
-                                // this.list.unshift(res)
-                                // 刷新表单
-                                this.$refs["dataForm"].resetFields();
-                                this.formVisible = false;
-                                if (this.formName === "add") {
-                                    // 向头部添加数据
-                                    let resData = response.data || {};
-                                    this.list.unshift(resData);
+                formSubmit() {
+                    this.$refs["dataForm"].validate(valid => {
+                        if (valid) {
+                            this.formLoading = true;
+                            let data = Object.assign({}, this.formData);
+                            authAdminSave(data, this.formName).then(response => {
+                                this.formLoading = false;
+                                if (response.code) {
+                                    this.$message({
+                                        message: response.message,
+                                        type: "error"
+                                    });
                                 } else {
-                                    this.list.splice(this.index, 1, data);
-                                }
-                            }
-                        });
-                    }
-                });
-            },
-            // 删除
-            handleDel(index, row) {
-                if (row.id) {
-                    this.$confirm("确认删除该记录吗?", "提示", {
-                        type: "warning"
-                    })
-                        .then(() => {
-                            let para = {id: row.id};
-                            authAdminDelete(para)
-                                .then(response => {
-                                    this.deleteLoading = false;
-                                    if (response.code) {
-                                        this.$message({
-                                            message: response.message,
-                                            type: "error"
-                                        });
+                                    this.$message({
+                                        message: "操作成功",
+                                        type: "success"
+                                    });
+                                    // 向头部添加数据
+                                    // this.list.unshift(res)
+                                    // 刷新表单
+                                    this.$refs["dataForm"].resetFields();
+                                    this.formVisible = false;
+                                    if (this.formName === "add") {
+                                        // 向头部添加数据
+                                        let resData = response.data || {};
+                                        this.list.unshift(resData);
                                     } else {
-                                        this.$message({
-                                            message: "删除成功",
-                                            type: "success"
-                                        });
-                                        // 刷新数据
-                                        this.list.splice(index, 1);
+                                        this.list.splice(this.index, 1, data);
                                     }
-                                })
-                                .catch(() => {
-                                    this.deleteLoading = false;
-                                });
-                        })
-                        .catch(() => {
-                            this.$message({
-                                type: "info",
-                                message: "取消删除"
+                                }
                             });
-                        });
+                        }
+                    });
+                },
+                // 删除
+                handleDel(index, row) {
+                    if (row.id) {
+                        this.$confirm("确认删除该记录吗?", "提示", {
+                            type: "warning"
+                        })
+                            .then(() => {
+                                let para = {id: row.id};
+                                authAdminDelete(para)
+                                    .then(response => {
+                                        this.deleteLoading = false;
+                                        if (response.code) {
+                                            this.$message({
+                                                message: response.message,
+                                                type: "error"
+                                            });
+                                        } else {
+                                            this.$message({
+                                                message: "删除成功",
+                                                type: "success"
+                                            });
+                                            // 刷新数据
+                                            this.list.splice(index, 1);
+                                        }
+                                    })
+                                    .catch(() => {
+                                        this.deleteLoading = false;
+                                    });
+                            })
+                            .catch(() => {
+                                this.$message({
+                                    type: "info",
+                                    message: "取消删除"
+                                });
+                            });
+                    }
                 }
-            }
-        },
-        filters: {
-            statusFilterType(status) {
-                const statusMap = {
-                    0: "gray",
-                    1: "success",
-                    2: "danger"
-                };
-                return statusMap[status];
+            ,
+            // filters: {
+            //     statusFilterType(status) {
+            //         const statusMap = {
+            //             0: "gray",
+            //             1: "success",
+            //             2: "danger"
+            //         };
+            //         return statusMap[status];
+            //     },
+            //     statusFilterName(status) {
+            //         const statusMap = {
+            //             0: "禁用",
+            //             1: "正常",
+            //             2: "未验证"
+            //         };
+            //         return statusMap[status];
+            //     }
+            // },
+            mounted() {
             },
-            statusFilterName(status) {
-                const statusMap = {
-                    0: "禁用",
-                    1: "正常",
-                    2: "未验证"
-                };
-                return statusMap[status];
-            }
-        },
-        mounted() {
-        },
-        created() {
-            // 将参数拷贝进查询对象
-            let query = this.$route.query;
-            this.query = Object.assign(this.query, query);
-            this.query.limit = parseInt(this.query.limit);
-            // 加载表格数据
-            this.getList();
-            // 加载角色列表
-            this.getRoleList();
+            created() {
+                // 将参数拷贝进查询对象
+                let query = this.$route.query;
+                this.query = Object.assign(this.query, query);
+                this.query.limit = parseInt(this.query.limit);
+                // 加载表格数据
+                this.getList();
+                // 加载角色列表
+                this.getRoleList();
+            },
+            initWebSocket(){ //初始化weosocket
+                // const wsuri = "ws://127.0.0.1:8080";
+                const wsuri = "ws://121.40.165.18:8800";
+                this.websock = new WebSocket(wsuri);
+                this.websock.onmessage = this.websocketonmessage;
+                this.websock.onopen = this.websocketonopen;
+                this.websock.onerror = this.websocketonerror;
+                this.websock.onclose = this.websocketclose;
+            },
+            websocketonopen(){ //连接建立之后执行send方法发送数据
+                let actions = {"test":"12345"};
+                this.websocketsend(JSON.stringify(actions));
+            },
+            websocketonerror(){//连接建立失败重连
+                this.initWebSocket();
+            },
+            websocketonmessage(e){ //数据接收
+                const redata = JSON.parse(e.data);
+            },
+            websocketsend(Data){//数据发送
+                this.websock.send(Data);
+            },
+            websocketclose(e){  //关闭
+                console.log('断开连接',e);
+            },
         }
     };
 </script>
