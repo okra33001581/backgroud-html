@@ -17,6 +17,9 @@ import MenuUtils from '@/utils/MenuUtils';
 // import Vue from 'vue'
 import VueQuillEditor from 'vue-quill-editor'
 
+import VCharts from 'v-charts'
+Vue.use(VCharts)
+
 // 注册全局组件（register global）
 Vue.component("icon-svg", IconSvg);
 
