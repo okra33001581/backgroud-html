@@ -14,6 +14,9 @@ import "./assets/icon/iconfont";
 import IconSvg from "./components/common/IconSvg.vue"; // svg组件
 import MenuUtils from '@/utils/MenuUtils';
 
+// import Vue from 'vue'
+import VueQuillEditor from 'vue-quill-editor'
+
 // 注册全局组件（register global）
 Vue.component("icon-svg", IconSvg);
 

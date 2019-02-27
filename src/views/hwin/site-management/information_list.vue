@@ -17,6 +17,13 @@
                     <el-option label="技巧" value="1"></el-option>
                 </el-select>
             </el-form-item>
+
+            <el-form-item class="query-form-item">
+            <el-radio-group v-model="query.autoWidth">
+                <el-radio :label="true" border>True</el-radio>
+                <el-radio :label="false" border>False</el-radio>
+            </el-radio-group>
+            </el-form-item>
             <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
                 <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key"/>
             </el-select>-->
@@ -84,6 +91,19 @@
             <el-table-column label="					资讯标题		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					最后更新时间		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					管理员		" prop="id" sortable="custom" fixed></el-table-column>
+
+
+
+
+          <!--  <div class="container">
+                <div class="plugins-tips">
+                    Vue-Quill-Editor：基于Quill、适用于Vue2的富文本编辑器。
+                    访问地址：<a href="https://github.com/surmon-china/vue-quill-editor" target="_blank">vue-quill-editor</a>
+                </div>
+                <quill-editor ref="myTextEditor" v-model="content" :options="editorOption"></quill-editor>
+                <el-button class="editor-btn" type="primary" @click="submit">提交</el-button>
+            </div>-->
+
             <el-table-column label="					状态		" prop="id" sortable="custom" fixed></el-table-column>
 
 
@@ -191,9 +211,16 @@
                     <el-input type="textarea" v-model="formData.password" auto-complete="off"></el-input>
                 </el-form-item>
 
-
-
-
+                <template>
+                    <el-row>
+                        <quill-editor v-model="content"
+                                      :options="editorOption"
+                                      @blur="onEditorBlur($event)"
+                                      @focus="onEditorFocus($event)"
+                                      @change="onEditorChange($event)">
+                        </quill-editor>
+                    </el-row>
+                </template>
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideForm">取消</el-button>
@@ -212,6 +239,11 @@
         authAdminDelete
     } from "../../../api/auth/authAdmin";
     import { parseTime } from '@/utils';
+    import 'quill/dist/quill.core.css'
+    import 'quill/dist/quill.snow.css'
+    import 'quill/dist/quill.bubble.css'
+    import { quillEditor } from 'vue-quill-editor'
+
 
     const formJson = {
         id: "",
@@ -250,6 +282,10 @@
                     sort: '+id'
                 },
                 tableKey: 0,
+                content: '',
+                editorOption: {
+                    placeholder: 'Hello World'
+                },
                 sortOptions: [{label: 'ID Ascending', key: '+id'}, {
                     label: 'ID Descending',
                     key: '-id'
@@ -310,6 +346,9 @@
                 deleteLoading: false
             };
         },
+        components: {
+            quillEditor
+        },
         methods: {
             onSubmit() {
                 this.$router.push({
@@ -325,6 +364,14 @@
                 } else {
                     return ''
                 }
+            },
+            onEditorBlur(editor){//失去焦点事件
+            },
+            onEditorFocus(editor){//获得焦点事件
+            },
+            onEditorChange({editor,html,text}){//编辑器文本发生变化
+                //this.content可以实时获取到当前编辑器内的文本内容
+                console.log(this.content);
             },
             handleCurrentChange(val) {
                 this.query.page = val;
@@ -584,4 +631,9 @@
 </script>
 
 <style type="text/scss" lang="scss">
+</style>
+<style scoped>
+    .editor-btn{
+        margin-top: 20px;
+    }
 </style>
