@@ -73,8 +73,12 @@
                 element-loading-text="拼命加载中"
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
-                :header-cell-style="getRowClass">
+                :header-cell-style="getRowClass"
+                @selection-change="selsChange"
+                >
 
+            <el-table-column type="selection" width="55">
+            </el-table-column>
 
             <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
@@ -417,6 +421,10 @@
                 } else {
                     return ''
                 }
+            },
+            // 全选单选多选
+            selsChange(sels) {
+                this.sels = sels
             },
             onEditorBlur(editor){//失去焦点事件
             },
