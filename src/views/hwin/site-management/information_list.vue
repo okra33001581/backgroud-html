@@ -286,6 +286,22 @@
                     </el-form-item>
                 </el-col>
 
+                <el-col :span="10">
+                    <el-form-item label-width="80px" label="发布时间:" class="postInfo-container-item">
+                        <el-date-picker v-model="formData.display_time" type="datetime" format="yyyy-MM-dd HH:mm:ss" placeholder="选择日期时间"/>
+                    </el-form-item>
+                </el-col>
+
+                <el-form-item style="margin-bottom: 40px;" label-width="45px" label="摘要:">
+                    <el-input :rows="1" v-model="formData.content_short" type="textarea" class="article-textarea" autosize placeholder="请输入内容"/>
+                    <span v-show="contentShortLength" class="word-counter">{{ contentShortLength }}字</span>
+                </el-form-item>
+
+                <el-form-item prop="image_uri" style="margin-bottom: 30px;">
+                    <Upload v-model="formData.image_uri" />
+                </el-form-item>
+
+
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideForm">取消</el-button>
@@ -309,6 +325,9 @@
     import 'quill/dist/quill.bubble.css'
     import { quillEditor } from 'vue-quill-editor'
 
+    import Upload from '@/components/Upload/singleImage3'
+
+
     import MDinput from '@/components/MDinput'
 
 
@@ -324,6 +343,8 @@
         username: "",
         checkPassword: "",
         status: "1",
+        display_time: undefined, // 前台展示时间
+        content_short: '', // 文章摘要
         roles: []
     };
     export default {
@@ -438,7 +459,8 @@
         components: {
             quillEditor,
             VueCropper,
-            MDinput
+            MDinput,
+            Upload
         },
         methods: {
             onSubmit() {
@@ -765,6 +787,9 @@
             // }
         },
         computed: {
+            contentShortLength() {
+                return this.formData.content_short.length
+            }
             // lang: {
             //     get() {
             //         return this.$store.state.app.language
