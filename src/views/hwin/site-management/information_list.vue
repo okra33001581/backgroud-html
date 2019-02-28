@@ -261,6 +261,31 @@
                     </div>
                 </template>
 
+
+                <el-form-item style="margin-bottom: 40px;" prop="title">
+                    <MDinput v-model="formData.id" :maxlength="100" name="name" required>
+                        标题
+                    </MDinput>
+                </el-form-item>
+<!--
+                <el-col :span="10">
+                    <el-form-item label-width="80px" label="发布时间:" class="postInfo-container-item">
+                        <el-date-picker v-model="formData.id" type="datetime" format="yyyy-MM-dd HH:mm:ss" placeholder="选择日期时间"/>
+                    </el-form-item>
+                </el-col>-->
+
+                <el-col :span="6">
+                    <el-form-item label-width="60px" label="重要性:" class="postInfo-container-item">
+                        <el-rate
+                                v-model="formData.importance"
+                                :max="3"
+                                :colors="['#99A9BF', '#F7BA2A', '#FF9900']"
+                                :low-threshold="1"
+                                :high-threshold="3"
+                                style="margin-top:8px;"/>
+                    </el-form-item>
+                </el-col>
+
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideForm">取消</el-button>
@@ -283,6 +308,8 @@
     import 'quill/dist/quill.snow.css'
     import 'quill/dist/quill.bubble.css'
     import { quillEditor } from 'vue-quill-editor'
+
+    import MDinput from '@/components/MDinput'
 
 
     import VueCropper from 'vue-cropperjs'
@@ -410,7 +437,8 @@
         },
         components: {
             quillEditor,
-            VueCropper
+            VueCropper,
+            MDinput
         },
         methods: {
             onSubmit() {
@@ -731,21 +759,21 @@
             // 加载角色列表
             this.getRoleList();
             this.cropImg = this.defaultSrc;
-            if (!this.$i18n.getLocaleMessage('en')[viewName]) {
-                this.$i18n.mergeLocaleMessage('en', local.en)
-                this.$i18n.mergeLocaleMessage('zh', local.zh)
-            }
+            // if (!this.$i18n.getLocaleMessage('en')[viewName]) {
+            //     this.$i18n.mergeLocaleMessage('en', local.en)
+            //     this.$i18n.mergeLocaleMessage('zh', local.zh)
+            // }
         },
         computed: {
-            lang: {
-                get() {
-                    return this.$store.state.app.language
-                },
-                set(lang) {
-                    this.$i18n.locale = lang
-                    this.$store.dispatch('setLanguage', lang)
-                }
-            }
+            // lang: {
+            //     get() {
+            //         return this.$store.state.app.language
+            //     },
+            //     set(lang) {
+            //         this.$i18n.locale = lang
+            //         this.$store.dispatch('setLanguage', lang)
+            //     }
+            // }
         }
     };
 </script>
@@ -758,7 +786,7 @@
     }
 </style>
 
-<style scoped>
+<style scoped>g
     .content-title{
         font-weight: 400;
         line-height: 50px;
