@@ -8,6 +8,9 @@ import * as filters from "./filtres/index"; // 全局过滤器
 import "./role"; // 权限
 import './assets/icon/iconfont.css'
 
+import LangENUS from './common/lang/en-us'
+import LangZHCN from './common/lang/zh-cn'
+
 // import "./mock"; // 模拟数据
 
 import "./assets/icon/iconfont";
@@ -19,6 +22,31 @@ import VueQuillEditor from 'vue-quill-editor'
 
 import VCharts from 'v-charts'
 Vue.use(VCharts)
+
+import VueI18n from 'vue-i18n'
+
+Vue.use(VueI18n) // 通过插件的形式挂载
+
+// const i18n = new VueI18n({
+//     locale: 'zh-CN',    // 语言标识
+//     // this.$i18n.locale, // 通过切换locale的值来实现语言切换
+//     messages: {
+//         'zh-CN': require('./common/lang/zh'),   // 中文语言包
+//         'en-US': require('./common/lang/en'),    // 英文语言包
+//         'lang': require('./common/lang/local')    // 英文语言包
+//     }
+// })
+const i18n = new VueI18n({
+    locale: 'zh-cn',
+    messages: {
+        'en-us': LangENUS,
+        'zh-cn': LangZHCN
+    }
+})
+
+
+
+
 
 // 注册全局组件（register global）
 Vue.component("icon-svg", IconSvg);
@@ -64,6 +92,7 @@ router.beforeEach((route, redirect, next) => {
 
 new Vue({
     router,
+    i18n,  // 不要忘记
     store,
     render: h => h(App)
 }).$mount("#app");

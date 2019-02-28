@@ -41,7 +41,9 @@
                     <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">新增</el-button>
                     <el-button type="primary" icon="el-icon-search" @click="handleDownload">excel</el-button>
 
-
+                    <div style="padding-left: 20px">
+                        <el-button @click="changeLanguage">切换语言</el-button>
+                    </div>
 
 
                 </el-button-group>
@@ -81,7 +83,9 @@
             </el-table-column>
 
             <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
+
+            <el-table-column prop="tableName" :label="$t('text.globalCurrency')" width="100" align="center"></el-table-column>
+            <!--<el-table-column label="			商户名称				" prop="title" sortable="custom" fixed></el-table-column>-->
 
             <el-table-column label="					排序值		" prop="id" sortable="custom" fixed>
 
@@ -283,6 +287,8 @@
 
     import VueCropper from 'vue-cropperjs'
 
+    // import local from '../../i18n-demo/local'
+    const viewName = 'VueI18n'
 
 
     const formJson = {
@@ -498,6 +504,13 @@
                     this.query.sort = '-username'
                 }
                 this.handleFilter()
+            },
+            changeLanguage () {
+                if (this.$i18n.locale == 'en-us') {
+                    this.$i18n.locale = 'zh-cn'
+                } else {
+                    this.$i18n.locale = 'en-us'
+                }
             },
             sortByStatus(order) {
                 if (order === 'ascending') {
@@ -718,6 +731,21 @@
             // 加载角色列表
             this.getRoleList();
             this.cropImg = this.defaultSrc;
+            if (!this.$i18n.getLocaleMessage('en')[viewName]) {
+                this.$i18n.mergeLocaleMessage('en', local.en)
+                this.$i18n.mergeLocaleMessage('zh', local.zh)
+            }
+        },
+        computed: {
+            lang: {
+                get() {
+                    return this.$store.state.app.language
+                },
+                set(lang) {
+                    this.$i18n.locale = lang
+                    this.$store.dispatch('setLanguage', lang)
+                }
+            }
         }
     };
 </script>
