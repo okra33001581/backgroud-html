@@ -338,13 +338,13 @@ export const asyncRouterMap = [
         ]
     },
     {
-        path: "/hwin",
+        path: "/hwin-sitemanagement",
         redirect: "/proxyiptables/authAdmin/index",
         component: Home,
         icon: "sitemanagement",
         name: "网站管理",
         meta: {
-            authRule: ["ad_manage"]
+            authRule: ["hwin/proxyiptables_blackcontainlist"]
         },
         // noDropdown: true,
         children: [
@@ -354,7 +354,9 @@ export const asyncRouterMap = [
                 name: "IP限制",
                 icon: "proxyiptables_blackcontainlist",
                 meta: {
-                    authRule: ["admin/auth_admin/index"]
+                    authRule: ["hwin/proxyiptables_blackcontainlist"]
+                    // ,
+                    // btnPermissions: ['admin','supper','normal', 'okra0000021'] //页面需要的权限
                 }
             },
             {
@@ -363,7 +365,9 @@ export const asyncRouterMap = [
                 name: "系统参数设定",
                 icon: "systemconfig_set",
                 meta: {
-                    authRule: ["admin/ad/index"]
+                    authRule: ["hwin/systemconfig_set"]
+                    // ,
+                    // btnPermissions: ['admin','supper','normal', 'okra0000021'] //页面需要的权限
                 }
             },
             {
@@ -372,7 +376,9 @@ export const asyncRouterMap = [
                 name: "网站图标设置",
                 icon: "systemconfig_imagelist",
                 meta: {
-                    authRule: ["admin/ad/index"]
+                    authRule: ["hwin/systemconfig_imagelist"]
+                    // ,
+                    // btnPermissions: ['admin','supper','normal', 'okra0000022'] //页面需要的权限
                 }
             },
             {
@@ -381,7 +387,9 @@ export const asyncRouterMap = [
                 name: "二维码设置",
                 icon: "qrconfig_list",
                 meta: {
-                    authRule: ["admin/ad/index"]
+                    authRule: ["hwin/qrconfig_list"]
+                    // ,
+                    // btnPermissions: ['admin','supper','normal', 'okra0000021'] //页面需要的权限
                 }
             },
             {
@@ -390,7 +398,9 @@ export const asyncRouterMap = [
                 name: "首页轮播设定",
                 icon: "rotationconfig_list",
                 meta: {
-                    authRule: ["admin/ad/index"]
+                    authRule: ["hwin/rotationconfig_list"]
+                    // ,
+                    // btnPermissions: ['admin','supper','normal', 'okra0000021'] //页面需要的权限
                 }
             },
             {
@@ -399,7 +409,9 @@ export const asyncRouterMap = [
                 name: "浮动窗口",
                 icon: "floatwindowconfig_list",
                 meta: {
-                    authRule: ["admin/ad/index"]
+                    authRule: ["hwin/floatwindowconfig_list"]
+                    // ,
+                    // btnPermissions: ['admin','supper','normal', 'okra0000021'] //页面需要的权限
                 }
             },
             {
@@ -408,7 +420,9 @@ export const asyncRouterMap = [
                 name: "资讯中心",
                 icon: "information_list",
                 meta: {
-                    authRule: ["admin/ad/index"]
+                    authRule: ["hwin/information_list"]
+                    // ,
+                    // btnPermissions: ['admin','supper','normal', 'okra0000021'] //页面需要的权限
                 }
             },
             {
@@ -417,7 +431,9 @@ export const asyncRouterMap = [
                 name: "公司简介",
                 icon: "information_companylist",
                 meta: {
-                    authRule: ["admin/ad/index"]
+                    authRule: ["hwin/information_companylist"]
+                    // ,
+                    // btnPermissions: ['admin','supper','normal', 'okra0000021'] //页面需要的权限
                 }
             },
             {
@@ -426,7 +442,9 @@ export const asyncRouterMap = [
                 name: "菜单排序",
                 icon: "lotterygroup_sort",
                 meta: {
-                    authRule: ["admin/ad/index"]
+                    authRule: ["hwin/lotterygroup_sort"]
+                    // ,
+                    // btnPermissions: ['admin','supper','normal', 'okra0000021'] //页面需要的权限
                 }
             }
         ]
@@ -463,13 +481,13 @@ export const asyncRouterMap = [
         ]
     },*/
     {
-        path: "/events122",
+        path: "/hwin-usermanagement",
         redirect: "/events/events",
         component: Home,
         icon: "usermanagement",
         name: "用户管理",
         meta: {
-            authRule: ["develop/sysSetting/index"]
+            authRule: ["hwin/user_mainlist"]
         },
         // noDropdown: true,
         children: [
@@ -479,7 +497,7 @@ export const asyncRouterMap = [
                 name: "用户列表",
                 icon: "user_mainlist",
                 meta: {
-                    authRule: ["develop/sysSetting/index"]
+                    authRule: ["hwin/user_mainlist"]
                 }
             },
             {
@@ -488,7 +506,7 @@ export const asyncRouterMap = [
                 name: "会员资料",
                 icon: "user_infolist",
                 meta: {
-                    authRule: ["develop/auditType/index"]
+                    authRule: ["hwin/user_infolist"]
                 }
             },
             {
@@ -497,7 +515,7 @@ export const asyncRouterMap = [
                 name: "层级管理",
                 icon: "user_userlayer",
                 meta: {
-                    authRule: ["develop/auditType/index"]
+                    authRule: ["hwin/user_userlayer"]
                 }
             },
             {
@@ -506,7 +524,7 @@ export const asyncRouterMap = [
                 name: "用户银行卡管理",
                 icon: "user_usercard",
                 meta: {
-                    authRule: ["develop/auditType/index"]
+                    authRule: ["hwin/user_usercard"]
                 }
             },
             {
@@ -515,7 +533,7 @@ export const asyncRouterMap = [
                 name: "有效会员列表",
                 icon: "user_validuser",
                 meta: {
-                    authRule: ["develop/auditType/index"]
+                    authRule: ["hwin/user_validuser"]
                 }
             },
             {
@@ -524,7 +542,7 @@ export const asyncRouterMap = [
                 name: "出入款统计",
                 icon: "user_inoutcash",
                 meta: {
-                    authRule: ["develop/auditType/index"]
+                    authRule: ["hwin/user_inoutcash"]
                 }
             },
             {
@@ -533,7 +551,7 @@ export const asyncRouterMap = [
                 name: "安全信息审核",
                 icon: "user_reviewlist",
                 meta: {
-                    authRule: ["develop/auditType/index"]
+                    authRule: ["hwin/user_reviewlist"]
                 }
             },
             {
@@ -542,19 +560,19 @@ export const asyncRouterMap = [
                 name: "多账户监测",
                 icon: "user_monitor",
                 meta: {
-                    authRule: ["develop/auditType/index"]
+                    authRule: ["hwin/user_monitor"]
                 }
             }
         ]
     },
     {
-        path: "/events3",
+        path: "/hwin-fundmanagement",
         redirect: "/events/events",
         component: Home,
         icon: "fundmanagement",
         name: "现金管理",
         meta: {
-            authRule: ["events/events/index"]
+            authRule: ["hwin/paygroup_list"]
         },
         // noDropdown: true,
         children: [
@@ -564,7 +582,7 @@ export const asyncRouterMap = [
                 name: "支付类型管理",
                 icon: "paygroup_list",
                 meta: {
-                    authRule: ["user/user/index"]
+                    authRule: ["hwin/paygroup_list"]
                 }
             },
             {
@@ -573,7 +591,7 @@ export const asyncRouterMap = [
                 name: "支付设定",
                 icon: "cash_paysetting",
                 meta: {
-                    authRule: ["user/userIpAnalysis/index"]
+                    authRule: ["hwin/cash_paysetting"]
                 }
             },
             {
@@ -582,7 +600,7 @@ export const asyncRouterMap = [
                 name: "入款账号管理",
                 icon: "payaccount_list",
                 meta: {
-                    authRule: ["user/userPrizeSet/index"]
+                    authRule: ["hwin/payaccount_list"]
                 }
             },
             {
@@ -591,7 +609,7 @@ export const asyncRouterMap = [
                 name: "三方账号管理",
                 icon: "tripartite_list",
                 meta: {
-                    authRule: ["user/userPrizeSet/index"]
+                    authRule: ["hwin/tripartite_list"]
                 }
             },
             {
@@ -600,7 +618,7 @@ export const asyncRouterMap = [
                 name: "层级状态图",
                 icon: "layerchart_index",
                 meta: {
-                    authRule: ["user/userPrizeSet/index"]
+                    authRule: ["hwin/layerchart_index"]
                 }
             },
             {
@@ -609,7 +627,7 @@ export const asyncRouterMap = [
                 name: "即时稽核",
                 icon: "userbetscheck_list",
                 meta: {
-                    authRule: ["user/userPrizeSet/index"]
+                    authRule: ["hwin/userbetscheck_list"]
                 }
             },
             {
@@ -618,7 +636,7 @@ export const asyncRouterMap = [
                 name: "转账记录",
                 icon: "transferorder_list",
                 meta: {
-                    authRule: ["user/userPrizeSet/index"]
+                    authRule: ["hwin/transferorder_list"]
                 }
             },
             {
@@ -627,7 +645,7 @@ export const asyncRouterMap = [
                 name: "出款管理",
                 icon: "cash_withdrawlist",
                 meta: {
-                    authRule: ["user/userPrizeSet/index"]
+                    authRule: ["hwin/cash_withdrawlist"]
                 }
             },
             {
@@ -636,7 +654,7 @@ export const asyncRouterMap = [
                 name: "人工存提",
                 icon: "manualpay_save",
                 meta: {
-                    authRule: ["user/userPrizeSet/index"]
+                    authRule: ["hwin/manualpay_save"]
                 }
             },
             {
@@ -645,7 +663,7 @@ export const asyncRouterMap = [
                 name: "人工存提审核",
                 icon: "manualpayconfirm_list",
                 meta: {
-                    authRule: ["user/userPrizeSet/index"]
+                    authRule: ["hwin/manualpayconfirm_list"]
                 }
             },
             {
@@ -654,7 +672,7 @@ export const asyncRouterMap = [
                 name: "公司入款记录",
                 icon: "companymoney_list",
                 meta: {
-                    authRule: ["user/userPrizeSet/index"]
+                    authRule: ["hwin/companymoney_list"]
                 }
             },
             {
@@ -663,7 +681,7 @@ export const asyncRouterMap = [
                 name: "三方入款记录",
                 icon: "fastpaymoney_list",
                 meta: {
-                    authRule: ["user/userPrizeSet/index"]
+                    authRule: ["hwin/fastpaymoney_list"]
                 }
             },
             {
@@ -672,7 +690,7 @@ export const asyncRouterMap = [
                 name: "账变列表",
                 icon: "cash_orderlist",
                 meta: {
-                    authRule: ["user/userPrizeSet/index"]
+                    authRule: ["hwin/cash_orderlist"]
                 }
             },
             {
@@ -681,19 +699,19 @@ export const asyncRouterMap = [
                 name: "返水",
                 icon: "cash_rakeback",
                 meta: {
-                    authRule: ["user/userPrizeSet/index"]
+                    authRule: ["hwin/cash_rakeback"]
                 }
             }
         ]
     },
     {
-        path: "/events4",
+        path: "/hwin-playmanagement",
         redirect: "/events/events",
         component: Home,
         icon: "playmanagement",
         name: "游戏管理",
         meta: {
-            authRule: ["events/events/index"]
+            authRule: ["hwin/proxygames_list"]
         },
         // noDropdown: true,
         children: [
@@ -703,7 +721,7 @@ export const asyncRouterMap = [
                 name: "三方游戏",
                 icon: "proxygames_list",
                 meta: {
-                    authRule: ["bulletin/bulletin/index"]
+                    authRule: ["hwin/proxygames_list"]
                 }
             },
             {
@@ -712,7 +730,7 @@ export const asyncRouterMap = [
                 name: "彩票游戏",
                 icon: "pgame_list",
                 meta: {
-                    authRule: ["bulletin/bulletinType/index"]
+                    authRule: ["hwin/pgame_list"]
                 }
             },
             {
@@ -721,7 +739,7 @@ export const asyncRouterMap = [
                 name: "投注限额",
                 icon: "betlimit_list",
                 meta: {
-                    authRule: ["bulletin/bulletinType/index"]
+                    authRule: ["hwin/betlimit_list"]
                 }
             },
             {
@@ -730,19 +748,19 @@ export const asyncRouterMap = [
                 name: "游戏风控",
                 icon: "lotteryrisk_list",
                 meta: {
-                    authRule: ["bulletin/bulletinType/index"]
+                    authRule: ["hwin/lotteryrisk_list"]
                 }
             }
         ]
     },
     {
-        path: "/events5",
+        path: "/hwin-agentmanagent",
         redirect: "/events/events",
         component: Home,
         icon: "agentmanagent",
         name: "与代理佣金",
         meta: {
-            authRule: ["events/events/index"]
+            authRule: ["hwin/proxycommission_list"]
         },
         // noDropdown: true,
         children: [
@@ -752,7 +770,7 @@ export const asyncRouterMap = [
                 name: "代理默认配额设置",
                 icon: "proxycommission_list",
                 meta: {
-                    authRule: ["basis/third-plats/index"]
+                    authRule: ["hwin/proxycommission_list"]
                 }
             },
             {
@@ -761,19 +779,19 @@ export const asyncRouterMap = [
                 name: "代理推广链接",
                 icon: "proxycommission_proxylist",
                 meta: {
-                    authRule: ["basis/transaction-types/index"]
+                    authRule: ["hwin/proxycommission_proxylist"]
                 }
             }
         ]
     },
     {
-        path: "/events6",
+        path: "/hwin-reportmanagent",
         redirect: "/events/events",
         component: Home,
         icon: "reportmanagent",
         name: "报表管理",
         meta: {
-            authRule: ["events/events/index"]
+            authRule: ["hwin/operation_profit"]
         },
         // noDropdown: true,
         children: [
@@ -783,7 +801,7 @@ export const asyncRouterMap = [
                 name: "运营报表",
                 icon: "operation_profit",
                 meta: {
-                    authRule: ["setting/term/index"]
+                    authRule: ["hwin/operation_profit"]
                 }
             },
             {
@@ -792,7 +810,7 @@ export const asyncRouterMap = [
                 name: "用户报表",
                 icon: "user_report",
                 meta: {
-                    authRule: ["setting/serial/index"]
+                    authRule: ["hwin/user_report"]
                 }
             }, {
                 path: "finance_index",
@@ -800,7 +818,7 @@ export const asyncRouterMap = [
                 name: "财务报表",
                 icon: "finance_index",
                 meta: {
-                    authRule: ["setting/lottery/index"]
+                    authRule: ["hwin/finance_index"]
                 }
             }, {
                 path: "pgame_playlist",
@@ -808,7 +826,7 @@ export const asyncRouterMap = [
                 name: "彩票报表",
                 icon: "pgame_playlist",
                 meta: {
-                    authRule: ["setting/lottery/index"]
+                    authRule: ["hwin/pgame_playlist"]
                 }
             }, {
                 path: "preport_profit",
@@ -816,19 +834,19 @@ export const asyncRouterMap = [
                 name: "平台报表",
                 icon: "preport_profit",
                 meta: {
-                    authRule: ["setting/lottery/index"]
+                    authRule: ["hwin/preport_profit"]
                 }
             }
         ]
     },
     {
-        path: "/events7",
+        path: "/hwin-eventmanagement",
         redirect: "/events/events",
         component: Home,
         icon: "eventmanagement",
         name: "活动管理",
         meta: {
-            authRule: ["events/events/index"]
+            authRule: ["hwin/activity_list"]
         },
         // noDropdown: true,
         children: [
@@ -838,19 +856,19 @@ export const asyncRouterMap = [
                 name: "活动列表",
                 icon: "activity_list",
                 meta: {
-                    authRule: ["lottery/projects/index"]
+                    authRule: ["hwin/activity_list"]
                 }
             }
         ]
     },
     {
-        path: "/events8",
+        path: "/hwin-noticemanagement",
         redirect: "/events/events",
         component: Home,
         icon: "noticemanagement",
         name: "公告管理",
         meta: {
-            authRule: ["events/events/index"]
+            authRule: ["hwin/message_list"]
         },
         // noDropdown: true,
         children: [
@@ -860,7 +878,7 @@ export const asyncRouterMap = [
                 name: "站内信列表",
                 icon: "message_list",
                 meta: {
-                    authRule: ["report/stat-profits/index"]
+                    authRule: ["hwin/message_list"]
                 }
             },
             {
@@ -869,7 +887,7 @@ export const asyncRouterMap = [
                 name: "移动端推送",
                 icon: "push_list",
                 meta: {
-                    authRule: ["report/issue-profits/index"]
+                    authRule: ["hwin/push_list"]
                 }
             }, {
                 path: "notice_list",
@@ -877,7 +895,7 @@ export const asyncRouterMap = [
                 name: "公告列表",
                 icon: "notice_list",
                 meta: {
-                    authRule: ["report/stat-lottery-profits/index"]
+                    authRule: ["hwin/notice_list"]
                 }
             }, {
                 path: "marquee_list",
@@ -885,19 +903,19 @@ export const asyncRouterMap = [
                 name: "跑马灯列表",
                 icon: "marquee_list",
                 meta: {
-                    authRule: ["report/stat-month-profits/index"]
+                    authRule: ["hwin/marquee_list"]
                 }
             }
         ]
     },
     {
-        path: "/events9",
+        path: "/hwin-Userlog",
         redirect: "/events/events",
         component: Home,
         icon: "Userlog",
         name: "日志管理",
         meta: {
-            authRule: ["events/events/index"]
+            authRule: ["hwin/log_domainlog1"]
         },
         // noDropdown: true,
         children: [
@@ -907,7 +925,7 @@ export const asyncRouterMap = [
                 name: "域名统计",
                 icon: "log_domainlog1",
                 meta: {
-                    authRule: ["merchant/merchant/index"]
+                    authRule: ["hwin/log_domainlog1"]
                 }
             },
             {
@@ -916,7 +934,7 @@ export const asyncRouterMap = [
                 name: "用户登入查询",
                 icon: "log_adminlog",
                 meta: {
-                    authRule: ["merchant/merchantIp/index"]
+                    authRule: ["hwin/log_loginlog"]
                 }
             },
             {
@@ -925,7 +943,7 @@ export const asyncRouterMap = [
                 name: "管理员日志列表",
                 icon: "log_adminlog",
                 meta: {
-                    authRule: ["merchant/merchantAccount/index"]
+                    authRule: ["hwin/log_adminlog"]
                 }
             }
         ]

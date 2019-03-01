@@ -137,7 +137,7 @@ export default {
         /*eslint-disable */
         renderContent (h, { node, data, store }) {
             return (
-                <span style="flex: 2; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;background-color:#FFFFF0">
+                <span style="flex: 2; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px">
                 <span>
                 <span title={ data.name } class="el-icon-mobile-phone">{node.label}</span>
             </span>
