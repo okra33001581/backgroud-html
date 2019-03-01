@@ -344,7 +344,7 @@ export const asyncRouterMap = [
         icon: "sitemanagement",
         name: "网站管理",
         meta: {
-            authRule: ["hwin/proxyiptables_blackcontainlist"]
+            authRule: ["网站管理"]
         },
         // noDropdown: true,
         children: [
@@ -487,7 +487,7 @@ export const asyncRouterMap = [
         icon: "usermanagement",
         name: "用户管理",
         meta: {
-            authRule: ["hwin/user_mainlist"]
+            authRule: ["用户管理"]
         },
         // noDropdown: true,
         children: [
@@ -572,7 +572,7 @@ export const asyncRouterMap = [
         icon: "fundmanagement",
         name: "现金管理",
         meta: {
-            authRule: ["hwin/paygroup_list"]
+            authRule: ["现金管理"]
         },
         // noDropdown: true,
         children: [
@@ -711,7 +711,7 @@ export const asyncRouterMap = [
         icon: "playmanagement",
         name: "游戏管理",
         meta: {
-            authRule: ["hwin/proxygames_list"]
+            authRule: ["游戏管理"]
         },
         // noDropdown: true,
         children: [
@@ -760,7 +760,7 @@ export const asyncRouterMap = [
         icon: "agentmanagent",
         name: "与代理佣金",
         meta: {
-            authRule: ["hwin/proxycommission_list"]
+            authRule: ["与代理佣金"]
         },
         // noDropdown: true,
         children: [
@@ -791,7 +791,7 @@ export const asyncRouterMap = [
         icon: "reportmanagent",
         name: "报表管理",
         meta: {
-            authRule: ["hwin/operation_profit"]
+            authRule: ["报表管理"]
         },
         // noDropdown: true,
         children: [
@@ -846,7 +846,7 @@ export const asyncRouterMap = [
         icon: "eventmanagement",
         name: "活动管理",
         meta: {
-            authRule: ["hwin/activity_list"]
+            authRule: ["活动管理"]
         },
         // noDropdown: true,
         children: [
@@ -868,7 +868,7 @@ export const asyncRouterMap = [
         icon: "noticemanagement",
         name: "公告管理",
         meta: {
-            authRule: ["hwin/message_list"]
+            authRule: ["公告管理"]
         },
         // noDropdown: true,
         children: [
@@ -915,7 +915,7 @@ export const asyncRouterMap = [
         icon: "Userlog",
         name: "日志管理",
         meta: {
-            authRule: ["hwin/log_domainlog1"]
+            authRule: ["日志管理"]
         },
         // noDropdown: true,
         children: [
