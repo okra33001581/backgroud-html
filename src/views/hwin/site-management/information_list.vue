@@ -45,6 +45,9 @@
                         <el-button @click="changeLanguage">切换语言</el-button>
                     </div>
 
+                    <div style="padding-left: 20px">
+                        <el-button @click="changeLanguage" v-if="hasPerm('article:add')">控件权限</el-button>
+                    </div>
 
                 </el-button-group>
             </el-form-item>
@@ -516,6 +519,11 @@
                 }
             },
             getList() {
+
+                if (this.hasPerm('article:add')) {
+                    // continue;
+                }
+
                 this.loading = true;
                 authAdminList(this.query)
                     .then(response => {

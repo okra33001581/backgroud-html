@@ -11,6 +11,11 @@ import './assets/icon/iconfont.css'
 import LangENUS from './common/lang/en-us'
 import LangZHCN from './common/lang/zh-cn'
 
+// import '@/permission' // 权限
+import {hasPermission} from "./utils/hasPermission";
+//全局的常量
+Vue.prototype.hasPerm = hasPermission
+
 // import "./mock"; // 模拟数据
 
 import "./assets/icon/iconfont";
