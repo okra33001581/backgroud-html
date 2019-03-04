@@ -78,7 +78,7 @@
                         :collapse="isCollapse"
                         background-color="rgb(3, 156, 252)"
                         text-color="white"
-                        active-text-color="rgb(0, 0, 0)"
+                        active-text-color="rgb(128, 255, 0)"
                 >
                     <sidebar-item v-for="item in routers" :key="item.path" :item='item' style="text-color=#fff;active-text-color=#ffd04b"></sidebar-item>
                 </el-menu>
