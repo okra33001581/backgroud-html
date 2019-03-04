@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     title: {
         home: '首页',
         message: '脱壳咨询',
