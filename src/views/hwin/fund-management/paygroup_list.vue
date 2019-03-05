@@ -209,11 +209,11 @@
 
 <script>
     import {
-        authAdminList,
+        paygroupList,
         authAdminRoleList,
         authAdminSave,
         authAdminDelete
-    } from "../../../api/auth/authAdmin";
+    } from "../../../api/fund-management";
 
     const formJson = {
         id: "",
@@ -355,7 +355,7 @@
             },
             getList() {
                 this.loading = true;
-                authAdminList(this.query)
+                paygroupList(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list || [];

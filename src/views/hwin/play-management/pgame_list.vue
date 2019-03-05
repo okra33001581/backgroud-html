@@ -432,11 +432,11 @@
 
 <script>
     import {
-        authAdminList,
+        pgameList,
         authAdminRoleList,
         authAdminSave,
         authAdminDelete
-    } from "../../../api/auth/authAdmin";
+    } from "../../../api/play-management";
 
     const formJson = {
         id: "",
@@ -603,7 +603,7 @@
             },
             getList() {
                 this.loading = true;
-                authAdminList(this.query)
+                pgameList(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list || [];

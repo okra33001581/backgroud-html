@@ -698,11 +698,11 @@
 
 <script>
     import {
-        authAdminList,
+        userMainlist,
         authAdminRoleList,
         authAdminSave,
         authAdminDelete
-    } from "../../../api/auth/authAdmin";
+    } from "../../../api/user-management";
 
     const formJson = {
         id: "",
@@ -875,7 +875,7 @@
             },
             getList() {
                 this.loading = true;
-                authAdminList(this.query)
+                userMainlist(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list || [];

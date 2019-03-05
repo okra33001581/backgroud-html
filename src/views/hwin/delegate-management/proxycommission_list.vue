@@ -166,11 +166,11 @@
 
 <script>
     import {
-        authAdminList,
+        proxycommissionList,
         authAdminRoleList,
         authAdminSave,
         authAdminDelete
-    } from "../../../api/auth/authAdmin";
+    } from "../../../api/delegate-management";
 
     const formJson = {
         id: "",
@@ -312,7 +312,7 @@
             },
             getList() {
                 this.loading = true;
-                authAdminList(this.query)
+                proxycommissionList(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list || [];

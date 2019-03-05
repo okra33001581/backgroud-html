@@ -256,11 +256,11 @@
 
 <script>
     import {
-        authAdminList,
+        proxyMemberlist,
         authAdminRoleList,
         authAdminSave,
         authAdminDelete
-    } from "../../../api/auth/authAdmin";
+    } from "../../../api/merchant-management";
 
     const formJson = {
         id: "",
@@ -402,7 +402,7 @@
             },
             getList() {
                 this.loading = true;
-                authAdminList(this.query)
+                proxyMemberlist(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list || [];

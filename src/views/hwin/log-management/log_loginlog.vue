@@ -201,11 +201,11 @@
 
 <script>
     import {
-        authAdminList,
+        logLoginlog,
         authAdminRoleList,
         authAdminSave,
         authAdminDelete
-    } from "../../../api/auth/authAdmin";
+    } from "../../../api/log-management";
 
     const formJson = {
         id: "",
@@ -347,7 +347,7 @@
             },
             getList() {
                 this.loading = true;
-                authAdminList(this.query)
+                logLoginlog(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list || [];

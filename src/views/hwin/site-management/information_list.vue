@@ -317,11 +317,11 @@
 
 <script>
     import {
-        authAdminList,
+        informationList,
         authAdminRoleList,
         authAdminSave,
         authAdminDelete
-    } from "../../../api/auth/authAdmin";
+    } from "../../../api/site-management";
     import { parseTime } from '@/utils';
     import 'quill/dist/quill.core.css'
     import 'quill/dist/quill.snow.css'
@@ -525,7 +525,7 @@
                 }
 
                 this.loading = true;
-                authAdminList(this.query)
+                informationList(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list || [];
