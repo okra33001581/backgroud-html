@@ -6,7 +6,7 @@ import axios from "../utils/axios";
 // 获取列表
 export function marqueeList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/marqueeList",
         method: "get",
         params: query
     });
@@ -14,7 +14,7 @@ export function marqueeList(query) {
 // 获取列表
 export function messageList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/messageList",
         method: "get",
         params: query
     });
@@ -22,7 +22,7 @@ export function messageList(query) {
 // 获取列表
 export function noticeList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/noticeList",
         method: "get",
         params: query
     });

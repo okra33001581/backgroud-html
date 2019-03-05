@@ -6,7 +6,7 @@ import axios from "../utils/axios";
 // 获取列表
 export function betlimitList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/betlimitList",
         method: "get",
         params: query
     });
@@ -15,7 +15,7 @@ export function betlimitList(query) {
 // 获取列表
 export function lotteryriskList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/lotteryriskList",
         method: "get",
         params: query
     });
@@ -24,7 +24,7 @@ export function lotteryriskList(query) {
 // 获取列表
 export function pgameList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/pgameList",
         method: "get",
         params: query
     });
@@ -33,7 +33,7 @@ export function pgameList(query) {
 // 获取列表
 export function proxygamesList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/proxygamesList",
         method: "get",
         params: query
     });

@@ -6,7 +6,7 @@ import axios from "../utils/axios";
 // 获取列表
 export function activityList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/activityList",
         method: "get",
         params: query
     });

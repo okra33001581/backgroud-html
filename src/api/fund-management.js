@@ -6,7 +6,7 @@ import axios from "../utils/axios";
 // 获取列表
 export function cashOrderlist(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/cashOrderlist",
         method: "get",
         params: query
     });
@@ -14,7 +14,7 @@ export function cashOrderlist(query) {
 // 获取列表
 export function cashPaysetting(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/cashPaysetting",
         method: "get",
         params: query
     });
@@ -22,7 +22,7 @@ export function cashPaysetting(query) {
 // 获取列表
 export function cashRakeback(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/cashRakeback",
         method: "get",
         params: query
     });
@@ -30,7 +30,7 @@ export function cashRakeback(query) {
 // 获取列表
 export function cashWithdrawlist(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/cashWithdrawlist",
         method: "get",
         params: query
     });
@@ -38,7 +38,7 @@ export function cashWithdrawlist(query) {
 // 获取列表
 export function companymoneyList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/companymoneyList",
         method: "get",
         params: query
     });
@@ -46,7 +46,7 @@ export function companymoneyList(query) {
 // 获取列表
 export function fastpaymoneyList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/fastpaymoneyList",
         method: "get",
         params: query
     });
@@ -54,7 +54,7 @@ export function fastpaymoneyList(query) {
 // 获取列表
 export function layerchartIndex(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/layerchartIndex",
         method: "get",
         params: query
     });
@@ -62,7 +62,7 @@ export function layerchartIndex(query) {
 // 获取列表
 export function manualpaySave(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/manualpaySave",
         method: "get",
         params: query
     });
@@ -70,7 +70,7 @@ export function manualpaySave(query) {
 // 获取列表
 export function manualpayconfirmList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/manualpayconfirmList",
         method: "get",
         params: query
     });
@@ -78,7 +78,7 @@ export function manualpayconfirmList(query) {
 // 获取列表
 export function payaccountList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/payaccountList",
         method: "get",
         params: query
     });
@@ -86,7 +86,7 @@ export function payaccountList(query) {
 // 获取列表
 export function paygroupList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/paygroupList",
         method: "get",
         params: query
     });
@@ -94,7 +94,7 @@ export function paygroupList(query) {
 // 获取列表
 export function transferorderList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/transferorderList",
         method: "get",
         params: query
     });
@@ -102,7 +102,7 @@ export function transferorderList(query) {
 // 获取列表
 export function tripartiteList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/tripartiteList",
         method: "get",
         params: query
     });
@@ -110,7 +110,7 @@ export function tripartiteList(query) {
 // 获取列表
 export function userbetscheckList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/userbetscheckList",
         method: "get",
         params: query
     });

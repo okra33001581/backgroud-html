@@ -6,7 +6,7 @@ import axios from "../utils/axios";
 // 获取列表
 export function proxyGrouplist(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/proxyGrouplist",
         method: "get",
         params: query
     });
@@ -14,7 +14,7 @@ export function proxyGrouplist(query) {
 // 获取列表
 export function proxyMemberlist(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/proxyMemberlist",
         method: "get",
         params: query
     });

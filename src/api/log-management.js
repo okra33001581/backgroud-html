@@ -6,7 +6,7 @@ import axios from "../utils/axios";
 // 获取列表
 export function logAdminlog(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/logAdminlog",
         method: "get",
         params: query
     });
@@ -14,7 +14,7 @@ export function logAdminlog(query) {
 // 获取列表
 export function logDomainlog(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/logDomainlog",
         method: "get",
         params: query
     });
@@ -22,7 +22,7 @@ export function logDomainlog(query) {
 // 获取列表
 export function logLoginlog(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/logLoginlog",
         method: "get",
         params: query
     });

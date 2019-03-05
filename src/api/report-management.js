@@ -6,23 +6,32 @@ import axios from "../utils/axios";
 // 获取列表
 export function authAdminList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/authAdminList",
         method: "get",
         params: query
     });
 }
 // 获取列表
-export function finance_index(query) {
+export function lotterygroupSort(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/lotterygroupSort",
+        method: "get",
+        params: query
+    });
+}
+
+// 获取列表
+export function financeIndex(query) {
+    return axios({
+        url: "http://apidemo.test/api/event/financeIndex",
         method: "get",
         params: query
     });
 }
 // 获取列表
-export function operation_profit(query) {
+export function operationProfit(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/operationProfit",
         method: "get",
         params: query
     });
@@ -30,7 +39,7 @@ export function operation_profit(query) {
 // 获取列表
 export function pgamePlaylist(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/pgamePlaylist",
         method: "get",
         params: query
     });
@@ -39,7 +48,7 @@ export function pgamePlaylist(query) {
 // 获取角色列表
 export function preportProfit(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminRoleList",
+        url: "http://apidemo.test/api/event/preportProfit",
         method: "get",
         params: query
     });
@@ -47,7 +56,7 @@ export function preportProfit(query) {
 // 获取角色列表
 export function userReport(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminRoleList",
+        url: "http://apidemo.test/api/event/userReport",
         method: "get",
         params: query
     });

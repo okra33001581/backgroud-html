@@ -6,7 +6,7 @@ import axios from "../utils/axios";
 // 获取列表
 export function userInfolist(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/userInfolist",
         method: "get",
         params: query
     });
@@ -14,7 +14,7 @@ export function userInfolist(query) {
 // 获取列表
 export function userInoutcash(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/userInoutcash",
         method: "get",
         params: query
     });
@@ -22,7 +22,7 @@ export function userInoutcash(query) {
 // 获取列表
 export function userMainlist(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/userMainlist",
         method: "get",
         params: query
     });
@@ -30,7 +30,7 @@ export function userMainlist(query) {
 // 获取列表
 export function userMonitor(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/userMonitor",
         method: "get",
         params: query
     });
@@ -38,7 +38,7 @@ export function userMonitor(query) {
 // 获取列表
 export function userReviewlist(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/userReviewlist",
         method: "get",
         params: query
     });
@@ -46,7 +46,7 @@ export function userReviewlist(query) {
 // 获取列表
 export function userUsercard(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/userUsercard",
         method: "get",
         params: query
     });
@@ -54,7 +54,7 @@ export function userUsercard(query) {
 // 获取列表
 export function userUserlayer(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/userUserlayer",
         method: "get",
         params: query
     });
@@ -62,7 +62,7 @@ export function userUserlayer(query) {
 // 获取列表
 export function userValiduser(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "http://apidemo.test/api/event/userValiduser",
         method: "get",
         params: query
     });
