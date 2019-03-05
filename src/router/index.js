@@ -4,13 +4,7 @@ import VueRouter from "vue-router";
 if (process.env.NODE_ENV === "development") {
     Vue.use(VueRouter);
 }
-
-import { ROUTER_MODE } from "../config/app";
-
 import Home from "../views/home/index.vue";
-
-
-// begin
 // 网站管理
 import qrconfig_list from "../views/hwin/site-management/qrconfig_list.vue";
 import rotationconfig_list from "../views/hwin/site-management/rotationconfig_list.vue";
@@ -21,7 +15,6 @@ import information_companylist from "../views/hwin/site-management/information_c
 import information_list from "../views/hwin/site-management/information_list.vue";
 import lotterygroup_sort from "../views/hwin/site-management/lotterygroup_sort.vue";
 import proxyiptables_blackcontainlist from "../views/hwin/site-management/proxyiptables_blackcontainlist.vue";
-
 import marquee_list from "../views/hwin/notice-management/marquee_list.vue";
 import message_list from "../views/hwin/notice-management/message_list.vue";
 import notice_list from "../views/hwin/notice-management/notice_list.vue";
@@ -35,15 +28,6 @@ import operation_profit from "../views/hwin/report-management/operation_profit.v
 import pgame_playlist from "../views/hwin/report-management/pgame_playlist.vue";
 import preport_profit from "../views/hwin/report-management/preport_profit.vue";
 import user_report from "../views/hwin/report-management/user_report.vue";
-// import floatwindowconfig_list from "../views/hwin/site-management/floatwindowconfig_list.vue";
-// import information_companylist from "../views/hwin/site-management/information_companylist.vue";
-// import information_list from "../views/hwin/site-management/information_list.vue";
-// import lotterygroup_sort from "../views/hwin/site-management/lotterygroup_sort.vue";
-// import proxyiptables_blackcontainlist from "../views/hwin/site-management/proxyiptables_blackcontainlist.vue";
-// import qrconfig_list from "../views/hwin/site-management/qrconfig_list.vue";
-// import rotationconfig_list from "../views/hwin/site-management/rotationconfig_list.vue";
-// import systemconfig_imagelist from "../views/hwin/site-management/systemconfig_imagelist.vue";
-// import systemconfig_set from "../views/hwin/site-management/systemconfig_set.vue";
 import user_infolist from "../views/hwin/user-management/user_infolist.vue";
 import user_inoutcash from "../views/hwin/user-management/user_inoutcash.vue";
 import user_mainlist from "../views/hwin/user-management/user_mainlist.vue";
@@ -72,115 +56,12 @@ import userbetscheck_list from "../views/hwin/fund-management/userbetscheck_list
 import log_adminlog from "../views/hwin/log-management/log_adminlog.vue";
 import log_domainlog from "../views/hwin/log-management/log_domainlog.vue";
 import log_loginlog from "../views/hwin/log-management/log_loginlog.vue";
-import proxy_grouplist from "../views/hwin/merchant-management/proxy_grouplist.vue";
-import proxy_memberlist from "../views/hwin/merchant-management/proxy_memberlist.vue";
-
-// end
-
 // 管理组相关
 import adminRouter from "../views/userManage/admin/router.vue";
 import authAdmin from "../views/userManage/admin/authAdmin.vue";
 import authRole from "../views/userManage/admin/authRole.vue";
 import authPermissionRule from "../views/userManage/admin/authPermissionRule.vue";
 import Main1 from '@/components/Main'
-
-
-// 上传相关
-import tinymce from "../views/components/tinymce-demo.vue";
-import upload from "../views/components/upload-demo.vue";
-
-// 广告管理
-import adSite from "../views/adManage/adSite.vue";
-import ad from "../views/adManage/ad.vue";
-
-
-import transaction from "../views/transaction/transaction.vue";
-import account from "../views/transaction/account.vue";
-import platTransfer from "../views/transaction/plat-transfer.vue";
-import auditType from "../views/develop/auditType.vue";
-import sysSetting from "../views/develop/sysSetting.vue";
-import user from "../views/user/user.vue";
-import userIpAnalysis from "../views/user/userIpAnalysis.vue";
-import userPrizeSet from "../views/user/userPrizeSet.vue";
-
-import paymentplatforms from "../views/basis/payment-platforms.vue";
-import paymenttypes from "../views/basis/payment-types.vue";
-import terminals from "../views/basis/terminals.vue";
-import thirdplats from "../views/basis/third-plats.vue";
-import transactiontypes from "../views/basis/transaction-types.vue";
-
-import riskProjects from "../views/lottery/riskProjects.vue";
-import trail from "../views/lottery/trail.vue";
-import projects from "../views/lottery/projects.vue";
-import draw from "../views/lottery/draw.vue";
-import warn from "../views/lottery/warn.vue";
-import exception from "../views/lottery/exception.vue";
-
-import issueprofits from "../views/report/issue-profits.vue";
-import lotterymonthprofits from "../views/report/lottery-month-profits.vue";
-import lotterywayprofits from "../views/report/lottery-way-profits.vue";
-import statlotteryprofits from "../views/report/stat-lottery-profits.vue";
-import statmonthprofits from "../views/report/stat-month-profits.vue";
-import statprofits from "../views/report/stat-profits.vue";
-import teamlotteryprofits from "../views/report/team-lottery-profits.vue";
-import teamlotterywayprofits from "../views/report/team-lottery-way-profits.vue";
-import teammonthprofits from "../views/report/team-month-profits.vue";
-import teamprofits from "../views/report/team-profits.vue";
-import terminalprofits from "../views/report/terminal-profits.vue";
-import userlotteryprofits from "../views/report/user-lottery-profits.vue";
-import userlotterywayprofits from "../views/report/user-lottery-way-profits.vue";
-import usermonthprofits from "../views/report/user-month-profits.vue";
-import userprofits from "../views/report/user-profits.vue";
-import wayprofits from "../views/report/way-profits.vue";
-
-
-import merchantApiLog from "../views/log/merchantApiLog.vue";
-import adminLog from "../views/log/adminLog.vue";
-import userManageLog from "../views/log/userManageLog.vue";
-
-import term from "../views/setting/term.vue";
-import serial from "../views/setting/serial.vue";
-import lottery from "../views/setting/lottery.vue";
-import prizeGroup from "../views/setting/prizeGroup.vue";
-import betLimit from "../views/setting/betLimit.vue";
-// import sysSetting from "../views/setting/sysSetting.vue";
-import district from "../views/setting/district.vue";
-import domain from "../views/setting/domain.vue";
-import sysconfigs from "../views/setting/sys-configs.vue";
-
-import bulletin from "../views/bulletin/bulletin.vue";
-import bulletinType from "../views/bulletin/bulletinType.vue";
-
-import merchant from "../views/merchant/merchant.vue";
-import merchantIp from "../views/merchant/merchantIp.vue";
-import merchantAccount from "../views/merchant/merchantAccount.vue";
-import merchantLottery from "../views/merchant/merchantLottery.vue";
-
-import neweventconditions from "../views/events/new-event-conditions.vue";
-import neweventprizes from "../views/events/new-event-prizes.vue";
-import neweventuserprizes from "../views/events/new-event-user-prizes.vue";
-import newevents from "../views/events/new-events.vue";
-
-
-import accounts from "../views/fund/accounts.vue";
-import bankdeposits from "../views/fund/bank-deposits.vue";
-import commissionsstatistics from "../views/fund/commissions-statistics.vue";
-import deposits from "../views/fund/deposits.vue";
-import dividends from "../views/fund/dividends.vue";
-import exceptiondeposits from "../views/fund/exception-deposits.vue";
-import losecommissions from "../views/fund/lose-commissions.vue";
-import manualdeposits from "../views/fund/manual-deposits.vue";
-import manualwithdraws from "../views/fund/manual-withdraws.vue";
-import plattransferrecords from "../views/fund/plat-transfer-records.vue";
-import transactions from "../views/fund/transactions.vue";
-import withdrawals from "../views/fund/withdrawals.vue";
-
-
-import adinfos from "../views/ad/ad-infos.vue";
-import adlocations from "../views/ad/ad-locations.vue";
-import adtypes from "../views/ad/ad-types.vue";
-
-// Vue.use(VueRouter);
 
 const err401 = r =>
     require.ensure([], () => r(require("../views/error/err401.vue")), "home");
@@ -246,35 +127,6 @@ export const constantRouterMap = [
             }
         ]
     },
-    /*{
-        path: "/components",
-        redirect: "/components/uploadList",
-        component: Home,
-        name: "components",
-        icon: "delete",
-        children: [
-            {
-                path: "uploadList",
-                name: "上传图片的展示",
-                component: r =>
-                    require.ensure(
-                        [],
-                        () => r(require("../views/components/uploadList.vue")),
-                        "home"
-                    )
-            },
-            {
-                path: "tinymce",
-                name: "tinymce富文本编辑器",
-                component: tinymce
-            },
-            {
-                path: "upload",
-                name: "上传的demo",
-                component: upload
-            }
-        ]
-    }*/
 ];
 
 export default new VueRouter({
