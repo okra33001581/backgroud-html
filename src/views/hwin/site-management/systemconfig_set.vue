@@ -1024,8 +1024,8 @@
             this.query.limit = parseInt(this.query.limit);
             // 加载表格数据
             this.getList();
-            // 加载角色列表
-            this.getRoleList();
+            // // 加载角色列表
+            // this.getRoleList();
         }
     };
 </script>

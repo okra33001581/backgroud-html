@@ -596,7 +596,7 @@
             // 加载表格数据
             this.getList();
             // 加载角色列表
-            this.getRoleList();
+            // this.getRoleList();
         }
     };
 </script>

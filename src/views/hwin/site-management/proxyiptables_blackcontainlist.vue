@@ -529,7 +529,7 @@
                 // 加载表格数据
                 this.getList();
                 // 加载角色列表
-                this.getRoleList();
+                // this.getRoleList();
             },
             initWebSocket(){ //初始化weosocket
                 // const wsuri = "ws://127.0.0.1:8080";

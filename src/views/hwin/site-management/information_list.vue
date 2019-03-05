@@ -787,7 +787,7 @@
             // 加载表格数据
             this.getList();
             // 加载角色列表
-            this.getRoleList();
+            // this.getRoleList();
             this.cropImg = this.defaultSrc;
             // if (!this.$i18n.getLocaleMessage('en')[viewName]) {
             //     this.$i18n.mergeLocaleMessage('en', local.en)
