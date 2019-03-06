@@ -20,12 +20,17 @@
                 </div>
             </div>
             <div class="header-middle">
-                <el-button round icon="el-icon-goods" @click.native="handleForm(null,null)"></el-button>
-                <el-button round icon="el-icon-picture-outline" @click.native="handleForm(null,null)"></el-button>
-                <el-button round icon="el-icon-refresh" @click.native="handleForm(null,null)"></el-button>
-                <el-button round icon="el-icon-loading" @click.native="handleForm(null,null)"></el-button>
-                <el-button round icon="el-icon-setting" @click.native="handleForm(null,null)"></el-button>
-                <el-button round icon="el-icon-upload" @click.native="handleForm(null,null)"></el-button>
+
+                <!--<svg data-v-c8a70580="" data-v-29234bee="" aria-hidden="true" class="svg-icon"><use data-v-c8a70580="" xlink:href="#icon-fullscreen"></use></svg>-->
+                <!--<i class="el-icon-edit"></i>-->
+                <!--<i class="el-icon-share"></i>-->
+                <!--<i class="el-icon-delete"></i>-->
+                    <el-button plain>朴素按钮</el-button>
+                    <el-button type="primary" plain>主要按钮</el-button>
+                    <el-button type="success" plain>成功按钮</el-button>
+                    <el-button type="info" plain>信息按钮</el-button>
+                    <el-button type="warning" plain>警告按钮</el-button>
+                    <el-button type="danger" plain>危险按钮</el-button>
             </div>
 
                 <div class="header-right">
@@ -430,7 +435,7 @@ export default {
 
 .header-middle {
     position: absolute;
-    right: 434px;
+    right: 645px;
     display: flex;
     width: 80px;
     height: 100%;
