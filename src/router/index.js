@@ -203,13 +203,16 @@ export const asyncRouterMap = [
             {
                 path: "proxyiptables_blackcontainlist",
                 component: proxyiptables_blackcontainlist,
-                name: "IP限制",
                 icon: "proxyiptables_blackcontainlist",
-                meta: {
-                    authRule: ["hwin/proxyiptables_blackcontainlist"]
-                    // ,
-                    // btnPermissions: ['admin','supper','normal', 'okra0000021'] //页面需要的权限
-                }
+                name: 'route.externalLink',
+                // title: 'route.externalLink',
+                // meta: { title: 'route.externalLink', icon: 'list' }
+                // meta: {
+                //     title: "directivePermission",
+                //     authRule: ["hwin/proxyiptables_blackcontainlist"]
+                //     // ,
+                //     // btnPermissions: ['admin','supper','normal', 'okra0000021'] //页面需要的权限
+                // }
             },
             {
                 path: "systemconfig_set",

@@ -3,7 +3,8 @@
         <span v-for="tag in Array.from(visitedViews)" :key="tag.path" class="tag-box" @contextmenu.prevent="closeViewTabs(tag, $event)">
             <router-link class="tabs-view"  :to="tag.path" :key="tag.path">
                 <el-tag :closable="true" :type="isActive(tag.path) ? '' : 'info'" @close='closeViewTabs(tag,$event)'>
-                    {{tag.name}}
+                    <!--{{tag.name}}-->
+                    {{$t(tag.name)}}
                 </el-tag>
             </router-link>
         </span>

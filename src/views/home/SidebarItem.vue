@@ -82,7 +82,7 @@
         <el-submenu :index="item.path" v-else-if="!item.noDropdown&&!item.hidden">
             <template slot="title">
                 <icon-svg v-if='item.icon' :icon-class="item.icon"></icon-svg>
-                <span v-if='item.name' slot="title">{{item.name}}</span>
+                <span v-if='item.name' slot="title">{{$t(item.name)}}</span>
             </template>
             <template v-for="child in item.children" v-if='!child.hidden'>
 
@@ -91,7 +91,7 @@
                 <router-link :key="child.path" v-else :to="item.path+'/'+child.path">
                     <el-menu-item :index="item.path+'/'+child.path">
                         <icon-svg v-if='child.icon' :icon-class="child.icon"></icon-svg>
-                        <span slot="title">{{child.name}}</span>
+                        <span slot="title">{{$t(child.name)}}</span>
                     </el-menu-item>
                 </router-link>
 
