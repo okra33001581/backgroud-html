@@ -75,7 +75,7 @@
         <router-link v-if="!item.hidden&&item.noDropdown&&!item.children[0].children" :to="item.path+'/'+item.children[0].path">
             <el-menu-item :index="item.path+'/'+item.children[0].path">
                 <icon-svg v-if='item.icon' :icon-class="item.icon"></icon-svg>
-                <span slot="title">{{item.name}}</span>
+                <span slot="title">{{$t(item.name)}}</span>
             </el-menu-item>
         </router-link>
 

@@ -107,7 +107,7 @@ export const constantRouterMap = [
         path: "/",
         component: Home,
         redirect: "/readme",
-        name: "首页",
+        name: "route.mainpage",
         hidden: true,
         children: [
             {path: 'main', component: Main1, name: 'dsds', leaf: true, hidden: true,}
@@ -118,7 +118,7 @@ export const constantRouterMap = [
         component: Home,
         redirect: "/readme/main",
         icon: "mainpage",
-        name: "控制台",
+        name: "route.dashboard",
         noDropdown: true,
         children: [
             {
@@ -142,26 +142,26 @@ export const asyncRouterMap = [
         redirect: "/userManage/adminManage/index",
         component: Home,
         icon: "delete",
-        name: "商户管理",
+        name: "route.privilege_management",
         meta: {
             authRule: ["user_manage"]
         },
         // noDropdown: true,
-        children: [
-            {
-                path: "/userManage/adminManage",
-                component: adminRouter,
-                redirect: "/userManage/authAdmin/index",
-                name: "管理组",
-                icon: "delete",
-                meta: {
-                    authRule: ["user_manage/admin_manage"]
-                },
+        // children: [
+        //     {
+        //         path: "/userManage/adminManage",
+        //         component: adminRouter,
+        //         redirect: "/userManage/authAdmin/index",
+        //         name: "route.manage_group",
+        //         icon: "delete",
+        //         meta: {
+        //             authRule: ["user_manage/admin_manage"]
+        //         },
                 children: [
                     {
                         path: "authAdmin",
                         component: authAdmin,
-                        name: "商户管理",
+                        name: "route.member_management",
                         icon: "delete",
                         meta: {
                             authRule: ["admin/auth_admin/index"]
@@ -170,7 +170,7 @@ export const asyncRouterMap = [
                     {
                         path: "authRole",
                         component: authRole,
-                        name: "角色管理",
+                        name: "route.role_management",
                         icon: "delete",
                         meta: {
                             authRule: ["admin/auth_role/index"]
@@ -179,245 +179,122 @@ export const asyncRouterMap = [
                     {
                         path: "authPermissionRule",
                         component: authPermissionRule,
-                        name: "权限管理",
+                        name: "route.privilege_management",
                         icon: "delete",
                         meta: {
                             authRule: ["admin/auth_permission_rule/index"]
                         }
                     }
                 ]
-            }
-        ]
+            // }
     },
     {
         path: "/hwin-sitemanagement",
         redirect: "/proxyiptables/authAdmin/index",
         component: Home,
         icon: "sitemanagement",
-        name: "网站管理",
+        name: "route.user_management",
         meta: {
-            authRule: ["网站管理"]
+            authRule: ["用户管理"]
         },
         // noDropdown: true,
         children: [
-            {
-                path: "proxyiptables_blackcontainlist",
-                component: proxyiptables_blackcontainlist,
-                icon: "proxyiptables_blackcontainlist",
-                name: 'route.externalLink',
-                // title: 'route.externalLink',
-                // meta: { title: 'route.externalLink', icon: 'list' }
-                // meta: {
-                //     title: "directivePermission",
-                //     authRule: ["hwin/proxyiptables_blackcontainlist"]
-                //     // ,
-                //     // btnPermissions: ['admin','supper','normal', 'okra0000021'] //页面需要的权限
-                // }
-            },
-            {
-                path: "systemconfig_set",
-                component: systemconfig_set,
-                name: "系统参数设定",
-                icon: "systemconfig_set",
+           {
+                path: "information_list",
+                component: information_list,
+                icon: "user_list",
+                name: 'route.user_list',
                 meta: {
-                    authRule: ["hwin/systemconfig_set"]
-                    // ,
-                    // btnPermissions: ['admin','supper','normal', 'okra0000021'] //页面需要的权限
-                }
-            },
-            {
-                path: "systemconfig_imagelist",
-                component: systemconfig_imagelist,
-                name: "网站图标设置",
-                icon: "systemconfig_imagelist",
-                meta: {
-                    authRule: ["hwin/systemconfig_imagelist"]
-                    // ,
-                    // btnPermissions: ['admin','supper','normal', 'okra0000022'] //页面需要的权限
-                }
-            },
-            {
-                path: "qrconfig_list",
-                component: qrconfig_list,
-                name: "二维码设置",
-                icon: "qrconfig_list",
-                meta: {
-                    authRule: ["hwin/qrconfig_list"]
-                    // ,
-                    // btnPermissions: ['admin','supper','normal', 'okra0000021'] //页面需要的权限
-                }
-            },
-            {
-                path: "rotationconfig_list",
-                component: rotationconfig_list,
-                name: "首页轮播设定",
-                icon: "rotationconfig_list",
-                meta: {
-                    authRule: ["hwin/rotationconfig_list"]
-                    // ,
-                    // btnPermissions: ['admin','supper','normal', 'okra0000021'] //页面需要的权限
-                }
-            },
-            {
-                path: "floatwindowconfig_list",
-                component: floatwindowconfig_list,
-                name: "浮动窗口",
-                icon: "floatwindowconfig_list",
-                meta: {
-                    authRule: ["hwin/floatwindowconfig_list"]
-                    // ,
-                    // btnPermissions: ['admin','supper','normal', 'okra0000021'] //页面需要的权限
+                    authRule: ["hwin/information_list"]
                 }
             },
             {
                 path: "information_list",
                 component: information_list,
-                name: "资讯中心",
-                icon: "information_list",
+                icon: "layer_list",
+                name: 'route.layer_list',
                 meta: {
                     authRule: ["hwin/information_list"]
-                    // ,
-                    // btnPermissions: ['admin','supper','normal', 'okra0000021'] //页面需要的权限
                 }
             },
             {
-                path: "information_companylist",
-                component: information_companylist,
-                name: "公司简介",
-                icon: "information_companylist",
+                path: "information_list",
+                component: information_list,
+                icon: "vip_list",
+                name: 'route.vip_list',
                 meta: {
-                    authRule: ["hwin/information_companylist"]
-                    // ,
-                    // btnPermissions: ['admin','supper','normal', 'okra0000021'] //页面需要的权限
+                    authRule: ["hwin/information_list"]
                 }
             },
             {
-                path: "lotterygroup_sort",
-                component: lotterygroup_sort,
-                name: "菜单排序",
-                icon: "lotterygroup_sort",
+                path: "information_list",
+                component: information_list,
+                icon: "bankcard_list",
+                name: 'route.bankcard_list',
                 meta: {
-                    authRule: ["hwin/lotterygroup_sort"]
-                    // ,
-                    // btnPermissions: ['admin','supper','normal', 'okra0000021'] //页面需要的权限
+                    authRule: ["hwin/information_list"]
                 }
-            }
+            },
+            {
+                path: "information_list",
+                component: information_list,
+                icon: "account_monitor",
+                name: 'route.account_monitor',
+                meta: {
+                    authRule: ["hwin/information_list"]
+                }
+            },
+
         ]
     },
-    /*{
-        path: "/events1",
-        redirect: "/events/events",
-        component: Home,
-        icon: "merchantmanagement",
-        name: "商户账号管理",
-        meta: {
-            authRule: ["events/events/index"]
-        },
-        // noDropdown: true,
-        children: [
-            {
-                path: "proxy_grouplist",
-                component: proxy_grouplist,
-                name: "商户组别列表",
-                icon: "proxy_grouplist",
-                meta: {
-                    authRule: ["events/new-event-conditions/index"]
-                }
-            },
-            {
-                path: "proxy_memberlist",
-                component: proxy_memberlist,
-                name: "商户成员列表",
-                icon: "proxy_memberlist",
-                meta: {
-                    authRule: ["events/new-event-prizes/index"]
-                }
-            }
-        ]
-    },*/
     {
         path: "/hwin-usermanagement",
         redirect: "/events/events",
         component: Home,
         icon: "usermanagement",
-        name: "用户管理",
+        name: "route.game_management",
         meta: {
             authRule: ["用户管理"]
         },
         // noDropdown: true,
         children: [
             {
-                path: "user_mainlist",
-                component: user_mainlist,
-                name: "用户列表",
-                icon: "user_mainlist",
+                path: "information_list",
+                component: information_list,
+                icon: "verdor_list",
+                name: 'route.verdor_list',
                 meta: {
-                    authRule: ["hwin/user_mainlist"]
+                    authRule: ["hwin/information_list"]
                 }
             },
             {
-                path: "user_infolist",
-                component: user_infolist,
-                name: "会员资料",
-                icon: "user_infolist",
+                path: "information_list",
+                component: information_list,
+                icon: "game_type_list",
+                name: 'route.game_type_list',
                 meta: {
-                    authRule: ["hwin/user_infolist"]
+                    authRule: ["hwin/information_list"]
                 }
             },
             {
-                path: "user_userlayer",
-                component: user_userlayer,
-                name: "层级管理",
-                icon: "user_userlayer",
+                path: "information_list",
+                component: information_list,
+                icon: "game_list",
+                name: 'route.game_list',
                 meta: {
-                    authRule: ["hwin/user_userlayer"]
+                    authRule: ["hwin/information_list"]
                 }
             },
             {
-                path: "user_usercard",
-                component: user_usercard,
-                name: "用户银行卡管理",
-                icon: "user_usercard",
+                path: "information_list",
+                component: information_list,
+                icon: "game_risk",
+                name: 'route.game_risk',
                 meta: {
-                    authRule: ["hwin/user_usercard"]
+                    authRule: ["hwin/information_list"]
                 }
             },
-            {
-                path: "user_validuser",
-                component: user_validuser,
-                name: "有效会员列表",
-                icon: "user_validuser",
-                meta: {
-                    authRule: ["hwin/user_validuser"]
-                }
-            },
-            {
-                path: "user_inoutcash",
-                component: user_inoutcash,
-                name: "出入款统计",
-                icon: "user_inoutcash",
-                meta: {
-                    authRule: ["hwin/user_inoutcash"]
-                }
-            },
-            {
-                path: "user_reviewlist",
-                component: user_reviewlist,
-                name: "安全信息审核",
-                icon: "user_reviewlist",
-                meta: {
-                    authRule: ["hwin/user_reviewlist"]
-                }
-            },
-            {
-                path: "user_monitor",
-                component: user_monitor,
-                name: "多账户监测",
-                icon: "user_monitor",
-                meta: {
-                    authRule: ["hwin/user_monitor"]
-                }
-            }
+
         ]
     },
     {
@@ -425,138 +302,85 @@ export const asyncRouterMap = [
         redirect: "/events/events",
         component: Home,
         icon: "fundmanagement",
-        name: "现金管理",
+        name: "route.fund_management",
         meta: {
             authRule: ["现金管理"]
         },
         // noDropdown: true,
         children: [
             {
-                path: "paygroup_list",
-                component: paygroup_list,
-                name: "支付类型管理",
-                icon: "paygroup_list",
+                path: "information_list",
+                component: information_list,
+                icon: "online_recharge",
+                name: 'route.online_recharge',
                 meta: {
-                    authRule: ["hwin/paygroup_list"]
+                    authRule: ["hwin/information_list"]
                 }
             },
             {
-                path: "cash_paysetting",
-                component: cash_paysetting,
-                name: "支付设定",
-                icon: "cash_paysetting",
+                path: "information_list",
+                component: information_list,
+                icon: "transfer_fund",
+                name: 'route.transfer_fund',
                 meta: {
-                    authRule: ["hwin/cash_paysetting"]
+                    authRule: ["hwin/information_list"]
                 }
             },
             {
-                path: "payaccount_list",
-                component: payaccount_list,
-                name: "入款账号管理",
-                icon: "payaccount_list",
+                path: "information_list",
+                component: information_list,
+                icon: "withdraw_audit",
+                name: 'route.withdraw_audit',
                 meta: {
-                    authRule: ["hwin/payaccount_list"]
+                    authRule: ["hwin/information_list"]
                 }
             },
             {
-                path: "tripartite_list",
-                component: tripartite_list,
-                name: "三方账号管理",
-                icon: "tripartite_list",
+                path: "information_list",
+                component: information_list,
+                icon: "pay_out",
+                name: 'route.pay_out',
                 meta: {
-                    authRule: ["hwin/tripartite_list"]
+                    authRule: ["hwin/information_list"]
                 }
             },
             {
-                path: "layerchart_index",
-                component: layerchart_index,
-                name: "层级状态图",
-                icon: "layerchart_index",
+                path: "information_list",
+                component: information_list,
+                icon: "manu_adjuest",
+                name: 'route.manu_adjuest',
                 meta: {
-                    authRule: ["hwin/layerchart_index"]
+                    authRule: ["hwin/information_list"]
                 }
             },
             {
-                path: "userbetscheck_list",
-                component: userbetscheck_list,
-                name: "即时稽核",
-                icon: "userbetscheck_list",
+                path: "information_list",
+                component: information_list,
+                icon: "transaction_list",
+                name: 'route.transaction_list',
                 meta: {
-                    authRule: ["hwin/userbetscheck_list"]
+                    authRule: ["hwin/information_list"]
                 }
             },
             {
-                path: "transferorder_list",
-                component: transferorder_list,
-                name: "转账记录",
-                icon: "transferorder_list",
+                path: "information_list",
+                component: information_list,
+                icon: "paymethod_list",
+                name: 'route.paymethod_list',
                 meta: {
-                    authRule: ["hwin/transferorder_list"]
+                    authRule: ["hwin/information_list"]
                 }
             },
             {
-                path: "cash_withdrawlist",
-                component: cash_withdrawlist,
-                name: "出款管理",
-                icon: "cash_withdrawlist",
+                path: "information_list",
+                component: information_list,
+                icon: "financial_set",
+                name: 'route.financial_set',
                 meta: {
-                    authRule: ["hwin/cash_withdrawlist"]
+                    authRule: ["hwin/information_list"]
                 }
             },
-            {
-                path: "manualpay_save",
-                component: manualpay_save,
-                name: "人工存提",
-                icon: "manualpay_save",
-                meta: {
-                    authRule: ["hwin/manualpay_save"]
-                }
-            },
-            {
-                path: "manualpayconfirm_list",
-                component: manualpayconfirm_list,
-                name: "人工存提审核",
-                icon: "manualpayconfirm_list",
-                meta: {
-                    authRule: ["hwin/manualpayconfirm_list"]
-                }
-            },
-            {
-                path: "companymoney_list",
-                component: companymoney_list,
-                name: "公司入款记录",
-                icon: "companymoney_list",
-                meta: {
-                    authRule: ["hwin/companymoney_list"]
-                }
-            },
-            {
-                path: "fastpaymoney_list",
-                component: fastpaymoney_list,
-                name: "三方入款记录",
-                icon: "fastpaymoney_list",
-                meta: {
-                    authRule: ["hwin/fastpaymoney_list"]
-                }
-            },
-            {
-                path: "cash_orderlist",
-                component: cash_orderlist,
-                name: "账变列表",
-                icon: "cash_orderlist",
-                meta: {
-                    authRule: ["hwin/cash_orderlist"]
-                }
-            },
-            {
-                path: "cash_rakeback",
-                component: cash_rakeback,
-                name: "返水",
-                icon: "cash_rakeback",
-                meta: {
-                    authRule: ["hwin/cash_rakeback"]
-                }
-            }
+
         ]
     },
     {
@@ -564,48 +388,57 @@ export const asyncRouterMap = [
         redirect: "/events/events",
         component: Home,
         icon: "playmanagement",
-        name: "游戏管理",
+        name: "route.report_management",
         meta: {
             authRule: ["游戏管理"]
         },
         // noDropdown: true,
         children: [
             {
-                path: "proxygames_list",
-                component: proxygames_list,
-                name: "三方游戏",
-                icon: "proxygames_list",
+                path: "information_list",
+                component: information_list,
+                icon: "operation",
+                name: 'route.operation',
                 meta: {
-                    authRule: ["hwin/proxygames_list"]
+                    authRule: ["hwin/information_list"]
                 }
             },
             {
-                path: "pgame_list",
-                component: pgame_list,
-                name: "彩票游戏",
-                icon: "pgame_list",
+                path: "information_list",
+                component: information_list,
+                icon: "user",
+                name: 'route.user',
                 meta: {
-                    authRule: ["hwin/pgame_list"]
+                    authRule: ["hwin/information_list"]
                 }
             },
             {
-                path: "betlimit_list",
-                component: betlimit_list,
-                name: "投注限额",
-                icon: "betlimit_list",
+                path: "information_list",
+                component: information_list,
+                icon: "platform",
+                name: 'route.platform',
                 meta: {
-                    authRule: ["hwin/betlimit_list"]
+                    authRule: ["hwin/information_list"]
                 }
             },
             {
-                path: "lotteryrisk_list",
-                component: lotteryrisk_list,
-                name: "游戏风控",
-                icon: "lotteryrisk_list",
+                path: "information_list",
+                component: information_list,
+                icon: "financial",
+                name: 'route.financial',
                 meta: {
-                    authRule: ["hwin/lotteryrisk_list"]
+                    authRule: ["hwin/information_list"]
                 }
-            }
+            },
+            {
+                path: "information_list",
+                component: information_list,
+                icon: "delegate",
+                name: 'route.delegate',
+                meta: {
+                    authRule: ["hwin/information_list"]
+                }
+            },
         ]
     },
     {
@@ -613,30 +446,66 @@ export const asyncRouterMap = [
         redirect: "/events/events",
         component: Home,
         icon: "agentmanagent",
-        name: "与代理佣金",
+        name: "route.benefit_management",
         meta: {
-            authRule: ["与代理佣金"]
+            authRule: ["优惠活动"]
         },
         // noDropdown: true,
         children: [
             {
-                path: "proxycommission_list",
-                component: proxycommission_list,
-                name: "代理默认配额设置",
-                icon: "proxycommission_list",
+                path: "information_list",
+                component: information_list,
+                icon: "event_list",
+                name: 'route.event_list',
                 meta: {
-                    authRule: ["hwin/proxycommission_list"]
+                    authRule: ["hwin/information_list"]
                 }
             },
             {
-                path: "proxycommission_proxylist",
-                component: proxycommission_proxylist,
-                name: "代理推广链接",
-                icon: "proxycommission_proxylist",
+                path: "information_list",
+                component: information_list,
+                icon: "event_model",
+                name: 'route.event_model',
                 meta: {
-                    authRule: ["hwin/proxycommission_proxylist"]
+                    authRule: ["hwin/information_list"]
                 }
-            }
+            },
+            {
+                path: "information_list",
+                component: information_list,
+                icon: "event_audit",
+                name: 'route.event_audit',
+                meta: {
+                    authRule: ["hwin/information_list"]
+                }
+            },
+            {
+                path: "information_list",
+                component: information_list,
+                icon: "event_process",
+                name: 'route.event_process',
+                meta: {
+                    authRule: ["hwin/information_list"]
+                }
+            },
+            {
+                path: "information_list",
+                component: information_list,
+                icon: "points_mall",
+                name: 'route.points_mall',
+                meta: {
+                    authRule: ["hwin/information_list"]
+                }
+            },
+            {
+                path: "information_list",
+                component: information_list,
+                icon: "lottery",
+                name: 'route.lottery',
+                meta: {
+                    authRule: ["hwin/information_list"]
+                }
+            },
         ]
     },
     {
@@ -644,54 +513,48 @@ export const asyncRouterMap = [
         redirect: "/events/events",
         component: Home,
         icon: "reportmanagent",
-        name: "报表管理",
+        name: "route.operate_analysis",
         meta: {
-            authRule: ["报表管理"]
+            authRule: ["运营分析"]
         },
         // noDropdown: true,
         children: [
             {
-                path: "operation_profit",
-                component: operation_profit,
-                name: "运营报表",
-                icon: "operation_profit",
+                path: "information_list",
+                component: information_list,
+                icon: "user_trend",
+                name: 'route.user_trend',
                 meta: {
-                    authRule: ["hwin/operation_profit"]
+                    authRule: ["hwin/information_list"]
                 }
             },
             {
-                path: "user_report",
-                component: user_report,
-                name: "用户报表",
-                icon: "user_report",
+                path: "information_list",
+                component: information_list,
+                icon: "event_assess",
+                name: 'route.event_assess',
                 meta: {
-                    authRule: ["hwin/user_report"]
+                    authRule: ["hwin/information_list"]
                 }
-            }, {
-                path: "finance_index",
-                component: finance_index,
-                name: "财务报表",
-                icon: "finance_index",
+            },
+            {
+                path: "information_list",
+                component: information_list,
+                icon: "key_monitor",
+                name: 'route.key_monitor',
                 meta: {
-                    authRule: ["hwin/finance_index"]
+                    authRule: ["hwin/information_list"]
                 }
-            }, {
-                path: "pgame_playlist",
-                component: pgame_playlist,
-                name: "彩票报表",
-                icon: "pgame_playlist",
+            },
+            {
+                path: "information_list",
+                component: information_list,
+                icon: "multi_search",
+                name: 'route.multi_search',
                 meta: {
-                    authRule: ["hwin/pgame_playlist"]
+                    authRule: ["hwin/information_list"]
                 }
-            }, {
-                path: "preport_profit",
-                component: preport_profit,
-                name: "平台报表",
-                icon: "preport_profit",
-                meta: {
-                    authRule: ["hwin/preport_profit"]
-                }
-            }
+            },
         ]
     },
     {
@@ -699,21 +562,39 @@ export const asyncRouterMap = [
         redirect: "/events/events",
         component: Home,
         icon: "eventmanagement",
-        name: "活动管理",
+        name: "route.template_management",
         meta: {
-            authRule: ["活动管理"]
+            authRule: ["前端排版"]
         },
         // noDropdown: true,
         children: [
             {
-                path: "activity_list",
-                component: activity_list,
-                name: "活动列表",
-                icon: "activity_list",
+                path: "information_list",
+                component: information_list,
+                icon: "template",
+                name: 'route.template',
                 meta: {
-                    authRule: ["hwin/activity_list"]
+                    authRule: ["hwin/information_list"]
                 }
-            }
+            },
+            {
+                path: "information_list",
+                component: information_list,
+                icon: "common_module",
+                name: 'route.common_module',
+                meta: {
+                    authRule: ["hwin/information_list"]
+                }
+            },
+            {
+                path: "information_list",
+                component: information_list,
+                icon: "custom_set",
+                name: 'route.custom_set',
+                meta: {
+                    authRule: ["hwin/information_list"]
+                }
+            },
         ]
     },
     {
@@ -721,46 +602,75 @@ export const asyncRouterMap = [
         redirect: "/events/events",
         component: Home,
         icon: "noticemanagement",
-        name: "公告管理",
+        name: "route.system_management",
         meta: {
-            authRule: ["公告管理"]
+            authRule: ["系统管理"]
         },
         // noDropdown: true,
         children: [
             {
-                path: "message_list",
-                component: message_list,
-                name: "站内信列表",
-                icon: "message_list",
+                path: "information_list",
+                component: information_list,
+                icon: "basis_set",
+                name: 'route.basis_set',
                 meta: {
-                    authRule: ["hwin/message_list"]
+                    authRule: ["hwin/information_list"]
                 }
             },
             {
-                path: "push_list",
-                component: push_list,
-                name: "移动端推送",
-                icon: "push_list",
+                path: "information_list",
+                component: information_list,
+                icon: "register_login",
+                name: 'route.register_login',
                 meta: {
-                    authRule: ["hwin/push_list"]
+                    authRule: ["hwin/information_list"]
                 }
-            }, {
-                path: "notice_list",
-                component: notice_list,
-                name: "公告列表",
-                icon: "notice_list",
+            },
+            {
+                path: "information_list",
+                component: information_list,
+                icon: "delegate_set",
+                name: 'route.delegate_set',
                 meta: {
-                    authRule: ["hwin/notice_list"]
+                    authRule: ["hwin/information_list"]
                 }
-            }, {
-                path: "marquee_list",
-                component: marquee_list,
-                name: "跑马灯列表",
-                icon: "marquee_list",
+            },
+            {
+                path: "information_list",
+                component: information_list,
+                icon: "ip_restrict",
+                name: 'route.ip_restrict',
                 meta: {
-                    authRule: ["hwin/marquee_list"]
+                    authRule: ["hwin/information_list"]
                 }
-            }
+            },
+            {
+                path: "information_list",
+                component: information_list,
+                icon: "sys_warn",
+                name: 'route.sys_warn',
+                meta: {
+                    authRule: ["hwin/information_list"]
+                }
+            },
+            {
+                path: "information_list",
+                component: information_list,
+                icon: "user_log",
+                name: 'route.user_log',
+                meta: {
+                    authRule: ["hwin/information_list"]
+                }
+            },
+            {
+                path: "information_list",
+                component: information_list,
+                icon: "operate_log",
+                name: 'route.operate_log',
+                meta: {
+                    authRule: ["hwin/information_list"]
+                }
+            },
         ]
     },
     {
@@ -768,39 +678,95 @@ export const asyncRouterMap = [
         redirect: "/events/events",
         component: Home,
         icon: "Userlog",
-        name: "日志管理",
+        name: "route.privilege_management",
         meta: {
-            authRule: ["日志管理"]
+            authRule: ["权限管理"]
         },
         // noDropdown: true,
         children: [
             {
-                path: "log_domainlog",
-                component: log_domainlog,
-                name: "域名统计",
-                icon: "log_domainlog1",
+                path: "information_list",
+                component: information_list,
+                icon: "department",
+                name: 'route.department',
                 meta: {
-                    authRule: ["hwin/log_domainlog1"]
+                    authRule: ["hwin/information_list"]
                 }
             },
             {
-                path: "log_loginlog",
-                component: log_loginlog,
-                name: "用户登入查询",
-                icon: "log_adminlog",
+                path: "information_list",
+                component: information_list,
+                icon: "job",
+                name: 'route.job',
                 meta: {
-                    authRule: ["hwin/log_loginlog"]
+                    authRule: ["hwin/information_list"]
                 }
             },
             {
-                path: "log_adminlog",
-                component: log_adminlog,
-                name: "管理员日志列表",
-                icon: "log_adminlog",
+                path: "information_list",
+                component: information_list,
+                icon: "member",
+                name: 'route.member',
                 meta: {
-                    authRule: ["hwin/log_adminlog"]
+                    authRule: ["hwin/information_list"]
                 }
-            }
+            },
+        ]
+    },
+    {
+        path: "/hwin-Userlog",
+        redirect: "/events/events",
+        component: Home,
+        icon: "Userlog",
+        name: "route.telecomm",
+        meta: {
+            authRule: ["内容通讯"]
+        },
+        // noDropdown: true,
+        children: [
+            {
+                path: "information_list",
+                component: information_list,
+                icon: "site_message",
+                name: 'route.site_message',
+                meta: {
+                    authRule: ["hwin/information_list"]
+                }
+            },
+            {
+                path: "information_list",
+                component: information_list,
+                icon: "chat",
+                name: 'route.chat',
+                meta: {
+                    authRule: ["hwin/information_list"]
+                }
+            },
+            {
+                path: "information_list",
+                component: information_list,
+                icon: "notice",
+                name: 'route.notice',
+                meta: {
+                    authRule: ["hwin/information_list"]
+                }
+            },{
+                path: "information_list",
+                component: information_list,
+                icon: "push_message",
+                name: 'route.push_message',
+                meta: {
+                    authRule: ["hwin/information_list"]
+                }
+            },{
+                path: "information_list",
+                component: information_list,
+                icon: "article",
+                name: 'route.article',
+                meta: {
+                    authRule: ["hwin/information_list"]
+                }
+            },
         ]
     }
 ];

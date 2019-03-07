@@ -25,7 +25,7 @@
                 <!--<i class="el-icon-edit"></i>-->
                 <!--<i class="el-icon-share"></i>-->
                 <!--<i class="el-icon-delete"></i>-->
-                    <el-button plain>朴素按钮</el-button>
+                    <el-button plain @click="changeLanguage">{{$t('text.globalCurrency')}}</el-button>
                     <el-button type="primary" plain>主要按钮</el-button>
                     <el-button type="success" plain>成功按钮</el-button>
                     <el-button type="info" plain>信息按钮</el-button>
@@ -146,6 +146,8 @@ import { mapGetters } from "vuex";
 import SidebarItem from "./SidebarItem.vue";
 import TabsView from "./TabsView.vue";
 import { password } from "../../api/auth/login";
+const viewName = 'VueI18n'
+
 export default {
     data() {
         let validatePass = (rule, value, callback) => {
@@ -229,6 +231,13 @@ export default {
     methods: {
         toggleSideBar() {
             this.$store.dispatch("ToggleSideBar");
+        },
+        changeLanguage () {
+            if (this.$i18n.locale == 'en-us') {
+                this.$i18n.locale = 'zh-cn'
+            } else {
+                this.$i18n.locale = 'en-us'
+            }
         },
         getBreadcrumb() {
             let matched = this.$route.matched.filter(item => item.name);
