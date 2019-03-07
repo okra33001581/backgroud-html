@@ -13,7 +13,7 @@ export default {
         transfer_fund: '转账汇款',
         withdraw_audit: '提款审核',
         pay_out: '出款处理',
-        manu_adjuest: '人工调整',
+        manual_adjust: '人工调整',
         transaction_list: '账变列表',
         paymethod_list: '支付管理',
         financial_set: '财务设定',

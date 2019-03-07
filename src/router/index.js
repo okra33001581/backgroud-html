@@ -347,8 +347,8 @@ export const asyncRouterMap = [
             {
                 path: "information_list",
                 component: information_list,
-                icon: "manu_adjuest",
-                name: 'route.manu_adjuest',
+                icon: "manual_adjust",
+                name: 'route.manual_adjust',
                 meta: {
                     authRule: ["hwin/information_list"]
                 }

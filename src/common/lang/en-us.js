@@ -13,7 +13,7 @@ export default {
         transfer_fund : 'transfer fund',
         withdraw_audit : 'withdraw audit',
         pay_out : 'pay out',
-        manu_adjuest : 'manu adjuest',
+        manual_adjust : 'manual adjust',
         transaction_list : 'transaction list',
         paymethod_list : 'paymethod list',
         financial_set : 'financial set',
