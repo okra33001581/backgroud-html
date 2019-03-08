@@ -6,6 +6,15 @@ if (process.env.NODE_ENV === "development") {
 }
 import Home from "../views/home/index.vue";
 // 网站管理
+
+
+import event_list from "../views/new/event/event_list.vue";
+import event_lottery from "../views/new/event/event_lottery.vue";
+import event_model from "../views/new/event/event_model.vue";
+import event_process from "../views/new/event/event_process.vue";
+import points_mall from "../views/new/event/points_mall.vue";
+import prize_audit from "../views/new/event/prize_audit.vue";
+
 import qrconfig_list from "../views/hwin/site-management/qrconfig_list.vue";
 import rotationconfig_list from "../views/hwin/site-management/rotationconfig_list.vue";
 import systemconfig_imagelist from "../views/hwin/site-management/systemconfig_imagelist.vue";
@@ -441,11 +450,17 @@ export const asyncRouterMap = [
             },
         ]
     },
+/*    event_list.vue
+    event_lottery.vue
+    event_model.vue
+    event_process.vue
+    points_mall.vue
+    prize_audit.vue*/
     {
         path: "/hwin-agentmanagent",
         redirect: "/events/events",
         component: Home,
-        icon: "agentmanagent",
+        icon: "benefit_management",
         name: "route.benefit_management",
         meta: {
             authRule: ["优惠活动"]
@@ -453,8 +468,8 @@ export const asyncRouterMap = [
         // noDropdown: true,
         children: [
             {
-                path: "information_list",
-                component: information_list,
+                path: "event_list",
+                component: event_list,
                 icon: "event_list",
                 name: 'route.event_list',
                 meta: {
@@ -462,8 +477,8 @@ export const asyncRouterMap = [
                 }
             },
             {
-                path: "information_list",
-                component: information_list,
+                path: "event_model",
+                component: event_model,
                 icon: "event_model",
                 name: 'route.event_model',
                 meta: {
@@ -471,8 +486,8 @@ export const asyncRouterMap = [
                 }
             },
             {
-                path: "information_list",
-                component: information_list,
+                path: "prize_audit",
+                component: prize_audit,
                 icon: "event_audit",
                 name: 'route.event_audit',
                 meta: {
@@ -480,8 +495,8 @@ export const asyncRouterMap = [
                 }
             },
             {
-                path: "information_list",
-                component: information_list,
+                path: "event_process",
+                component: event_process,
                 icon: "event_process",
                 name: 'route.event_process',
                 meta: {
@@ -489,8 +504,8 @@ export const asyncRouterMap = [
                 }
             },
             {
-                path: "information_list",
-                component: information_list,
+                path: "points_mall",
+                component: points_mall,
                 icon: "points_mall",
                 name: 'route.points_mall',
                 meta: {
@@ -498,8 +513,8 @@ export const asyncRouterMap = [
                 }
             },
             {
-                path: "information_list",
-                component: information_list,
+                path: "event_lottery",
+                component: event_lottery,
                 icon: "lottery",
                 name: 'route.lottery',
                 meta: {
