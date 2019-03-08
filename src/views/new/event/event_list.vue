@@ -6,21 +6,20 @@
                 <el-input v-model="query.username" placeholder="活动名称"></el-input>
             </el-form-item>
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="活动状态">
+                <el-select v-model="query.status" placeholder="活动模型">
                     <el-option label="全部" value=""></el-option>
                     <el-option label="启用" value="0"></el-option>
                     <el-option label="停用" value="1"></el-option>
                 </el-select>
             </el-form-item>
-            <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
-                <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key"/>
-            </el-select>-->
-            <!--<el-form-item class="query-form-item">
-                <el-select v-model="query.role_id" placeholder="角色">
-                    <el-option label="全部角色" value=""></el-option>
-                    <el-option v-for="item in roles" :key="item.id" :label="item.name" :value="item.id"></el-option>
+
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.status" placeholder="状态">
+                    <el-option label="全部" value=""></el-option>
+                    <el-option label="启用" value="0"></el-option>
+                    <el-option label="停用" value="1"></el-option>
                 </el-select>
-            </el-form-item>-->
+            </el-form-item>
 
             <el-form-item>
                 <el-button-group>
@@ -45,92 +44,78 @@
                 style="width: 100%;"
                 @sort-change="sortChange">-->
         <el-table
-                v-loading="loading"
-                :key="tableKey"
-                :data="list" stripe
-                border
-                fit
-                highlight-current-row
-                style="width: 100%;"
-                @sort-change="sortChange"
-                element-loading-text="拼命加载中"
-                element-loading-spinner="el-icon-loading"
-                element-loading-background="rgba(0, 0, 0, 0.8)"
-                :header-cell-style="getRowClass">
-
-
-            <!--排序值
-            活动名称
-            开始时间
-            结束时间
-            显示终端
-            编辑时间
-            操作人员
-            活动状态
--->
-            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					排序值		" prop="id" sortable="custom" fixed>
-
-                <template scope="scope">
-                    <el-input size="small" v-model="scope.row.languageCode" placeholder="请输入排序值"
-                    ></el-input>
-                </template>
-
-            </el-table-column>
-            <el-table-column label="					活动名称		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="				    活动模型		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					开始时间		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					结束时间		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					活动状态		" prop="id" sortable="custom" fixed></el-table-column>
-            <!--<el-table-column label="					显示终端		" prop="id" sortable="custom" fixed></el-table-column>-->
-            <el-table-column label="					编辑时间		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					操作人员		" prop="id" sortable="custom" fixed></el-table-column>
-
-
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
-            &lt;!&ndash;<el-table-column
-                label="用户 ID"
-                prop="id"
-                sortable="custom"
-                align="center"
-                fixed>
-                <template slot-scope="scope">
-                    <span>{{ scope.row.id }}</span>
-                </template>
-            </el-table-column>&ndash;&gt;
-
-            <el-table-column
-                    label="用户名"
-                    prop="username"
-                    sortable="custom"
-                    fixed>
-            </el-table-column>
-
-            <el-table-column
-                    sortable="custom"
-                    label="状态" prop="status">
-                <template slot-scope="scope">
-                    <el-tag :type="scope.row.status | statusFilterType">{{scope.row.status | statusFilterName}}</el-tag>
+                :data="tableData5"
+                style="width: 100%">
+            <el-table-column type="expand">
+                <template slot-scope="props">
+                    <el-form label-position="left" inline class="demo-table-expand">
+                        <el-table
+                                :data="tableData"
+                                border
+                                style="width: 100%">
+                            <el-table-column
+                                    label="商户名称"
+                                    prop="name" sortable="custom" fixed>
+                            </el-table-column>
+                            <el-table-column
+                                    label="活动名称"
+                                    prop="name" sortable="custom" fixed>
+                            </el-table-column>
+                            <el-table-column
+                                    label="活动模型"
+                                    prop="name" sortable="custom" fixed>
+                            </el-table-column>
+                            <el-table-column
+                                    label="操作人"
+                                    prop="name" sortable="custom" fixed>
+                            </el-table-column>
+                            <el-table-column
+                                    label="更新时间"
+                                    prop="name" sortable="custom" fixed>
+                            </el-table-column>
+                            <el-table-column
+                                    label="状态"
+                                    prop="name" sortable="custom" fixed>
+                            </el-table-column>
+                            <el-table-column
+                                    label="操作" width="350"
+                                    fixed="right">
+                                <template slot-scope="scope">
+                                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
+                                    </el-button>
+                                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
+                                    </el-button>
+                                </template>
+                            </el-table-column>
+                        </el-table>
+                    </el-form>
                 </template>
             </el-table-column>
             <el-table-column
-                    label="登录时间"
-                    with="300"
-                    sortable="custom"
-                    :show-overflow-tooltip="true" prop="last_login_time">
-                <template slot-scope="scope">
-                    <i class="el-icon-time"></i>
-                    <span>{{ scope.row.last_login_time }}</span>
-                </template>
+                    label="商户名称"
+                    prop="id">
             </el-table-column>
             <el-table-column
-                    sortable="custom"
-                    label="登录IP" prop="last_login_ip">
-                <template slot-scope="scope">
-                    <span>{{ scope.row.last_login_ip }}</span>
-                </template>
-            </el-table-column>-->
+                    label="活动名称"
+                    prop="id">
+            </el-table-column>
+            <el-table-column
+                    label="活动模型"
+                    prop="name">
+            </el-table-column>
+            <el-table-column
+                    label="操作人"
+                    prop="name">
+            </el-table-column>
+            <el-table-column
+                    label="更新时间"
+                    prop="name">
+            </el-table-column>
+            <el-table-column
+                    label="状态"
+                    prop="desc">
+            </el-table-column>
+
             <el-table-column
                     label="操作" width="350"
                     fixed="right">
@@ -145,6 +130,7 @@
                     </el-button>
                 </template>
             </el-table-column>
+
         </el-table>
 
         <el-pagination
@@ -164,7 +150,6 @@
                 width="35%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
-
                 <el-form-item label="开始时间" prop="username">
                     <el-input v-model="formData.username" auto-complete="off"></el-input>
                 </el-form-item>
@@ -242,6 +227,68 @@
                 }
             };
             return {
+                tableData: [{
+                    date: '2016-05-02',
+                    name: '王小虎',
+                    province: '上海',
+                    city: '普陀区',
+                    address: '上海市普陀区金沙江路 1518 弄',
+                    zip: 200333
+                }, {
+                    date: '2016-05-04',
+                    name: '王小虎',
+                    province: '上海',
+                    city: '普陀区',
+                    address: '上海市普陀区金沙江路 1517 弄',
+                    zip: 200333
+                }, {
+                    date: '2016-05-01',
+                    name: '王小虎',
+                    province: '上海',
+                    city: '普陀区',
+                    address: '上海市普陀区金沙江路 1519 弄',
+                    zip: 200333
+                }, {
+                    date: '2016-05-03',
+                    name: '王小虎',
+                    province: '上海',
+                    city: '普陀区',
+                    address: '上海市普陀区金沙江路 1516 弄',
+                    zip: 200333
+                }],
+                tableData5: [{
+                    id: '12987122',
+                    name: '好滋好味鸡蛋仔',
+                    category: '江浙小吃、小吃零食',
+                    desc: '荷兰优质淡奶，奶香浓而不腻',
+                    address: '上海市普陀区真北路',
+                    shop: '王小虎夫妻店',
+                    shopId: '10333'
+                }, {
+                    id: '12987123',
+                    name: '好滋好味鸡蛋仔',
+                    category: '江浙小吃、小吃零食',
+                    desc: '荷兰优质淡奶，奶香浓而不腻',
+                    address: '上海市普陀区真北路',
+                    shop: '王小虎夫妻店',
+                    shopId: '10333'
+                }, {
+                    id: '12987125',
+                    name: '好滋好味鸡蛋仔',
+                    category: '江浙小吃、小吃零食',
+                    desc: '荷兰优质淡奶，奶香浓而不腻',
+                    address: '上海市普陀区真北路',
+                    shop: '王小虎夫妻店',
+                    shopId: '10333'
+                }, {
+                    id: '12987126',
+                    name: '好滋好味鸡蛋仔',
+                    category: '江浙小吃、小吃零食',
+                    desc: '荷兰优质淡奶，奶香浓而不腻',
+                    address: '上海市普陀区真北路',
+                    shop: '王小虎夫妻店',
+                    shopId: '10333'
+                }],
                 roles: [],
                 query: {
                     username: "",
@@ -561,4 +608,16 @@
 </script>
 
 <style type="text/scss" lang="scss">
+    .demo-table-expand {
+        font-size: 0;
+    }
+    .demo-table-expand label {
+        width: 90px;
+        color: #99a9bf;
+    }
+    .demo-table-expand .el-form-item {
+        margin-right: 0;
+        margin-bottom: 0;
+        width: 50%;
+    }
 </style>
