@@ -2,11 +2,47 @@
 
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
+
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.status" placeholder="活动模型">
+                    <el-option label="充值赠送" value=""></el-option>
+                    <el-option label="彩金红包" value="0"></el-option>
+                    <el-option label="首充赠送" value="1"></el-option>
+                    <el-option label="注册送彩金" value="2"></el-option>
+                    <el-option label="反水" value="3"></el-option>
+                    <el-option label="盈亏赠送" value="4"></el-option>
+                    <el-option label="投注赠送" value="5"></el-option>
+                    <el-option label="救援金" value="6"></el-option>
+                    <el-option label="抽奖" value="7"></el-option>
+                    <el-option label="签到" value="8"></el-option>
+                </el-select>
+            </el-form-item>
+
             <el-form-item class="query-form-item">
                 <el-input v-model="query.username" placeholder="活动名称"></el-input>
             </el-form-item>
+
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="活动状态">
+                <el-input v-model="query.username" placeholder="用户名"></el-input>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-date-picker
+                        v-model="query.beginDate"
+                        type="date"
+                        placeholder="开始时间"
+                        :picker-options="pickerOptions0">
+                </el-date-picker>
+                <el-date-picker
+                        v-model="query.endDate"
+                        type="date"
+                        placeholder="结束时间"
+                        :picker-options="pickerOptions1">
+                </el-date-picker>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.status" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
                     <el-option label="启用" value="0"></el-option>
                     <el-option label="停用" value="1"></el-option>
@@ -26,7 +62,8 @@
                 <el-button-group>
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
                     <el-button type="primary" icon="el-icon-search" @click="onSubmit">查询</el-button>
-                    <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">新增</el-button>
+                    <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">批量通过</el-button>
+                    <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">批量拒绝</el-button>
                 </el-button-group>
             </el-form-item>
         </el-form>
@@ -56,7 +93,8 @@
                 element-loading-text="拼命加载中"
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
-                :header-cell-style="getRowClass">
+                :header-cell-style="getRowClass"
+                @selection-change="selsChange">
 
 
             <!--排序值
@@ -68,23 +106,25 @@
             操作人员
             活动状态
 -->
+            <el-table-column type="selection" width="55">
+            </el-table-column>
             <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					排序值		" prop="id" sortable="custom" fixed>
+            <!--<el-table-column label="					排序值		" prop="id" sortable="custom" fixed>
 
                 <template scope="scope">
                     <el-input size="small" v-model="scope.row.languageCode" placeholder="请输入排序值"
                     ></el-input>
                 </template>
 
-            </el-table-column>
+            </el-table-column>-->
             <el-table-column label="					活动名称		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					开始时间		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					结束时间		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					显示终端		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					编辑时间		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					操作人员		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					活动状态		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					充值		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					赠送		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					审核人		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					申请时间		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					审核时间		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					状态		" prop="id" sortable="custom" fixed></el-table-column>
 
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
@@ -134,13 +174,11 @@
                     label="操作" width="350"
                     fixed="right">
                 <template slot-scope="scope">
-                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
+                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">详情
                     </el-button>
-                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
+                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">通过
                     </el-button>
-                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">启用
-                    </el-button>
-                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">停用
+                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">拒绝
                     </el-button>
                 </template>
             </el-table-column>

@@ -7,9 +7,16 @@
             </el-form-item>
             <el-form-item class="query-form-item">
                 <el-select v-model="query.status" placeholder="活动模型">
-                    <el-option label="全部" value=""></el-option>
-                    <el-option label="启用" value="0"></el-option>
-                    <el-option label="停用" value="1"></el-option>
+                    <el-option label="充值赠送" value=""></el-option>
+                    <el-option label="彩金红包" value="0"></el-option>
+                    <el-option label="首充赠送" value="1"></el-option>
+                    <el-option label="注册送彩金" value="2"></el-option>
+                    <el-option label="反水" value="3"></el-option>
+                    <el-option label="盈亏赠送" value="4"></el-option>
+                    <el-option label="投注赠送" value="5"></el-option>
+                    <el-option label="救援金" value="6"></el-option>
+                    <el-option label="抽奖" value="7"></el-option>
+                    <el-option label="签到" value="8"></el-option>
                 </el-select>
             </el-form-item>
 
@@ -117,10 +124,12 @@
             </el-table-column>
 
             <el-table-column
-                    label="操作" width="350"
+                    label="操作" width="500"
                     fixed="right">
                 <template slot-scope="scope">
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
+                    </el-button>
+                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleObjectSetForm(scope.$index, scope.row)">资格设置
                     </el-button>
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
                     </el-button>
@@ -142,6 +151,98 @@
 
         <!--<pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />-->
 
+
+        <!--表单-->
+        <el-dialog
+                :title="formObjectSetMap[formObjectSetName]"
+                :visible.sync="formObjectSetVisible"
+                :before-close="hideObjectSetForm"
+                width="35%"
+                top="5vh">
+            <el-form :model="formObjectSetData" :rules="formObjectSetRules" ref="dataForm">
+
+                <el-form-item label="指定用户" prop="username">
+                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item label="导入用户名单" prop="username">
+                    <el-upload
+                            class="upload-demo"
+                            action="https://jsonplaceholder.typicode.com/posts/"
+                            :on-preview="handlePreview"
+                            :on-remove="handleRemove"
+                            :before-remove="beforeRemove"
+                            multiple
+                            :limit="3"
+                            :on-exceed="handleExceed"
+                            :file-list="fileList">
+                        <el-button size="small" type="primary">点击上传</el-button>
+                        <div slot="tip" class="el-upload__tip">不超过500kb</div>
+                    </el-upload>
+                </el-form-item>
+
+                <el-form-item label="用户层级" prop="username">
+                    <el-checkbox v-model="checked">VIP1</el-checkbox>
+                    <el-checkbox v-model="checked">VIP2</el-checkbox>
+                    <el-checkbox v-model="checked">VIP3</el-checkbox>
+                    <el-checkbox v-model="checked">VIP4</el-checkbox>
+                    <el-checkbox v-model="checked">普通会员</el-checkbox>
+                </el-form-item>
+
+                <el-form-item label="限制平台" prop="username">
+                </el-form-item>
+                <el-form-item label="白名单" prop="username">
+                    <el-checkbox-group
+                            v-model="checkedCities1"
+                            :min="1"
+                            :max="2">
+                        <el-checkbox  v-model="formData.isCheck1">彩票</el-checkbox>
+                        <el-checkbox  v-model="formData.isCheck2">开源棋牌</el-checkbox>
+                        <el-checkbox  v-model="formData.isCheck3">AG</el-checkbox>
+                        <el-checkbox  v-model="formData.isCheck2">BBIN</el-checkbox>
+                        <el-checkbox  v-model="formData.isCheck3">PT</el-checkbox>
+                    </el-checkbox-group>
+                </el-form-item>
+                <el-form-item label="黑名单" prop="username">
+                    <el-checkbox-group
+                            v-model="checkedCities1"
+                            :min="1"
+                            :max="2">
+                        <el-checkbox  v-model="formData.isCheck1">彩票</el-checkbox>
+                        <el-checkbox  v-model="formData.isCheck2">开源棋牌</el-checkbox>
+                        <el-checkbox  v-model="formData.isCheck3">AG</el-checkbox>
+                        <el-checkbox  v-model="formData.isCheck2">BBIN</el-checkbox>
+                        <el-checkbox  v-model="formData.isCheck3">PT</el-checkbox>
+                    </el-checkbox-group>
+                </el-form-item>
+
+                <el-form-item label="注册域名" prop="username">
+                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item label="时间区间" prop="username">
+                    <el-date-picker
+                            v-model="formData.beginDate"
+                            type="date"
+                            placeholder="开始时间"
+                            :picker-options="pickerOptions0">
+                    </el-date-picker>
+                    <el-date-picker
+                            v-model="formData.endDate"
+                            type="date"
+                            placeholder="结束时间"
+                            :picker-options="pickerOptions1">
+                    </el-date-picker>
+                </el-form-item>
+
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+                <el-button @click.native="hideObjectSetForm">取消</el-button>
+                <el-button type="primary" @click.native="formObjectSetSubmit()" :loading="formObjectSetLoading">提交</el-button>
+            </div>
+        </el-dialog>
+
+
         <!--表单-->
         <el-dialog
                 :title="formMap[formName]"
@@ -149,40 +250,281 @@
                 :before-close="hideForm"
                 width="35%"
                 top="5vh">
-            <el-form :model="formData" :rules="formRules" ref="dataForm">
-                <el-form-item label="开始时间" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
-                </el-form-item>
 
-                <el-form-item label="结束时间" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
-                </el-form-item>
+            <el-tabs type="border-card">
+                <el-tab-pane label="活动内容">
+                    <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                <el-form-item label="活动排序值" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
-                </el-form-item>
+                        <el-form-item label="活动名称" prop="username">
+                            <el-input v-model="formData.username" auto-complete="off"></el-input>
+                        </el-form-item>
 
-                <el-form-item label="PC端 Banner" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
-                </el-form-item>
 
-                <el-form-item label="PC端 活动详情" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
-                </el-form-item>
 
-                <el-form-item label="移动端 Banner" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
-                </el-form-item>
+                        <el-form-item label="时间区间" prop="username">
+                            <el-date-picker
+                                    v-model="formData.beginDate"
+                                    type="date"
+                                    placeholder="开始时间"
+                                    :picker-options="pickerOptions0">
+                            </el-date-picker>
+                            <el-date-picker
+                                    v-model="formData.endDate"
+                                    type="date"
+                                    placeholder="结束时间"
+                                    :picker-options="pickerOptions1">
+                            </el-date-picker>
+                        </el-form-item>
 
-                <el-form-item label="移动端 活动类型" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
-                </el-form-item>
 
-                <el-form-item label="移动端 活动详情" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
-                </el-form-item>
+                        <el-form-item label="活动对象" prop="username">
+                            <el-select v-model="formData.status" placeholder="活动模型">
+                                <el-option label="充值赠送" value=""></el-option>
+                                <el-option label="彩金红包" value="0"></el-option>
+                                <el-option label="首充赠送" value="1"></el-option>
+                                <el-option label="注册送彩金" value="2"></el-option>
+                                <el-option label="反水" value="3"></el-option>
+                                <el-option label="盈亏赠送" value="4"></el-option>
+                                <el-option label="投注赠送" value="5"></el-option>
+                                <el-option label="救援金" value="6"></el-option>
+                                <el-option label="抽奖" value="7"></el-option>
+                                <el-option label="签到" value="8"></el-option>
+                            </el-select>
+                        </el-form-item>
 
-            </el-form>
+                        <el-form-item label="领取方式" prop="username">
+                            <el-select
+                                    v-model="value11"
+                                    multiple
+                                    collapse-tags
+                                    style="margin-left: 20px;"
+                                    placeholder="领取端点">
+                                <el-option label="移动端" value="0"></el-option>
+                                <el-option label="PC端" value="1"></el-option>
+                            </el-select>
+
+                            <el-select
+                                    v-model="value11"
+                                    multiple
+                                    collapse-tags
+                                    style="margin-left: 20px;"
+                                    placeholder="领取模式">
+                                <el-option label="不需审核" value="0"></el-option>
+                                <el-option label="需审核" value="1"></el-option>
+                                </el-option>
+                            </el-select>
+
+                        </el-form-item>
+
+                        <el-form-item label="活动介绍" prop="username">
+                            <el-input v-model="formData.username" auto-complete="off"></el-input>
+                        </el-form-item>
+
+                        <el-form-item label="Banner(PC)" prop="username" widt="120">
+                            <el-upload
+                                    action="https://jsonplaceholder.typicode.com/posts/"
+                                    list-type="picture-card"
+                                    :on-preview="handlePictureCardPreview"
+                                    :on-remove="handleRemove">
+                                <i class="el-icon-plus"></i>
+                            </el-upload>
+                        </el-form-item>
+                        <el-form-item label="Banner(APP)" prop="username">
+                            <el-upload
+                                    action="https://jsonplaceholder.typicode.com/posts/"
+                                    list-type="picture-card"
+                                    :on-preview="handlePictureCardPreview"
+                                    :on-remove="handleRemove">
+                                <i class="el-icon-plus"></i>
+                            </el-upload>
+                        </el-form-item>
+                            <el-form-item label="活动小图(PC)" prop="username">
+                            <el-upload
+                                    action="https://jsonplaceholder.typicode.com/posts/"
+                                    list-type="picture-card"
+                                    :on-preview="handlePictureCardPreview"
+                                    :on-remove="handleRemove">
+                                <i class="el-icon-plus"></i>
+                            </el-upload>
+                            </el-form-item>
+                                <el-form-item label="活动小图(APP)" prop="username">
+                            <el-upload
+                                    action="https://jsonplaceholder.typicode.com/posts/"
+                                    list-type="picture-card"
+                                    :on-preview="handlePictureCardPreview"
+                                    :on-remove="handleRemove">
+                                <i class="el-icon-plus"></i>
+                            </el-upload>
+                                </el-form-item>
+                                    <el-form-item label="活动封面图(PC)" prop="username">
+                            <el-upload
+                                    action="https://jsonplaceholder.typicode.com/posts/"
+                                    list-type="picture-card"
+                                    :on-preview="handlePictureCardPreview"
+                                    :on-remove="handleRemove">
+                                <i class="el-icon-plus"></i>
+                            </el-upload>
+                                    </el-form-item>
+                                        <el-form-item label="活动封面图(APP)" prop="username">
+                            <el-upload
+                                    action="https://jsonplaceholder.typicode.com/posts/"
+                                    list-type="picture-card"
+                                    :on-preview="handlePictureCardPreview"
+                                    :on-remove="handleRemove">
+                                <i class="el-icon-plus"></i>
+                            </el-upload>
+                                        </el-form-item>
+
+                        </el-form-item>
+
+                        <el-form-item label="前端显示" prop="username">
+                            <el-checkbox-group
+                                    v-model="checkedCities1"
+                                    :min="1"
+                                    :max="2">
+                                <el-checkbox  v-model="formData.isCheck2">移动端</el-checkbox>
+                                <el-checkbox  v-model="formData.isCheck3">PC端</el-checkbox>
+                            </el-checkbox-group>
+                        </el-form-item>
+
+                    </el-form>
+                </el-tab-pane>
+
+
+                <el-tab-pane label="规则设置">
+                    <el-form :model="formData" :rules="formRules" ref="dataForm">
+
+                        <el-form-item label="首充最低金额" prop="username">
+                            <el-input v-model="formData.username" auto-complete="off"></el-input>
+                        </el-form-item>
+
+                        <el-form-item label="赠送比例" prop="username">
+                            <el-input v-model="formData.username" auto-complete="off"></el-input>
+                        </el-form-item>
+
+                        <el-form-item label="赠送金额范围" prop="username">
+                            <el-date-picker
+                                    v-model="formData.beginDate"
+                                    type="date"
+                                    placeholder="最小值"
+                                    :picker-options="pickerOptions0">
+                            </el-date-picker>
+                            <el-date-picker
+                                    v-model="formData.endDate"
+                                    type="date"
+                                    placeholder="最大值"
+                                    :picker-options="pickerOptions1">
+                            </el-date-picker>
+                        </el-form-item>
+
+                        <el-form-item label="流水任务" prop="username">
+                            <el-input v-model="formData.username" auto-complete="off"></el-input>
+                        </el-form-item>
+
+                    </el-form>
+                </el-tab-pane>
+
+                <el-tab-pane label="高级设置">
+                    <el-form :model="formData" :rules="formRules" ref="dataForm">
+
+                        <el-form-item label="限制平台" prop="username">
+                        </el-form-item>
+                            <el-form-item label="白名单" prop="username">
+                            <el-checkbox-group
+                                    v-model="checkedCities1"
+                                    :min="1"
+                                    :max="2">
+                                <el-checkbox  v-model="formData.isCheck1">彩票</el-checkbox>
+                                <el-checkbox  v-model="formData.isCheck2">开源棋牌</el-checkbox>
+                                <el-checkbox  v-model="formData.isCheck3">AG</el-checkbox>
+                                <el-checkbox  v-model="formData.isCheck2">BBIN</el-checkbox>
+                                <el-checkbox  v-model="formData.isCheck3">PT</el-checkbox>
+                            </el-checkbox-group>
+                            </el-form-item>
+                            <el-form-item label="黑名单" prop="username">
+                            <el-checkbox-group
+                                    v-model="checkedCities1"
+                                    :min="1"
+                                    :max="2">
+                                <el-checkbox  v-model="formData.isCheck1">彩票</el-checkbox>
+                                <el-checkbox  v-model="formData.isCheck2">开源棋牌</el-checkbox>
+                                <el-checkbox  v-model="formData.isCheck3">AG</el-checkbox>
+                                <el-checkbox  v-model="formData.isCheck2">BBIN</el-checkbox>
+                                <el-checkbox  v-model="formData.isCheck3">PT</el-checkbox>
+                            </el-checkbox-group>
+                            </el-form-item>
+                        <!--</el-form-item>-->
+
+                        <el-form-item label="限制游戏" prop="username">
+                             <el-select
+                                v-model="value11"
+                                multiple
+                                collapse-tags
+                                style="margin-left: 20px;"
+                                placeholder="白名单">
+                            <el-option
+                                    v-for="item in options"
+                                    :key="item.value"
+                                    :label="item.label"
+                                    :value="item.value">
+                            </el-option>
+                        </el-select>
+                             <el-select
+                                v-model="value11"
+                                multiple
+                                collapse-tags
+                                style="margin-left: 20px;"
+                                placeholder="黑名单">
+                            <el-option
+                                    v-for="item in options"
+                                    :key="item.value"
+                                    :label="item.label"
+                                    :value="item.value">
+                            </el-option>
+                        </el-select>
+                        </el-form-item>
+
+                        <el-form-item label="支付账号" prop="username">
+                            <el-select
+                                    v-model="value11"
+                                    multiple
+                                    collapse-tags
+                                    style="margin-left: 20px;"
+                                    placeholder="请选择">
+                                <el-checkbox  v-model="formData.isCheck3">支付宝</el-checkbox>
+                                <el-checkbox  v-model="formData.isCheck2">微信</el-checkbox>
+                                <el-checkbox  v-model="formData.isCheck3">支付宝</el-checkbox>
+                                </el-option>
+                            </el-select>
+                        </el-form-item>
+
+                        <el-form-item label="返水" prop="username">
+                            <template>
+                                <el-switch
+                                        v-model="formData.value2"
+                                        active-color="#13ce66"
+                                        inactive-color="#ff4949">
+                                </el-switch>
+                            </template>
+
+                        </el-form-item>
+
+                        <el-form-item label="救援金" prop="username">
+                            <template>
+                                <el-switch
+                                        v-model="formData.value2"
+                                        active-color="#13ce66"
+                                        inactive-color="#ff4949">
+                                </el-switch>
+                            </template>
+                        </el-form-item>
+
+                    </el-form>
+                </el-tab-pane>
+
+            </el-tabs>
+
+
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideForm">取消</el-button>
                 <el-button type="primary" @click.native="formSubmit()" :loading="formLoading">提交</el-button>
@@ -199,7 +541,7 @@
         authAdminSave,
         authAdminDelete
     } from "../../../api/event-management";
-
+    const cityOptions = ['上海', '北京', '广州', '深圳'];
     const formJson = {
         id: "",
         password: "",
@@ -227,6 +569,27 @@
                 }
             };
             return {
+                options: [{
+                    value: '选项1',
+                    label: '黄金糕'
+                }, {
+                    value: '选项2',
+                    label: '双皮奶'
+                }, {
+                    value: '选项3',
+                    label: '蚵仔煎'
+                }, {
+                    value: '选项4',
+                    label: '龙须面'
+                }, {
+                    value: '选项5',
+                    label: '北京烤鸭'
+                }],
+                fileList: [{name: 'food.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}, {name: 'food2.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}],
+                checkedCities1: ['上海', '北京'],
+                cities: cityOptions,
+                value5: [],
+                value11: [],
                 tableData: [{
                     date: '2016-05-02',
                     name: '王小虎',
@@ -320,14 +683,23 @@
                 loading: true,
                 index: null,
                 formName: null,
+                formObjectSetName: null,
                 formMap: {
                     add: "新增",
                     edit: "编辑"
+                },
+                formObjectSetMap: {
+                    add: "新增",
+                        edit: "编辑"
                 },
                 formLoading: false,
                 formVisible: false,
                 formData: formJson,
                 formRules: {},
+                    formObjectSetLoading: false,
+                formObjectSetVisible: false,
+                formObjectSetData: formJson,
+                formObjectSetRules: {},
                 addRules: {
                     username: [
                         {required: true, message: "请输入姓名", trigger: "blur"}
@@ -367,12 +739,44 @@
                 });
                 this.getList();
             },
+            handleRemove(file, fileList) {
+                console.log(file, fileList);
+            },
+            handlePreview(file) {
+                console.log(file);
+            },
+            handleExceed(files, fileList) {
+                this.$message.warning(`当前限制选择 3 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);
+            },
+            beforeRemove(file, fileList) {
+                return this.$confirm(`确定移除 ${ file.name }？`);
+            },
             //设置表格第一行的颜色
             getRowClass({ row, column, rowIndex, columnIndex }) {
                 if (rowIndex == 0) {
                     return 'background:#F2F2F2'
                 } else {
                     return ''
+                }
+            },
+            // 显示表单
+            handleObjectSetForm(index, row) {
+                this.formObjectSetVisible = true;
+                this.formObjectSetData = Object.assign({}, formJson);
+                if (row !== null) {
+                    this.formObjectSetData = Object.assign({}, row);
+                }
+                this.formObjectSetData.status += ""; // 转为字符串（解决默认选中的时候字符串和数字不能比较的问题）
+                this.formObjectSetName = "add";
+                this.formObjectSetRules = this.addRules;
+                if (index !== null) {
+                    this.index = index;
+                    this.formObjectSetName = "edit";
+                    this.formObjectSetRules = this.editRules;
+                }
+                // 清空验证信息表单
+                if (this.$refs["dataForm"]) {
+                    this.$refs["dataForm"].clearValidate();
                 }
             },
             handleCurrentChange(val) {
@@ -474,10 +878,19 @@
                         this.roles = [];
                     });
             },
+
             // 隐藏表单
             hideForm() {
                 // 更改值
                 this.formVisible = !this.formVisible;
+                // 清空表单
+                this.$refs["dataForm"].resetFields();
+                return true;
+            },
+            // 隐藏表单
+            hideObjectSetForm() {
+                // 更改值
+                this.formObjectSetVisible = !this.formObjectSetVisible;
                 // 清空表单
                 this.$refs["dataForm"].resetFields();
                 return true;
@@ -620,4 +1033,5 @@
         margin-bottom: 0;
         width: 50%;
     }
+
 </style>

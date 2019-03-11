@@ -3,10 +3,22 @@
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="活动名称"></el-input>
+                <el-select v-model="query.status" placeholder="活动模型">
+                    <el-option label="充值赠送" value=""></el-option>
+                    <el-option label="彩金红包" value="0"></el-option>
+                    <el-option label="首充赠送" value="1"></el-option>
+                    <el-option label="注册送彩金" value="2"></el-option>
+                    <el-option label="反水" value="3"></el-option>
+                    <el-option label="盈亏赠送" value="4"></el-option>
+                    <el-option label="投注赠送" value="5"></el-option>
+                    <el-option label="救援金" value="6"></el-option>
+                    <el-option label="抽奖" value="7"></el-option>
+                    <el-option label="签到" value="8"></el-option>
+                </el-select>
             </el-form-item>
+
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="活动状态">
+                <el-select v-model="query.status" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
                     <el-option label="启用" value="0"></el-option>
                     <el-option label="停用" value="1"></el-option>
@@ -30,6 +42,153 @@
                 </el-button-group>
             </el-form-item>
         </el-form>
+
+        <el-row>
+            <el-col :span="8" v-for="(o, index) in 1" :key="o" :offset="index > 0 ? 2 : 0">
+                <el-card :body-style="{ padding: '0px' }">
+                    <img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3470983253,737959756&fm=27&gp=0.jpg" width="100%" height="260px">
+                    <div style="padding: 14px;">
+                        <span>充值赠送</span>
+                        <div class="bottom clearfix">
+                            <time class="time">{{ currentDate }}</time>
+                            <el-button type="text" class="button">操作按钮</el-button>
+                        </div>
+                    </div>
+                </el-card>
+            </el-col>
+
+            <el-col :span="8" v-for="(o, index) in 1" :key="o" :offset="index > 0 ? 2 : 0">
+                <el-card :body-style="{ padding: '0px' }">
+                    <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1895172424,708748110&fm=26&gp=0.jpg" width="100%" height="260px">
+                    <div style="padding: 14px;">
+                        <span>彩金红包</span>
+                        <div class="bottom clearfix">
+                            <time class="time">{{ currentDate }}</time>
+                            <el-button type="text" class="button">操作按钮</el-button>
+                        </div>
+                    </div>
+                </el-card>
+            </el-col>
+
+            <el-col :span="8" v-for="(o, index) in 1" :key="o" :offset="index > 0 ? 2 : 0">
+                <el-card :body-style="{ padding: '0px' }">
+                    <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3451270322,1994327031&fm=26&gp=0.jpg" width="100%" height="260px">
+                    <div style="padding: 14px;">
+                        <span>首充赠送</span>
+                        <div class="bottom clearfix">
+                            <time class="time">{{ currentDate }}</time>
+                            <el-button type="text" class="button">操作按钮</el-button>
+                        </div>
+                    </div>
+                </el-card>
+            </el-col>
+
+        </el-row>
+
+        <el-row>
+            <el-col :span="8" v-for="(o, index) in 1" :key="o" :offset="index > 0 ? 2 : 0">
+                <el-card :body-style="{ padding: '0px' }">
+                    <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3712424438,1290226856&fm=26&gp=0.jpg" width="100%" height="260px">
+                    <div style="padding: 14px;">
+                        <span>注册送彩金</span>
+                        <div class="bottom clearfix">
+                            <time class="time">{{ currentDate }}</time>
+                            <el-button type="text" class="button">操作按钮</el-button>
+                        </div>
+                    </div>
+                </el-card>
+            </el-col>
+
+            <el-col :span="8" v-for="(o, index) in 1" :key="o" :offset="index > 0 ? 2 : 0">
+                <el-card :body-style="{ padding: '0px' }">
+                    <img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2282641208,436251735&fm=200&gp=0.jpg" width="100%" height="260px">
+                    <div style="padding: 14px;">
+                        <span>反水</span>
+                        <div class="bottom clearfix">
+                            <time class="time">{{ currentDate }}</time>
+                            <el-button type="text" class="button">操作按钮</el-button>
+                        </div>
+                    </div>
+                </el-card>
+            </el-col>
+
+            <el-col :span="8" v-for="(o, index) in 1" :key="o" :offset="index > 0 ? 2 : 0">
+                <el-card :body-style="{ padding: '0px' }">
+                    <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2812755869,2176217454&fm=26&gp=0.jpg" width="100%" height="260px">
+                    <div style="padding: 14px;">
+                        <span>盈亏赠送</span>
+                        <div class="bottom clearfix">
+                            <time class="time">{{ currentDate }}</time>
+                            <el-button type="text" class="button">操作按钮</el-button>
+                        </div>
+                    </div>
+                </el-card>
+            </el-col>
+
+        </el-row>
+
+
+        <el-row>
+            <el-col :span="8" v-for="(o, index) in 1" :key="o" :offset="index > 0 ? 2 : 0">
+                <el-card :body-style="{ padding: '0px' }">
+                    <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1910796299,2420601318&fm=26&gp=0.jpg" width="100%" height="260px">
+                    <div style="padding: 14px;">
+                        <span>投注赠送</span>
+                        <div class="bottom clearfix">
+                            <time class="time">{{ currentDate }}</time>
+                            <el-button type="text" class="button">操作按钮</el-button>
+                        </div>
+                    </div>
+                </el-card>
+            </el-col>
+
+            <el-col :span="8" v-for="(o, index) in 1" :key="o" :offset="index > 0 ? 2 : 0">
+                <el-card :body-style="{ padding: '0px' }">
+                    <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2978171443,3853333767&fm=26&gp=0.jpg" width="100%" height="260px">
+                    <div style="padding: 14px;">
+                        <span>救援金</span>
+                        <div class="bottom clearfix">
+                            <time class="time">{{ currentDate }}</time>
+                            <el-button type="text" class="button">操作按钮</el-button>
+                        </div>
+                    </div>
+                </el-card>
+            </el-col>
+
+            <el-col :span="8" v-for="(o, index) in 1" :key="o" :offset="index > 0 ? 2 : 0">
+                <el-card :body-style="{ padding: '0px' }">
+                    <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=649320857,1181086727&fm=200&gp=0.jpg" width="100%" height="260px">
+                    <div style="padding: 14px;">
+                        <span>抽奖</span>
+                        <div class="bottom clearfix">
+                            <time class="time">{{ currentDate }}</time>
+                            <el-button type="text" class="button">操作按钮</el-button>
+                        </div>
+                    </div>
+                </el-card>
+            </el-col>
+
+        </el-row>
+
+        <el-row>
+            <el-col :span="8" v-for="(o, index) in 1" :key="o" :offset="index > 0 ? 2 : 0">
+                <el-card :body-style="{ padding: '0px' }">
+                    <img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3817748622,356441129&fm=200&gp=0.jpg" width="100%" height="260px">
+                    <div style="padding: 14px;">
+                        <span>签到</span>
+                        <div class="bottom clearfix">
+                            <time class="time">{{ currentDate }}</time>
+                            <el-button type="text" class="button">操作按钮</el-button>
+                        </div>
+                    </div>
+                </el-card>
+            </el-col>
+
+
+
+        </el-row>
+
+
         <!--<el-table
             v-loading="loading"
             :data="list" stripe
@@ -44,7 +203,7 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">-->
-        <el-table
+        <!--<el-table
                 v-loading="loading"
                 :key="tableKey"
                 :data="list" stripe
@@ -59,7 +218,7 @@
                 :header-cell-style="getRowClass">
 
 
-            <!--排序值
+            &lt;!&ndash;排序值
             活动名称
             开始时间
             结束时间
@@ -67,7 +226,7 @@
             编辑时间
             操作人员
             活动状态
--->
+&ndash;&gt;
             <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					排序值		" prop="id" sortable="custom" fixed>
@@ -87,7 +246,7 @@
             <el-table-column label="					活动状态		" prop="id" sortable="custom" fixed></el-table-column>
 
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            &lt;!&ndash;<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"
@@ -129,7 +288,7 @@
                 <template slot-scope="scope">
                     <span>{{ scope.row.last_login_ip }}</span>
                 </template>
-            </el-table-column>-->
+            </el-table-column>&ndash;&gt;
             <el-table-column
                     label="操作" width="350"
                     fixed="right">
@@ -144,14 +303,14 @@
                     </el-button>
                 </template>
             </el-table-column>
-        </el-table>
+        </el-table>-->
 
-        <el-pagination
+<!--        <el-pagination
                 :page-size="query.limit"
                 @current-change="handleCurrentChange"
                 layout="prev, pager, next"
                 :total="total">
-        </el-pagination>
+        </el-pagination>-->
 
         <!--<pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />-->
 
@@ -242,6 +401,7 @@
             };
             return {
                 roles: [],
+                currentDate: new Date(),
                 query: {
                     username: "",
                     status: "",
@@ -560,4 +720,34 @@
 </script>
 
 <style type="text/scss" lang="scss">
+    .time {
+        font-size: 13px;
+        color: #999;
+    }
+
+    .bottom {
+        margin-top: 13px;
+        line-height: 12px;
+    }
+
+    .button {
+        padding: 0;
+        float: right;
+    }
+
+    .image {
+        width: 100%;
+        height:80%;
+        display: block;
+    }
+
+    .clearfix:before,
+    .clearfix:after {
+        display: table;
+        content: "";
+    }
+
+    .clearfix:after {
+        clear: both
+    }
 </style>
