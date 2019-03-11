@@ -51,7 +51,7 @@
                         <span>充值赠送</span>
                         <div class="bottom clearfix">
                             <time class="time">{{ currentDate }}</time>
-                            <el-button type="text" class="button">操作按钮</el-button>
+                            <el-button type="text" class="button">明细</el-button>
                         </div>
                     </div>
                 </el-card>
@@ -64,7 +64,7 @@
                         <span>彩金红包</span>
                         <div class="bottom clearfix">
                             <time class="time">{{ currentDate }}</time>
-                            <el-button type="text" class="button">操作按钮</el-button>
+                            <el-button type="text" class="button">明细</el-button>
                         </div>
                     </div>
                 </el-card>
@@ -77,7 +77,7 @@
                         <span>首充赠送</span>
                         <div class="bottom clearfix">
                             <time class="time">{{ currentDate }}</time>
-                            <el-button type="text" class="button">操作按钮</el-button>
+                            <el-button type="text" class="button" >明细</el-button>
                         </div>
                     </div>
                 </el-card>
@@ -93,7 +93,6 @@
                         <span>注册送彩金</span>
                         <div class="bottom clearfix">
                             <time class="time">{{ currentDate }}</time>
-                            <el-button type="text" class="button">操作按钮</el-button>
                         </div>
                     </div>
                 </el-card>
@@ -106,7 +105,7 @@
                         <span>反水</span>
                         <div class="bottom clearfix">
                             <time class="time">{{ currentDate }}</time>
-                            <el-button type="text" class="button">操作按钮</el-button>
+                            <el-button type="text" class="button">明细</el-button>
                         </div>
                     </div>
                 </el-card>
@@ -119,7 +118,7 @@
                         <span>盈亏赠送</span>
                         <div class="bottom clearfix">
                             <time class="time">{{ currentDate }}</time>
-                            <el-button type="text" class="button">操作按钮</el-button>
+                            <el-button type="text" class="button">明细</el-button>
                         </div>
                     </div>
                 </el-card>
@@ -136,7 +135,7 @@
                         <span>投注赠送</span>
                         <div class="bottom clearfix">
                             <time class="time">{{ currentDate }}</time>
-                            <el-button type="text" class="button">操作按钮</el-button>
+                            <el-button type="text" class="button">明细</el-button>
                         </div>
                     </div>
                 </el-card>
@@ -149,7 +148,7 @@
                         <span>救援金</span>
                         <div class="bottom clearfix">
                             <time class="time">{{ currentDate }}</time>
-                            <el-button type="text" class="button">操作按钮</el-button>
+                            <el-button type="text" class="button">明细</el-button>
                         </div>
                     </div>
                 </el-card>
@@ -162,7 +161,7 @@
                         <span>抽奖</span>
                         <div class="bottom clearfix">
                             <time class="time">{{ currentDate }}</time>
-                            <el-button type="text" class="button">操作按钮</el-button>
+                            <el-button type="text" class="button">明细</el-button>
                         </div>
                     </div>
                 </el-card>
@@ -178,7 +177,7 @@
                         <span>签到</span>
                         <div class="bottom clearfix">
                             <time class="time">{{ currentDate }}</time>
-                            <el-button type="text" class="button">操作按钮</el-button>
+                            <el-button type="text" class="button">明细</el-button>
                         </div>
                     </div>
                 </el-card>

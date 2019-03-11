@@ -62,27 +62,27 @@
                                 style="width: 100%">
                             <el-table-column
                                     label="商户名称"
-                                    prop="name" sortable="custom" fixed>
+                                    prop="name" >
                             </el-table-column>
                             <el-table-column
                                     label="活动名称"
-                                    prop="name" sortable="custom" fixed>
+                                    prop="name" >
                             </el-table-column>
                             <el-table-column
                                     label="活动模型"
-                                    prop="name" sortable="custom" fixed>
+                                    prop="name" >
                             </el-table-column>
                             <el-table-column
                                     label="操作人"
-                                    prop="name" sortable="custom" fixed>
+                                    prop="name" >
                             </el-table-column>
                             <el-table-column
                                     label="更新时间"
-                                    prop="name" sortable="custom" fixed>
+                                    prop="name" >
                             </el-table-column>
                             <el-table-column
                                     label="状态"
-                                    prop="name" sortable="custom" fixed>
+                                    prop="name" >
                             </el-table-column>
                             <el-table-column
                                     label="操作" width="350"
@@ -124,10 +124,12 @@
             </el-table-column>
 
             <el-table-column
-                    label="操作" width="500"
+                    label="操作" width="550"
                     fixed="right">
                 <template slot-scope="scope">
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
+                    </el-button>
+                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">新增
                     </el-button>
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleObjectSetForm(scope.$index, scope.row)">资格设置
                     </el-button>
@@ -195,7 +197,9 @@
                     <el-checkbox-group
                             v-model="checkedCities1"
                             :min="1"
-                            :max="2">
+                            :max="2"
+                            style="margin-left: 75px;"
+                        >
                         <el-checkbox  v-model="formData.isCheck1">彩票</el-checkbox>
                         <el-checkbox  v-model="formData.isCheck2">开源棋牌</el-checkbox>
                         <el-checkbox  v-model="formData.isCheck3">AG</el-checkbox>
@@ -207,6 +211,7 @@
                     <el-checkbox-group
                             v-model="checkedCities1"
                             :min="1"
+                            style="margin-left: 75px;"
                             :max="2">
                         <el-checkbox  v-model="formData.isCheck1">彩票</el-checkbox>
                         <el-checkbox  v-model="formData.isCheck2">开源棋牌</el-checkbox>
@@ -259,8 +264,6 @@
                             <el-input v-model="formData.username" auto-complete="off"></el-input>
                         </el-form-item>
 
-
-
                         <el-form-item label="时间区间" prop="username">
                             <el-date-picker
                                     v-model="formData.beginDate"
@@ -297,7 +300,6 @@
                                     v-model="value11"
                                     multiple
                                     collapse-tags
-                                    style="margin-left: 20px;"
                                     placeholder="领取端点">
                                 <el-option label="移动端" value="0"></el-option>
                                 <el-option label="PC端" value="1"></el-option>
@@ -307,7 +309,6 @@
                                     v-model="value11"
                                     multiple
                                     collapse-tags
-                                    style="margin-left: 20px;"
                                     placeholder="领取模式">
                                 <el-option label="不需审核" value="0"></el-option>
                                 <el-option label="需审核" value="1"></el-option>
@@ -317,14 +318,15 @@
                         </el-form-item>
 
                         <el-form-item label="活动介绍" prop="username">
-                            <el-input v-model="formData.username" auto-complete="off"></el-input>
+                            <el-input type="textarea" v-model="formData.username" auto-complete="off"></el-input>
                         </el-form-item>
 
-                        <el-form-item label="Banner(PC)" prop="username" widt="120">
+                        <el-form-item label="Banner(PC)" prop="username">
                             <el-upload
                                     action="https://jsonplaceholder.typicode.com/posts/"
                                     list-type="picture-card"
                                     :on-preview="handlePictureCardPreview"
+                                    style="margin-left: 140px;"
                                     :on-remove="handleRemove">
                                 <i class="el-icon-plus"></i>
                             </el-upload>
@@ -334,6 +336,7 @@
                                     action="https://jsonplaceholder.typicode.com/posts/"
                                     list-type="picture-card"
                                     :on-preview="handlePictureCardPreview"
+                                    style="margin-left: 140px;"
                                     :on-remove="handleRemove">
                                 <i class="el-icon-plus"></i>
                             </el-upload>
@@ -343,6 +346,7 @@
                                     action="https://jsonplaceholder.typicode.com/posts/"
                                     list-type="picture-card"
                                     :on-preview="handlePictureCardPreview"
+                                    style="margin-left: 140px;"
                                     :on-remove="handleRemove">
                                 <i class="el-icon-plus"></i>
                             </el-upload>
@@ -352,6 +356,7 @@
                                     action="https://jsonplaceholder.typicode.com/posts/"
                                     list-type="picture-card"
                                     :on-preview="handlePictureCardPreview"
+                                    style="margin-left: 140px;"
                                     :on-remove="handleRemove">
                                 <i class="el-icon-plus"></i>
                             </el-upload>
@@ -361,6 +366,7 @@
                                     action="https://jsonplaceholder.typicode.com/posts/"
                                     list-type="picture-card"
                                     :on-preview="handlePictureCardPreview"
+                                    style="margin-left: 140px;"
                                     :on-remove="handleRemove">
                                 <i class="el-icon-plus"></i>
                             </el-upload>
@@ -370,6 +376,7 @@
                                     action="https://jsonplaceholder.typicode.com/posts/"
                                     list-type="picture-card"
                                     :on-preview="handlePictureCardPreview"
+                                    style="margin-left: 140px;"
                                     :on-remove="handleRemove">
                                 <i class="el-icon-plus"></i>
                             </el-upload>
@@ -433,7 +440,9 @@
                             <el-checkbox-group
                                     v-model="checkedCities1"
                                     :min="1"
-                                    :max="2">
+                                    :max="2"
+                                    style="margin-left: 78px;"
+                                >
                                 <el-checkbox  v-model="formData.isCheck1">彩票</el-checkbox>
                                 <el-checkbox  v-model="formData.isCheck2">开源棋牌</el-checkbox>
                                 <el-checkbox  v-model="formData.isCheck3">AG</el-checkbox>
@@ -445,7 +454,9 @@
                             <el-checkbox-group
                                     v-model="checkedCities1"
                                     :min="1"
-                                    :max="2">
+                                    :max="2"
+                                    style="margin-left: 78px;"
+                                >
                                 <el-checkbox  v-model="formData.isCheck1">彩票</el-checkbox>
                                 <el-checkbox  v-model="formData.isCheck2">开源棋牌</el-checkbox>
                                 <el-checkbox  v-model="formData.isCheck3">AG</el-checkbox>
@@ -460,7 +471,6 @@
                                 v-model="value11"
                                 multiple
                                 collapse-tags
-                                style="margin-left: 20px;"
                                 placeholder="白名单">
                             <el-option
                                     v-for="item in options"
@@ -473,7 +483,6 @@
                                 v-model="value11"
                                 multiple
                                 collapse-tags
-                                style="margin-left: 20px;"
                                 placeholder="黑名单">
                             <el-option
                                     v-for="item in options"
@@ -489,7 +498,6 @@
                                     v-model="value11"
                                     multiple
                                     collapse-tags
-                                    style="margin-left: 20px;"
                                     placeholder="请选择">
                                 <el-checkbox  v-model="formData.isCheck3">支付宝</el-checkbox>
                                 <el-checkbox  v-model="formData.isCheck2">微信</el-checkbox>
@@ -501,6 +509,7 @@
                         <el-form-item label="返水" prop="username">
                             <template>
                                 <el-switch
+                                        style="margin-left: 25px;"
                                         v-model="formData.value2"
                                         active-color="#13ce66"
                                         inactive-color="#ff4949">
@@ -512,6 +521,7 @@
                         <el-form-item label="救援金" prop="username">
                             <template>
                                 <el-switch
+                                        style="margin-left: 13px;"
                                         v-model="formData.value2"
                                         active-color="#13ce66"
                                         inactive-color="#ff4949">

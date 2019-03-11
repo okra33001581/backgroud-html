@@ -109,14 +109,9 @@
             <el-table-column type="selection" width="55">
             </el-table-column>
             <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			用户编号				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			用户姓名				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
-            <!--<el-table-column label="					排序值		" prop="id" sortable="custom" fixed>
-
-                <template scope="scope">
-                    <el-input size="small" v-model="scope.row.languageCode" placeholder="请输入排序值"
-                    ></el-input>
-                </template>
-
             </el-table-column>-->
             <el-table-column label="					活动名称		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					充值		" prop="id" sortable="custom" fixed></el-table-column>
@@ -202,37 +197,19 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                <el-form-item label="开始时间" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
-                </el-form-item>
 
-                <el-form-item label="结束时间" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
-                </el-form-item>
+                <el-form-item label="ID" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="用户编号" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="用户姓名" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="商户名称" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="活动名称" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="充值" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="赠送" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="审核人" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="申请时间" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="审核时间" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="状态" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
 
-                <el-form-item label="活动排序值" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
-                </el-form-item>
-
-                <el-form-item label="PC端 Banner" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
-                </el-form-item>
-
-                <el-form-item label="PC端 活动详情" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
-                </el-form-item>
-
-                <el-form-item label="移动端 Banner" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
-                </el-form-item>
-
-                <el-form-item label="移动端 活动类型" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
-                </el-form-item>
-
-                <el-form-item label="移动端 活动详情" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
-                </el-form-item>
 
             </el-form>
             <div slot="footer" class="dialog-footer">
