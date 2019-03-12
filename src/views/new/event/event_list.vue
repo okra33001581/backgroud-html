@@ -183,46 +183,46 @@
                     </el-upload>
                 </el-form-item>
 
-                <el-form-item label="用户层级" prop="username">
-                    <el-checkbox v-model="checked">VIP1</el-checkbox>
-                    <el-checkbox v-model="checked">VIP2</el-checkbox>
-                    <el-checkbox v-model="checked">VIP3</el-checkbox>
-                    <el-checkbox v-model="checked">VIP4</el-checkbox>
-                    <el-checkbox v-model="checked">普通会员</el-checkbox>
+                <el-form-item label="用户层级" prop="userLevel">
+                    <el-checkbox v-model="formData.userLevel">VIP1</el-checkbox>
+                    <el-checkbox v-model="formData.userLevel">VIP2</el-checkbox>
+                    <el-checkbox v-model="formData.userLevel">VIP3</el-checkbox>
+                    <el-checkbox v-model="formData.userLevel">VIP4</el-checkbox>
+                    <el-checkbox v-model="formData.userLevel">普通会员</el-checkbox>
                 </el-form-item>
 
-                <el-form-item label="限制平台" prop="username">
+                <el-form-item label="限制平台" prop="restrictPlatform">
                 </el-form-item>
-                <el-form-item label="白名单" prop="username">
+                <el-form-item label="白名单" prop="whiteList">
                     <el-checkbox-group
-                            v-model="checkedCities1"
+                            v-model="formData.whiteList"
                             :min="1"
                             :max="2"
                             style="margin-left: 75px;"
                         >
-                        <el-checkbox  v-model="formData.isCheck1">彩票</el-checkbox>
-                        <el-checkbox  v-model="formData.isCheck2">开源棋牌</el-checkbox>
-                        <el-checkbox  v-model="formData.isCheck3">AG</el-checkbox>
-                        <el-checkbox  v-model="formData.isCheck2">BBIN</el-checkbox>
-                        <el-checkbox  v-model="formData.isCheck3">PT</el-checkbox>
+                        <el-checkbox  v-model="formData.whiteList">彩票</el-checkbox>
+                        <el-checkbox  v-model="formData.whiteList">开源棋牌</el-checkbox>
+                        <el-checkbox  v-model="formData.whiteList">AG</el-checkbox>
+                        <el-checkbox  v-model="formData.whiteList">BBIN</el-checkbox>
+                        <el-checkbox  v-model="formData.whiteList">PT</el-checkbox>
                     </el-checkbox-group>
                 </el-form-item>
                 <el-form-item label="黑名单" prop="username">
                     <el-checkbox-group
-                            v-model="checkedCities1"
+                            v-model="formData.blackList"
                             :min="1"
                             style="margin-left: 75px;"
                             :max="2">
-                        <el-checkbox  v-model="formData.isCheck1">彩票</el-checkbox>
-                        <el-checkbox  v-model="formData.isCheck2">开源棋牌</el-checkbox>
-                        <el-checkbox  v-model="formData.isCheck3">AG</el-checkbox>
-                        <el-checkbox  v-model="formData.isCheck2">BBIN</el-checkbox>
-                        <el-checkbox  v-model="formData.isCheck3">PT</el-checkbox>
+                        <el-checkbox  v-model="formData.blackList">彩票</el-checkbox>
+                        <el-checkbox  v-model="formData.blackList">开源棋牌</el-checkbox>
+                        <el-checkbox  v-model="formData.blackList">AG</el-checkbox>
+                        <el-checkbox  v-model="formData.blackList">BBIN</el-checkbox>
+                        <el-checkbox  v-model="formData.blackList">PT</el-checkbox>
                     </el-checkbox-group>
                 </el-form-item>
 
-                <el-form-item label="注册域名" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="注册域名" prop="domain">
+                    <el-input v-model="formData.domain" auto-complete="off"></el-input>
                 </el-form-item>
 
                 <el-form-item label="时间区间" prop="username">
@@ -260,11 +260,11 @@
                 <el-tab-pane label="活动内容">
                     <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                        <el-form-item label="活动名称" prop="username">
-                            <el-input v-model="formData.username" auto-complete="off"></el-input>
+                        <el-form-item label="活动名称" prop="eventName">
+                            <el-input v-model="formData.eventName" auto-complete="off"></el-input>
                         </el-form-item>
 
-                        <el-form-item label="时间区间" prop="username">
+                        <el-form-item label="时间区间" prop="datePeriod">
                             <el-date-picker
                                     v-model="formData.beginDate"
                                     type="date"
@@ -280,8 +280,8 @@
                         </el-form-item>
 
 
-                        <el-form-item label="活动对象" prop="username">
-                            <el-select v-model="formData.status" placeholder="活动模型">
+                        <el-form-item label="活动对象" prop="eventObject">
+                            <el-select v-model="formData.eventObject" placeholder="活动模型">
                                 <el-option label="充值赠送" value=""></el-option>
                                 <el-option label="彩金红包" value="0"></el-option>
                                 <el-option label="首充赠送" value="1"></el-option>
@@ -295,9 +295,9 @@
                             </el-select>
                         </el-form-item>
 
-                        <el-form-item label="领取方式" prop="username">
+                        <el-form-item label="领取方式" prop="receiveType">
                             <el-select
-                                    v-model="value11"
+                                    v-model="formData.receiveType"
                                     multiple
                                     collapse-tags
                                     placeholder="领取端点">
@@ -306,7 +306,7 @@
                             </el-select>
 
                             <el-select
-                                    v-model="value11"
+                                    v-model="formData.receiveMode"
                                     multiple
                                     collapse-tags
                                     placeholder="领取模式">
@@ -317,11 +317,11 @@
 
                         </el-form-item>
 
-                        <el-form-item label="活动介绍" prop="username">
-                            <el-input type="textarea" v-model="formData.username" auto-complete="off"></el-input>
+                        <el-form-item label="活动介绍" prop="eventDesc">
+                            <el-input type="textarea" v-model="formData.eventDesc" auto-complete="off"></el-input>
                         </el-form-item>
 
-                        <el-form-item label="Banner(PC)" prop="username">
+                        <el-form-item label="Banner(PC)" prop="bannerPc">
                             <el-upload
                                     action="https://jsonplaceholder.typicode.com/posts/"
                                     list-type="picture-card"
@@ -331,7 +331,7 @@
                                 <i class="el-icon-plus"></i>
                             </el-upload>
                         </el-form-item>
-                        <el-form-item label="Banner(APP)" prop="username">
+                        <el-form-item label="Banner(APP)" prop="bannerApp">
                             <el-upload
                                     action="https://jsonplaceholder.typicode.com/posts/"
                                     list-type="picture-card"
@@ -341,7 +341,7 @@
                                 <i class="el-icon-plus"></i>
                             </el-upload>
                         </el-form-item>
-                            <el-form-item label="活动小图(PC)" prop="username">
+                            <el-form-item label="活动小图(PC)" prop="picturePc">
                             <el-upload
                                     action="https://jsonplaceholder.typicode.com/posts/"
                                     list-type="picture-card"
@@ -351,7 +351,7 @@
                                 <i class="el-icon-plus"></i>
                             </el-upload>
                             </el-form-item>
-                                <el-form-item label="活动小图(APP)" prop="username">
+                                <el-form-item label="活动小图(APP)" prop="pictureApp">
                             <el-upload
                                     action="https://jsonplaceholder.typicode.com/posts/"
                                     list-type="picture-card"
@@ -361,7 +361,7 @@
                                 <i class="el-icon-plus"></i>
                             </el-upload>
                                 </el-form-item>
-                                    <el-form-item label="活动封面图(PC)" prop="username">
+                                    <el-form-item label="活动封面图(PC)" prop="forePC">
                             <el-upload
                                     action="https://jsonplaceholder.typicode.com/posts/"
                                     list-type="picture-card"
@@ -371,7 +371,7 @@
                                 <i class="el-icon-plus"></i>
                             </el-upload>
                                     </el-form-item>
-                                        <el-form-item label="活动封面图(APP)" prop="username">
+                                        <el-form-item label="活动封面图(APP)" prop="foreApp">
                             <el-upload
                                     action="https://jsonplaceholder.typicode.com/posts/"
                                     list-type="picture-card"
@@ -384,13 +384,13 @@
 
                         </el-form-item>
 
-                        <el-form-item label="前端显示" prop="username">
+                        <el-form-item label="前端显示" prop="terminal">
                             <el-checkbox-group
-                                    v-model="checkedCities1"
+                                    v-model="formData.terminal"
                                     :min="1"
                                     :max="2">
-                                <el-checkbox  v-model="formData.isCheck2">移动端</el-checkbox>
-                                <el-checkbox  v-model="formData.isCheck3">PC端</el-checkbox>
+                                <el-checkbox  v-model="formData.terminal">移动端</el-checkbox>
+                                <el-checkbox  v-model="formData.terminal">PC端</el-checkbox>
                             </el-checkbox-group>
                         </el-form-item>
 
@@ -401,15 +401,15 @@
                 <el-tab-pane label="规则设置">
                     <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                        <el-form-item label="首充最低金额" prop="username">
-                            <el-input v-model="formData.username" auto-complete="off"></el-input>
+                        <el-form-item label="首充最低金额" prop="depositMin">
+                            <el-input v-model="formData.depositMin" auto-complete="off"></el-input>
                         </el-form-item>
 
-                        <el-form-item label="赠送比例" prop="username">
-                            <el-input v-model="formData.username" auto-complete="off"></el-input>
+                        <el-form-item label="赠送比例" prop="benefitRatio">
+                            <el-input v-model="formData.benefitRatio" auto-complete="off"></el-input>
                         </el-form-item>
 
-                        <el-form-item label="赠送金额范围" prop="username">
+                        <el-form-item label="赠送金额范围" prop="benefitMoneyPeriod">
                             <el-date-picker
                                     v-model="formData.beginDate"
                                     type="date"
@@ -424,8 +424,8 @@
                             </el-date-picker>
                         </el-form-item>
 
-                        <el-form-item label="流水任务" prop="username">
-                            <el-input v-model="formData.username" auto-complete="off"></el-input>
+                        <el-form-item label="流水任务" prop="turnover">
+                            <el-input v-model="formData.turnover" auto-complete="off"></el-input>
                         </el-form-item>
 
                     </el-form>
@@ -434,41 +434,42 @@
                 <el-tab-pane label="高级设置">
                     <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                        <el-form-item label="限制平台" prop="username">
+                        <el-form-item label="限制平台" prop="restrictPlatform">
                         </el-form-item>
-                            <el-form-item label="白名单" prop="username">
+                            <el-form-item label="白名单" prop="whiteList">
                             <el-checkbox-group
-                                    v-model="checkedCities1"
+                                    v-model="formData.whiteList"
                                     :min="1"
                                     :max="2"
                                     style="margin-left: 78px;"
                                 >
-                                <el-checkbox  v-model="formData.isCheck1">彩票</el-checkbox>
-                                <el-checkbox  v-model="formData.isCheck2">开源棋牌</el-checkbox>
-                                <el-checkbox  v-model="formData.isCheck3">AG</el-checkbox>
-                                <el-checkbox  v-model="formData.isCheck2">BBIN</el-checkbox>
-                                <el-checkbox  v-model="formData.isCheck3">PT</el-checkbox>
+                                <el-checkbox  v-model="formData.whiteList">彩票</el-checkbox>
+                                <el-checkbox  v-model="formData.whiteList">开源棋牌</el-checkbox>
+                                <el-checkbox  v-model="formData.whiteList">AG</el-checkbox>
+                                <el-checkbox  v-model="formData.whiteList">BBIN</el-checkbox>
+                                <el-checkbox  v-model="formData.whiteList">PT</el-checkbox>
+                                <el-checkbox  v-model="formData.whiteList">PT</el-checkbox>
                             </el-checkbox-group>
                             </el-form-item>
-                            <el-form-item label="黑名单" prop="username">
+                            <el-form-item label="黑名单" prop="blackList">
                             <el-checkbox-group
-                                    v-model="checkedCities1"
+                                    v-model="formData.blackList"
                                     :min="1"
                                     :max="2"
                                     style="margin-left: 78px;"
                                 >
-                                <el-checkbox  v-model="formData.isCheck1">彩票</el-checkbox>
-                                <el-checkbox  v-model="formData.isCheck2">开源棋牌</el-checkbox>
-                                <el-checkbox  v-model="formData.isCheck3">AG</el-checkbox>
-                                <el-checkbox  v-model="formData.isCheck2">BBIN</el-checkbox>
-                                <el-checkbox  v-model="formData.isCheck3">PT</el-checkbox>
+                                <el-checkbox  v-model="formData.blackList">彩票</el-checkbox>
+                                <el-checkbox  v-model="formData.blackList">开源棋牌</el-checkbox>
+                                <el-checkbox  v-model="formData.blackList">AG</el-checkbox>
+                                <el-checkbox  v-model="formData.blackList">BBIN</el-checkbox>
+                                <el-checkbox  v-model="formData.blackList">PT</el-checkbox>
                             </el-checkbox-group>
                             </el-form-item>
                         <!--</el-form-item>-->
 
-                        <el-form-item label="限制游戏" prop="username">
+                        <el-form-item label="限制游戏" prop="restrictGame">
                              <el-select
-                                v-model="value11"
+                                v-model="formData.restrictGame"
                                 multiple
                                 collapse-tags
                                 placeholder="白名单">
@@ -480,7 +481,7 @@
                             </el-option>
                         </el-select>
                              <el-select
-                                v-model="value11"
+                                v-model="formData.blackList"
                                 multiple
                                 collapse-tags
                                 placeholder="黑名单">
@@ -493,24 +494,24 @@
                         </el-select>
                         </el-form-item>
 
-                        <el-form-item label="支付账号" prop="username">
+                        <el-form-item label="支付账号" prop="payAccount">
                             <el-select
-                                    v-model="value11"
+                                    v-model="formData.payAccount"
                                     multiple
                                     collapse-tags
                                     placeholder="请选择">
-                                <el-checkbox  v-model="formData.isCheck3">支付宝</el-checkbox>
-                                <el-checkbox  v-model="formData.isCheck2">微信</el-checkbox>
-                                <el-checkbox  v-model="formData.isCheck3">支付宝</el-checkbox>
+                                <el-checkbox  v-model="formData.payAccount">支付宝</el-checkbox>
+                                <el-checkbox  v-model="formData.payAccount">微信</el-checkbox>
+                                <el-checkbox  v-model="formData.payAccount">支付宝</el-checkbox>
                                 </el-option>
                             </el-select>
                         </el-form-item>
 
-                        <el-form-item label="返水" prop="username">
+                        <el-form-item label="返水" prop="rakeBack">
                             <template>
                                 <el-switch
                                         style="margin-left: 25px;"
-                                        v-model="formData.value2"
+                                        v-model="formData.rakeBack"
                                         active-color="#13ce66"
                                         inactive-color="#ff4949">
                                 </el-switch>
@@ -518,11 +519,11 @@
 
                         </el-form-item>
 
-                        <el-form-item label="救援金" prop="username">
+                        <el-form-item label="救援金" prop="rescueGold">
                             <template>
                                 <el-switch
                                         style="margin-left: 13px;"
-                                        v-model="formData.value2"
+                                        v-model="formData.rescueGold"
                                         active-color="#13ce66"
                                         inactive-color="#ff4949">
                                 </el-switch>
