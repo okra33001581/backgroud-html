@@ -15,8 +15,8 @@
             <el-form-item>
                 <el-button-group>
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
-                    <el-button type="primary" icon="el-icon-search" @click="onSubmit">查询</el-button>
-                    <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">新增</el-button>
+                    <el-button type="primary" icon="el-icon-search" @click="onSubmit">{{$t('page.search')}}</el-button>
+                    <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">{{$t('page.add')}}</el-button>
                 </el-button-group>
             </el-form-item>
         </el-form>
@@ -39,24 +39,24 @@
                     element-loading-background="rgba(0, 0, 0, 0.8)"
                     :header-cell-style="getRowClass">
             <el-table-column
-                label="角色 ID"
+                :label="$t('page.roleId')"
                 prop="id"
                 sortable="custom">
             </el-table-column>
             <el-table-column
-                label="角色名称"
+                :label="$t('page.roleName')"
                 prop="name"
                 sortable="custom">
             </el-table-column>
             <el-table-column
-                label="状态"
+                :label="$t('page.status')"
                 sortable="custom">
                 <template slot-scope="scope">
                     <el-tag :type="scope.row.status | statusFilterType">{{scope.row.status | statusFilterName}}</el-tag>
                 </template>
             </el-table-column>
             <el-table-column
-                label="描述"
+                :label="$t('page.desc')"
                 sortable="custom"
                 :show-overflow-tooltip="true">
                 <template slot-scope="scope">
@@ -64,15 +64,15 @@
                 </template>
             </el-table-column>
             <el-table-column
-                label="操作"
+                :label="$t('page.operate')"
                 fixed="right"
                 width="500">
                 <template slot-scope="scope">
-                    <el-button type="primary" icon="el-icon-share" size="small" @click.native="handleAuth(scope.row.id)">授权</el-button>
-                    <el-button type="primary" icon="el-icon-view" size="small" @click.native="handleAuthByUser(scope.row.id)">查看</el-button>
-                    <el-button type="primary" icon="el-icon-edit" size="small" @click.native="handleForm(scope.$index, scope.row)">编辑</el-button>
-                    <el-button type="primary" icon="el-icon-add" size="small" @click.native="handleForm(scope.$index, scope.row)">复制组类别</el-button>
-                    <el-button type="danger" icon="el-icon-delete" size="small" @click.native="handleDel(scope.$index, scope.row)" :loading="deleteLoading">删除</el-button>
+                    <el-button type="primary" icon="el-icon-share" size="small" @click.native="handleAuth(scope.row.id)">{{$t('page.audit')}}</el-button>
+                    <el-button type="primary" icon="el-icon-view" size="small" @click.native="handleAuthByUser(scope.row.id)">{{$t('page.view')}}</el-button>
+                    <el-button type="primary" icon="el-icon-edit" size="small" @click.native="handleForm(scope.$index, scope.row)">{{$t('page.edit')}}</el-button>
+                    <el-button type="primary" icon="el-icon-add" size="small" @click.native="handleForm(scope.$index, scope.row)">{{$t('page.copyGroup')}}</el-button>
+                    <el-button type="danger" icon="el-icon-delete" size="small" @click.native="handleDel(scope.$index, scope.row)" :loading="deleteLoading">{{$t('page.del')}}</el-button>
                 </template>
             </el-table-column>
         </el-table>
@@ -115,25 +115,25 @@
             width="85%"
             top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
-                <el-form-item label="角色名称" prop="name">
+                <el-form-item :label="$t('page.roleName')" prop="name">
                     <el-input v-model="formData.name" auto-complete="off"></el-input>
                 </el-form-item>
-                <el-form-item label="排序" prop="listorder">
+                <el-form-item :label="$t('page.sort')" prop="listorder">
                     <el-input type="" v-model="formData.listorder" auto-complete="off"></el-input>
                 </el-form-item>
-                <el-form-item label="状态" prop="status">
+                <el-form-item :label="$t('page.status')" prop="status">
                     <el-radio-group v-model="formData.status">
-                        <el-radio label="0">禁用</el-radio>
-                        <el-radio label="1">正常</el-radio>
+                        <el-radio label="0">{{$t('page.forbid')}}</el-radio>
+                        <el-radio label="1">{{$t('page.regular')}}</el-radio>
                     </el-radio-group>
                 </el-form-item>
-                <el-form-item label="描述">
+                <el-form-item :label="$t('page.desc')">
                     <el-input type="textarea" v-model="formData.remark"></el-input>
                 </el-form-item>
             </el-form>
             <div slot="footer" class="dialog-footer">
-                <el-button @click.native="hideForm">取消</el-button>
-                <el-button type="primary" @click.native="formSubmit()" :loading="formLoading">提交</el-button>
+                <el-button @click.native="hideForm">{{$t('page.cancel')}}</el-button>
+                <el-button type="primary" @click.native="formSubmit()" :loading="formLoading">{{$t('page.confirm')}}</el-button>
             </div>
         </el-dialog>
     </div>

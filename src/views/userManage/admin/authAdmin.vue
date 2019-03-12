@@ -26,8 +26,8 @@
             <el-form-item>
                 <el-button-group>
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
-                    <el-button type="primary" icon="el-icon-search" @click="onSubmit">查询</el-button>
-                    <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">新增</el-button>
+                    <el-button type="primary" icon="el-icon-search" @click="onSubmit">{{$t('page.search')}}</el-button>
+                    <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">{{$t('page.add')}}</el-button>
                 </el-button-group>
             </el-form-item>
         </el-form>
@@ -71,43 +71,47 @@
             </el-table-column>-->
 
             <el-table-column
-                    label="用户名"
                     prop="username"
+                    :label="$t('page.username')"
                     sortable="custom"
                     fixed>
             </el-table-column>
 
             <el-table-column
+                    prop="status"
                     sortable="custom"
-                    label="状态" prop="status">
+                    :label="$t('page.status')" >
                 <template slot-scope="scope">
                     <el-tag :type="scope.row.status | statusFilterType">{{scope.row.status | statusFilterName}}</el-tag>
                 </template>
             </el-table-column>
             <el-table-column
-                    label="登录时间"
+                    prop="last_login_time"
+                    :label="$t('page.loginDate')"
                     with="300"
                     sortable="custom"
-                    :show-overflow-tooltip="true" prop="last_login_time">
+                    :show-overflow-tooltip="true">
                 <template slot-scope="scope">
                     <i class="el-icon-time"></i>
                     <span>{{ scope.row.last_login_time }}</span>
                 </template>
             </el-table-column>
             <el-table-column
+                    prop="last_login_ip"
                     sortable="custom"
-                    label="登录IP" prop="last_login_ip">
+                    :label="$t('page.loginIP')">
                 <template slot-scope="scope">
                     <span>{{ scope.row.last_login_ip }}</span>
                 </template>
             </el-table-column>
             <el-table-column
-                    label="操作" width="260"
+                    prop="operate"
+                    :label="$t('page.operate')" width="260"
                     fixed="right">
                 <template slot-scope="scope">
-                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
+                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">{{$t('page.edit')}}
                     </el-button>
-                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
+                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">{{$t('page.del')}}
                     </el-button>
                 </template>
             </el-table-column>
@@ -130,31 +134,31 @@
                 width="85%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
-                <el-form-item label="用户名" prop="username">
+                <el-form-item :label="$t('page.username')" prop="username">
                     <el-input v-model="formData.username" auto-complete="off"></el-input>
                 </el-form-item>
-                <el-form-item label="登录密码" prop="password">
+                <el-form-item :label="$t('page.password')" prop="password">
                     <el-input type="password" v-model="formData.password" auto-complete="off"></el-input>
                 </el-form-item>
-                <el-form-item label="确认密码" prop="checkPassword">
+                <el-form-item :label="$t('page.checkPassword')" prop="checkPassword">
                     <el-input type="password" v-model="formData.checkPassword" auto-complete="off"></el-input>
                 </el-form-item>
-                <el-form-item label="状态" prop="status">
+                <el-form-item :label="$t('page.status')" prop="status">
                     <el-radio-group v-model="formData.status">
-                        <el-radio label="0">禁用</el-radio>
-                        <el-radio label="1">正常</el-radio>
-                        <el-radio label="2">未验证</el-radio>
+                        <el-radio label="0">{{$t('page.forbid')}}</el-radio>
+                        <el-radio label="1">{{$t('page.regular')}}</el-radio>
+                        <el-radio label="2">{{$t('page.unaudit')}}</el-radio>
                     </el-radio-group>
                 </el-form-item>
-                <el-form-item label="角色">
+                <el-form-item :label="$t('page.roleName')">
                     <el-checkbox-group v-model="formData.roles">
                         <el-checkbox v-for="item in roles" :key="item.id" :label="item.id">{{item.name}}</el-checkbox>
                     </el-checkbox-group>
                 </el-form-item>
             </el-form>
             <div slot="footer" class="dialog-footer">
-                <el-button @click.native="hideForm">取消</el-button>
-                <el-button type="primary" @click.native="formSubmit()" :loading="formLoading">提交</el-button>
+                <el-button @click.native="hideForm">{{$t('page.cancel')}}</el-button>
+                <el-button type="primary" @click.native="formSubmit()" :loading="formLoading">{{$t('page.confirm')}}</el-button>
             </div>
         </el-dialog>
     </div>
@@ -169,6 +173,9 @@
         authAdminDelete
     } from "../../../api/auth/authAdmin";
     // import { requestLogin } from '@/api/api';
+
+    const viewName = 'VueI18n'
+
 
     const formJson = {
         id: "",

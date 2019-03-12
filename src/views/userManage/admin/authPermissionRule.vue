@@ -15,8 +15,8 @@
             <el-form-item>
                 <el-button-group>
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
-                    <el-button type="primary" icon="el-icon-search" @click="onSubmit">查询</el-button>
-                    <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">新增</el-button>
+                    <el-button type="primary" icon="el-icon-search" @click="onSubmit">{{$t('page.search')}}</el-button>
+                    <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">{{$t('page.add')}}</el-button>
                 </el-button-group>
             </el-form-item>
         </el-form>
@@ -38,7 +38,7 @@
             width="85%"
             top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
-                <el-form-item label="父ID" prop="pid">
+                <el-form-item :label="$t('page.parentId')" prop="pid">
                     <el-select v-model="formData.pid" placeholder="顶级">
                         <el-option
                             v-for="item in treeList"
@@ -49,28 +49,28 @@
                         </el-option>
                     </el-select>
                 </el-form-item>
-                <el-form-item label="规则名" prop="name">
+                <el-form-item :label="$t('page.ruleName')" prop="name">
                     <el-input type="" v-model="formData.name" auto-complete="off"></el-input>
                 </el-form-item>
-                <el-form-item label="规则标题" prop="title">
+                <el-form-item :label="$t('page.ruleTitle')" prop="title">
                     <el-input type="" v-model="formData.title" auto-complete="off"></el-input>
                 </el-form-item>
-                <el-form-item label="状态" prop="status">
+                <el-form-item :label="$t('page.status')" prop="status">
                     <el-radio-group v-model="formData.status">
-                        <el-radio label="0">禁用</el-radio>
-                        <el-radio label="1">正常</el-radio>
+                        <el-radio label="0">{{$t('page.forbid')}}</el-radio>
+                        <el-radio label="1">{{$t('page.regular')}}</el-radio>
                     </el-radio-group>
                 </el-form-item>
-                <el-form-item label="额外的规则表达式">
+                <el-form-item :label="$t('page.ruleFormat')" prop="ruleFormat">
                     <el-input type="textarea" v-model="formData.condition"></el-input>
                 </el-form-item>
-                <el-form-item label="排序" prop="listorder">
+                <el-form-item :label="$t('page.sort')" prop="listorder">
                     <el-input type="" v-model="formData.listorder" auto-complete="off"></el-input>
                 </el-form-item>
             </el-form>
             <div slot="footer" class="dialog-footer">
-                <el-button @click.native="hideForm">取消</el-button>
-                <el-button type="primary" @click.native="formSubmit()" :loading="formLoading">提交</el-button>
+                <el-button @click.native="hideForm">{{$t('page.cancel')}}</el-button>
+                <el-button type="primary" @click.native="formSubmit()" :loading="formLoading">{{$t('page.confirm')}}</el-button>
             </div>
         </el-dialog>
     </div>
