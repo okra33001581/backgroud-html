@@ -90,8 +90,12 @@ export default {
         confirm:'确定',
         sort:'排序',
         forbid:'禁用',
-        regular:'regular',
-        unaudit:'unaudit',
+        regular:'正常',
+        unaudit:'未验证',
+        ruleName:'规则名称',
+        ruleTitle:'规则标题',
+        ruleFormat:'验证规则表达式',
+        parentId:'父编号'
     },
     title: {
         home: '首页',
