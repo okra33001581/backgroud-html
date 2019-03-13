@@ -12,6 +12,15 @@ export function activityList(query) {
     });
 }
 
+// 获取列表
+export function activitySubList(query) {
+    return axios({
+        url: "http://apidemo.test/api/event/activitySubList",
+        method: "get",
+        params: query
+    });
+}
+
 // 获取角色列表
 export function authAdminRoleList(query) {
     return axios({

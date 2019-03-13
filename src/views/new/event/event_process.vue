@@ -3,10 +3,10 @@
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="用户名称"></el-input>
+                <el-input v-model="query.username" :placeholder="$t('page.username')"></el-input>
             </el-form-item>
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="活动模型">
+                <el-select v-model="query.status" :placeholder="$t('page.event_object')">
                     <el-option label="充值赠送" value=""></el-option>
                     <el-option label="彩金红包" value="0"></el-option>
                     <el-option label="首充赠送" value="1"></el-option>
@@ -23,19 +23,19 @@
                 <el-date-picker
                         v-model="query.beginDate"
                         type="date"
-                        placeholder="开始时间"
+                        :placeholder="$t('page.begin_date')"
                         :picker-options="pickerOptions0">
                 </el-date-picker>
                 <el-date-picker
                         v-model="query.endDate"
                         type="date"
-                        placeholder="结束时间"
+                        :placeholder="$t('page.end_date')"
                         :picker-options="pickerOptions1">
                 </el-date-picker>
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="状态">
+                <el-select v-model="query.status" placeholder="$t('page.status')">
                     <el-option label="全部" value=""></el-option>
                     <el-option label="启用" value="0"></el-option>
                     <el-option label="停用" value="1"></el-option>
@@ -45,20 +45,41 @@
             <el-form-item>
                 <el-button-group>
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
-                    <el-button type="primary" icon="el-icon-search" @click="onSubmit">查询</el-button>
-                    <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">批量操作</el-button>
+                    <el-button type="primary" icon="el-icon-search" @click="onSubmit">{{$t('page.search')}}</el-button>
+                    <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">{{$t('page.batch')}}</el-button>
                 </el-button-group>
             </el-form-item>
         </el-form>
-        <template>
+
+
+        <template v-if="this.$i18n.locale == 'en-us'">
+              <split-table :headData="headDataEn" :bodyData="bodyData" @multipleData="multipleData" @editData="editData" :tableEditFlag="false" :checkFlag="false">
+            <template slot="operate" slot-scope="props">
+                <span @click="splitEdit(props.rowData)">{{$t('page.refresh')}}</span>
+                <!--<span @click="splitAdd(props.rowData)">关闭</span>
+                <span @click="splitDel(props.rowData)">删除</span>-->
+            </template>
+        </split-table>
+        </template>
+        <template v-else>
+              <split-table :headData="headData" :bodyData="bodyData" @multipleData="multipleData" @editData="editData" :tableEditFlag="false" :checkFlag="false">
+            <template slot="operate" slot-scope="props">
+                <span @click="splitEdit(props.rowData)">{{$t('page.refresh')}}</span>
+                <!--<span @click="splitAdd(props.rowData)">关闭</span>
+                <span @click="splitDel(props.rowData)">删除</span>-->
+            </template>
+        </split-table>
+        </template>
+
+       <!-- <template>
             <split-table :headData="headData" :bodyData="bodyData" @multipleData="multipleData" @editData="editData" :tableEditFlag="false" :checkFlag="false">
                 <template slot="operate" slot-scope="props">
-                    <span @click="splitEdit(props.rowData)">刷新</span>
-                    <!--<span @click="splitAdd(props.rowData)">关闭</span>
-                    <span @click="splitDel(props.rowData)">删除</span>-->
+                    <span @click="splitEdit(props.rowData)">{{$t('page.refresh')}}</span>
+                    &lt;!&ndash;<span @click="splitAdd(props.rowData)">关闭</span>
+                    <span @click="splitDel(props.rowData)">删除</span>&ndash;&gt;
                 </template>
             </split-table>
-        </template>
+        </template>-->
 
         <el-pagination
                 :page-size="query.limit"
@@ -78,15 +99,15 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                <el-form-item label="开始时间" prop="username">
+                <el-form-item label="$t('page.begin_date')" prop="username">
                     <el-input v-model="formData.username" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="结束时间" prop="username">
+                <el-form-item label="$t('page.end_date')" prop="username">
                     <el-input v-model="formData.username" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="活动排序值" prop="username">
+                <el-form-item label="$t('page.sort')" prop="username">
                     <el-input v-model="formData.username" auto-complete="off"></el-input>
                 </el-form-item>
 
@@ -197,7 +218,8 @@
                     address: '上海市普陀区金沙江路 1518 弄'
                 }],
                 multipleSelection: [],
-                headData: ["活动组" ,"进度","用户名", "活动名称", "存款", "赠送", "流水进度", "申请时间", "状态"],
+                headData: ["活动组" ,"进度","用户名称", "活动名称", "存款", "赠送", "流水进度", "申请时间", "状态"],
+                headDataEn: ["event_group" ,"process","username", "event_name", "deposit", "benefit", "turnover_process", "request_date", "status"],
                 bodyData: [
                     // { city: "活动组#A001", '85%',food: "user001", fun: ["随机红包", "存送100%", "常态存款"], fun1: ["0", "100", "100"], fun2: ["20", "100", "0"], fun3: ["2018-05-12 11:11:11", "2018-05-12 11:11:11", "2018-05-12 11:11:11"], fun4: ["2018-05-12 11:11:11", "2018-05-12 11:11:11", "2018-05-12 11:11:11"], fun5: ["进行中", "进行中", "进行中"]},
                     {

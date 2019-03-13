@@ -4,7 +4,7 @@
         <el-form :inline="true" :model="query" class="query-form" size="mini">
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="活动模型">
+                <el-select v-model="query.status" :placeholder="$t('page.event_object')">
                     <el-option label="充值赠送" value=""></el-option>
                     <el-option label="彩金红包" value="0"></el-option>
                     <el-option label="首充赠送" value="1"></el-option>
@@ -19,30 +19,30 @@
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="活动名称"></el-input>
+                <el-input v-model="query.username" :placeholder="$t('page.event_name')"></el-input>
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="用户名"></el-input>
+                <el-input v-model="query.username" :placeholder="$t('page.username')"></el-input>
             </el-form-item>
 
             <el-form-item class="query-form-item">
                 <el-date-picker
                         v-model="query.beginDate"
                         type="date"
-                        placeholder="开始时间"
+                        :placeholder="$t('page.begin_date')"
                         :picker-options="pickerOptions0">
                 </el-date-picker>
                 <el-date-picker
                         v-model="query.endDate"
                         type="date"
-                        placeholder="结束时间"
+                        :placeholder="$t('page.end_date')"
                         :picker-options="pickerOptions1">
                 </el-date-picker>
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="状态">
+                <el-select v-model="query.status" :placeholder="$t('page.status')">
                     <el-option label="全部" value=""></el-option>
                     <el-option label="启用" value="0"></el-option>
                     <el-option label="停用" value="1"></el-option>
@@ -61,9 +61,9 @@
             <el-form-item>
                 <el-button-group>
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
-                    <el-button type="primary" icon="el-icon-search" @click="onSubmit">查询</el-button>
-                    <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">批量通过</el-button>
-                    <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">批量拒绝</el-button>
+                    <el-button type="primary" icon="el-icon-search" @click="onSubmit">{{$t('page.search')}}</el-button>
+                    <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">{{$t('page.batch_success')}}</el-button>
+                    <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">{{$t('page.batch_reject')}}</el-button>
                 </el-button-group>
             </el-form-item>
         </el-form>
@@ -108,18 +108,17 @@
 -->
             <el-table-column type="selection" width="55">
             </el-table-column>
-            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			用户编号				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			用户姓名				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
-            </el-table-column>-->
-            <el-table-column label="					活动名称		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					充值		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					赠送		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					审核人		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					申请时间		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					审核时间		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					状态		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column :label="					$t('page.id')		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column :label="			$t('page.user_id')				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column :label="			$t('page.username')				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column :label="			$t('page.merchant_name')				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column :label="					$t('page.event_name')		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column :label="					$t('page.deposit')		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column :label="					$t('page.benefit')		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column :label="					$t('page.auditor')		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column :label="					$t('page.request_date')		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column :label="					$t('page.audit_date')		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column :label="					$t('page.status')		" prop="id" sortable="custom" fixed></el-table-column>
 
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
@@ -166,14 +165,14 @@
                 </template>
             </el-table-column>-->
             <el-table-column
-                    label="操作" width="350"
+                    :label="$t('page.operate')" width="350"
                     fixed="right">
                 <template slot-scope="scope">
-                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">详情
+                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">{{$t('page.detail')}}
                     </el-button>
-                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">通过
+                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">{{$t('page.success')}}
                     </el-button>
-                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">拒绝
+                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">{{$t('page.reject')}}
                     </el-button>
                 </template>
             </el-table-column>
@@ -198,23 +197,23 @@
             <el-form :model="formData" :rules="formRules" ref="dataForm">
 
 
-                <el-form-item label="ID" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="用户编号" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="用户姓名" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="商户名称" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="活动名称" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="充值" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="赠送" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="审核人" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="申请时间" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="审核时间" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="状态" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item :label="$t('page.id')" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item :label="$t('page.user_id')" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item :label="$t('page.username')" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item :label="$t('page.merchant_name')" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item :label="$t('page.event_name')" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item :label="$t('page.deposit')" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item :label="$t('page.benefit')" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item :label="$t('page.auditor')" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item :label="$t('page.request_date')" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item :label="$t('page.audit_date')" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item :label="$t('page.status')" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
 
 
             </el-form>
             <div slot="footer" class="dialog-footer">
-                <el-button @click.native="hideForm">取消</el-button>
-                <el-button type="primary" @click.native="formSubmit()" :loading="formLoading">提交</el-button>
+                <el-button @click.native="hideForm">{{$t('page.cancel')}}</el-button>
+                <el-button type="primary" @click.native="formSubmit()" :loading="formLoading">{{$t('page.audit')}}</el-button>
             </div>
         </el-dialog>
     </div>

@@ -3,7 +3,7 @@
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="活动模型">
+                <el-select v-model="query.status" placeholder="$t('page.event_object')">
                     <el-option label="充值赠送" value=""></el-option>
                     <el-option label="彩金红包" value="0"></el-option>
                     <el-option label="首充赠送" value="1"></el-option>
@@ -18,7 +18,7 @@
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="状态">
+                <el-select v-model="query.status" placeholder="$t('page.status')">
                     <el-option label="全部" value=""></el-option>
                     <el-option label="启用" value="0"></el-option>
                     <el-option label="停用" value="1"></el-option>
@@ -37,8 +37,8 @@
             <el-form-item>
                 <el-button-group>
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
-                    <el-button type="primary" icon="el-icon-search" @click="onSubmit">查询</el-button>
-                    <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">新增</el-button>
+                    <el-button type="primary" icon="el-icon-search" @click="onSubmit">{{$t('page.search')}}</el-button>
+                    <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">{{$t('page.add')}}</el-button>
                 </el-button-group>
             </el-form-item>
         </el-form>
@@ -51,7 +51,7 @@
                         <span>充值赠送</span>
                         <div class="bottom clearfix">
                             <time class="time">{{ currentDate }}</time>
-                            <el-button type="text" class="button">明细</el-button>
+                            <el-button type="text" class="button">{{$t('page. detail')}}</el-button>
                         </div>
                     </div>
                 </el-card>
@@ -64,7 +64,7 @@
                         <span>彩金红包</span>
                         <div class="bottom clearfix">
                             <time class="time">{{ currentDate }}</time>
-                            <el-button type="text" class="button">明细</el-button>
+                            <el-button type="text" class="button">{{$t('page. detail')}}</el-button>
                         </div>
                     </div>
                 </el-card>
@@ -77,7 +77,7 @@
                         <span>首充赠送</span>
                         <div class="bottom clearfix">
                             <time class="time">{{ currentDate }}</time>
-                            <el-button type="text" class="button" >明细</el-button>
+                            <el-button type="text" class="button" >{{$t('page. detail')}}</el-button>
                         </div>
                     </div>
                 </el-card>
@@ -93,6 +93,7 @@
                         <span>注册送彩金</span>
                         <div class="bottom clearfix">
                             <time class="time">{{ currentDate }}</time>
+                            <el-button type="text" class="button" >{{$t('page. detail')}}</el-button>
                         </div>
                     </div>
                 </el-card>
@@ -105,7 +106,7 @@
                         <span>反水</span>
                         <div class="bottom clearfix">
                             <time class="time">{{ currentDate }}</time>
-                            <el-button type="text" class="button">明细</el-button>
+                            <el-button type="text" class="button">{{$t('page. detail')}}</el-button>
                         </div>
                     </div>
                 </el-card>
@@ -118,7 +119,7 @@
                         <span>盈亏赠送</span>
                         <div class="bottom clearfix">
                             <time class="time">{{ currentDate }}</time>
-                            <el-button type="text" class="button">明细</el-button>
+                            <el-button type="text" class="button">{{$t('page. detail')}}</el-button>
                         </div>
                     </div>
                 </el-card>
@@ -135,7 +136,7 @@
                         <span>投注赠送</span>
                         <div class="bottom clearfix">
                             <time class="time">{{ currentDate }}</time>
-                            <el-button type="text" class="button">明细</el-button>
+                            <el-button type="text" class="button">{{$t('page. detail')}}</el-button>
                         </div>
                     </div>
                 </el-card>
@@ -148,7 +149,7 @@
                         <span>救援金</span>
                         <div class="bottom clearfix">
                             <time class="time">{{ currentDate }}</time>
-                            <el-button type="text" class="button">明细</el-button>
+                            <el-button type="text" class="button">{{$t('page. detail')}}</el-button>
                         </div>
                     </div>
                 </el-card>
@@ -161,7 +162,7 @@
                         <span>抽奖</span>
                         <div class="bottom clearfix">
                             <time class="time">{{ currentDate }}</time>
-                            <el-button type="text" class="button">明细</el-button>
+                            <el-button type="text" class="button">{{$t('page. detail')}}</el-button>
                         </div>
                     </div>
                 </el-card>
@@ -177,7 +178,7 @@
                         <span>签到</span>
                         <div class="bottom clearfix">
                             <time class="time">{{ currentDate }}</time>
-                            <el-button type="text" class="button">明细</el-button>
+                            <el-button type="text" class="button">{{$t('page. detail')}}</el-button>
                         </div>
                     </div>
                 </el-card>

@@ -3,10 +3,10 @@
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="活动名称"></el-input>
+                <el-input v-model="query.username" :placeholder="$t('page.event_name')"></el-input>
             </el-form-item>
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="活动模型">
+                <el-select v-model="query.status" :placeholder="$t('page.event_object')">
                     <el-option label="充值赠送" value=""></el-option>
                     <el-option label="彩金红包" value="0"></el-option>
                     <el-option label="首充赠送" value="1"></el-option>
@@ -21,7 +21,7 @@
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="状态">
+                <el-select v-model="query.status" :placeholder="$t('page.status')">
                     <el-option label="全部" value=""></el-option>
                     <el-option label="启用" value="0"></el-option>
                     <el-option label="停用" value="1"></el-option>
@@ -31,8 +31,8 @@
             <el-form-item>
                 <el-button-group>
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
-                    <el-button type="primary" icon="el-icon-search" @click="onSubmit">查询</el-button>
-                    <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">新增</el-button>
+                    <el-button type="primary" icon="el-icon-search" @click="onSubmit">{{$t('page.search')}}</el-button>
+                    <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">{{$t('page.add')}}</el-button>
                 </el-button-group>
             </el-form-item>
         </el-form>
@@ -51,8 +51,8 @@
                 style="width: 100%;"
                 @sort-change="sortChange">-->
         <el-table
-                :data="tableData5"
-                style="width: 100%">
+                :data="list"
+                style="width: 100%"  @expand-change="rowExpand">
             <el-table-column type="expand">
                 <template slot-scope="props">
                     <el-form label-position="left" inline class="demo-table-expand">
@@ -61,36 +61,36 @@
                                 border
                                 style="width: 100%">
                             <el-table-column
-                                    label="商户名称"
-                                    prop="name" >
+                                    :label="$t('page.merchant_name')"
+                                    prop="merchant_name" >
                             </el-table-column>
                             <el-table-column
-                                    label="活动名称"
-                                    prop="name" >
+                                    :label="$t('page.event_name')"
+                                    prop="event_name" >
                             </el-table-column>
                             <el-table-column
-                                    label="活动模型"
-                                    prop="name" >
+                                    :label="$t('page.event_object')"
+                                    prop="event_object" >
                             </el-table-column>
                             <el-table-column
-                                    label="操作人"
-                                    prop="name" >
+                                    :label="$t('page.creator')"
+                                    prop="creator" >
                             </el-table-column>
                             <el-table-column
-                                    label="更新时间"
-                                    prop="name" >
+                                    :label="$t('page.updated_at')"
+                                    prop="updated_at" >
                             </el-table-column>
                             <el-table-column
-                                    label="状态"
-                                    prop="name" >
+                                    :label="$t('page.status')"
+                                    prop="status" >
                             </el-table-column>
                             <el-table-column
-                                    label="操作" width="350"
+                                    :label="操作" width="350"
                                     fixed="right">
                                 <template slot-scope="scope">
-                                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
+                                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">{{$t('page.edit')}}
                                     </el-button>
-                                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
+                                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">{{$t('page.del')}}
                                     </el-button>
                                 </template>
                             </el-table-column>
@@ -99,45 +99,45 @@
                 </template>
             </el-table-column>
             <el-table-column
-                    label="商户名称"
-                    prop="id">
+                    :label="$t('page.merchant_name')"
+                    prop="merchant_name">
             </el-table-column>
             <el-table-column
-                    label="活动名称"
-                    prop="id">
+                    :label="$t('page.event_name')"
+                    prop="event_name">
             </el-table-column>
             <el-table-column
-                    label="活动模型"
-                    prop="name">
+                    :label="$t('page.event_object')"
+                    prop="event_object">
             </el-table-column>
             <el-table-column
-                    label="操作人"
-                    prop="name">
+                    :label="$t('page.creator')"
+                    prop="creator">
             </el-table-column>
             <el-table-column
-                    label="更新时间"
-                    prop="name">
+                    :label="$t('page.updated_at')"
+                    prop="updated_at">
             </el-table-column>
             <el-table-column
-                    label="状态"
-                    prop="desc">
+                    :label="$t('page.status')"
+                    prop="status">
             </el-table-column>
 
             <el-table-column
-                    label="操作" width="550"
+                    :label="$t('page.operate')" width="600"
                     fixed="right">
                 <template slot-scope="scope">
-                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
+                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">{{$t('page.edit')}}
                     </el-button>
-                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">新增
+                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">{{$t('page.add')}}
                     </el-button>
-                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleObjectSetForm(scope.$index, scope.row)">资格设置
+                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleObjectSetForm(scope.$index, scope.row)">{{$t('page.qualification_set')}}
                     </el-button>
-                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
+                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">{{$t('page.del')}}
                     </el-button>
-                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">启用
+                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">{{$t('page.enable')}}
                     </el-button>
-                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">停用
+                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">{{$t('page.disable')}}
                     </el-button>
                 </template>
             </el-table-column>
@@ -260,19 +260,19 @@
                 <el-tab-pane label="活动内容">
                     <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                        <el-form-item label="活动名称" prop="eventName">
-                            <el-input v-model="formData.eventName" auto-complete="off"></el-input>
+                        <el-form-item label="活动名称" prop="event_name">
+                            <el-input v-model="formData.event_name" auto-complete="off"></el-input>
                         </el-form-item>
 
                         <el-form-item label="时间区间" prop="datePeriod">
                             <el-date-picker
-                                    v-model="formData.beginDate"
+                                    v-model="formData.range_begin"
                                     type="date"
                                     placeholder="开始时间"
                                     :picker-options="pickerOptions0">
                             </el-date-picker>
                             <el-date-picker
-                                    v-model="formData.endDate"
+                                    v-model="formData.range_end"
                                     type="date"
                                     placeholder="结束时间"
                                     :picker-options="pickerOptions1">
@@ -280,8 +280,8 @@
                         </el-form-item>
 
 
-                        <el-form-item label="活动对象" prop="eventObject">
-                            <el-select v-model="formData.eventObject" placeholder="活动模型">
+                        <el-form-item label="活动对象" prop="event_object">
+                            <el-select v-model="formData.event_object" placeholder="活动模型">
                                 <el-option label="充值赠送" value=""></el-option>
                                 <el-option label="彩金红包" value="0"></el-option>
                                 <el-option label="首充赠送" value="1"></el-option>
@@ -295,9 +295,9 @@
                             </el-select>
                         </el-form-item>
 
-                        <el-form-item label="领取方式" prop="receiveType">
+                        <el-form-item label="领取方式" prop="receive_type">
                             <el-select
-                                    v-model="formData.receiveType"
+                                    v-model="formData.receive_type"
                                     multiple
                                     collapse-tags
                                     placeholder="领取端点">
@@ -306,7 +306,7 @@
                             </el-select>
 
                             <el-select
-                                    v-model="formData.receiveMode"
+                                    v-model="formData.receive_mode"
                                     multiple
                                     collapse-tags
                                     placeholder="领取模式">
@@ -317,8 +317,8 @@
 
                         </el-form-item>
 
-                        <el-form-item label="活动介绍" prop="eventDesc">
-                            <el-input type="textarea" v-model="formData.eventDesc" auto-complete="off"></el-input>
+                        <el-form-item label="活动介绍" prop="event_desc">
+                            <el-input type="textarea" v-model="formData.event_desc" auto-complete="off"></el-input>
                         </el-form-item>
 
                         <el-form-item label="Banner(PC)" prop="bannerPc">
@@ -384,13 +384,13 @@
 
                         </el-form-item>
 
-                        <el-form-item label="前端显示" prop="terminal">
+                        <el-form-item label="前端显示" prop="termial_display">
                             <el-checkbox-group
-                                    v-model="formData.terminal"
+                                    v-model="formData.termial_display"
                                     :min="1"
                                     :max="2">
-                                <el-checkbox  v-model="formData.terminal">移动端</el-checkbox>
-                                <el-checkbox  v-model="formData.terminal">PC端</el-checkbox>
+                                <el-checkbox  v-model="formData.termial_display">移动端</el-checkbox>
+                                <el-checkbox  v-model="formData.termial_display">PC端</el-checkbox>
                             </el-checkbox-group>
                         </el-form-item>
 
@@ -401,23 +401,23 @@
                 <el-tab-pane label="规则设置">
                     <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                        <el-form-item label="首充最低金额" prop="depositMin">
-                            <el-input v-model="formData.depositMin" auto-complete="off"></el-input>
+                        <el-form-item label="首充最低金额" prop="deposit">
+                            <el-input v-model="formData.deposit" auto-complete="off"></el-input>
                         </el-form-item>
 
-                        <el-form-item label="赠送比例" prop="benefitRatio">
-                            <el-input v-model="formData.benefitRatio" auto-complete="off"></el-input>
+                        <el-form-item label="赠送比例" prop="benefit_ratio">
+                            <el-input v-model="formData.benefit_ratio" auto-complete="off"></el-input>
                         </el-form-item>
 
                         <el-form-item label="赠送金额范围" prop="benefitMoneyPeriod">
                             <el-date-picker
-                                    v-model="formData.beginDate"
+                                    v-model="formData.benefit_min"
                                     type="date"
                                     placeholder="最小值"
                                     :picker-options="pickerOptions0">
                             </el-date-picker>
                             <el-date-picker
-                                    v-model="formData.endDate"
+                                    v-model="formData.benefit_max"
                                     type="date"
                                     placeholder="最大值"
                                     :picker-options="pickerOptions1">
@@ -436,40 +436,40 @@
 
                         <el-form-item label="限制平台" prop="restrictPlatform">
                         </el-form-item>
-                            <el-form-item label="白名单" prop="whiteList">
+                            <el-form-item label="白名单" prop="platform_whitelist">
                             <el-checkbox-group
-                                    v-model="formData.whiteList"
+                                    v-model="formData.platform_whitelist"
                                     :min="1"
                                     :max="2"
                                     style="margin-left: 78px;"
                                 >
-                                <el-checkbox  v-model="formData.whiteList">彩票</el-checkbox>
-                                <el-checkbox  v-model="formData.whiteList">开源棋牌</el-checkbox>
-                                <el-checkbox  v-model="formData.whiteList">AG</el-checkbox>
-                                <el-checkbox  v-model="formData.whiteList">BBIN</el-checkbox>
-                                <el-checkbox  v-model="formData.whiteList">PT</el-checkbox>
-                                <el-checkbox  v-model="formData.whiteList">PT</el-checkbox>
+                                <el-checkbox  v-model="formData.platform_whitelist">彩票</el-checkbox>
+                                <el-checkbox  v-model="formData.platform_whitelist">开源棋牌</el-checkbox>
+                                <el-checkbox  v-model="formData.platform_whitelist">AG</el-checkbox>
+                                <el-checkbox  v-model="formData.platform_whitelist">BBIN</el-checkbox>
+                                <el-checkbox  v-model="formData.platform_whitelist">PT</el-checkbox>
+                                <el-checkbox  v-model="formData.platform_whitelist">PT</el-checkbox>
                             </el-checkbox-group>
                             </el-form-item>
-                            <el-form-item label="黑名单" prop="blackList">
+                            <el-form-item label="黑名单" prop="platform_blacklist">
                             <el-checkbox-group
-                                    v-model="formData.blackList"
+                                    v-model="formData.platform_blacklist"
                                     :min="1"
                                     :max="2"
                                     style="margin-left: 78px;"
                                 >
-                                <el-checkbox  v-model="formData.blackList">彩票</el-checkbox>
-                                <el-checkbox  v-model="formData.blackList">开源棋牌</el-checkbox>
-                                <el-checkbox  v-model="formData.blackList">AG</el-checkbox>
-                                <el-checkbox  v-model="formData.blackList">BBIN</el-checkbox>
-                                <el-checkbox  v-model="formData.blackList">PT</el-checkbox>
+                                <el-checkbox  v-model="formData.platform_blacklist">彩票</el-checkbox>
+                                <el-checkbox  v-model="formData.platform_blacklist">开源棋牌</el-checkbox>
+                                <el-checkbox  v-model="formData.platform_blacklist">AG</el-checkbox>
+                                <el-checkbox  v-model="formData.platform_blacklist">BBIN</el-checkbox>
+                                <el-checkbox  v-model="formData.platform_blacklist">PT</el-checkbox>
                             </el-checkbox-group>
                             </el-form-item>
                         <!--</el-form-item>-->
 
                         <el-form-item label="限制游戏" prop="restrictGame">
                              <el-select
-                                v-model="formData.restrictGame"
+                                v-model="formData.game_whitelist"
                                 multiple
                                 collapse-tags
                                 placeholder="白名单">
@@ -481,7 +481,7 @@
                             </el-option>
                         </el-select>
                              <el-select
-                                v-model="formData.blackList"
+                                v-model="formData.game_blacklist"
                                 multiple
                                 collapse-tags
                                 placeholder="黑名单">
@@ -494,24 +494,20 @@
                         </el-select>
                         </el-form-item>
 
-                        <el-form-item label="支付账号" prop="payAccount">
-                            <el-select
-                                    v-model="formData.payAccount"
-                                    multiple
-                                    collapse-tags
-                                    placeholder="请选择">
-                                <el-checkbox  v-model="formData.payAccount">支付宝</el-checkbox>
-                                <el-checkbox  v-model="formData.payAccount">微信</el-checkbox>
-                                <el-checkbox  v-model="formData.payAccount">支付宝</el-checkbox>
-                                </el-option>
-                            </el-select>
+                        <el-form-item label="支付账号" prop="pay_account">
+                            <el-checkbox-group
+                                    v-model="checkedCities1"
+                                    :min="1"
+                                    :max="2">
+                                <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
+                            </el-checkbox-group>
                         </el-form-item>
 
-                        <el-form-item label="返水" prop="rakeBack">
+                        <el-form-item label="返水" prop="rakeback">
                             <template>
                                 <el-switch
                                         style="margin-left: 25px;"
-                                        v-model="formData.rakeBack"
+                                        v-model="formData.rakeback"
                                         active-color="#13ce66"
                                         inactive-color="#ff4949">
                                 </el-switch>
@@ -519,11 +515,11 @@
 
                         </el-form-item>
 
-                        <el-form-item label="救援金" prop="rescueGold">
+                        <el-form-item label="救援金" prop="rescue_gold">
                             <template>
                                 <el-switch
                                         style="margin-left: 13px;"
-                                        v-model="formData.rescueGold"
+                                        v-model="formData.rescue_gold"
                                         active-color="#13ce66"
                                         inactive-color="#ff4949">
                                 </el-switch>
@@ -548,11 +544,15 @@
 <script>
     import {
         activityList,
+        activitySubList,
         authAdminRoleList,
         authAdminSave,
         authAdminDelete
     } from "../../../api/event-management";
     const cityOptions = ['上海', '北京', '广州', '深圳'];
+
+    const viewName = 'VueI18n'
+
     const formJson = {
         id: "",
         password: "",
@@ -601,68 +601,7 @@
                 cities: cityOptions,
                 value5: [],
                 value11: [],
-                tableData: [{
-                    date: '2016-05-02',
-                    name: '王小虎',
-                    province: '上海',
-                    city: '普陀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    zip: 200333
-                }, {
-                    date: '2016-05-04',
-                    name: '王小虎',
-                    province: '上海',
-                    city: '普陀区',
-                    address: '上海市普陀区金沙江路 1517 弄',
-                    zip: 200333
-                }, {
-                    date: '2016-05-01',
-                    name: '王小虎',
-                    province: '上海',
-                    city: '普陀区',
-                    address: '上海市普陀区金沙江路 1519 弄',
-                    zip: 200333
-                }, {
-                    date: '2016-05-03',
-                    name: '王小虎',
-                    province: '上海',
-                    city: '普陀区',
-                    address: '上海市普陀区金沙江路 1516 弄',
-                    zip: 200333
-                }],
-                tableData5: [{
-                    id: '12987122',
-                    name: '好滋好味鸡蛋仔',
-                    category: '江浙小吃、小吃零食',
-                    desc: '荷兰优质淡奶，奶香浓而不腻',
-                    address: '上海市普陀区真北路',
-                    shop: '王小虎夫妻店',
-                    shopId: '10333'
-                }, {
-                    id: '12987123',
-                    name: '好滋好味鸡蛋仔',
-                    category: '江浙小吃、小吃零食',
-                    desc: '荷兰优质淡奶，奶香浓而不腻',
-                    address: '上海市普陀区真北路',
-                    shop: '王小虎夫妻店',
-                    shopId: '10333'
-                }, {
-                    id: '12987125',
-                    name: '好滋好味鸡蛋仔',
-                    category: '江浙小吃、小吃零食',
-                    desc: '荷兰优质淡奶，奶香浓而不腻',
-                    address: '上海市普陀区真北路',
-                    shop: '王小虎夫妻店',
-                    shopId: '10333'
-                }, {
-                    id: '12987126',
-                    name: '好滋好味鸡蛋仔',
-                    category: '江浙小吃、小吃零食',
-                    desc: '荷兰优质淡奶，奶香浓而不腻',
-                    address: '上海市普陀区真北路',
-                    shop: '王小虎夫妻店',
-                    shopId: '10333'
-                }],
+                tableData: [],
                 roles: [],
                 query: {
                     username: "",
@@ -768,6 +707,36 @@
                     return 'background:#F2F2F2'
                 } else {
                     return ''
+                }
+            },
+            // 展开父表格数据 并查询该数据下的子数据
+            rowExpand(row, expandedRows) {
+                // 打印父任务内容
+                console.log(row)
+                let vm = this;
+                let params = {
+                    taskId: row.id
+                };
+
+                // activityList(this.query)
+                //     .then(response => {
+                //         this.loading = false;
+                //         this.list = response.data.list || [];
+                //         this.total = response.data.total || 0;
+                //     })
+                //     .catch(() => {
+                //         this.loading = false;
+                //         this.list = [];
+                //         this.total = 0;
+                //         this.roles = [];
+                //     });
+
+                activitySubList(params).then(res => {
+                    this.tableData = res.data.list;
+                });
+                //如果展开行数大于1
+                if(expandedRows.length>1){
+                    expandedRows.shift();
                 }
             },
             // 显示表单
