@@ -131,8 +131,8 @@
                     </el-button>
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">{{$t('page.add')}}
                     </el-button>
-                  <!--  <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleObjectSetForm(scope.$index, scope.row)">{{$t('page.qualification_set')}}
-                    </el-button>-->
+                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleObjectSetForm(scope.$index, scope.row)">{{$t('page.qualification_set')}}
+                    </el-button>
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">{{$t('page.del')}}
                     </el-button>
                     <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">{{$t('page.enable')}}
@@ -161,7 +161,7 @@
                 :before-close="hideObjectSetForm"
                 width="35%"
                 top="5vh">
-            <el-form :model="formObjectSetData" :rules="formObjectSetRules" ref="dataObjectSetForm" enctype='multipart/form-data'>
+            <el-form :model="formObjectSetData" :rules="formObjectSetRules" ref="dataObjectSetForm">
 
                 <el-form-item label="指定用户" prop="username">
                     <el-input v-model="formData.user_ids" auto-complete="off"></el-input>
@@ -170,16 +170,14 @@
                 <el-form-item label="导入用户名单" prop="username">
                     <el-upload
                             class="upload-demo"
-                            action="http://apidemo.test/api/event/eventSave"
+                            action="https://jsonplaceholder.typicode.com/posts/"
                             :on-preview="handlePreview"
                             :on-remove="handleRemove"
                             :before-remove="beforeRemove"
                             multiple
                             :limit="3"
                             :on-exceed="handleExceed"
-                            :file-list="fileList
-                            :data="picData"
-                            >
+                            :file-list="fileList">
                         <el-button size="small" type="primary">点击上传</el-button>
                         <div slot="tip" class="el-upload__tip">不超过500kb</div>
                     </el-upload>
@@ -480,11 +478,12 @@
                         <el-form-item label="导入用户名单" prop="username">
                             <el-upload
                                     class="upload-demo"
-                                    action="http://apidemo.test/api/event/fileSave"
-                                    :http-request="upload"
+                                    action="https://jsonplaceholder.typicode.com/posts/"
                                     :on-preview="handlePreview"
                                     :on-remove="handleRemove"
                                     :before-remove="beforeRemove"
+                                    multiple
+                                    :limit="3"
                                     :on-exceed="handleExceed"
                                     :file-list="fileList">
                                 <el-button size="small" type="primary">点击上传</el-button>

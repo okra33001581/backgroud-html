@@ -63,6 +63,32 @@ export function eventSave(data, formName, method = "post") {
     });
 }
 
+// 保存
+export function fileSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "http://apidemo.test/api/event/fileSave"
+            : "http://apidemo.test/api/event/fileSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+// 保存
+export function eventObjectSetSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "http://apidemo.test/api/event/eventObjectSetSave"
+            : "http://apidemo.test/api/event/eventObjectSetSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
 // 删除管理员
 export function authAdminDelete(data) {
     return axios({
