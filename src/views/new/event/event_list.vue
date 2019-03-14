@@ -295,27 +295,49 @@
                             </el-select>
                         </el-form-item>
 
-                        <el-form-item label="领取方式" prop="receive_type">
-                            <el-select
-                                    v-model="formData.receive_type"
-                                    multiple
-                                    collapse-tags
-                                    placeholder="领取端点">
-                                <el-option label="移动端" value="0"></el-option>
-                                <el-option label="PC端" value="1"></el-option>
-                            </el-select>
+                        <el-form-item label="发放方式" prop="send_type">
+                                 <el-checkbox-group
+                                    v-model="formData.send_type"
+                                    :min="1"
+                                    :max="4">
+                                <el-checkbox v-for="item in sendType" :label="item.key" :key="item.key">
+                                    {{ item.name }}
+                                </el-checkbox>
+                            </el-checkbox-group>
+                        </el-form-item>
 
-                            <el-select
-                                    v-model="formData.receive_mode"
-                                    multiple
-                                    collapse-tags
-                                    placeholder="领取模式">
-                                <el-option label="不需审核" value="0"></el-option>
-                                <el-option label="需审核" value="1"></el-option>
-                                </el-option>
-                            </el-select>
+                        <el-form-item label="领取端点" prop="terminal_display">
+                            <el-checkbox-group
+                                    v-model="formData.terminal_display"
+                                    :min="1"
+                                    :max="4">
+                                <el-checkbox v-for="item in terminalDisplay" :label="item.key" :key="item.key">
+                                    {{ item.name }}
+                                </el-checkbox>
+                            </el-checkbox-group>
 
                         </el-form-item>
+
+                        <el-form-item label="审核模式" prop="audit_mode">
+                            <el-checkbox-group
+                                    v-model="formData.audit_mode"
+                                    :min="1"
+                                    :max="4">
+                                <el-checkbox v-for="item in auditMode" :label="item.key" :key="item.key">
+                                    {{ item.name }}
+                                </el-checkbox>
+                            </el-checkbox-group>
+
+                        </el-form-item>
+
+                        <el-form-item label="领取频率" prop="frequency">
+                            <el-input v-model="formData.frequency"></el-input>
+                        </el-form-item>
+
+                        <el-form-item label="申请次数" prop="times">
+                            <el-input v-model="formData.times"></el-input>
+                        </el-form-item>
+
 
                         <el-form-item label="活动介绍" prop="event_desc">
                             <el-input type="textarea" v-model="formData.event_desc" auto-complete="off"></el-input>
@@ -328,6 +350,7 @@
                                     :on-preview="handlePictureCardPreview"
                                     style="margin-left: 140px;"
                                     :on-remove="handleRemove">
+                                <img  :src="formData.pic1" class="el-upload el-upload--picture-card"/>
                                 <i class="el-icon-plus"></i>
                             </el-upload>
                         </el-form-item>
@@ -338,6 +361,7 @@
                                     :on-preview="handlePictureCardPreview"
                                     style="margin-left: 140px;"
                                     :on-remove="handleRemove">
+                                <img  :src="formData.pic2" class="el-upload el-upload--picture-card"/>
                                 <i class="el-icon-plus"></i>
                             </el-upload>
                         </el-form-item>
@@ -348,6 +372,7 @@
                                     :on-preview="handlePictureCardPreview"
                                     style="margin-left: 140px;"
                                     :on-remove="handleRemove">
+                                <img  :src="formData.pic3" class="el-upload el-upload--picture-card"/>
                                 <i class="el-icon-plus"></i>
                             </el-upload>
                             </el-form-item>
@@ -358,6 +383,7 @@
                                     :on-preview="handlePictureCardPreview"
                                     style="margin-left: 140px;"
                                     :on-remove="handleRemove">
+                                <img  :src="formData.pic4" class="el-upload el-upload--picture-card"/>
                                 <i class="el-icon-plus"></i>
                             </el-upload>
                                 </el-form-item>
@@ -368,6 +394,7 @@
                                     :on-preview="handlePictureCardPreview"
                                     style="margin-left: 140px;"
                                     :on-remove="handleRemove">
+                                <img  :src="formData.pic5" class="el-upload el-upload--picture-card"/>
                                 <i class="el-icon-plus"></i>
                             </el-upload>
                                     </el-form-item>
@@ -378,13 +405,14 @@
                                     :on-preview="handlePictureCardPreview"
                                     style="margin-left: 140px;"
                                     :on-remove="handleRemove">
+                                <img  :src="formData.pic6" class="el-upload el-upload--picture-card"/>
                                 <i class="el-icon-plus"></i>
                             </el-upload>
                                         </el-form-item>
 
                         </el-form-item>
 
-                        <el-form-item label="前端显示" prop="termial_display">
+                     <!--   <el-form-item label="前端显示" prop="termial_display">
                             <el-checkbox-group
                                     v-model="formData.termial_display"
                                     :min="1"
@@ -392,7 +420,7 @@
                                 <el-checkbox  v-model="formData.termial_display">移动端</el-checkbox>
                                 <el-checkbox  v-model="formData.termial_display">PC端</el-checkbox>
                             </el-checkbox-group>
-                        </el-form-item>
+                        </el-form-item>-->
 
                     </el-form>
                 </el-tab-pane>
@@ -400,6 +428,13 @@
 
                 <el-tab-pane label="规则设置">
                     <el-form :model="formData" :rules="formRules" ref="dataForm">
+                        <el-form-item label="正盈利金额" prop="deposit">
+                            <el-input v-model="formData.deposit" auto-complete="off"></el-input>
+                        </el-form-item>
+
+                        <el-form-item label="负盈利金额" prop="deposit">
+                            <el-input v-model="formData.deposit" auto-complete="off"></el-input>
+                        </el-form-item>
 
                         <el-form-item label="首充最低金额" prop="deposit">
                             <el-input v-model="formData.deposit" auto-complete="off"></el-input>
@@ -428,78 +463,103 @@
                             <el-input v-model="formData.turnover" auto-complete="off"></el-input>
                         </el-form-item>
 
+                        <el-form-item label=提款金额范围 prop="withdraw_min">
+                            <el-input v-model="formData.withdraw_min" style="left: 0px; width: 160px;" auto-complete="off"></el-input>
+                            <el-input v-model="formData.withdraw_max" style="left: 0px; width: 160px;" auto-complete="off"></el-input>
+                        </el-form-item>
+
+                        <el-form-item label=历史存款要求 prop="history_deposit">
+                            <el-input v-model="formData.history_deposit" style="left: 0px; width: 40px;" auto-complete="off"></el-input>
+
+                            <el-date-picker
+                                    v-model="formData.history_deposit_begin"
+                                    type="date"
+                                    placeholder="开始时间"
+                                    :picker-options="pickerOptions0">
+                            </el-date-picker>
+                            <el-date-picker
+                                    v-model="formData.history_deposit_end"
+                                    type="date"
+                                    placeholder="结束时间"
+                                    :picker-options="pickerOptions1">
+                            </el-date-picker>
+                        </el-form-item>
+
+                        <el-form-item label="验证任务" prop="turnover">
+                        </el-form-item>
+
+                        <el-checkbox v-model="formData.bind_bankcard_flag">绑银行卡</el-checkbox>
+                        赠送金额<el-input v-model="formData.bind_bankcard_benefit" style="left: 10px; width: 430px;" auto-complete="off"></el-input>
+                        <el-checkbox v-model="formData.perfect_username_flag">完善姓名</el-checkbox>
+                        赠送金额<el-input v-model="formData.perfect_username_benefit" style="left: 10px; width: 430px;" auto-complete="off"></el-input>
+                        <el-checkbox v-model="formData.verify_email_flag">验证邮箱</el-checkbox>
+                        赠送金额<el-input v-model="formData.verify_email_benefit" style="left: 10px; width: 430px;" auto-complete="off"></el-input>
+                        <el-checkbox v-model="formData.verify_phone_flag">验证手机</el-checkbox>
+                        赠送金额<el-input v-model="formData.verify_phone_benefit" style="left: 10px; width: 430px;" auto-complete="off"></el-input>
                     </el-form>
                 </el-tab-pane>
 
                 <el-tab-pane label="高级设置">
                     <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                        <el-form-item label="限制平台" prop="restrictPlatform">
+                        <el-form-item label="限制平台" prop="platform_whitelist">
                         </el-form-item>
-                            <el-form-item label="白名单" prop="platform_whitelist">
-                            <el-checkbox-group
-                                    v-model="formData.platform_whitelist"
-                                    :min="1"
-                                    :max="2"
-                                    style="margin-left: 78px;"
-                                >
-                                <el-checkbox  v-model="formData.platform_whitelist">彩票</el-checkbox>
-                                <el-checkbox  v-model="formData.platform_whitelist">开源棋牌</el-checkbox>
-                                <el-checkbox  v-model="formData.platform_whitelist">AG</el-checkbox>
-                                <el-checkbox  v-model="formData.platform_whitelist">BBIN</el-checkbox>
-                                <el-checkbox  v-model="formData.platform_whitelist">PT</el-checkbox>
-                                <el-checkbox  v-model="formData.platform_whitelist">PT</el-checkbox>
-                            </el-checkbox-group>
+                        <el-form-item label="白名单" prop="platform_blacklist">
+                        <el-checkbox-group
+                                v-model="formData.platform_whitelist"
+                                :min="1"
+                                :max="4">
+                            <el-checkbox v-for="item in platformsOptions" :label="item.key" :key="item.key">
+                                {{ item.name }}
+                            </el-checkbox>
+                        </el-checkbox-group>
                             </el-form-item>
                             <el-form-item label="黑名单" prop="platform_blacklist">
                             <el-checkbox-group
                                     v-model="formData.platform_blacklist"
-                                    :min="1"
-                                    :max="2"
                                     style="margin-left: 78px;"
                                 >
-                                <el-checkbox  v-model="formData.platform_blacklist">彩票</el-checkbox>
-                                <el-checkbox  v-model="formData.platform_blacklist">开源棋牌</el-checkbox>
-                                <el-checkbox  v-model="formData.platform_blacklist">AG</el-checkbox>
-                                <el-checkbox  v-model="formData.platform_blacklist">BBIN</el-checkbox>
-                                <el-checkbox  v-model="formData.platform_blacklist">PT</el-checkbox>
+                                <el-checkbox v-for="item in platformsOptions" :label="item.key" :key="item.key">
+                                    {{ item.name }}
+                                </el-checkbox>
                             </el-checkbox-group>
                             </el-form-item>
                         <!--</el-form-item>-->
 
                         <el-form-item label="限制游戏" prop="restrictGame">
-                             <el-select
-                                v-model="formData.game_whitelist"
-                                multiple
-                                collapse-tags
-                                placeholder="白名单">
-                            <el-option
-                                    v-for="item in options"
-                                    :key="item.value"
-                                    :label="item.label"
-                                    :value="item.value">
-                            </el-option>
-                        </el-select>
-                             <el-select
-                                v-model="formData.game_blacklist"
-                                multiple
-                                collapse-tags
-                                placeholder="黑名单">
-                            <el-option
-                                    v-for="item in options"
-                                    :key="item.value"
-                                    :label="item.label"
-                                    :value="item.value">
-                            </el-option>
-                        </el-select>
                         </el-form-item>
+                        <el-form-item label="白名单" prop="restrictGame">
+                            <el-checkbox-group
+                                    v-model="formData.game_whitelist"
+                                    :min="1"
+                                    :max="4">
+                                <el-checkbox v-for="item in platformsOptions" :label="item.key" :key="item.key">
+                                    {{ item.name }}
+                                </el-checkbox>
+                            </el-checkbox-group>
+
+                        </el-form-item>
+
+                        <el-form-item label="黑名单" prop="restrictGame">
+                            <el-checkbox-group
+                                    v-model="formData.game_blacklist"
+                                    :min="1"
+                                    :max="4">
+                                <el-checkbox v-for="item in platformsOptions" :label="item.key" :key="item.key">
+                                    {{ item.name }}
+                                </el-checkbox>
+                            </el-checkbox-group>
+                        </el-form-item>
+
 
                         <el-form-item label="支付账号" prop="pay_account">
                             <el-checkbox-group
-                                    v-model="checkedCities1"
+                                    v-model="formData.pay_account"
                                     :min="1"
-                                    :max="2">
-                                <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
+                                    :max="4">
+                                <el-checkbox v-for="item in payAccountOptions" :label="item.key" :key="item.key">
+                                    {{ item.name }}
+                                </el-checkbox>
                             </el-checkbox-group>
                         </el-form-item>
 
@@ -550,8 +610,19 @@
         authAdminDelete
     } from "../../../api/event-management";
     const cityOptions = ['上海', '北京', '广州', '深圳'];
-
-    const viewName = 'VueI18n'
+    const sendType = [
+        { key: '自动发放', name: '自动发放' },
+        { key: '手动领取', name: '手动领取' }
+    ];
+    const terminalDisplay = [
+        { key: '移动端', name: '移动端' },
+        { key: 'PC端', name: 'PC端' }
+    ];
+    const auditMode = [
+        { key: '不需审核', name: '不需审核' },
+        { key: '需审核', name: '需审核' }
+    ];
+    const viewName = 'VueI18n';
 
     const formJson = {
         id: "",
@@ -596,8 +667,24 @@
                     value: '选项5',
                     label: '北京烤鸭'
                 }],
+                checked: true,
+                platformsOptions: [
+                    { key: '彩票', name: '彩票' },
+                    { key: '开源棋牌', name: '开源棋牌' },
+                    { key: 'AG', name: 'AG' },
+                    { key: 'BBIN', name: 'BBIN' },
+                    { key: 'PT', name: 'PT' },
+                ],
+                payAccountOptions: [
+                    { key: '支付宝', name: '支付宝' },
+                    { key: '微信', name: '微信' },
+                ],
+                sendType,
+                terminalDisplay,
+                selectedOption:{},
+                auditMode,
                 fileList: [{name: 'food.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}, {name: 'food2.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}],
-                checkedCities1: ['上海', '北京'],
+                checkedCities1: ['上海'],
                 cities: cityOptions,
                 value5: [],
                 value11: [],
@@ -791,6 +878,7 @@
                         this.loading = false;
                         this.list = response.data.list || [];
                         this.total = response.data.total || 0;
+                        this.selectedOption = [0,1];
                     })
                     .catch(() => {
                         this.loading = false;
