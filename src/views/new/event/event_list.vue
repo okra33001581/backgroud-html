@@ -164,7 +164,7 @@
             <el-form :model="formObjectSetData" :rules="formObjectSetRules" ref="dataForm">
 
                 <el-form-item label="指定用户" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                    <el-input v-model="formData.user_ids" auto-complete="off"></el-input>
                 </el-form-item>
 
                 <el-form-item label="导入用户名单" prop="username">
@@ -184,56 +184,30 @@
                 </el-form-item>
 
                 <el-form-item label="用户层级" prop="userLevel">
-                    <el-checkbox v-model="formData.userLevel">VIP1</el-checkbox>
-                    <el-checkbox v-model="formData.userLevel">VIP2</el-checkbox>
-                    <el-checkbox v-model="formData.userLevel">VIP3</el-checkbox>
-                    <el-checkbox v-model="formData.userLevel">VIP4</el-checkbox>
-                    <el-checkbox v-model="formData.userLevel">普通会员</el-checkbox>
-                </el-form-item>
 
-                <el-form-item label="限制平台" prop="restrictPlatform">
-                </el-form-item>
-                <el-form-item label="白名单" prop="whiteList">
                     <el-checkbox-group
-                            v-model="formData.whiteList"
+                            v-model="formData.user_layers"
                             :min="1"
-                            :max="2"
-                            style="margin-left: 75px;"
-                        >
-                        <el-checkbox  v-model="formData.whiteList">彩票</el-checkbox>
-                        <el-checkbox  v-model="formData.whiteList">开源棋牌</el-checkbox>
-                        <el-checkbox  v-model="formData.whiteList">AG</el-checkbox>
-                        <el-checkbox  v-model="formData.whiteList">BBIN</el-checkbox>
-                        <el-checkbox  v-model="formData.whiteList">PT</el-checkbox>
-                    </el-checkbox-group>
-                </el-form-item>
-                <el-form-item label="黑名单" prop="username">
-                    <el-checkbox-group
-                            v-model="formData.blackList"
-                            :min="1"
-                            style="margin-left: 75px;"
-                            :max="2">
-                        <el-checkbox  v-model="formData.blackList">彩票</el-checkbox>
-                        <el-checkbox  v-model="formData.blackList">开源棋牌</el-checkbox>
-                        <el-checkbox  v-model="formData.blackList">AG</el-checkbox>
-                        <el-checkbox  v-model="formData.blackList">BBIN</el-checkbox>
-                        <el-checkbox  v-model="formData.blackList">PT</el-checkbox>
+                            :max="6">
+                        <el-checkbox v-for="item in userLayerOptions" :label="item.key" :key="item.key">
+                            {{ item.name }}
+                        </el-checkbox>
                     </el-checkbox-group>
                 </el-form-item>
 
                 <el-form-item label="注册域名" prop="domain">
-                    <el-input v-model="formData.domain" auto-complete="off"></el-input>
+                    <el-input v-model="formData.register_domain" auto-complete="off"></el-input>
                 </el-form-item>
 
                 <el-form-item label="时间区间" prop="username">
                     <el-date-picker
-                            v-model="formData.beginDate"
+                            v-model="formData.register_domain_begin"
                             type="date"
                             placeholder="开始时间"
                             :picker-options="pickerOptions0">
                     </el-date-picker>
                     <el-date-picker
-                            v-model="formData.endDate"
+                            v-model="formData.register_domain_end"
                             type="date"
                             placeholder="结束时间"
                             :picker-options="pickerOptions1">
@@ -674,6 +648,13 @@
                     { key: 'AG', name: 'AG' },
                     { key: 'BBIN', name: 'BBIN' },
                     { key: 'PT', name: 'PT' },
+                ],
+                userLayerOptions: [
+                    { key: 'VIP1', name: 'VIP1' },
+                    { key: 'VIP2', name: 'VIP2' },
+                    { key: 'VIP3', name: 'VIP3' },
+                    { key: 'VIP4', name: 'VIP4' },
+                    { key: '普通会员', name: '普通会员' },
                 ],
                 payAccountOptions: [
                     { key: '支付宝', name: '支付宝' },

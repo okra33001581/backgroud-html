@@ -21,6 +21,18 @@ export function activitySubList(query) {
     });
 }
 
+// 获取列表
+export function eventUserPrizeList(query) {
+    return axios({
+        url: "http://apidemo.test/api/event/eventUserPrizeList",
+        method: "get",
+        params: query
+    });
+}
+
+
+
+
 // 获取角色列表
 export function authAdminRoleList(query) {
     return axios({

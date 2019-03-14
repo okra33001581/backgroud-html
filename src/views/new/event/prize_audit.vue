@@ -109,16 +109,16 @@
             <el-table-column type="selection" width="55">
             </el-table-column>
             <el-table-column :label="					$t('page.id')		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column :label="			$t('page.user_id')				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column :label="			$t('page.username')				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column :label="			$t('page.merchant_name')				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column :label="					$t('page.event_name')		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column :label="					$t('page.deposit')		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column :label="					$t('page.benefit')		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column :label="					$t('page.auditor')		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column :label="					$t('page.request_date')		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column :label="					$t('page.audit_date')		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column :label="					$t('page.status')		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column :label="			$t('page.user_id')				" prop="user_id" sortable="custom" fixed></el-table-column>
+            <el-table-column :label="			$t('page.username')				" prop="username" sortable="custom" fixed></el-table-column>
+            <el-table-column :label="			$t('page.merchant_name')				" prop="merchant_name" sortable="custom" fixed></el-table-column>
+            <el-table-column :label="					$t('page.event_name')		" prop="event_name" sortable="custom" fixed></el-table-column>
+            <el-table-column :label="					$t('page.deposit')		" prop="deposit" sortable="custom" fixed></el-table-column>
+            <el-table-column :label="					$t('page.benefit')		" prop="benefit" sortable="custom" fixed></el-table-column>
+            <el-table-column :label="					$t('page.auditor')		" prop="auditor" sortable="custom" fixed></el-table-column>
+            <el-table-column :label="					$t('page.request_date')		" prop="request_date" sortable="custom" fixed></el-table-column>
+            <el-table-column :label="					$t('page.audit_date')		" prop="audit_date" sortable="custom" fixed></el-table-column>
+            <el-table-column :label="					$t('page.status')		" prop="status" sortable="custom" fixed></el-table-column>
 
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
@@ -198,16 +198,16 @@
 
 
                 <el-form-item :label="$t('page.id')" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item :label="$t('page.user_id')" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item :label="$t('page.user_id')" prop="user_id"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item :label="$t('page.username')" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item :label="$t('page.merchant_name')" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item :label="$t('page.event_name')" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item :label="$t('page.deposit')" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item :label="$t('page.benefit')" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item :label="$t('page.auditor')" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item :label="$t('page.request_date')" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item :label="$t('page.audit_date')" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item :label="$t('page.status')" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item :label="$t('page.merchant_name')" prop="merchant_name"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item :label="$t('page.event_name')" prop="event_name"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item :label="$t('page.deposit')" prop="deposit"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item :label="$t('page.benefit')" prop="benefit"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item :label="$t('page.auditor')" prop="auditor')"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item :label="$t('page.request_date')" prop="request_date"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item :label="$t('page.audit_date')" prop="audit_date"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item :label="$t('page.status')" prop="status"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
 
 
             </el-form>
@@ -222,10 +222,7 @@
 
 <script>
     import {
-        activityList,
-        authAdminRoleList,
-        authAdminSave,
-        authAdminDelete
+        eventUserPrizeList,
     } from "../../../api/event-management";
 
     const formJson = {
@@ -368,7 +365,7 @@
             },
             getList() {
                 this.loading = true;
-                activityList(this.query)
+                eventUserPrizeList(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list || [];
