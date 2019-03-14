@@ -580,7 +580,7 @@
         activityList,
         activitySubList,
         authAdminRoleList,
-        authAdminSave,
+        eventSave,
         authAdminDelete
     } from "../../../api/event-management";
     const cityOptions = ['上海', '北京', '广州', '深圳'];
@@ -969,7 +969,7 @@
                     if (valid) {
                         this.formLoading = true;
                         let data = Object.assign({}, this.formData);
-                        authAdminSave(data, this.formName).then(response => {
+                        eventSave(data, this.formName).then(response => {
                             this.formLoading = false;
                             if (response.code) {
                                 this.$message({

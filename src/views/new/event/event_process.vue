@@ -53,7 +53,7 @@
 
 
         <template v-if="this.$i18n.locale == 'en-us'">
-              <split-table :headData="headDataEn" :bodyData="bodyData" @multipleData="multipleData" @editData="editData" :tableEditFlag="false" :checkFlag="false">
+              <split-table :headData="headDataEn" :bodyData="list" @multipleData="multipleData" @editData="editData" :tableEditFlag="false" :checkFlag="false">
             <template slot="operate" slot-scope="props">
                 <span @click="splitEdit(props.rowData)">{{$t('page.refresh')}}</span>
                 <!--<span @click="splitAdd(props.rowData)">关闭</span>
@@ -62,7 +62,7 @@
         </split-table>
         </template>
         <template v-else>
-              <split-table :headData="headData" :bodyData="bodyData" @multipleData="multipleData" @editData="editData" :tableEditFlag="false" :checkFlag="false">
+              <split-table :headData="headData" :bodyData="list" @multipleData="multipleData" @editData="editData" :tableEditFlag="false" :checkFlag="false">
             <template slot="operate" slot-scope="props">
                 <span @click="splitEdit(props.rowData)">{{$t('page.refresh')}}</span>
                 <!--<span @click="splitAdd(props.rowData)">关闭</span>
@@ -143,8 +143,8 @@
 
 <script>
     import {
-        authAdminDelete
-        ,
+        eventProcessList
+        ,eventSave
     } from "../../../api/event-management";
 
     import SplitTable from 'vue-split-table';
@@ -296,14 +296,15 @@
                         {required: true, message: "请选择状态", trigger: "change"}
                     ]
                 },
-                editRules: {
+                editRules:[],
+                /*editRules: {
                     username: [
                         {required: true, message: "请输入姓名", trigger: "blur"}
                     ],
                     status: [
                         {required: true, message: "请选择状态", trigger: "change"}
                     ]
-                },
+                },*/
                 deleteLoading: false
             };
         },
@@ -395,7 +396,8 @@
             },
             getList() {
                 this.loading = true;
-                authAdminDelete(this.query)
+                eventProcessList(this.query)
+                    // huangqiu
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list || [];
@@ -496,11 +498,12 @@
                 }
             },
             formSubmit() {
+                // ligang
                 this.$refs["dataForm"].validate(valid => {
                     if (valid) {
                         this.formLoading = true;
                         let data = Object.assign({}, this.formData);
-                        authAdminSave(data, this.formName).then(response => {
+                        eventSave(data, this.formName).then(response => {
                             this.formLoading = false;
                             if (response.code) {
                                 this.$message({

@@ -30,24 +30,32 @@ export function eventUserPrizeList(query) {
     });
 }
 
+// 获取列表
+export function eventProcessList(query) {
+    return axios({
+        url: "http://apidemo.test/api/event/eventProcessList",
+        method: "get",
+        params: query
+    });
+}
 
 
 
 // 获取角色列表
 export function authAdminRoleList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminRoleList",
+        url: "http://apidemo.test/api/event/eventSave",
         method: "get",
         params: query
     });
 }
 
 // 保存
-export function authAdminSave(data, formName, method = "post") {
+export function eventSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/adminSave"
-            : "http://apidemo.test/api/event/adminEdit";
+            ? "http://apidemo.test/api/event/eventSave"
+            : "http://apidemo.test/api/event/eventSave";
     return axios({
         url: url,
         method: method,
