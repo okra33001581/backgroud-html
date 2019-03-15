@@ -259,8 +259,7 @@
                             <el-upload
                                     action="http://apidemo.test/api/event/fileSave?table=eventPic1"
                                     list-type="picture-card"
-                                    :on-preview="handlePictureCardPreview"
-                                    :on-success="handleAvatarSuccess"
+                                    :on-success="handlePic1Success"
                                     style="margin-left: 140px;"
                                     :on-remove="handleRemove">
                                 <img  :src="formData.pic1" class="el-upload el-upload--picture-card"/>
@@ -271,10 +270,10 @@
                             <el-upload
                                     action="http://apidemo.test/api/event/fileSave"
                                     list-type="picture-card"
-                                    :on-preview="handlePictureCardPreview"
+                                    :on-success="handlePic2Success"
                                     style="margin-left: 140px;"
                                     :on-remove="handleRemove">
-                                <img  :src="formData.pic2" class="el-upload el-upload--picture-card"/>
+                                <img  :src="formData.pic2" class="el-upload el-upload&#45;&#45;picture-card"/>
                                 <i class="el-icon-plus"></i>
                             </el-upload>
                         </el-form-item>
@@ -282,10 +281,10 @@
                             <el-upload
                                     action="http://apidemo.test/api/event/fileSave"
                                     list-type="picture-card"
-                                    :on-preview="handlePictureCardPreview"
+                                    :on-success="handlePic3Success"
                                     style="margin-left: 140px;"
                                     :on-remove="handleRemove">
-                                <img  :src="formData.pic3" class="el-upload el-upload--picture-card"/>
+                                <img  :src="formData.pic3" class="el-upload el-upload&#45;&#45;picture-card"/>
                                 <i class="el-icon-plus"></i>
                             </el-upload>
                             </el-form-item>
@@ -293,10 +292,10 @@
                             <el-upload
                                     action="http://apidemo.test/api/event/fileSave"
                                     list-type="picture-card"
-                                    :on-preview="handlePictureCardPreview"
+                                    :on-success="handlePic4Success"
                                     style="margin-left: 140px;"
                                     :on-remove="handleRemove">
-                                <img  :src="formData.pic4" class="el-upload el-upload--picture-card"/>
+                                <img  :src="formData.pic4" class="el-upload el-upload&#45;&#45;picture-card"/>
                                 <i class="el-icon-plus"></i>
                             </el-upload>
                                 </el-form-item>
@@ -304,10 +303,10 @@
                             <el-upload
                                     action="http://apidemo.test/api/event/fileSave"
                                     list-type="picture-card"
-                                    :on-preview="handlePictureCardPreview"
+                                    :on-success="handlePic5Success"
                                     style="margin-left: 140px;"
                                     :on-remove="handleRemove">
-                                <img  :src="formData.pic5" class="el-upload el-upload--picture-card"/>
+                                <img  :src="formData.pic5" class="el-upload el-upload&#45;&#45;picture-card"/>
                                 <i class="el-icon-plus"></i>
                             </el-upload>
                                     </el-form-item>
@@ -315,17 +314,17 @@
                             <el-upload
                                     action="http://apidemo.test/api/event/fileSave"
                                     list-type="picture-card"
-                                    :on-preview="handlePictureCardPreview"
+                                    :on-success="handlePic6Success"
                                     style="margin-left: 140px;"
                                     :on-remove="handleRemove">
-                                <img  :src="formData.pic6" class="el-upload el-upload--picture-card"/>
+                                <img  :src="formData.pic6" class="el-upload el-upload&#45;&#45;picture-card"/>
                                 <i class="el-icon-plus"></i>
                             </el-upload>
                                         </el-form-item>
 
                         </el-form-item>
 
-                     <!--   <el-form-item label="前端显示" prop="termial_display">
+                        <el-form-item label="前端显示" prop="termial_display">
                             <el-checkbox-group
                                     v-model="formData.termial_display"
                                     :min="1"
@@ -333,7 +332,7 @@
                                 <el-checkbox  v-model="formData.termial_display">移动端</el-checkbox>
                                 <el-checkbox  v-model="formData.termial_display">PC端</el-checkbox>
                             </el-checkbox-group>
-                        </el-form-item>-->
+                        </el-form-item>
 
                     </el-form>
                 </el-tab-pane>
@@ -408,7 +407,7 @@
                         <el-checkbox v-model="formData.verify_phone_flag">验证手机</el-checkbox>
                         赠送金额<el-input v-model="formData.verify_phone_benefit" style="left: 10px; width: 430px;" auto-complete="off"></el-input>
 
-                        <el-form-item label="指定用户" prop="username">
+                        <el-form-item label="指定用户" prop="user_ids">
                             <el-input v-model="formData.user_ids" auto-complete="off"></el-input>
                         </el-form-item>
 
@@ -417,16 +416,16 @@
                                     class="upload-demo"
                                     action="http://apidemo.test/api/event/fileSave"
                                     :http-request="upload"
-                                    :on-preview="handlePreview"
+                                    :on-success="handleUserIdsSuccess"
                                     :on-remove="handleRemove"
                                     :before-remove="beforeRemove"
                                     :on-exceed="handleExceed"
                                     :file-list="fileList">
+                                <img  :src="formData.user_ids" class="el-upload el-upload&#45;&#45;picture-card"/>
                                 <el-button size="small" type="primary">点击上传</el-button>
                                 <div slot="tip" class="el-upload__tip">不超过500kb</div>
                             </el-upload>
                         </el-form-item>
-
                         <el-form-item label="用户层级" prop="userLevel">
 
                             <el-checkbox-group
@@ -458,7 +457,7 @@
                             </el-date-picker>
                         </el-form-item>
 
-                    </el-form>
+                    </el-form>-->
                 </el-tab-pane>
 
                 <el-tab-pane label="高级设置">
@@ -585,12 +584,65 @@
     const viewName = 'VueI18n';
 
     const formJson = {
-        id: "",
-        password: "",
-        username: "",
-        checkPassword: "",
-        status: "1",
-        roles: []
+        id : "",
+        merchant_name : "",
+        event_id : "",
+        event_name : "",
+        begin_date : "",
+        end_date : "",
+        event_object : "",
+        receive_type : [],
+        event_desc : "",
+        pic1 : "",
+        pic2 : "",
+        pic3 : "",
+        pic4 : "",
+        pic5 : "",
+        pic6 : "",
+        terminal_display : [],
+        send_type : [],
+        audit_mode : [],
+        frequency : "",
+        times : "",
+        deposit : "",
+        benefit_ratio : "",
+        benefit : "",
+        benefit_min : "",
+        benefit_max : "",
+        turnover : "",
+        deposit_request : "",
+        range_begin : "",
+        range_end : "",
+        platform_whitelist : [],
+        platform_blacklist : [],
+        game_whitelist : [],
+        game_blacklist : [],
+        pay_account : "",
+        rakeback : "",
+        rescue_gold : "",
+        status : "",
+        bind_bankcard_flag : "",
+        bind_bankcard_benefit : "",
+        creator : "",
+        created_at : "",
+        updator : "",
+        updated_at : "",
+        perfect_username_flag : "",
+        perfect_username_benefit : "",
+        verify_email_flag : "",
+        verify_email_benefit : "",
+        verify_phone_flag : "",
+        verify_phone_benefit : "",
+        history_deposit : "",
+        history_deposit_begin : "",
+        history_deposit_end : "",
+        withdraw_min : "",
+        withdraw_max : "",
+        user_ids : [],
+        user_layers : [],
+        register_domain : "",
+        register_domain_begin : "",
+        register_domain_end : "",
     };
     export default {
         data() {
@@ -793,11 +845,33 @@
                     expandedRows.shift();
                 }
             },
-            handleAvatarSuccess(response, file, fileList) {
+            handlePic1Success(response, file, fileList) {
                 //response这个
-                console.log(response);
-                console.log(file);
-                console.log(fileList);
+                this.formData.pic1 = response.data;
+            },
+            handlePic2Success(response, file, fileList) {
+                //response这个
+                this.formData.pic2 = response.data;
+            },
+            handlePic3Success(response, file, fileList) {
+                //response这个
+                this.formData.pic3 = response.data;
+            },
+            handlePic4Success(response, file, fileList) {
+                //response这个
+                this.formData.pic4 = response.data;
+            },
+            handlePic5Success(response, file, fileList) {
+                //response这个
+                this.formData.pic5 = response.data;
+            },
+            handlePic6Success(response, file, fileList) {
+                //response这个
+                this.formData.pic6 = response.data;
+            },
+            handleUserIdsSuccess(response, file, fileList) {
+                //response这个
+                this.formData.user_ids = response.data;
             },
             // 显示表单
             handleObjectSetForm(index, row) {
