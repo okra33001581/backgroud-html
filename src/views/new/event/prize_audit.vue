@@ -118,8 +118,13 @@
             <el-table-column :label="					$t('page.auditor')		" prop="auditor" sortable="custom" fixed></el-table-column>
             <el-table-column :label="					$t('page.request_date')		" prop="request_date" sortable="custom" fixed></el-table-column>
             <el-table-column :label="					$t('page.audit_date')		" prop="audit_date" sortable="custom" fixed></el-table-column>
-            <el-table-column :label="					$t('page.status')		" prop="status" sortable="custom" fixed></el-table-column>
-
+            <el-table-column
+                    prop="status"
+                    :label="$t('page.status')" >
+                <template slot-scope="scope">
+                    <el-tag :type="scope.row.status | statusFilterType">{{scope.row.status | statusFilterName}}</el-tag>
+                </template>
+            </el-table-column>
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
@@ -172,8 +177,10 @@
                     </el-button>
                     <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">{{$t('page.success')}}
                     </el-button>
-                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">{{$t('page.reject')}}
+                    <!--<el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">{{$t('page.success')}}
                     </el-button>
+                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">{{$t('page.reject')}}
+                    </el-button>-->
                 </template>
             </el-table-column>
         </el-table>
@@ -223,6 +230,7 @@
 <script>
     import {
         eventUserPrizeList,
+        eventUserPrizeStatusSave
     } from "../../../api/event-management";
 
     const formJson = {
@@ -507,7 +515,7 @@
                     })
                         .then(() => {
                             let para = {id: row.id};
-                            authAdminDelete(para)
+                            eventUserPrizeStatusSave(para)
                                 .then(response => {
                                     this.deleteLoading = false;
                                     if (response.code) {
@@ -515,6 +523,7 @@
                                             message: response.message,
                                             type: "error"
                                         });
+                                        window.location.reload();
                                     } else {
                                         this.$message({
                                             message: "删除成功",
@@ -548,9 +557,9 @@
             },
             statusFilterName(status) {
                 const statusMap = {
-                    0: "禁用",
-                    1: "正常",
-                    2: "未验证"
+                    0: "未处理",
+                    1: "通过",
+                    2: "禁用"
                 };
                 return statusMap[status];
             }

@@ -91,10 +91,21 @@
                                     :label="$t('page.updated_at')"
                                     prop="updated_at" >
                             </el-table-column>
-                            <el-table-column
+
+                            <!--<el-table-column
                                     :label="$t('page.status')"
                                     prop="status" >
+                            </el-table-column>-->
+
+                            <el-table-column
+                                    prop="status"
+                                    sortable="custom"
+                                    :label="$t('page.status')" >
+                                <template slot-scope="scope">
+                                    <el-tag :type="scope.row.status | statusFilterType">{{scope.row.status | statusFilterName}}</el-tag>
+                                </template>
                             </el-table-column>
+
                             <el-table-column
                                     :label="操作" width="350"
                                     fixed="right">
@@ -130,8 +141,11 @@
                     prop="updated_at">
             </el-table-column>
             <el-table-column
-                    :label="$t('page.status')"
-                    prop="status">
+                    prop="status"
+                    :label="$t('page.status')" >
+                <template slot-scope="scope">
+                    <el-tag :type="scope.row.status | statusFilterType">{{scope.row.status | statusFilterName}}</el-tag>
+                </template>
             </el-table-column>
 
             <el-table-column
@@ -1065,7 +1079,7 @@
                                             message: response.message,
                                             type: "error"
                                         });
-                                        window.location.reload();刷新
+                                        window.location.reload();
                                     } else {
                                         this.$message({
                                             message: "编辑成功",

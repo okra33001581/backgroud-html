@@ -89,6 +89,19 @@ export function eventStatusSave(data, formName, method = "post") {
 }
 
 // 保存
+export function eventUserPrizeStatusSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "event/eventUserPrizeStatusSave"
+            : "event/eventUserPrizeStatusSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+// 保存
 export function eventObjectSetSave(data, formName, method = "post") {
     let url =
         formName === "add"
