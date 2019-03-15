@@ -135,10 +135,14 @@
                     </el-button>-->
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">{{$t('page.del')}}
                     </el-button>
-                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">{{$t('page.enable')}}
+
+                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">启用/禁用
+                    </el-button>
+
+                    <!--<el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">{{$t('page.enable')}}
                     </el-button>
                     <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">{{$t('page.disable')}}
-                    </el-button>
+                    </el-button>-->
                 </template>
             </el-table-column>
 
@@ -1050,13 +1054,15 @@
                                             message: response.message,
                                             type: "error"
                                         });
+                                        window.location.reload();刷新
                                     } else {
                                         this.$message({
                                             message: "编辑成功",
                                             type: "success"
                                         });
                                         // 刷新数据
-                                        this.list.splice(index, 1);
+                                        // window.location.reload();刷新
+                                        // this.list.splice(index, 1);
                                         // this.getList();
                                     }
                                 })
