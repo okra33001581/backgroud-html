@@ -51,8 +51,19 @@
                 style="width: 100%;"
                 @sort-change="sortChange">-->
         <el-table
-                :data="list"
-                style="width: 100%"  @expand-change="rowExpand">
+                v-loading="loading"
+                :key="tableKey"
+                :data="list" stripe
+                border
+                fit
+                highlight-current-row
+                style="width: 100%;"
+                @sort-change="sortChange"
+                element-loading-text="拼命加载中"
+                element-loading-spinner="el-icon-loading"
+                element-loading-background="rgba(0, 0, 0, 0.8)"
+                :header-cell-style="getRowClass"
+                @selection-change="selsChange" @expand-change="rowExpand">
             <el-table-column type="expand">
                 <template slot-scope="props">
                     <el-form label-position="left" inline class="demo-table-expand">
