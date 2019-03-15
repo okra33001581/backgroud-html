@@ -153,77 +153,6 @@
 
         <!--<pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />-->
 
-
-        <!--表单-->
-        <el-dialog
-                :title="formObjectSetMap[formObjectSetName]"
-                :visible.sync="formObjectSetVisible"
-                :before-close="hideObjectSetForm"
-                width="35%"
-                top="5vh">
-            <el-form :model="formObjectSetData" :rules="formObjectSetRules" ref="dataObjectSetForm" enctype='multipart/form-data'>
-
-                <el-form-item label="指定用户" prop="username">
-                    <el-input v-model="formData.user_ids" auto-complete="off"></el-input>
-                </el-form-item>
-
-                <el-form-item label="导入用户名单" prop="username">
-                    <el-upload
-                            class="upload-demo"
-                            action="http://apidemo.test/api/event/eventSave"
-                            :on-preview="handlePreview"
-                            :on-remove="handleRemove"
-                            :before-remove="beforeRemove"
-                            multiple
-                            :limit="3"
-                            :on-exceed="handleExceed"
-                            :file-list="fileList
-                            :data="picData"
-                            >
-                        <el-button size="small" type="primary">点击上传</el-button>
-                        <div slot="tip" class="el-upload__tip">不超过500kb</div>
-                    </el-upload>
-                </el-form-item>
-
-                <el-form-item label="用户层级" prop="userLevel">
-
-                    <el-checkbox-group
-                            v-model="formData.user_layers"
-                            :min="1"
-                            :max="6">
-                        <el-checkbox v-for="item in userLayerOptions" :label="item.key" :key="item.key">
-                            {{ item.name }}
-                        </el-checkbox>
-                    </el-checkbox-group>
-                </el-form-item>
-
-                <el-form-item label="注册域名" prop="domain">
-                    <el-input v-model="formData.register_domain" auto-complete="off"></el-input>
-                </el-form-item>
-
-                <el-form-item label="时间区间" prop="username">
-                    <el-date-picker
-                            v-model="formData.register_domain_begin"
-                            type="date"
-                            placeholder="开始时间"
-                            :picker-options="pickerOptions0">
-                    </el-date-picker>
-                    <el-date-picker
-                            v-model="formData.register_domain_end"
-                            type="date"
-                            placeholder="结束时间"
-                            :picker-options="pickerOptions1">
-                    </el-date-picker>
-                </el-form-item>
-
-            </el-form>
-            <div slot="footer" class="dialog-footer">
-                <el-button @click.native="hideObjectSetForm">取消</el-button>
-                <el-button type="primary" @click.native="formObjectSetSubmit()" :loading="formObjectSetLoading">提交</el-button>
-            </div>
-        </el-dialog>
-
-
         <!--表单-->
         <el-dialog
                 :title="formMap[formName]"
@@ -328,9 +257,10 @@
 
                         <el-form-item label="Banner(PC)" prop="bannerPc">
                             <el-upload
-                                    action="http://apidemo.test/api/event/fileSave"
+                                    action="http://apidemo.test/api/event/fileSave?table=eventPic1"
                                     list-type="picture-card"
                                     :on-preview="handlePictureCardPreview"
+                                    :on-success="handleAvatarSuccess"
                                     style="margin-left: 140px;"
                                     :on-remove="handleRemove">
                                 <img  :src="formData.pic1" class="el-upload el-upload--picture-card"/>
@@ -863,6 +793,12 @@
                     expandedRows.shift();
                 }
             },
+            handleAvatarSuccess(response, file, fileList) {
+                //response这个
+                console.log(response);
+                console.log(file);
+                console.log(fileList);
+            },
             // 显示表单
             handleObjectSetForm(index, row) {
                 this.formObjectSetVisible = true;
@@ -1054,41 +990,6 @@
                     }
                 });
             },
-            formObjectSetSubmit() {
-                this.$refs["dataObjectSetForm"].validate(valid => {
-                    if (valid) {
-                        this.formObjectSetLoading = true;
-                        let data = Object.assign({}, this.formObjectSetData);
-                        eventObjectSetSave(data, this.formObjectSetName).then(response => {
-                            this.formObjectSetLoading = false;
-                            if (response.code) {
-                                this.$message({
-                                    message: response.message,
-                                    type: "error"
-                                });
-                            } else {
-                                this.$message({
-                                    message: "操作成功",
-                                    type: "success"
-                                });
-                                // 向头部添加数据
-                                // this.list.unshift(res)
-                                // 刷新表单
-                                this.$refs["dataObjectSetForm"].resetFields();
-                                this.formVisible = false;
-                                if (this.formName === "add") {
-                                    // 向头部添加数据
-                                    let resData = response.data || {};
-                                    this.list.unshift(resData);
-                                } else {
-                                    this.list.splice(this.index, 1, data);
-                                }
-                            }
-                        });
-                    }
-                });
-            },
-
             // 删除
             handleDel(index, row) {
                 if (row.id) {
