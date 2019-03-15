@@ -167,8 +167,8 @@
 
                         <el-form-item label="下级活动" prop="addSubFlage">
                             <el-select v-model="formData.addSubFlage" placeholder="下级活动">
-                                <el-option label="无下级" value="0"></el-option>
                                 <el-option label="下级活动" value="1"></el-option>
+                                <el-option label="无下级" value="0"></el-option>
                             </el-select>
                         </el-form-item>
 
@@ -233,8 +233,7 @@
                         <el-form-item label="审核模式" prop="audit_mode">
                             <el-checkbox-group
                                     v-model="formData.audit_mode"
-                                    :min="1"
-                                    :max="4">
+                                    :min="1">
                                 <el-checkbox v-for="item in auditMode" :label="item.key" :key="item.key">
                                     {{ item.name }}
                                 </el-checkbox>
@@ -322,13 +321,15 @@
                         </el-form-item>
 
                         <el-form-item label="前端显示" prop="termial_display">
+
                             <el-checkbox-group
                                     v-model="formData.termial_display"
-                                    :min="1"
-                                    :max="2">
-                                <el-checkbox v-model="formData.termial_display">移动端</el-checkbox>
-                                <el-checkbox v-model="formData.termial_display">PC端</el-checkbox>
+                                    :min="1">
+                                <el-checkbox v-for="item in terminalDisplay" :label="item.key" :key="item.key">
+                                    {{ item.name }}
+                                </el-checkbox>
                             </el-checkbox-group>
+
                         </el-form-item>
 
                     </el-form>
@@ -336,12 +337,12 @@
 
                 <el-tab-pane label="规则设置">
                     <el-form :model="formData" :rules="formRules" ref="dataForm">
-                        <el-form-item label="正盈利金额" prop="deposit">
-                            <el-input v-model="formData.deposit" auto-complete="off"></el-input>
+                        <el-form-item label="正盈利金额" prop="plus_profit">
+                            <el-input v-model="formData.plus_profit" auto-complete="off"></el-input>
                         </el-form-item>
 
-                        <el-form-item label="负盈利金额" prop="deposit">
-                            <el-input v-model="formData.deposit" auto-complete="off"></el-input>
+                        <el-form-item label="负盈利金额" prop="minus_profit">
+                            <el-input v-model="formData.minus_profit" auto-complete="off"></el-input>
                         </el-form-item>
 
                         <el-form-item label="首充最低金额" prop="deposit">
@@ -353,16 +354,8 @@
                         </el-form-item>
 
                         <el-form-item label="赠送金额范围" prop="benefitMoneyPeriod">
-                            <el-date-picker
-                                    v-model="formData.benefit_min"
-                                    type="date"
-                                    placeholder="最小值">
-                            </el-date-picker>
-                            <el-date-picker
-                                    v-model="formData.benefit_max"
-                                    type="date"
-                                    placeholder="最大值">
-                            </el-date-picker>
+                            <el-input v-model="formData.benefit_min" style="left: 0px; width: 160px;" auto-complete="off"></el-input>
+                            <el-input v-model="formData.benefit_max" style="left: 0px; width: 160px;" auto-complete="off"></el-input>
                         </el-form-item>
 
                         <el-form-item label="流水任务" prop="turnover">
@@ -404,7 +397,7 @@
                         赠送金额<el-input v-model="formData.verify_phone_benefit" style="left: 10px; width: 430px;" auto-complete="off"></el-input>
 
                         <el-form-item label="指定用户" prop="user_ids">
-                            <el-input v-model="formData.user_ids" auto-complete="off"></el-input>
+                            <el-input type="textarea" v-model="formData.user_ids" auto-complete="off"></el-input>
                         </el-form-item>
 
                         <el-form-item label="导入用户名单" prop="username">
@@ -423,11 +416,9 @@
                             </el-upload>
                         </el-form-item>
                         <el-form-item label="用户层级" prop="userLevel">
-
                             <el-checkbox-group
                                     v-model="formData.user_layers"
-                                    :min="1"
-                                    :max="6">
+                                    :min="1">
                                 <el-checkbox v-for="item in userLayerOptions" :label="item.key" :key="item.key">
                                     {{ item.name }}
                                 </el-checkbox>
@@ -464,8 +455,7 @@
                         <el-form-item label="白名单" prop="platform_blacklist">
                         <el-checkbox-group
                                 v-model="formData.platform_whitelist"
-                                :min="1"
-                                :max="4">
+                                :min="1">
                             <el-checkbox v-for="item in platformsOptions" :label="item.key" :key="item.key">
                                 {{ item.name }}
                             </el-checkbox>
@@ -488,8 +478,7 @@
                         <el-form-item label="白名单" prop="restrictGame">
                             <el-checkbox-group
                                     v-model="formData.game_whitelist"
-                                    :min="1"
-                                    :max="4">
+                                    :min="1">
                                 <el-checkbox v-for="item in platformsOptions" :label="item.key" :key="item.key">
                                     {{ item.name }}
                                 </el-checkbox>
@@ -500,8 +489,7 @@
                         <el-form-item label="黑名单" prop="restrictGame">
                             <el-checkbox-group
                                     v-model="formData.game_blacklist"
-                                    :min="1"
-                                    :max="4">
+                                    :min="1">
                                 <el-checkbox v-for="item in platformsOptions" :label="item.key" :key="item.key">
                                     {{ item.name }}
                                 </el-checkbox>
@@ -512,8 +500,7 @@
                         <el-form-item label="支付账号" prop="pay_account">
                             <el-checkbox-group
                                     v-model="formData.pay_account"
-                                    :min="1"
-                                    :max="4">
+                                    :min="1">
                                 <el-checkbox v-for="item in payAccountOptions" :label="item.key" :key="item.key">
                                     {{ item.name }}
                                 </el-checkbox>
@@ -564,7 +551,6 @@
         eventSave,
         eventStatusSave
     } from "../../../api/event-management";
-    const cityOptions = ['上海', '北京', '广州', '深圳'];
     const sendType = [
         { key: '自动发放', name: '自动发放' },
         { key: '手动领取', name: '手动领取' }
@@ -577,6 +563,7 @@
         { key: '不需审核', name: '不需审核' },
         { key: '需审核', name: '需审核' }
     ];
+
     const viewName = 'VueI18n';
 
     const formJson = {
@@ -659,23 +646,6 @@
                 }
             };
             return {
-                options: [{
-                    value: '选项1',
-                    label: '黄金糕'
-                }, {
-                    value: '选项2',
-                    label: '双皮奶'
-                }, {
-                    value: '选项3',
-                    label: '蚵仔煎'
-                }, {
-                    value: '选项4',
-                    label: '龙须面'
-                }, {
-                    value: '选项5',
-                    label: '北京烤鸭'
-                }],
-                checked: true,
                 platformsOptions: [
                     { key: '彩票', name: '彩票' },
                     { key: '开源棋牌', name: '开源棋牌' },
@@ -698,9 +668,6 @@
                 terminalDisplay,
                 selectedOption:{},
                 auditMode,
-                fileList: [{name: 'food.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}, {name: 'food2.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}],
-                checkedCities1: ['上海'],
-                cities: cityOptions,
                 value5: [],
                 value11: [],
                 tableData: [],
