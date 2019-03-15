@@ -167,8 +167,8 @@
 
                         <el-form-item label="下级活动" prop="addSubFlage">
                             <el-select v-model="formData.addSubFlage" placeholder="下级活动">
-                            <el-option label="无下级" value="0"></el-option>
-                            <el-option label="下级活动" value="1"></el-option>
+                                <el-option label="无下级" value="0"></el-option>
+                                <el-option label="下级活动" value="1"></el-option>
                             </el-select>
                         </el-form-item>
 
@@ -208,7 +208,7 @@
                         </el-form-item>
 
                         <el-form-item label="发放方式" prop="send_type">
-                                 <el-checkbox-group
+                            <el-checkbox-group
                                     v-model="formData.send_type"
                                     :min="1"
                                     :max="4">
@@ -262,10 +262,10 @@
                                     :on-success="handlePic1Success"
                                     style="margin-left: 140px;"
                                     :on-remove="handleRemove">
-                                <img  :src="formData.pic1" class="el-upload el-upload--picture-card"/>
-                                <i class="el-icon-plus"></i>
+                                <img :src="formData.pic1" class="el-upload el-upload--picture-card"/>
                             </el-upload>
                         </el-form-item>
+
                         <el-form-item label="Banner(APP)" prop="bannerApp">
                             <el-upload
                                     action="http://apidemo.test/api/event/fileSave"
@@ -273,55 +273,52 @@
                                     :on-success="handlePic2Success"
                                     style="margin-left: 140px;"
                                     :on-remove="handleRemove">
-                                <img  :src="formData.pic2" class="el-upload el-upload&#45;&#45;picture-card"/>
-                                <i class="el-icon-plus"></i>
+                                <img :src="formData.pic2" class="el-upload el-upload--picture-card"/>
                             </el-upload>
                         </el-form-item>
-                            <el-form-item label="活动小图(PC)" prop="picturePc">
+
+                        <el-form-item label="活动小图(PC)" prop="picturePc">
                             <el-upload
                                     action="http://apidemo.test/api/event/fileSave"
                                     list-type="picture-card"
                                     :on-success="handlePic3Success"
                                     style="margin-left: 140px;"
                                     :on-remove="handleRemove">
-                                <img  :src="formData.pic3" class="el-upload el-upload&#45;&#45;picture-card"/>
-                                <i class="el-icon-plus"></i>
+                                <img :src="formData.pic3" class="el-upload el-upload--picture-card"/>
                             </el-upload>
-                            </el-form-item>
-                                <el-form-item label="活动小图(APP)" prop="pictureApp">
+                        </el-form-item>
+
+                        <el-form-item label="活动小图(APP)" prop="pictureApp">
                             <el-upload
                                     action="http://apidemo.test/api/event/fileSave"
                                     list-type="picture-card"
                                     :on-success="handlePic4Success"
                                     style="margin-left: 140px;"
                                     :on-remove="handleRemove">
-                                <img  :src="formData.pic4" class="el-upload el-upload&#45;&#45;picture-card"/>
-                                <i class="el-icon-plus"></i>
+                                <img :src="formData.pic4" class="el-upload el-upload--picture-card"/>
                             </el-upload>
-                                </el-form-item>
-                                    <el-form-item label="活动封面图(PC)" prop="forePC">
+                        </el-form-item>
+
+                        <el-form-item label="活动封面图(PC)" prop="forePC">
                             <el-upload
                                     action="http://apidemo.test/api/event/fileSave"
                                     list-type="picture-card"
                                     :on-success="handlePic5Success"
                                     style="margin-left: 140px;"
                                     :on-remove="handleRemove">
-                                <img  :src="formData.pic5" class="el-upload el-upload&#45;&#45;picture-card"/>
-                                <i class="el-icon-plus"></i>
+                                <img :src="formData.pic5" class="el-upload el-upload--picture-card"/>
                             </el-upload>
-                                    </el-form-item>
-                                        <el-form-item label="活动封面图(APP)" prop="foreApp">
+                        </el-form-item>
+
+                        <el-form-item label="活动封面图(APP)" prop="foreApp">
                             <el-upload
                                     action="http://apidemo.test/api/event/fileSave"
                                     list-type="picture-card"
                                     :on-success="handlePic6Success"
                                     style="margin-left: 140px;"
                                     :on-remove="handleRemove">
-                                <img  :src="formData.pic6" class="el-upload el-upload&#45;&#45;picture-card"/>
-                                <i class="el-icon-plus"></i>
+                                <img :src="formData.pic6" class="el-upload el-upload--picture-card"/>
                             </el-upload>
-                                        </el-form-item>
-
                         </el-form-item>
 
                         <el-form-item label="前端显示" prop="termial_display">
@@ -329,14 +326,13 @@
                                     v-model="formData.termial_display"
                                     :min="1"
                                     :max="2">
-                                <el-checkbox  v-model="formData.termial_display">移动端</el-checkbox>
-                                <el-checkbox  v-model="formData.termial_display">PC端</el-checkbox>
+                                <el-checkbox v-model="formData.termial_display">移动端</el-checkbox>
+                                <el-checkbox v-model="formData.termial_display">PC端</el-checkbox>
                             </el-checkbox-group>
                         </el-form-item>
 
                     </el-form>
                 </el-tab-pane>
-
 
                 <el-tab-pane label="规则设置">
                     <el-form :model="formData" :rules="formRules" ref="dataForm">
@@ -421,7 +417,7 @@
                                     :before-remove="beforeRemove"
                                     :on-exceed="handleExceed"
                                     :file-list="fileList">
-                                <img  :src="formData.user_ids" class="el-upload el-upload&#45;&#45;picture-card"/>
+                                <img  :src="formData.user_ids" class="el-upload el-upload--picture-card"/>
                                 <el-button size="small" type="primary">点击上传</el-button>
                                 <div slot="tip" class="el-upload__tip">不超过500kb</div>
                             </el-upload>

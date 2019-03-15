@@ -380,7 +380,7 @@
                                     style="margin-left: 140px;"
                                     :on-remove="handleRemove">
                                 <img  :src="formData.pic6" class="el-upload el-upload--picture-card"/>
-                                <i class="el-icon-plus"></i>
+                                <!--<i class="el-icon-plus"></i>-->
                             </el-upload>
                                         </el-form-item>
 
