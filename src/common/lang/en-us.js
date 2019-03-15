@@ -142,6 +142,29 @@ export default {
         foreApp:'foreApp',
         termial_display:'termial_display',
 
+        minus_profit:'minus_profit',
+        deposit:'deposit',
+        benefit_ratio:'benefit_ratio',
+        benefitMoneyPeriod:'benefitMoneyPeriod',
+        turnover:'turnover',
+        withdraw_range:'withdraw_range',
+        history_deposit:'history_deposit',
+        verify_task:'verify_task',
+        user_ids:'user_ids',
+        import_user:'import_user',
+        userLevel:'userLevel',
+        domain:'domain',
+        date_range:'date_range',
+
+        whitelist:'whitelist',
+        blacklist:'blacklist',
+
+        restrictPlatform:'restrictPlatform',
+        restrictGame:'restrictGame',
+        pay_account:'pay_account',
+
+
+
     },
     title: {
         home: '首页',

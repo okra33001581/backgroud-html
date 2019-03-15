@@ -337,37 +337,37 @@
 
                 <el-tab-pane label="规则设置">
                     <el-form :model="formData" :rules="formRules" ref="dataForm">
-                        <el-form-item label="正盈利金额" prop="plus_profit">
+                        <el-form-item :label="$t('page.minus_profit')" prop="plus_profit">
                             <el-input v-model="formData.plus_profit" auto-complete="off"></el-input>
                         </el-form-item>
 
-                        <el-form-item label="负盈利金额" prop="minus_profit">
+                        <el-form-item :label="$t('page.minus_profit')" prop="minus_profit">
                             <el-input v-model="formData.minus_profit" auto-complete="off"></el-input>
                         </el-form-item>
 
-                        <el-form-item label="首充最低金额" prop="deposit">
+                        <el-form-item :label="$t('page.deposit')" prop="deposit">
                             <el-input v-model="formData.deposit" auto-complete="off"></el-input>
                         </el-form-item>
 
-                        <el-form-item label="赠送比例" prop="benefit_ratio">
+                        <el-form-item :label="$t('page.benefit_ratio')" prop="benefit_ratio">
                             <el-input v-model="formData.benefit_ratio" auto-complete="off"></el-input>
                         </el-form-item>
 
-                        <el-form-item label="赠送金额范围" prop="benefitMoneyPeriod">
+                        <el-form-item :label="$t('page.benefitMoneyPeriod')" prop="benefitMoneyPeriod">
                             <el-input v-model="formData.benefit_min" style="left: 0px; width: 160px;" auto-complete="off"></el-input>
                             <el-input v-model="formData.benefit_max" style="left: 0px; width: 160px;" auto-complete="off"></el-input>
                         </el-form-item>
 
-                        <el-form-item label="流水任务" prop="turnover">
+                        <el-form-item :label="$t('page.turnover')" prop="turnover">
                             <el-input v-model="formData.turnover" auto-complete="off"></el-input>
                         </el-form-item>
 
-                        <el-form-item label=提款金额范围 prop="withdraw_min">
+                        <el-form-item :label="$t('page.withdraw_range')" prop="withdraw_range">
                             <el-input v-model="formData.withdraw_min" style="left: 0px; width: 160px;" auto-complete="off"></el-input>
                             <el-input v-model="formData.withdraw_max" style="left: 0px; width: 160px;" auto-complete="off"></el-input>
                         </el-form-item>
 
-                        <el-form-item label=历史存款要求 prop="history_deposit">
+                        <el-form-item :label="$t('page.history_deposit')" prop="history_deposit">
                             <el-input v-model="formData.history_deposit" style="left: 0px; width: 40px;" auto-complete="off"></el-input>
 
                             <el-date-picker
@@ -384,7 +384,7 @@
                             </el-date-picker>
                         </el-form-item>
 
-                        <el-form-item label="验证任务" prop="turnover">
+                        <el-form-item :label="$t('page.verify_task')" prop="verify_task">
                         </el-form-item>
 
                         <el-checkbox v-model="formData.bind_bankcard_flag">绑银行卡</el-checkbox>
@@ -396,11 +396,11 @@
                         <el-checkbox v-model="formData.verify_phone_flag">验证手机</el-checkbox>
                         赠送金额<el-input v-model="formData.verify_phone_benefit" style="left: 10px; width: 430px;" auto-complete="off"></el-input>
 
-                        <el-form-item label="指定用户" prop="user_ids">
+                        <el-form-item :label="$t('page.user_ids')" prop="user_ids">
                             <el-input type="textarea" v-model="formData.user_ids" auto-complete="off"></el-input>
                         </el-form-item>
 
-                        <el-form-item label="导入用户名单" prop="username">
+                        <el-form-item :label="$t('page.minus_profit')" prop="import_user">
                             <el-upload
                                     class="upload-demo"
                                     action="http://apidemo.test/api/event/fileSave"
@@ -415,7 +415,7 @@
                                 <div slot="tip" class="el-upload__tip">不超过500kb</div>
                             </el-upload>
                         </el-form-item>
-                        <el-form-item label="用户层级" prop="userLevel">
+                        <el-form-item :label="$t('page.userLevel')" prop="userLevel">
                             <el-checkbox-group
                                     v-model="formData.user_layers"
                                     :min="1">
@@ -425,11 +425,11 @@
                             </el-checkbox-group>
                         </el-form-item>
 
-                        <el-form-item label="注册域名" prop="domain">
+                        <el-form-item :label="$t('page.domain')" prop="domain">
                             <el-input v-model="formData.register_domain" auto-complete="off"></el-input>
                         </el-form-item>
 
-                        <el-form-item label="时间区间" prop="username">
+                        <el-form-item :label="$t('page.date_range')" prop="date_range">
                             <el-date-picker
                                     v-model="formData.register_domain_begin"
                                     type="datetime"
@@ -450,9 +450,9 @@
                 <el-tab-pane label="高级设置">
                     <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                        <el-form-item label="限制平台" prop="platform_whitelist">
+                        <el-form-item :label="$t('page.restrictPlatform')" prop="restrictPlatform">
                         </el-form-item>
-                        <el-form-item label="白名单" prop="platform_blacklist">
+                        <el-form-item :label="$t('page.whitelist')" prop="whitelist">
                         <el-checkbox-group
                                 v-model="formData.platform_whitelist"
                                 :min="1">
@@ -461,7 +461,7 @@
                             </el-checkbox>
                         </el-checkbox-group>
                             </el-form-item>
-                            <el-form-item label="黑名单" prop="platform_blacklist">
+                            <el-form-item :label="$t('page.blacklist')" prop="blacklist">
                             <el-checkbox-group
                                     v-model="formData.platform_blacklist"
                                     style="margin-left: 78px;"
@@ -473,9 +473,9 @@
                             </el-form-item>
                         <!--</el-form-item>-->
 
-                        <el-form-item label="限制游戏" prop="restrictGame">
+                        <el-form-item :label="$t('page.restrictGame')" prop="restrictGame">
                         </el-form-item>
-                        <el-form-item label="白名单" prop="restrictGame">
+                        <el-form-item :label="$t('page.whitelist')" prop="whitelist">
                             <el-checkbox-group
                                     v-model="formData.game_whitelist"
                                     :min="1">
@@ -486,7 +486,7 @@
 
                         </el-form-item>
 
-                        <el-form-item label="黑名单" prop="restrictGame">
+                        <el-form-item :label="$t('page.blacklist')" prop="blacklist">
                             <el-checkbox-group
                                     v-model="formData.game_blacklist"
                                     :min="1">
@@ -497,7 +497,7 @@
                         </el-form-item>
 
 
-                        <el-form-item label="支付账号" prop="pay_account">
+                        <el-form-item :label="$t('page.pay_account')" prop="pay_account">
                             <el-checkbox-group
                                     v-model="formData.pay_account"
                                     :min="1">
@@ -507,7 +507,7 @@
                             </el-checkbox-group>
                         </el-form-item>
 
-                        <el-form-item label="返水" prop="rakeback">
+                        <el-form-item :label="$t('page.rakeback')" prop="rakeback">
                             <template>
                                 <el-switch
                                         style="margin-left: 25px;"
@@ -519,7 +519,7 @@
 
                         </el-form-item>
 
-                        <el-form-item label="救援金" prop="rescue_gold">
+                        <el-form-item :label="$t('page.rescue_gold')" prop="rescue_gold">
                             <template>
                                 <el-switch
                                         style="margin-left: 13px;"

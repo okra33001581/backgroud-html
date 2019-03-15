@@ -141,6 +141,33 @@ export default {
         termial_display:'前端显示',
 
 
+        minus_profit:'负盈利金额',
+        deposit:'首充最低金额',
+        benefit_ratio:'赠送比例',
+        benefitMoneyPeriod:'赠送金额范围',
+        turnover:'流水任务',
+        withdraw_range:'提款金额范围',
+        history_deposit:'历史存款要求',
+        verify_task:'验证任务',
+        user_ids:'指定用户',
+        import_user:'导入用户名单',
+        userLevel:'用户层级',
+        domain:'注册域名',
+        date_range:'时间区间',
+
+        restrictPlatform:'限制平台',
+        restrictGame:'限制游戏',
+        pay_account:'支付账号',
+        rakeback:'返水',
+        rescue_gold:'救援金',
+        whitelist:'白名单',
+        blacklist:'黑名单',
+
+      /*  restrictPlatform:'restrictPlatform',
+        restrictGame:'限制游戏',
+        pay_account:'pay_account',
+        */
+
     },
     title: {
         home: '首页',
