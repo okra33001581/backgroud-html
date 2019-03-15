@@ -134,3 +134,7 @@ http://localhost:9200/company_base_info_2/_search?pretty
 
 
 ElasticHD 1.3 修复细节处的BUG
+
+
+ln -s /home/ok/api/storage/app/public/ /home/ok/api/public/
+
