@@ -163,17 +163,17 @@
 
             <el-tabs type="border-card">
                 <el-tab-pane label="活动内容">
-                    <el-form :model="formData" :rules="formRules" ref="dataForm">
+                    <el-form :model="formData" :rules="formRules" ref="dataForm" label-width="80px">
 
                         <el-form-item :label="$t('page.addSubFlage')" prop="addSubFlage">
-                            <el-select v-model="formData.addSubFlage" placeholder="下级活动">
+                            <el-select v-model="formData.addSubFlage" placeholder="下级活动" style="width: 440px; max-width: 100%;">
                                 <el-option label="下级活动" value="1"></el-option>
                                 <el-option label="无下级" value="0"></el-option>
                             </el-select>
                         </el-form-item>
 
                         <el-form-item :label="$t('page.event_name')" prop="event_name">
-                            <el-input v-model="formData.event_name" auto-complete="off"></el-input>
+                            <el-input v-model="formData.event_name" style="width: 440px; max-width: 100%;" auto-complete="off"></el-input>
                         </el-form-item>
 
                         <el-form-item :label="$t('page.datePeriod')" prop="datePeriod">
@@ -193,7 +193,7 @@
 
 
                         <el-form-item :label="$t('page.event_object')" prop="event_object">
-                            <el-select v-model="formData.event_object" placeholder="活动模型">
+                            <el-select v-model="formData.event_object" placeholder="活动模型" style="width: 440px; max-width: 100%;">
                                 <el-option label="充值赠送" value=""></el-option>
                                 <el-option label="彩金红包" value="0"></el-option>
                                 <el-option label="首充赠送" value="1"></el-option>
@@ -242,16 +242,16 @@
                         </el-form-item>
 
                         <el-form-item :label="$t('page.frequency')" prop="frequency">
-                            <el-input v-model="formData.frequency"></el-input>
+                            <el-input v-model="formData.frequency" style="width: 440px; max-width: 100%;"></el-input>
                         </el-form-item>
 
                         <el-form-item :label="$t('page.times')" prop="times">
-                            <el-input v-model="formData.times"></el-input>
+                            <el-input v-model="formData.times" style="width: 440px; max-width: 100%;"></el-input>
                         </el-form-item>
 
 
                         <el-form-item :label="$t('page.event_desc')" prop="event_desc">
-                            <el-input type="textarea" v-model="formData.event_desc" auto-complete="off"></el-input>
+                            <el-input type="textarea" v-model="formData.event_desc" style="width: 440px; max-width: 100%;" auto-complete="off"></el-input>
                         </el-form-item>
 
                         <el-form-item :label="$t('page.bannerPc')" prop="bannerPc">
@@ -259,7 +259,6 @@
                                     action="http://apidemo.test/api/event/fileSave?table=eventPic1"
                                     list-type="picture-card"
                                     :on-success="handlePic1Success"
-                                    style="margin-left: 140px;"
                                     :on-remove="handleRemove">
                                 <img :src="formData.pic1" class="el-upload el-upload--picture-card"/>
                             </el-upload>
@@ -270,7 +269,6 @@
                                     action="http://apidemo.test/api/event/fileSave"
                                     list-type="picture-card"
                                     :on-success="handlePic2Success"
-                                    style="margin-left: 140px;"
                                     :on-remove="handleRemove">
                                 <img :src="formData.pic2" class="el-upload el-upload--picture-card"/>
                             </el-upload>
@@ -281,7 +279,6 @@
                                     action="http://apidemo.test/api/event/fileSave"
                                     list-type="picture-card"
                                     :on-success="handlePic3Success"
-                                    style="margin-left: 140px;"
                                     :on-remove="handleRemove">
                                 <img :src="formData.pic3" class="el-upload el-upload--picture-card"/>
                             </el-upload>
@@ -292,7 +289,6 @@
                                     action="http://apidemo.test/api/event/fileSave"
                                     list-type="picture-card"
                                     :on-success="handlePic4Success"
-                                    style="margin-left: 140px;"
                                     :on-remove="handleRemove">
                                 <img :src="formData.pic4" class="el-upload el-upload--picture-card"/>
                             </el-upload>
@@ -303,7 +299,6 @@
                                     action="http://apidemo.test/api/event/fileSave"
                                     list-type="picture-card"
                                     :on-success="handlePic5Success"
-                                    style="margin-left: 140px;"
                                     :on-remove="handleRemove">
                                 <img :src="formData.pic5" class="el-upload el-upload--picture-card"/>
                             </el-upload>
@@ -314,7 +309,6 @@
                                     action="http://apidemo.test/api/event/fileSave"
                                     list-type="picture-card"
                                     :on-success="handlePic6Success"
-                                    style="margin-left: 140px;"
                                     :on-remove="handleRemove">
                                 <img :src="formData.pic6" class="el-upload el-upload--picture-card"/>
                             </el-upload>
@@ -336,21 +330,21 @@
                 </el-tab-pane>
 
                 <el-tab-pane label="规则设置">
-                    <el-form :model="formData" :rules="formRules" ref="dataForm">
+                    <el-form :model="formData" :rules="formRules" ref="dataForm"  label-width="100px">
                         <el-form-item :label="$t('page.minus_profit')" prop="plus_profit">
-                            <el-input v-model="formData.plus_profit" auto-complete="off"></el-input>
+                            <el-input v-model="formData.plus_profit" style="width: 440px; max-width: 100%;" auto-complete="off"></el-input>
                         </el-form-item>
 
                         <el-form-item :label="$t('page.minus_profit')" prop="minus_profit">
-                            <el-input v-model="formData.minus_profit" auto-complete="off"></el-input>
+                            <el-input v-model="formData.minus_profit" style="width: 440px; max-width: 100%;" auto-complete="off"></el-input>
                         </el-form-item>
 
                         <el-form-item :label="$t('page.deposit')" prop="deposit">
-                            <el-input v-model="formData.deposit" auto-complete="off"></el-input>
+                            <el-input v-model="formData.deposit" style="width: 440px; max-width: 100%;" auto-complete="off"></el-input>
                         </el-form-item>
 
                         <el-form-item :label="$t('page.benefit_ratio')" prop="benefit_ratio">
-                            <el-input v-model="formData.benefit_ratio" auto-complete="off"></el-input>
+                            <el-input v-model="formData.benefit_ratio" style="width: 440px; max-width: 100%;" auto-complete="off"></el-input>
                         </el-form-item>
 
                         <el-form-item :label="$t('page.benefitMoneyPeriod')" prop="benefitMoneyPeriod">
@@ -358,63 +352,6 @@
                             <el-input v-model="formData.benefit_max" style="left: 0px; width: 160px;" auto-complete="off"></el-input>
                         </el-form-item>
 
-                        <el-form-item :label="$t('page.turnover')" prop="turnover">
-                            <el-input v-model="formData.turnover" auto-complete="off"></el-input>
-                        </el-form-item>
-
-                        <el-form-item :label="$t('page.withdraw_range')" prop="withdraw_range">
-                            <el-input v-model="formData.withdraw_min" style="left: 0px; width: 160px;" auto-complete="off"></el-input>
-                            <el-input v-model="formData.withdraw_max" style="left: 0px; width: 160px;" auto-complete="off"></el-input>
-                        </el-form-item>
-
-                        <el-form-item :label="$t('page.history_deposit')" prop="history_deposit">
-                            <el-input v-model="formData.history_deposit" style="left: 0px; width: 40px;" auto-complete="off"></el-input>
-
-                            <el-date-picker
-                                    v-model="formData.history_deposit_begin"
-                                    type="datetime"
-                                    placeholder="开始时间"
-                                    value-format=" yyyy-MM-dd HH:mm" format="yyyy-MM-dd HH:mm">
-                            </el-date-picker>
-                            <el-date-picker
-                                    v-model="formData.history_deposit_end"
-                                    type="datetime"
-                                    placeholder="结束时间"
-                                    value-format=" yyyy-MM-dd HH:mm" format="yyyy-MM-dd HH:mm">
-                            </el-date-picker>
-                        </el-form-item>
-
-                        <el-form-item :label="$t('page.verify_task')" prop="verify_task">
-                        </el-form-item>
-
-                        <el-checkbox v-model="formData.bind_bankcard_flag">绑银行卡</el-checkbox>
-                        赠送金额<el-input v-model="formData.bind_bankcard_benefit" style="left: 10px; width: 430px;" auto-complete="off"></el-input>
-                        <el-checkbox v-model="formData.perfect_username_flag">完善姓名</el-checkbox>
-                        赠送金额<el-input v-model="formData.perfect_username_benefit" style="left: 10px; width: 430px;" auto-complete="off"></el-input>
-                        <el-checkbox v-model="formData.verify_email_flag">验证邮箱</el-checkbox>
-                        赠送金额<el-input v-model="formData.verify_email_benefit" style="left: 10px; width: 430px;" auto-complete="off"></el-input>
-                        <el-checkbox v-model="formData.verify_phone_flag">验证手机</el-checkbox>
-                        赠送金额<el-input v-model="formData.verify_phone_benefit" style="left: 10px; width: 430px;" auto-complete="off"></el-input>
-
-                        <el-form-item :label="$t('page.user_ids')" prop="user_ids">
-                            <el-input type="textarea" v-model="formData.user_ids" auto-complete="off"></el-input>
-                        </el-form-item>
-
-                        <el-form-item :label="$t('page.minus_profit')" prop="import_user">
-                            <el-upload
-                                    class="upload-demo"
-                                    action="http://apidemo.test/api/event/fileSave"
-                                    :http-request="upload"
-                                    :on-success="handleUserIdsSuccess"
-                                    :on-remove="handleRemove"
-                                    :before-remove="beforeRemove"
-                                    :on-exceed="handleExceed"
-                                    :file-list="fileList">
-                                <img  :src="formData.user_ids" class="el-upload el-upload--picture-card"/>
-                                <el-button size="small" type="primary">点击上传</el-button>
-                                <div slot="tip" class="el-upload__tip">不超过500kb</div>
-                            </el-upload>
-                        </el-form-item>
                         <el-form-item :label="$t('page.userLevel')" prop="userLevel">
                             <el-checkbox-group
                                     v-model="formData.user_layers"
@@ -426,7 +363,7 @@
                         </el-form-item>
 
                         <el-form-item :label="$t('page.domain')" prop="domain">
-                            <el-input v-model="formData.register_domain" auto-complete="off"></el-input>
+                            <el-input v-model="formData.register_domain" style="width: 440px; max-width: 100%;"auto-complete="off"></el-input>
                         </el-form-item>
 
                         <el-form-item :label="$t('page.date_range')" prop="date_range">
@@ -444,11 +381,69 @@
                             </el-date-picker>
                         </el-form-item>
 
+                        <el-form-item :label="$t('page.turnover')" prop="turnover">
+                            <el-input v-model="formData.turnover" style="width: 440px; max-width: 100%;" auto-complete="off"></el-input>
+                        </el-form-item>
+
+                        <el-form-item :label="$t('page.withdraw_range')" prop="withdraw_range">
+                            <el-input v-model="formData.withdraw_min" style="left: 0px; width: 160px;" auto-complete="off"></el-input>
+                            <el-input v-model="formData.withdraw_max" style="left: 0px; width: 160px;" auto-complete="off"></el-input>
+                        </el-form-item>
+
+                        <el-form-item :label="$t('page.user_ids')" prop="user_ids">
+                            <el-input type="textarea" v-model="formData.user_ids" auto-complete="off"></el-input>
+                        </el-form-item>
+
+                        <el-form-item :label="$t('page.import_user')" prop="import_user">
+                            <el-upload
+                                    class="upload-demo"
+                                    action="http://apidemo.test/api/event/fileSave"
+                                    :http-request="upload"
+                                    :on-success="handleUserIdsSuccess"
+                                    :on-remove="handleRemove"
+                                    :before-remove="beforeRemove"
+                                    :on-exceed="handleExceed"
+                                    :file-list="fileList">
+                                <img  :src="formData.user_ids" width="0%" height="0%"/>
+                                <el-button size="small" type="primary">点击上传</el-button>
+                                <!--<div slot="tip" class="el-upload__tip">不超过500kb</div>-->
+                            </el-upload>
+                        </el-form-item>
+
+                        <el-form-item :label="$t('page.history_deposit')" prop="history_deposit">
+                            <el-input v-model="formData.history_deposit" style="width: 440px; max-width: 100%;" auto-complete="off"></el-input>
+                        </el-form-item>
+
+                        <el-form-item :label="$t('page.date_range')" prop="history_deposit_begin">
+                            <el-date-picker
+                                    v-model="formData.history_deposit_begin"
+                                    type="datetime"
+                                    placeholder="开始时间"
+                                    value-format=" yyyy-MM-dd HH:mm" format="yyyy-MM-dd HH:mm">
+                            </el-date-picker>
+                            <el-date-picker
+                                    v-model="formData.history_deposit_end"
+                                    type="datetime"
+                                    placeholder="结束时间"
+                                    value-format=" yyyy-MM-dd HH:mm" format="yyyy-MM-dd HH:mm">
+                            </el-date-picker>
+                        </el-form-item>
+                      <!--  <el-form-item :label="$t('page.verify_task')" prop="verify_task">
+                        </el-form-item>-->
+                        <el-checkbox v-model="formData.bind_bankcard_flag">绑银行卡</el-checkbox>
+                        赠送金额<el-input v-model="formData.bind_bankcard_benefit" style="left: 10px; width: 430px;" auto-complete="off"></el-input>
+                        <el-checkbox v-model="formData.perfect_username_flag">完善姓名</el-checkbox>
+                        赠送金额<el-input v-model="formData.perfect_username_benefit" style="left: 10px; width: 430px;" auto-complete="off"></el-input>
+                        <el-checkbox v-model="formData.verify_email_flag">验证邮箱</el-checkbox>
+                        赠送金额<el-input v-model="formData.verify_email_benefit" style="left: 10px; width: 430px;" auto-complete="off"></el-input>
+                        <el-checkbox v-model="formData.verify_phone_flag">验证手机</el-checkbox>
+                        赠送金额<el-input v-model="formData.verify_phone_benefit" style="left: 10px; width: 430px;" auto-complete="off"></el-input>
+
                     </el-form>
                 </el-tab-pane>
 
                 <el-tab-pane label="高级设置">
-                    <el-form :model="formData" :rules="formRules" ref="dataForm">
+                    <el-form :model="formData" :rules="formRules" ref="dataForm"  label-width="80px">
 
                         <el-form-item :label="$t('page.restrictPlatform')" prop="restrictPlatform">
                         </el-form-item>
@@ -464,7 +459,6 @@
                             <el-form-item :label="$t('page.blacklist')" prop="blacklist">
                             <el-checkbox-group
                                     v-model="formData.platform_blacklist"
-                                    style="margin-left: 78px;"
                                 >
                                 <el-checkbox v-for="item in platformsOptions" :label="item.key" :key="item.key">
                                     {{ item.name }}
@@ -510,7 +504,6 @@
                         <el-form-item :label="$t('page.rakeback')" prop="rakeback">
                             <template>
                                 <el-switch
-                                        style="margin-left: 25px;"
                                         v-model="formData.rakeback"
                                         active-color="#13ce66"
                                         inactive-color="#ff4949">
@@ -522,7 +515,6 @@
                         <el-form-item :label="$t('page.rescue_gold')" prop="rescue_gold">
                             <template>
                                 <el-switch
-                                        style="margin-left: 13px;"
                                         v-model="formData.rescue_gold"
                                         active-color="#13ce66"
                                         inactive-color="#ff4949">
