@@ -236,6 +236,13 @@
                 <el-tab-pane label="活动内容">
                     <el-form :model="formData" :rules="formRules" ref="dataForm">
 
+                        <el-form-item label="下级活动" prop="addSubFlage">
+                            <el-select v-model="formData.addSubFlage" placeholder="下级活动">
+                            <el-option label="无下级" value="0"></el-option>
+                            <el-option label="下级活动" value="1"></el-option>
+                            </el-select>
+                        </el-form-item>
+
                         <el-form-item label="活动名称" prop="event_name">
                             <el-input v-model="formData.event_name" auto-complete="off"></el-input>
                         </el-form-item>
@@ -243,15 +250,15 @@
                         <el-form-item label="时间区间" prop="datePeriod">
                             <el-date-picker
                                     v-model="formData.range_begin"
-                                    type="date"
+                                    type="datetime"
                                     placeholder="开始时间"
-                                    :picker-options="pickerOptions0">
+                                    value-format=" yyyy-MM-dd HH:mm" format="yyyy-MM-dd HH:mm">
                             </el-date-picker>
                             <el-date-picker
                                     v-model="formData.range_end"
-                                    type="date"
+                                    type="datetime"
                                     placeholder="结束时间"
-                                    :picker-options="pickerOptions1">
+                                    value-format=" yyyy-MM-dd HH:mm" format="yyyy-MM-dd HH:mm">
                             </el-date-picker>
                         </el-form-item>
 
@@ -321,7 +328,7 @@
 
                         <el-form-item label="Banner(PC)" prop="bannerPc">
                             <el-upload
-                                    action="https://jsonplaceholder.typicode.com/posts/"
+                                    action="http://apidemo.test/api/event/fileSave"
                                     list-type="picture-card"
                                     :on-preview="handlePictureCardPreview"
                                     style="margin-left: 140px;"
@@ -332,7 +339,7 @@
                         </el-form-item>
                         <el-form-item label="Banner(APP)" prop="bannerApp">
                             <el-upload
-                                    action="https://jsonplaceholder.typicode.com/posts/"
+                                    action="http://apidemo.test/api/event/fileSave"
                                     list-type="picture-card"
                                     :on-preview="handlePictureCardPreview"
                                     style="margin-left: 140px;"
@@ -343,7 +350,7 @@
                         </el-form-item>
                             <el-form-item label="活动小图(PC)" prop="picturePc">
                             <el-upload
-                                    action="https://jsonplaceholder.typicode.com/posts/"
+                                    action="http://apidemo.test/api/event/fileSave"
                                     list-type="picture-card"
                                     :on-preview="handlePictureCardPreview"
                                     style="margin-left: 140px;"
@@ -354,7 +361,7 @@
                             </el-form-item>
                                 <el-form-item label="活动小图(APP)" prop="pictureApp">
                             <el-upload
-                                    action="https://jsonplaceholder.typicode.com/posts/"
+                                    action="http://apidemo.test/api/event/fileSave"
                                     list-type="picture-card"
                                     :on-preview="handlePictureCardPreview"
                                     style="margin-left: 140px;"
@@ -365,7 +372,7 @@
                                 </el-form-item>
                                     <el-form-item label="活动封面图(PC)" prop="forePC">
                             <el-upload
-                                    action="https://jsonplaceholder.typicode.com/posts/"
+                                    action="http://apidemo.test/api/event/fileSave"
                                     list-type="picture-card"
                                     :on-preview="handlePictureCardPreview"
                                     style="margin-left: 140px;"
@@ -376,7 +383,7 @@
                                     </el-form-item>
                                         <el-form-item label="活动封面图(APP)" prop="foreApp">
                             <el-upload
-                                    action="https://jsonplaceholder.typicode.com/posts/"
+                                    action="http://apidemo.test/api/event/fileSave"
                                     list-type="picture-card"
                                     :on-preview="handlePictureCardPreview"
                                     style="margin-left: 140px;"
@@ -424,14 +431,12 @@
                             <el-date-picker
                                     v-model="formData.benefit_min"
                                     type="date"
-                                    placeholder="最小值"
-                                    :picker-options="pickerOptions0">
+                                    placeholder="最小值">
                             </el-date-picker>
                             <el-date-picker
                                     v-model="formData.benefit_max"
                                     type="date"
-                                    placeholder="最大值"
-                                    :picker-options="pickerOptions1">
+                                    placeholder="最大值">
                             </el-date-picker>
                         </el-form-item>
 
@@ -449,15 +454,15 @@
 
                             <el-date-picker
                                     v-model="formData.history_deposit_begin"
-                                    type="date"
+                                    type="datetime"
                                     placeholder="开始时间"
-                                    :picker-options="pickerOptions0">
+                                    value-format=" yyyy-MM-dd HH:mm" format="yyyy-MM-dd HH:mm">
                             </el-date-picker>
                             <el-date-picker
                                     v-model="formData.history_deposit_end"
-                                    type="date"
+                                    type="datetime"
                                     placeholder="结束时间"
-                                    :picker-options="pickerOptions1">
+                                    value-format=" yyyy-MM-dd HH:mm" format="yyyy-MM-dd HH:mm">
                             </el-date-picker>
                         </el-form-item>
 
@@ -511,15 +516,15 @@
                         <el-form-item label="时间区间" prop="username">
                             <el-date-picker
                                     v-model="formData.register_domain_begin"
-                                    type="date"
+                                    type="datetime"
                                     placeholder="开始时间"
-                                    :picker-options="pickerOptions0">
+                                    value-format=" yyyy-MM-dd HH:mm" format="yyyy-MM-dd HH:mm">
                             </el-date-picker>
                             <el-date-picker
                                     v-model="formData.register_domain_end"
-                                    type="date"
+                                    type="datetime"
                                     placeholder="结束时间"
-                                    :picker-options="pickerOptions1">
+                                    value-format=" yyyy-MM-dd HH:mm" format="yyyy-MM-dd HH:mm">
                             </el-date-picker>
                         </el-form-item>
 
@@ -618,7 +623,6 @@
 
             </el-tabs>
 
-
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideForm">取消</el-button>
                 <el-button type="primary" @click.native="formSubmit()" :loading="formLoading">提交</el-button>
@@ -632,9 +636,8 @@
     import {
         activityList,
         activitySubList,
-        authAdminRoleList,
         eventSave,
-        authAdminDelete
+        eventStatusSave
     } from "../../../api/event-management";
     const cityOptions = ['上海', '北京', '广州', '深圳'];
     const sendType = [
@@ -1089,12 +1092,12 @@
             // 删除
             handleDel(index, row) {
                 if (row.id) {
-                    this.$confirm("确认删除该记录吗?", "提示", {
+                    this.$confirm("确认编辑该记录吗?", "提示", {
                         type: "warning"
                     })
                         .then(() => {
                             let para = {id: row.id};
-                            authAdminDelete(para)
+                            eventStatusSave(para)
                                 .then(response => {
                                     this.deleteLoading = false;
                                     if (response.code) {
@@ -1104,11 +1107,12 @@
                                         });
                                     } else {
                                         this.$message({
-                                            message: "删除成功",
+                                            message: "编辑成功",
                                             type: "success"
                                         });
                                         // 刷新数据
                                         this.list.splice(index, 1);
+                                        // this.getList();
                                     }
                                 })
                                 .catch(() => {
@@ -1118,7 +1122,7 @@
                         .catch(() => {
                             this.$message({
                                 type: "info",
-                                message: "取消删除"
+                                message: "取消编辑"
                             });
                         });
                 }

@@ -77,6 +77,20 @@ export function fileSave(data, formName, method = "post") {
 }
 
 // 保存
+export function eventStatusSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "http://apidemo.test/api/event/eventStatusSave"
+            : "http://apidemo.test/api/event/eventStatusSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+
+// 保存
 export function eventObjectSetSave(data, formName, method = "post") {
     let url =
         formName === "add"
