@@ -122,6 +122,25 @@ export default {
         begin_date:'开始时间',
         end_date:'结束时间',
 
+        addSubFlage:'下级活动',
+        event_name:'活动名称',
+        datePeriod:'时间区间',
+        event_object:'活动对象',
+        send_type:'发放方式',
+        terminal_display:'领取端点',
+        audit_mode:'审核模式',
+        frequency:'领取频率',
+        times:'申请次数',
+        event_desc:'活动介绍',
+        bannerPc:'Banner(PC)',
+        bannerApp:'Banner(APP)',
+        picturePc:'活动小图(PC)',
+        pictureApp:'活动小图(APP)',
+        forePC:'活动封面图(PC)',
+        foreApp:'活动封面图(APP)',
+        termial_display:'前端显示',
+
+
     },
     title: {
         home: '首页',

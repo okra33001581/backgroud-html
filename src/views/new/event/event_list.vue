@@ -165,18 +165,18 @@
                 <el-tab-pane label="活动内容">
                     <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                        <el-form-item label="下级活动" prop="addSubFlage">
+                        <el-form-item :label="$t('page.addSubFlage')" prop="addSubFlage">
                             <el-select v-model="formData.addSubFlage" placeholder="下级活动">
                                 <el-option label="下级活动" value="1"></el-option>
                                 <el-option label="无下级" value="0"></el-option>
                             </el-select>
                         </el-form-item>
 
-                        <el-form-item label="活动名称" prop="event_name">
+                        <el-form-item :label="$t('page.event_name')" prop="event_name">
                             <el-input v-model="formData.event_name" auto-complete="off"></el-input>
                         </el-form-item>
 
-                        <el-form-item label="时间区间" prop="datePeriod">
+                        <el-form-item :label="$t('page.datePeriod')" prop="datePeriod">
                             <el-date-picker
                                     v-model="formData.range_begin"
                                     type="datetime"
@@ -192,7 +192,7 @@
                         </el-form-item>
 
 
-                        <el-form-item label="活动对象" prop="event_object">
+                        <el-form-item :label="$t('page.event_object')" prop="event_object">
                             <el-select v-model="formData.event_object" placeholder="活动模型">
                                 <el-option label="充值赠送" value=""></el-option>
                                 <el-option label="彩金红包" value="0"></el-option>
@@ -207,7 +207,7 @@
                             </el-select>
                         </el-form-item>
 
-                        <el-form-item label="发放方式" prop="send_type">
+                        <el-form-item :label="$t('page.send_type')" prop="send_type">
                             <el-checkbox-group
                                     v-model="formData.send_type"
                                     :min="1"
@@ -218,7 +218,7 @@
                             </el-checkbox-group>
                         </el-form-item>
 
-                        <el-form-item label="领取端点" prop="terminal_display">
+                        <el-form-item :label="$t('page.terminal_display')" prop="terminal_display">
                             <el-checkbox-group
                                     v-model="formData.terminal_display"
                                     :min="1"
@@ -230,7 +230,7 @@
 
                         </el-form-item>
 
-                        <el-form-item label="审核模式" prop="audit_mode">
+                        <el-form-item :label="$t('page.audit_mode')" prop="audit_mode">
                             <el-checkbox-group
                                     v-model="formData.audit_mode"
                                     :min="1">
@@ -241,20 +241,20 @@
 
                         </el-form-item>
 
-                        <el-form-item label="领取频率" prop="frequency">
+                        <el-form-item :label="$t('page.frequency')" prop="frequency">
                             <el-input v-model="formData.frequency"></el-input>
                         </el-form-item>
 
-                        <el-form-item label="申请次数" prop="times">
+                        <el-form-item :label="$t('page.times')" prop="times">
                             <el-input v-model="formData.times"></el-input>
                         </el-form-item>
 
 
-                        <el-form-item label="活动介绍" prop="event_desc">
+                        <el-form-item :label="$t('page.event_desc')" prop="event_desc">
                             <el-input type="textarea" v-model="formData.event_desc" auto-complete="off"></el-input>
                         </el-form-item>
 
-                        <el-form-item label="Banner(PC)" prop="bannerPc">
+                        <el-form-item :label="$t('page.bannerPc')" prop="bannerPc">
                             <el-upload
                                     action="http://apidemo.test/api/event/fileSave?table=eventPic1"
                                     list-type="picture-card"
@@ -265,7 +265,7 @@
                             </el-upload>
                         </el-form-item>
 
-                        <el-form-item label="Banner(APP)" prop="bannerApp">
+                        <el-form-item :label="$t('page.bannerApp')" prop="bannerApp">
                             <el-upload
                                     action="http://apidemo.test/api/event/fileSave"
                                     list-type="picture-card"
@@ -276,7 +276,7 @@
                             </el-upload>
                         </el-form-item>
 
-                        <el-form-item label="活动小图(PC)" prop="picturePc">
+                        <el-form-item :label="$t('page.picturePc')" prop="picturePc">
                             <el-upload
                                     action="http://apidemo.test/api/event/fileSave"
                                     list-type="picture-card"
@@ -287,7 +287,7 @@
                             </el-upload>
                         </el-form-item>
 
-                        <el-form-item label="活动小图(APP)" prop="pictureApp">
+                        <el-form-item :label="$t('page.pictureApp')" prop="pictureApp">
                             <el-upload
                                     action="http://apidemo.test/api/event/fileSave"
                                     list-type="picture-card"
@@ -298,7 +298,7 @@
                             </el-upload>
                         </el-form-item>
 
-                        <el-form-item label="活动封面图(PC)" prop="forePC">
+                        <el-form-item :label="$t('page.forePC')" prop="forePC">
                             <el-upload
                                     action="http://apidemo.test/api/event/fileSave"
                                     list-type="picture-card"
@@ -309,7 +309,7 @@
                             </el-upload>
                         </el-form-item>
 
-                        <el-form-item label="活动封面图(APP)" prop="foreApp">
+                        <el-form-item :label="$t('page.foreApp')" prop="foreApp">
                             <el-upload
                                     action="http://apidemo.test/api/event/fileSave"
                                     list-type="picture-card"
@@ -320,7 +320,7 @@
                             </el-upload>
                         </el-form-item>
 
-                        <el-form-item label="前端显示" prop="termial_display">
+                        <el-form-item :label="$t('page.termial_display')" prop="termial_display">
 
                             <el-checkbox-group
                                     v-model="formData.termial_display"

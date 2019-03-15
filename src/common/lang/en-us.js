@@ -122,6 +122,26 @@ export default {
         refresh:'refresh',
         begin_date:'begin_date',
         end_date:'end_date',
+
+
+        addSubFlage:'addSubFlage',
+        event_name:'event_name',
+        datePeriod:'datePeriod',
+        event_object:'event_object',
+        send_type:'send_type',
+        terminal_display:'terminal_display',
+        audit_mode:'audit_mode',
+        frequency:'frequency',
+        times:'times',
+        event_desc:'event_desc',
+        bannerPc:'bannerPc',
+        bannerApp:'bannerApp',
+        picturePc:'picturePc',
+        pictureApp:'pictureApp',
+        forePC:'forePC',
+        foreApp:'foreApp',
+        termial_display:'termial_display',
+
     },
     title: {
         home: '首页',
