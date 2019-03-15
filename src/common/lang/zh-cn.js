@@ -162,11 +162,10 @@ export default {
         rescue_gold:'救援金',
         whitelist:'白名单',
         blacklist:'黑名单',
-
-      /*  restrictPlatform:'restrictPlatform',
-        restrictGame:'限制游戏',
-        pay_account:'pay_account',
-        */
+        /*  restrictPlatform:'restrictPlatform',
+          restrictGame:'限制游戏',
+          pay_account:'pay_account',
+          */
 
     },
     title: {

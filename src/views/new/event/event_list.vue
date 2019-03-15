@@ -163,7 +163,7 @@
 
             <el-tabs type="border-card">
                 <el-tab-pane label="活动内容">
-                    <el-form :model="formData" :rules="formRules" ref="dataForm" label-width="80px">
+                    <el-form :model="formData" :rules="formRules" ref="dataForm" label-width="100px">
 
                         <el-form-item :label="$t('page.addSubFlage')" prop="addSubFlage">
                             <el-select v-model="formData.addSubFlage" placeholder="下级活动" style="width: 440px; max-width: 100%;">
@@ -330,7 +330,7 @@
                 </el-tab-pane>
 
                 <el-tab-pane label="规则设置">
-                    <el-form :model="formData" :rules="formRules" ref="dataForm"  label-width="100px">
+                    <el-form :model="formData" :rules="formRules" ref="dataForm"  label-width="130px">
                         <el-form-item :label="$t('page.minus_profit')" prop="plus_profit">
                             <el-input v-model="formData.plus_profit" style="width: 440px; max-width: 100%;" auto-complete="off"></el-input>
                         </el-form-item>
@@ -348,8 +348,8 @@
                         </el-form-item>
 
                         <el-form-item :label="$t('page.benefitMoneyPeriod')" prop="benefitMoneyPeriod">
-                            <el-input v-model="formData.benefit_min" style="left: 0px; width: 160px;" auto-complete="off"></el-input>
-                            <el-input v-model="formData.benefit_max" style="left: 0px; width: 160px;" auto-complete="off"></el-input>
+                            <el-input v-model="formData.benefit_min" style="width: 440px; max-width: 46%;" auto-complete="off"></el-input>
+                            <el-input v-model="formData.benefit_max" style="width: 440px; margin-left: 11px; max-width: 46%;" auto-complete="off"></el-input>
                         </el-form-item>
 
                         <el-form-item :label="$t('page.userLevel')" prop="userLevel">
@@ -386,12 +386,12 @@
                         </el-form-item>
 
                         <el-form-item :label="$t('page.withdraw_range')" prop="withdraw_range">
-                            <el-input v-model="formData.withdraw_min" style="left: 0px; width: 160px;" auto-complete="off"></el-input>
-                            <el-input v-model="formData.withdraw_max" style="left: 0px; width: 160px;" auto-complete="off"></el-input>
+                            <el-input v-model="formData.withdraw_min" style="width: 440px; max-width: 46%;" auto-complete="off"></el-input>
+                            <el-input v-model="formData.withdraw_max" style="width: 440px; margin-left: 11px; max-width: 46%;" auto-complete="off"></el-input>
                         </el-form-item>
 
                         <el-form-item :label="$t('page.user_ids')" prop="user_ids">
-                            <el-input type="textarea" v-model="formData.user_ids" auto-complete="off"></el-input>
+                            <el-input type="textarea" v-model="formData.user_ids" style="width: 440px; max-width: 100%;" auto-complete="off"></el-input>
                         </el-form-item>
 
                         <el-form-item :label="$t('page.import_user')" prop="import_user">
@@ -430,20 +430,35 @@
                         </el-form-item>
                       <!--  <el-form-item :label="$t('page.verify_task')" prop="verify_task">
                         </el-form-item>-->
-                        <el-checkbox v-model="formData.bind_bankcard_flag">绑银行卡</el-checkbox>
-                        赠送金额<el-input v-model="formData.bind_bankcard_benefit" style="left: 10px; width: 430px;" auto-complete="off"></el-input>
-                        <el-checkbox v-model="formData.perfect_username_flag">完善姓名</el-checkbox>
+                        <!--<el-checkbox v-model="formData.bind_bankcard_flag">绑银行卡</el-checkbox>-->
+                        <el-form-item label="绑银行卡" prop="绑银行卡">
+                            <el-checkbox v-model="formData.bind_bankcard_flag"></el-checkbox>
+                            <el-input v-model="formData.bind_bankcard_benefit" style="width: 440px; margin-left:11px;max-width: 90%;" auto-complete="off"></el-input>
+                        </el-form-item>
+                        <el-form-item label="完善姓名" prop="完善姓名">
+                            <el-checkbox v-model="formData.perfect_username_flag"></el-checkbox>
+                            <el-input v-model="formData.perfect_username_benefit" style="width: 440px; margin-left:11px;max-width: 90%;" auto-complete="off"></el-input>
+                        </el-form-item>
+                        <el-form-item label="验证邮箱" prop="验证邮箱">
+                            <el-checkbox v-model="formData.verify_email_flag"></el-checkbox>
+                            <el-input v-model="formData.verify_email_benefit" style="width: 440px; margin-left:11px;max-width: 90%;" auto-complete="off"></el-input>
+                        </el-form-item>
+                        <el-form-item label="验证手机" prop="验证手机">
+                            <el-checkbox v-model="formData.verify_phone_flag"></el-checkbox>
+                            <el-input v-model="formData.verify_phone_benefit" style="width: 440px; margin-left:11px;max-width: 90%;" auto-complete="off"></el-input>
+                        </el-form-item>
+                        <!--<el-checkbox v-model="formData.perfect_username_flag">完善姓名</el-checkbox>
                         赠送金额<el-input v-model="formData.perfect_username_benefit" style="left: 10px; width: 430px;" auto-complete="off"></el-input>
                         <el-checkbox v-model="formData.verify_email_flag">验证邮箱</el-checkbox>
                         赠送金额<el-input v-model="formData.verify_email_benefit" style="left: 10px; width: 430px;" auto-complete="off"></el-input>
                         <el-checkbox v-model="formData.verify_phone_flag">验证手机</el-checkbox>
-                        赠送金额<el-input v-model="formData.verify_phone_benefit" style="left: 10px; width: 430px;" auto-complete="off"></el-input>
+                        赠送金额<el-input v-model="formData.verify_phone_benefit" style="left: 10px; width: 430px;" auto-complete="off"></el-input>-->
 
                     </el-form>
                 </el-tab-pane>
 
                 <el-tab-pane label="高级设置">
-                    <el-form :model="formData" :rules="formRules" ref="dataForm"  label-width="80px">
+                    <el-form :model="formData" :rules="formRules" ref="dataForm"  label-width="90px">
 
                         <el-form-item :label="$t('page.restrictPlatform')" prop="restrictPlatform">
                         </el-form-item>

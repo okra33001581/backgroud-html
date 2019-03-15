@@ -162,7 +162,8 @@ export default {
         restrictPlatform:'restrictPlatform',
         restrictGame:'restrictGame',
         pay_account:'pay_account',
-
+        rakeback:'rakeback',
+        rescue_gold:'rescue_gold',
 
 
     },
