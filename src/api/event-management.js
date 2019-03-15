@@ -1,12 +1,12 @@
 /**
- * Created by lk on 17/6/4.
+ * Created by lk on 19/1/15.
  */
 import axios from "../utils/axios";
 
 // 获取列表
 export function activityList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/activityList",
+        url: "event/activityList",
         method: "get",
         params: query
     });
@@ -15,7 +15,7 @@ export function activityList(query) {
 // 获取列表
 export function activitySubList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/activitySubList",
+        url: "event/activitySubList",
         method: "get",
         params: query
     });
@@ -24,7 +24,7 @@ export function activitySubList(query) {
 // 获取列表
 export function eventUserPrizeList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/eventUserPrizeList",
+        url: "event/eventUserPrizeList",
         method: "get",
         params: query
     });
@@ -33,18 +33,17 @@ export function eventUserPrizeList(query) {
 // 获取列表
 export function eventProcessList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/eventProcessList",
+        url: "event/eventProcessList",
         method: "get",
         params: query
     });
 }
 
 
-
 // 获取角色列表
 export function authAdminRoleList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/eventSave",
+        url: "event/eventSave",
         method: "get",
         params: query
     });
@@ -54,8 +53,8 @@ export function authAdminRoleList(query) {
 export function eventSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/eventSave"
-            : "http://apidemo.test/api/event/eventSave";
+            ? "event/eventSave"
+            : "event/eventSave";
     return axios({
         url: url,
         method: method,
@@ -67,8 +66,8 @@ export function eventSave(data, formName, method = "post") {
 export function fileSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/fileSave"
-            : "http://apidemo.test/api/event/fileSave";
+            ? "event/fileSave"
+            : "event/fileSave";
     return axios({
         url: url,
         method: method,
@@ -80,8 +79,8 @@ export function fileSave(data, formName, method = "post") {
 export function eventStatusSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/eventStatusSave"
-            : "http://apidemo.test/api/event/eventStatusSave";
+            ? "event/eventStatusSave"
+            : "event/eventStatusSave";
     return axios({
         url: url,
         method: method,
@@ -89,13 +88,12 @@ export function eventStatusSave(data, formName, method = "post") {
     });
 }
 
-
 // 保存
 export function eventObjectSetSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/eventObjectSetSave"
-            : "http://apidemo.test/api/event/eventObjectSetSave";
+            ? "event/eventObjectSetSave"
+            : "event/eventObjectSetSave";
     return axios({
         url: url,
         method: method,
@@ -106,7 +104,7 @@ export function eventObjectSetSave(data, formName, method = "post") {
 // 删除管理员
 export function authAdminDelete(data) {
     return axios({
-        url: "http://apidemo.test/api/event/adminDelete",
+        url: "event/adminDelete",
         method: "post",
         data: data
     });

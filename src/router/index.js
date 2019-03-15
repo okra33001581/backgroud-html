@@ -15,62 +15,15 @@ import event_process from "../views/new/event/event_process.vue";
 import points_mall from "../views/new/event/points_mall.vue";
 import prize_audit from "../views/new/event/prize_audit.vue";
 
-import qrconfig_list from "../views/hwin/site-management/qrconfig_list.vue";
-import rotationconfig_list from "../views/hwin/site-management/rotationconfig_list.vue";
-import systemconfig_imagelist from "../views/hwin/site-management/systemconfig_imagelist.vue";
-import systemconfig_set from "../views/hwin/site-management/systemconfig_set.vue";
-import floatwindowconfig_list from "../views/hwin/site-management/floatwindowconfig_list.vue";
-import information_companylist from "../views/hwin/site-management/information_companylist.vue";
-import information_list from "../views/hwin/site-management/information_list.vue";
-import lotterygroup_sort from "../views/hwin/site-management/lotterygroup_sort.vue";
-import proxyiptables_blackcontainlist from "../views/hwin/site-management/proxyiptables_blackcontainlist.vue";
-import marquee_list from "../views/hwin/notice-management/marquee_list.vue";
-import message_list from "../views/hwin/notice-management/message_list.vue";
-import notice_list from "../views/hwin/notice-management/notice_list.vue";
-import push_list from "../views/hwin/notice-management/push_list.vue";
-import betlimit_list from "../views/hwin/play-management/betlimit_list.vue";
-import lotteryrisk_list from "../views/hwin/play-management/lotteryrisk_list.vue";
-import pgame_list from "../views/hwin/play-management/pgame_list.vue";
-import proxygames_list from "../views/hwin/play-management/proxygames_list.vue";
-import finance_index from "../views/hwin/report-management/finance_index.vue";
-import operation_profit from "../views/hwin/report-management/operation_profit.vue";
-import pgame_playlist from "../views/hwin/report-management/pgame_playlist.vue";
-import preport_profit from "../views/hwin/report-management/preport_profit.vue";
-import user_report from "../views/hwin/report-management/user_report.vue";
-import user_infolist from "../views/hwin/user-management/user_infolist.vue";
-import user_inoutcash from "../views/hwin/user-management/user_inoutcash.vue";
-import user_mainlist from "../views/hwin/user-management/user_mainlist.vue";
-import user_monitor from "../views/hwin/user-management/user_monitor.vue";
-import user_reviewlist from "../views/hwin/user-management/user_reviewlist.vue";
-import user_usercard from "../views/hwin/user-management/user_usercard.vue";
-import user_userlayer from "../views/hwin/user-management/user_userlayer.vue";
-import user_validuser from "../views/hwin/user-management/user_validuser.vue";
-import proxycommission_list from "../views/hwin/delegate-management/proxycommission_list.vue";
-import proxycommission_proxylist from "../views/hwin/delegate-management/proxycommission_proxylist.vue";
-import activity_list from "../views/hwin/event-management/activity_list.vue";
-import cash_orderlist from "../views/hwin/fund-management/cash_orderlist.vue";
-import cash_paysetting from "../views/hwin/fund-management/cash_paysetting.vue";
-import cash_rakeback from "../views/hwin/fund-management/cash_rakeback.vue";
-import cash_withdrawlist from "../views/hwin/fund-management/cash_withdrawlist.vue";
-import companymoney_list from "../views/hwin/fund-management/companymoney_list.vue";
-import fastpaymoney_list from "../views/hwin/fund-management/fastpaymoney_list.vue";
-import layerchart_index from "../views/hwin/fund-management/layerchart_index.vue";
-import manualpayconfirm_list from "../views/hwin/fund-management/manualpayconfirm_list.vue";
-import manualpay_save from "../views/hwin/fund-management/manualpay_save.vue";
-import payaccount_list from "../views/hwin/fund-management/payaccount_list.vue";
-import paygroup_list from "../views/hwin/fund-management/paygroup_list.vue";
-import transferorder_list from "../views/hwin/fund-management/transferorder_list.vue";
-import tripartite_list from "../views/hwin/fund-management/tripartite_list.vue";
-import userbetscheck_list from "../views/hwin/fund-management/userbetscheck_list.vue";
-import log_adminlog from "../views/hwin/log-management/log_adminlog.vue";
-import log_domainlog from "../views/hwin/log-management/log_domainlog.vue";
-import log_loginlog from "../views/hwin/log-management/log_loginlog.vue";
 // 管理组相关
 import adminRouter from "../views/userManage/admin/router.vue";
 import authAdmin from "../views/userManage/admin/authAdmin.vue";
 import authRole from "../views/userManage/admin/authRole.vue";
 import authPermissionRule from "../views/userManage/admin/authPermissionRule.vue";
 import Main1 from '@/components/Main'
+
+import information_list from "../views/new/event/event_list.vue";
+
 
 const err401 = r =>
     require.ensure([], () => r(require("../views/error/err401.vue")), "home");
@@ -729,7 +682,7 @@ export const asyncRouterMap = [
         ]
     },
     {
-        path: "/hwin-Userlog",
+        path: "/hwin-Userlog1",
         redirect: "/events/events",
         component: Home,
         icon: "Userlog",

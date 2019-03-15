@@ -1,3 +1,4 @@
+<!--
 <template>
   <el-table :data="list" stripe style="width: 100%;padding-top: 15px;">
     <el-table-column label="Order_No" min-width="200">
@@ -51,3 +52,4 @@ export default {
   }
 }
 </script>
+-->
