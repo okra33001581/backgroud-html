@@ -430,7 +430,7 @@
                         </el-form-item>
 
                         <el-form-item :label="$t('page.user_ids')" prop="user_ids">
-                            <el-input type="textarea" v-model="formData.user_ids" style="width: 440px; max-width: 100%;" auto-complete="off"></el-input>
+                            <el-input type="textarea" v-model="formData.user_ids" style="width: 440px; max-width: 100%;" auto-complete="off" ></el-input>
                         </el-form-item>
 
                         <el-form-item :label="$t('page.import_user')" prop="import_user">
