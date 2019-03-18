@@ -272,11 +272,13 @@
                         </el-form-item>
 
                         <el-form-item :label="$t('page.frequency')" prop="frequency">
-                            <el-input v-model="formData.frequency" style="width: 440px; max-width: 100%;"></el-input>
+                            <el-input-number v-model="formData.frequency" style="width: 440px; max-width: 100%;" :min="1" :max="58"
+                                             size="small" number></el-input-number>
                         </el-form-item>
 
                         <el-form-item :label="$t('page.times')" prop="times">
-                            <el-input v-model="formData.times" style="width: 440px; max-width: 100%;"></el-input>
+                            <el-input-number v-model="formData.times" style="width: 440px; max-width: 100%;" :min="1" :max="58"
+                                             size="small" number></el-input-number>
                         </el-form-item>
 
 
@@ -362,24 +364,30 @@
                 <el-tab-pane label="规则设置">
                     <el-form :model="formData" :rules="formRules" ref="dataForm"  label-width="130px">
                         <el-form-item :label="$t('page.minus_profit')" prop="plus_profit">
-                            <el-input v-model="formData.plus_profit" style="width: 440px; max-width: 100%;" auto-complete="off"></el-input>
+                            <el-input-number v-model="formData.plus_profit" style="width: 440px; max-width: 100%;" :min="0.01" :max="10000000"
+                                             size="small" number></el-input-number>
                         </el-form-item>
 
                         <el-form-item :label="$t('page.minus_profit')" prop="minus_profit">
-                            <el-input v-model="formData.minus_profit" style="width: 440px; max-width: 100%;" auto-complete="off"></el-input>
+                            <el-input-number v-model="formData.minus_profit" style="width: 440px; max-width: 100%;" :min="0.01" :max="10000000"
+                                             size="small" number></el-input-number>
                         </el-form-item>
 
                         <el-form-item :label="$t('page.deposit')" prop="deposit">
-                            <el-input v-model="formData.deposit" style="width: 440px; max-width: 100%;" auto-complete="off"></el-input>
+                            <el-input-number v-model="formData.deposit" style="width: 440px; max-width: 100%;" :min="0.01" :max="10000000"
+                                             size="small" number></el-input-number>
                         </el-form-item>
 
                         <el-form-item :label="$t('page.benefit_ratio')" prop="benefit_ratio">
-                            <el-input v-model="formData.benefit_ratio" style="width: 440px; max-width: 100%;" auto-complete="off"></el-input>
+                            <el-input-number v-model="formData.benefit_ratio" style="width: 440px; max-width: 100%;" :min="0.01" :max="100"
+                                             size="small" number></el-input-number>
                         </el-form-item>
 
                         <el-form-item :label="$t('page.benefitMoneyPeriod')" prop="benefitMoneyPeriod">
-                            <el-input v-model="formData.benefit_min" style="width: 440px; max-width: 46%;" auto-complete="off"></el-input>
-                            <el-input v-model="formData.benefit_max" style="width: 440px; margin-left: 11px; max-width: 46%;" auto-complete="off"></el-input>
+                            <el-input-number v-model="formData.benefit_min" style="width: 440px; max-width: 46%;" :min="0.01" :max="10000000"
+                                             size="small" number></el-input-number>
+                            <el-input-number v-model="formData.benefit_max" style="width: 440px; margin-left: 11px; max-width: 46%;" :min="0.01" :max="10000000"
+                                             size="small" number></el-input-number>
                         </el-form-item>
 
                         <el-form-item :label="$t('page.userLevel')" prop="userLevel">
@@ -412,12 +420,15 @@
                         </el-form-item>
 
                         <el-form-item :label="$t('page.turnover')" prop="turnover">
-                            <el-input v-model="formData.turnover" style="width: 440px; max-width: 100%;" auto-complete="off"></el-input>
+                            <el-input-number v-model="formData.turnover" style="width: 440px; max-width: 100%;" :min="0.01" :max="10000000"
+                                             size="small" number></el-input-number>
                         </el-form-item>
 
                         <el-form-item :label="$t('page.withdraw_range')" prop="withdraw_range">
-                            <el-input v-model="formData.withdraw_min" style="width: 440px; max-width: 46%;" auto-complete="off"></el-input>
-                            <el-input v-model="formData.withdraw_max" style="width: 440px; margin-left: 11px; max-width: 46%;" auto-complete="off"></el-input>
+                            <el-input-number v-model="formData.withdraw_min" style="width: 440px; max-width: 46%;" :min="0.01" :max="10000000"
+                                             size="small" number></el-input-number>
+                            <el-input-number v-model="formData.withdraw_max" style="width: 440px; margin-left: 11px; max-width: 46%;" :min="0.01" :max="10000000"
+                                             size="small" number></el-input-number>
                         </el-form-item>
 
                         <el-form-item :label="$t('page.user_ids')" prop="user_ids">
@@ -441,7 +452,8 @@
                         </el-form-item>
 
                         <el-form-item :label="$t('page.history_deposit')" prop="history_deposit">
-                            <el-input v-model="formData.history_deposit" style="width: 440px; max-width: 100%;" auto-complete="off"></el-input>
+                            <el-input-number v-model="formData.history_deposit" style="width: 440px; max-width: 100%;" :min="0.01" :max="10000000"
+                                             size="small" number></el-input-number>
                         </el-form-item>
 
                         <el-form-item :label="$t('page.date_range')" prop="history_deposit_begin">
@@ -463,19 +475,23 @@
                         <!--<el-checkbox v-model="formData.bind_bankcard_flag">绑银行卡</el-checkbox>-->
                         <el-form-item label="绑银行卡" prop="绑银行卡">
                             <el-checkbox v-model="formData.bind_bankcard_flag"></el-checkbox>
-                            <el-input v-model="formData.bind_bankcard_benefit" style="width: 440px; margin-left:11px;max-width: 90%;" auto-complete="off"></el-input>
+                            <el-input-number v-model="formData.bind_bankcard_benefit" style="width: 440px; margin-left:11px;max-width: 90%;" :min="0.01" :max="10000000"
+                                             size="small" number></el-input-number>
                         </el-form-item>
                         <el-form-item label="完善姓名" prop="完善姓名">
                             <el-checkbox v-model="formData.perfect_username_flag"></el-checkbox>
-                            <el-input v-model="formData.perfect_username_benefit" style="width: 440px; margin-left:11px;max-width: 90%;" auto-complete="off"></el-input>
+                            <el-input-number v-model="formData.perfect_username_benefit" style="width: 440px; margin-left:11px;max-width: 90%;" :min="0.01" :max="10000000"
+                                             size="small" number></el-input-number>
                         </el-form-item>
                         <el-form-item label="验证邮箱" prop="验证邮箱">
                             <el-checkbox v-model="formData.verify_email_flag"></el-checkbox>
-                            <el-input v-model="formData.verify_email_benefit" style="width: 440px; margin-left:11px;max-width: 90%;" auto-complete="off"></el-input>
+                            <el-input-number v-model="formData.verify_email_benefit" style="width: 440px; margin-left:11px;max-width: 90%;" :min="0.01" :max="10000000"
+                                             size="small" number></el-input-number>
                         </el-form-item>
                         <el-form-item label="验证手机" prop="验证手机">
                             <el-checkbox v-model="formData.verify_phone_flag"></el-checkbox>
-                            <el-input v-model="formData.verify_phone_benefit" style="width: 440px; margin-left:11px;max-width: 90%;" auto-complete="off"></el-input>
+                            <el-input-number v-model="formData.verify_phone_benefit" style="width: 440px; margin-left:11px;max-width: 90%;" :min="0.01" :max="10000000"
+                                             size="small" number></el-input-number>
                         </el-form-item>
                         <!--<el-checkbox v-model="formData.perfect_username_flag">完善姓名</el-checkbox>
                         赠送金额<el-input v-model="formData.perfect_username_benefit" style="left: 10px; width: 430px;" auto-complete="off"></el-input>
