@@ -172,6 +172,10 @@ export default {
         rule_set:'规则设置',
         high_set:'高级设置',
 
+        bank_usercard:'绑银行卡',
+        perfect_username:'完善姓名',
+        verify_mail:'验证邮箱',
+        verify_phone:'验证手机',
     },
     title: {
         home: '首页',

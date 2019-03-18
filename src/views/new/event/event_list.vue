@@ -471,22 +471,22 @@
                       <!--  <el-form-item :label="$t('page.verify_task')" prop="verify_task">
                         </el-form-item>-->
                         <!--<el-checkbox v-model="formData.bind_bankcard_flag">绑银行卡</el-checkbox>-->
-                        <el-form-item label="绑银行卡" prop="绑银行卡">
+                        <el-form-item :label="$t('page.bank_usercard')" prop="bank_usercard">
                             <el-checkbox v-model="formData.bind_bankcard_flag"></el-checkbox>
                             <el-input-number v-model="formData.bind_bankcard_benefit" style="width: 440px; margin-left:11px;max-width: 90%;" :min="0.01" :max="10000000"
                                              size="small" number></el-input-number>
                         </el-form-item>
-                        <el-form-item label="完善姓名" prop="完善姓名">
+                        <el-form-item :label="$t('page.perfect_username')" prop="perfect_username">
                             <el-checkbox v-model="formData.perfect_username_flag"></el-checkbox>
                             <el-input-number v-model="formData.perfect_username_benefit" style="width: 440px; margin-left:11px;max-width: 90%;" :min="0.01" :max="10000000"
                                              size="small" number></el-input-number>
                         </el-form-item>
-                        <el-form-item label="验证邮箱" prop="验证邮箱">
+                        <el-form-item :label="$t('page.verify_mail')" prop="verify_mail">
                             <el-checkbox v-model="formData.verify_email_flag"></el-checkbox>
                             <el-input-number v-model="formData.verify_email_benefit" style="width: 440px; margin-left:11px;max-width: 90%;" :min="0.01" :max="10000000"
                                              size="small" number></el-input-number>
                         </el-form-item>
-                        <el-form-item label="验证手机" prop="验证手机">
+                        <el-form-item :label="$t('page.verify_phone')" prop="verify_phone">
                             <el-checkbox v-model="formData.verify_phone_flag"></el-checkbox>
                             <el-input-number v-model="formData.verify_phone_benefit" style="width: 440px; margin-left:11px;max-width: 90%;" :min="0.01" :max="10000000"
                                              size="small" number></el-input-number>

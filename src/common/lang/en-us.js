@@ -168,6 +168,11 @@ export default {
         event_content:'event_content',
         rule_set:'rule_set',
         high_set:'high_set',
+
+        bank_usercard:'bank_usercard',
+        perfect_username:'perfect_username',
+        verify_mail:'verify_mail',
+        verify_phone:'verify_phone',
     },
     title: {
         home: '首页',
