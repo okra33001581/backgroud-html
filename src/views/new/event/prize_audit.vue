@@ -4,12 +4,13 @@
         <el-form :inline="true" :model="query" class="query-form" size="mini">
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" :placeholder="$t('page.event_object')">
-                    <el-option label="充值赠送" value=""></el-option>
+                <el-select v-model="query.event_object" :placeholder="$t('page.event_object')">
+                    <el-option label="全部" value=""></el-option>
+                    <el-option label="充值赠送" value="9"></el-option>
                     <el-option label="彩金红包" value="0"></el-option>
                     <el-option label="首充赠送" value="1"></el-option>
                     <el-option label="注册送彩金" value="2"></el-option>
-                    <el-option label="反水" value="3"></el-option>
+                    <el-option label="返水" value="3"></el-option>
                     <el-option label="盈亏赠送" value="4"></el-option>
                     <el-option label="投注赠送" value="5"></el-option>
                     <el-option label="救援金" value="6"></el-option>
@@ -19,7 +20,7 @@
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" :placeholder="$t('page.event_name')"></el-input>
+                <el-input v-model="query.event_name" :placeholder="$t('page.event_name')"></el-input>
             </el-form-item>
 
             <el-form-item class="query-form-item">
@@ -31,21 +32,21 @@
                         v-model="query.beginDate"
                         type="date"
                         :placeholder="$t('page.begin_date')"
-                        :picker-options="pickerOptions0">
+                        value-format=" yyyy-MM-dd HH:mm" format="yyyy-MM-dd HH:mm">
                 </el-date-picker>
                 <el-date-picker
                         v-model="query.endDate"
                         type="date"
                         :placeholder="$t('page.end_date')"
-                        :picker-options="pickerOptions1">
+                        value-format=" yyyy-MM-dd HH:mm" format="yyyy-MM-dd HH:mm">
                 </el-date-picker>
             </el-form-item>
 
             <el-form-item class="query-form-item">
                 <el-select v-model="query.status" :placeholder="$t('page.status')">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="启用" value="0"></el-option>
-                    <el-option label="停用" value="1"></el-option>
+                    <el-option label="启用" value="1"></el-option>
+                    <el-option label="停用" value="0"></el-option>
                 </el-select>
             </el-form-item>
             <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
@@ -62,8 +63,8 @@
                 <el-button-group>
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
                     <el-button type="primary" icon="el-icon-search" @click="onSubmit">{{$t('page.search')}}</el-button>
-                    <el-button type="primary" icon="el-icon-plus" @click.native="auditServer()">{{$t('page.batch_success')}}</el-button>
-                    <el-button type="primary" icon="el-icon-plus" @click.native="auditServer()">{{$t('page.batch_reject')}}</el-button>
+                    <el-button type="primary" icon="el-icon-plus" @click.native="auditSuccessServer()">{{$t('page.batch_success')}}</el-button>
+                    <el-button type="primary" icon="el-icon-plus" @click.native="auditFailedServer()">{{$t('page.batch_reject')}}</el-button>
                 </el-button-group>
             </el-form-item>
         </el-form>
@@ -173,7 +174,9 @@
                 <template slot-scope="scope">
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">{{$t('page.detail')}}
                     </el-button>
-                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">{{$t('page.success')}}
+                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="auditItemSuccessServer(scope.$index, scope.row)">{{$t('page.success')}}
+                    </el-button>
+                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="auditItemFailedServer(scope.$index, scope.row)">{{$t('page.reject')}}
                     </el-button>
                     <!--<el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">{{$t('page.success')}}
                     </el-button>
@@ -360,16 +363,16 @@
             handleChange(row, event, column) {
                 this.$refs.multipleTable.toggleRowSelection(row)
             },
-            auditServer () {
-                var servids = this.sels.map(item => item.id).join(",")
+            auditItemSuccessServer (index, row) {
                 var params = {
-                    id:servids
+                    id:row.id,
+                    flag:1
                 }
-                debugger
+                // debugger
                 eventUserPrizeStatusSave(params).then(
                     function (res) {
-                        debugger
-                        if(res.code === 1){
+                        // debugger
+                        /*if(res.code === 1){
                             this.$message({
                                 message: res.data,
                                 type: 'success'
@@ -380,8 +383,101 @@
                                 message: '错误信息：'+res.message,
                                 type: 'error'
                             });
-                        }
-                        this.loadData()
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
+            },
+            auditItemFailedServer (index, row) {
+                var params = {
+                    id:row.id,
+                    flag:0
+                }
+                // debugger
+                eventUserPrizeStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
+            },
+            auditSuccessServer () {
+                var servids = this.sels.map(item => item.id).join(",")
+                var params = {
+                    id:servids,
+                    flag:1
+                }
+                // debugger
+                eventUserPrizeStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
+            },
+            auditFailedServer () {
+                var servids = this.sels.map(item => item.id).join(",")
+                var params = {
+                    id:servids,
+                    flag:0
+                }
+                // debugger
+                eventUserPrizeStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
                     }.bind(this)
                 )
             },
@@ -591,9 +687,9 @@
             },
             statusFilterName(status) {
                 const statusMap = {
-                    0: "未处理",
+                    0: "禁用",
                     1: "通过",
-                    2: "禁用"
+                    2: "未处理"
                 };
                 return statusMap[status];
             }

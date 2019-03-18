@@ -3,11 +3,12 @@
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" :placeholder="$t('page.event_name')"></el-input>
+                <el-input v-model="query.event_name" :placeholder="$t('page.event_name')"></el-input>
             </el-form-item>
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" :placeholder="$t('page.event_object')">
-                    <el-option label="充值赠送" value=""></el-option>
+                <el-select v-model="query.event_object" :placeholder="$t('page.event_object')">
+                    <el-option label="全部" value=""></el-option>
+                    <el-option label="充值赠送" value="9"></el-option>
                     <el-option label="彩金红包" value="0"></el-option>
                     <el-option label="首充赠送" value="1"></el-option>
                     <el-option label="注册送彩金" value="2"></el-option>
@@ -161,13 +162,10 @@
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">{{$t('page.del')}}
                     </el-button>
 
-                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">启用/禁用
+                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="auditItemSuccessServer(scope.$index, scope.row)">{{$t('page.enable')}}
                     </el-button>
-
-                    <!--<el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">{{$t('page.enable')}}
+                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="auditItemFailedServer(scope.$index, scope.row)">{{$t('page.disable')}}
                     </el-button>
-                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">{{$t('page.disable')}}
-                    </el-button>-->
                 </template>
             </el-table-column>
 
@@ -1051,17 +1049,76 @@
                                 // 刷新表单
                                 this.$refs["dataForm"].resetFields();
                                 this.formVisible = false;
-                                if (this.formName === "add") {
+                                this.getList();
+                               /* if (this.formName === "add") {
                                     // 向头部添加数据
                                     let resData = response.data || {};
                                     this.list.unshift(resData);
                                 } else {
                                     this.list.splice(this.index, 1, data);
-                                }
+                                }*/
                             }
                         });
                     }
                 });
+            },
+            auditItemSuccessServer (index, row) {
+                var params = {
+                    id:row.id,
+                    flag:1
+                }
+                // debugger
+                eventStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
+            },
+            auditItemFailedServer (index, row) {
+                var params = {
+                    id:row.id,
+                    flag:0
+                }
+                // debugger
+                eventStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
             },
             // 删除
             handleDel(index, row) {
