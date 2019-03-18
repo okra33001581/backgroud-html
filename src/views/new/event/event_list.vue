@@ -3,7 +3,7 @@
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
             <el-form-item class="query-form-item">
-                <el-input v-model="query.event_name" :placeholder="$t('page.event_name')"></el-input>
+                <el-input v-model="query.event_name" :placeholder="$t('page.event_name')" maxlength="20"></el-input>
             </el-form-item>
             <el-form-item class="query-form-item">
                 <el-select v-model="query.event_object" :placeholder="$t('page.event_object')">
@@ -12,7 +12,7 @@
                     <el-option label="彩金红包" value="0"></el-option>
                     <el-option label="首充赠送" value="1"></el-option>
                     <el-option label="注册送彩金" value="2"></el-option>
-                    <el-option label="反水" value="3"></el-option>
+                    <el-option label="返水" value="3"></el-option>
                     <el-option label="盈亏赠送" value="4"></el-option>
                     <el-option label="投注赠送" value="5"></el-option>
                     <el-option label="救援金" value="6"></el-option>
@@ -218,7 +218,7 @@
                                 <el-option label="彩金红包" value="0"></el-option>
                                 <el-option label="首充赠送" value="1"></el-option>
                                 <el-option label="注册送彩金" value="2"></el-option>
-                                <el-option label="反水" value="3"></el-option>
+                                <el-option label="返水" value="3"></el-option>
                                 <el-option label="盈亏赠送" value="4"></el-option>
                                 <el-option label="投注赠送" value="5"></el-option>
                                 <el-option label="救援金" value="6"></el-option>
@@ -281,6 +281,7 @@
                                     action="http://apidemo.test/api/event/fileSave?table=eventPic1"
                                     list-type="picture-card"
                                     :on-success="handlePic1Success"
+                                    :beforeUpload="beforeAvatarUpload"
                                     :on-remove="handleRemove">
                                 <img :src="formData.pic1" class="el-upload el-upload--picture-card"/>
                             </el-upload>
@@ -291,6 +292,7 @@
                                     action="http://apidemo.test/api/event/fileSave"
                                     list-type="picture-card"
                                     :on-success="handlePic2Success"
+                                    :beforeUpload="beforeAvatarUpload"
                                     :on-remove="handleRemove">
                                 <img :src="formData.pic2" class="el-upload el-upload--picture-card"/>
                             </el-upload>
@@ -301,6 +303,7 @@
                                     action="http://apidemo.test/api/event/fileSave"
                                     list-type="picture-card"
                                     :on-success="handlePic3Success"
+                                    :beforeUpload="beforeAvatarUpload"
                                     :on-remove="handleRemove">
                                 <img :src="formData.pic3" class="el-upload el-upload--picture-card"/>
                             </el-upload>
@@ -311,6 +314,7 @@
                                     action="http://apidemo.test/api/event/fileSave"
                                     list-type="picture-card"
                                     :on-success="handlePic4Success"
+                                    :beforeUpload="beforeAvatarUpload"
                                     :on-remove="handleRemove">
                                 <img :src="formData.pic4" class="el-upload el-upload--picture-card"/>
                             </el-upload>
@@ -321,6 +325,7 @@
                                     action="http://apidemo.test/api/event/fileSave"
                                     list-type="picture-card"
                                     :on-success="handlePic5Success"
+                                    :beforeUpload="beforeAvatarUpload"
                                     :on-remove="handleRemove">
                                 <img :src="formData.pic5" class="el-upload el-upload--picture-card"/>
                             </el-upload>
@@ -331,6 +336,7 @@
                                     action="http://apidemo.test/api/event/fileSave"
                                     list-type="picture-card"
                                     :on-success="handlePic6Success"
+                                    :beforeUpload="beforeAvatarUpload"
                                     :on-remove="handleRemove">
                                 <img :src="formData.pic6" class="el-upload el-upload--picture-card"/>
                             </el-upload>
@@ -823,6 +829,42 @@
                 } else {
                     return ''
                 }
+            },
+            beforeAvatarUpload(file) {
+                var testmsg=file.name.substring(file.name.lastIndexOf('.')+1)
+                const extension = testmsg === 'jpg'
+                const extension2 = testmsg === 'png'
+                const isLt2M = file.size / 1024 / 1024 < 10
+                if(!extension && !extension2) {
+                    this.$message({
+                        message: '上传文件只能是 jpg、png格式!',
+                        type: 'warning'
+                    });
+                }
+                if(!isLt2M) {
+                    this.$message({
+                        message: '上传文件大小不能超过 10MB!',
+                        type: 'warning'
+                    });
+                }  return extension || extension2 && isLt2M
+            },
+            beforeTxtUpload(file) {
+                var testmsg=file.name.substring(file.name.lastIndexOf('.')+1)
+                const extension = testmsg === 'txt'
+                const extension2 = testmsg === 'txt'
+                const isLt2M = file.size / 1024 / 1024 < 10
+                if(!extension && !extension2) {
+                    this.$message({
+                        message: '上传文件只能是 txt格式!',
+                        type: 'warning'
+                    });
+                }
+                if(!isLt2M) {
+                    this.$message({
+                        message: '上传文件大小不能超过 10MB!',
+                        type: 'warning'
+                    });
+                }  return extension || extension2 && isLt2M
             },
             // 展开父表格数据 并查询该数据下的子数据
             rowExpand(row, expandedRows) {

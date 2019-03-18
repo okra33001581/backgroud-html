@@ -20,11 +20,11 @@
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-input v-model="query.event_name" :placeholder="$t('page.event_name')"></el-input>
+                <el-input v-model="query.event_name" :placeholder="$t('page.event_name')" maxlength="20"></el-input>
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" :placeholder="$t('page.username')"></el-input>
+                <el-input v-model="query.username" :placeholder="$t('page.username')" maxlength="20"></el-input>
             </el-form-item>
 
             <el-form-item class="query-form-item">

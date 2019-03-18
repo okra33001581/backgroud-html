@@ -3,15 +3,16 @@
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" :placeholder="$t('page.username')"></el-input>
+                <el-input v-model="query.username" :placeholder="$t('page.username')" maxlength="20"></el-input>
             </el-form-item>
             <el-form-item class="query-form-item">
                 <el-select v-model="query.status" :placeholder="$t('page.event_object')">
-                    <el-option label="充值赠送" value=""></el-option>
+                    <el-option label="全部" value=""></el-option>
+                    <el-option label="充值赠送" value="9"></el-option>
                     <el-option label="彩金红包" value="0"></el-option>
                     <el-option label="首充赠送" value="1"></el-option>
                     <el-option label="注册送彩金" value="2"></el-option>
-                    <el-option label="反水" value="3"></el-option>
+                    <el-option label="返水" value="3"></el-option>
                     <el-option label="盈亏赠送" value="4"></el-option>
                     <el-option label="投注赠送" value="5"></el-option>
                     <el-option label="救援金" value="6"></el-option>
