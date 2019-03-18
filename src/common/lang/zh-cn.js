@@ -176,6 +176,10 @@ export default {
         perfect_username:'完善姓名',
         verify_mail:'验证邮箱',
         verify_phone:'验证手机',
+        upload:'点击上传',
+
+
+
     },
     title: {
         home: '首页',

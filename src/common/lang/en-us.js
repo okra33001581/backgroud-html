@@ -173,6 +173,8 @@ export default {
         perfect_username:'perfect_username',
         verify_mail:'verify_mail',
         verify_phone:'verify_phone',
+
+        upload:'upload',
     },
     title: {
         home: '首页',
