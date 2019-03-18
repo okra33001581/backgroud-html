@@ -165,7 +165,9 @@ export default {
         rakeback:'rakeback',
         rescue_gold:'rescue_gold',
         close:'close',
-
+        event_content:'event_content',
+        rule_set:'rule_set',
+        high_set:'high_set',
     },
     title: {
         home: '首页',

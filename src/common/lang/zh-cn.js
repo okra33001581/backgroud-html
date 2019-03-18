@@ -168,6 +168,10 @@ export default {
           */
         close:'关闭',
 
+        event_content:'活动内容',
+        rule_set:'规则设置',
+        high_set:'高级设置',
+
     },
     title: {
         home: '首页',

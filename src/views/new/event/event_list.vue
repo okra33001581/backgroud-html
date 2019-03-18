@@ -189,18 +189,8 @@
                 top="5vh">
 
             <el-tabs type="border-card">
-                <el-tab-pane label="活动内容">
+                <el-tab-pane :label="$t('page.event_content')">
                     <el-form :model="formData" :rules="formRules" ref="dataForm" label-width="100px">
-
-
-                        <!--<el-input v-model="formData.addSubFlage" style="width: 440px; max-width: 100%;" auto-complete="off"></el-input>
-
-                        <el-form-item :label="$t('page.addSubFlage')" prop="addSubFlage">
-                            <el-select v-model="formData.addSubFlage" placeholder="下级活动" style="width: 440px; max-width: 100%;">
-                                <el-option label="下级活动" value="1"></el-option>
-                                <el-option label="无下级" value="0"></el-option>
-                            </el-select>
-                        </el-form-item>-->
 
                         <el-form-item :label="$t('page.event_name')" prop="event_name">
                             <el-input v-model="formData.event_name" style="width: 440px; max-width: 100%;" maxlength="50" auto-complete="off" suffix-icon="el-icon-message"></el-input>
@@ -361,7 +351,7 @@
                     </el-form>
                 </el-tab-pane>
 
-                <el-tab-pane label="规则设置">
+                <el-tab-pane :label="$t('page.rule_set')">
                     <el-form :model="formData" :rules="formRules" ref="dataForm"  label-width="130px">
                         <el-form-item :label="$t('page.minus_profit')" prop="plus_profit">
                             <el-input-number v-model="formData.plus_profit" style="width: 440px; max-width: 100%;" :min="0.01" :max="10000000"
@@ -505,7 +495,7 @@
                     </el-form>
                 </el-tab-pane>
 
-                <el-tab-pane label="高级设置">
+                <el-tab-pane :label="$t('page.high_set')">
                     <el-form :model="formData" :rules="formRules" ref="dataForm"  label-width="90px">
 
                         <el-form-item :label="$t('page.restrictPlatform')" prop="restrictPlatform">
