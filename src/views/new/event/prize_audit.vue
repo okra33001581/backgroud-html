@@ -169,7 +169,7 @@
                 </template>
             </el-table-column>-->
             <el-table-column
-                    :label="$t('page.operate')" width="350"
+                    :label="$t('page.operate')" width="300"
                     fixed="right">
                 <template slot-scope="scope">
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">{{$t('page.detail')}}

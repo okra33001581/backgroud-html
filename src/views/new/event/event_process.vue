@@ -46,7 +46,7 @@
                 <el-button-group>
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
                     <el-button type="primary" icon="el-icon-search" @click="onSubmit">{{$t('page.search')}}</el-button>
-                    <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">{{$t('page.batch')}}</el-button>
+                    <!--<el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">{{$t('page.batch')}}</el-button>-->
                 </el-button-group>
             </el-form-item>
         </el-form>
