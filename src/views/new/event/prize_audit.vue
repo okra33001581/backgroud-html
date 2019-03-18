@@ -62,8 +62,8 @@
                 <el-button-group>
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
                     <el-button type="primary" icon="el-icon-search" @click="onSubmit">{{$t('page.search')}}</el-button>
-                    <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">{{$t('page.batch_success')}}</el-button>
-                    <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">{{$t('page.batch_reject')}}</el-button>
+                    <el-button type="primary" icon="el-icon-plus" @click.native="auditServer()">{{$t('page.batch_success')}}</el-button>
+                    <el-button type="primary" icon="el-icon-plus" @click.native="auditServer()">{{$t('page.batch_reject')}}</el-button>
                 </el-button-group>
             </el-form-item>
         </el-form>
@@ -94,9 +94,7 @@
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass"
-                @selection-change="selsChange">
-
-
+                @selection-change="selsChange" @row-click="handleChange">
             <!--排序值
             活动名称
             开始时间
@@ -269,6 +267,7 @@
                     role_id: "",
                     sort: '+id'
                 },
+                sels:[],
                 tableKey: 0,
                 sortOptions: [{label: 'ID Ascending', key: '+id'}, {
                     label: 'ID Descending',
@@ -353,6 +352,41 @@
             handleFilter() {
                 this.query.page = 1
                 this.getList()
+            },
+            selsChange(sels) {
+                this.sels = sels
+            },
+
+            handleChange(row, event, column) {
+                this.$refs.multipleTable.toggleRowSelection(row)
+            },
+            auditServer () {
+                var servids = this.sels.map(item => item.id).join(",")
+                var params = {
+                    id:servids
+                }
+                debugger
+                eventUserPrizeStatusSave(params).then(
+                    function (res) {
+                        debugger
+                        if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }
+                        this.loadData()
+                    }.bind(this)
+                )
+            },
+            toggleSelection(){
+                this.$refs.multipleTable.clearSelection();
             },
             sortChange: function (column) {
                 // console.log(column)
