@@ -687,7 +687,7 @@
             },
             statusFilterName(status) {
                 const statusMap = {
-                    0: "禁用",
+                    0: "拒绝",
                     1: "通过",
                     2: "未处理"
                 };

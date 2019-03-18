@@ -203,7 +203,7 @@
                         </el-form-item>-->
 
                         <el-form-item :label="$t('page.event_name')" prop="event_name">
-                            <el-input v-model="formData.event_name" style="width: 440px; max-width: 100%;" auto-complete="off"></el-input>
+                            <el-input v-model="formData.event_name" style="width: 440px; max-width: 100%;" maxlength="50" auto-complete="off" suffix-icon="el-icon-message"></el-input>
                         </el-form-item>
 
                         <el-form-item :label="$t('page.datePeriod')" prop="datePeriod">
@@ -211,13 +211,13 @@
                                     v-model="formData.range_begin"
                                     type="datetime"
                                     placeholder="开始时间"
-                                    value-format=" yyyy-MM-dd HH:mm" format="yyyy-MM-dd HH:mm">
+                                    value-format=" yyyy-MM-dd HH:mm" format="yyyy-MM-dd HH:mm" suffix-icon="el-icon-date">
                             </el-date-picker>
                             <el-date-picker
                                     v-model="formData.range_end"
                                     type="datetime"
                                     placeholder="结束时间"
-                                    value-format=" yyyy-MM-dd HH:mm" format="yyyy-MM-dd HH:mm">
+                                    value-format=" yyyy-MM-dd HH:mm" format="yyyy-MM-dd HH:mm" suffix-icon="el-icon-date">
                             </el-date-picker>
                         </el-form-item>
 
@@ -242,7 +242,7 @@
                                     v-model="formData.send_type"
                                     :min="1"
                                     :max="4">
-                                <el-checkbox v-for="item in sendType" :label="item.key" :key="item.key">
+                                <el-checkbox v-for="item in sendType" :label="item.key" :key="item.key" >
                                     {{ item.name }}
                                 </el-checkbox>
                             </el-checkbox-group>
@@ -401,7 +401,9 @@
                         </el-form-item>
 
                         <el-form-item :label="$t('page.domain')" prop="domain">
-                            <el-input v-model="formData.register_domain" style="width: 440px; max-width: 100%;"auto-complete="off"></el-input>
+                            <el-input v-model="formData.register_domain" style="width: 440px; max-width: 100%;" maxlength="50" auto-complete="off"  suffix-icon="el-icon-message">
+                                <template slot="prepend">Http://</template>
+                            </el-input>
                         </el-form-item>
 
                         <el-form-item :label="$t('page.date_range')" prop="date_range">
@@ -409,7 +411,7 @@
                                     v-model="formData.register_domain_begin"
                                     type="datetime"
                                     placeholder="开始时间"
-                                    value-format=" yyyy-MM-dd HH:mm" format="yyyy-MM-dd HH:mm">
+                                    value-format=" yyyy-MM-dd HH:mm" format="yyyy-MM-dd HH:mm" >
                             </el-date-picker>
                             <el-date-picker
                                     v-model="formData.register_domain_end"
