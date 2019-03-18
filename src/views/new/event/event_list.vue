@@ -33,7 +33,7 @@
                 <el-button-group>
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
                     <el-button type="primary" icon="el-icon-search" @click="onSubmit">{{$t('page.search')}}</el-button>
-                    <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">{{$t('page.add')}}</el-button>
+                    <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null,0)">{{$t('page.add')}}</el-button>
                 </el-button-group>
             </el-form-item>
         </el-form>
@@ -153,9 +153,9 @@
                     :label="$t('page.operate')" width="450"
                     fixed="right">
                 <template slot-scope="scope">
-                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">{{$t('page.edit')}}
+                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row, 0)">{{$t('page.edit')}}
                     </el-button>
-                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">{{$t('page.add')}}
+                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row, 1)">{{$t('page.add')}}
                     </el-button>
                   <!--  <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleObjectSetForm(scope.$index, scope.row)">{{$t('page.qualification_set')}}
                     </el-button>-->
@@ -192,12 +192,15 @@
                 <el-tab-pane label="活动内容">
                     <el-form :model="formData" :rules="formRules" ref="dataForm" label-width="100px">
 
+
+                        <!--<el-input v-model="formData.addSubFlage" style="width: 440px; max-width: 100%;" auto-complete="off"></el-input>
+
                         <el-form-item :label="$t('page.addSubFlage')" prop="addSubFlage">
                             <el-select v-model="formData.addSubFlage" placeholder="下级活动" style="width: 440px; max-width: 100%;">
                                 <el-option label="下级活动" value="1"></el-option>
                                 <el-option label="无下级" value="0"></el-option>
                             </el-select>
-                        </el-form-item>
+                        </el-form-item>-->
 
                         <el-form-item :label="$t('page.event_name')" prop="event_name">
                             <el-input v-model="formData.event_name" style="width: 440px; max-width: 100%;" auto-complete="off"></el-input>
@@ -1009,7 +1012,7 @@
                 return true;
             },
             // 显示表单
-            handleForm(index, row) {
+            handleForm(index, row, addSubFlage) {
                 this.formVisible = true;
                 this.formData = Object.assign({}, formJson);
                 if (row !== null) {
@@ -1017,6 +1020,7 @@
                 }
                 this.formData.status += ""; // 转为字符串（解决默认选中的时候字符串和数字不能比较的问题）
                 this.formName = "add";
+                this.formData.addSubFlage = addSubFlage;
                 this.formRules = this.addRules;
                 if (index !== null) {
                     this.index = index;
