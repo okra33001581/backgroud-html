@@ -175,6 +175,8 @@ export default {
         verify_phone:'verify_phone',
 
         upload:'upload',
+        submit :'submit',
+        loading :'loading',
     },
     title: {
         home: '首页',

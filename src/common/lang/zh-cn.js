@@ -177,8 +177,8 @@ export default {
         verify_mail:'验证邮箱',
         verify_phone:'验证手机',
         upload:'点击上传',
-
-
+        submit :'提交',
+        loading :'拼命加载中',
 
     },
     title: {

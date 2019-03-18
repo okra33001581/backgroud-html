@@ -60,7 +60,7 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange"
-                element-loading-text="拼命加载中"
+                element-loading-text="$t('page.loading')"
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass"
@@ -108,7 +108,7 @@
                             </el-table-column>
 
                             <el-table-column
-                                    :label="操作" width="350"
+                                    :label="$t('page.operate')" width="350"
                                     fixed="right">
                                 <template slot-scope="scope">
                                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">{{$t('page.edit')}}
@@ -200,21 +200,22 @@
                             <el-date-picker
                                     v-model="formData.range_begin"
                                     type="datetime"
-                                    placeholder="开始时间"
+                                    :placeholder="$t('page.begin_date')"
                                     value-format=" yyyy-MM-dd HH:mm" format="yyyy-MM-dd HH:mm" suffix-icon="el-icon-date">
                             </el-date-picker>
                             <el-date-picker
                                     v-model="formData.range_end"
                                     type="datetime"
-                                    placeholder="结束时间"
+                                    :placeholder="$t('page.end_date')"
                                     value-format=" yyyy-MM-dd HH:mm" format="yyyy-MM-dd HH:mm" suffix-icon="el-icon-date">
                             </el-date-picker>
                         </el-form-item>
 
 
                         <el-form-item :label="$t('page.event_object')" prop="event_object">
-                            <el-select v-model="formData.event_object" placeholder="活动模型" style="width: 440px; max-width: 100%;">
-                                <el-option label="充值赠送" value=""></el-option>
+                            <el-select v-model="formData.event_object" placeholder="$t('page.event_object')" style="width: 440px; max-width: 100%;">
+                                <el-option label="全部" value=""></el-option>
+                                <el-option label="充值赠送" value="9"></el-option>
                                 <el-option label="彩金红包" value="0"></el-option>
                                 <el-option label="首充赠送" value="1"></el-option>
                                 <el-option label="注册送彩金" value="2"></el-option>
@@ -406,13 +407,13 @@
                             <el-date-picker
                                     v-model="formData.register_domain_begin"
                                     type="datetime"
-                                    placeholder="开始时间"
+                                    :placeholder="$t('page.begin_date')"
                                     value-format=" yyyy-MM-dd HH:mm" format="yyyy-MM-dd HH:mm" >
                             </el-date-picker>
                             <el-date-picker
                                     v-model="formData.register_domain_end"
                                     type="datetime"
-                                    placeholder="结束时间"
+                                    :placeholder="$t('page.end_date')"
                                     value-format=" yyyy-MM-dd HH:mm" format="yyyy-MM-dd HH:mm">
                             </el-date-picker>
                         </el-form-item>
@@ -458,13 +459,13 @@
                             <el-date-picker
                                     v-model="formData.history_deposit_begin"
                                     type="datetime"
-                                    placeholder="开始时间"
+                                    :placeholder="$t('page.begin_date')"
                                     value-format=" yyyy-MM-dd HH:mm" format="yyyy-MM-dd HH:mm">
                             </el-date-picker>
                             <el-date-picker
                                     v-model="formData.history_deposit_end"
                                     type="datetime"
-                                    placeholder="结束时间"
+                                    :placeholder="$t('page.end_date')"
                                     value-format=" yyyy-MM-dd HH:mm" format="yyyy-MM-dd HH:mm">
                             </el-date-picker>
                         </el-form-item>
@@ -587,8 +588,8 @@
             </el-tabs>
 
             <div slot="footer" class="dialog-footer">
-                <el-button @click.native="hideForm">取消</el-button>
-                <el-button type="primary" @click.native="formSubmit()" :loading="formLoading">提交</el-button>
+                <el-button @click.native="hideForm">{{$t('page.cancel')}}</el-button>
+                <el-button type="primary" @click.native="formSubmit()" :loading="formLoading">{{$t('page.submit')}}</el-button>
             </div>
         </el-dialog>
     </div>
