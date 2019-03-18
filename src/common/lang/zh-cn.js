@@ -166,6 +166,7 @@ export default {
           restrictGame:'限制游戏',
           pay_account:'pay_account',
           */
+        close:'关闭',
 
     },
     title: {

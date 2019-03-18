@@ -583,7 +583,8 @@
         activityList,
         activitySubList,
         eventSave,
-        eventStatusSave
+        eventStatusSave,
+        eventDelete
     } from "../../../api/event-management";
     const sendType = [
         { key: '自动发放', name: '自动发放' },
@@ -805,7 +806,7 @@
                 return this.$confirm(`确定移除 ${ file.name }？`);
             },
             //设置表格第一行的颜色
-            getRowClass({ row, column, rowIndex, columnIndex }) {
+            getRowClass({row, column, rowIndex, columnIndex}) {
                 if (rowIndex == 0) {
                     return 'background:#F2F2F2'
                 } else {
@@ -838,7 +839,7 @@
                     this.tableData = res.data.list;
                 });
                 //如果展开行数大于1
-                if(expandedRows.length>1){
+                if (expandedRows.length > 1) {
                     expandedRows.shift();
                 }
             },
@@ -922,7 +923,7 @@
                         this.loading = false;
                         this.list = response.data.list || [];
                         this.total = response.data.total || 0;
-                        this.selectedOption = [0,1];
+                        this.selectedOption = [0, 1];
                     })
                     .catch(() => {
                         this.loading = false;
@@ -1050,7 +1051,7 @@
                                 this.$refs["dataForm"].resetFields();
                                 this.formVisible = false;
                                 this.getList();
-                               /* if (this.formName === "add") {
+                                /* if (this.formName === "add") {
                                     // 向头部添加数据
                                     let resData = response.data || {};
                                     this.list.unshift(resData);
@@ -1062,10 +1063,10 @@
                     }
                 });
             },
-            auditItemSuccessServer (index, row) {
+            auditItemSuccessServer(index, row) {
                 var params = {
-                    id:row.id,
-                    flag:1
+                    id: row.id,
+                    flag: 1
                 }
                 // debugger
                 eventStatusSave(params).then(
@@ -1091,10 +1092,10 @@
                     }.bind(this)
                 )
             },
-            auditItemFailedServer (index, row) {
+            auditItemFailedServer(index, row) {
                 var params = {
-                    id:row.id,
-                    flag:0
+                    id: row.id,
+                    flag: 0
                 }
                 // debugger
                 eventStatusSave(params).then(
@@ -1123,12 +1124,12 @@
             // 删除
             handleDel(index, row) {
                 if (row.id) {
-                    this.$confirm("确认编辑该记录吗?", "提示", {
+                    this.$confirm("确认删除该记录吗?", "提示", {
                         type: "warning"
                     })
                         .then(() => {
                             let para = {id: row.id};
-                            eventStatusSave(para)
+                            eventDelete(para)
                                 .then(response => {
                                     this.deleteLoading = false;
                                     if (response.code) {
@@ -1139,13 +1140,11 @@
                                         window.location.reload();
                                     } else {
                                         this.$message({
-                                            message: "编辑成功",
+                                            message: "删除成功",
                                             type: "success"
                                         });
                                         // 刷新数据
-                                        // window.location.reload();刷新
-                                        // this.list.splice(index, 1);
-                                        // this.getList();
+                                        this.list.splice(index, 1);
                                     }
                                 })
                                 .catch(() => {
@@ -1155,7 +1154,7 @@
                         .catch(() => {
                             this.$message({
                                 type: "info",
-                                message: "取消编辑"
+                                message: "取消删除"
                             });
                         });
                 }

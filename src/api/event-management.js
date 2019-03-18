@@ -115,10 +115,13 @@ export function eventObjectSetSave(data, formName, method = "post") {
 }
 
 // 删除管理员
-export function authAdminDelete(data) {
+export function eventDelete(data) {
     return axios({
-        url: "event/adminDelete",
+        url: "event/eventDelete",
         method: "post",
         data: data
     });
 }
+
+
+

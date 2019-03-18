@@ -164,7 +164,7 @@ export default {
         pay_account:'pay_account',
         rakeback:'rakeback',
         rescue_gold:'rescue_gold',
-
+        close:'close',
 
     },
     title: {

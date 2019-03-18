@@ -107,16 +107,16 @@
 -->
             <el-table-column type="selection" width="55">
             </el-table-column>
-            <el-table-column :label="					$t('page.id')		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column :label="			$t('page.user_id')				" prop="user_id" sortable="custom" fixed></el-table-column>
-            <el-table-column :label="			$t('page.username')				" prop="username" sortable="custom" fixed></el-table-column>
-            <el-table-column :label="			$t('page.merchant_name')				" prop="merchant_name" sortable="custom" fixed></el-table-column>
-            <el-table-column :label="					$t('page.event_name')		" prop="event_name" sortable="custom" fixed></el-table-column>
-            <el-table-column :label="					$t('page.deposit')		" prop="deposit" sortable="custom" fixed></el-table-column>
-            <el-table-column :label="					$t('page.benefit')		" prop="benefit" sortable="custom" fixed></el-table-column>
-            <el-table-column :label="					$t('page.auditor')		" prop="auditor" sortable="custom" fixed></el-table-column>
-            <el-table-column :label="					$t('page.request_date')		" prop="request_date" sortable="custom" fixed></el-table-column>
-            <el-table-column :label="					$t('page.audit_date')		" prop="audit_date" sortable="custom" fixed></el-table-column>
+            <el-table-column :label="					$t('page.id')		" prop="id" fixed></el-table-column>
+            <el-table-column :label="			$t('page.user_id')				" prop="user_id" fixed></el-table-column>
+            <el-table-column :label="			$t('page.username')				" prop="username" fixed></el-table-column>
+            <el-table-column :label="			$t('page.merchant_name')				" prop="merchant_name" fixed></el-table-column>
+            <el-table-column :label="					$t('page.event_name')		" prop="event_name" fixed></el-table-column>
+            <el-table-column :label="					$t('page.deposit')		" prop="deposit" fixed></el-table-column>
+            <el-table-column :label="					$t('page.benefit')		" prop="benefit" fixed></el-table-column>
+            <el-table-column :label="					$t('page.auditor')		" prop="auditor" fixed></el-table-column>
+            <el-table-column :label="					$t('page.request_date')		" prop="request_date" fixed></el-table-column>
+            <el-table-column :label="					$t('page.audit_date')		" prop="audit_date" fixed></el-table-column>
             <el-table-column
                     prop="status"
                     :label="$t('page.status')" >
@@ -220,8 +220,8 @@
 
             </el-form>
             <div slot="footer" class="dialog-footer">
-                <el-button @click.native="hideForm">{{$t('page.cancel')}}</el-button>
-                <el-button type="primary" @click.native="formSubmit()" :loading="formLoading">{{$t('page.audit')}}</el-button>
+                <el-button @click.native="hideForm">{{$t('page.close')}}</el-button>
+                <!--<el-button type="primary" @click.native="formSubmit()" :loading="formLoading">{{$t('page.audit')}}</el-button>-->
             </div>
         </el-dialog>
     </div>
