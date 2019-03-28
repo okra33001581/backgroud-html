@@ -132,6 +132,11 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
 
+                <!--<td>
+                    &lt;!&ndash;<el-input v-model="formData.username" auto-complete="off"></el-input>&ndash;&gt;
+                    <el-input style="width:550px;" v-model="formData.web_title" placeholder="请输入" background-color="rgba(255, 255, 255, 0.8)"></el-input>
+                </td>-->
+
                 <table  border=1 cellspacing=0 cellpadding=0  class="ui-jqgrid-htable ui-common-table table table-bordered bgcol-white" role="presentation" aria-labelledby="gbox_table_list">
                     <thead>
                     <tr class="ui-jqgrid-labels" role="row">
@@ -149,7 +154,7 @@
                         <td>
                             <template>
                                 <el-switch
-                                        v-model="value3"
+                                        v-model="formData.is_login"
                                         active-text="是"
                                         inactive-text="否">
                                 </el-switch>
@@ -165,7 +170,7 @@
                         <td>网页标题</td>
                         <td>
                             <!--<el-input v-model="formData.username" auto-complete="off"></el-input>-->
-                            <el-input style="width:550px;" v-model="formData.username" placeholder="请输入" background-color="rgba(255, 255, 255, 0.8)"></el-input>
+                            <el-input style="width:550px;" v-model="formData.web_title" placeholder="请输入" background-color="rgba(255, 255, 255, 0.8)"></el-input>
                         </td>
                         <td>前台网页标签显示标题</td>
                     </tr>
@@ -173,7 +178,7 @@
                         <!--  隐藏PC端前台充值处“hot”图标显示位置  -->
                         <td>网页关键词</td>
                         <td>
-                            <el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input>
+                            <el-input style="width:550px;" v-model="formData.web_keyword" auto-complete="off"></el-input>
                         </td>
                         <td>前台网页keywords关键词</td>
                     </tr>
@@ -181,7 +186,7 @@
                         <!--  隐藏PC端前台充值处“hot”图标显示位置  -->
                         <td>网页描述</td>
                         <td>
-                            <el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input>
+                            <el-input style="width:550px;" v-model="formData.web_desc" auto-complete="off"></el-input>
                         </td>
                         <td>前台网页description描述</td>
                     </tr>
@@ -189,7 +194,7 @@
                         <!--  隐藏PC端前台充值处“hot”图标显示位置  -->
                         <td>平台名称</td>
                         <td>
-                            <el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input>
+                            <el-input style="width:550px;" v-model="formData.platform_name" auto-complete="off"></el-input>
                         </td>
                         <td>平台网站及APP名称</td>
                     </tr>
@@ -198,7 +203,7 @@
                         <td>免费试玩</td>
                         <td>
                             <template>
-                                <el-checkbox-group v-model="checkList">
+                                <el-checkbox-group v-model="formData.free_play">
                                     <el-checkbox label="pc端"></el-checkbox>
                                     <el-checkbox label="移动端"></el-checkbox>
                                 </el-checkbox-group>
@@ -211,7 +216,7 @@
                         <td>节日皮肤</td>
                         <td>
                             <template>
-                                <el-select v-model="value4" clearable placeholder="请选择">
+                                <el-select v-model="formData.favorite_skin" clearable placeholder="请选择">
                                     <el-option label="全部" value=""></el-option>
                                     <el-option label="禁用" value="0"></el-option>
                                     <el-option label="正常" value="1"></el-option>
@@ -231,7 +236,7 @@
                                <!-- <el-radio v-model="formData.username" label="1">是</el-radio>
                                 <el-radio v-model="formData.username" label="2">否</el-radio>-->
                                 <el-switch
-                                        v-model="value3"
+                                        v-model="formData.is_maintain"
                                         active-text="是"
                                         inactive-text="否">
                                 </el-switch>
@@ -245,7 +250,7 @@
                         <!--  隐藏PC端前台充值处“hot”图标显示位置  -->
                         <td>前台维护描述</td>
                         <td>
-                            <el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input>
+                            <el-input style="width:550px;" v-model="formData.maintain_desc" auto-complete="off"></el-input>
                         </td>
                         <td>填写维护原因将显示在前台</td>
                     </tr>
@@ -253,7 +258,7 @@
                         <!--  隐藏PC端前台充值处“hot”图标显示位置  -->
                         <td>前台维护时间</td>
                         <td>
-                            <el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input>
+                            <el-input style="width:550px;" v-model="formData.maintain_date" auto-complete="off"></el-input>
                         </td>
                         <td>前台客户看的维护时间，如：2015年03月22日 17:42 到 2015年03月22日 21:00</td>
                     </tr>
@@ -266,7 +271,7 @@
                         <td>
                             <template>
                                 <el-switch
-                                        v-model="value3"
+                                        v-model="formData.is_web_register"
                                         active-text="是"
                                         inactive-text="否">
                                 </el-switch>
@@ -280,7 +285,7 @@
                         <!--  隐藏PC端前台充值处“hot”图标显示位置  -->
                         <td>网页版注册默认代理</td>
                         <td>
-                            <el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input>
+                            <el-input style="width:550px;" v-model="formData.register_default_agent" auto-complete="off"></el-input>
                         </td>
                         <td>选择一个一级代理作为网页版注册的默认代理（默认为:pc001）</td>
                     </tr>
@@ -288,7 +293,7 @@
                         <!--  隐藏PC端前台充值处“hot”图标显示位置  -->
                         <td>网页版注册默认返点</td>
                         <td>
-                            <el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input>
+                            <el-input style="width:550px;" v-model="formData.register_default_rebate" auto-complete="off"></el-input>
                         </td>
                         <td></td>
                     </tr>
@@ -296,7 +301,7 @@
                         <!--  隐藏PC端前台充值处“hot”图标显示位置  -->
                         <td>最大投注返点设定</td>
                         <td>
-                            <el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input>
+                            <el-input style="width:550px;" v-model="formData.max_rebate" auto-complete="off"></el-input>
                         </td>
                         <td>该返点以上的用户无法投注(例如：返点 7.8%，填写 0.078)</td>
                     </tr>
@@ -304,7 +309,7 @@
                         <!--  隐藏PC端前台充值处“hot”图标显示位置  -->
                         <td>推广返点设定</td>
                         <td>
-                            <el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input>
+                            <el-input style="width:550px;" v-model="formData.spread_rebate" auto-complete="off"></el-input>
                         </td>
                         <td>小于该返点时不受配额限制(例如：返点 7.0%，填写 0.070)</td>
                     </tr>
@@ -314,7 +319,7 @@
                         <td>
                             <template>
                                 <el-switch
-                                        v-model="value3"
+                                        v-model="formData.is_mobile_register"
                                         active-text="是"
                                         inactive-text="否">
                                 </el-switch>
@@ -325,7 +330,7 @@
                         <!--  隐藏PC端前台充值处“hot”图标显示位置  -->
                         <td>APP注册代理设定</td>
                         <td>
-                            <el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input>
+                            <el-input style="width:550px;" v-model="formData.mobile_default_agent" auto-complete="off"></el-input>
                         </td>
                         <td></td>
                     </tr>
@@ -333,7 +338,7 @@
                         <!--  隐藏PC端前台充值处“hot”图标显示位置  -->
                         <td>APP注册代理返点</td>
                         <td>
-                            <el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input>
+                            <el-input style="width:550px;" v-model="formData.mobile_register_rebate" auto-complete="off"></el-input>
                         </td>
                         <td>例如：返点 7.8%，填写 0.078</td>
                     </tr>
@@ -343,7 +348,7 @@
                         <td>
                             <template>
                                 <el-switch
-                                        v-model="value3"
+                                        v-model="formData.autoregister_usertype"
                                         active-text="是"
                                         inactive-text="否">
                                 </el-switch>
@@ -356,7 +361,7 @@
                         <td>
                             <template>
                                 <el-switch
-                                        v-model="value3"
+                                        v-model="formData.can_set_rebate"
                                         active-text="是"
                                         inactive-text="否">
                                 </el-switch>
@@ -367,7 +372,7 @@
                         <!--  隐藏PC端前台充值处“hot”图标显示位置  -->
                         <td>免费试玩用户默认返点</td>
                         <td>
-                            <el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input>
+                            <el-input style="width:550px;" v-model="formData.free_play_rebate" auto-complete="off"></el-input>
                         </td>
                         <td>免费试玩用户的返点(例如：返点 7.0%，填写 0.070)</td>
                     </tr>
@@ -379,7 +384,7 @@
                         <td>用户自主注册需要填写的信息</td>
                         <td>
                             <template>
-                                <el-checkbox-group v-model="checkList">
+                                <el-checkbox-group v-model="formData.user_register_column">
                                     <el-checkbox label="真实姓名"></el-checkbox>
                                     <el-checkbox label="手机号码"></el-checkbox>
                                     <el-checkbox label="QQ"></el-checkbox>
@@ -398,7 +403,7 @@
                         <td>代理开设下级需要填写的用户信息</td>
                         <td>
                             <template>
-                                <el-checkbox-group v-model="checkList">
+                                <el-checkbox-group v-model="formData.lower_register_column">
                                     <el-checkbox label="真实姓名"></el-checkbox>
                                     <el-checkbox label="手机号码"></el-checkbox>
                                     <el-checkbox label="QQ"></el-checkbox>
@@ -416,7 +421,7 @@
                         <!-- 子集配置第一条 start -->
                         <td>单次人工出款上限</td>
                         <td>
-                            <el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input>
+                            <el-input style="width:550px;" v-model="formData.withdraw_max" auto-complete="off"></el-input>
                         </td>
                         <td>允许最高的单笔人工出款，对所有子账户生效(注:默认不限额度, 厅主也不限额度)。</td>
                         <!-- 名称第一条 end -->
@@ -427,7 +432,7 @@
                         <!--  隐藏PC端前台充值处“hot”图标显示位置  -->
                         <td>单次人工存入上限</td>
                         <td>
-                            <el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input>
+                            <el-input style="width:550px;" v-model="formData.deposit_max" auto-complete="off"></el-input>
                         </td>
                         <td>允许最高的单笔人工存入，对所有子账户生效(注:默认不限额度, 厅主也不限额度)。</td>
                     </tr>
@@ -437,7 +442,7 @@
                         <td>
                             <template>
                                 <el-switch
-                                        v-model="value3"
+                                        v-model="formData.can_deposit_decimal_point"
                                         active-text="是"
                                         inactive-text="否">
                                 </el-switch>
@@ -448,7 +453,7 @@
                         <!--  隐藏PC端前台充值处“hot”图标显示位置  -->
                         <td>出款开启风控审核</td>
                         <td>
-                            <el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input>
+                            <el-input style="width:550px;" v-model="formData.withdraw_risk_audit" auto-complete="off"></el-input>
                         </td>
                         <td>设定多少金额以上需要进行风控审核</td>
                     </tr>
@@ -456,7 +461,7 @@
                         <!--  隐藏PC端前台充值处“hot”图标显示位置  -->
                         <td>银行卡绑定上限</td>
                         <td>
-                            <el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input>
+                            <el-input style="width:550px;" v-model="formData.bankcard_bind_max" auto-complete="off"></el-input>
                         </td>
                         <td>个人银行卡可以绑定的个数(未设定则为0张)</td>
                     </tr>
@@ -464,7 +469,7 @@
                         <!--  隐藏PC端前台充值处“hot”图标显示位置  -->
                         <td>新增绑定首张银行卡在XX分钟之内不允许提款</td>
                         <td>
-                            <el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input>
+                            <el-input style="width:550px;" v-model="formData.withdraw_minutes" auto-complete="off"></el-input>
                         </td>
                         <td>绑定首张银行卡在XX分钟之内不允许提款（设置为0或者为空即绑定后即可提款，只针对绑定首张银行卡情况下）</td>
                     </tr>
@@ -474,7 +479,7 @@
                         <td>
                             <template>
                                 <el-switch
-                                        v-model="value3"
+                                        v-model="formData.fast_deposit_link_flag"
                                         active-text="是"
                                         inactive-text="否">
                                 </el-switch>
@@ -485,7 +490,7 @@
                         <!--  隐藏PC端前台充值处“hot”图标显示位置  -->
                         <td>快速充值链接</td>
                         <td>
-                            <el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input>
+                            <el-input style="width:550px;" v-model="formData.fast_deposit_link" auto-complete="off"></el-input>
                         </td>
                         <td>请输入快速充值链接，例如:http://www.baidu.com</td>
                     </tr>
@@ -495,7 +500,7 @@
                         <td>
                             <template>
                                 <el-time-picker
-                                        v-model="value2"
+                                        v-model="formData.withdraw_date"
                                         :picker-options="{
       selectableRange: '18:30:00 - 20:30:00'
     }"
@@ -520,7 +525,7 @@
                         <!-- 子集配置第一条 start -->
                         <td>密码输错几次冻结账号</td>
                         <td>
-                            <el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input>
+                            <el-input style="width:550px;" v-model="formData.login_times" auto-complete="off"></el-input>
                         </td>
                         <td>设定输错多少次冻结账号</td>
                         <!-- 名称第一条 end -->
@@ -531,7 +536,7 @@
                         <!--  隐藏PC端前台充值处“hot”图标显示位置  -->
                         <td>同个IP一天内允许登入多少个账号</td>
                         <td>
-                            <el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input>
+                            <el-input style="width:550px;" v-model="formData.ip_account_login_count" auto-complete="off"></el-input>
                         </td>
                         <td>防止同一个IP登入非常多的账号来判断</td>
                     </tr>
@@ -541,7 +546,7 @@
                         <td>
                             <template>
                                 <el-switch
-                                        v-model="value3"
+                                        v-model="formData.google_login_flag"
                                         active-text="是"
                                         inactive-text="否">
                                 </el-switch>
@@ -555,7 +560,7 @@
                         <!-- 子集配置第一条 start -->
                         <td>有效投注达到多少视为有效会员</td>
                         <td>
-                            <el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input>
+                            <el-input style="width:550px;" v-model="formData.valid_user_turnover" auto-complete="off"></el-input>
                         </td>
                         <td>多少元以上的会员，视为有效会员</td>
                         <!-- 名称第一条 end -->
@@ -568,7 +573,7 @@
                         <td>
                             <template>
                                 <el-switch
-                                        v-model="value3"
+                                        v-model="formData.login_onetime_flag"
                                         active-text="是"
                                         inactive-text="否">
                                 </el-switch>
@@ -579,7 +584,7 @@
                         <!--  隐藏PC端前台充值处“hot”图标显示位置  -->
                         <td>在线客服链接</td>
                         <td>
-                            <el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input>
+                            <el-input style="width:550px;" v-model="formData.help_link" auto-complete="off"></el-input>
                         </td>
                         <td>在线客服链接, 设定后将在首页展示给客户使用</td>
                     </tr>
@@ -587,7 +592,7 @@
                         <!--  隐藏PC端前台充值处“hot”图标显示位置  -->
                         <td>在线QQ客服链接</td>
                         <td>
-                            <el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input>
+                            <el-input style="width:550px;" v-model="formData.qq_link" auto-complete="off"></el-input>
                         </td>
                         <td>在线QQ客服链接, 设定后将在首页展示给客户使用</td>
                     </tr>
@@ -595,7 +600,7 @@
                         <!--  隐藏PC端前台充值处“hot”图标显示位置  -->
                         <td>客服热线电话</td>
                         <td>
-                            <el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input>
+                            <el-input style="width:550px;" v-model="formData.help_tel" auto-complete="off"></el-input>
                         </td>
                         <td>商户热线电话，设定后将在首页展示</td>
                     </tr>
@@ -605,7 +610,7 @@
                         <td>
                             <template>
                                 <el-switch
-                                        v-model="value3"
+                                        v-model="formData.qq_help_flag"
                                         active-text="是"
                                         inactive-text="否">
                                 </el-switch>
@@ -619,7 +624,7 @@
                         <!-- 子集配置第一条 start -->
                         <td>中奖人数比例</td>
                         <td>
-                            <el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input>
+                            <el-input style="width:550px;" v-model="formData.winner_rato" auto-complete="off"></el-input>
                         </td>
                         <td>中奖人数比例=中奖人数/投注人数*100%；中奖比例不会超过100%，比例越小则说明中奖人数越少。输入范围（0～100）</td>
                         <!-- 名称第一条 end -->
@@ -630,7 +635,7 @@
                         <!--  隐藏PC端前台充值处“hot”图标显示位置  -->
                         <td>中奖注单比例</td>
                         <td>
-                            <el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input>
+                            <el-input style="width:550px;" v-model="formData.winner_project_rato" auto-complete="off"></el-input>
                         </td>
                         <td>中奖注单比例=中奖注单单数/注单数*100%；中奖注单比例不会超过100%，比例越大则说明中奖注单数越多。输入范围（0～100）</td>
                     </tr>
@@ -638,7 +643,7 @@
                         <!--  隐藏PC端前台充值处“hot”图标显示位置  -->
                         <td>亏损比</td>
                         <td>
-                            <el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input>
+                            <el-input style="width:550px;" v-model="formData.risk_rato" auto-complete="off"></el-input>
                         </td>
                         <td>亏损比=（返奖总额-投注总额）/投注总额；亏损值为负数值则表示当期平台赚钱，亏损值为正数值则表示当期平台亏钱。输入范围（0～200）</td>
                     </tr>
@@ -650,7 +655,7 @@
                         <td>前台转账方式</td>
                         <td>
                             <template>
-                                <el-checkbox-group v-model="checkList">
+                                <el-checkbox-group v-model="formData.transfer_type">
                                     <el-checkbox label="自动"></el-checkbox>
                                     <el-checkbox label="手动"></el-checkbox>
                                 </el-checkbox-group>
@@ -677,17 +682,11 @@
     import {
         systemconfigSet,
         authAdminRoleList,
-        authAdminSave,
+        systemConfigSave,
         authAdminDelete
     } from "../../../api/site-management";
 
     const formJson = {
-        id: "",
-        password: "",
-        username: "",
-        checkPassword: "",
-        status: "1",
-        roles: []
     };
     export default {
         data() {
@@ -930,7 +929,7 @@
                     if (valid) {
                         this.formLoading = true;
                         let data = Object.assign({}, this.formData);
-                        authAdminSave(data, this.formName).then(response => {
+                        systemConfigSave(data, this.formName).then(response => {
                             this.formLoading = false;
                             if (response.code) {
                                 this.$message({

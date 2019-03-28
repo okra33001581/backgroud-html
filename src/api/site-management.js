@@ -94,11 +94,24 @@ export function authAdminRoleList(query) {
 }
 
 // 保存
-export function authAdminSave(data, formName, method = "post") {
+export function proxyiptablesBlackSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/adminSave"
-            : "http://apidemo.test/api/event/adminEdit";
+            ? "http://apidemo.test/api/event/proxyiptablesBlackSave"
+            : "http://apidemo.test/api/event/proxyiptablesBlackSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+// 保存
+export function systemConfigSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "http://apidemo.test/api/event/systemConfigSave"
+            : "http://apidemo.test/api/event/systemConfigSave";
     return axios({
         url: url,
         method: method,

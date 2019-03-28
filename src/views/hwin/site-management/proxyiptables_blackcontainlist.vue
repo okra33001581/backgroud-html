@@ -2,11 +2,8 @@
 
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
-            <!--<el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="用户名"></el-input>
-            </el-form-item>-->
             <el-form-item class="query-form-item">
-                <el-input v-model="input" placeholder="请输入内容"></el-input>
+                <el-input v-model="query.username" placeholder="商户名称"></el-input>
             </el-form-item>
             <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
                 <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key"/>
@@ -53,17 +50,23 @@
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
-
-
-            <!--IP地址/地区-->
-            <!--说明-->
-
-            <!--添加日期-->
-            <!--操作-->
             <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			 IP地址/地区 				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			说明				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			添加日期				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			图标				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			预览				" prop="id" sortable="custom" fixed>
+
+                <template slot-scope="scope">
+                    <el-popover
+                            placement="right"
+                            title=""
+                            trigger="hover">
+                        <img src="../../images/1.png"/>
+                        <img slot="reference" src="../../images/1.png" :alt="id" style="max-height: 50px;max-width: 130px">
+                    </el-popover>
+                </template>
+
+            </el-table-column>
+            <!--<el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>-->
             <!--<el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>-->
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
@@ -113,9 +116,9 @@
                     label="操作" width="260"
                     fixed="right">
                 <template slot-scope="scope">
-               <!--     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
-                    </el-button>-->
-                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
+                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">上传
+                    </el-button>
+                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除图片
                     </el-button>
                 </template>
             </el-table-column>
@@ -139,24 +142,28 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                <el-form-item label="类型" prop="status">
-                    <el-radio-group v-model="formData.status">
-                        <el-radio label="0">国家地区</el-radio>
-                        <el-radio label="1">IP地址</el-radio>
+                <el-form-item label="类型" prop="type">
+                    <el-radio-group v-model="formData.type">
+                        <el-radio label="国家地区">国家地区</el-radio>
+                        <el-radio label="IP地址">IP地址</el-radio>
                     </el-radio-group>
                 </el-form-item>
 
                 <el-form-item class="query-form-item">
-                    <el-select v-model="query.status" placeholder="国家地区">
-                        <el-option label="全部" value=""></el-option>
-                        <el-option label="中国大陆" value="0"></el-option>
-                        <el-option label="美国" value="1"></el-option>
+                    <el-select v-model="formData.district" placeholder="国家地区">
+                        <el-option label="全部" value="全部"></el-option>
+                        <el-option label="中国大陆" value="中国大陆"></el-option>
+                        <el-option label="美国" value="美国"></el-option>
                     </el-select>
                 </el-form-item>
 
 
-                <el-form-item label="说明" prop="说明">
-                    <el-input type="textarea" v-model="formData.password" auto-complete="off"></el-input>
+                <el-form-item label="ip地址" prop="请输入IP地址，多个请用半角逗号分割">
+                    <el-input type="textarea" v-model="formData.ipList" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item label="说明" prop="关于此IP的说明，不超过50个字符">
+                    <el-input type="textarea" v-model="formData.memo" auto-complete="off"></el-input>
                 </el-form-item>
 
 
@@ -166,31 +173,26 @@
                 <el-button type="primary" @click.native="formSubmit()" :loading="formLoading">提交</el-button>
             </div>
         </el-dialog>
-        <div class="test">
-
-        </div>
     </div>
 
 </template>
 
 <script>
     import {
-        proxyiptablesBlackcontainlist,
+        systemconfigImagelist,
         authAdminRoleList,
-        authAdminSave,
+        proxyiptablesBlackSave,
         authAdminDelete
     } from "../../../api/site-management";
 
     const formJson = {
         id: "",
-        password: "",
-        username: "",
-        checkPassword: "",
-        status: "1",
-        roles: []
+        ipList: "",
+        memo: "",
+        type: "",
+        district: "",
     };
     export default {
-        name : 'test',
         data() {
             let validatePass = (rule, value, callback) => {
                 if (value === "") {
@@ -248,8 +250,6 @@
                 formVisible: false,
                 formData: formJson,
                 formRules: {},
-
-
                 addRules: {
                     username: [
                         {required: true, message: "请输入姓名", trigger: "blur"}
@@ -278,15 +278,8 @@
                         {required: true, message: "请选择状态", trigger: "change"}
                     ]
                 },
-                deleteLoading: false,
-                websock: null,
-            }
-        },
-        created() {
-            this.initWebSocket();
-        },
-        destroyed() {
-            this.websock.close() //离开路由之后断开websocket连接
+                deleteLoading: false
+            };
         },
         methods: {
             onSubmit() {
@@ -331,7 +324,7 @@
             },
             getList() {
                 this.loading = true;
-                proxyiptablesBlackcontainlist(this.query)
+                systemconfigImagelist(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list || [];
@@ -359,6 +352,8 @@
                 }
                 this.handleFilter()
             },
+
+
             sortByUserName(order) {
                 if (order === 'ascending') {
                     this.query.sort = '+username'
@@ -429,133 +424,107 @@
                     this.$refs["dataForm"].clearValidate();
                 }
             },
-                formSubmit() {
-                    this.$refs["dataForm"].validate(valid => {
-                        if (valid) {
-                            this.formLoading = true;
-                            let data = Object.assign({}, this.formData);
-                            authAdminSave(data, this.formName).then(response => {
-                                this.formLoading = false;
-                                if (response.code) {
-                                    this.$message({
-                                        message: response.message,
-                                        type: "error"
-                                    });
-                                } else {
-                                    this.$message({
-                                        message: "操作成功",
-                                        type: "success"
-                                    });
-                                    // 向头部添加数据
-                                    // this.list.unshift(res)
-                                    // 刷新表单
-                                    this.$refs["dataForm"].resetFields();
-                                    this.formVisible = false;
-                                    if (this.formName === "add") {
-                                        // 向头部添加数据
-                                        let resData = response.data || {};
-                                        this.list.unshift(resData);
-                                    } else {
-                                        this.list.splice(this.index, 1, data);
-                                    }
-                                }
-                            });
-                        }
-                    });
-                },
-                // 删除
-                handleDel(index, row) {
-                    if (row.id) {
-                        this.$confirm("确认删除该记录吗?", "提示", {
-                            type: "warning"
-                        })
-                            .then(() => {
-                                let para = {id: row.id};
-                                authAdminDelete(para)
-                                    .then(response => {
-                                        this.deleteLoading = false;
-                                        if (response.code) {
-                                            this.$message({
-                                                message: response.message,
-                                                type: "error"
-                                            });
-                                        } else {
-                                            this.$message({
-                                                message: "删除成功",
-                                                type: "success"
-                                            });
-                                            // 刷新数据
-                                            this.list.splice(index, 1);
-                                        }
-                                    })
-                                    .catch(() => {
-                                        this.deleteLoading = false;
-                                    });
-                            })
-                            .catch(() => {
+            formSubmit() {
+                this.$refs["dataForm"].validate(valid => {
+                    if (valid) {
+                        this.formLoading = true;
+                        let data = Object.assign({}, this.formData);
+                        proxyiptablesBlackSave(data, this.formName).then(response => {
+                            this.formLoading = false;
+                            if (response.code) {
                                 this.$message({
-                                    type: "info",
-                                    message: "取消删除"
+                                    message: response.message,
+                                    type: "error"
                                 });
-                            });
+                            } else {
+                                this.$message({
+                                    message: "操作成功",
+                                    type: "success"
+                                });
+                                // 向头部添加数据
+                                // this.list.unshift(res)
+                                // 刷新表单
+                                this.$refs["dataForm"].resetFields();
+                                this.formVisible = false;
+                                if (this.formName === "add") {
+                                    // 向头部添加数据
+                                    let resData = response.data || {};
+                                    this.list.unshift(resData);
+                                } else {
+                                    this.list.splice(this.index, 1, data);
+                                }
+                            }
+                        });
                     }
+                });
+            },
+            // 删除
+            handleDel(index, row) {
+                if (row.id) {
+                    this.$confirm("确认删除该记录吗?", "提示", {
+                        type: "warning"
+                    })
+                        .then(() => {
+                            let para = {id: row.id};
+                            authAdminDelete(para)
+                                .then(response => {
+                                    this.deleteLoading = false;
+                                    if (response.code) {
+                                        this.$message({
+                                            message: response.message,
+                                            type: "error"
+                                        });
+                                    } else {
+                                        this.$message({
+                                            message: "删除成功",
+                                            type: "success"
+                                        });
+                                        // 刷新数据
+                                        this.list.splice(index, 1);
+                                    }
+                                })
+                                .catch(() => {
+                                    this.deleteLoading = false;
+                                });
+                        })
+                        .catch(() => {
+                            this.$message({
+                                type: "info",
+                                message: "取消删除"
+                            });
+                        });
                 }
-            ,
-            // filters: {
-            //     statusFilterType(status) {
-            //         const statusMap = {
-            //             0: "gray",
-            //             1: "success",
-            //             2: "danger"
-            //         };
-            //         return statusMap[status];
-            //     },
-            //     statusFilterName(status) {
-            //         const statusMap = {
-            //             0: "禁用",
-            //             1: "正常",
-            //             2: "未验证"
-            //         };
-            //         return statusMap[status];
-            //     }
-            // },
-            mounted() {
+            }
+        },
+        filters: {
+            statusFilterType(status) {
+                const statusMap = {
+                    0: "gray",
+                    1: "success",
+                    2: "danger"
+                };
+                return statusMap[status];
             },
-            created() {
-                // 将参数拷贝进查询对象
-                let query = this.$route.query;
-                this.query = Object.assign(this.query, query);
-                this.query.limit = parseInt(this.query.limit);
-                // 加载表格数据
-                this.getList();
-                // 加载角色列表
-                // this.getRoleList();
-            },
-            initWebSocket(){ //初始化weosocket
-                // const wsuri = "ws://127.0.0.1:8080";
-                const wsuri = "ws://121.40.165.18:8800";
-                this.websock = new WebSocket(wsuri);
-                this.websock.onmessage = this.websocketonmessage;
-                this.websock.onopen = this.websocketonopen;
-                this.websock.onerror = this.websocketonerror;
-                this.websock.onclose = this.websocketclose;
-            },
-            websocketonopen(){ //连接建立之后执行send方法发送数据
-                let actions = {"test":"12345"};
-                this.websocketsend(JSON.stringify(actions));
-            },
-            websocketonerror(){//连接建立失败重连
-                this.initWebSocket();
-            },
-            websocketonmessage(e){ //数据接收
-                const redata = JSON.parse(e.data);
-            },
-            websocketsend(Data){//数据发送
-                this.websock.send(Data);
-            },
-            websocketclose(e){  //关闭
-                console.log('断开连接',e);
-            },
+            statusFilterName(status) {
+                const statusMap = {
+                    0: "禁用",
+                    1: "正常",
+                    2: "未验证"
+                };
+                return statusMap[status];
+            }
+        },
+        mounted() {
+        },
+        created() {
+            // 将参数拷贝进查询对象
+            let query = this.$route.query;
+            this.query = Object.assign(this.query, query);
+            this.query.limit = parseInt(this.query.limit);
+            // 加载表格数据
+            this.getList();
+            // 加载角色列表
+            // this.getRoleList();
         }
     };
 </script>
