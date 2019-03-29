@@ -147,16 +147,26 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
                 <el-form-item label="H5下载页" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                    <el-input v-model="formData.h5_address" auto-complete="off"></el-input>
                 </el-form-item>
-                <el-form-item label="二维码预览" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+
+                <el-form-item :label="二维码预览" prop="bannerPc">
+                    <el-upload
+                            action="http://apidemo.test/api/event/fileSave?table=eventPic1"
+                            list-type="picture-card"
+                            :on-success="handlePicSuccess"
+                            :beforeUpload="beforeAvatarUpload"
+                            :on-remove="handleRemove">
+                        <img :src="formData.pic" class="el-upload el-upload--picture-card"/>
+                    </el-upload>
                 </el-form-item>
+
+
                 <el-form-item label="IOS链接地址" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                    <el-input v-model="formData.ios_address" auto-complete="off"></el-input>
                 </el-form-item>
                 <el-form-item label="安卓链接地址" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                    <el-input v-model="formData.android_address" auto-complete="off"></el-input>
                 </el-form-item>
             </el-form>
             <div slot="footer" class="dialog-footer">
@@ -172,7 +182,7 @@
     import {
         qrconfigList,
         authAdminRoleList,
-        authAdminSave,
+        qrCodeSave,
         authAdminDelete
     } from "../../../api/site-management";
 
@@ -335,7 +345,10 @@
                     this.sortByID(order)
                 }
             },*/
-
+            handlePicSuccess(response, file, fileList) {
+                //response这个
+                this.formData.pic = response.data;
+            },
             sortByID(order) {
                 if (order === 'ascending') {
                     this.query.sort = '+id'
@@ -421,7 +434,7 @@
                     if (valid) {
                         this.formLoading = true;
                         let data = Object.assign({}, this.formData);
-                        authAdminSave(data, this.formName).then(response => {
+                        qrCodeSave(data, this.formName).then(response => {
                             this.formLoading = false;
                             if (response.code) {
                                 this.$message({

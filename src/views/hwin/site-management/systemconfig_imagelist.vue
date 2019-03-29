@@ -141,9 +141,21 @@
                 width="35%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
-                <el-form-item label="			Id		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			图标		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			预览		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <!--<el-form-item label="			Id		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>-->
+                <el-form-item label="			图标		" prop="username"><el-input v-model="formData.icon" auto-complete="off"></el-input></el-form-item>
+                <!--<el-form-item label="			预览		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>-->
+
+                <el-form-item :label="图片" prop="bannerPc">
+                    <el-upload
+                            action="http://apidemo.test/api/event/fileSave?table=eventPic1"
+                            list-type="picture-card"
+                            :on-success="handlePicSuccess"
+                            :beforeUpload="beforeAvatarUpload"
+                            :on-remove="handleRemove">
+                        <img :src="formData.pic" class="el-upload el-upload--picture-card"/>
+                    </el-upload>
+                </el-form-item>
+
 
             </el-form>
             <div slot="footer" class="dialog-footer">
@@ -159,7 +171,7 @@
     import {
         systemconfigImagelist,
         authAdminRoleList,
-        authAdminSave,
+        webIconSave,
         authAdminDelete
     } from "../../../api/site-management";
 
@@ -301,6 +313,10 @@
                     this.sortByLastLoginIp(order)
                 }
             },
+            handlePicSuccess(response, file, fileList) {
+                //response这个
+                this.formData.pic = response.data;
+            },
             getList() {
                 this.loading = true;
                 systemconfigImagelist(this.query)
@@ -408,7 +424,7 @@
                     if (valid) {
                         this.formLoading = true;
                         let data = Object.assign({}, this.formData);
-                        authAdminSave(data, this.formName).then(response => {
+                        webIconSave(data, this.formName).then(response => {
                             this.formLoading = false;
                             if (response.code) {
                                 this.$message({

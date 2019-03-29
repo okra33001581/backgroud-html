@@ -175,20 +175,44 @@
                 width="35%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
-                <el-form-item label="名称" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="名称" prop="title">
+                    <el-input v-model="formData.title" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="类型" prop="status">
-                    <el-radio-group v-model="formData.status">
+
+                <el-form-item :label="图片" prop="bannerPc">
+                    <el-upload
+                            action="http://apidemo.test/api/event/fileSave?table=eventPic1"
+                            list-type="picture-card"
+                            :on-success="handlePic1Success"
+                            :beforeUpload="beforeAvatarUpload"
+                            :on-remove="handleRemove">
+                        <img :src="formData.pc_pic" class="el-upload el-upload--picture-card"/>
+                    </el-upload>
+                </el-form-item>
+
+                <el-form-item :label="图片" prop="bannerPc">
+                    <el-upload
+                            action="http://apidemo.test/api/event/fileSave?table=eventPic1"
+                            list-type="picture-card"
+                            :on-success="handlePic2Success"
+                            :beforeUpload="beforeAvatarUpload"
+                            :on-remove="handleRemove">
+                        <img :src="formData.mobile_pic" class="el-upload el-upload--picture-card"/>
+                    </el-upload>
+                </el-form-item>
+
+
+                <el-form-item label="类型" prop="link_type">
+                    <el-radio-group v-model="formData.link_type">
                         <el-radio label="0">内链</el-radio>
                         <el-radio label="1">外链</el-radio>
                     </el-radio-group>
                 </el-form-item>
 
 
-                <el-form-item label="链接" prop="password">
-                    <el-input v-model="formData.password" auto-complete="off"></el-input>
+                <el-form-item label="链接" prop="link">
+                    <el-input v-model="formData.link" auto-complete="off"></el-input>
                 </el-form-item>
 
 
@@ -199,13 +223,9 @@
                     </el-radio-group>
                 </el-form-item>
 
-
-
-                <el-form-item label="排序" prop="password">
-                    <el-input v-model="formData.password" auto-complete="off"></el-input>
+                <el-form-item label="排序" prop="sequence">
+                    <el-input v-model="formData.sequence" auto-complete="off"></el-input>
                 </el-form-item>
-
-
 
             </el-form>
             <div slot="footer" class="dialog-footer">
@@ -221,7 +241,7 @@
     import {
         rotationconfigList,
         authAdminRoleList,
-        authAdminSave,
+        rotatePlaySave,
         authAdminDelete
     } from "../../../api/site-management";
 
@@ -393,7 +413,14 @@
                 }
                 this.handleFilter()
             },
-
+            handlePic1Success(response, file, fileList) {
+                //response这个
+                this.formData.pc_pic = response.data;
+            },
+            handlePic2Success(response, file, fileList) {
+                //response这个
+                this.formData.mobile_pic = response.data;
+            },
 
             sortByUserName(order) {
                 if (order === 'ascending') {
@@ -470,7 +497,7 @@
                     if (valid) {
                         this.formLoading = true;
                         let data = Object.assign({}, this.formData);
-                        authAdminSave(data, this.formName).then(response => {
+                        rotatePlaySave(data, this.formName).then(response => {
                             this.formLoading = false;
                             if (response.code) {
                                 this.$message({

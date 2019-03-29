@@ -139,22 +139,22 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                <el-form-item label="显示状态" prop="status">
-                    <el-radio-group v-model="formData.status">
+                <el-form-item label="显示状态" prop="display_status">
+                    <el-radio-group v-model="formData.display_status">
                         <el-radio label="0">启用</el-radio>
                         <el-radio label="1">停用</el-radio>
                     </el-radio-group>
                 </el-form-item>
 
-                <el-form-item label="显示方式" prop="status">
-                    <el-radio-group v-model="formData.status">
+                <el-form-item label="显示方式" prop="stdisplay_styleatus">
+                    <el-radio-group v-model="formData.display_style">
                         <el-radio label="0"> 启用</el-radio>
                         <el-radio label="1">停用</el-radio>
                     </el-radio-group>
                 </el-form-item>
 
                 <el-form-item label="内容" prop="内容">
-                    <el-input type="textarea" v-model="formData.password" auto-complete="off"></el-input>
+                    <el-input type="textarea" v-model="formData.content" auto-complete="off"></el-input>
                 </el-form-item>
 
             </el-form>
@@ -171,7 +171,7 @@
     import {
         informationCompanylist,
         authAdminRoleList,
-        authAdminSave,
+        companySave,
         authAdminDelete
     } from "../../../api/site-management";
 
@@ -420,7 +420,7 @@
                     if (valid) {
                         this.formLoading = true;
                         let data = Object.assign({}, this.formData);
-                        authAdminSave(data, this.formName).then(response => {
+                        companySave(data, this.formName).then(response => {
                             this.formLoading = false;
                             if (response.code) {
                                 this.$message({

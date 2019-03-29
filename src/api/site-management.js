@@ -119,6 +119,81 @@ export function systemConfigSave(data, formName, method = "post") {
     });
 }
 
+export function webIconSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "http://apidemo.test/api/event/webIconSave"
+            : "http://apidemo.test/api/event/webIconSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+
+export function qrCodeSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "http://apidemo.test/api/event/qrCodeSave"
+            : "http://apidemo.test/api/event/qrCodeSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+
+export function rotatePlaySave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "http://apidemo.test/api/event/rotatePlaySave"
+            : "http://apidemo.test/api/event/rotatePlaySave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+export function floatWindowSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "http://apidemo.test/api/event/floatWindowSave"
+            : "http://apidemo.test/api/event/floatWindowSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+export function informationSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "http://apidemo.test/api/event/informationSave"
+            : "http://apidemo.test/api/event/informationSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+export function companySave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "http://apidemo.test/api/event/companySave"
+            : "http://apidemo.test/api/event/companySave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+
+
 // 删除管理员
 export function authAdminDelete(data) {
     return axios({

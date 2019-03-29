@@ -125,7 +125,7 @@
                 <el-button-group>
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
                     <el-button type="primary" icon="el-icon-search" @click="onSubmit">查询</el-button>
-                    <!--<el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">新增用户</el-button>-->
+                    <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">新增用户</el-button>
                     <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">批量查询</el-button>
                     <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">导出</el-button>
                 </el-button-group>
@@ -700,7 +700,7 @@
     import {
         userMainlist,
         authAdminRoleList,
-        authAdminSave,
+        userSave,
         authAdminDelete
     } from "../../../api/user-management";
 
@@ -1169,7 +1169,7 @@
                     if (valid) {
                         this.formLoading = true;
                         let data = Object.assign({}, this.formData);
-                        authAdminSave(data, this.formName).then(response => {
+                        userSave(data, this.formName).then(response => {
                             this.formLoading = false;
                             if (response.code) {
                                 this.$message({

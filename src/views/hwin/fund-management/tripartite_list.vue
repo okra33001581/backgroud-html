@@ -195,95 +195,104 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                <el-form-item label="" prop="username">
+                <el-form-item label="" prop="layers">
                     <template slot-scope="scope">
-                        <el-checkbox  v-model="formData.isCheck1">全部层级</el-checkbox>
+                        <el-checkbox  v-model="formData.layers">全部层级</el-checkbox>
                     </template>
                 </el-form-item>
 
-                <el-form-item label="" prop="username">
+                <el-form-item label="" prop="layers">
                     <template slot-scope="scope">
-                        <el-checkbox  v-model="formData.isCheck1">vip2</el-checkbox>
-                        <el-checkbox  v-model="formData.isCheck2">vip3</el-checkbox>
-                        <el-checkbox  v-model="formData.isCheck3">vip4</el-checkbox>
-                        <el-checkbox  v-model="formData.isCheck3">vip5</el-checkbox>
-                        <el-checkbox  v-model="formData.isCheck3">vip6</el-checkbox>
-                        <el-checkbox  v-model="formData.isCheck3">vip8</el-checkbox>
-                        <el-checkbox  v-model="formData.isCheck3">vip7</el-checkbox>
-                        <el-checkbox  v-model="formData.isCheck3">vip10</el-checkbox>
-                        <el-checkbox  v-model="formData.isCheck3">v11</el-checkbox>
+                        <el-checkbox  v-model="formData.layers">vip2</el-checkbox>
+                        <el-checkbox  v-model="formData.layers">vip3</el-checkbox>
+                        <el-checkbox  v-model="formData.layers">vip4</el-checkbox>
+                        <el-checkbox  v-model="formData.layers">vip5</el-checkbox>
+                        <el-checkbox  v-model="formData.layers">vip6</el-checkbox>
+                        <el-checkbox  v-model="formData.layers">vip8</el-checkbox>
+                        <el-checkbox  v-model="formData.layers">vip7</el-checkbox>
+                        <el-checkbox  v-model="formData.layers">vip10</el-checkbox>
+                        <el-checkbox  v-model="formData.layers">v11</el-checkbox>
                     </template>
                 </el-form-item>
 
 
-                <el-form-item label="三方公司" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="三方公司" prop="third_company">
+                    <el-input v-model="formData.third_company" auto-complete="off"></el-input>
                 </el-form-item>
 
 
-                <el-form-item label="支付类型" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="是否移动端显示" prop="mobile_display_flag">
+                    <el-input v-model="formData.mobile_display_flag" auto-complete="off"></el-input>
                 </el-form-item>
 
 
-                <el-form-item label="小数点" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="支付类型" prop="pay_type">
+                    <el-input v-model="formData.pay_type" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item label="小数点" prop="decimal_flag">
+                    <el-input v-model="formData.decimal_flag" auto-complete="off"></el-input>
                 </el-form-item>
 
 
-                <el-form-item label="入款类型" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="入款类型" prop="deposit_type">
+                    <el-input v-model="formData.deposit_type" auto-complete="off"></el-input>
                 </el-form-item>
 
 
-                <el-form-item label="最小限额" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="最小限额" prop="min">
+                    <el-input v-model="formData.min" auto-complete="off"></el-input>
                 </el-form-item>
 
 
-                <el-form-item label="最大限额" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="最大限额" prop="max">
+                    <el-input v-model="formData.max" auto-complete="off"></el-input>
                 </el-form-item>
 
 
-                <el-form-item label="额度" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="额度" prop="quota">
+                    <el-input v-model="formData.quota" auto-complete="off"></el-input>
                 </el-form-item>
 
 
-                <el-form-item label="强制查询后上分" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="强制查询后上分" prop="query_flag">
+                    <el-input v-model="formData.query_flag" auto-complete="off"></el-input>
                 </el-form-item>
 
 
-                <el-form-item label="商户代称" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="商户代称" prop="merchant_code">
+                    <el-input v-model="formData.merchant_code" auto-complete="off"></el-input>
                 </el-form-item>
 
 
-                <el-form-item label="商户号" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="商户号" prop="merchant_id">
+                    <el-input v-model="formData.merchant_id" auto-complete="off"></el-input>
                 </el-form-item>
 
 
-                <el-form-item label="商户秘钥" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="商户秘钥" prop="private_key">
+                    <el-input v-model="formData.private_key" auto-complete="off"></el-input>
                 </el-form-item>
 
 
-                <el-form-item label="三方公钥" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="三方公钥" prop="public_key">
+                    <el-input v-model="formData.public_key" auto-complete="off"></el-input>
                 </el-form-item>
 
 
-                <el-form-item label="支付域名" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="支付域名" prop="pay_domain">
+                    <el-input v-model="formData.pay_domain" auto-complete="off"></el-input>
                 </el-form-item>
 
 
-                <el-form-item label="状态" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="网关地址" prop="gateway">
+                    <el-input v-model="formData.gateway" auto-complete="off"></el-input>
                 </el-form-item>
+
+                <el-form-item label="查单地址" prop="query_url">
+                    <el-input v-model="formData.query_url" auto-complete="off"></el-input>
+                </el-form-item>
+
 
             </el-form>
             <div slot="footer" class="dialog-footer">
@@ -299,7 +308,7 @@
     import {
         tripartiteList,
         authAdminRoleList,
-        authAdminSave,
+        thirdAccountSave,
         authAdminDelete
     } from "../../../api/fund-management";
 
@@ -548,7 +557,7 @@
                     if (valid) {
                         this.formLoading = true;
                         let data = Object.assign({}, this.formData);
-                        authAdminSave(data, this.formName).then(response => {
+                        thirdAccountSave(data, this.formName).then(response => {
                             this.formLoading = false;
                             if (response.code) {
                                 this.$message({

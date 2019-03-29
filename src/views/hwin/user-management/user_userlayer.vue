@@ -187,40 +187,40 @@
                 width="35%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
-                <el-form-item label="层级名称" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="层级名称" prop="level_name">
+                    <el-input v-model="formData.level_name" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="存款次数" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="存款次数" prop="deposit_times">
+                    <el-input v-model="formData.deposit_times" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="存款总额" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="存款总额" prop="deposit_amount">
+                    <el-input v-model="formData.deposit_amount" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="单笔最大存款额" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="单笔最大存款额" prop="deposit_max">
+                    <el-input v-model="formData.deposit_max" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="提款次数" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="提款次数" prop="withdraw_times">
+                    <el-input v-model="formData.withdraw_times" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="提款总额" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="提款总额" prop="withdraw_amount">
+                    <el-input v-model="formData.withdraw_amount" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="优先级" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="优先级" prop="prior">
+                    <el-input v-model="formData.prior" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="备注" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="备注" prop="memo">
+                    <el-input v-model="formData.memo" auto-complete="off"></el-input>
                 </el-form-item>
 
-                    <el-form-item label="支付设定" prop="username">
-                    <el-select v-model="formData.status" placeholder="支付设定">
+                    <el-form-item label="支付设定" prop="pay_setting">
+                    <el-select v-model="formData.pay_setting" placeholder="支付设定">
                         <el-option value="11" label="新用户层级"></el-option>
                         <el-option value="26" label="普通用户层级"></el-option>
                         <el-option value="32" label="代理用户层级"></el-option>
@@ -231,8 +231,8 @@
                     </el-select>
                 </el-form-item>
 
-                    <el-form-item label="投注限额" prop="username">
-                    <el-select v-model="formData.status" placeholder="投注限额">
+                    <el-form-item label="投注限额" prop="project_limit">
+                    <el-select v-model="formData.project_limit" placeholder="投注限额">
                         <el-option value="22" label="彩种投注限额"></el-option>
                         <el-option value="30" label="新增限额"></el-option>
                     </el-select>
@@ -253,7 +253,7 @@
     import {
         userUserlayer,
         authAdminRoleList,
-        authAdminSave,
+        userLevelSave,
         authAdminDelete
     } from "../../../api/user-management";
 
@@ -502,7 +502,7 @@
                     if (valid) {
                         this.formLoading = true;
                         let data = Object.assign({}, this.formData);
-                        authAdminSave(data, this.formName).then(response => {
+                        userLevelSave(data, this.formName).then(response => {
                             this.formLoading = false;
                             if (response.code) {
                                 this.$message({

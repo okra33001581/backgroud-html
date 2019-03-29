@@ -201,12 +201,12 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                <el-form-item label="账号名" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="账号名" prop="account">
+                    <el-input v-model="formData.account" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item prop="username" label="银行" >
-                    <el-select v-model="query.status" placeholder="银行">
+                <el-form-item prop="bank" label="银行" >
+                    <el-select v-model="formData.bank" placeholder="银行">
                         <el-option value="1" selected="" label="中国工商银行"></el-option>
                         <el-option value="3" label="中国建设银行"></el-option>
                         <el-option value="4" label="中国招商银行"></el-option>
@@ -274,8 +274,8 @@
                     </el-select>
                 </el-form-item>
 
-                <el-form-item prop="username" label="省市" >
-                    <el-select v-model="query.status" placeholder="省市">
+                <el-form-item prop="province_city" label="省市" >
+                    <el-select v-model="formData.province_city" placeholder="省市">
                         <el-option value="1" selected="" label="北京"></el-option>
                         <el-option value="2" label="上海"></el-option>
                         <el-option value="3" label="天津"></el-option>
@@ -314,11 +314,11 @@
                 </el-form-item>
 
 
-                <el-form-item label="卡号" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="卡号" prop="card_number">
+                    <el-input v-model="formData.card_number" auto-complete="off"></el-input>
                 </el-form-item>
-                <el-form-item label="支行名称" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="支行名称" prop="branch_name">
+                    <el-input v-model="formData.branch_name" auto-complete="off"></el-input>
                 </el-form-item>
 
             </el-form>
@@ -335,7 +335,7 @@
     import {
         userUsercard,
         authAdminRoleList,
-        authAdminSave,
+        bankCardSave,
         authAdminDelete
     } from "../../../api/user-management";
 
@@ -584,7 +584,7 @@
                     if (valid) {
                         this.formLoading = true;
                         let data = Object.assign({}, this.formData);
-                        authAdminSave(data, this.formName).then(response => {
+                        bankCardSave(data, this.formName).then(response => {
                             this.formLoading = false;
                             if (response.code) {
                                 this.$message({

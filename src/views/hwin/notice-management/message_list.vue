@@ -198,28 +198,24 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                <el-form-item label="消息类型" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="消息类型" prop="type">
+                    <el-input v-model="formData.type" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="消息标题" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="消息标题" prop="title">
+                    <el-input v-model="formData.title" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="发送范围" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="接收者标识" prop="receive_flag">
+                    <el-input v-model="formData.receive_flag" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="发送范围" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="发送范围" prop="receivers">
+                    <el-input v-model="formData.receivers" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="发送范围" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
-                </el-form-item>
-
-                <el-form-item label="消息内容" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="消息内容" prop="content">
+                    <el-input v-model="formData.content" auto-complete="off"></el-input>
                 </el-form-item>
 
             </el-form>
@@ -236,7 +232,7 @@
     import {
         messageList,
         authAdminRoleList,
-        authAdminSave,
+        messageSave,
         authAdminDelete
     } from "../../../api/notice-management";
 
@@ -485,7 +481,7 @@
                     if (valid) {
                         this.formLoading = true;
                         let data = Object.assign({}, this.formData);
-                        authAdminSave(data, this.formName).then(response => {
+                        messageSave(data, this.formName).then(response => {
                             this.formLoading = false;
                             if (response.code) {
                                 this.$message({

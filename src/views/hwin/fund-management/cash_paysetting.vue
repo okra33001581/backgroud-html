@@ -154,7 +154,7 @@
                                             <tr>
                                                 <td class="center">
                                                     <template>
-                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                        <el-input style="width:149px;" v-model="formData.name" auto-complete="off"></el-input>
                                                     </template>
                                                 </td>
                                             </tr>
@@ -168,13 +168,13 @@
                                             <tr>
                                                 <td width="324" class="center">达到有效投注额是否免手续费</td>
                                                 <template>
-                                                    <el-radio v-model="formData.username" label="1">是</el-radio>
-                                                    <el-radio v-model="formData.username" label="2">否</el-radio>
+                                                    <el-radio v-model="formData.no_project_flag" label="1">是</el-radio>
+                                                    <el-radio v-model="formData.no_project_flag" label="2">否</el-radio>
                                                 </template>
                                                 <td width="157" class="center">每天免手续费次数</td>
                                                 <td width="178" class="center" id="free">
                                                     <template>
-                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                        <el-input style="width:149px;" v-model="formData.no_charge_times" auto-complete="off"></el-input>
                                                     </template>
                                                 </td>
                                             </tr>
@@ -182,24 +182,24 @@
                                                 <td class="center">手续费<span id="withdraw_chargemax" >                                    </span></td>
                                                 <td class="center">
                                                     <template>
-                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                        <el-input style="width:149px;" v-model="formData.fee" auto-complete="off"></el-input>
                                                     </template>
                                                     %
                                                     <label>
-                                                        <input type="radio" name="withdraw_chargetype" value="0" checked="checked">
+                                                        <input type="radio" name="withdraw_chargetype" v-model="formData.fee_type" value="0" checked="checked">
                                                         百分比 </label>
                                                     <label>
-                                                        <input type="radio" name="withdraw_chargetype" value="1" >
+                                                        <input type="radio" name="withdraw_chargetype" v-model="formData.fee_type" value="1" >
                                                         固定金额 </label>
                                                     <span id="withdraw_chargemax2" >&nbsp;&nbsp;每笔手续费上限：
                                                         <template>
-                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                        <el-input style="width:149px;" v-model="formData.withdraw_min" auto-complete="off"></el-input>
                                                     </template>
   </span></td>
                                                 <td class="center">每天可出款次数</td>
                                                 <td class="center">
                                                     <template>
-                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                        <el-input style="width:149px;" v-model="formData.withdraw_times" auto-complete="off"></el-input>
                                                     </template>
                                                 </td>
                                             </tr>
@@ -207,13 +207,13 @@
                                                 <td class="center">出款上限</td>
                                                 <td class="center">
                                                     <template>
-                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                        <el-input style="width:149px;" v-model="formData.withdraw_max" auto-complete="off"></el-input>
                                                     </template>
                                                 </td>
                                                 <td class="center">出款下限</td>
                                                 <td class="center">
                                                     <template>
-                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                        <el-input style="width:149px;" v-model="formData.withdraw_min" auto-complete="off"></el-input>
                                                     </template>
                                                 </td>
                                             </tr>
@@ -231,16 +231,16 @@
                                                 <td class="center">存款优惠</td>
                                                 <td>
                                                     <template>
-                                                        <el-radio v-model="formData.username" label="1">首次</el-radio>
-                                                        <el-radio v-model="formData.username" label="2">每次</el-radio>
-                                                        <el-radio v-model="formData.username" label="2">无优惠</el-radio>
+                                                        <el-radio v-model="formData.web_deposit_benefit" label="1">首次</el-radio>
+                                                        <el-radio v-model="formData.web_deposit_benefit" label="2">每次</el-radio>
+                                                        <el-radio v-model="formData.web_deposit_benefit" label="2">无优惠</el-radio>
                                                     </template>
                                                 </td>
                                                 <td>
                                                     <template>
-                                                        <el-radio v-model="formData.username" label="1">首次</el-radio>
-                                                        <el-radio v-model="formData.username" label="2">每次</el-radio>
-                                                        <el-radio v-model="formData.username" label="2">无优惠</el-radio>
+                                                        <el-radio v-model="formData.company_deposit_benefit" label="1">首次</el-radio>
+                                                        <el-radio v-model="formData.company_deposit_benefit" label="2">每次</el-radio>
+                                                        <el-radio v-model="formData.company_deposit_benefit" label="2">无优惠</el-radio>
                                                     </template>
                                                 </td>
                                             </tr>
@@ -248,12 +248,12 @@
                                                 <td class="center">优惠标准（元）</td>
                                                 <td>
                                                     <template>
-                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                        <el-input style="width:149px;" v-model="formData.web_benefit_standard" auto-complete="off"></el-input>
                                                     </template>
                                                 </td>
                                                 <td>
                                                     <template>
-                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                        <el-input style="width:149px;" v-model="formData.company_benefit_standard" auto-complete="off"></el-input>
                                                     </template>
                                                 </td>
                                             </tr>
@@ -261,13 +261,13 @@
                                                 <td class="center">优惠百分比(%)</td>
                                                 <td>
                                                     <template>
-                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                        <el-input style="width:149px;" v-model="formData.web_benefit_ratio" auto-complete="off"></el-input>
                                                     </template>
                                                     %负数为手续费
                                                 </td>
                                                 <td>
                                                     <template>
-                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                        <el-input style="width:149px;" v-model="formData.company_benefit_ratio" auto-complete="off"></el-input>
                                                     </template>
                                                     %负数为手续费
                                                 </td>
@@ -276,12 +276,12 @@
                                                 <td class="center">优惠上限金额</td>
                                                 <td>
                                                     <template>
-                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                        <el-input style="width:149px;" v-model="formData.web_benefit_max" auto-complete="off"></el-input>
                                                     </template>
                                                 </td>
                                                 <td>
                                                     <template>
-                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                        <el-input style="width:149px;" v-model="formData.company_benefit_max" auto-complete="off"></el-input>
                                                     </template>
                                                 </td>
                                             </tr>
@@ -289,12 +289,12 @@
                                                 <td class="center">入款上限</td>
                                                 <td>
                                                     <template>
-                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                        <el-input style="width:149px;" v-model="formData.web_max" auto-complete="off"></el-input>
                                                     </template>
                                                 </td>
                                                 <td>
                                                     <template>
-                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                        <el-input style="width:149px;" v-model="formData.company_max" auto-complete="off"></el-input>
                                                     </template>
                                                 </td>
                                             </tr>
@@ -302,12 +302,12 @@
                                                 <td class="center">入款下限</td>
                                                 <td>
                                                     <template>
-                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                        <el-input style="width:149px;" v-model="formData.web_min" auto-complete="off"></el-input>
                                                     </template>
                                                 </td>
                                                 <td>
                                                     <template>
-                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                        <el-input style="width:149px;" v-model="formData.company_min" auto-complete="off"></el-input>
                                                     </template>
                                                 </td>
                                             </tr>
@@ -315,20 +315,20 @@
                                                 <td class="center">综合额度流水审核</td>
                                                 <td>
                                                     <template>
-                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                        <el-input style="width:149px;" v-model="formData.web_general_turnover_audit" auto-complete="off"></el-input>
                                                     </template>
                                                     <template>
-                                                        <el-radio v-model="formData.username" label="1">是</el-radio>
-                                                        <el-radio v-model="formData.username" label="2">否</el-radio>
+                                                        <el-radio v-model="formData.web_general_turnover_audit" label="1">是</el-radio>
+                                                        <el-radio v-model="formData.web_general_turnover_audit" label="2">否</el-radio>
                                                     </template>
                                                 </td>
                                                 <td>
                                                     <template>
-                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                        <el-input style="width:149px;" v-model="formData.company_general_turnover_audit" auto-complete="off"></el-input>
                                                     </template>
                                                     <template>
-                                                        <el-radio v-model="formData.username" label="1">是</el-radio>
-                                                        <el-radio v-model="formData.username" label="2">否</el-radio>
+                                                        <el-radio v-model="formData.company_general_turnover_audit" label="1">是</el-radio>
+                                                        <el-radio v-model="formData.company_general_turnover_audit" label="2">否</el-radio>
                                                     </template>
                                                 </td>
                                             </tr>
@@ -336,20 +336,20 @@
                                                 <td class="center">常态性流水审核</td>
                                                 <td>
                                                     <template>
-                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                        <el-input style="width:149px;" v-model="formData.web_turnover_audit" auto-complete="off"></el-input>
                                                     </template>%
                                                     <template>
-                                                        <el-radio v-model="formData.username" label="1">是</el-radio>
-                                                        <el-radio v-model="formData.username" label="2">否</el-radio>
+                                                        <el-radio v-model="formData.web_turnover_audit_flag" label="1">是</el-radio>
+                                                        <el-radio v-model="formData.web_turnover_audit_flag" label="2">否</el-radio>
                                                     </template>
                                                 </td>
                                                 <td>
                                                     <template>
-                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                        <el-input style="width:149px;" v-model="formData.company_turnover_audit" auto-complete="off"></el-input>
                                                     </template>%
                                                     <template>
-                                                        <el-radio v-model="formData.username" label="1">是</el-radio>
-                                                        <el-radio v-model="formData.username" label="2">否</el-radio>
+                                                        <el-radio v-model="formData.company_turnover_audit_flag" label="1">是</el-radio>
+                                                        <el-radio v-model="formData.company_turnover_audit_flag" label="2">否</el-radio>
                                                     </template>
                                                 </td>
                                             </tr>
@@ -357,12 +357,12 @@
                                                 <td class="center">常态性流水放宽额度</td>
                                                 <td>
                                                     <template>
-                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                        <el-input style="width:149px;" v-model="formData.web_turnover_quota" auto-complete="off"></el-input>
                                                     </template>%
                                                 </td>
                                                 <td>
                                                     <template>
-                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                        <el-input style="width:149px;" v-model="formData.company_turnover_quota" auto-complete="off"></el-input>
                                                     </template>%
                                                 </td>
                                             </tr>
@@ -370,13 +370,13 @@
                                                 <td class="center">常态性流水审核行政费率</td>
                                                 <td>
                                                     <template>
-                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                        <el-input style="width:149px;" v-model="formData.web_turnover_managefee_ratio" auto-complete="off"></el-input>
                                                     </template>
                                                     %
                                                 </td>
                                                 <td>
                                                     <template>
-                                                        <el-input style="width:149px;" v-model="formData.username" auto-complete="off"></el-input>
+                                                        <el-input style="width:149px;" v-model="formData.company_turnover_managefee_ratio" auto-complete="off"></el-input>
                                                     </template>
                                                     %
                                                 </td>
@@ -403,7 +403,7 @@
     import {
         cashPaysetting,
         authAdminRoleList,
-        authAdminSave,
+        paysettingSave,
         authAdminDelete
     } from "../../../api/fund-management";
 
@@ -655,7 +655,7 @@
                     if (valid) {
                         this.formLoading = true;
                         let data = Object.assign({}, this.formData);
-                        authAdminSave(data, this.formName).then(response => {
+                        paysettingSave(data, this.formName).then(response => {
                             this.formLoading = false;
                             if (response.code) {
                                 this.$message({

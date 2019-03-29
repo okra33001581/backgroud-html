@@ -138,6 +138,48 @@ export function authAdminSave(data, formName, method = "post") {
     });
 }
 
+
+// 保存
+export function paysettingSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "http://apidemo.test/api/event/paysettingSave"
+            : "http://apidemo.test/api/event/paysettingSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+
+// 保存
+export function depositAccountSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "http://apidemo.test/api/event/depositAccountSave"
+            : "http://apidemo.test/api/event/depositAccountSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+// 保存
+export function thirdAccountSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "http://apidemo.test/api/event/thirdAccountSave"
+            : "http://apidemo.test/api/event/thirdAccountSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+
 // 删除管理员
 export function authAdminDelete(data) {
     return axios({

@@ -169,17 +169,69 @@
                 width="35%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
-                <el-form-item label="			Id		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			位置 		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			状态 		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			关闭图标		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				名称  		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				图片 		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				展开图片		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				链接地址		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="				状态 		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			Id		" prop="id"><el-input v-model="formData.id" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			位置 		" prop="position"><el-input v-model="formData.position" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			名称 		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
 
 
+                <el-form-item :label="图片" prop="bannerPc">
+                    <el-upload
+                            action="http://apidemo.test/api/event/fileSave?table=eventPic1"
+                            list-type="picture-card"
+                            :on-success="handlePic1Success"
+                            :beforeUpload="beforeAvatarUpload"
+                            :on-remove="handleRemove">
+                        <img :src="formData.pic" class="el-upload el-upload--picture-card"/>
+                    </el-upload>
+                </el-form-item>
+
+
+                <el-form-item class="query-form-item">
+                    <el-select v-model="formData.link_type" placeholder="连接类别">
+                        <el-option label="站内路径" value="站内路径"></el-option>
+                        <el-option label="站外网址" value="站外网址"></el-option>
+                    </el-select>
+                </el-form-item>
+
+                <el-form-item label="				链接地址		" prop="link"><el-input v-model="formData.link" auto-complete="off"></el-input></el-form-item>
+
+
+                <el-form-item label="				宽度		" prop="width"><el-input v-model="formData.width" auto-complete="off"></el-input></el-form-item>
+
+
+                <el-form-item label="				右边距		" prop="right_margin"><el-input v-model="formData.right_margin" auto-complete="off"></el-input></el-form-item>
+
+
+                <el-form-item class="query-form-item">
+                    <el-select v-model="formData.expand_flag" placeholder="展开标识">
+                        <el-option label="开启" value="开启"></el-option>
+                        <el-option label="关闭" value="关闭"></el-option>
+                    </el-select>
+                </el-form-item>
+
+
+                <el-form-item :label="图片" prop="bannerPc">
+                    <el-upload
+                            action="http://apidemo.test/api/event/fileSave?table=eventPic1"
+                            list-type="picture-card"
+                            :on-success="handlePic2Success"
+                            :beforeUpload="beforeAvatarUpload"
+                            :on-remove="handleRemove">
+                        <img :src="formData.expand_pic" class="el-upload el-upload--picture-card"/>
+                    </el-upload>
+                </el-form-item>
+
+
+                <el-form-item label="				说明文字  		" prop="expand_pic_desc"><el-input v-model="formData.expand_pic_desc" auto-complete="off"></el-input></el-form-item>
+
+                <el-form-item label="			 排序 		" prop="sequence"><el-input v-model="formData.sequence" auto-complete="off"></el-input></el-form-item>
+
+                <el-form-item class="query-form-item">
+                    <el-select v-model="formData.status" placeholder="状态">
+                        <el-option label="启用" value="启用"></el-option>
+                        <el-option label="停用" value="停用"></el-option>
+                    </el-select>
+                </el-form-item>
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideForm">取消</el-button>
@@ -194,7 +246,7 @@
     import {
         floatwindowconfigList,
         authAdminRoleList,
-        authAdminSave,
+        floatWindowSave,
         authAdminDelete
     } from "../../../api/site-management";
 
@@ -318,6 +370,14 @@
             handleFilter() {
                 this.query.page = 1
                 this.getList()
+            },
+            handlePic1Success(response, file, fileList) {
+                //response这个
+                this.formData.pic = response.data;
+            },
+            handlePic2Success(response, file, fileList) {
+                //response这个
+                this.formData.expand_pic = response.data;
             },
             sortChange: function (column) {
                 // console.log(column)
@@ -443,7 +503,7 @@
                     if (valid) {
                         this.formLoading = true;
                         let data = Object.assign({}, this.formData);
-                        authAdminSave(data, this.formName).then(response => {
+                        floatWindowSave(data, this.formName).then(response => {
                             this.formLoading = false;
                             if (response.code) {
                                 this.$message({

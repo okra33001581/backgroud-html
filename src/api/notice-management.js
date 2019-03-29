@@ -58,6 +58,49 @@ export function authAdminSave(data, formName, method = "post") {
     });
 }
 
+
+// 保存
+export function messageSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "http://apidemo.test/api/event/messageSave"
+            : "http://apidemo.test/api/event/messageSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+// 保存
+export function noticeSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "http://apidemo.test/api/event/noticeSave"
+            : "http://apidemo.test/api/event/noticeSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+
+// 保存
+export function marqueeSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "http://apidemo.test/api/event/marqueeSave"
+            : "http://apidemo.test/api/event/marqueeSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+
+
 // 删除管理员
 export function authAdminDelete(data) {
     return axios({

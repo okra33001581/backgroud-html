@@ -169,32 +169,36 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                <el-form-item label="公告类型" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="公告标题" prop="title">
+                    <el-input v-model="formData.title" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="显示排序" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="公告类型" prop="type">
+                    <el-input v-model="formData.type" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="是否弹窗" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="显示排序" prop="sequence">
+                    <el-input v-model="formData.sequence" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="发送版本" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="是否弹窗" prop="pop_flag">
+                    <el-input v-model="formData.pop_flag" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="发送范围" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="发送版本" prop="send_terminal">
+                    <el-input v-model="formData.send_terminal" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="层级" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="发送范围" prop="send_range">
+                    <el-input v-model="formData.send_range" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="内容" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="层级" prop="layers">
+                    <el-input v-model="formData.layers" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item label="内容" prop="content">
+                    <el-input v-model="formData.content" auto-complete="off"></el-input>
                 </el-form-item>
 
             </el-form>
@@ -211,7 +215,7 @@
     import {
         noticeList,
         authAdminRoleList,
-        authAdminSave,
+        noticeSave,
         authAdminDelete
     } from "../../../api/notice-management";
 
@@ -460,7 +464,7 @@
                     if (valid) {
                         this.formLoading = true;
                         let data = Object.assign({}, this.formData);
-                        authAdminSave(data, this.formName).then(response => {
+                        noticeSave(data, this.formName).then(response => {
                             this.formLoading = false;
                             if (response.code) {
                                 this.$message({

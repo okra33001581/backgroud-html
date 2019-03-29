@@ -77,6 +77,51 @@ export function authAdminRoleList(query) {
     });
 }
 
+
+
+// 保存
+export function userSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "http://apidemo.test/api/event/userSave"
+            : "http://apidemo.test/api/event/userSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+// 保存
+export function userLevelSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "http://apidemo.test/api/event/userLevelSave"
+            : "http://apidemo.test/api/event/userLevelSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+
+// 保存
+export function bankCardSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "http://apidemo.test/api/event/bankCardSave"
+            : "http://apidemo.test/api/event/bankCardSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+
+
+
 // 保存
 export function authAdminSave(data, formName, method = "post") {
     let url =

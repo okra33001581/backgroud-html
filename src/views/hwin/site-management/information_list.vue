@@ -194,16 +194,16 @@
                 width="35%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
-                <el-form-item label="标题" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="标题" prop="title">
+                    <el-input v-model="formData.title" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="排序" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="排序" prop="sequence">
+                    <el-input v-model="formData.sequence" auto-complete="off"></el-input>
                 </el-form-item>
 
 
-                <el-form-item label="状态"  prop="username">
+                <el-form-item label="状态"  prop="status">
                     <el-select v-model="query.status" placeholder="状态">
                         <el-option label="全部" value=""></el-option>
                         <el-option label="正常" value="0"></el-option>
@@ -211,18 +211,18 @@
                     </el-select>
                 </el-form-item>
 
-                <el-form-item label="分类" prop="status">
-                    <el-radio-group v-model="formData.status" label="分类">
+                <el-form-item label="分类" prop="type">
+                    <el-radio-group v-model="formData.type" label="分类">
                         <el-radio label="0">新闻</el-radio>
                         <el-radio label="1">技巧</el-radio>
                     </el-radio-group>
                 </el-form-item>
 
-                <el-form-item label="内容" prop="status">
-                    <el-input type="textarea" v-model="formData.password" auto-complete="off"></el-input>
+                <el-form-item label="内容" prop="content">
+                    <el-input type="textarea" v-model="formData.content" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <template>
+                <!--<template>
                     <el-row>
                         <quill-editor v-model="content"
                                       :options="editorOption"
@@ -270,12 +270,12 @@
                         标题
                     </MDinput>
                 </el-form-item>
-<!--
+&lt;!&ndash;
                 <el-col :span="10">
                     <el-form-item label-width="80px" label="发布时间:" class="postInfo-container-item">
                         <el-date-picker v-model="formData.id" type="datetime" format="yyyy-MM-dd HH:mm:ss" placeholder="选择日期时间"/>
                     </el-form-item>
-                </el-col>-->
+                </el-col>&ndash;&gt;
 
                 <el-col :span="6">
                     <el-form-item label-width="60px" label="重要性:" class="postInfo-container-item">
@@ -302,7 +302,7 @@
 
                 <el-form-item prop="image_uri" style="margin-bottom: 30px;">
                     <Upload v-model="formData.image_uri" />
-                </el-form-item>
+                </el-form-item>-->
 
 
             </el-form>
@@ -319,7 +319,7 @@
     import {
         informationList,
         authAdminRoleList,
-        authAdminSave,
+        informationSave,
         authAdminDelete
     } from "../../../api/site-management";
     import { parseTime } from '@/utils';
@@ -691,7 +691,7 @@
                     if (valid) {
                         this.formLoading = true;
                         let data = Object.assign({}, this.formData);
-                        authAdminSave(data, this.formName).then(response => {
+                        informationSave(data, this.formName).then(response => {
                             this.formLoading = false;
                             if (response.code) {
                                 this.$message({
