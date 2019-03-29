@@ -285,39 +285,39 @@
                         <table width="1000" border=1px cellpadding=0 cellspacing=0 class="ui-jqgrid-htable ui-common-table table table-bordered" style="margin-top: 35px" aria-labelledby="gbox_table_list"  role="presentation">
                             <tr>
                                 <td width="324" class="center">所属上级</td>
-                                <td width="521" class="center"><el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input></td>
+                                <td width="521" class="center"><el-input style="width:550px;" v-model="formData.top_level" auto-complete="off"></el-input></td>
                             </tr>
                             <tr>
                                 <td class="center">用户账号</td>
-                                <td class="center"><el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input></td>
+                                <td class="center"><el-input style="width:550px;" v-model="formData.account" auto-complete="off"></el-input></td>
                             </tr>
                             <tr>
                                 <td class="center">昵称</td>
-                                <td class="center"><el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input></td>
+                                <td class="center"><el-input style="width:550px;" v-model="formData.nickname" auto-complete="off"></el-input></td>
                             </tr>
                             <tr>
                                 <td class="center">邮箱</td>
-                                <td class="center"><el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input></td>
+                                <td class="center"><el-input style="width:550px;" v-model="formData.email" auto-complete="off"></el-input></td>
                             </tr>
                             <tr>
                                 <td class="center">手机号码</td>
-                                <td class="center"><el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input></td>
+                                <td class="center"><el-input style="width:550px;" v-model="formData.tel" auto-complete="off"></el-input></td>
                             </tr>
                             <tr>
                                 <td class="center">联系QQ</td>
-                                <td class="center"><el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input></td>
+                                <td class="center"><el-input style="width:550px;" v-model="formData.qq" auto-complete="off"></el-input></td>
                             </tr>
-                            <tr>
+                            <!--<tr>
                                 <td class="center">重复数</td>
                                 <td class="center"><el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input></td>
-                            </tr>
+                            </tr>-->
                             <tr>
                                 <td class="center">微信号</td>
-                                <td class="center"><el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input></td>
+                                <td class="center"><el-input style="width:550px;" v-model="formData.weixin" auto-complete="off"></el-input></td>
                             </tr>
                             <tr>
                                 <td class="center">备注</td>
-                                <td class="center"><el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input></td>
+                                <td class="center"><el-input style="width:550px;" v-model="formData.memo" auto-complete="off"></el-input></td>
                             </tr>
                         </table>
                     </el-tab-pane>
@@ -325,15 +325,15 @@
                         <table width="1200" border=1 cellpadding=0 cellspacing=0 class="ui-jqgrid-htable ui-common-table table table-bordered" style="margin-top: 35px" aria-labelledby="gbox_table_list"  role="presentation">
                             <tr>
                                 <td width="324" class="center">用户账号</td>
-                                <td width="521" class="center"><el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input></td>
+                                <td width="521" class="center"><el-input style="width:550px;" v-model="formData.password" auto-complete="off"></el-input></td>
                             </tr>
                             <tr>
                                 <td class="center">密码修改</td>
-                                <td class="center"><el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input></td>
+                                <td class="center"><el-input style="width:550px;" v-model="formData.password" auto-complete="off"></el-input></td>
                             </tr>
                             <tr>
                                 <td class="center">再次输入密码</td>
-                                <td class="center"><el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input></td>
+                                <td class="center"><el-input style="width:550px;" v-model="formData.password" auto-complete="off"></el-input></td>
                             </tr>
                         </table>
                     </el-tab-pane>
@@ -345,11 +345,11 @@
                             </tr>
                             <tr>
                                 <td class="center">资金密码修改</td>
-                                <td class="center"><el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input></td>
+                                <td class="center"><el-input style="width:550px;" v-model="formData.fund_password" auto-complete="off"></el-input></td>
                             </tr>
                             <tr>
                                 <td class="center">再次输入密码</td>
-                                <td class="center"><el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input></td>
+                                <td class="center"><el-input style="width:550px;" v-model="formData.fund_password" auto-complete="off"></el-input></td>
                             </tr>
                         </table>
                     </el-tab-pane>
@@ -361,11 +361,11 @@
                             </tr>
                             <tr>
                                 <td class="center">真实姓名</td>
-                                <td class="center"><el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input></td>
+                                <td class="center"><el-input style="width:550px;" v-model="formData.realname" auto-complete="off"></el-input></td>
                             </tr>
                             <tr>
                                 <td class="center">真实姓名修改</td>
-                                <td class="center"><el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input><p>真实姓名修改会连动到用户银行卡姓名修改</p></td>
+                                <td class="center"><el-input style="width:550px;" v-model="formData.realname" auto-complete="off"></el-input><p>真实姓名修改会连动到用户银行卡姓名修改</p></td>
                             </tr>
                         </table>
                     </el-tab-pane>
