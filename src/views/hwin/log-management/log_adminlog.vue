@@ -231,13 +231,13 @@
                 width="35%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
-                <el-form-item label="			编号  		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			子账号    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			操作名称		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			日志内容		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			IP 		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			Cook		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			时间 		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			编号  		" prop="id"><el-input v-model="formData.id" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			子账号    		" prop="sub_account"><el-input v-model="formData.sub_account" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			操作名称		" prop="operate_name"><el-input v-model="formData.operate_name" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			日志内容		" prop="log_content"><el-input v-model="formData.log_content" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			IP 		" prop="ip"><el-input v-model="formData.ip" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			Cook		" prop="cookies"><el-input v-model="formData.cookies" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			时间 		" prop="date"><el-input v-model="formData.date" auto-complete="off"></el-input></el-form-item>
 
             </el-form>
             <div slot="footer" class="dialog-footer">

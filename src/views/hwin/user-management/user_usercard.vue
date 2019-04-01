@@ -12,7 +12,7 @@
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="状态">
+                <el-select v-model="query.type" placeholder="查詢類別">
                     <el-option label="全部" value=""></el-option>
                     <el-option label="卡号" value="0"></el-option>
                     <el-option label="用户名" value="1"></el-option>
@@ -20,31 +20,21 @@
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="卡号/用户名"></el-input>
+                <el-input v-model="query.name" placeholder="卡号/用户名"></el-input>
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="真实姓名"></el-input>
+                <el-input v-model="query.realname" placeholder="真实姓名"></el-input>
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-date-picker
-                        v-model="query.beginDate"
-                        type="date"
-                        placeholder="min"
-                        :picker-options="pickerOptions0">
-                </el-date-picker>
-                <el-date-picker
-                        v-model="query.endDate"
-                        type="date"
-                        placeholder="max"
-                        :picker-options="pickerOptions1">
-                </el-date-picker>
+                <el-input v-model="query.beginDate" placeholder="min"></el-input>
+                <el-input v-model="query.endDate" placeholder="max"></el-input>
             </el-form-item>
 
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="是否为黑名单">
+                <el-select v-model="query.is_black" placeholder="是否为黑名单">
                     <el-option label="全部类型" value=""></el-option>
                     <el-option label="正常卡" value="0"></el-option>
                     <el-option label="黑名单" value="1"></el-option>
@@ -122,7 +112,7 @@
             <el-table-column label="					卡号		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					支行名称		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					真实姓名		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					是否黑名单		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					是否黑名单		" prop="is_black" sortable="custom" fixed></el-table-column>
             <el-table-column label="					累计金额		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					增加时间		" prop="id" sortable="custom" fixed></el-table-column>
 
@@ -178,7 +168,12 @@
                     </el-button>
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
                     </el-button>
-                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleForm(scope.$index, scope.row)">设为黑名单</el-button>
+                    <!--<el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleForm(scope.$index, scope.row)">设为黑名单</el-button>-->
+                    <el-button v-if="scope.row.is_black === '0'" type="primary" size="small" icon="el-icon-delete" @click.native="auditItemSuccessServer(scope.$index, scope.row)">黑名單
+                    </el-button>
+                    <el-button v-if="scope.row.is_black === '1'" type="primary" size="small" icon="el-icon-delete" @click.native="auditItemFailedServer(scope.$index, scope.row)">白名單
+                    </el-button>
+
                 </template>
             </el-table-column>
         </el-table>
@@ -336,6 +331,7 @@
         userUsercard,
         authAdminRoleList,
         bankCardSave,
+        bankcardStatusSave,
         authAdminDelete
     } from "../../../api/user-management";
 
@@ -507,8 +503,64 @@
                 }
                 this.handleFilter()
             },
-
-
+            auditItemSuccessServer(index, row) {
+                var params = {
+                    id: row.id,
+                    flag: 1
+                }
+                // debugger
+                bankcardStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
+            },
+            auditItemFailedServer(index, row) {
+                var params = {
+                    id: row.id,
+                    flag: 0
+                }
+                // debugger
+                bankcardStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
+            },
             sortByUserName(order) {
                 if (order === 'ascending') {
                     this.query.sort = '+username'

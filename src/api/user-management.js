@@ -135,6 +135,19 @@ export function authAdminSave(data, formName, method = "post") {
     });
 }
 
+// 保存
+export function bankcardStatusSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "http://apidemo.test/api/event/bankcardStatusSave"
+            : "http://apidemo.test/api/event/bankcardStatusSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
 // 删除管理员
 export function authAdminDelete(data) {
     return axios({
