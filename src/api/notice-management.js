@@ -87,6 +87,34 @@ export function noticeSave(data, formName, method = "post") {
 
 
 // 保存
+export function noticeTopSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "http://apidemo.test/api/event/noticeTopSave"
+            : "http://apidemo.test/api/event/noticeTopSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+// 保存
+export function noticeStatusSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "http://apidemo.test/api/event/noticeStatusSave"
+            : "http://apidemo.test/api/event/noticeStatusSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+
+
+// 保存
 export function marqueeSave(data, formName, method = "post") {
     let url =
         formName === "add"
