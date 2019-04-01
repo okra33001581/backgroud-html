@@ -150,10 +150,16 @@
                 <template slot-scope="scope">
                    <!-- <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
                     </el-button>-->
-                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleDel(scope.$index, scope.row)">显示
+                    <el-button v-if="scope.row.status === '0'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemSuccessServer(scope.$index, scope.row)">显示
                     </el-button>
-                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleDel(scope.$index, scope.row)">隐藏
+                    <el-button v-if="scope.row.status === '1'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemFailedServer(scope.$index, scope.row)">隐藏
                     </el-button>
+
+                   <!-- <el-button v-if="scope.row.status === '0'" type="primary" size="small" icon="el-icon-delete" @click.native="auditItemSuccessServer(scope.$index, scope.row)">黑名單
+                    </el-button>
+                    <el-button v-if="scope.row.status === '1'" type="primary" size="small" icon="el-icon-delete" @click.native="auditItemFailedServer(scope.$index, scope.row)">白名單
+                    </el-button>-->
+
                 </template>
             </el-table-column>
         </el-table>
@@ -212,6 +218,7 @@
         paygroupList,
         authAdminRoleList,
         authAdminSave,
+        payGroupStatusSave,
         authAdminDelete
     } from "../../../api/fund-management";
 
@@ -383,8 +390,64 @@
                 }
                 this.handleFilter()
             },
-
-
+            auditItemSuccessServer(index, row) {
+                var params = {
+                    id: row.id,
+                    flag: 1
+                }
+                // debugger
+                payGroupStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
+            },
+            auditItemFailedServer(index, row) {
+                var params = {
+                    id: row.id,
+                    flag: 0
+                }
+                // debugger
+                payGroupStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
+            },
             sortByUserName(order) {
                 if (order === 'ascending') {
                     this.query.sort = '+username'

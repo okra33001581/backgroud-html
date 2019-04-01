@@ -179,6 +179,18 @@ export function thirdAccountSave(data, formName, method = "post") {
     });
 }
 
+// 保存
+export function payGroupStatusSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "http://apidemo.test/api/event/payGroupStatusSave"
+            : "http://apidemo.test/api/event/payGroupStatusSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
 
 // 删除管理员
 export function authAdminDelete(data) {
