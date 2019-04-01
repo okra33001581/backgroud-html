@@ -138,6 +138,18 @@ export function authAdminSave(data, formName, method = "post") {
     });
 }
 
+// 保存
+export function cashwithdrawStatusSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "http://apidemo.test/api/event/cashwithdrawStatusSave"
+            : "http://apidemo.test/api/event/cashwithdrawStatusSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
 
 // 保存
 export function paysettingSave(data, formName, method = "post") {

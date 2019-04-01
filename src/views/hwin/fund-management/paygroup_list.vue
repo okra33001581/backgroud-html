@@ -87,7 +87,7 @@
 
             <el-table-column label="					属性		" prop="id" sortable="custom" fixed>
                 <template slot-scope="scope">
-                    <el-checkbox  v-model="scope.row.isCheck1">热门</el-checkbox>
+                    <el-checkbox  v-model="scope.row.isCheck1" @click.native="auditItemSuccessServer(scope.$index, scope.row)">热门</el-checkbox>
                 </template>
             </el-table-column>
             <el-table-column label="					支付类型别名		" prop="id" sortable="custom" fixed>

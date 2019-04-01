@@ -150,6 +150,17 @@ export function webIconSave(data, formName, method = "post") {
     });
 }
 
+export function informationStatusSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "http://apidemo.test/api/event/informationStatusSave"
+            : "http://apidemo.test/api/event/informationStatusSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
 
 export function qrCodeSave(data, formName, method = "post") {
     let url =

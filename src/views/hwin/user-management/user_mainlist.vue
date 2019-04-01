@@ -244,10 +244,16 @@
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleLockForm(scope.$index, scope.row)">冻结</el-button>
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleAdjustForm(scope.$index, scope.row)">调点</el-button>
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleProject(scope.$index, scope.row)">下注记录</el-button>
-                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleBankCardLockForm(scope.$index, scope.row)">锁卡</el-button>
+                    <!--<el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleBankCardLockForm(scope.$index, scope.row)">锁卡</el-button>-->
                     <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleQuotaForm(scope.$index, scope.row)">配额设置</el-button>
                     <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleEditParentForm(scope.$index, scope.row)">修改上级</el-button>
-                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleBankCardUnLockForm(scope.$index, scope.row)">解锁</el-button>
+                    <!--<el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleBankCardUnLockForm(scope.$index, scope.row)">解锁</el-button>-->
+
+
+                    <el-button v-if="scope.row.status === '0'" type="primary" size="small" icon="el-icon-edit" @click.native="itemSuccessServer(scope.$index, scope.row)">锁卡
+                </el-button>
+                    <el-button v-if="scope.row.status === '1'" type="primary" size="small" icon="el-icon-edit" @click.native="itemFailedServer(scope.$index, scope.row)">解锁
+                    </el-button>
                 </template>
             </el-table-column>
         </el-table>
@@ -701,6 +707,7 @@
         userMainlist,
         authAdminRoleList,
         userSave,
+        userStatusSave,
         authAdminDelete
     } from "../../../api/user-management";
 
@@ -928,6 +935,64 @@
                     this.query.sort = '-last_login_time'
                 }
                 this.handleFilter()
+            },
+            itemSuccessServer(index, row) {
+                var params = {
+                    id: row.id,
+                    flag: 1
+                }
+                // debugger
+                userStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
+            },
+            itemFailedServer(index, row) {
+                var params = {
+                    id: row.id,
+                    flag: 0
+                }
+                // debugger
+                userStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
             },
             sortByLastLoginIp(order) {
                 if (order === 'ascending') {

@@ -148,6 +148,33 @@ export function bankcardStatusSave(data, formName, method = "post") {
     });
 }
 
+// 保存
+export function userStatusSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "http://apidemo.test/api/event/userStatusSave"
+            : "http://apidemo.test/api/event/userStatusSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+
+// 保存
+export function usersafetyStatusSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "http://apidemo.test/api/event/usersafetyStatusSave"
+            : "http://apidemo.test/api/event/usersafetyStatusSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
 // 删除管理员
 export function authAdminDelete(data) {
     return axios({
