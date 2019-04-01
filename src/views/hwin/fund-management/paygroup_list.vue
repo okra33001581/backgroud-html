@@ -74,8 +74,8 @@
             菜单状态-->
 
             <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					入款方式		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					支付类型		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					入款方式		" prop="in_type" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					支付类型		" prop="pay_type" sortable="custom" fixed></el-table-column>
             <el-table-column label="					排序值		" prop="id" sortable="custom" fixed>
 
                 <template scope="scope">
@@ -176,8 +176,8 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
                 <!--<el-form-item label="			ID    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>-->
-                <el-form-item label="			入款方式   		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			支付类型   		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			入款方式   		" prop="in_type"><el-input v-model="formData.in_type" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			支付类型   		" prop="pay_type"><el-input v-model="formData.pay_type" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="			排序值       		" prop="username">
                     <template scope="scope">
                         <el-input size="small" v-model="formData.languageCode" placeholder="请输入排序值"

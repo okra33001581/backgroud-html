@@ -680,7 +680,7 @@
 
 <script>
     import {
-        systemconfigSet,
+        systemconfiglist,
         authAdminRoleList,
         systemConfigSave,
         authAdminDelete
@@ -824,7 +824,7 @@
             },
             getList() {
                 this.loading = true;
-                systemconfigSet(this.query)
+                systemconfiglist(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list || [];

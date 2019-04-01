@@ -146,7 +146,7 @@
                 width="35%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
-                <el-form-item label="H5下载页" prop="username">
+                <el-form-item label="H5下载页" prop="h5_address">
                     <el-input v-model="formData.h5_address" auto-complete="off"></el-input>
                 </el-form-item>
 
@@ -162,10 +162,10 @@
                 </el-form-item>
 
 
-                <el-form-item label="IOS链接地址" prop="username">
+                <el-form-item label="IOS链接地址" prop="ios_address">
                     <el-input v-model="formData.ios_address" auto-complete="off"></el-input>
                 </el-form-item>
-                <el-form-item label="安卓链接地址" prop="username">
+                <el-form-item label="安卓链接地址" prop="android_address">
                     <el-input v-model="formData.android_address" auto-complete="off"></el-input>
                 </el-form-item>
             </el-form>

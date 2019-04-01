@@ -75,6 +75,25 @@ export function systemconfigImagelist(query) {
     });
 }
 
+
+
+// 获取列表
+export function blacklist(query) {
+    return axios({
+        url: "http://apidemo.test/api/event/blacklist",
+        method: "get",
+        params: query
+    });
+}
+// 获取列表
+export function systemconfiglist(query) {
+    return axios({
+        url: "http://apidemo.test/api/event/systemconfiglist",
+        method: "get",
+        params: query
+    });
+}
+
 // 获取列表
 export function systemconfigSet(query) {
     return axios({
@@ -198,6 +217,16 @@ export function companySave(data, formName, method = "post") {
 export function authAdminDelete(data) {
     return axios({
         url: "http://apidemo.test/api/event/adminDelete",
+        method: "post",
+        data: data
+    });
+}
+
+
+// 删除管理员
+export function blackDelete(data) {
+    return axios({
+        url: "http://apidemo.test/api/event/blackDelete",
         method: "post",
         data: data
     });

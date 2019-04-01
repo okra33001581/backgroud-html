@@ -118,8 +118,8 @@
                 <template slot-scope="scope">
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">上传
                     </el-button>
-                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除图片
-                    </el-button>
+                 <!--   <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除图片
+                    </el-button>-->
                 </template>
             </el-table-column>
         </el-table>
@@ -142,7 +142,7 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
                 <!--<el-form-item label="			Id		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>-->
-                <el-form-item label="			图标		" prop="username"><el-input v-model="formData.icon" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			图标		" prop="icon"><el-input v-model="formData.icon" auto-complete="off"></el-input></el-form-item>
                 <!--<el-form-item label="			预览		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>-->
 
                 <el-form-item :label="图片" prop="bannerPc">

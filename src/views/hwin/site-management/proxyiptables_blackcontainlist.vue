@@ -37,6 +37,15 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange">-->
+
+
+
+
+
+
+
+
+
         <el-table
                 v-loading="loading"
                 :key="tableKey"
@@ -51,21 +60,11 @@
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
             <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			图标				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			预览				" prop="id" sortable="custom" fixed>
-
-                <template slot-scope="scope">
-                    <el-popover
-                            placement="right"
-                            title=""
-                            trigger="hover">
-                        <img src="../../images/1.png"/>
-                        <img slot="reference" src="../../images/1.png" :alt="id" style="max-height: 50px;max-width: 130px">
-                    </el-popover>
-                </template>
-
-            </el-table-column>
+            <el-table-column label="			IP地址/地区				" prop="ip_list" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			说明				" prop="memo" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			添加日期				" prop="created_at" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			地区				" prop="district" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			类型				" prop="type" sortable="custom" fixed></el-table-column>
             <!--<el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>-->
             <!--<el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>-->
 
@@ -179,10 +178,10 @@
 
 <script>
     import {
-        systemconfigImagelist,
+        blacklist,
         authAdminRoleList,
         proxyiptablesBlackSave,
-        authAdminDelete
+        blackDelete
     } from "../../../api/site-management";
 
     const formJson = {
@@ -324,7 +323,7 @@
             },
             getList() {
                 this.loading = true;
-                systemconfigImagelist(this.query)
+                blacklist(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list || [];
@@ -466,7 +465,7 @@
                     })
                         .then(() => {
                             let para = {id: row.id};
-                            authAdminDelete(para)
+                            blackDelete(para)
                                 .then(response => {
                                     this.deleteLoading = false;
                                     if (response.code) {
