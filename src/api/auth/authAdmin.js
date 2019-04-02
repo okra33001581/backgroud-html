@@ -22,6 +22,19 @@ export function authAdminRoleList(query) {
 }
 
 // 保存
+export function adminStatusSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "http://apidemo.test/api/event/adminStatusSave"
+            : "http://apidemo.test/api/event/adminStatusSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+// 保存
 export function authAdminSave(data, formName, method = "post") {
     let url =
         formName === "add"

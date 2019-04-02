@@ -251,7 +251,7 @@
 
 
                     <el-button v-if="scope.row.status === '0'" type="primary" size="small" icon="el-icon-edit" @click.native="itemSuccessServer(scope.$index, scope.row)">锁卡
-                </el-button>
+                    </el-button>
                     <el-button v-if="scope.row.status === '1'" type="primary" size="small" icon="el-icon-edit" @click.native="itemFailedServer(scope.$index, scope.row)">解锁
                     </el-button>
                 </template>
