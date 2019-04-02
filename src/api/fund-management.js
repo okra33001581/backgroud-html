@@ -126,17 +126,96 @@ export function authAdminRoleList(query) {
 }
 
 // 保存
-export function authAdminSave(data, formName, method = "post") {
+export function userbetscheckStatusSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/adminSave"
-            : "http://apidemo.test/api/event/adminEdit";
+            ? "http://apidemo.test/api/event/userbetscheckStatusSave"
+            : "http://apidemo.test/api/event/userbetscheckStatusSave";
     return axios({
         url: url,
         method: method,
         data: data
     });
 }
+
+// 保存
+export function transferorderStatusSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "http://apidemo.test/api/event/transferorderStatusSave"
+            : "http://apidemo.test/api/event/transferorderStatusSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+// 保存
+export function manualpayStatusSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "http://apidemo.test/api/event/manualpayStatusSave"
+            : "http://apidemo.test/api/event/manualpayStatusSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+// 保存
+export function manualpayconfirmStatusSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "http://apidemo.test/api/event/manualpayconfirmStatusSave"
+            : "http://apidemo.test/api/event/manualpayconfirmStatusSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+// 保存
+export function companymoneyStatusSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "http://apidemo.test/api/event/companymoneyStatusSave"
+            : "http://apidemo.test/api/event/companymoneyStatusSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+// 保存
+export function rakebackStatusSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "http://apidemo.test/api/event/rakebackStatusSave"
+            : "http://apidemo.test/api/event/rakebackStatusSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+// 保存
+export function fastpaymoneyStatusSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "http://apidemo.test/api/event/fastpaymoneyStatusSave"
+            : "http://apidemo.test/api/event/fastpaymoneyStatusSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
 
 // 保存
 export function cashwithdrawStatusSave(data, formName, method = "post") {

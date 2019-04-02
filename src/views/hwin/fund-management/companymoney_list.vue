@@ -219,9 +219,9 @@
                     label="操作" width="260"
                     fixed="right">
                 <template slot-scope="scope">
-                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">同意
+                    <el-button v-if="scope.row.status === '0'" type="primary" size="small" icon="el-icon-edit" @click.native="itemSuccessServer(scope.$index, scope.row)">同意
                     </el-button>
-                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">拒绝
+                    <el-button v-if="scope.row.status === '1'" type="primary" size="small" icon="el-icon-edit" @click.native="itemFailedServer(scope.$index, scope.row)">拒绝
                     </el-button>
                 </template>
             </el-table-column>
@@ -274,6 +274,7 @@
         companymoneyList,
         authAdminRoleList,
         authAdminSave,
+        companymoneyStatusSave,
         authAdminDelete
     } from "../../../api/fund-management";
 
@@ -429,6 +430,65 @@
                         this.total = 0;
                         this.roles = [];
                     });
+            },
+
+            itemSuccessServer(index, row) {
+                var params = {
+                    id: row.id,
+                    flag: 1
+                }
+                // debugger
+                companymoneyStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
+            },
+            itemFailedServer(index, row) {
+                var params = {
+                    id: row.id,
+                    flag: 0
+                }
+                // debugger
+                companymoneyStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
             },
             /*sortChange2(data) {
                 const { prop, order } = data

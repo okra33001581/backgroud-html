@@ -155,6 +155,16 @@
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">审核拒绝</el-button>
                 </template>
             </el-table-column>-->
+            <el-table-column
+                    label="操作" width="260"
+                    fixed="right">
+                <template slot-scope="scope">
+                    <el-button v-if="scope.row.status === '0'" type="primary" size="small" icon="el-icon-edit" @click.native="itemSuccessServer(scope.$index, scope.row)">同意
+                    </el-button>
+                    <el-button v-if="scope.row.status === '1'" type="primary" size="small" icon="el-icon-edit" @click.native="itemFailedServer(scope.$index, scope.row)">拒绝
+                    </el-button>
+                </template>
+            </el-table-column>
         </el-table>
 
         <el-pagination
@@ -200,6 +210,7 @@
         cashRakeback,
         authAdminRoleList,
         authAdminSave,
+        rakebackStatusSave,
         authAdminDelete
     } from "../../../api/fund-management";
 
@@ -340,6 +351,64 @@
                 } else if (prop === 'last_login_ip') {
                     this.sortByLastLoginIp(order)
                 }
+            },
+            itemSuccessServer(index, row) {
+                var params = {
+                    id: row.id,
+                    flag: 1
+                }
+                // debugger
+                rakebackStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
+            },
+            itemFailedServer(index, row) {
+                var params = {
+                    id: row.id,
+                    flag: 0
+                }
+                // debugger
+                rakebackStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
             },
             getList() {
                 this.loading = true;
