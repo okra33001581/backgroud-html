@@ -82,6 +82,7 @@ import {
     authPermissionRuleList,
     authPermissionRuleTree,
     authPermissionRuleSave,
+    ruleStatusSave,
     authPermissionRuleDelete
 } from "../../../api/auth/authPermissionRule";
 const formJson = {
@@ -136,18 +137,34 @@ export default {
     methods: {
         /*eslint-disable */
         renderContent (h, { node, data, store }) {
-            return (
-                <span style="flex: 2; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px">
-                <span>
-                <span title={ data.name } class="el-icon-mobile-phone">{node.label}</span>
-            </span>
-            <span>
-            <el-button style="font-size: 12px;" icon="el-icon-plus" type="primary" on-click={ () => this.handleForm(node, data, 'add') }>添加子菜单</el-button>
-            <el-button style="font-size: 12px;" icon="el-icon-edit" type="primary" on-click={ () => this.handleForm(node, data, 'edit') }>编辑</el-button>
-            <el-button style="font-size: 12px;" icon="el-icon-delete" type="danger" on-click={ () => this.handleDel(node, data) }>删除</el-button>
+            console.log(data);
 
-            </span>
-            </span>)
+            if (data.status === 1) {
+                return (
+                    <span style="flex: 2; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px">
+                    <span>
+                    <span title={ data.name } class="el-icon-mobile-phone">{node.label}</span>
+                    </span>
+                    <span>
+                    <el-button style="font-size: 12px;" icon="el-icon-plus" type="primary" on-click={ () => this.handleForm(node, data, 'add') }>添加子菜单</el-button>
+                <el-button style="font-size: 12px;" icon="el-icon-edit" type="primary" on-click={ () => this.handleForm(node, data, 'edit') }>编辑</el-button>
+                <el-button style="font-size: 12px;" icon="el-icon-delete" type="danger" on-click={ () => this.itemFailedServer(node, data) }>禁用</el-button>
+                </span>
+                </span>)
+            } else {
+                return (
+                    <span style="flex: 2; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px">
+                    <span>
+                    <span title={ data.name } class="el-icon-mobile-phone">{node.label}</span>
+                    </span>
+                    <span>
+                    <el-button style="font-size: 12px;" icon="el-icon-plus" type="primary" on-click={ () => this.handleForm(node, data, 'add') }>添加子菜单</el-button>
+                <el-button style="font-size: 12px;" icon="el-icon-edit" type="primary" on-click={ () => this.handleForm(node, data, 'edit') }>编辑</el-button>
+                <el-button style="font-size: 12px;" icon="el-icon-delete" type="danger" on-click={ () => this.itemSuccessServer(node, data) }>启用</el-button>
+                </span>
+                </span>)
+            }
+
         },
         //设置表格第一行的颜色
         getRowClass({ row, column, rowIndex, columnIndex }) {
@@ -159,6 +176,63 @@ export default {
         },
         onSubmit() {
             this.getList();
+        },itemSuccessServer(index, row) {
+            var params = {
+                id: row.id,
+                flag: 1
+            }
+            // debugger
+            ruleStatusSave(params).then(
+                function (res) {
+                    // debugger
+                    /*if(res.code === 1){
+                        this.$message({
+                            message: res.data,
+                            type: 'success'
+                        })
+                        this.dialogFormVisible = false
+                    }else{
+                        this.$message({
+                            message: '错误信息：'+res.message,
+                            type: 'error'
+                        });
+                    }*/
+                    this.$message({
+                        message: '数据处理成功',
+                        type: 'success'
+                    })
+                    this.getList();
+                }.bind(this)
+            )
+        },
+        itemFailedServer(index, row) {
+            var params = {
+                id: row.id,
+                flag: 0
+            }
+            // debugger
+            ruleStatusSave(params).then(
+                function (res) {
+                    // debugger
+                    /*if(res.code === 1){
+                        this.$message({
+                            message: res.data,
+                            type: 'success'
+                        })
+                        this.dialogFormVisible = false
+                    }else{
+                        this.$message({
+                            message: '错误信息：'+res.message,
+                            type: 'error'
+                        });
+                    }*/
+                    this.$message({
+                        message: '数据处理成功',
+                        type: 'success'
+                    })
+                    this.getList();
+                }.bind(this)
+            )
         },
         getList() {
             this.loading = true;

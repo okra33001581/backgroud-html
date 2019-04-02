@@ -23,6 +23,19 @@ export function authPermissionRuleTree(query) {
 }
 
 // 保存
+export function ruleStatusSave(data, formName, method = "post") {
+    let url =
+        formName !== "edit"
+            ? "http://apidemo.test/api/event/ruleStatusSave"
+            : "http://apidemo.test/api/event/ruleStatusSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+// 保存
 export function authPermissionRuleSave(data, formName, method = "post") {
     let url =
         formName !== "edit"
