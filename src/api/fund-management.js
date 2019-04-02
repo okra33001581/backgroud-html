@@ -205,10 +205,30 @@ export function payGroupStatusSave(data, formName, method = "post") {
 }
 
 // 删除管理员
-export function authAdminDelete(data) {
+export function paysettingDelete(data) {
     return axios({
-        url: "http://apidemo.test/api/event/adminDelete",
+        url: "http://apidemo.test/api/event/paysettingDelete",
         method: "post",
         data: data
     });
 }
+// 删除管理员
+export function payaccountDelete(data) {
+    return axios({
+        url: "http://apidemo.test/api/event/payaccountDelete",
+        method: "post",
+        data: data
+    });
+}
+// 删除管理员
+export function tripartiteDelete(data) {
+    return axios({
+        url: "http://apidemo.test/api/event/tripartiteDelete",
+        method: "post",
+        data: data
+    });
+}
+
+
+
+

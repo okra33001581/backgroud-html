@@ -332,7 +332,7 @@
         authAdminRoleList,
         bankCardSave,
         bankcardStatusSave,
-        authAdminDelete
+        usercardDelete
     } from "../../../api/user-management";
 
     const formJson = {
@@ -673,7 +673,7 @@
                     })
                         .then(() => {
                             let para = {id: row.id};
-                            authAdminDelete(para)
+                            usercardDelete(para)
                                 .then(response => {
                                     this.deleteLoading = false;
                                     if (response.code) {

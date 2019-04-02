@@ -404,7 +404,7 @@
         cashPaysetting,
         authAdminRoleList,
         paysettingSave,
-        authAdminDelete
+        paysettingDelete
     } from "../../../api/fund-management";
 
     const formJson = {
@@ -692,7 +692,7 @@
                     })
                         .then(() => {
                             let para = {id: row.id};
-                            authAdminDelete(para)
+                            paysettingDelete(para)
                                 .then(response => {
                                     this.deleteLoading = false;
                                     if (response.code) {

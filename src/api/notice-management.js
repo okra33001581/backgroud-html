@@ -130,10 +130,29 @@ export function marqueeSave(data, formName, method = "post") {
 
 
 // 删除管理员
-export function authAdminDelete(data) {
+export function messageDelete(data) {
     return axios({
-        url: "http://apidemo.test/api/event/adminDelete",
+        url: "http://apidemo.test/api/event/messageDelete",
         method: "post",
         data: data
     });
 }
+
+// 删除管理员
+export function noticeDelete(data) {
+    return axios({
+        url: "http://apidemo.test/api/event/noticeDelete",
+        method: "post",
+        data: data
+    });
+}
+
+// 删除管理员
+export function marqueeDelete(data) {
+    return axios({
+        url: "http://apidemo.test/api/event/marqueeDelete",
+        method: "post",
+        data: data
+    });
+}
+

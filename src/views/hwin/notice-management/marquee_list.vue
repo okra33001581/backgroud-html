@@ -168,7 +168,7 @@
         marqueeList,
         authAdminRoleList,
         marqueeSave,
-        authAdminDelete
+        marqueeDelete
     } from "../../../api/notice-management";
 
     const formJson = {
@@ -453,7 +453,7 @@
                     })
                         .then(() => {
                             let para = {id: row.id};
-                            authAdminDelete(para)
+                            marqueeDelete(para)
                                 .then(response => {
                                     this.deleteLoading = false;
                                     if (response.code) {

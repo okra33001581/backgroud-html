@@ -242,7 +242,7 @@
         rotationconfigList,
         authAdminRoleList,
         rotatePlaySave,
-        authAdminDelete
+        rotationconfigDelete
     } from "../../../api/site-management";
 
     const formJson = {
@@ -534,7 +534,7 @@
                     })
                         .then(() => {
                             let para = {id: row.id};
-                            authAdminDelete(para)
+                            rotationconfigDelete(para)
                                 .then(response => {
                                     this.deleteLoading = false;
                                     if (response.code) {

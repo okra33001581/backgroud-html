@@ -254,7 +254,7 @@
         userUserlayer,
         authAdminRoleList,
         userLevelSave,
-        authAdminDelete
+        userlayerDelete
     } from "../../../api/user-management";
 
     const formJson = {
@@ -539,7 +539,7 @@
                     })
                         .then(() => {
                             let para = {id: row.id};
-                            authAdminDelete(para)
+                            userlayerDelete(para)
                                 .then(response => {
                                     this.deleteLoading = false;
                                     if (response.code) {

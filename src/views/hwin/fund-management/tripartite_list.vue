@@ -309,7 +309,7 @@
         tripartiteList,
         authAdminRoleList,
         thirdAccountSave,
-        authAdminDelete
+        tripartiteDelete
     } from "../../../api/fund-management";
 
     const formJson = {
@@ -594,7 +594,7 @@
                     })
                         .then(() => {
                             let para = {id: row.id};
-                            authAdminDelete(para)
+                            tripartiteDelete(para)
                                 .then(response => {
                                     this.deleteLoading = false;
                                     if (response.code) {

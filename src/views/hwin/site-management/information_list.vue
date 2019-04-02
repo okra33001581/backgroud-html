@@ -327,7 +327,7 @@
         authAdminRoleList,
         informationSave,
         informationStatusSave,
-        authAdminDelete
+        informationDelete
     } from "../../../api/site-management";
     import { parseTime } from '@/utils';
     import 'quill/dist/quill.core.css'
@@ -792,7 +792,7 @@
                     })
                         .then(() => {
                             let para = {id: row.id};
-                            authAdminDelete(para)
+                            informationDelete(para)
                                 .then(response => {
                                     this.deleteLoading = false;
                                     if (response.code) {

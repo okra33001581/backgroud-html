@@ -233,7 +233,7 @@
         messageList,
         authAdminRoleList,
         messageSave,
-        authAdminDelete
+        messageDelete
     } from "../../../api/notice-management";
 
     const formJson = {
@@ -518,7 +518,7 @@
                     })
                         .then(() => {
                             let para = {id: row.id};
-                            authAdminDelete(para)
+                            messageDelete(para)
                                 .then(response => {
                                     this.deleteLoading = false;
                                     if (response.code) {

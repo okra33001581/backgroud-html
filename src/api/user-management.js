@@ -183,3 +183,22 @@ export function authAdminDelete(data) {
         data: data
     });
 }
+
+// 删除管理员
+export function userlayerDelete(data) {
+    return axios({
+        url: "http://apidemo.test/api/event/userlayerDelete",
+        method: "post",
+        data: data
+    });
+}
+
+// 删除管理员
+export function usercardDelete(data) {
+    return axios({
+        url: "http://apidemo.test/api/event/usercardDelete",
+        method: "post",
+        data: data
+    });
+}
+

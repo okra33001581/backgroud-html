@@ -247,7 +247,7 @@
         floatwindowconfigList,
         authAdminRoleList,
         floatWindowSave,
-        authAdminDelete
+        floatwindowconfigDelete
     } from "../../../api/site-management";
 
     const formJson = {
@@ -540,7 +540,7 @@
                     })
                         .then(() => {
                             let para = {id: row.id};
-                            authAdminDelete(para)
+                            floatwindowconfigDelete(para)
                                 .then(response => {
                                     this.deleteLoading = false;
                                     if (response.code) {

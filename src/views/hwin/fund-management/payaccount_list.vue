@@ -240,7 +240,7 @@
         payaccountList,
         authAdminRoleList,
         depositAccountSave,
-        authAdminDelete
+        payaccountDelete
     } from "../../../api/fund-management";
 
     const formJson = {
@@ -525,7 +525,7 @@
                     })
                         .then(() => {
                             let para = {id: row.id};
-                            authAdminDelete(para)
+                            payaccountDelete(para)
                                 .then(response => {
                                     this.deleteLoading = false;
                                     if (response.code) {

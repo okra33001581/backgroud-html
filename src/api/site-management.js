@@ -223,7 +223,6 @@ export function companySave(data, formName, method = "post") {
 }
 
 
-
 // 删除管理员
 export function authAdminDelete(data) {
     return axios({
@@ -235,6 +234,24 @@ export function authAdminDelete(data) {
 
 
 // 删除管理员
+export function rotationconfigDelete(data) {
+    return axios({
+        url: "http://apidemo.test/api/event/rotationconfigDelete",
+        method: "post",
+        data: data
+    });
+}
+
+// 删除管理员
+export function floatwindowconfigDelete(data) {
+    return axios({
+        url: "http://apidemo.test/api/event/floatwindowconfigDelete",
+        method: "post",
+        data: data
+    });
+}
+
+// 删除管理员
 export function blackDelete(data) {
     return axios({
         url: "http://apidemo.test/api/event/blackDelete",
@@ -242,3 +259,14 @@ export function blackDelete(data) {
         data: data
     });
 }
+
+
+// 删除管理员
+export function informationDelete(data) {
+    return axios({
+        url: "http://apidemo.test/api/event/informationDelete",
+        method: "post",
+        data: data
+    });
+}
+
