@@ -174,9 +174,9 @@
                 <template slot-scope="scope">
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">{{$t('page.detail')}}
                     </el-button>
-                    <el-button v-if="scope.row.status === '0'"  type="primary" size="small" icon="el-icon-delete" @click.native="auditItemSuccessServer(scope.$index, scope.row)">{{$t('page.success')}}
+                    <el-button v-if="scope.row.status === '1'"  type="primary" size="small" icon="el-icon-delete" @click.native="auditItemSuccessServer(scope.$index, scope.row)">{{$t('page.success')}}
                     </el-button>
-                    <el-button v-if="scope.row.status === '1'"  type="primary" size="small" icon="el-icon-delete" @click.native="auditItemFailedServer(scope.$index, scope.row)">{{$t('page.reject')}}
+                    <el-button v-if="scope.row.status === '0'"  type="primary" size="small" icon="el-icon-delete" @click.native="auditItemFailedServer(scope.$index, scope.row)">{{$t('page.reject')}}
                     </el-button>
                     <!--<el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">{{$t('page.success')}}
                     </el-button>

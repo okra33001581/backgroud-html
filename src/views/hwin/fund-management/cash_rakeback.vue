@@ -44,7 +44,8 @@
                 <el-button-group>
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
                     <el-button type="primary" icon="el-icon-search" @click="onSubmit">查询</el-button>
-                    <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">新增</el-button>
+                    <el-button type="primary" icon="el-icon-plus" @click.native="auditSuccessServer()">{{$t('page.batch_success')}}</el-button>
+                    <el-button type="primary" icon="el-icon-plus" @click.native="auditFailedServer()">{{$t('page.batch_reject')}}</el-button>
                 </el-button-group>
             </el-form-item>
         </el-form>
@@ -71,10 +72,11 @@
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange"
-                element-loading-text="拼命加载中"
+                :element-loading-text="$t('page.loading')"
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
-                :header-cell-style="getRowClass">
+                :header-cell-style="getRowClass"
+                @selection-change="selsChange" @row-click="handleChange">
 
 
             <!--投注日期
@@ -87,6 +89,8 @@
             审核备注
             审核状态
             -->
+            <el-table-column type="selection" width="55">
+            </el-table-column>
             <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					投注日期		" prop="id" sortable="custom" fixed></el-table-column>
@@ -268,6 +272,7 @@
                     key: '-last_login_ip'
                 }],
                 list: [],
+                sels:[],
                 total: 0,
                 loading: true,
                 index: null,
@@ -335,6 +340,9 @@
                 this.query.page = 1
                 this.getList()
             },
+            selsChange(sels) {
+                this.sels = sels
+            },
             sortChange: function (column) {
                 // console.log(column)
                 // console.log(prop)
@@ -385,6 +393,66 @@
                 var params = {
                     id: row.id,
                     flag: 0
+                }
+                // debugger
+                rakebackStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
+            },
+            auditSuccessServer () {
+                var servids = this.sels.map(item => item.id).join(",")
+                var params = {
+                    id:servids,
+                    flag:1
+                }
+                // debugger
+                rakebackStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
+            },
+            auditFailedServer () {
+                var servids = this.sels.map(item => item.id).join(",")
+                var params = {
+                    id:servids,
+                    flag:0
                 }
                 // debugger
                 rakebackStatusSave(params).then(
