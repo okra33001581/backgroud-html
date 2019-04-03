@@ -658,35 +658,111 @@
                 :before-close="hideQuotaForm"
                 width="85%"
                 top="5vh">
-            <el-form :model="formData" :rules="formRules" ref="dataForm">
-
+            <el-form :model="model" :rules="formRules" ref="dataForm">
+                <!--<el-form-item label="当前上级账号" prop="abc">-->
+                    <!--<el-input v-model="formData.abc" auto-complete="off"></el-input>-->
+                <!--</el-form-item>-->
                 <template>
                     <el-table
-                            :data="tableData"
+                            :data="model.tableData"
                             stripe
                             style="width: 100%">
+
+                        // dalian
+                       <!-- <el-table-column label="					排序值		" v-model="formData.abc" prop="tableData.date" sortable="custom" fixed>
+                            <template scope="scope">
+                                <el-input size="small" placeholder="请输入排序值"
+                                ></el-input>
+                            </template>
+                        </el-table-column>-->
+
+                        <!--<el-table-column   label="印鉴保管人职务"   align="center">
+                            <template slot-scope="scope">
+                                <el-form-item  :prop="'evidenceTemplateList.' + scope.$index + '.sealKeeperJob'">
+                                    <el-input  v-model="scope.row.sealKeeperJob" size="small"></el-input>
+                                </el-form-item>
+                            </template>
+                        </el-table-column>-->
+                        <!--:prop="'formData.tableData.' + scope.$index + '.address'"-->
                         <el-table-column
-                                prop="date"
+                                width="240"
+                                label="返点等级">
+                            <template slot-scope="scope">
+                                <el-form-item :prop="'tableData.' + scope.$index + '.rebate_level'" >
+                                    <el-input style="width:80px"  v-model="scope.row.rebate_level" ></el-input>
+                                </el-form-item>
+                            </template>
+                        </el-table-column>
+
+                        <el-table-column
+                                label="topallen拥有数量">
+                            <template slot-scope="scope">
+                                <el-form-item :prop="'tableData.' + scope.$index + '.topallen_valid_count'" >
+                                    <el-input style="width:80px"  v-model="scope.row.topallen_valid_count" ></el-input>
+                                </el-form-item>
+                            </template>
+                        </el-table-column>
+
+                        <el-table-column
+                                label="topallen剩余数量">
+                            <template slot-scope="scope">
+                                <el-form-item :prop="'tableData.' + scope.$index + '.topallen_left_count'" >
+                                    <el-input style="width:80px"  v-model="scope.row.topallen_left_count" ></el-input>
+                                </el-form-item>
+                            </template>
+                        </el-table-column>
+
+                        <el-table-column
+                                label="修改剩余数量">
+                            <template slot-scope="scope">
+                                <el-form-item :prop="'tableData.' + scope.$index + '.left_count'" >
+                                    <el-input style="width:80px"  v-model="scope.row.left_count" ></el-input>
+                                </el-form-item>
+                            </template>
+                        </el-table-column>
+
+                        <el-table-column
+                                label="您的配额">
+                            <template slot-scope="scope">
+                                <el-form-item :prop="'tableData.' + scope.$index + '.quota'" >
+                                    <el-input style="width:80px"  v-model="scope.row.quota" ></el-input>
+                                </el-form-item>
+                            </template>
+                        </el-table-column>
+
+                        <!--<el-table-column   label="印鉴保管人部门"   align="center">
+                            <template slot-scope="scope">
+                                &lt;!&ndash;<el-input  v-model="scope.row" size="small" :maxlength="30" ></el-input>&ndash;&gt;
+                                <el-form-item  :prop="'tableData123.' + scope.$index + '.address'">
+                                     <el-input  v-model="scope.row.address" size="small" :maxlength="30" ></el-input>
+                                </el-form-item>
+                            </template>
+                        </el-table-column>-->
+
+
+                        <!--<el-table-column
+                                v-model="formData.abc"
+                                prop="tableData.date"
                                 label="返点等级"
                                 width="180">
                         </el-table-column>
                         <el-table-column
-                                prop="name"
+                                prop="tableData.name"
                                 label="topallen拥有数量"
                                 width="180">
                         </el-table-column>
                         <el-table-column
-                                prop="address"
+                                prop="tableData.address"
                                 label="topallen剩余数量">
                         </el-table-column>
                         <el-table-column
-                                prop="address"
+                                prop="tableData.address"
                                 label="修改剩余数量">
                         </el-table-column>
                         <el-table-column
-                                prop="address"
+                                prop="tableData.address"
                                 label="您的配额">
-                        </el-table-column>
+                        </el-table-column>-->
                     </el-table>
                 </template>
 
@@ -694,7 +770,7 @@
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideQuotaForm">取消</el-button>
-                <el-button type="primary" @click.native="formSubmit()" :loading="formQuotaLoading">提交</el-button>
+                <el-button type="primary" @click.native="formQuotaSubmit()" :loading="formQuotaLoading">提交</el-button>
             </div>
         </el-dialog>
 
@@ -708,6 +784,7 @@
         authAdminRoleList,
         userSave,
         userStatusSave,
+        userQuotaSave,
         authAdminDelete
     } from "../../../api/user-management";
 
@@ -717,8 +794,12 @@
         username: "",
         checkPassword: "",
         status: "1",
-        roles: []
+        roles: [],
+        tableData: [],
     };
+    // const modelJson = {
+    //     input: "",
+    // };
     export default {
         data() {
             let validatePass = (rule, value, callback) => {
@@ -747,7 +828,55 @@
                     role_id: "",
                     sort: '+id'
                 },
-                tableData: [{
+                formData:{
+                    tableData:[{
+                        input:"123",
+                        name:"",
+                        supplier:"",
+                        goodstatus:"",
+                        producedate:{
+                            start:""
+                        },
+                        expireddate:{
+                            start:""
+                        }
+                    },{
+                        input:"456",
+                        name:"",
+                        supplier:"",
+                        goodstatus:"",
+                        producedate:{
+                            start:""
+                        },
+                        expireddate:{
+                            start:""
+                        }
+                    }]
+                },
+                model:{
+                    rules: {
+                        name:{ type:"string",required:true,message:"必填字段",trigger:"change"},
+                        input:{ type:"string",required:true,message:"必填字段",trigger:"change"},
+                        supplier:{ type:"string",required:true,message:"必填字段",trigger:"change"},
+                        goodstatus:{ type:"string",required:true,message:"必填字段",trigger:"change"},
+                        "producedate.start":{ type:"string",required:true,message:"必填字段",trigger:"change"},
+                        "expireddate.start":{ type:"string",required:true,message:"必填字段",trigger:"change"}
+                    },
+                    tableData:[{
+                        rebate_level:"00",
+                        topallen_valid_count:"11",
+                        topallen_left_count:"22",
+                        left_count:"33",
+                        quota:"44",
+                    },{
+                        rebate_level:"55",
+                        topallen_valid_count:"66",
+                        topallen_left_count:"77",
+                        left_count:"88",
+                        quota:"99",
+                    }]
+                },
+                tableData123: [{
                     date: '2016-05-02',
                     name: '王小虎',
                     address: '上海市普陀区金沙江路 1518 弄'
@@ -806,7 +935,8 @@
                 formEditParentVisible: false,
                 formQuotaVisible: false,
 
-                formData: formJson,
+                // formData: formJson,
+                // model: modelJson,
                 formRules: {},
                 addRules: {
                     username: [
@@ -1235,6 +1365,40 @@
                         this.formLoading = true;
                         let data = Object.assign({}, this.formData);
                         userSave(data, this.formName).then(response => {
+                            this.formLoading = false;
+                            if (response.code) {
+                                this.$message({
+                                    message: response.message,
+                                    type: "error"
+                                });
+                            } else {
+                                this.$message({
+                                    message: "操作成功",
+                                    type: "success"
+                                });
+                                // 向头部添加数据
+                                // this.list.unshift(res)
+                                // 刷新表单
+                                this.$refs["dataForm"].resetFields();
+                                this.formVisible = false;
+                                if (this.formName === "add") {
+                                    // 向头部添加数据
+                                    let resData = response.data || {};
+                                    this.list.unshift(resData);
+                                } else {
+                                    this.list.splice(this.index, 1, data);
+                                }
+                            }
+                        });
+                    }
+                });
+            },
+            formQuotaSubmit() {
+                this.$refs["dataForm"].validate(valid => {
+                    if (valid) {
+                        this.formLoading = true;
+                        let data = Object.assign({}, this.model);
+                        userQuotaSave(data, this.formName).then(response => {
                             this.formLoading = false;
                             if (response.code) {
                                 this.$message({

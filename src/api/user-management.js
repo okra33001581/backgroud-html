@@ -202,3 +202,11 @@ export function usercardDelete(data) {
     });
 }
 
+// 删除管理员
+export function userQuotaSave(data) {
+    return axios({
+        url: "http://apidemo.test/api/event/userQuotaSave",
+        method: "post",
+        data: data
+    });
+}
