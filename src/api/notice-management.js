@@ -6,7 +6,7 @@ import axios from "../utils/axios";
 // 获取列表
 export function marqueeList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/marqueeList",
+        url: "event/marqueeList",
         method: "get",
         params: query
     });
@@ -14,7 +14,7 @@ export function marqueeList(query) {
 // 获取列表
 export function messageList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/messageList",
+        url: "event/messageList",
         method: "get",
         params: query
     });
@@ -22,7 +22,7 @@ export function messageList(query) {
 // 获取列表
 export function noticeList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/noticeList",
+        url: "event/noticeList",
         method: "get",
         params: query
     });
@@ -30,7 +30,7 @@ export function noticeList(query) {
 // 获取列表
 export function pushList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "event/adminIndex",
         method: "get",
         params: query
     });
@@ -39,7 +39,7 @@ export function pushList(query) {
 // 获取角色列表
 export function authAdminRoleList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminRoleList",
+        url: "event/adminRoleList",
         method: "get",
         params: query
     });
@@ -49,8 +49,8 @@ export function authAdminRoleList(query) {
 export function authAdminSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/adminSave"
-            : "http://apidemo.test/api/event/adminEdit";
+            ? "event/adminSave"
+            : "event/adminEdit";
     return axios({
         url: url,
         method: method,
@@ -63,8 +63,8 @@ export function authAdminSave(data, formName, method = "post") {
 export function messageSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/messageSave"
-            : "http://apidemo.test/api/event/messageSave";
+            ? "event/messageSave"
+            : "event/messageSave";
     return axios({
         url: url,
         method: method,
@@ -76,8 +76,8 @@ export function messageSave(data, formName, method = "post") {
 export function noticeSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/noticeSave"
-            : "http://apidemo.test/api/event/noticeSave";
+            ? "event/noticeSave"
+            : "event/noticeSave";
     return axios({
         url: url,
         method: method,
@@ -90,8 +90,8 @@ export function noticeSave(data, formName, method = "post") {
 export function noticeTopSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/noticeTopSave"
-            : "http://apidemo.test/api/event/noticeTopSave";
+            ? "event/noticeTopSave"
+            : "event/noticeTopSave";
     return axios({
         url: url,
         method: method,
@@ -103,8 +103,8 @@ export function noticeTopSave(data, formName, method = "post") {
 export function noticeStatusSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/noticeStatusSave"
-            : "http://apidemo.test/api/event/noticeStatusSave";
+            ? "event/noticeStatusSave"
+            : "event/noticeStatusSave";
     return axios({
         url: url,
         method: method,
@@ -118,8 +118,8 @@ export function noticeStatusSave(data, formName, method = "post") {
 export function marqueeSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/marqueeSave"
-            : "http://apidemo.test/api/event/marqueeSave";
+            ? "event/marqueeSave"
+            : "event/marqueeSave";
     return axios({
         url: url,
         method: method,
@@ -132,7 +132,7 @@ export function marqueeSave(data, formName, method = "post") {
 // 删除管理员
 export function messageDelete(data) {
     return axios({
-        url: "http://apidemo.test/api/event/messageDelete",
+        url: "event/messageDelete",
         method: "post",
         data: data
     });
@@ -141,7 +141,7 @@ export function messageDelete(data) {
 // 删除管理员
 export function noticeDelete(data) {
     return axios({
-        url: "http://apidemo.test/api/event/noticeDelete",
+        url: "event/noticeDelete",
         method: "post",
         data: data
     });
@@ -150,7 +150,7 @@ export function noticeDelete(data) {
 // 删除管理员
 export function marqueeDelete(data) {
     return axios({
-        url: "http://apidemo.test/api/event/marqueeDelete",
+        url: "event/marqueeDelete",
         method: "post",
         data: data
     });

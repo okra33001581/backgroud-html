@@ -6,7 +6,7 @@ import axios from "../../utils/axios";
 // 获取列表
 export function authRoleList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/roleIndex",
+        url: "event/roleIndex",
         method: "get",
         params: query
     });
@@ -15,7 +15,7 @@ export function authRoleList(query) {
 // 编辑
 export function authRoleAuthList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/roleAuthList",
+        url: "event/roleAuthList",
         method: "get",
         params: query
     });
@@ -24,7 +24,7 @@ export function authRoleAuthList(query) {
 // 添加
 export function authRoleAuth(data) {
     return axios({
-        url: "http://apidemo.test/api/event/roleAuth",
+        url: "event/roleAuth",
         method: "post",
         data: data
     });
@@ -33,7 +33,7 @@ export function authRoleAuth(data) {
 // 添加
 export function authRoleAuthListByUser(data) {
     return axios({
-        url: "http://apidemo.test/api/event/roleAuthListByUser",
+        url: "event/roleAuthListByUser",
         method: "get",
         data: data
     });
@@ -42,7 +42,7 @@ export function authRoleAuthListByUser(data) {
 // 保存
 export function authRoleSave(data, formName, method = "post") {
     let url =
-        formName === "add" ? "http://apidemo.test/api/event/roleSave" : "http://apidemo.test/api/event/roleEdit";
+        formName === "add" ? "event/roleSave" : "event/roleEdit";
     return axios({
         url: url,
         method: method,
@@ -53,7 +53,7 @@ export function authRoleSave(data, formName, method = "post") {
 // 删除
 export function authRoleDelete(data) {
     return axios({
-        url: "http://apidemo.test/api/event/roleDelete",
+        url: "event/roleDelete",
         method: "post",
         data: data
     });

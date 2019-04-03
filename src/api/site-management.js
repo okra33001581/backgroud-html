@@ -6,7 +6,7 @@ import axios from "../utils/axios";
 // 获取列表
 export function floatwindowconfigList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/floatwindowconfigList",
+        url: "event/floatwindowconfigList",
         method: "get",
         params: query
     });
@@ -15,7 +15,7 @@ export function floatwindowconfigList(query) {
 // 获取列表
 export function informationCompanylist(query) {
     return axios({
-        url: "http://apidemo.test/api/event/informationCompanylist",
+        url: "event/informationCompanylist",
         method: "get",
         params: query
     });
@@ -24,7 +24,7 @@ export function informationCompanylist(query) {
 // 获取列表
 export function informationList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/informationList",
+        url: "event/informationList",
         method: "get",
         params: query
     });
@@ -33,7 +33,7 @@ export function informationList(query) {
 // 获取列表
 export function lotterygroupSort(query) {
     return axios({
-        url: "http://apidemo.test/api/event/lotterygroupSort",
+        url: "event/lotterygroupSort",
         method: "get",
         params: query
     });
@@ -42,7 +42,7 @@ export function lotterygroupSort(query) {
 // 获取列表
 export function proxyiptablesBlackcontainlist(query) {
     return axios({
-        url: "http://apidemo.test/api/event/proxyiptablesBlackcontainlist",
+        url: "event/proxyiptablesBlackcontainlist",
         method: "get",
         params: query
     });
@@ -51,7 +51,7 @@ export function proxyiptablesBlackcontainlist(query) {
 // 获取列表
 export function qrconfigList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/qrconfigList",
+        url: "event/qrconfigList",
         method: "get",
         params: query
     });
@@ -60,7 +60,7 @@ export function qrconfigList(query) {
 // 获取列表
 export function rotationconfigList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/rotationconfigList",
+        url: "event/rotationconfigList",
         method: "get",
         params: query
     });
@@ -69,7 +69,7 @@ export function rotationconfigList(query) {
 // 获取列表
 export function systemconfigImagelist(query) {
     return axios({
-        url: "http://apidemo.test/api/event/systemconfigImagelist",
+        url: "event/systemconfigImagelist",
         method: "get",
         params: query
     });
@@ -80,7 +80,7 @@ export function systemconfigImagelist(query) {
 // 获取列表
 export function blacklist(query) {
     return axios({
-        url: "http://apidemo.test/api/event/blacklist",
+        url: "event/blacklist",
         method: "get",
         params: query
     });
@@ -88,7 +88,7 @@ export function blacklist(query) {
 // 获取列表
 export function systemconfiglist(query) {
     return axios({
-        url: "http://apidemo.test/api/event/systemconfiglist",
+        url: "event/systemconfiglist",
         method: "get",
         params: query
     });
@@ -97,7 +97,7 @@ export function systemconfiglist(query) {
 // 获取列表
 export function systemconfigSet(query) {
     return axios({
-        url: "http://apidemo.test/api/event/systemconfigSet",
+        url: "event/systemconfigSet",
         method: "get",
         params: query
     });
@@ -106,7 +106,7 @@ export function systemconfigSet(query) {
 // 获取角色列表
 export function authAdminRoleList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/authAdminRoleList",
+        url: "event/authAdminRoleList",
         method: "get",
         params: query
     });
@@ -116,8 +116,8 @@ export function authAdminRoleList(query) {
 export function proxyiptablesBlackSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/proxyiptablesBlackSave"
-            : "http://apidemo.test/api/event/proxyiptablesBlackSave";
+            ? "event/proxyiptablesBlackSave"
+            : "event/proxyiptablesBlackSave";
     return axios({
         url: url,
         method: method,
@@ -129,8 +129,8 @@ export function proxyiptablesBlackSave(data, formName, method = "post") {
 export function systemConfigSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/systemConfigSave"
-            : "http://apidemo.test/api/event/systemConfigSave";
+            ? "event/systemConfigSave"
+            : "event/systemConfigSave";
     return axios({
         url: url,
         method: method,
@@ -141,8 +141,8 @@ export function systemConfigSave(data, formName, method = "post") {
 export function webIconSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/webIconSave"
-            : "http://apidemo.test/api/event/webIconSave";
+            ? "event/webIconSave"
+            : "event/webIconSave";
     return axios({
         url: url,
         method: method,
@@ -153,8 +153,8 @@ export function webIconSave(data, formName, method = "post") {
 export function informationStatusSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/informationStatusSave"
-            : "http://apidemo.test/api/event/informationStatusSave";
+            ? "event/informationStatusSave"
+            : "event/informationStatusSave";
     return axios({
         url: url,
         method: method,
@@ -165,8 +165,8 @@ export function informationStatusSave(data, formName, method = "post") {
 export function qrCodeSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/qrCodeSave"
-            : "http://apidemo.test/api/event/qrCodeSave";
+            ? "event/qrCodeSave"
+            : "event/qrCodeSave";
     return axios({
         url: url,
         method: method,
@@ -178,8 +178,8 @@ export function qrCodeSave(data, formName, method = "post") {
 export function rotatePlaySave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/rotatePlaySave"
-            : "http://apidemo.test/api/event/rotatePlaySave";
+            ? "event/rotatePlaySave"
+            : "event/rotatePlaySave";
     return axios({
         url: url,
         method: method,
@@ -190,8 +190,8 @@ export function rotatePlaySave(data, formName, method = "post") {
 export function floatWindowSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/floatWindowSave"
-            : "http://apidemo.test/api/event/floatWindowSave";
+            ? "event/floatWindowSave"
+            : "event/floatWindowSave";
     return axios({
         url: url,
         method: method,
@@ -202,8 +202,8 @@ export function floatWindowSave(data, formName, method = "post") {
 export function informationSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/informationSave"
-            : "http://apidemo.test/api/event/informationSave";
+            ? "event/informationSave"
+            : "event/informationSave";
     return axios({
         url: url,
         method: method,
@@ -213,8 +213,8 @@ export function informationSave(data, formName, method = "post") {
 export function companySave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/companySave"
-            : "http://apidemo.test/api/event/companySave";
+            ? "event/companySave"
+            : "event/companySave";
     return axios({
         url: url,
         method: method,
@@ -226,7 +226,7 @@ export function companySave(data, formName, method = "post") {
 // 删除管理员
 export function authAdminDelete(data) {
     return axios({
-        url: "http://apidemo.test/api/event/adminDelete",
+        url: "event/adminDelete",
         method: "post",
         data: data
     });
@@ -236,7 +236,7 @@ export function authAdminDelete(data) {
 // 删除管理员
 export function rotationconfigDelete(data) {
     return axios({
-        url: "http://apidemo.test/api/event/rotationconfigDelete",
+        url: "event/rotationconfigDelete",
         method: "post",
         data: data
     });
@@ -245,7 +245,7 @@ export function rotationconfigDelete(data) {
 // 删除管理员
 export function floatwindowconfigDelete(data) {
     return axios({
-        url: "http://apidemo.test/api/event/floatwindowconfigDelete",
+        url: "event/floatwindowconfigDelete",
         method: "post",
         data: data
     });
@@ -254,7 +254,7 @@ export function floatwindowconfigDelete(data) {
 // 删除管理员
 export function blackDelete(data) {
     return axios({
-        url: "http://apidemo.test/api/event/blackDelete",
+        url: "event/blackDelete",
         method: "post",
         data: data
     });
@@ -264,7 +264,7 @@ export function blackDelete(data) {
 // 删除管理员
 export function informationDelete(data) {
     return axios({
-        url: "http://apidemo.test/api/event/informationDelete",
+        url: "event/informationDelete",
         method: "post",
         data: data
     });

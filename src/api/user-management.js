@@ -6,7 +6,7 @@ import axios from "../utils/axios";
 // 获取列表
 export function userInfolist(query) {
     return axios({
-        url: "http://apidemo.test/api/event/userInfolist",
+        url: "event/userInfolist",
         method: "get",
         params: query
     });
@@ -14,7 +14,7 @@ export function userInfolist(query) {
 // 获取列表
 export function userInoutcash(query) {
     return axios({
-        url: "http://apidemo.test/api/event/userInoutcash",
+        url: "event/userInoutcash",
         method: "get",
         params: query
     });
@@ -22,7 +22,7 @@ export function userInoutcash(query) {
 // 获取列表
 export function userMainlist(query) {
     return axios({
-        url: "http://apidemo.test/api/event/userMainlist",
+        url: "event/userMainlist",
         method: "get",
         params: query
     });
@@ -30,7 +30,7 @@ export function userMainlist(query) {
 // 获取列表
 export function userMonitor(query) {
     return axios({
-        url: "http://apidemo.test/api/event/userMonitor",
+        url: "event/userMonitor",
         method: "get",
         params: query
     });
@@ -38,7 +38,7 @@ export function userMonitor(query) {
 // 获取列表
 export function userReviewlist(query) {
     return axios({
-        url: "http://apidemo.test/api/event/userReviewlist",
+        url: "event/userReviewlist",
         method: "get",
         params: query
     });
@@ -46,7 +46,7 @@ export function userReviewlist(query) {
 // 获取列表
 export function userUsercard(query) {
     return axios({
-        url: "http://apidemo.test/api/event/userUsercard",
+        url: "event/userUsercard",
         method: "get",
         params: query
     });
@@ -54,7 +54,7 @@ export function userUsercard(query) {
 // 获取列表
 export function userUserlayer(query) {
     return axios({
-        url: "http://apidemo.test/api/event/userUserlayer",
+        url: "event/userUserlayer",
         method: "get",
         params: query
     });
@@ -62,7 +62,7 @@ export function userUserlayer(query) {
 // 获取列表
 export function userValiduser(query) {
     return axios({
-        url: "http://apidemo.test/api/event/userValiduser",
+        url: "event/userValiduser",
         method: "get",
         params: query
     });
@@ -71,7 +71,7 @@ export function userValiduser(query) {
 // 获取角色列表
 export function authAdminRoleList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminRoleList",
+        url: "event/adminRoleList",
         method: "get",
         params: query
     });
@@ -83,8 +83,8 @@ export function authAdminRoleList(query) {
 export function userSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/userSave"
-            : "http://apidemo.test/api/event/userSave";
+            ? "event/userSave"
+            : "event/userSave";
     return axios({
         url: url,
         method: method,
@@ -96,8 +96,8 @@ export function userSave(data, formName, method = "post") {
 export function userLevelSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/userLevelSave"
-            : "http://apidemo.test/api/event/userLevelSave";
+            ? "event/userLevelSave"
+            : "event/userLevelSave";
     return axios({
         url: url,
         method: method,
@@ -110,8 +110,8 @@ export function userLevelSave(data, formName, method = "post") {
 export function bankCardSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/bankCardSave"
-            : "http://apidemo.test/api/event/bankCardSave";
+            ? "event/bankCardSave"
+            : "event/bankCardSave";
     return axios({
         url: url,
         method: method,
@@ -126,8 +126,8 @@ export function bankCardSave(data, formName, method = "post") {
 export function authAdminSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/adminSave"
-            : "http://apidemo.test/api/event/adminEdit";
+            ? "event/adminSave"
+            : "event/adminEdit";
     return axios({
         url: url,
         method: method,
@@ -139,8 +139,8 @@ export function authAdminSave(data, formName, method = "post") {
 export function bankcardStatusSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/bankcardStatusSave"
-            : "http://apidemo.test/api/event/bankcardStatusSave";
+            ? "event/bankcardStatusSave"
+            : "event/bankcardStatusSave";
     return axios({
         url: url,
         method: method,
@@ -152,8 +152,8 @@ export function bankcardStatusSave(data, formName, method = "post") {
 export function userStatusSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/userStatusSave"
-            : "http://apidemo.test/api/event/userStatusSave";
+            ? "event/userStatusSave"
+            : "event/userStatusSave";
     return axios({
         url: url,
         method: method,
@@ -166,8 +166,8 @@ export function userStatusSave(data, formName, method = "post") {
 export function usersafetyStatusSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/usersafetyStatusSave"
-            : "http://apidemo.test/api/event/usersafetyStatusSave";
+            ? "event/usersafetyStatusSave"
+            : "event/usersafetyStatusSave";
     return axios({
         url: url,
         method: method,
@@ -178,7 +178,7 @@ export function usersafetyStatusSave(data, formName, method = "post") {
 // 删除管理员
 export function authAdminDelete(data) {
     return axios({
-        url: "http://apidemo.test/api/event/adminDelete",
+        url: "event/adminDelete",
         method: "post",
         data: data
     });
@@ -187,7 +187,7 @@ export function authAdminDelete(data) {
 // 删除管理员
 export function userlayerDelete(data) {
     return axios({
-        url: "http://apidemo.test/api/event/userlayerDelete",
+        url: "event/userlayerDelete",
         method: "post",
         data: data
     });
@@ -196,7 +196,7 @@ export function userlayerDelete(data) {
 // 删除管理员
 export function usercardDelete(data) {
     return axios({
-        url: "http://apidemo.test/api/event/usercardDelete",
+        url: "event/usercardDelete",
         method: "post",
         data: data
     });
@@ -205,7 +205,7 @@ export function usercardDelete(data) {
 // 删除管理员
 export function userQuotaSave(data) {
     return axios({
-        url: "http://apidemo.test/api/event/userQuotaSave",
+        url: "event/userQuotaSave",
         method: "post",
         data: data
     });

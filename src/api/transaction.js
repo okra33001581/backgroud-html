@@ -6,7 +6,7 @@ import axios from "../utils/axios";
 // 获取列表
 export function authAdminList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminIndex",
+        url: "event/adminIndex",
         method: "get",
         params: query
     });
@@ -15,7 +15,7 @@ export function authAdminList(query) {
 // 获取角色列表
 export function authAdminRoleList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminRoleList",
+        url: "event/adminRoleList",
         method: "get",
         params: query
     });
@@ -25,8 +25,8 @@ export function authAdminRoleList(query) {
 export function authAdminSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/adminSave"
-            : "http://apidemo.test/api/event/adminEdit";
+            ? "event/adminSave"
+            : "event/adminEdit";
     return axios({
         url: url,
         method: method,
@@ -37,7 +37,7 @@ export function authAdminSave(data, formName, method = "post") {
 // 删除管理员
 export function authAdminDelete(data) {
     return axios({
-        url: "http://apidemo.test/api/event/adminDelete",
+        url: "event/adminDelete",
         method: "post",
         data: data
     });

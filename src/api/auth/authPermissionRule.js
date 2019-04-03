@@ -8,7 +8,7 @@ import axios from "../../utils/axios";
 // 获取列表
 export function authPermissionRuleList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/permissionRuleIndex",
+        url: "event/permissionRuleIndex",
         method: "get",
         params: query
     });
@@ -16,7 +16,7 @@ export function authPermissionRuleList(query) {
 // 获取树形列表
 export function authPermissionRuleTree(query) {
     return axios({
-        url: "http://apidemo.test/api/event/permissionRuleTree",
+        url: "event/permissionRuleTree",
         method: "get",
         params: query
     });
@@ -26,8 +26,8 @@ export function authPermissionRuleTree(query) {
 export function ruleStatusSave(data, formName, method = "post") {
     let url =
         formName !== "edit"
-            ? "http://apidemo.test/api/event/ruleStatusSave"
-            : "http://apidemo.test/api/event/ruleStatusSave";
+            ? "event/ruleStatusSave"
+            : "event/ruleStatusSave";
     return axios({
         url: url,
         method: method,
@@ -39,8 +39,8 @@ export function ruleStatusSave(data, formName, method = "post") {
 export function authPermissionRuleSave(data, formName, method = "post") {
     let url =
         formName !== "edit"
-            ? "http://apidemo.test/api/event/permissionRuleSave"
-            : "http://apidemo.test/api/event/permissionRuleEdit";
+            ? "event/permissionRuleSave"
+            : "event/permissionRuleEdit";
     return axios({
         url: url,
         method: method,
@@ -51,7 +51,7 @@ export function authPermissionRuleSave(data, formName, method = "post") {
 // 删除
 export function authPermissionRuleDelete(data) {
     return axios({
-        url: "http://apidemo.test/api/event/permissionRuleDelete",
+        url: "event/permissionRuleDelete",
         method: "post",
         data: data
     });

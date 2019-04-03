@@ -6,7 +6,7 @@ import axios from "../utils/axios";
 // 获取列表
 export function cashOrderlist(query) {
     return axios({
-        url: "http://apidemo.test/api/event/cashOrderlist",
+        url: "event/cashOrderlist",
         method: "get",
         params: query
     });
@@ -14,7 +14,7 @@ export function cashOrderlist(query) {
 // 获取列表
 export function cashPaysetting(query) {
     return axios({
-        url: "http://apidemo.test/api/event/cashPaysetting",
+        url: "event/cashPaysetting",
         method: "get",
         params: query
     });
@@ -22,7 +22,7 @@ export function cashPaysetting(query) {
 // 获取列表
 export function cashRakeback(query) {
     return axios({
-        url: "http://apidemo.test/api/event/cashRakeback",
+        url: "event/cashRakeback",
         method: "get",
         params: query
     });
@@ -30,7 +30,7 @@ export function cashRakeback(query) {
 // 获取列表
 export function cashWithdrawlist(query) {
     return axios({
-        url: "http://apidemo.test/api/event/cashWithdrawlist",
+        url: "event/cashWithdrawlist",
         method: "get",
         params: query
     });
@@ -38,7 +38,7 @@ export function cashWithdrawlist(query) {
 // 获取列表
 export function companymoneyList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/companymoneyList",
+        url: "event/companymoneyList",
         method: "get",
         params: query
     });
@@ -46,7 +46,7 @@ export function companymoneyList(query) {
 // 获取列表
 export function fastpaymoneyList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/fastpaymoneyList",
+        url: "event/fastpaymoneyList",
         method: "get",
         params: query
     });
@@ -54,7 +54,7 @@ export function fastpaymoneyList(query) {
 // 获取列表
 export function layerchartIndex(query) {
     return axios({
-        url: "http://apidemo.test/api/event/layerchartIndex",
+        url: "event/layerchartIndex",
         method: "get",
         params: query
     });
@@ -62,7 +62,7 @@ export function layerchartIndex(query) {
 // 获取列表
 export function manualpaySave(query) {
     return axios({
-        url: "http://apidemo.test/api/event/manualpaySave",
+        url: "event/manualpaySave",
         method: "get",
         params: query
     });
@@ -70,7 +70,7 @@ export function manualpaySave(query) {
 // 获取列表
 export function manualpayconfirmList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/manualpayconfirmList",
+        url: "event/manualpayconfirmList",
         method: "get",
         params: query
     });
@@ -78,7 +78,7 @@ export function manualpayconfirmList(query) {
 // 获取列表
 export function payaccountList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/payaccountList",
+        url: "event/payaccountList",
         method: "get",
         params: query
     });
@@ -86,7 +86,7 @@ export function payaccountList(query) {
 // 获取列表
 export function paygroupList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/paygroupList",
+        url: "event/paygroupList",
         method: "get",
         params: query
     });
@@ -94,7 +94,7 @@ export function paygroupList(query) {
 // 获取列表
 export function transferorderList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/transferorderList",
+        url: "event/transferorderList",
         method: "get",
         params: query
     });
@@ -102,7 +102,7 @@ export function transferorderList(query) {
 // 获取列表
 export function tripartiteList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/tripartiteList",
+        url: "event/tripartiteList",
         method: "get",
         params: query
     });
@@ -110,7 +110,7 @@ export function tripartiteList(query) {
 // 获取列表
 export function userbetscheckList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/userbetscheckList",
+        url: "event/userbetscheckList",
         method: "get",
         params: query
     });
@@ -119,7 +119,7 @@ export function userbetscheckList(query) {
 // 获取角色列表
 export function authAdminRoleList(query) {
     return axios({
-        url: "http://apidemo.test/api/event/adminRoleList",
+        url: "event/adminRoleList",
         method: "get",
         params: query
     });
@@ -129,8 +129,8 @@ export function authAdminRoleList(query) {
 export function userbetscheckStatusSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/userbetscheckStatusSave"
-            : "http://apidemo.test/api/event/userbetscheckStatusSave";
+            ? "event/userbetscheckStatusSave"
+            : "event/userbetscheckStatusSave";
     return axios({
         url: url,
         method: method,
@@ -142,8 +142,8 @@ export function userbetscheckStatusSave(data, formName, method = "post") {
 export function transferorderStatusSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/transferorderStatusSave"
-            : "http://apidemo.test/api/event/transferorderStatusSave";
+            ? "event/transferorderStatusSave"
+            : "event/transferorderStatusSave";
     return axios({
         url: url,
         method: method,
@@ -155,8 +155,8 @@ export function transferorderStatusSave(data, formName, method = "post") {
 export function manualpayStatusSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/manualpayStatusSave"
-            : "http://apidemo.test/api/event/manualpayStatusSave";
+            ? "event/manualpayStatusSave"
+            : "event/manualpayStatusSave";
     return axios({
         url: url,
         method: method,
@@ -168,8 +168,8 @@ export function manualpayStatusSave(data, formName, method = "post") {
 export function manualpayconfirmStatusSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/manualpayconfirmStatusSave"
-            : "http://apidemo.test/api/event/manualpayconfirmStatusSave";
+            ? "event/manualpayconfirmStatusSave"
+            : "event/manualpayconfirmStatusSave";
     return axios({
         url: url,
         method: method,
@@ -181,8 +181,8 @@ export function manualpayconfirmStatusSave(data, formName, method = "post") {
 export function companymoneyStatusSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/companymoneyStatusSave"
-            : "http://apidemo.test/api/event/companymoneyStatusSave";
+            ? "event/companymoneyStatusSave"
+            : "event/companymoneyStatusSave";
     return axios({
         url: url,
         method: method,
@@ -194,8 +194,8 @@ export function companymoneyStatusSave(data, formName, method = "post") {
 export function rakebackStatusSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/rakebackStatusSave"
-            : "http://apidemo.test/api/event/rakebackStatusSave";
+            ? "event/rakebackStatusSave"
+            : "event/rakebackStatusSave";
     return axios({
         url: url,
         method: method,
@@ -207,8 +207,8 @@ export function rakebackStatusSave(data, formName, method = "post") {
 export function fastpaymoneyStatusSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/fastpaymoneyStatusSave"
-            : "http://apidemo.test/api/event/fastpaymoneyStatusSave";
+            ? "event/fastpaymoneyStatusSave"
+            : "event/fastpaymoneyStatusSave";
     return axios({
         url: url,
         method: method,
@@ -221,8 +221,8 @@ export function fastpaymoneyStatusSave(data, formName, method = "post") {
 export function cashwithdrawStatusSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/cashwithdrawStatusSave"
-            : "http://apidemo.test/api/event/cashwithdrawStatusSave";
+            ? "event/cashwithdrawStatusSave"
+            : "event/cashwithdrawStatusSave";
     return axios({
         url: url,
         method: method,
@@ -234,8 +234,8 @@ export function cashwithdrawStatusSave(data, formName, method = "post") {
 export function paysettingSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/paysettingSave"
-            : "http://apidemo.test/api/event/paysettingSave";
+            ? "event/paysettingSave"
+            : "event/paysettingSave";
     return axios({
         url: url,
         method: method,
@@ -248,8 +248,8 @@ export function paysettingSave(data, formName, method = "post") {
 export function depositAccountSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/depositAccountSave"
-            : "http://apidemo.test/api/event/depositAccountSave";
+            ? "event/depositAccountSave"
+            : "event/depositAccountSave";
     return axios({
         url: url,
         method: method,
@@ -261,8 +261,8 @@ export function depositAccountSave(data, formName, method = "post") {
 export function thirdAccountSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/thirdAccountSave"
-            : "http://apidemo.test/api/event/thirdAccountSave";
+            ? "event/thirdAccountSave"
+            : "event/thirdAccountSave";
     return axios({
         url: url,
         method: method,
@@ -274,8 +274,8 @@ export function thirdAccountSave(data, formName, method = "post") {
 export function payGroupStatusSave(data, formName, method = "post") {
     let url =
         formName === "add"
-            ? "http://apidemo.test/api/event/payGroupStatusSave"
-            : "http://apidemo.test/api/event/payGroupStatusSave";
+            ? "event/payGroupStatusSave"
+            : "event/payGroupStatusSave";
     return axios({
         url: url,
         method: method,
@@ -286,7 +286,7 @@ export function payGroupStatusSave(data, formName, method = "post") {
 // 删除管理员
 export function paysettingDelete(data) {
     return axios({
-        url: "http://apidemo.test/api/event/paysettingDelete",
+        url: "event/paysettingDelete",
         method: "post",
         data: data
     });
@@ -294,7 +294,7 @@ export function paysettingDelete(data) {
 // 删除管理员
 export function payaccountDelete(data) {
     return axios({
-        url: "http://apidemo.test/api/event/payaccountDelete",
+        url: "event/payaccountDelete",
         method: "post",
         data: data
     });
@@ -302,7 +302,7 @@ export function payaccountDelete(data) {
 // 删除管理员
 export function tripartiteDelete(data) {
     return axios({
-        url: "http://apidemo.test/api/event/tripartiteDelete",
+        url: "event/tripartiteDelete",
         method: "post",
         data: data
     });
