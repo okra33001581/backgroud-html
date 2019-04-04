@@ -112,8 +112,6 @@
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
 
-
-
             <!--订单号
             时间
             会员账户

@@ -222,6 +222,40 @@ export function companySave(data, formName, method = "post") {
     });
 }
 
+export function updateLotterygroupSequence(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "event/updateLotterygroupSequence"
+            : "event/updateLotterygroupSequence";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+export function updateInformationSequence(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "event/updateInformationSequence"
+            : "event/updateInformationSequence";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+export function updateLotteryGroupPropertySave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "event/updateLotteryGroupPropertySave"
+            : "event/updateLotteryGroupPropertySave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
 
 // 删除管理员
 export function authAdminDelete(data) {
@@ -250,6 +284,7 @@ export function floatwindowconfigDelete(data) {
         data: data
     });
 }
+
 
 // 删除管理员
 export function blackDelete(data) {

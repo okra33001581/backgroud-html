@@ -73,6 +73,14 @@
             操作人
 -->
             <el-table-column label="					序号		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					排序值		" prop="id" sortable="custom" fixed>
+
+                <template scope="scope">
+                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="payAccountSequenceServer(scope.$index, scope.row)"
+                    ></el-input>
+                </template>
+
+            </el-table-column>
             <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					添加时间		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					层级		" prop="id" sortable="custom" fixed></el-table-column>
@@ -240,6 +248,7 @@
         payaccountList,
         authAdminRoleList,
         depositAccountSave,
+        payAccountSequence,
         payaccountDelete
     } from "../../../api/fund-management";
 
@@ -411,8 +420,35 @@
                 }
                 this.handleFilter()
             },
-
-
+            payAccountSequenceServer(index, row) {
+                var params = {
+                    id: row.id,
+                    sequence: row.sequence
+                }
+                // debugger
+                payAccountSequence(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
+            },
             sortByUserName(order) {
                 if (order === 'ascending') {
                     this.query.sort = '+username'

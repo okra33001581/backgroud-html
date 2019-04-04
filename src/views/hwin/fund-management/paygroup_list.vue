@@ -79,7 +79,7 @@
             <el-table-column label="					排序值		" prop="id" sortable="custom" fixed>
 
                 <template scope="scope">
-                    <el-input size="small" v-model="scope.row.languageCode" placeholder="请输入排序值"
+                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="updateSequenceServer(scope.$index, scope.row)"
                     ></el-input>
                 </template>
 
@@ -87,13 +87,15 @@
 
             <el-table-column label="					属性		" prop="id" sortable="custom" fixed>
                 <template slot-scope="scope">
-                    <el-checkbox  v-model="scope.row.isCheck1" @click.native="auditItemSuccessServer(scope.$index, scope.row)">热门</el-checkbox>
+                    <!--<el-checkbox-group v-model="checked" @change="isTest">-->
+                        <el-checkbox  v-model="scope.row.property" @click.native="updatePropertyServer(scope.$index, scope.row)" @change="isTest">热门</el-checkbox>
+                    <!--</el-checkbox-group>-->
                 </template>
             </el-table-column>
             <el-table-column label="					支付类型别名		" prop="id" sortable="custom" fixed>
 
                 <template scope="scope">
-                    <el-input size="small" v-model="scope.row.languageCode" placeholder="请输入支付类型别名"
+                    <el-input size="small" v-model="scope.row.pay_type_alias" placeholder="请输入支付类型别名" @keyup.enter.native="updatePayTypeAliasServer(scope.$index, scope.row)"
                     ></el-input>
                 </template>
 
@@ -219,6 +221,9 @@
         authAdminRoleList,
         authAdminSave,
         payGroupStatusSave,
+        paytypeAliasSave,
+        propertySave,
+        sequenceSave,
         authAdminDelete
     } from "../../../api/fund-management";
 
@@ -397,6 +402,96 @@
                 }
                 // debugger
                 payGroupStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
+            },
+            updateSequenceServer(index, row) {
+                var params = {
+                    id: row.id,
+                    sequence: row.sequence
+                }
+                // debugger
+                sequenceSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
+            },
+            updatePayTypeAliasServer(index, row) {
+                var params = {
+                    id: row.id,
+                    paytype_alias: row.pay_type_alias
+                }
+                // debugger
+                paytypeAliasSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
+            },
+            isTest(){
+                console.log(this.checked)
+            },
+            updatePropertyServer(index, row) {
+                var params = {
+                    id: row.id,
+                    property: row.property
+                }
+                // debugger
+                propertySave(params).then(
                     function (res) {
                         // debugger
                         /*if(res.code === 1){

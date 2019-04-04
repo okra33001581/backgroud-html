@@ -191,6 +191,60 @@ export function companymoneyStatusSave(data, formName, method = "post") {
 }
 
 // 保存
+export function sequenceSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "event/sequenceSave"
+            : "event/sequenceSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+// 保存
+export function payAccountSequence(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "event/payAccountSequence"
+            : "event/payAccountSequence";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+// 保存
+export function propertySave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "event/propertySave"
+            : "event/propertySave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+// 保存
+export function paytypeAliasSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "event/paytypeAliasSave"
+            : "event/paytypeAliasSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+
+
+
+
+
+// 保存
 export function rakebackStatusSave(data, formName, method = "post") {
     let url =
         formName === "add"

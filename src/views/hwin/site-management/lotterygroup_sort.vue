@@ -27,7 +27,7 @@
                 <el-button-group>
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
                     <el-button type="primary" icon="el-icon-search" @click="onSubmit">查询</el-button>
-                    <!--<el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">新增</el-button>-->
+                    <!--<el-button v-if="'abcdef'.includes('d') > 0" type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">abc</el-button>-->
                 </el-button-group>
             </el-form-item>
         </el-form>
@@ -65,21 +65,38 @@
             <el-table-column label="					排序值		" prop="id" sortable="custom" fixed>
 
                 <template scope="scope">
-                    <el-input size="small" v-model="scope.row.languageCode" placeholder="请输入排序值"
+                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="updateLotterygroupSequence(scope.$index, scope.row)"
                     ></el-input>
                 </template>
 
             </el-table-column>
-            <el-table-column label="					属性		" prop="id" sortable="custom" fixed>
+            <el-table-column label="					属性		" prop="id" sortable="custom" fixed >
 
                 <template slot-scope="scope">
-                    <el-checkbox  v-model="scope.row.isCheck1">热门</el-checkbox>
-                    <el-checkbox  v-model="scope.row.isCheck2">推荐</el-checkbox>
-                    <el-checkbox  v-model="scope.row.isCheck3">新上</el-checkbox>
+                    <!--<el-checkbox-group-->
+                            <!--v-model="scope.row.property"-->
+                            <!--:min="1"-->
+                            <!--:max="4" @click.native="updateLotteryGroupPropertySave(scope.$index, scope.row)">-->
+                    <h1 v-if="scope.row.hot.includes('热门') > 0">
+                        <el-checkbox checked  @click.native="updateLotteryGroupPropertySave(scope.row.id, '-热门','','')">热门</el-checkbox>
+                    </h1>
+                    <h1 v-else>
+                        <el-checkbox @click.native="updateLotteryGroupPropertySave(scope.row.id, '+热门','','')">热门</el-checkbox>
+                    </h1>
+                    <h1 v-if="scope.row.recommand.includes('推荐') > 0">
+                        <el-checkbox checked  @click.native="updateLotteryGroupPropertySave(scope.row.id,'', '-推荐', '')">推荐</el-checkbox>
+                    </h1>
+                    <h1 v-else>
+                        <el-checkbox @click.native="updateLotteryGroupPropertySave(scope.row.id,'', '+推荐', '')">推荐</el-checkbox>
+                    </h1>
+                    <h1 v-if="scope.row.new.includes('新上') > 0">
+                        <el-checkbox checked  @click.native="updateLotteryGroupPropertySave(scope.row.id,'','', '-新上')">新上</el-checkbox>
+                    </h1>
+                    <h1 v-else>
+                        <el-checkbox @click.native="updateLotteryGroupPropertySave(scope.row.id,'','','+新上')">新上</el-checkbox>
+                    </h1>
                 </template>
-
             </el-table-column>
-
 
             <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
@@ -183,6 +200,8 @@
         lotterygroupSort,
         authAdminRoleList,
         authAdminSave,
+        updateLotterygroupSequence,
+        updateLotteryGroupPropertySave,
         authAdminDelete
     } from "../../../api/site-management";
 
@@ -354,8 +373,37 @@
                 }
                 this.handleFilter()
             },
-
-
+            updateLotteryGroupPropertySave(index, hot, recommand, newVal) {
+                var params = {
+                    id: index,
+                    hot: hot,
+                    recommand: recommand,
+                    new: newVal
+                }
+                // debugger
+                updateLotteryGroupPropertySave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
+            },
             sortByUserName(order) {
                 if (order === 'ascending') {
                     this.query.sort = '+username'
@@ -363,6 +411,35 @@
                     this.query.sort = '-username'
                 }
                 this.handleFilter()
+            },
+            updateLotterygroupSequence(index, row) {
+                var params = {
+                    id: row.id,
+                    sequence: row.sequence
+                }
+                // debugger
+                updateLotterygroupSequence(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
             },
             sortByStatus(order) {
                 if (order === 'ascending') {
