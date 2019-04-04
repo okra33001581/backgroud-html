@@ -659,9 +659,12 @@
                 width="85%"
                 top="5vh">
             <el-form :model="model" :rules="formRules" ref="dataForm">
-                <!--<el-form-item label="当前上级账号" prop="abc">-->
-                    <!--<el-input v-model="formData.abc" auto-complete="off"></el-input>-->
-                <!--</el-form-item>-->
+                <!--<el-form-item label="用户编号" prop="user_id">
+                    <el-input v-model="model.user_id" :data="model.user_id" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="用户名称" prop="username">
+                    <el-input v-model="model.username" :data="model.username" auto-complete="off"></el-input>
+                </el-form-item>-->
                 <template>
                     <el-table
                             :data="model.tableData"
@@ -854,6 +857,8 @@
                     }]
                 },
                 model:{
+                    user_id:"",
+                    username:"",
                     rules: {
                         name:{ type:"string",required:true,message:"必填字段",trigger:"change"},
                         input:{ type:"string",required:true,message:"必填字段",trigger:"change"},
@@ -1334,6 +1339,10 @@
                     this.formData = Object.assign({}, row);
                 }
                 this.formData.status += ""; // 转为字符串（解决默认选中的时候字符串和数字不能比较的问题）
+                // anshan
+                this.model.user_id = row.id;
+                this.model.username = row.realname;
+
                 this.formName = "add";
                 this.formRules = this.addRules;
                 if (index !== null) {
