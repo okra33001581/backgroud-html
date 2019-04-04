@@ -139,26 +139,26 @@
             最后登录日期
             注册日期
 -->
-            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					用户ID		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					用户名		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					真实姓名		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					所属组		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					上级代理		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					用户层级		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					昵称		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					QQ号		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					微信号		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					手机号		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					邮箱		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					账户余额		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					最后在线		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					最后登录日期		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					注册日期		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					ID		" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
+            <el-table-column label="					用户ID		" prop="id" fixed></el-table-column>
+            <el-table-column label="					用户名		" prop="id" fixed></el-table-column>
+            <el-table-column label="					真实姓名		" prop="id" fixed></el-table-column>
+            <el-table-column label="					所属组		" prop="id" fixed></el-table-column>
+            <el-table-column label="					上级代理		" prop="id" fixed></el-table-column>
+            <el-table-column label="					用户层级		" prop="id" fixed></el-table-column>
+            <el-table-column label="					昵称		" prop="id" fixed></el-table-column>
+            <el-table-column label="					QQ号		" prop="id" fixed></el-table-column>
+            <el-table-column label="					微信号		" prop="id" fixed></el-table-column>
+            <el-table-column label="					手机号		" prop="id" fixed></el-table-column>
+            <el-table-column label="					邮箱		" prop="id" fixed></el-table-column>
+            <el-table-column label="					账户余额		" prop="id" fixed></el-table-column>
+            <el-table-column label="					最后在线		" prop="id" fixed></el-table-column>
+            <el-table-column label="					最后登录日期		" prop="id" fixed></el-table-column>
+            <el-table-column label="					注册日期		" prop="id" fixed></el-table-column>
 
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"

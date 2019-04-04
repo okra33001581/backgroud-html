@@ -217,7 +217,7 @@ export const asyncRouterMap = [
                 path: "proxyiptables_blackcontainlist",
                 component: proxyiptables_blackcontainlist,
                 icon: "proxyiptables_blackcontainlist",
-                name: 'route.externalLink',
+                name: 'ip限制',
                 // title: 'route.externalLink',
                 // meta: { title: 'route.externalLink', icon: 'list' }
                 // meta: {

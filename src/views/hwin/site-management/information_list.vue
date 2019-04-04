@@ -85,12 +85,12 @@
             <el-table-column type="selection" width="55">
             </el-table-column>
 
-            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					ID		" prop="id" fixed></el-table-column>
 
             <el-table-column prop="tableName" :label="$t('text.globalCurrency')" width="100" align="center"></el-table-column>
-            <!--<el-table-column label="			商户名称				" prop="title" sortable="custom" fixed></el-table-column>-->
+            <!--<el-table-column label="			商户名称				" prop="title" fixed></el-table-column>-->
 
-            <el-table-column label="					排序值		" prop="id" sortable="custom" fixed>
+            <el-table-column label="					排序值		" prop="id" fixed>
 
                 <template scope="scope">
                     <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="updateInformationSequence(scope.$index, scope.row)"
@@ -98,10 +98,10 @@
                 </template>
 
             </el-table-column>
-            <el-table-column label="					资讯类型		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					资讯标题		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					最后更新时间		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					管理员		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					资讯类型		" prop="id" fixed></el-table-column>
+            <el-table-column label="					资讯标题		" prop="id" fixed></el-table-column>
+            <el-table-column label="					最后更新时间		" prop="id" fixed></el-table-column>
+            <el-table-column label="					管理员		" prop="id" fixed></el-table-column>
 
 
 
@@ -115,10 +115,10 @@
                 <el-button class="editor-btn" type="primary" @click="submit">提交</el-button>
             </div>-->
 
-            <el-table-column label="					状态		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					状态		" prop="id" fixed></el-table-column>
 
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"

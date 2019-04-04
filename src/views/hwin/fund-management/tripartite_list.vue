@@ -105,19 +105,19 @@
             启用状态
             操作人
 -->
-            <el-table-column label="					序号		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					三方类型		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					商户代称		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					支付类型		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					三方公司		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					商户号		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					启用层级		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					当前额度		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					启用状态		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					操作人		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					序号		" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
+            <el-table-column label="					三方类型		" prop="id" fixed></el-table-column>
+            <el-table-column label="					商户代称		" prop="id" fixed></el-table-column>
+            <el-table-column label="					支付类型		" prop="id" fixed></el-table-column>
+            <el-table-column label="					三方公司		" prop="id" fixed></el-table-column>
+            <el-table-column label="					商户号		" prop="id" fixed></el-table-column>
+            <el-table-column label="					启用层级		" prop="id" fixed></el-table-column>
+            <el-table-column label="					当前额度		" prop="id" fixed></el-table-column>
+            <el-table-column label="					启用状态		" prop="id" fixed></el-table-column>
+            <el-table-column label="					操作人		" prop="id" fixed></el-table-column>
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"

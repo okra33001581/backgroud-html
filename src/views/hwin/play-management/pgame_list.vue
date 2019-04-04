@@ -84,15 +84,15 @@
             排序
             属性
 -->
-            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					游戏		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					类型		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					周期（天）		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					周期（秒）		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					销售时间（开始）		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					销售时间（结束）		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					状态		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					排序值		" prop="id" sortable="custom" fixed>
+            <el-table-column label="					ID		" prop="id" fixed></el-table-column>
+            <el-table-column label="					游戏		" prop="id" fixed></el-table-column>
+            <el-table-column label="					类型		" prop="id" fixed></el-table-column>
+            <el-table-column label="					周期（天）		" prop="id" fixed></el-table-column>
+            <el-table-column label="					周期（秒）		" prop="id" fixed></el-table-column>
+            <el-table-column label="					销售时间（开始）		" prop="id" fixed></el-table-column>
+            <el-table-column label="					销售时间（结束）		" prop="id" fixed></el-table-column>
+            <el-table-column label="					状态		" prop="id" fixed></el-table-column>
+            <el-table-column label="					排序值		" prop="id" fixed>
 
                 <template scope="scope">
                     <el-input size="small" v-model="scope.row.languageCode" placeholder="请输入排序值"
@@ -100,7 +100,7 @@
                 </template>
 
             </el-table-column>
-            <el-table-column label="					属性		" prop="id" sortable="custom"  width="250" fixed>
+            <el-table-column label="					属性		" prop="id"  width="250" fixed>
                 <template slot-scope="scope">
                     <el-checkbox  v-model="scope.row.isCheck1">热门</el-checkbox>
                     <el-checkbox  v-model="scope.row.isCheck2">推荐</el-checkbox>
@@ -110,7 +110,7 @@
             </el-table-column>
 
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"

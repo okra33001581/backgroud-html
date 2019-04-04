@@ -100,17 +100,17 @@
             访问网址
             登入日期
 -->
-            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					编号		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					用户名		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					登入信息		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					IP地址		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					位置		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					访问网址		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					登入日期		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					ID		" prop="id" fixed></el-table-column>
+            <el-table-column label="					编号		" prop="id" fixed></el-table-column>
+            <el-table-column label="					用户名		" prop="id" fixed></el-table-column>
+            <el-table-column label="					登入信息		" prop="id" fixed></el-table-column>
+            <el-table-column label="					IP地址		" prop="id" fixed></el-table-column>
+            <el-table-column label="					位置		" prop="id" fixed></el-table-column>
+            <el-table-column label="					访问网址		" prop="id" fixed></el-table-column>
+            <el-table-column label="					登入日期		" prop="id" fixed></el-table-column>
 
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"

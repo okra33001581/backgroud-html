@@ -245,26 +245,26 @@
             中奖状态
             状态
             -->
-            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					注单		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					用户名		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					时间		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					彩种		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					期数		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					开奖结果		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					玩法		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					动态奖金		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					投注内容		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					倍数		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					投注总金额		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					模式		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					返点金额		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					中奖金额		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					中奖状态		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					状态		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					ID		" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
+            <el-table-column label="					注单		" prop="id" fixed></el-table-column>
+            <el-table-column label="					用户名		" prop="id" fixed></el-table-column>
+            <el-table-column label="					时间		" prop="id" fixed></el-table-column>
+            <el-table-column label="					彩种		" prop="id" fixed></el-table-column>
+            <el-table-column label="					期数		" prop="id" fixed></el-table-column>
+            <el-table-column label="					开奖结果		" prop="id" fixed></el-table-column>
+            <el-table-column label="					玩法		" prop="id" fixed></el-table-column>
+            <el-table-column label="					动态奖金		" prop="id" fixed></el-table-column>
+            <el-table-column label="					投注内容		" prop="id" fixed></el-table-column>
+            <el-table-column label="					倍数		" prop="id" fixed></el-table-column>
+            <el-table-column label="					投注总金额		" prop="id" fixed></el-table-column>
+            <el-table-column label="					模式		" prop="id" fixed></el-table-column>
+            <el-table-column label="					返点金额		" prop="id" fixed></el-table-column>
+            <el-table-column label="					中奖金额		" prop="id" fixed></el-table-column>
+            <el-table-column label="					中奖状态		" prop="id" fixed></el-table-column>
+            <el-table-column label="					状态		" prop="id" fixed></el-table-column>
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"

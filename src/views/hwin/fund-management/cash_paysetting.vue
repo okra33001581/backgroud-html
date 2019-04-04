@@ -63,10 +63,10 @@
             <!--编号-->
             <!--名称-->
 
-            <el-table-column label="			编号				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			名称				" prop="id" :formatter="formatSex" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			编号				" prop="id" fixed></el-table-column>
+            <el-table-column label="			名称				" prop="id" :formatter="formatSex" fixed></el-table-column>
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"

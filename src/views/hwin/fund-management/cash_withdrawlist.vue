@@ -228,27 +228,27 @@
             前台备注
             后台备注
 -->
-            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					层级		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					订单号		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					会员账号		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					姓名		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					出款类型		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					手续费		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					实际出款		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					出款状态		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					申请时间		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					确认时间		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					风控		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					风控人		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					出款操作		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					操作人		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					前台备注		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					后台备注		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					ID		" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
+            <el-table-column label="					层级		" prop="id" fixed></el-table-column>
+            <el-table-column label="					订单号		" prop="id" fixed></el-table-column>
+            <el-table-column label="					会员账号		" prop="id" fixed></el-table-column>
+            <el-table-column label="					姓名		" prop="id" fixed></el-table-column>
+            <el-table-column label="					出款类型		" prop="id" fixed></el-table-column>
+            <el-table-column label="					手续费		" prop="id" fixed></el-table-column>
+            <el-table-column label="					实际出款		" prop="id" fixed></el-table-column>
+            <el-table-column label="					出款状态		" prop="id" fixed></el-table-column>
+            <el-table-column label="					申请时间		" prop="id" fixed></el-table-column>
+            <el-table-column label="					确认时间		" prop="id" fixed></el-table-column>
+            <el-table-column label="					风控		" prop="id" fixed></el-table-column>
+            <el-table-column label="					风控人		" prop="id" fixed></el-table-column>
+            <el-table-column label="					出款操作		" prop="id" fixed></el-table-column>
+            <el-table-column label="					操作人		" prop="id" fixed></el-table-column>
+            <el-table-column label="					前台备注		" prop="id" fixed></el-table-column>
+            <el-table-column label="					后台备注		" prop="id" fixed></el-table-column>
 
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"
@@ -327,7 +327,7 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
                 <el-form-item label="			ID 		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
+                <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
                 <el-form-item label="			层级 		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="			订单号    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="			会员账号		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>

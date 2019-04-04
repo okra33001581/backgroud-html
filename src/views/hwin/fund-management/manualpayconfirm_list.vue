@@ -138,27 +138,27 @@
             审核备注
             审核状态-->
 
-            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					会员账号		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					入款金额		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					出款金额		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					优惠金额		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					出/入款		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					出款银行卡卡号		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					综合打码量		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					常态稽核		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					申请时间		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					确认时间		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					提交人		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					提交备注		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					存入类型		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					审核人		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					审核备注		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					审核状态		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					ID		" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
+            <el-table-column label="					会员账号		" prop="id" fixed></el-table-column>
+            <el-table-column label="					入款金额		" prop="id" fixed></el-table-column>
+            <el-table-column label="					出款金额		" prop="id" fixed></el-table-column>
+            <el-table-column label="					优惠金额		" prop="id" fixed></el-table-column>
+            <el-table-column label="					出/入款		" prop="id" fixed></el-table-column>
+            <el-table-column label="					出款银行卡卡号		" prop="id" fixed></el-table-column>
+            <el-table-column label="					综合打码量		" prop="id" fixed></el-table-column>
+            <el-table-column label="					常态稽核		" prop="id" fixed></el-table-column>
+            <el-table-column label="					申请时间		" prop="id" fixed></el-table-column>
+            <el-table-column label="					确认时间		" prop="id" fixed></el-table-column>
+            <el-table-column label="					提交人		" prop="id" fixed></el-table-column>
+            <el-table-column label="					提交备注		" prop="id" fixed></el-table-column>
+            <el-table-column label="					存入类型		" prop="id" fixed></el-table-column>
+            <el-table-column label="					审核人		" prop="id" fixed></el-table-column>
+            <el-table-column label="					审核备注		" prop="id" fixed></el-table-column>
+            <el-table-column label="					审核状态		" prop="id" fixed></el-table-column>
 
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"

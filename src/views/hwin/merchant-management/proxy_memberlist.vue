@@ -101,16 +101,16 @@
             <!--是否锁定-->
             <!--在线状态-->
 
-            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					账号		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					昵称		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					使用语言		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					所属组		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					是否锁定		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					在线状态		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					ID		" prop="id" fixed></el-table-column>
+            <el-table-column label="					账号		" prop="id" fixed></el-table-column>
+            <el-table-column label="					昵称		" prop="id" fixed></el-table-column>
+            <el-table-column label="					使用语言		" prop="id" fixed></el-table-column>
+            <el-table-column label="					所属组		" prop="id" fixed></el-table-column>
+            <el-table-column label="					是否锁定		" prop="id" fixed></el-table-column>
+            <el-table-column label="					在线状态		" prop="id" fixed></el-table-column>
 
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"

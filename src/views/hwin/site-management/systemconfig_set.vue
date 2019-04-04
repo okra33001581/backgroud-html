@@ -52,14 +52,14 @@
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass"
                 >
-            <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
-            <!--<el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>-->
-            <el-table-column label="			状态				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			创建时间				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			更新时间				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			Id				" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
+            <!--<el-table-column label="			Name				" prop="id" fixed></el-table-column>-->
+            <el-table-column label="			状态				" prop="id" fixed></el-table-column>
+            <el-table-column label="			创建时间				" prop="id" fixed></el-table-column>
+            <el-table-column label="			更新时间				" prop="id" fixed></el-table-column>
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"
@@ -103,7 +103,7 @@
                 </template>
             </el-table-column>-->
             <el-table-column
-                    label="操作" width="260"
+                    label="操作" width="100"
                     fixed="right">
                 <template slot-scope="scope">
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑

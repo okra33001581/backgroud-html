@@ -78,12 +78,12 @@
             <!--总访问人数-->
             <!--总访问量-->
 
-            <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			域名				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			总访问人数				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			总访问量				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			Id				" prop="id" fixed></el-table-column>
+            <el-table-column label="			域名				" prop="id" fixed></el-table-column>
+            <el-table-column label="			总访问人数				" prop="id" fixed></el-table-column>
+            <el-table-column label="			总访问量				" prop="id" fixed></el-table-column>
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"

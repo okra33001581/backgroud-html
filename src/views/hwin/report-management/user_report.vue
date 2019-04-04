@@ -102,19 +102,19 @@
             出款次数
 
 -->
-            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					日期		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					ip量		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					注册人数		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					活跃数		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					首存人数		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					首存金额		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					入款人数		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					入款次数		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					出款次数		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					ID		" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
+            <el-table-column label="					日期		" prop="id" fixed></el-table-column>
+            <el-table-column label="					ip量		" prop="id" fixed></el-table-column>
+            <el-table-column label="					注册人数		" prop="id" fixed></el-table-column>
+            <el-table-column label="					活跃数		" prop="id" fixed></el-table-column>
+            <el-table-column label="					首存人数		" prop="id" fixed></el-table-column>
+            <el-table-column label="					首存金额		" prop="id" fixed></el-table-column>
+            <el-table-column label="					入款人数		" prop="id" fixed></el-table-column>
+            <el-table-column label="					入款次数		" prop="id" fixed></el-table-column>
+            <el-table-column label="					出款次数		" prop="id" fixed></el-table-column>
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"

@@ -114,21 +114,21 @@
             备注
             状态-->
 
-            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					会员账号		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					提交时间		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					审核时间		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					IP		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					类型		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					修改详情		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					申请人		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					审核人		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					备注		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					状态		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					ID		" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
+            <el-table-column label="					会员账号		" prop="id" fixed></el-table-column>
+            <el-table-column label="					提交时间		" prop="id" fixed></el-table-column>
+            <el-table-column label="					审核时间		" prop="id" fixed></el-table-column>
+            <el-table-column label="					IP		" prop="id" fixed></el-table-column>
+            <el-table-column label="					类型		" prop="id" fixed></el-table-column>
+            <el-table-column label="					修改详情		" prop="id" fixed></el-table-column>
+            <el-table-column label="					申请人		" prop="id" fixed></el-table-column>
+            <el-table-column label="					审核人		" prop="id" fixed></el-table-column>
+            <el-table-column label="					备注		" prop="id" fixed></el-table-column>
+            <el-table-column label="					状态		" prop="id" fixed></el-table-column>
 
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"

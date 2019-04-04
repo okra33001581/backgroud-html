@@ -58,15 +58,15 @@
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
-            <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			Id				" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
 
-            <el-table-column label="			名称				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			状态				" prop="id" sortable="custom" fixed></el-table-column>
-            <!--<el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>-->
-            <!--<el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>-->
+            <el-table-column label="			名称				" prop="id" fixed></el-table-column>
+            <el-table-column label="			状态				" prop="id" fixed></el-table-column>
+            <!--<el-table-column label="			Created At				" prop="id" fixed></el-table-column>-->
+            <!--<el-table-column label="			Updated At				" prop="id" fixed></el-table-column>-->
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"

@@ -56,22 +56,22 @@
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
-            <el-table-column label="			商户名称		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			支付名称		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			启用		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			vip2		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			vip3		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			vip4		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			vip5		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			vip6		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			vip8		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			未分层		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			vip.7		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			vip10		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			v11		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			商户名称		" prop="id" fixed></el-table-column>
+            <el-table-column label="			支付名称		" prop="id" fixed></el-table-column>
+            <el-table-column label="			启用		" prop="id" fixed></el-table-column>
+            <el-table-column label="			vip2		" prop="id" fixed></el-table-column>
+            <el-table-column label="			vip3		" prop="id" fixed></el-table-column>
+            <el-table-column label="			vip4		" prop="id" fixed></el-table-column>
+            <el-table-column label="			vip5		" prop="id" fixed></el-table-column>
+            <el-table-column label="			vip6		" prop="id" fixed></el-table-column>
+            <el-table-column label="			vip8		" prop="id" fixed></el-table-column>
+            <el-table-column label="			未分层		" prop="id" fixed></el-table-column>
+            <el-table-column label="			vip.7		" prop="id" fixed></el-table-column>
+            <el-table-column label="			vip10		" prop="id" fixed></el-table-column>
+            <el-table-column label="			v11		" prop="id" fixed></el-table-column>
 
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"

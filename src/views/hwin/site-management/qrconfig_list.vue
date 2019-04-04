@@ -58,8 +58,8 @@
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
-            <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			二维码预览				" prop="id" sortable="custom" fixed>
+            <el-table-column label="			Id				" prop="id" fixed></el-table-column>
+            <el-table-column label="			二维码预览				" prop="id" fixed>
                 <template slot-scope="scope">
                     <el-popover
                             placement="right"
@@ -70,11 +70,11 @@
                     </el-popover>
                 </template>
             </el-table-column>
-            <el-table-column label="			IOS链接预览				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			安卓链接预览				" prop="id" sortable="custom" fixed></el-table-column>
-            <!--<el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>-->
+            <el-table-column label="			IOS链接预览				" prop="id" fixed></el-table-column>
+            <el-table-column label="			安卓链接预览				" prop="id" fixed></el-table-column>
+            <!--<el-table-column label="			Updated At				" prop="id" fixed></el-table-column>-->
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"
@@ -118,7 +118,7 @@
                 </template>
             </el-table-column>-->
             <el-table-column
-                    label="操作" width="260"
+                    label="操作" width="100"
                     fixed="right">
                 <template slot-scope="scope">
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑

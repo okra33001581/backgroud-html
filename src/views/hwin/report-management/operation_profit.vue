@@ -111,23 +111,23 @@
             余额-->
 
 
-            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					用户名		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					所属组		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					总入款		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					总取款		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					有效盈利		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					投注总额		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					中奖金额		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					返点总额		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					游戏盈亏		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					优惠总额		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					系统扣减		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					余额		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					ID		" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
+            <el-table-column label="					用户名		" prop="id" fixed></el-table-column>
+            <el-table-column label="					所属组		" prop="id" fixed></el-table-column>
+            <el-table-column label="					总入款		" prop="id" fixed></el-table-column>
+            <el-table-column label="					总取款		" prop="id" fixed></el-table-column>
+            <el-table-column label="					有效盈利		" prop="id" fixed></el-table-column>
+            <el-table-column label="					投注总额		" prop="id" fixed></el-table-column>
+            <el-table-column label="					中奖金额		" prop="id" fixed></el-table-column>
+            <el-table-column label="					返点总额		" prop="id" fixed></el-table-column>
+            <el-table-column label="					游戏盈亏		" prop="id" fixed></el-table-column>
+            <el-table-column label="					优惠总额		" prop="id" fixed></el-table-column>
+            <el-table-column label="					系统扣减		" prop="id" fixed></el-table-column>
+            <el-table-column label="					余额		" prop="id" fixed></el-table-column>
 
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"

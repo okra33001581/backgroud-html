@@ -58,11 +58,11 @@
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
-            <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			Id				" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
 
-            <el-table-column label="					名称		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					排序值		" prop="id" sortable="custom" fixed>
+            <el-table-column label="					名称		" prop="id" fixed></el-table-column>
+            <el-table-column label="					排序值		" prop="id" fixed>
 
                 <template scope="scope">
                     <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="updateLotterygroupSequence(scope.$index, scope.row)"
@@ -70,7 +70,7 @@
                 </template>
 
             </el-table-column>
-            <el-table-column label="					属性		" prop="id" sortable="custom" fixed >
+            <el-table-column label="					属性		" prop="id" fixed >
 
                 <template slot-scope="scope">
                     <!--<el-checkbox-group-->
@@ -98,7 +98,7 @@
                 </template>
             </el-table-column>
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"

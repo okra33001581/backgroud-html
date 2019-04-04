@@ -106,20 +106,20 @@
             生成时间
             备注
 -->
-            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					代理账号		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					邀请码		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					绑定域名		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					访问量		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					返点		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					注册人数		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					开户类型		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					生成时间		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					备注		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					ID		" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
+            <el-table-column label="					代理账号		" prop="id" fixed></el-table-column>
+            <el-table-column label="					邀请码		" prop="id" fixed></el-table-column>
+            <el-table-column label="					绑定域名		" prop="id" fixed></el-table-column>
+            <el-table-column label="					访问量		" prop="id" fixed></el-table-column>
+            <el-table-column label="					返点		" prop="id" fixed></el-table-column>
+            <el-table-column label="					注册人数		" prop="id" fixed></el-table-column>
+            <el-table-column label="					开户类型		" prop="id" fixed></el-table-column>
+            <el-table-column label="					生成时间		" prop="id" fixed></el-table-column>
+            <el-table-column label="					备注		" prop="id" fixed></el-table-column>
 
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"

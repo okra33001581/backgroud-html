@@ -52,21 +52,21 @@
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
 
-            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					账号		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					姓名		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					可用余额		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					存入项目		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					存入金额		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					存款优惠		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					综合打码量稽核		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					常态性稽核		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					备注		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					会员备注		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					ID		" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
+            <el-table-column label="					账号		" prop="id" fixed></el-table-column>
+            <el-table-column label="					姓名		" prop="id" fixed></el-table-column>
+            <el-table-column label="					可用余额		" prop="id" fixed></el-table-column>
+            <el-table-column label="					存入项目		" prop="id" fixed></el-table-column>
+            <el-table-column label="					存入金额		" prop="id" fixed></el-table-column>
+            <el-table-column label="					存款优惠		" prop="id" fixed></el-table-column>
+            <el-table-column label="					综合打码量稽核		" prop="id" fixed></el-table-column>
+            <el-table-column label="					常态性稽核		" prop="id" fixed></el-table-column>
+            <el-table-column label="					备注		" prop="id" fixed></el-table-column>
+            <el-table-column label="					会员备注		" prop="id" fixed></el-table-column>
 
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"
@@ -140,7 +140,7 @@
             <el-form :model="formData" :rules="formRules" ref="dataForm">
 
                 <el-form-item label="			ID     		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
+                <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
                 <el-form-item label="			账号       		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="			姓名    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="			可用余额   		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>

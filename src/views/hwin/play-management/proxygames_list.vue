@@ -99,18 +99,18 @@
             添加时间
             操作-->
 
-            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					游戏ID		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					游戏名称		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					游戏图标		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					游戏类型		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					游戏厂商		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					状态		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					属性		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					添加时间		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					ID		" prop="id" fixed></el-table-column>
+            <el-table-column label="					游戏ID		" prop="id" fixed></el-table-column>
+            <el-table-column label="					游戏名称		" prop="id" fixed></el-table-column>
+            <el-table-column label="					游戏图标		" prop="id" fixed></el-table-column>
+            <el-table-column label="					游戏类型		" prop="id" fixed></el-table-column>
+            <el-table-column label="					游戏厂商		" prop="id" fixed></el-table-column>
+            <el-table-column label="					状态		" prop="id" fixed></el-table-column>
+            <el-table-column label="					属性		" prop="id" fixed></el-table-column>
+            <el-table-column label="					添加时间		" prop="id" fixed></el-table-column>
 
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"

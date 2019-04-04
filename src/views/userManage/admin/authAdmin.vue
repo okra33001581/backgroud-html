@@ -58,7 +58,7 @@
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
-            <el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             <!--<el-table-column
                 label="用户 ID"
                 prop="id"

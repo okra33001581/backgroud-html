@@ -90,21 +90,21 @@
             注单量
             活跃数
             -->
-            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					用户名		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					所属组		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					投注总额		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					有效投注		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					中奖总额		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					返点总额		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					游戏盈亏		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					盈利率		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					注单量		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					活跃数		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					ID		" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
+            <el-table-column label="					用户名		" prop="id" fixed></el-table-column>
+            <el-table-column label="					所属组		" prop="id" fixed></el-table-column>
+            <el-table-column label="					投注总额		" prop="id" fixed></el-table-column>
+            <el-table-column label="					有效投注		" prop="id" fixed></el-table-column>
+            <el-table-column label="					中奖总额		" prop="id" fixed></el-table-column>
+            <el-table-column label="					返点总额		" prop="id" fixed></el-table-column>
+            <el-table-column label="					游戏盈亏		" prop="id" fixed></el-table-column>
+            <el-table-column label="					盈利率		" prop="id" fixed></el-table-column>
+            <el-table-column label="					注单量		" prop="id" fixed></el-table-column>
+            <el-table-column label="					活跃数		" prop="id" fixed></el-table-column>
 
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"

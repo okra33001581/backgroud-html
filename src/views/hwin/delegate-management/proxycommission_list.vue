@@ -66,13 +66,13 @@
             <!--返点-->
             <!--默认配额-->
 
-            <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			代理层级				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			返点				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			默认配额				" prop="id" sortable="custom" fixed></el-table-column>
-            <!--<el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>-->
+            <el-table-column label="			Id				" prop="id" fixed></el-table-column>
+            <el-table-column label="			代理层级				" prop="id" fixed></el-table-column>
+            <el-table-column label="			返点				" prop="id" fixed></el-table-column>
+            <el-table-column label="			默认配额				" prop="id" fixed></el-table-column>
+            <!--<el-table-column label="			Updated At				" prop="id" fixed></el-table-column>-->
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"

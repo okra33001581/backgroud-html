@@ -72,8 +72,8 @@
             二维码
             操作人
 -->
-            <el-table-column label="					序号		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					排序值		" prop="id" sortable="custom" fixed>
+            <el-table-column label="					序号		" prop="id" fixed></el-table-column>
+            <el-table-column label="					排序值		" prop="id" fixed>
 
                 <template scope="scope">
                     <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="payAccountSequenceServer(scope.$index, scope.row)"
@@ -81,21 +81,21 @@
                 </template>
 
             </el-table-column>
-            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					添加时间		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					层级		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					支付类型		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					银行名称		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					银行账号		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					账号别名		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					收款人		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					附言		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					温馨提示		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					二维码		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					操作人		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
+            <el-table-column label="					添加时间		" prop="id" fixed></el-table-column>
+            <el-table-column label="					层级		" prop="id" fixed></el-table-column>
+            <el-table-column label="					支付类型		" prop="id" fixed></el-table-column>
+            <el-table-column label="					银行名称		" prop="id" fixed></el-table-column>
+            <el-table-column label="					银行账号		" prop="id" fixed></el-table-column>
+            <el-table-column label="					账号别名		" prop="id" fixed></el-table-column>
+            <el-table-column label="					收款人		" prop="id" fixed></el-table-column>
+            <el-table-column label="					附言		" prop="id" fixed></el-table-column>
+            <el-table-column label="					温馨提示		" prop="id" fixed></el-table-column>
+            <el-table-column label="					二维码		" prop="id" fixed></el-table-column>
+            <el-table-column label="					操作人		" prop="id" fixed></el-table-column>
 
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"

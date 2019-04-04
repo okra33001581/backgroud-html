@@ -69,28 +69,28 @@
 
 
 
-            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					存款日期		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					存款额		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					优惠		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					实际有效投注		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					ID		" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
+            <el-table-column label="					存款日期		" prop="id" fixed></el-table-column>
+            <el-table-column label="					存款额		" prop="id" fixed></el-table-column>
+            <el-table-column label="					优惠		" prop="id" fixed></el-table-column>
+            <el-table-column label="					实际有效投注		" prop="id" fixed></el-table-column>
             <el-table-column label="					优惠稽核		" prop="id" fixed>
-                <el-table-column label="					综合打码量		" prop="id" sortable="custom" fixed></el-table-column>
-                <el-table-column label="					是否达到		" prop="id" sortable="custom" fixed></el-table-column>
+                <el-table-column label="					综合打码量		" prop="id" fixed></el-table-column>
+                <el-table-column label="					是否达到		" prop="id" fixed></el-table-column>
             </el-table-column>
             <el-table-column label="					常态稽核		" prop="id" fixed>
-                <el-table-column label="					常态打码量		" prop="id" sortable="custom" fixed></el-table-column>
-                <el-table-column label="					放宽额度		" prop="id" sortable="custom" fixed></el-table-column>
-                <el-table-column label="					是否达到		" prop="id" sortable="custom" fixed></el-table-column>
-                <el-table-column label="					不需扣除费用		" prop="id" sortable="custom" fixed></el-table-column>
+                <el-table-column label="					常态打码量		" prop="id" fixed></el-table-column>
+                <el-table-column label="					放宽额度		" prop="id" fixed></el-table-column>
+                <el-table-column label="					是否达到		" prop="id" fixed></el-table-column>
+                <el-table-column label="					不需扣除费用		" prop="id" fixed></el-table-column>
             </el-table-column>
-            <el-table-column label="					需要扣除金额		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					备注		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					需要扣除金额		" prop="id" fixed></el-table-column>
+            <el-table-column label="					备注		" prop="id" fixed></el-table-column>
 
 
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"

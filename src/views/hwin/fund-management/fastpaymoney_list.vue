@@ -153,23 +153,23 @@
             备注
             操作-->
 
-            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					层级		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					订单号		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					收款账号		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					支付类型		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					会员账号		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					充值金额		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					实际入款		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					申请日期		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					确认日期		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					操作人		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					状态		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					备注		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					ID		" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
+            <el-table-column label="					层级		" prop="id" fixed></el-table-column>
+            <el-table-column label="					订单号		" prop="id" fixed></el-table-column>
+            <el-table-column label="					收款账号		" prop="id" fixed></el-table-column>
+            <el-table-column label="					支付类型		" prop="id" fixed></el-table-column>
+            <el-table-column label="					会员账号		" prop="id" fixed></el-table-column>
+            <el-table-column label="					充值金额		" prop="id" fixed></el-table-column>
+            <el-table-column label="					实际入款		" prop="id" fixed></el-table-column>
+            <el-table-column label="					申请日期		" prop="id" fixed></el-table-column>
+            <el-table-column label="					确认日期		" prop="id" fixed></el-table-column>
+            <el-table-column label="					操作人		" prop="id" fixed></el-table-column>
+            <el-table-column label="					状态		" prop="id" fixed></el-table-column>
+            <el-table-column label="					备注		" prop="id" fixed></el-table-column>
 
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"

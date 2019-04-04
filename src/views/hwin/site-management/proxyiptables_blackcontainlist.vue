@@ -59,16 +59,16 @@
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
-            <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			IP地址/地区				" prop="ip_list" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			说明				" prop="memo" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			添加日期				" prop="created_at" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			地区				" prop="district" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			类型				" prop="type" sortable="custom" fixed></el-table-column>
-            <!--<el-table-column label="			Created At				" prop="id" sortable="custom" fixed></el-table-column>-->
-            <!--<el-table-column label="			Updated At				" prop="id" sortable="custom" fixed></el-table-column>-->
+            <el-table-column label="			Id				" prop="id" fixed></el-table-column>
+            <el-table-column label="			IP地址/地区				" prop="ip_list" fixed></el-table-column>
+            <el-table-column label="			说明				" prop="memo" fixed></el-table-column>
+            <el-table-column label="			添加日期				" prop="created_at" fixed></el-table-column>
+            <el-table-column label="			地区				" prop="district" fixed></el-table-column>
+            <el-table-column label="			类型				" prop="type" fixed></el-table-column>
+            <!--<el-table-column label="			Created At				" prop="id" fixed></el-table-column>-->
+            <!--<el-table-column label="			Updated At				" prop="id" fixed></el-table-column>-->
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"

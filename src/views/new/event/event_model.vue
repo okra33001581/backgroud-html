@@ -227,9 +227,9 @@
             操作人员
             活动状态
 &ndash;&gt;
-            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					排序值		" prop="id" sortable="custom" fixed>
+            <el-table-column label="					ID		" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
+            <el-table-column label="					排序值		" prop="id" fixed>
 
                 <template scope="scope">
                     <el-input size="small" v-model="scope.row.languageCode" placeholder="请输入排序值"
@@ -237,16 +237,16 @@
                 </template>
 
             </el-table-column>
-            <el-table-column label="					活动名称		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					开始时间		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					结束时间		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					显示终端		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					编辑时间		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					操作人员		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					活动状态		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					活动名称		" prop="id" fixed></el-table-column>
+            <el-table-column label="					开始时间		" prop="id" fixed></el-table-column>
+            <el-table-column label="					结束时间		" prop="id" fixed></el-table-column>
+            <el-table-column label="					显示终端		" prop="id" fixed></el-table-column>
+            <el-table-column label="					编辑时间		" prop="id" fixed></el-table-column>
+            <el-table-column label="					操作人员		" prop="id" fixed></el-table-column>
+            <el-table-column label="					活动状态		" prop="id" fixed></el-table-column>
 
 
-            &lt;!&ndash;<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            &lt;!&ndash;<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"

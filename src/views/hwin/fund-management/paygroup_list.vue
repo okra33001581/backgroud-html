@@ -73,10 +73,10 @@
             支付类型别名
             菜单状态-->
 
-            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					入款方式		" prop="in_type" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					支付类型		" prop="pay_type" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					排序值		" prop="id" sortable="custom" fixed>
+            <el-table-column label="					ID		" prop="id" fixed></el-table-column>
+            <el-table-column label="					入款方式		" prop="in_type" fixed></el-table-column>
+            <el-table-column label="					支付类型		" prop="pay_type" fixed></el-table-column>
+            <el-table-column label="					排序值		" prop="id" fixed>
 
                 <template scope="scope">
                     <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="updateSequenceServer(scope.$index, scope.row)"
@@ -85,14 +85,14 @@
 
             </el-table-column>
 
-<!--            <el-table-column label="					属性		" prop="id" sortable="custom" fixed>
+<!--            <el-table-column label="					属性		" prop="id" fixed>
                 <template slot-scope="scope">
                     &lt;!&ndash;<el-checkbox-group v-model="checked" @change="isTest">&ndash;&gt;
                         <el-checkbox  v-model="scope.row.property" @click.native="updatePropertyServer(scope.$index, scope.row)" @change="isTest">热门</el-checkbox>
                     &lt;!&ndash;</el-checkbox-group>&ndash;&gt;
                 </template>
             </el-table-column>-->
-            <el-table-column label="					属性		" prop="id" sortable="custom" fixed>
+            <el-table-column label="					属性		" prop="id" fixed>
                 <template slot-scope="scope">
                 <h1 v-if="scope.row.property.includes('热门') > 0">
                     <el-checkbox checked  @click.native="updatePropertyServer(scope.row.id, '-热门')">热门</el-checkbox>
@@ -103,7 +103,7 @@
                 </template>
             </el-table-column>
 
-            <el-table-column label="					支付类型别名		" prop="id" sortable="custom" fixed>
+            <el-table-column label="					支付类型别名		" prop="id" fixed>
 
                 <template scope="scope">
                     <el-input size="small" v-model="scope.row.pay_type_alias" placeholder="请输入支付类型别名" @keyup.enter.native="updatePayTypeAliasServer(scope.$index, scope.row)"
@@ -112,9 +112,9 @@
 
             </el-table-column>
 
-            <el-table-column label="					菜单状态		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					菜单状态		" prop="id" fixed></el-table-column>
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"

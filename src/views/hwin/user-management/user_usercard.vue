@@ -102,22 +102,22 @@
             累计金额
             增加时间
 -->
-            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					状态		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					账号名		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					一代名称		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					银行		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					省市		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					卡号		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					支行名称		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					真实姓名		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					是否黑名单		" prop="is_black" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					累计金额		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					增加时间		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					ID		" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
+            <el-table-column label="					状态		" prop="id" fixed></el-table-column>
+            <el-table-column label="					账号名		" prop="id" fixed></el-table-column>
+            <el-table-column label="					一代名称		" prop="id" fixed></el-table-column>
+            <el-table-column label="					银行		" prop="id" fixed></el-table-column>
+            <el-table-column label="					省市		" prop="id" fixed></el-table-column>
+            <el-table-column label="					卡号		" prop="id" fixed></el-table-column>
+            <el-table-column label="					支行名称		" prop="id" fixed></el-table-column>
+            <el-table-column label="					真实姓名		" prop="id" fixed></el-table-column>
+            <el-table-column label="					是否黑名单		" prop="is_black" fixed></el-table-column>
+            <el-table-column label="					累计金额		" prop="id" fixed></el-table-column>
+            <el-table-column label="					增加时间		" prop="id" fixed></el-table-column>
 
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"

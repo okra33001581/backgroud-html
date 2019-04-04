@@ -70,9 +70,9 @@
             发布人员
             公告类型-->
 
-            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					排序值		" prop="id" sortable="custom" fixed>
+            <el-table-column label="					ID		" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
+            <el-table-column label="					排序值		" prop="id" fixed>
 
                 <template scope="scope">
                     <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="noticeSequence(scope.$index, scope.row)"
@@ -80,15 +80,15 @@
                 </template>
 
             </el-table-column>
-            <el-table-column label="					公告状态		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					标题		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					发送版本		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					编辑日期		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					发布人员		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					公告类型		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					公告状态		" prop="id" fixed></el-table-column>
+            <el-table-column label="					标题		" prop="id" fixed></el-table-column>
+            <el-table-column label="					发送版本		" prop="id" fixed></el-table-column>
+            <el-table-column label="					编辑日期		" prop="id" fixed></el-table-column>
+            <el-table-column label="					发布人员		" prop="id" fixed></el-table-column>
+            <el-table-column label="					公告类型		" prop="id" fixed></el-table-column>
 
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"
@@ -132,7 +132,7 @@
                 </template>
             </el-table-column>-->
             <el-table-column
-                    label="操作" width="750"
+                    label="操作" width="270"
                     fixed="right">
                 <template slot-scope="scope">
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑

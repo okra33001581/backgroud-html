@@ -172,22 +172,22 @@
             注册日期
             用户状态-->
 
-            <!--<el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>-->
-            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					在线状态		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					用户名		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					所属组		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					用户层级		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					所属上级		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					返点		" prop="id" sortable="custom" fixed></el-table-column>
-            <!--<el-table-column label="					账户余额		" prop="id" sortable="custom" fixed></el-table-column>-->
-            <!--<el-table-column label="					累计充值		" prop="id" sortable="custom" fixed></el-table-column>-->
-            <!--<el-table-column label="					累计投注		" prop="id" sortable="custom" fixed></el-table-column>-->
-            <!--<el-table-column label="					注册日期		" prop="id" sortable="custom" fixed></el-table-column>-->
-            <!--<el-table-column label="					用户状态		" prop="id" sortable="custom" fixed></el-table-column>-->
+            <!--<el-table-column label="					ID		" prop="id" fixed></el-table-column>-->
+            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
+            <el-table-column label="					在线状态		" prop="id" fixed></el-table-column>
+            <el-table-column label="					用户名		" prop="id" fixed></el-table-column>
+            <el-table-column label="					所属组		" prop="id" fixed></el-table-column>
+            <el-table-column label="					用户层级		" prop="id" fixed></el-table-column>
+            <el-table-column label="					所属上级		" prop="id" fixed></el-table-column>
+            <el-table-column label="					返点		" prop="id" fixed></el-table-column>
+            <!--<el-table-column label="					账户余额		" prop="id" fixed></el-table-column>-->
+            <!--<el-table-column label="					累计充值		" prop="id" fixed></el-table-column>-->
+            <!--<el-table-column label="					累计投注		" prop="id" fixed></el-table-column>-->
+            <!--<el-table-column label="					注册日期		" prop="id" fixed></el-table-column>-->
+            <!--<el-table-column label="					用户状态		" prop="id" fixed></el-table-column>-->
 
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"
@@ -669,7 +669,7 @@
                             style="width: 100%">
 
                         // dalian
-                       <!-- <el-table-column label="					排序值		" v-model="formData.abc" prop="tableData.date" sortable="custom" fixed>
+                       <!-- <el-table-column label="					排序值		" v-model="formData.abc" prop="tableData.date" fixed>
                             <template scope="scope">
                                 <el-input size="small" placeholder="请输入排序值"
                                 ></el-input>

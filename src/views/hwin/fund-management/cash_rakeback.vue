@@ -91,20 +91,20 @@
             -->
             <el-table-column type="selection" width="55">
             </el-table-column>
-            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					投注日期		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					用户名		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					有效投注额		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					返水比例		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					返水金额		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					发放时间		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					发放人		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					审核备注		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					审核状态		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					ID		" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
+            <el-table-column label="					投注日期		" prop="id" fixed></el-table-column>
+            <el-table-column label="					用户名		" prop="id" fixed></el-table-column>
+            <el-table-column label="					有效投注额		" prop="id" fixed></el-table-column>
+            <el-table-column label="					返水比例		" prop="id" fixed></el-table-column>
+            <el-table-column label="					返水金额		" prop="id" fixed></el-table-column>
+            <el-table-column label="					发放时间		" prop="id" fixed></el-table-column>
+            <el-table-column label="					发放人		" prop="id" fixed></el-table-column>
+            <el-table-column label="					审核备注		" prop="id" fixed></el-table-column>
+            <el-table-column label="					审核状态		" prop="id" fixed></el-table-column>
 
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"
@@ -189,7 +189,7 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
                 <el-form-item label="			ID    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
+                <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
                 <el-form-item label="			投注日期   		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="			用户名       		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="			有效投注额  		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>

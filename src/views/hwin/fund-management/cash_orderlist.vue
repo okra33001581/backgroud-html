@@ -172,20 +172,20 @@
             IP地址
             备注
 -->
-            <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					订单号		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					时间		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					会员账号		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					类型		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					平台		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					收入		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					支出		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					可用金额		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					IP地址		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					备注		" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					ID		" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
+            <el-table-column label="					订单号		" prop="id" fixed></el-table-column>
+            <el-table-column label="					时间		" prop="id" fixed></el-table-column>
+            <el-table-column label="					会员账号		" prop="id" fixed></el-table-column>
+            <el-table-column label="					类型		" prop="id" fixed></el-table-column>
+            <el-table-column label="					平台		" prop="id" fixed></el-table-column>
+            <el-table-column label="					收入		" prop="id" fixed></el-table-column>
+            <el-table-column label="					支出		" prop="id" fixed></el-table-column>
+            <el-table-column label="					可用金额		" prop="id" fixed></el-table-column>
+            <el-table-column label="					IP地址		" prop="id" fixed></el-table-column>
+            <el-table-column label="					备注		" prop="id" fixed></el-table-column>
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"
@@ -258,7 +258,7 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
                 <el-form-item label="			ID  		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
+                <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
                 <el-form-item label="			订单号    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="			时间 		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="			会员账号		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>

@@ -60,11 +60,11 @@
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
 
-            <el-table-column label="					编号		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					位置		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					状态		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					关闭图标		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="					电脑版图片		" prop="id" sortable="custom" fixed>
+            <el-table-column label="					编号		" prop="id" fixed></el-table-column>
+            <el-table-column label="					位置		" prop="id" fixed></el-table-column>
+            <el-table-column label="					状态		" prop="id" fixed></el-table-column>
+            <el-table-column label="					关闭图标		" prop="id" fixed></el-table-column>
+            <el-table-column label="					电脑版图片		" prop="id" fixed>
 
                 <template slot-scope="scope">
                     <el-popover
@@ -80,7 +80,7 @@
 
 
 
-            <el-table-column label="					排序值		" prop="id" sortable="custom" fixed>
+            <el-table-column label="					排序值		" prop="id" fixed>
 
                 <template scope="scope">
                     <el-input size="small" v-model="scope.row.languageCode" placeholder="请输入排序值"
@@ -88,16 +88,16 @@
                 </template>
 
             </el-table-column>
-            <el-table-column label="				名称		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="				图片		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="				展开图片		" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="				链接地址		" prop="id" sortable="custom" fixed></el-table-column>
-            <!--<el-table-column label="				更新时间		" prop="id" sortable="custom" fixed></el-table-column>-->
-            <!--<el-table-column label="				操作者		" prop="id" sortable="custom" fixed></el-table-column>-->
-            <!--<el-table-column label="				状态		" prop="id" sortable="custom" fixed></el-table-column>-->
+            <el-table-column label="				名称		" prop="id" fixed></el-table-column>
+            <el-table-column label="				图片		" prop="id" fixed></el-table-column>
+            <el-table-column label="				展开图片		" prop="id" fixed></el-table-column>
+            <el-table-column label="				链接地址		" prop="id" fixed></el-table-column>
+            <!--<el-table-column label="				更新时间		" prop="id" fixed></el-table-column>-->
+            <!--<el-table-column label="				操作者		" prop="id" fixed></el-table-column>-->
+            <!--<el-table-column label="				状态		" prop="id" fixed></el-table-column>-->
 
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"

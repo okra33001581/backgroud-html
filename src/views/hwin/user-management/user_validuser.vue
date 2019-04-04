@@ -68,15 +68,15 @@
 
             <!--一级代理	有效会员	新增用户	总存款	总出款-->
 
-            <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			一级代理				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			有效会员				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			新增用户				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			总存款				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			总出款				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			Id				" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
+            <el-table-column label="			一级代理				" prop="id" fixed></el-table-column>
+            <el-table-column label="			有效会员				" prop="id" fixed></el-table-column>
+            <el-table-column label="			新增用户				" prop="id" fixed></el-table-column>
+            <el-table-column label="			总存款				" prop="id" fixed></el-table-column>
+            <el-table-column label="			总出款				" prop="id" fixed></el-table-column>
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"

@@ -77,14 +77,14 @@
             标题
             类型
             操作人-->
-            <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			推送时间				" prop="id" :formatter="formatSex" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			标题				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			类型				" prop="id" sortable="custom" fixed></el-table-column>
-            <el-table-column label="			操作人				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="			Id				" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
+            <el-table-column label="			推送时间				" prop="id" :formatter="formatSex" fixed></el-table-column>
+            <el-table-column label="			标题				" prop="id" fixed></el-table-column>
+            <el-table-column label="			类型				" prop="id" fixed></el-table-column>
+            <el-table-column label="			操作人				" prop="id" fixed></el-table-column>
 
-            <!--<el-table-column label="ID" prop="id" sortable="custom" align="center" width="65"></el-table-column>
+            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
                 label="用户 ID"
                 prop="id"
