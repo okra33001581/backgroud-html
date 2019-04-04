@@ -231,7 +231,7 @@
                 </template>
             </el-table-column>-->
             <el-table-column
-                    label="操作" width="850"
+                    label="操作" width="700"
                     fixed="right">
                 <template slot-scope="scope">
 
@@ -421,37 +421,33 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                <el-form-item label="会员名称" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
-                </el-form-item>
-
-                <el-form-item label="冻结范围" prop="status">
-                    <el-radio-group v-model="formData.status">
-                        <el-radio label="0">仅冻结此用户不冻结其下级</el-radio>
-                        <el-radio label="1">冻结此用户和所有下级</el-radio>
+                <el-form-item label="冻结范围" prop="lock_range">
+                    <el-radio-group v-model="formData.lock_range">
+                        <el-radio label="仅冻结此用户不冻结其下级">仅冻结此用户不冻结其下级</el-radio>
+                        <el-radio label="冻结此用户和所有下级">冻结此用户和所有下级</el-radio>
                     </el-radio-group>
                 </el-form-item>
 
-                <el-form-item label="冻结方式" prop="status">
-                    <el-radio-group v-model="formData.status">
-                        <el-radio label="0">完全冻结</el-radio>
-                        <el-radio label="1">可登录，查看帮助中心，不可投注，不可充提</el-radio>
-                        <el-radio label="1">不可投注，可充提，查看用户列表和报表、帮助中心</el-radio>
+                <el-form-item label="冻结方式" prop="lock_type">
+                    <el-radio-group v-model="formData.lock_type">
+                        <el-radio label="完全冻结">完全冻结</el-radio>
+                        <el-radio label="可登录，查看帮助中心，不可投注，不可充提">可登录，查看帮助中心，不可投注，不可充提</el-radio>
+                        <el-radio label="不可投注，可充提，查看用户列表和报表、帮助中心">不可投注，可充提，查看用户列表和报表、帮助中心</el-radio>
                     </el-radio-group>
                 </el-form-item>
 
-                <el-form-item label="在线客服"  prop="status">
-                    <el-checkbox v-model="checked">允许访问在线客服</el-checkbox>
+                <el-form-item label="在线客服"  prop="online_qq">
+                    <el-checkbox v-model="formData.online_qq">允许访问在线客服</el-checkbox>
                 </el-form-item>
 
-                <el-form-item label="冻结原因" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="冻结原因" prop="lock_reason">
+                    <el-input v-model="formData.lock_reason" auto-complete="off"></el-input>
                 </el-form-item>
 
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideLockForm">取消</el-button>
-                <el-button type="primary" @click.native="formSubmit()" :loading="formLockLoading">提交</el-button>
+                <el-button type="primary" @click.native="formUserLockSubmit()" :loading="formLockLoading">提交</el-button>
             </div>
         </el-dialog>
 
@@ -801,6 +797,7 @@
         userTopParentSave,
         userRebateSave,
         getUserQuota,
+        userLockSave,
         authAdminDelete
     } from "../../../api/user-management";
 
@@ -1422,6 +1419,40 @@
                         this.formLoading = true;
                         let data = Object.assign({}, this.formData);
                         userTopParentSave(data, this.formName).then(response => {
+                            this.formLoading = false;
+                            if (response.code) {
+                                this.$message({
+                                    message: response.message,
+                                    type: "error"
+                                });
+                            } else {
+                                this.$message({
+                                    message: "操作成功",
+                                    type: "success"
+                                });
+                                // 向头部添加数据
+                                // this.list.unshift(res)
+                                // 刷新表单
+                                this.$refs["dataForm"].resetFields();
+                                this.formVisible = false;
+                                if (this.formName === "add") {
+                                    // 向头部添加数据
+                                    let resData = response.data || {};
+                                    this.list.unshift(resData);
+                                } else {
+                                    this.list.splice(this.index, 1, data);
+                                }
+                            }
+                        });
+                    }
+                });
+            },
+            formUserLockSubmit() {
+                this.$refs["dataForm"].validate(valid => {
+                    if (valid) {
+                        this.formLoading = true;
+                        let data = Object.assign({}, this.formData);
+                        userLockSave(data, this.formName).then(response => {
                             this.formLoading = false;
                             if (response.code) {
                                 this.$message({

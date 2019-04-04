@@ -236,3 +236,13 @@ export function userRebateSave(data) {
         data: data
     });
 }
+
+export function userLockSave(data) {
+    return axios({
+        url: "event/userLockSave",
+        method: "post",
+        data: data
+    });
+}
+
+
