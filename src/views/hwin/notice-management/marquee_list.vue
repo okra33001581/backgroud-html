@@ -59,6 +59,14 @@
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
             <el-table-column label="			Id				" prop="id" sortable="custom" fixed></el-table-column>
+            <el-table-column label="					排序值		" prop="id" sortable="custom" fixed>
+
+                <template scope="scope">
+                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="marqueeSequence(scope.$index, scope.row)"
+                    ></el-input>
+                </template>
+
+            </el-table-column>
             <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="			Name				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="			Status				" prop="id" sortable="custom" fixed></el-table-column>
@@ -168,6 +176,7 @@
         marqueeList,
         authAdminRoleList,
         marqueeSave,
+        marqueeSequence,
         marqueeDelete
     } from "../../../api/notice-management";
 
@@ -339,8 +348,35 @@
                 }
                 this.handleFilter()
             },
-
-
+            marqueeSequence(index, row) {
+                var params = {
+                    id: row.id,
+                    sequence: row.sequence
+                }
+                // debugger
+                marqueeSequence(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
+            },
             sortByUserName(order) {
                 if (order === 'ascending') {
                     this.query.sort = '+username'

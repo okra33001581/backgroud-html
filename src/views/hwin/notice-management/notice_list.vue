@@ -73,10 +73,12 @@
             <el-table-column label="					ID		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="			商户名称				" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					排序值		" prop="id" sortable="custom" fixed>
+
                 <template scope="scope">
-                    <el-input size="small" v-model="scope.row.languageCode" placeholder="请输入排序值"
+                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="noticeSequence(scope.$index, scope.row)"
                     ></el-input>
                 </template>
+
             </el-table-column>
             <el-table-column label="					公告状态		" prop="id" sortable="custom" fixed></el-table-column>
             <el-table-column label="					标题		" prop="id" sortable="custom" fixed></el-table-column>
@@ -230,6 +232,7 @@
         noticeSave,
         noticeStatusSave,
         noticeTopSave,
+        noticeSequence,
         noticeDelete
     } from "../../../api/notice-management";
 
@@ -436,6 +439,35 @@
                 }
                 // debugger
                 noticeTopSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
+            },
+            noticeSequence(index, row) {
+                var params = {
+                    id: row.id,
+                    sequence: row.sequence
+                }
+                // debugger
+                noticeSequence(params).then(
                     function (res) {
                         // debugger
                         /*if(res.code === 1){

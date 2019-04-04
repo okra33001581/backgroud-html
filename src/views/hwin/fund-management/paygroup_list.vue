@@ -85,13 +85,24 @@
 
             </el-table-column>
 
+<!--            <el-table-column label="					属性		" prop="id" sortable="custom" fixed>
+                <template slot-scope="scope">
+                    &lt;!&ndash;<el-checkbox-group v-model="checked" @change="isTest">&ndash;&gt;
+                        <el-checkbox  v-model="scope.row.property" @click.native="updatePropertyServer(scope.$index, scope.row)" @change="isTest">热门</el-checkbox>
+                    &lt;!&ndash;</el-checkbox-group>&ndash;&gt;
+                </template>
+            </el-table-column>-->
             <el-table-column label="					属性		" prop="id" sortable="custom" fixed>
                 <template slot-scope="scope">
-                    <!--<el-checkbox-group v-model="checked" @change="isTest">-->
-                        <el-checkbox  v-model="scope.row.property" @click.native="updatePropertyServer(scope.$index, scope.row)" @change="isTest">热门</el-checkbox>
-                    <!--</el-checkbox-group>-->
+                <h1 v-if="scope.row.property.includes('热门') > 0">
+                    <el-checkbox checked  @click.native="updatePropertyServer(scope.row.id, '-热门')">热门</el-checkbox>
+                </h1>
+                <h1 v-else>
+                    <el-checkbox @click.native="updatePropertyServer(scope.row.id, '+热门')">热门</el-checkbox>
+                </h1>
                 </template>
             </el-table-column>
+
             <el-table-column label="					支付类型别名		" prop="id" sortable="custom" fixed>
 
                 <template scope="scope">
@@ -485,10 +496,10 @@
             isTest(){
                 console.log(this.checked)
             },
-            updatePropertyServer(index, row) {
+            updatePropertyServer(index, property) {
                 var params = {
-                    id: row.id,
-                    property: row.property
+                    id: index,
+                    property: property
                 }
                 // debugger
                 propertySave(params).then(

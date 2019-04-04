@@ -112,8 +112,6 @@ export function noticeStatusSave(data, formName, method = "post") {
     });
 }
 
-
-
 // 保存
 export function marqueeSave(data, formName, method = "post") {
     let url =
@@ -127,7 +125,30 @@ export function marqueeSave(data, formName, method = "post") {
     });
 }
 
-
+// 保存
+export function marqueeSequence(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "event/marqueeSequence"
+            : "event/marqueeSequence";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+// 保存
+export function noticeSequence(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "event/noticeSequence"
+            : "event/noticeSequence";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
 
 // 删除管理员
 export function messageDelete(data) {
