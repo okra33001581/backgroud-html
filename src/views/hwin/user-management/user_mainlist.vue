@@ -800,6 +800,7 @@
         userQuotaSave,
         userTopParentSave,
         userRebateSave,
+        getUserQuota,
         authAdminDelete
     } from "../../../api/user-management";
 
@@ -879,19 +880,7 @@
                         "producedate.start":{ type:"string",required:true,message:"必填字段",trigger:"change"},
                         "expireddate.start":{ type:"string",required:true,message:"必填字段",trigger:"change"}
                     },
-                    tableData:[{
-                        rebate_level:"00",
-                        topallen_valid_count:"11",
-                        topallen_left_count:"22",
-                        left_count:"33",
-                        quota:"44",
-                    },{
-                        rebate_level:"55",
-                        topallen_valid_count:"66",
-                        topallen_left_count:"77",
-                        left_count:"88",
-                        quota:"99",
-                    }]
+                    tableData:[]
                 },
                 tableData123: [{
                     date: '2016-05-02',
@@ -1001,6 +990,18 @@
                 } else {
                     return ''
                 }
+            },
+            getUserQuotaList() {
+                // this.loading = true;
+                // chaoyang
+                getUserQuota(this.model.user_id)
+                // huangqiu
+                    .then(response => {
+                        this.model.tableData = response.data.list || [];
+                    })
+                    .catch(() => {
+                        this.model.tableData = [];
+                    });
             },
             handleCurrentChange(val) {
                 this.query.page = val;
@@ -1345,6 +1346,7 @@
 
             // 显示表单
             handleQuotaForm(index, row) {
+
                 this.formQuotaVisible = true;
                 this.formData = Object.assign({}, formJson);
                 if (row !== null) {
@@ -1354,7 +1356,7 @@
                 // anshan
                 this.model.user_id = row.id;
                 this.model.username = row.realname;
-
+                this.getUserQuotaList(this.model.user_id);
                 this.formName = "add";
                 this.formRules = this.addRules;
                 if (index !== null) {

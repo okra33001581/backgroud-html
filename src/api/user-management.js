@@ -11,6 +11,16 @@ export function userInfolist(query) {
         params: query
     });
 }
+
+// 获取列表
+export function getUserQuota(query) {
+    return axios({
+        url: "event/getUserQuota",
+        method: "get",
+        params: query
+    });
+}
+
 // 获取列表
 export function userInoutcash(query) {
     return axios({
