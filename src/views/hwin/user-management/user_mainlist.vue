@@ -178,8 +178,8 @@
             <el-table-column label="					用户名		" prop="id" fixed></el-table-column>
             <el-table-column label="					所属组		" prop="id" fixed></el-table-column>
             <el-table-column label="					用户层级		" prop="id" fixed></el-table-column>
-            <el-table-column label="					所属上级		" prop="id" fixed></el-table-column>
-            <el-table-column label="					返点		" prop="id" fixed></el-table-column>
+            <el-table-column label="					所属上级		" prop="top_level" fixed></el-table-column>
+            <el-table-column label="					返点		" prop="rake_setting" fixed></el-table-column>
             <!--<el-table-column label="					账户余额		" prop="id" fixed></el-table-column>-->
             <!--<el-table-column label="					累计充值		" prop="id" fixed></el-table-column>-->
             <!--<el-table-column label="					累计投注		" prop="id" fixed></el-table-column>-->
@@ -473,27 +473,33 @@
                     </thead>
                     <tr>
                         <td width="324" class="center">上级账号</td>
-                        <td width="521" class="center"><el-input style="width:350px;" v-model="formData.username" auto-complete="off"></el-input></td>
+                        <td width="521" class="center"><el-input style="width:350px;" v-model="formData.top_level" auto-complete="off"></el-input></td>
                         <td width="157" class="center">返点级别</td>
-                        <td width="178" class="center" id="free2"><el-input style="width:150px;" v-model="formData.username" auto-complete="off"></el-input></td>
+                        <td width="178" class="center" id="free2"><el-input style="width:150px;" v-model="formData.rake_setting" auto-complete="off"></el-input></td>
                     </tr>
                     <tr>
                         <td class="center">当前账号</td>
-                        <td class="center"><el-input style="width:350px;" v-model="formData.username" auto-complete="off"></el-input></td>
+                        <td class="center"><el-input style="width:350px;" v-model="formData.realname" auto-complete="off"></el-input></td>
                         <td class="center">返点级别</td>
-                        <td class="center"><el-input style="width:150px;" v-model="formData.username" auto-complete="off"></el-input></td>
+                        <td class="center"><el-input style="width:150px;" v-model="formData.rake_setting" auto-complete="off"></el-input></td>
                     </tr>
                     <tr>
                         <td class="center">下级账号</td>
-                        <td class="center"><el-input style="width:350px;" v-model="formData.username" auto-complete="off"></el-input></td>
+                        <td class="center"><el-input style="width:350px;" v-model="formData.realname" auto-complete="off"></el-input></td>
                         <td class="center">返点级别</td>
-                        <td class="center"><el-input style="width:150px;" v-model="formData.username" auto-complete="off"></el-input></td>
+                        <td class="center"><el-input style="width:150px;" v-model="formData.rake_setting" auto-complete="off"></el-input></td>
                     </tr>
                     <tr>
                         <td class="center">调整用户返点为</td>
                         <td class="center">
-                            <el-select v-model="query.status" placeholder="10.0%------2000">
-                                <el-option value="7" label="10.0%------2000"></el-option>
+                            <el-select v-model="formData.rake_setting" placeholder="10.0%------2000">
+                                <el-option value="10.0%------2000" label="10.0%------2000"></el-option>
+                                <el-option value="11.0%------3000" label="11.0%------3000"></el-option>
+                                <el-option value="12.0%------4000" label="12.0%------4000"></el-option>
+                                <el-option value="13.0%------5000" label="13.0%------5000"></el-option>
+                                <el-option value="14.0%------6000" label="14.0%------6000"></el-option>
+                                <el-option value="15.0%------7000" label="15.0%------7000"></el-option>
+                                <el-option value="16.0%------8000" label="16.0%------8000"></el-option>
                             </el-select>
                         </td>
                         <td class="center">&nbsp;</td>
@@ -532,7 +538,7 @@
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideAdjustForm">取消</el-button>
-                <el-button type="primary" @click.native="formSubmit()" :loading="formAdjustLoading">提交</el-button>
+                <el-button type="primary" @click.native="formEditRebateSubmit()" :loading="formAdjustLoading">提交</el-button>
             </div>
         </el-dialog>
 
@@ -630,24 +636,28 @@
                 width="35%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
-
-                <el-form-item label="当前上级账号" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="当前上级账号" prop="top_level">
+                    <el-input v-model="formData.top_level" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="返点级别" prop="username">
-                    <el-input v-model="formData.username" auto-complete="off"></el-input>
+                <el-form-item label="返点级别" prop="rake_setting">
+                    <el-input v-model="formData.rake_setting" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="修改上级账号" class="query-form-item">
-                    <el-select v-model="query.status" placeholder="修改上级账号">
-                        <el-option value="7" label="vip2"></el-option>
+                <el-form-item label="修改上级账号" prop="top_parent_new">
+                    <el-select v-model="formData.top_parent_new" placeholder="修改上级账号">
+                        <el-option value="user0001" label="user0001"></el-option>
+                        <el-option value="user0002" label="user0002"></el-option>
+                        <el-option value="user0003" label="user0003"></el-option>
+                        <el-option value="user0004" label="user0004"></el-option>
+                        <el-option value="user0005" label="user0005"></el-option>
+                        <el-option value="user0006" label="user0006"></el-option>
                     </el-select>
                 </el-form-item>
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideEditParentForm">取消</el-button>
-                <el-button type="primary" @click.native="formSubmit()" :loading="formEditParentLoading">提交</el-button>
+                <el-button type="primary" @click.native="formEditLevelSubmit()" :loading="formEditParentLoading">提交</el-button>
             </div>
         </el-dialog>
 
@@ -788,6 +798,8 @@
         userSave,
         userStatusSave,
         userQuotaSave,
+        userTopParentSave,
+        userRebateSave,
         authAdminDelete
     } from "../../../api/user-management";
 
@@ -1374,6 +1386,74 @@
                         this.formLoading = true;
                         let data = Object.assign({}, this.formData);
                         userSave(data, this.formName).then(response => {
+                            this.formLoading = false;
+                            if (response.code) {
+                                this.$message({
+                                    message: response.message,
+                                    type: "error"
+                                });
+                            } else {
+                                this.$message({
+                                    message: "操作成功",
+                                    type: "success"
+                                });
+                                // 向头部添加数据
+                                // this.list.unshift(res)
+                                // 刷新表单
+                                this.$refs["dataForm"].resetFields();
+                                this.formVisible = false;
+                                if (this.formName === "add") {
+                                    // 向头部添加数据
+                                    let resData = response.data || {};
+                                    this.list.unshift(resData);
+                                } else {
+                                    this.list.splice(this.index, 1, data);
+                                }
+                            }
+                        });
+                    }
+                });
+            },
+            formEditLevelSubmit() {
+                this.$refs["dataForm"].validate(valid => {
+                    if (valid) {
+                        this.formLoading = true;
+                        let data = Object.assign({}, this.formData);
+                        userTopParentSave(data, this.formName).then(response => {
+                            this.formLoading = false;
+                            if (response.code) {
+                                this.$message({
+                                    message: response.message,
+                                    type: "error"
+                                });
+                            } else {
+                                this.$message({
+                                    message: "操作成功",
+                                    type: "success"
+                                });
+                                // 向头部添加数据
+                                // this.list.unshift(res)
+                                // 刷新表单
+                                this.$refs["dataForm"].resetFields();
+                                this.formVisible = false;
+                                if (this.formName === "add") {
+                                    // 向头部添加数据
+                                    let resData = response.data || {};
+                                    this.list.unshift(resData);
+                                } else {
+                                    this.list.splice(this.index, 1, data);
+                                }
+                            }
+                        });
+                    }
+                });
+            },
+            formEditRebateSubmit() {
+                this.$refs["dataForm"].validate(valid => {
+                    if (valid) {
+                        this.formLoading = true;
+                        let data = Object.assign({}, this.formData);
+                        userRebateSave(data, this.formName).then(response => {
                             this.formLoading = false;
                             if (response.code) {
                                 this.$message({

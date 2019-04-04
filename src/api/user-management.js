@@ -210,3 +210,19 @@ export function userQuotaSave(data) {
         data: data
     });
 }
+
+// 删除管理员
+export function userTopParentSave(data) {
+    return axios({
+        url: "event/userTopParentSave",
+        method: "post",
+        data: data
+    });
+}
+export function userRebateSave(data) {
+    return axios({
+        url: "event/userRebateSave",
+        method: "post",
+        data: data
+    });
+}
