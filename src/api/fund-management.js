@@ -239,10 +239,18 @@ export function paytypeAliasSave(data, formName, method = "post") {
     });
 }
 
-
-
-
-
+// 保存
+export function payAccountStatusSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "event/payAccountStatusSave"
+            : "event/payAccountStatusSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
 
 // 保存
 export function rakebackStatusSave(data, formName, method = "post") {
