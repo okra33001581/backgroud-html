@@ -41,13 +41,13 @@
                     <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">新增</el-button>
                     <el-button type="primary" icon="el-icon-search" @click="handleDownload">excel</el-button>
 
-                    <div style="padding-left: 20px">
+                   <!-- <div style="padding-left: 20px">
                         <el-button @click="changeLanguage">切换语言</el-button>
-                    </div>
+                    </div>-->
 
-                    <div style="padding-left: 20px">
+                   <!-- <div style="padding-left: 20px">
                         <el-button @click="changeLanguage" v-if="hasPerm('article:add')">控件权限</el-button>
-                    </div>
+                    </div>-->
 
                 </el-button-group>
             </el-form-item>

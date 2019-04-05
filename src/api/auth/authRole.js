@@ -50,6 +50,14 @@ export function authRoleSave(data, formName, method = "post") {
     });
 }
 
+export function copyGroup(data) {
+    return axios({
+        url: "event/copyGroup",
+        method: "post",
+        data: data
+    });
+}
+
 // 删除
 export function authRoleDelete(data) {
     return axios({

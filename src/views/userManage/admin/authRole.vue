@@ -71,7 +71,7 @@
                     <el-button type="primary" icon="el-icon-share" size="small" @click.native="handleAuth(scope.row.id)">{{$t('page.audit')}}</el-button>
                     <el-button type="primary" icon="el-icon-view" size="small" @click.native="handleAuthByUser(scope.row.id)">{{$t('page.view')}}</el-button>
                     <el-button type="primary" icon="el-icon-edit" size="small" @click.native="handleForm(scope.$index, scope.row)">{{$t('page.edit')}}</el-button>
-                    <el-button type="primary" icon="el-icon-add" size="small" @click.native="handleForm(scope.$index, scope.row)">{{$t('page.copyGroup')}}</el-button>
+                    <el-button type="primary" icon="el-icon-add" size="small" @click.native="copyGroupServer(scope.$index, scope.row)">{{$t('page.copyGroup')}}</el-button>
                     <el-button type="danger" icon="el-icon-delete" size="small" @click.native="handleDel(scope.$index, scope.row)" :loading="deleteLoading">{{$t('page.del')}}</el-button>
                 </template>
             </el-table-column>
@@ -147,6 +147,7 @@ import {
     authRoleAuthListByUser,
     authRoleAuth,
     authRoleSave,
+    copyGroup,
     authRoleDelete
 } from "../../../api/auth/authRole";
 const formJson = {
@@ -229,6 +230,34 @@ export default {
                     this.list = [];
                     this.total = 0;
                 });
+        },
+        copyGroupServer(index, row) {
+            var params = {
+                id: row.id,
+            }
+            // debugger
+            copyGroup(params).then(
+                function (res) {
+                    // debugger
+                    /*if(res.code === 1){
+                        this.$message({
+                            message: res.data,
+                            type: 'success'
+                        })
+                        this.dialogFormVisible = false
+                    }else{
+                        this.$message({
+                            message: '错误信息：'+res.message,
+                            type: 'error'
+                        });
+                    }*/
+                    this.$message({
+                        message: '数据处理成功',
+                        type: 'success'
+                    })
+                    this.getList();
+                }.bind(this)
+            )
         },
         // 显示授权界面
         handleAuth(roleId) {
