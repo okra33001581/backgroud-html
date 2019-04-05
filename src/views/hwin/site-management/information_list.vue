@@ -346,8 +346,7 @@
 
     // import local from '../../i18n-demo/local'
     const viewName = 'VueI18n'
-
-
+    import VueCookies from 'vue-cookies'
     const formJson = {
         id: "",
         password: "",
@@ -356,7 +355,8 @@
         status: "1",
         display_time: undefined, // 前台展示时间
         content_short: '', // 文章摘要
-        roles: []
+        roles: [],
+        loginUser:$cookies.get('ADMIN-ID')
     };
     export default {
         data() {
