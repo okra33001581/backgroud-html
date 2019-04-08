@@ -3,14 +3,19 @@
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
 
+
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="类型">
+                <el-input v-model="query.merchant_name" placeholder="商户"></el-input>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.type" placeholder="类型">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="登录密码" value="0"></el-option>
-                    <el-option label="资金密码" value="1"></el-option>
-                    <el-option label="真实姓名" value="2"></el-option>
-                    <el-option label="银行卡修改" value="2"></el-option>
-                    <el-option label="修改上级" value="2"></el-option>
+                    <el-option label="登录密码" value="登录密码"></el-option>
+                    <el-option label="资金密码" value="资金密码"></el-option>
+                    <el-option label="真实姓名" value="真实姓名"></el-option>
+                    <el-option label="银行卡修改" value="银行卡修改"></el-option>
+                    <el-option label="修改上级" value="修改上级"></el-option>
                 </el-select>
             </el-form-item>
 
@@ -28,15 +33,15 @@
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="状态">
+                <el-select v-model="query.select_user_type" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="提交人" value="0"></el-option>
-                    <el-option label="审核人" value="1"></el-option>
+                    <el-option label="提交人" value="提交人"></el-option>
+                    <el-option label="审核人" value="审核人"></el-option>
                 </el-select>
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="用户名"></el-input>
+                <el-input v-model="query.username2" placeholder="用户名"></el-input>
             </el-form-item>
 
             <el-form-item class="query-form-item">

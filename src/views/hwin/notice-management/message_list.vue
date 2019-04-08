@@ -4,33 +4,37 @@
         <el-form :inline="true" :model="query" class="query-form" size="mini">
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="消息类型">
-                    <el-option value=" label="全部"></el-option>
-                    <el-option value="288" label="充提消息"></el-option>
-                    <el-option value="87" label="用户私信"></el-option>
-                    <el-option value="289" label="监控用户消息"></el-option>
-                    <el-option value="291" label="大额撤单消息"></el-option>
-                    <el-option value="290" label="财务每日消息"></el-option>
-                    <el-option value="474" label="系统消息"></el-option>
-                    <el-option value="473" label="活动消息"></el-option>
-                    <el-option value="0" label="中奖消息"></el-option>
+                <el-input v-model="query.merchant_name" placeholder="商户"></el-input>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.type" placeholder="消息类型">
+                    <el-option value="" label="全部"></el-option>
+                    <el-option value="充提消息" label="充提消息"></el-option>
+                    <el-option value="用户私信" label="用户私信"></el-option>
+                    <el-option value="监控用户消息" label="监控用户消息"></el-option>
+                    <el-option value="大额撤单消息" label="大额撤单消息"></el-option>
+                    <el-option value="财务每日消息" label="财务每日消息"></el-option>
+                    <el-option value="系统消息" label="系统消息"></el-option>
+                    <el-option value="活动消息" label="活动消息"></el-option>
+                    <el-option value="中奖消息" label="中奖消息"></el-option>
                 </el-select>
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="接收用户名"></el-input>
+                <el-input v-model="query.receivers" placeholder="接收用户名"></el-input>
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status1" placeholder="读取状态">
+                <el-select v-model="query.receive_flag" placeholder="读取状态">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="未读" value="0"></el-option>
-                    <el-option label="已阅读" value="1"></el-option>
+                    <el-option label="未读" value="未读"></el-option>
+                    <el-option label="已阅读" value="已阅读"></el-option>
                 </el-select>
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status2" placeholder="删除状态">
+                <el-select v-model="query.status" placeholder="删除状态">
                     <el-option label="全部" value=""></el-option>
                     <el-option label="未删" value="0"></el-option>
                     <el-option label="已删除" value="1"></el-option>
@@ -39,7 +43,7 @@
 
 
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="消息标题"></el-input>
+                <el-input v-model="query.title" placeholder="消息标题"></el-input>
             </el-form-item>
 
 
@@ -115,14 +119,14 @@
             发送时间
 -->
             <el-table-column label="					ID		" prop="id" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
-            <el-table-column label="					状态		" prop="id" fixed></el-table-column>
-            <el-table-column label="					是否已删		" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="					状态		" prop="receive_flag" fixed></el-table-column>
+            <el-table-column label="					是否已删		" prop="status" fixed></el-table-column>
             <el-table-column label="					标题		" prop="id" fixed></el-table-column>
             <el-table-column label="					消息类型		" prop="id" fixed></el-table-column>
             <el-table-column label="					发送组		" prop="id" fixed></el-table-column>
-            <el-table-column label="					接收用户		" prop="id" fixed></el-table-column>
-            <el-table-column label="					发送时间		" prop="id" fixed></el-table-column>
+            <el-table-column label="					接收用户		" prop="receivers" fixed></el-table-column>
+            <el-table-column label="					发送时间		" prop="created_at" fixed></el-table-column>
 
 
             <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>

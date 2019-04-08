@@ -2,8 +2,14 @@
 
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
+
+
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="代理名称"></el-input>
+                <el-input v-model="query.merchant_name" placeholder="商户"></el-input>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-input v-model="query.agent_name" placeholder="代理名称"></el-input>
             </el-form-item>
             <el-form-item class="query-form-item">
                 <el-date-picker

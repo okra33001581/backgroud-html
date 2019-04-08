@@ -2,6 +2,9 @@
 
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
+            <el-form-item class="query-form-item">
+                <el-input v-model="query.merchant_name" placeholder="商户"></el-input>
+            </el-form-item>
 
             <el-form-item class="query-form-item">
                 <el-date-picker
@@ -91,8 +94,9 @@
             活跃数
             -->
             <el-table-column label="					ID		" prop="id" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
-            <el-table-column label="					用户名		" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="					用户名		" prop="username" fixed></el-table-column>
+            <el-table-column label="					时间		" prop="date" fixed></el-table-column>
             <el-table-column label="					所属组		" prop="id" fixed></el-table-column>
             <el-table-column label="					投注总额		" prop="id" fixed></el-table-column>
             <el-table-column label="					有效投注		" prop="id" fixed></el-table-column>

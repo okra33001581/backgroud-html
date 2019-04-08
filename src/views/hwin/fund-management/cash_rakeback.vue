@@ -2,6 +2,11 @@
 
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
+
+            <el-form-item class="query-form-item">
+                <el-input v-model="query.merchant_name" placeholder="商户名称"></el-input>
+            </el-form-item>
+
             <el-form-item class="query-form-item">
                 <el-input v-model="query.username" placeholder="用户名"></el-input>
             </el-form-item>
@@ -27,7 +32,7 @@
                     <el-option label="未审核" value="0"></el-option>
                     <el-option label="未结束" value="1"></el-option>
                     <el-option label="审核通过" value="2"></el-option>
-                    <el-option label="审核拒绝" value="2"></el-option>
+                    <el-option label="审核拒绝" value="3"></el-option>
                 </el-select>
             </el-form-item>
             <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
@@ -92,9 +97,9 @@
             <el-table-column type="selection" width="55">
             </el-table-column>
             <el-table-column label="					ID		" prop="id" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
-            <el-table-column label="					投注日期		" prop="id" fixed></el-table-column>
-            <el-table-column label="					用户名		" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="					投注日期		" prop="project_date" fixed></el-table-column>
+            <el-table-column label="					用户名		" prop="username" fixed></el-table-column>
             <el-table-column label="					有效投注额		" prop="id" fixed></el-table-column>
             <el-table-column label="					返水比例		" prop="id" fixed></el-table-column>
             <el-table-column label="					返水金额		" prop="id" fixed></el-table-column>

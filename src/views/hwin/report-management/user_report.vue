@@ -3,6 +3,9 @@
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
 
+            <el-form-item class="query-form-item">
+                <el-input v-model="query.merchant_name" placeholder="商户"></el-input>
+            </el-form-item>
 
             <el-form-item class="query-form-item">
                 <el-date-picker
@@ -29,19 +32,19 @@
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="模式">
+                <el-select v-model="query.model" placeholder="模式">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="日表" value="0"></el-option>
-                    <el-option label="月表" value="1"></el-option>
+                    <el-option label="日表" value="日表"></el-option>
+                    <el-option label="月表" value="月表"></el-option>
                 </el-select>
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status1" placeholder="活跃数">
+                <el-select v-model="query.platform" placeholder="活跃数">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="彩票" value="0"></el-option>
-                    <el-option label="开元棋牌" value="1"></el-option>
-                    <el-option label="乐游棋牌" value="2"></el-option>
+                    <el-option label="彩票" value="彩票"></el-option>
+                    <el-option label="开元棋牌" value="开元棋牌"></el-option>
+                    <el-option label="乐游棋牌" value="乐游棋牌"></el-option>
                 </el-select>
             </el-form-item>
             <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
@@ -100,11 +103,13 @@
             入款人数
             入款次数
             出款次数
-
+r
 -->
             <el-table-column label="					ID		" prop="id" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
-            <el-table-column label="					日期		" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="					日期		" prop="date" fixed></el-table-column>
+            <el-table-column label="					平台		" prop="platform" fixed></el-table-column>
+            <el-table-column label="					模式		" prop="model" fixed></el-table-column>
             <el-table-column label="					ip量		" prop="id" fixed></el-table-column>
             <el-table-column label="					注册人数		" prop="id" fixed></el-table-column>
             <el-table-column label="					活跃数		" prop="id" fixed></el-table-column>

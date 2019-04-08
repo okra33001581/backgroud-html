@@ -2,6 +2,11 @@
 
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
+
+            <el-form-item class="query-form-item">
+                <el-input v-model="query.merchant_name" placeholder="商户"></el-input>
+            </el-form-item>
+
             <el-form-item class="query-form-item">
             <el-date-picker
                     v-model="query.beginDate"
@@ -79,6 +84,7 @@
             <!--总访问量-->
 
             <el-table-column label="			Id				" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户				" prop="merchant_name" fixed></el-table-column>
             <el-table-column label="			域名				" prop="id" fixed></el-table-column>
             <el-table-column label="			总访问人数				" prop="id" fixed></el-table-column>
             <el-table-column label="			总访问量				" prop="id" fixed></el-table-column>

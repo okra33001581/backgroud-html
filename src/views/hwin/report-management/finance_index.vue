@@ -2,6 +2,12 @@
 
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
+
+
+            <el-form-item class="query-form-item">
+                <el-input v-model="query.merchant_name" placeholder="商户"></el-input>
+            </el-form-item>
+
             <el-form-item class="query-form-item">
                 <el-date-picker
                         v-model="query.beginDate"
@@ -68,8 +74,8 @@
             小计-->
 
             <el-table-column label="					ID		" prop="id" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
-            <el-table-column label="					日期		" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="					日期		" prop="date" fixed></el-table-column>
             <el-table-column label="					公司入款		" prop="id" fixed></el-table-column>
             <el-table-column label="					第三方存入		" prop="id" fixed></el-table-column>
             <el-table-column label="					存款存入		" prop="id" fixed></el-table-column>

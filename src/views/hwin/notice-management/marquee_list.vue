@@ -2,8 +2,15 @@
 
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
+
+
+
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="用户名"></el-input>
+                <el-input v-model="query.merchant_name" placeholder="商户"></el-input>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-input v-model="query.title" placeholder="标题"></el-input>
             </el-form-item>
             <el-form-item class="query-form-item">
                 <el-select v-model="query.status" placeholder="状态">
@@ -67,9 +74,9 @@
                 </template>
 
             </el-table-column>
-            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
-            <el-table-column label="			Name				" prop="id" fixed></el-table-column>
-            <el-table-column label="			Status				" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="			标题				" prop="title" fixed></el-table-column>
+            <el-table-column label="			状态				" prop="status" fixed></el-table-column>
             <el-table-column label="			Created At				" prop="id" fixed></el-table-column>
             <el-table-column label="			Updated At				" prop="id" fixed></el-table-column>
 

@@ -14,13 +14,13 @@
             <el-form-item class="query-form-item">
                 <el-select v-model="query.type" placeholder="查詢類別">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="卡号" value="0"></el-option>
-                    <el-option label="用户名" value="1"></el-option>
+                    <el-option label="卡号" value="卡号"></el-option>
+                    <el-option label="用户名" value="用户名"></el-option>
                 </el-select>
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-input v-model="query.name" placeholder="卡号/用户名"></el-input>
+                <el-input v-model="query.keywords" placeholder="卡号/用户名"></el-input>
             </el-form-item>
 
             <el-form-item class="query-form-item">
@@ -28,16 +28,16 @@
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-input v-model="query.beginDate" placeholder="min"></el-input>
-                <el-input v-model="query.endDate" placeholder="max"></el-input>
+                <el-input v-model="query.min" placeholder="min"></el-input>
+                <el-input v-model="query.max" placeholder="max"></el-input>
             </el-form-item>
 
 
             <el-form-item class="query-form-item">
                 <el-select v-model="query.is_black" placeholder="是否为黑名单">
                     <el-option label="全部类型" value=""></el-option>
-                    <el-option label="正常卡" value="0"></el-option>
-                    <el-option label="黑名单" value="1"></el-option>
+                    <el-option label="正常卡" value="正常卡"></el-option>
+                    <el-option label="黑名单" value="黑名单"></el-option>
                 </el-select>
             </el-form-item>
 

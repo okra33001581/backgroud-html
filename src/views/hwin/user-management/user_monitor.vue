@@ -3,16 +3,22 @@
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
 
+
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="状态">
+                <el-input v-model="query.merchant_name" placeholder="商户"></el-input>
+            </el-form-item>
+
+
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.select_username_type" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="用户名" value="0"></el-option>
-                    <el-option label="真实姓名" value="1"></el-option>
-                    <el-option label="注册IP" value="2"></el-option>
-                    <el-option label="手机号" value="2"></el-option>
-                    <el-option label="邮箱" value="2"></el-option>
-                    <el-option label="QQ" value="2"></el-option>
-                    <el-option label="Cookies" value="2"></el-option>
+                    <el-option label="用户名" value="用户名"></el-option>
+                    <el-option label="真实姓名" value="真实姓名"></el-option>
+                    <el-option label="注册IP" value="注册IP"></el-option>
+                    <el-option label="手机号" value="手机号"></el-option>
+                    <el-option label="邮箱" value="邮箱"></el-option>
+                    <el-option label="QQ" value="QQ"></el-option>
+                    <el-option label="Cookies" value="Cookies"></el-option>
                 </el-select>
             </el-form-item>
 

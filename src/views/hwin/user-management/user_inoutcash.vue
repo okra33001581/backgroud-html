@@ -4,36 +4,40 @@
         <el-form :inline="true" :model="query" class="query-form" size="mini">
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="方式">
+                <el-input v-model="query.merchant_name" placeholder="商户"></el-input>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.type" placeholder="方式">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="有存款" value="0"></el-option>
-                    <el-option label="有取款" value="1"></el-option>
-                    <el-option label="有存取款" value="2"></el-option>
-                    <el-option label="无存款" value="2"></el-option>
-                    <el-option label="无取款" value="2"></el-option>
-                    <el-option label="无存取款" value="2"></el-option>
+                    <el-option label="有存款" value="有存款"></el-option>
+                    <el-option label="有取款" value="有取款"></el-option>
+                    <el-option label="有存取款" value="有存取款"></el-option>
+                    <el-option label="无存款" value="无存款"></el-option>
+                    <el-option label="无取款" value="无取款"></el-option>
+                    <el-option label="无存取款" value="无存取款"></el-option>
                 </el-select>
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="状态">
+                <el-select v-model="query.select_user_type" placeholder="用户名">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="用户名" value="0"></el-option>
-                    <el-option label="一级代理" value="1"></el-option>
+                    <el-option label="用户名" value="用户名"></el-option>
+                    <el-option label="一级代理" value="一级代理"></el-option>
                 </el-select>
             </el-form-item>
 
 
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="用户名"></el-input>
+                <el-input v-model="query.keywords" placeholder="用户名"></el-input>
             </el-form-item>
 
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="用户类型">
+                <el-select v-model="query.user_type" placeholder="用户类型">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="用户" value="0"></el-option>
-                    <el-option label="代理" value="1"></el-option>
+                    <el-option label="用户" value="用户"></el-option>
+                    <el-option label="代理" value="代理"></el-option>
                 </el-select>
             </el-form-item>
 

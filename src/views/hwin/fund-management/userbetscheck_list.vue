@@ -2,6 +2,12 @@
 
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
+
+
+            <el-form-item class="query-form-item">
+                <el-input v-model="query.merchant_name" placeholder="商户名称"></el-input>
+            </el-form-item>
+
             <el-form-item class="query-form-item">
                 <el-input v-model="query.username" placeholder="会员账号"></el-input>
             </el-form-item>
@@ -70,7 +76,8 @@
 
 
             <el-table-column label="					ID		" prop="id" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="					用户名称		" prop="username" fixed></el-table-column>
             <el-table-column label="					存款日期		" prop="id" fixed></el-table-column>
             <el-table-column label="					存款额		" prop="id" fixed></el-table-column>
             <el-table-column label="					优惠		" prop="id" fixed></el-table-column>

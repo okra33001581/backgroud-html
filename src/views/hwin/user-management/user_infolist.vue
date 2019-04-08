@@ -2,15 +2,21 @@
 
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
+
+
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="状态">
-                    <el-option value="username" label="用户名"></el-option>
-                    <el-option value="rname" label="真实姓名"></el-option>
-                    <el-option value="ufather" label="所属上级"></el-option>
-                    <el-option value="mobile" label="手机号"></el-option>
-                    <el-option value="qq" label="QQ号"></el-option>
-                    <el-option value="wx" label="微信号"></el-option>
-                    <el-option value="email" label="邮箱"></el-option>
+                <el-input v-model="query.merchant_name" placeholder="商户"></el-input>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.user_type" placeholder="状态">
+                    <el-option value="用户名" label="用户名"></el-option>
+                    <el-option value="真实姓名" label="真实姓名"></el-option>
+                    <el-option value="所属上级" label="所属上级"></el-option>
+                    <el-option value="手机号" label="手机号"></el-option>
+                    <el-option value="QQ号" label="QQ号"></el-option>
+                    <el-option value="微信号" label="微信号"></el-option>
+                    <el-option value="邮箱" label="邮箱"></el-option>
                 </el-select>
             </el-form-item>
 
@@ -19,37 +25,27 @@
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="所属组">
+                <el-select v-model="query.group" placeholder="所属组">
                     <el-option label="不限" value=""></el-option>
-                    <el-option label="一级代理" value="0"></el-option>
-                    <el-option label="代理用户" value="1"></el-option>
-                    <el-option label="会员用户" value="2"></el-option>
+                    <el-option label="一级代理" value="一级代理"></el-option>
+                    <el-option label="代理用户" value="代理用户"></el-option>
+                    <el-option label="会员用户" value="会员用户"></el-option>
                 </el-select>
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="所属层级">
-                    <el-option value="-1" label="不限"></el-option>
-                    <el-option value="0" label="未分层"></el-option>
-                    <el-option value="1" label="vip3"></el-option>
-                    <el-option value="2" label="vip4"></el-option>
-                    <el-option value="3" label="vip5"></el-option>
-                    <el-option value="4" label="vip6"></el-option>
-                    <el-option value="7" label="vip2"></el-option>
-                    <el-option value="8" label="vip8"></el-option>
-                    <el-option value="9" label="vip.7"></el-option>
-                    <el-option value="10" label="vip10"></el-option>
-                    <el-option value="11" label="v11"></el-option>
-                </el-select>
-            </el-form-item>
-
-            <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="状态">
-                    <el-option label="不限" value=""></el-option>
-                    <el-option label="账户余额" value="0"></el-option>
-                    <el-option label="可用余额" value="1"></el-option>
-                    <el-option label="未结算金额" value="2"></el-option>
-                    <el-option label="累计充值" value="2"></el-option>
+                <el-select v-model="query.user_level" placeholder="所属层级">
+                    <el-option value="" label="不限"></el-option>
+                    <el-option value="未分层" label="未分层"></el-option>
+                    <el-option value="vip3" label="vip3"></el-option>
+                    <el-option value="vip4" label="vip4"></el-option>
+                    <el-option value="vip5" label="vip5"></el-option>
+                    <el-option value="vip6" label="vip6"></el-option>
+                    <el-option value="vip2" label="vip2"></el-option>
+                    <el-option value="vip8" label="vip8"></el-option>
+                    <el-option value="vip7" label="vip7"></el-option>
+                    <el-option value="vip10" label="vip10"></el-option>
+                    <el-option value="v11" label="v11"></el-option>
                 </el-select>
             </el-form-item>
 
@@ -70,17 +66,17 @@
 
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="最后在线">
+                <el-select v-model="query.operate_type" placeholder="最后在线">
                     <el-option label="不限" value=""></el-option>
-                    <el-option label="小于" value="0"></el-option>
-                    <el-option label="等于" value="1"></el-option>
-                    <el-option label="大于" value="2"></el-option>
+                    <el-option label="小于" value="小于"></el-option>
+                    <el-option label="等于" value="等于"></el-option>
+                    <el-option label="大于" value="大于"></el-option>
                 </el-select>
             </el-form-item>
 
 
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="用户名"></el-input>
+                <el-input v-model="query.days" placeholder="天前"></el-input>
             </el-form-item>
 
 

@@ -4,46 +4,52 @@
         <el-form :inline="true" :model="query" class="query-form" size="mini">
 
             <el-form-item class="query-form-item">
+                <el-input v-model="query.merchant_name" placeholder="商户"></el-input>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
                 <el-date-picker
                         v-model="query.beginDate"
                         type="date"
                         placeholder="开始日期"
+                        value-format=" yyyy-MM-dd HH:mm" format="yyyy-MM-dd HH:mm"
                         :picker-options="pickerOptions0">
                 </el-date-picker>
                 <el-date-picker
                         v-model="query.endDate"
                         type="date"
                         placeholder="结束日期"
+                        value-format=" yyyy-MM-dd HH:mm" format="yyyy-MM-dd HH:mm"
                         :picker-options="pickerOptions1">
                 </el-date-picker>
             </el-form-item>
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status2" placeholder="分类">
+                <el-select v-model="query.type" placeholder="分类">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="登入成功" value="0"></el-option>
-                    <el-option label="注册成功" value="1"></el-option>
-                    <el-option label="密码错误" value="2"></el-option>
-                    <el-option label="登陆冻结账号" value="3"></el-option>
-                    <el-option label="其他错误" value="4"></el-option>
+                    <el-option label="登入成功" value="登入成功"></el-option>
+                    <el-option label="注册成功" value="注册成功"></el-option>
+                    <el-option label="密码错误" value="密码错误"></el-option>
+                    <el-option label="登陆冻结账号" value="登陆冻结账号"></el-option>
+                    <el-option label="其他错误" value="其他错误"></el-option>
                 </el-select>
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status1" placeholder="标题">
+                <el-select v-model="query.sub_type" placeholder="标题">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="用户名" value="0"></el-option>
-                    <el-option label="IP地址" value="1"></el-option>
+                    <el-option label="用户名" value="用户名"></el-option>
+                    <el-option label="IP地址" value="IP地址"></el-option>
                 </el-select>
             </el-form-item>
 
 
 
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="关键字"></el-input>
+                <el-input v-model="query.keywords" placeholder="关键字"></el-input>
             </el-form-item>
 
             <el-form-item class="query-form-item">
-            <el-checkbox>稽查</el-checkbox>
+            <el-checkbox  v-model="query.is_check">稽查</el-checkbox>
             </el-form-item>
 
             <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
@@ -102,7 +108,9 @@
 -->
             <el-table-column label="					ID		" prop="id" fixed></el-table-column>
             <el-table-column label="					编号		" prop="id" fixed></el-table-column>
-            <el-table-column label="					用户名		" prop="id" fixed></el-table-column>
+            <el-table-column label="					商户		" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="					用户名		" prop="username" fixed></el-table-column>
+            <el-table-column label="					类别		" prop="type" fixed></el-table-column>
             <el-table-column label="					登入信息		" prop="id" fixed></el-table-column>
             <el-table-column label="					IP地址		" prop="id" fixed></el-table-column>
             <el-table-column label="					位置		" prop="id" fixed></el-table-column>

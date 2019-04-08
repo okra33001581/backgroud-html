@@ -3,6 +3,12 @@
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
 
+
+            <el-form-item class="query-form-item">
+                <el-input v-model="query.merchant_name" placeholder="商户"></el-input>
+            </el-form-item>
+
+
             <el-form-item class="query-form-item">
                 <el-select v-model="query.status" placeholder="公告状态">
                     <el-option label="全部(公告状态)" value=""></el-option>
@@ -12,7 +18,7 @@
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="标题"></el-input>
+                <el-input v-model="query.title" placeholder="标题"></el-input>
             </el-form-item>
 
             <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
@@ -71,7 +77,7 @@
             公告类型-->
 
             <el-table-column label="					ID		" prop="id" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
             <el-table-column label="					排序值		" prop="id" fixed>
 
                 <template scope="scope">
@@ -80,8 +86,8 @@
                 </template>
 
             </el-table-column>
-            <el-table-column label="					公告状态		" prop="id" fixed></el-table-column>
-            <el-table-column label="					标题		" prop="id" fixed></el-table-column>
+            <el-table-column label="					公告状态		" prop="status" fixed></el-table-column>
+            <el-table-column label="					标题		" prop="title" fixed></el-table-column>
             <el-table-column label="					发送版本		" prop="id" fixed></el-table-column>
             <el-table-column label="					编辑日期		" prop="id" fixed></el-table-column>
             <el-table-column label="					发布人员		" prop="id" fixed></el-table-column>
