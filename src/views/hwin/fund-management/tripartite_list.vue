@@ -2,49 +2,55 @@
 
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
+
+            <el-form-item class="query-form-item">
+                <el-input v-model="query.merchant_name" placeholder="商户名称"></el-input>
+            </el-form-item>
+
             <el-form-item class="query-form-item">
                 <el-select v-model="query.status" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="启用" value="0"></el-option>
-                    <el-option label="停用" value="2"></el-option>
-                </el-select>
-            </el-form-item>
-            <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="三方类型">
-                    <el-option label="全部" value=""></el-option>
-                    <el-option label="入款" value="0"></el-option>
-                    <el-option label="出款" value="1"></el-option>
+                    <el-option label="正常" value="1"></el-option>
+                    <el-option label="隐藏" value="0"></el-option>
                 </el-select>
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="支付类型">
-                    <el-option value="-1" label="全部"></el-option>
-                    <el-option value="1" label="网银"></el-option>
-                    <el-option value="2" label="支付宝"></el-option>
-                    <el-option value="3" label="微信支付"></el-option>
-                    <el-option value="4" label="手机网银"></el-option>
-                    <el-option value="5" label="支付宝WAP"></el-option>
-                    <el-option value="6" label="微信支付WAP"></el-option>
-                    <el-option value="7" label="QQ钱包"></el-option>
-                    <el-option value="8" label="QQ钱包WAP"></el-option>
-                    <el-option value="9" label="银联"></el-option>
-                    <el-option value="10" label="京东"></el-option>
-                    <el-option value="11" label="百度"></el-option>
-                    <el-option value="12" label="支付宝H5"></el-option>
-                    <el-option value="13" label="微信支付H5"></el-option>
-                    <el-option value="14" label="银联WAP"></el-option>
-                    <el-option value="15" label="银联H5"></el-option>
-                    <el-option value="16" label="QQH5"></el-option>
-                    <el-option value="17" label="京东WAP"></el-option>
-                    <el-option value="18" label="京东H5"></el-option>
-                    <el-option value="19" label="百度WAP"></el-option>
-                    <el-option value="20" label="百度H5"></el-option>
-                    <el-option value="21" label="快捷支付"></el-option>
+                <el-select v-model="query.third_type" placeholder="三方类型">
+                    <el-option label="全部" value=""></el-option>
+                    <el-option label="入款" value="入款"></el-option>
+                    <el-option label="出款" value="出款"></el-option>
+                </el-select>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.pay_type" placeholder="支付类型">
+                    <el-option value="" label="全部"></el-option>
+                    <el-option value="网银" label="网银"></el-option>
+                    <el-option value="支付宝" label="支付宝"></el-option>
+                    <el-option value="微信支付" label="微信支付"></el-option>
+                    <el-option value="手机网银" label="手机网银"></el-option>
+                    <el-option value="支付宝WAP" label="支付宝WAP"></el-option>
+                    <el-option value="微信支付WAP" label="微信支付WAP"></el-option>
+                    <el-option value="QQ钱包" label="QQ钱包"></el-option>
+                    <el-option value="QQ钱包WAP" label="QQ钱包WAP"></el-option>
+                    <el-option value="银联" label="银联"></el-option>
+                    <el-option value="京东" label="京东"></el-option>
+                    <el-option value="百度" label="百度"></el-option>
+                    <el-option value="支付宝H5" label="支付宝H5"></el-option>
+                    <el-option value="微信支付H5" label="微信支付H5"></el-option>
+                    <el-option value="银联WAP" label="银联WAP"></el-option>
+                    <el-option value="银联H5" label="银联H5"></el-option>
+                    <el-option value="QQH5" label="QQH5"></el-option>
+                    <el-option value="京东WAP" label="京东WAP"></el-option>
+                    <el-option value="京东H5" label="京东H5"></el-option>
+                    <el-option value="百度WAP" label="百度WAP"></el-option>
+                    <el-option value="百度H5" label="百度H5"></el-option>
+                    <el-option value="快捷支付" label="快捷支付"></el-option>
                 </el-select>
             </el-form-item>
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="三方公司"></el-input>
+                <el-input v-model="query.third_company" placeholder="三方公司"></el-input>
             </el-form-item>
 
             <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
@@ -106,12 +112,12 @@
             操作人
 -->
             <el-table-column label="					序号		" prop="id" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
-            <el-table-column label="					三方类型		" prop="id" fixed></el-table-column>
-            <el-table-column label="					商户代称		" prop="id" fixed></el-table-column>
-            <el-table-column label="					支付类型		" prop="id" fixed></el-table-column>
-            <el-table-column label="					三方公司		" prop="id" fixed></el-table-column>
-            <el-table-column label="					商户号		" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="					三方类型		" prop="third_type" fixed></el-table-column>
+            <el-table-column label="					商户代称		" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="					支付类型		" prop="pay_type" fixed></el-table-column>
+            <el-table-column label="					三方公司		" prop="third_company" fixed></el-table-column>
+            <el-table-column label="					商户号		" prop="merchant_name" fixed></el-table-column>
             <el-table-column label="					启用层级		" prop="id" fixed></el-table-column>
             <el-table-column label="					当前额度		" prop="id" fixed></el-table-column>
             <el-table-column label="					启用状态		" prop="id" fixed></el-table-column>

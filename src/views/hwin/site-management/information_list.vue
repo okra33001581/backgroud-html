@@ -2,28 +2,41 @@
 
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
-            <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="资讯状态">
-                    <el-option label="全部" value=""></el-option>
-                    <el-option label="正常" value="0"></el-option>
-                    <el-option label="隐藏" value="2"></el-option>
-                </el-select>
-            </el-form-item>
+
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="资讯类型">
+                <el-input v-model="query.merchant_name" placeholder="商户名称"></el-input>
+            </el-form-item>
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.status" placeholder="状态">
+                    <el-option label="全部" value=""></el-option>
+                    <el-option label="正常" value="1"></el-option>
+                    <el-option label="隐藏" value="0"></el-option>
+                </el-select>
+            </el-form-item>
+            <!---->
+            <!--<el-form-item class="query-form-item">-->
+                <!--<el-select v-model="query.status" placeholder="资讯状态">-->
+                    <!--<el-option label="全部" value=""></el-option>-->
+                    <!--<el-option label="正常" value="0"></el-option>-->
+                    <!--<el-option label="隐藏" value="2"></el-option>-->
+                <!--</el-select>-->
+            <!--</el-form-item>-->
+
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.type" placeholder="资讯类型">
                     <el-option label="全部" value=""></el-option>
                     <el-option label="新闻" value="0"></el-option>
                     <el-option label="技巧" value="1"></el-option>
                 </el-select>
             </el-form-item>
 
-            <el-form-item class="query-form-item">
-            <el-radio-group v-model="query.autoWidth">
-                <el-radio :label="true" border>True</el-radio>
-                <el-radio :label="false" border>False</el-radio>
-            </el-radio-group>
-            </el-form-item>
+            <!--<el-form-item class="query-form-item">-->
+            <!--<el-radio-group v-model="query.autoWidth">-->
+                <!--<el-radio :label="true" border>True</el-radio>-->
+                <!--<el-radio :label="false" border>False</el-radio>-->
+            <!--</el-radio-group>-->
+            <!--</el-form-item>-->
             <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
                 <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key"/>
             </el-select>-->
@@ -90,6 +103,7 @@
             <el-table-column prop="tableName" :label="$t('text.globalCurrency')" width="100" align="center"></el-table-column>
             <!--<el-table-column label="			商户名称				" prop="title" fixed></el-table-column>-->
 
+            <el-table-column label="					商户		" prop="merchant_name" fixed></el-table-column>
             <el-table-column label="					排序值		" prop="id" fixed>
 
                 <template scope="scope">
@@ -98,7 +112,8 @@
                 </template>
 
             </el-table-column>
-            <el-table-column label="					资讯类型		" prop="id" fixed></el-table-column>
+            <el-table-column label="					状态		" prop="status" fixed></el-table-column>
+            <el-table-column label="					资讯类型		" prop="type" fixed></el-table-column>
             <el-table-column label="					资讯标题		" prop="id" fixed></el-table-column>
             <el-table-column label="					最后更新时间		" prop="id" fixed></el-table-column>
             <el-table-column label="					管理员		" prop="id" fixed></el-table-column>

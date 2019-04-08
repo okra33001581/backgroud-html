@@ -2,6 +2,11 @@
 
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
+
+            <el-form-item class="query-form-item">
+                <el-input v-model="query.merchant_name" placeholder="商户名称"></el-input>
+            </el-form-item>
+
             <!--<el-form-item class="query-form-item">
                 <el-input v-model="query.username" placeholder="用户名"></el-input>
             </el-form-item>
@@ -22,6 +27,14 @@
                     <el-option v-for="item in roles" :key="item.id" :label="item.name" :value="item.id"></el-option>
                 </el-select>
             </el-form-item>-->
+
+            <el-form-item>
+                <el-button-group>
+                    <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
+                    <el-button type="primary" icon="el-icon-search" @click="onSubmit">查询</el-button>
+                    <!--<el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">新增</el-button>-->
+                </el-button-group>
+            </el-form-item>
 
            <!-- <el-form-item>
                 <el-button-group>
@@ -59,6 +72,7 @@
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
             <el-table-column label="			Id				" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户				" prop="merchant_name" fixed></el-table-column>
             <el-table-column label="			二维码预览				" prop="id" fixed>
                 <template slot-scope="scope">
                     <el-popover

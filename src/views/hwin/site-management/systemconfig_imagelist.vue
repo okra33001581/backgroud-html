@@ -3,7 +3,7 @@
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="商户名称"></el-input>
+                <el-input v-model="query.merchant_name" placeholder="商户名称"></el-input>
             </el-form-item>
             <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
                 <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key"/>
@@ -51,7 +51,7 @@
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
             <el-table-column label="			Id				" prop="id" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
             <el-table-column label="			图标				" prop="id" fixed></el-table-column>
             <el-table-column label="			预览				" prop="id" fixed>
 

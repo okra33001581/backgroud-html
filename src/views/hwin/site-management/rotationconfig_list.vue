@@ -3,13 +3,13 @@
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
             <el-form-item class="query-form-item">
-               <el-input v-model="query.username" placeholder="商户名称"></el-input>
-           </el-form-item>
+                <el-input v-model="query.merchant_name" placeholder="商户名称"></el-input>
+            </el-form-item>
            <el-form-item class="query-form-item">
                <el-select v-model="query.status" placeholder="状态">
                    <el-option label="全部" value=""></el-option>
-                   <el-option label="正常" value="0"></el-option>
-                   <el-option label="隐藏" value="2"></el-option>
+                   <el-option label="正常" value="1"></el-option>
+                   <el-option label="隐藏" value="0"></el-option>
                </el-select>
            </el-form-item>
            <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
@@ -66,7 +66,8 @@
                 </template>
 
             </el-table-column>
-            <el-table-column label="					状态		" prop="id" fixed></el-table-column>
+            <el-table-column label="					商户		" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="					状态		" prop="status" fixed></el-table-column>
             <el-table-column label="					名称		" prop="id" fixed></el-table-column>
             <el-table-column label="					电脑版图片		" prop="id" fixed>
 

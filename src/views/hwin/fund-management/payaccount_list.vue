@@ -2,14 +2,17 @@
 
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
+            <el-form-item class="query-form-item">
+                <el-input v-model="query.merchant_name" placeholder="商户名称"></el-input>
+            </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="支付类型">
+                <el-select v-model="query.pay_type" placeholder="支付类型">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="转账汇款" value="0"></el-option>
-                    <el-option label="支付宝转账" value="1"></el-option>
-                    <el-option label="微信转账" value="2"></el-option>
-                    <el-option label="QQ转账" value="2"></el-option>
+                    <el-option label="转账汇款" value="转账汇款"></el-option>
+                    <el-option label="支付宝转账" value="支付宝转账"></el-option>
+                    <el-option label="微信转账" value="微信转账"></el-option>
+                    <el-option label="QQ转账" value="QQ转账"></el-option>
                 </el-select>
             </el-form-item>
             <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
@@ -81,10 +84,10 @@
                 </template>
 
             </el-table-column>
-            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
             <el-table-column label="					添加时间		" prop="id" fixed></el-table-column>
             <el-table-column label="					层级		" prop="id" fixed></el-table-column>
-            <el-table-column label="					支付类型		" prop="id" fixed></el-table-column>
+            <el-table-column label="					支付类型		" prop="pay_type" fixed></el-table-column>
             <el-table-column label="					银行名称		" prop="id" fixed></el-table-column>
             <el-table-column label="					银行账号		" prop="id" fixed></el-table-column>
             <el-table-column label="					账号别名		" prop="id" fixed></el-table-column>

@@ -3,7 +3,7 @@
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="商户名称"></el-input>
+                <el-input v-model="query.merchant_name" placeholder="商户名称"></el-input>
             </el-form-item>
             <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
                 <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key"/>
@@ -14,6 +14,13 @@
                     <el-option v-for="item in roles" :key="item.id" :label="item.name" :value="item.id"></el-option>
                 </el-select>
             </el-form-item>-->
+
+            <el-form-item label="类别:">
+                <el-select  placeholder="类别" v-model="query.type">
+                    <el-option label="IP地址" value="IP地址"></el-option>
+                    <el-option label="国家地区" value="国家地区"></el-option>
+                </el-select>
+            </el-form-item>
 
             <el-form-item>
                 <el-button-group>
@@ -60,6 +67,7 @@
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
             <el-table-column label="			Id				" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户				" prop="merchant_name" fixed></el-table-column>
             <el-table-column label="			IP地址/地区				" prop="ip_list" fixed></el-table-column>
             <el-table-column label="			说明				" prop="memo" fixed></el-table-column>
             <el-table-column label="			添加日期				" prop="created_at" fixed></el-table-column>
