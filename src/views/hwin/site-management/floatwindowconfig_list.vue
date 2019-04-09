@@ -61,9 +61,9 @@
 
             <el-table-column label="					编号		" prop="id" fixed></el-table-column>
             <el-table-column label="					商户		" prop="merchant_name" fixed></el-table-column>
-            <el-table-column label="					位置		" prop="id" fixed></el-table-column>
+            <el-table-column label="					位置		" prop="position" fixed></el-table-column>
             <el-table-column label="					状态		" prop="status" fixed></el-table-column>
-            <el-table-column label="					关闭图标		" prop="id" fixed></el-table-column>
+            <el-table-column label="					关闭图标		" prop="pic" fixed></el-table-column>
             <el-table-column label="					电脑版图片		" prop="id" fixed>
 
                 <template slot-scope="scope">
@@ -80,18 +80,17 @@
 
 
 
-            <el-table-column label="					排序值		" prop="id" fixed>
+            <el-table-column label="					排序值		" prop="position" fixed>
 
-                <template scope="scope">
-                    <el-input size="small" v-model="scope.row.languageCode" placeholder="请输入排序值"
-                    ></el-input>
-                </template>
+                template scope="scope">
+                <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="updatefloatwindowSequence(scope.$index, scope.row)"
+                ></el-input>
 
             </el-table-column>
-            <el-table-column label="				名称		" prop="id" fixed></el-table-column>
-            <el-table-column label="				图片		" prop="id" fixed></el-table-column>
-            <el-table-column label="				展开图片		" prop="id" fixed></el-table-column>
-            <el-table-column label="				链接地址		" prop="id" fixed></el-table-column>
+            <el-table-column label="				名称		" prop="title" fixed></el-table-column>
+            <el-table-column label="				图片		" prop="pic" fixed></el-table-column>
+            <el-table-column label="				展开图片		" prop="expand_pic" fixed></el-table-column>
+            <el-table-column label="				链接地址		" prop="link" fixed></el-table-column>
             <!--<el-table-column label="				更新时间		" prop="id" fixed></el-table-column>-->
             <!--<el-table-column label="				操作者		" prop="id" fixed></el-table-column>-->
             <!--<el-table-column label="				状态		" prop="id" fixed></el-table-column>-->
@@ -247,6 +246,7 @@
         floatwindowconfigList,
         authAdminRoleList,
         floatWindowSave,
+        updatefloatwindowSequence,
         floatwindowconfigDelete
     } from "../../../api/site-management";
 
@@ -395,6 +395,35 @@
                 } else if (prop === 'last_login_ip') {
                     this.sortByLastLoginIp(order)
                 }
+            },
+            updatefloatwindowSequence(index, row) {
+                var params = {
+                    id: row.id,
+                    sequence: row.sequence
+                }
+                // debugger
+                updatefloatwindowSequence(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
             },
             getList() {
                 this.loading = true;

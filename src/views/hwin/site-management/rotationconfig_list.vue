@@ -68,8 +68,8 @@
             </el-table-column>
             <el-table-column label="					商户		" prop="merchant_name" fixed></el-table-column>
             <el-table-column label="					状态		" prop="status" fixed></el-table-column>
-            <el-table-column label="					名称		" prop="id" fixed></el-table-column>
-            <el-table-column label="					电脑版图片		" prop="id" fixed>
+            <el-table-column label="					名称		" prop="title" fixed></el-table-column>
+            <el-table-column label="					电脑版图片		" prop="pc_pic" fixed>
 
                 <template slot-scope="scope">
                     <el-popover
@@ -83,7 +83,7 @@
 
             </el-table-column>
 
-            <el-table-column label="					手机版图片		" prop="id" fixed>
+            <el-table-column label="					手机版图片		" prop="mobile_pic" fixed>
 
                 <template slot-scope="scope">
                     <el-popover
@@ -99,9 +99,9 @@
 
 
 
-            <el-table-column label="					链接地址		" prop="id" fixed></el-table-column>
-            <el-table-column label="					更新时间		" prop="id" fixed></el-table-column>
-            <el-table-column label="					操作者		" prop="id" fixed></el-table-column>
+            <el-table-column label="					链接地址		" prop="link" fixed></el-table-column>
+            <el-table-column label="					更新时间		" prop="updated_at" fixed></el-table-column>
+            <el-table-column label="					操作者		" prop="updater" fixed></el-table-column>
 
 
             <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>

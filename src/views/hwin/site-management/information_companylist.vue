@@ -60,7 +60,7 @@
             <el-table-column label="			Id				" prop="id" fixed></el-table-column>
             <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
 
-            <el-table-column label="			名称				" prop="id" fixed></el-table-column>
+            <el-table-column label="			内容				" prop="content" fixed></el-table-column>
             <el-table-column label="			状态				" prop="status" fixed></el-table-column>
             <!--<el-table-column label="			Created At				" prop="id" fixed></el-table-column>-->
             <!--<el-table-column label="			Updated At				" prop="id" fixed></el-table-column>-->

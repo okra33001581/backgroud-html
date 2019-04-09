@@ -162,6 +162,18 @@ export function informationStatusSave(data, formName, method = "post") {
     });
 }
 
+export function updatefloatwindowSequence(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "event/updatefloatwindowSequence"
+            : "event/updatefloatwindowSequence";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
 export function qrCodeSave(data, formName, method = "post") {
     let url =
         formName === "add"

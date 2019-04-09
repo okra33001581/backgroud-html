@@ -104,7 +104,7 @@
             <!--<el-table-column label="			商户名称				" prop="title" fixed></el-table-column>-->
 
             <el-table-column label="					商户		" prop="merchant_name" fixed></el-table-column>
-            <el-table-column label="					排序值		" prop="id" fixed>
+            <el-table-column label="					排序值		" prop="sequence" fixed>
 
                 <template scope="scope">
                     <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="updateInformationSequence(scope.$index, scope.row)"
@@ -114,9 +114,9 @@
             </el-table-column>
             <el-table-column label="					状态		" prop="status" fixed></el-table-column>
             <el-table-column label="					资讯类型		" prop="type" fixed></el-table-column>
-            <el-table-column label="					资讯标题		" prop="id" fixed></el-table-column>
-            <el-table-column label="					最后更新时间		" prop="id" fixed></el-table-column>
-            <el-table-column label="					管理员		" prop="id" fixed></el-table-column>
+            <el-table-column label="					资讯标题		" prop="title" fixed></el-table-column>
+            <el-table-column label="					最后更新时间		" prop="updated_at" fixed></el-table-column>
+            <el-table-column label="					管理员		" prop="updater" fixed></el-table-column>
 
 
 

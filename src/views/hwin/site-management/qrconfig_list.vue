@@ -73,19 +73,19 @@
                 :header-cell-style="getRowClass">
             <el-table-column label="			Id				" prop="id" fixed></el-table-column>
             <el-table-column label="			商户				" prop="merchant_name" fixed></el-table-column>
-            <el-table-column label="			二维码预览				" prop="id" fixed>
+            <el-table-column label="			二维码预览				" prop="pic" fixed>
                 <template slot-scope="scope">
                     <el-popover
                             placement="right"
                             title=""
                             trigger="hover">
-                        <img src="../../images/1.png"/>
-                        <img slot="reference" src="../../images/1.png" :alt="id" style="max-height: 50px;max-width: 130px">
+                        <img src="pic"/>
+                        <img slot="reference" src="pic" :alt="id" style="max-height: 50px;max-width: 130px">
                     </el-popover>
                 </template>
             </el-table-column>
-            <el-table-column label="			IOS链接预览				" prop="id" fixed></el-table-column>
-            <el-table-column label="			安卓链接预览				" prop="id" fixed></el-table-column>
+            <el-table-column label="			IOS链接预览				" prop="ios_address" fixed></el-table-column>
+            <el-table-column label="			安卓链接预览				" prop="android_address" fixed></el-table-column>
             <!--<el-table-column label="			Updated At				" prop="id" fixed></el-table-column>-->
 
             <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
