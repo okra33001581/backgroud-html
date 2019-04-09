@@ -152,12 +152,12 @@
             时间
 -->
             <el-table-column label="					编号		" prop="id" fixed></el-table-column>
-            <el-table-column label="					子账号		" prop="id" fixed></el-table-column>
-            <el-table-column label="					操作名称		" prop="id" fixed></el-table-column>
-            <el-table-column label="					日志内容		" prop="id" fixed></el-table-column>
-            <el-table-column label="					IP		" prop="id" fixed></el-table-column>
-            <el-table-column label="					Cookies		" prop="id" fixed></el-table-column>
-            <el-table-column label="					时间		" prop="id" fixed></el-table-column>
+            <el-table-column label="					子账号		" prop="sub_account" fixed></el-table-column>
+            <el-table-column label="					操作名称		" prop="operate_name" fixed></el-table-column>
+            <el-table-column label="					日志内容		" prop="log_content" fixed></el-table-column>
+            <el-table-column label="					IP		" prop="ip" fixed></el-table-column>
+            <el-table-column label="					Cookies		" prop="cookies" fixed></el-table-column>
+            <el-table-column label="					时间		" prop="date" fixed></el-table-column>
 
 
             <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>

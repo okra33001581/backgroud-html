@@ -136,22 +136,22 @@
             注册日期
 -->
             <el-table-column label="					ID		" prop="id" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
             <el-table-column label="					用户ID		" prop="id" fixed></el-table-column>
-            <el-table-column label="					用户名		" prop="id" fixed></el-table-column>
-            <el-table-column label="					真实姓名		" prop="id" fixed></el-table-column>
-            <el-table-column label="					所属组		" prop="id" fixed></el-table-column>
-            <el-table-column label="					上级代理		" prop="id" fixed></el-table-column>
-            <el-table-column label="					用户层级		" prop="id" fixed></el-table-column>
-            <el-table-column label="					昵称		" prop="id" fixed></el-table-column>
-            <el-table-column label="					QQ号		" prop="id" fixed></el-table-column>
-            <el-table-column label="					微信号		" prop="id" fixed></el-table-column>
-            <el-table-column label="					手机号		" prop="id" fixed></el-table-column>
-            <el-table-column label="					邮箱		" prop="id" fixed></el-table-column>
+            <el-table-column label="					用户名		" prop="username" fixed></el-table-column>
+            <el-table-column label="					真实姓名		" prop="realname" fixed></el-table-column>
+            <el-table-column label="					所属组		" prop="group" fixed></el-table-column>
+            <el-table-column label="					上级代理		" prop="top_level" fixed></el-table-column>
+            <el-table-column label="					用户层级		" prop="user_level" fixed></el-table-column>
+            <el-table-column label="					昵称		" prop="nickname" fixed></el-table-column>
+            <el-table-column label="					QQ号		" prop="qq" fixed></el-table-column>
+            <el-table-column label="					微信号		" prop="weixin" fixed></el-table-column>
+            <el-table-column label="					手机号		" prop="tel" fixed></el-table-column>
+            <el-table-column label="					邮箱		" prop="email" fixed></el-table-column>
             <el-table-column label="					账户余额		" prop="id" fixed></el-table-column>
-            <el-table-column label="					最后在线		" prop="id" fixed></el-table-column>
-            <el-table-column label="					最后登录日期		" prop="id" fixed></el-table-column>
-            <el-table-column label="					注册日期		" prop="id" fixed></el-table-column>
+            <el-table-column label="					最后在线		" prop="online_status" fixed></el-table-column>
+            <el-table-column label="					最后登录日期		" prop="last_login_date" fixed></el-table-column>
+            <el-table-column label="					注册日期		" prop="created_at" fixed></el-table-column>
 
 
             <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
@@ -219,7 +219,7 @@
         <!--<pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />-->
 
         <!--表单-->
-        <el-dialog
+        <!--<el-dialog
                 :title="formMap[formName]"
                 :visible.sync="formVisible"
                 :before-close="hideForm"
@@ -248,7 +248,7 @@
                 <el-button @click.native="hideForm">取消</el-button>
                 <el-button type="primary" @click.native="formSubmit()" :loading="formLoading">提交</el-button>
             </div>
-        </el-dialog>
+        </el-dialog>-->
     </div>
 
 </template>

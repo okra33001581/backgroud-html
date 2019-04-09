@@ -103,18 +103,18 @@
             增加时间
 -->
             <el-table-column label="					ID		" prop="id" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
-            <el-table-column label="					状态		" prop="id" fixed></el-table-column>
-            <el-table-column label="					账号名		" prop="id" fixed></el-table-column>
-            <el-table-column label="					一代名称		" prop="id" fixed></el-table-column>
-            <el-table-column label="					银行		" prop="id" fixed></el-table-column>
-            <el-table-column label="					省市		" prop="id" fixed></el-table-column>
-            <el-table-column label="					卡号		" prop="id" fixed></el-table-column>
-            <el-table-column label="					支行名称		" prop="id" fixed></el-table-column>
-            <el-table-column label="					真实姓名		" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="					状态		" prop="status" fixed></el-table-column>
+            <el-table-column label="					账号名		" prop="account" fixed></el-table-column>
+            <el-table-column label="					一代名称		" prop="top_name" fixed></el-table-column>
+            <el-table-column label="					银行		" prop="bank" fixed></el-table-column>
+            <el-table-column label="					省市		" prop="province_city" fixed></el-table-column>
+            <el-table-column label="					卡号		" prop="card_number" fixed></el-table-column>
+            <el-table-column label="					支行名称		" prop="branch_name" fixed></el-table-column>
+            <el-table-column label="					真实姓名		" prop="real_name" fixed></el-table-column>
             <el-table-column label="					是否黑名单		" prop="is_black" fixed></el-table-column>
-            <el-table-column label="					累计金额		" prop="id" fixed></el-table-column>
-            <el-table-column label="					增加时间		" prop="id" fixed></el-table-column>
+            <el-table-column label="					累计金额		" prop="total_amount" fixed></el-table-column>
+            <el-table-column label="					增加时间		" prop="created_at" fixed></el-table-column>
 
 
             <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>

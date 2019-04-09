@@ -167,11 +167,11 @@
             用户状态-->
 
             <!--<el-table-column label="					ID		" prop="id" fixed></el-table-column>-->
-            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
-            <el-table-column label="					在线状态		" prop="id" fixed></el-table-column>
-            <el-table-column label="					用户名		" prop="id" fixed></el-table-column>
-            <el-table-column label="					所属组		" prop="id" fixed></el-table-column>
-            <el-table-column label="					用户层级		" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="					在线状态		" prop="online_status" fixed></el-table-column>
+            <el-table-column label="					用户名		" prop="username" fixed></el-table-column>
+            <el-table-column label="					所属组		" prop="group" fixed></el-table-column>
+            <el-table-column label="					用户层级		" prop="user_level" fixed></el-table-column>
             <el-table-column label="					所属上级		" prop="top_level" fixed></el-table-column>
             <el-table-column label="					返点		" prop="rake_setting" fixed></el-table-column>
             <!--<el-table-column label="					账户余额		" prop="id" fixed></el-table-column>-->

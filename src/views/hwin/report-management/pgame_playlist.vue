@@ -5,14 +5,14 @@
 
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="玩法类型">
+                <el-select v-model="query.way_type" placeholder="玩法类型">
                     <el-option label="全部" value=""></el-option>
                     <el-option label="官方玩法" value="0"></el-option>
                     <el-option label="信用玩法" value="2"></el-option>
                 </el-select>
             </el-form-item>
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status1" placeholder="游戏名称">
+                <el-select v-model="query.lottery" placeholder="游戏名称">
                     <el-option label="全部游戏" value="0"> </el-option>
                     <el-option label="江西多乐彩(官)" value="1"></el-option>
                     <el-option label="江西多乐彩(信)" value="2"></el-option>
@@ -95,7 +95,7 @@
 
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status2" placeholder="游戏玩法">
+                <el-select v-model="query.way" placeholder="游戏玩法">
                     <el-option label="全部" value=""></el-option>
 
                 </el-select>
@@ -103,7 +103,7 @@
 
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status3" placeholder="中奖状态">
+                <el-select v-model="query.prize_status" placeholder="中奖状态">
                     <el-option label="全部" value=""></el-option>
                     <el-option label="未判断"  value="73"></el-option>
                     <el-option label="中奖" value="74"></el-option>
@@ -113,7 +113,7 @@
 
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status4" placeholder="中奖状态">
+                <el-select v-model="query.operate_type" placeholder="用户撤单">
                     <el-option label="全部" value=""></el-option>
                     <el-option label="正常"  value="73"></el-option>
                     <el-option label="用户撤单" value="74"></el-option>
@@ -138,7 +138,7 @@
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status33" placeholder="状态">
+                <el-select v-model="query.sort" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
                     <el-option label="逆序" value="0"></el-option>
                     <el-option label="顺序" value="2"></el-option>
@@ -146,13 +146,13 @@
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status331" placeholder="状态">
+                <el-select v-model="query.prize_type" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
                     <el-option label="奖金" value="0"></el-option>
                     <el-option label="倍数" value="2"></el-option>
                 </el-select>
             </el-form-item>
-
+--=-=-=-
             <el-form-item class="query-form-item">
                 <el-date-picker
                         v-model="query.beginDate"
@@ -171,7 +171,7 @@
 
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status331" placeholder="状态">
+                <el-select v-model="query.select_info_type" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
                     <el-option label="用户名" value="0"></el-option>
                     <el-option label="注单" value="2"></el-option>
@@ -179,7 +179,7 @@
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="期数"></el-input>
+                <el-input v-model="query.issue" placeholder="期数"></el-input>
             </el-form-item>
             <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
                 <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key"/>
@@ -246,23 +246,23 @@
             状态
             -->
             <el-table-column label="					ID		" prop="id" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
-            <el-table-column label="					注单		" prop="id" fixed></el-table-column>
-            <el-table-column label="					用户名		" prop="id" fixed></el-table-column>
-            <el-table-column label="					时间		" prop="id" fixed></el-table-column>
-            <el-table-column label="					彩种		" prop="id" fixed></el-table-column>
-            <el-table-column label="					期数		" prop="id" fixed></el-table-column>
-            <el-table-column label="					开奖结果		" prop="id" fixed></el-table-column>
-            <el-table-column label="					玩法		" prop="id" fixed></el-table-column>
-            <el-table-column label="					动态奖金		" prop="id" fixed></el-table-column>
-            <el-table-column label="					投注内容		" prop="id" fixed></el-table-column>
-            <el-table-column label="					倍数		" prop="id" fixed></el-table-column>
-            <el-table-column label="					投注总金额		" prop="id" fixed></el-table-column>
-            <el-table-column label="					模式		" prop="id" fixed></el-table-column>
-            <el-table-column label="					返点金额		" prop="id" fixed></el-table-column>
-            <el-table-column label="					中奖金额		" prop="id" fixed></el-table-column>
-            <el-table-column label="					中奖状态		" prop="id" fixed></el-table-column>
-            <el-table-column label="					状态		" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="					注单		" prop="project" fixed></el-table-column>
+            <el-table-column label="					用户名		" prop="uername" fixed></el-table-column>
+            <el-table-column label="					时间		" prop="date" fixed></el-table-column>
+            <el-table-column label="					彩种		" prop="lottery" fixed></el-table-column>
+            <el-table-column label="					期数		" prop="issue_count" fixed></el-table-column>
+            <el-table-column label="					开奖结果		" prop="prize_number" fixed></el-table-column>
+            <el-table-column label="					玩法		" prop="way" fixed></el-table-column>
+            <el-table-column label="					动态奖金		" prop="dynamic_prize" fixed></el-table-column>
+            <el-table-column label="					投注内容		" prop="project_content" fixed></el-table-column>
+            <el-table-column label="					倍数		" prop="multiple" fixed></el-table-column>
+            <el-table-column label="					投注总金额		" prop="total_amount" fixed></el-table-column>
+            <el-table-column label="					模式		" prop="mode" fixed></el-table-column>
+            <el-table-column label="					返点金额		" prop="rebate_amount" fixed></el-table-column>
+            <el-table-column label="					中奖金额		" prop="prize_amount" fixed></el-table-column>
+            <el-table-column label="					中奖状态		" prop="prize_status" fixed></el-table-column>
+            <el-table-column label="					状态		" prop="status" fixed></el-table-column>
 
             <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column

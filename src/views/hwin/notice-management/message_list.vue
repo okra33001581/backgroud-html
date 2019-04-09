@@ -122,9 +122,9 @@
             <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
             <el-table-column label="					状态		" prop="receive_flag" fixed></el-table-column>
             <el-table-column label="					是否已删		" prop="status" fixed></el-table-column>
-            <el-table-column label="					标题		" prop="id" fixed></el-table-column>
-            <el-table-column label="					消息类型		" prop="id" fixed></el-table-column>
-            <el-table-column label="					发送组		" prop="id" fixed></el-table-column>
+            <el-table-column label="					标题		" prop="title" fixed></el-table-column>
+            <el-table-column label="					消息类型		" prop="type" fixed></el-table-column>
+            <el-table-column label="					发送用户		" prop="sender" fixed></el-table-column>
             <el-table-column label="					接收用户		" prop="receivers" fixed></el-table-column>
             <el-table-column label="					发送时间		" prop="created_at" fixed></el-table-column>
 

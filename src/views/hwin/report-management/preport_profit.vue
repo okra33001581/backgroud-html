@@ -97,15 +97,15 @@
             <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
             <el-table-column label="					用户名		" prop="username" fixed></el-table-column>
             <el-table-column label="					时间		" prop="date" fixed></el-table-column>
-            <el-table-column label="					所属组		" prop="id" fixed></el-table-column>
-            <el-table-column label="					投注总额		" prop="id" fixed></el-table-column>
-            <el-table-column label="					有效投注		" prop="id" fixed></el-table-column>
-            <el-table-column label="					中奖总额		" prop="id" fixed></el-table-column>
-            <el-table-column label="					返点总额		" prop="id" fixed></el-table-column>
-            <el-table-column label="					游戏盈亏		" prop="id" fixed></el-table-column>
-            <el-table-column label="					盈利率		" prop="id" fixed></el-table-column>
-            <el-table-column label="					注单量		" prop="id" fixed></el-table-column>
-            <el-table-column label="					活跃数		" prop="id" fixed></el-table-column>
+            <el-table-column label="					所属组		" prop="group" fixed></el-table-column>
+            <el-table-column label="					投注总额		" prop="total_project" fixed></el-table-column>
+            <el-table-column label="					有效投注		" prop="valid_project" fixed></el-table-column>
+            <el-table-column label="					中奖总额		" prop="prize_total_amount" fixed></el-table-column>
+            <el-table-column label="					返点总额		" prop="rebate_amount" fixed></el-table-column>
+            <el-table-column label="					游戏盈亏		" prop="game_profit_loss" fixed></el-table-column>
+            <el-table-column label="					盈利率		" prop="profit_ratio" fixed></el-table-column>
+            <el-table-column label="					注单量		" prop="project_count" fixed></el-table-column>
+            <el-table-column label="					活跃数		" prop="active_count" fixed></el-table-column>
 
 
             <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>

@@ -78,13 +78,13 @@
 
 
             <el-table-column label="					ID		" prop="id" fixed></el-table-column>
-            <el-table-column label="					层级名称		" prop="id" fixed></el-table-column>
-            <el-table-column label="					优先级		" prop="id" fixed></el-table-column>
+            <el-table-column label="					层级名称		" prop="level_name" fixed></el-table-column>
+            <el-table-column label="					优先级		" prop="prior" fixed></el-table-column>
             <el-table-column label="					会员人数		" prop="id" fixed></el-table-column>
-            <el-table-column label="					备注		" prop="id" fixed></el-table-column>
+            <el-table-column label="					备注		" prop="memo" fixed></el-table-column>
             <el-table-column label="					支付平台选项设定		" prop="id" fixed>
                 <template slot-scope="scope">
-                    <el-select v-model="scope.row.languageCode1" placeholder="支付平台选项设定">
+                    <el-select v-model="scope.row.pay_setting" placeholder="支付平台选项设定">
                         <el-option label="新用户层级" value=""></el-option>
                         <el-option label="普通用户层级" value="0"></el-option>
                         <el-option label="代理用户层级" value="1"></el-option>
@@ -96,9 +96,9 @@
                 </template>
             </el-table-column>
 
-            <el-table-column label="					投注限额		" prop="id" fixed>
+            <el-table-column label="					投注限额		" prop="project_limit" fixed>
                 <template slot-scope="scope">
-                    <el-select v-model="scope.row.languageCode2" placeholder="投注限额">
+                    <el-select v-model="scope.row.project_limit" placeholder="投注限额">
                         <el-option label="彩种投注限额" value=""></el-option>
                         <el-option label="新增限额" value="0"></el-option>
                     </el-select>
@@ -106,11 +106,11 @@
             </el-table-column>
 
             <el-table-column label="					加入条件		" prop="id" fixed>
-                <el-table-column label="					存款次数		" prop="id" fixed></el-table-column>
-                <el-table-column label="					存款总额		" prop="id" fixed></el-table-column>
-                <el-table-column label="					最大存款额度		" prop="id" fixed></el-table-column>
-                <el-table-column label="					提款次数		" prop="id" fixed></el-table-column>
-                <el-table-column label="					提款总额		" prop="id" fixed></el-table-column>
+                <el-table-column label="					存款次数		" prop="deposit_times" fixed></el-table-column>
+                <el-table-column label="					存款总额		" prop="deposit_amount" fixed></el-table-column>
+                <el-table-column label="					最大存款额度		" prop="deposit_max" fixed></el-table-column>
+                <el-table-column label="					提款次数		" prop="withdraw_times" fixed></el-table-column>
+                <el-table-column label="					提款总额		" prop="withdraw_amount" fixed></el-table-column>
             </el-table-column>
 
 

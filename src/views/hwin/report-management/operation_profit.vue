@@ -121,17 +121,17 @@
             <el-table-column label="					用户名		" prop="username" fixed></el-table-column>
             <el-table-column label="					平台		" prop="platform" fixed></el-table-column>
             <el-table-column label="					模式		" prop="mode" fixed></el-table-column>
-            <el-table-column label="					所属组		" prop="id" fixed></el-table-column>
-            <el-table-column label="					总入款		" prop="id" fixed></el-table-column>
-            <el-table-column label="					总取款		" prop="id" fixed></el-table-column>
-            <el-table-column label="					有效盈利		" prop="id" fixed></el-table-column>
-            <el-table-column label="					投注总额		" prop="id" fixed></el-table-column>
-            <el-table-column label="					中奖金额		" prop="id" fixed></el-table-column>
-            <el-table-column label="					返点总额		" prop="id" fixed></el-table-column>
-            <el-table-column label="					游戏盈亏		" prop="id" fixed></el-table-column>
-            <el-table-column label="					优惠总额		" prop="id" fixed></el-table-column>
-            <el-table-column label="					系统扣减		" prop="id" fixed></el-table-column>
-            <el-table-column label="					余额		" prop="id" fixed></el-table-column>
+            <el-table-column label="					所属组		" prop="group" fixed></el-table-column>
+            <el-table-column label="					总入款		" prop="in_total_amount" fixed></el-table-column>
+            <el-table-column label="					总取款		" prop="total_out_amount" fixed></el-table-column>
+            <el-table-column label="					有效盈利		" prop="valid_profit" fixed></el-table-column>
+            <el-table-column label="					投注总额		" prop="sum_turnover" fixed></el-table-column>
+            <el-table-column label="					中奖金额		" prop="prize_amount" fixed></el-table-column>
+            <el-table-column label="					返点总额		" prop="rebate_amount" fixed></el-table-column>
+            <el-table-column label="					游戏盈亏		" prop="game_profit_loss" fixed></el-table-column>
+            <el-table-column label="					优惠总额		" prop="benefit_amount" fixed></el-table-column>
+            <el-table-column label="					系统扣减		" prop="system_subtraction" fixed></el-table-column>
+            <el-table-column label="					余额		" prop="final_amount" fixed></el-table-column>
 
 
             <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>

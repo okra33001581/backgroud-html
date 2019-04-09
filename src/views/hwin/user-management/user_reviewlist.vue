@@ -120,17 +120,17 @@
             状态-->
 
             <el-table-column label="					ID		" prop="id" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
-            <el-table-column label="					会员账号		" prop="id" fixed></el-table-column>
-            <el-table-column label="					提交时间		" prop="id" fixed></el-table-column>
-            <el-table-column label="					审核时间		" prop="id" fixed></el-table-column>
-            <el-table-column label="					IP		" prop="id" fixed></el-table-column>
-            <el-table-column label="					类型		" prop="id" fixed></el-table-column>
-            <el-table-column label="					修改详情		" prop="id" fixed></el-table-column>
-            <el-table-column label="					申请人		" prop="id" fixed></el-table-column>
-            <el-table-column label="					审核人		" prop="id" fixed></el-table-column>
-            <el-table-column label="					备注		" prop="id" fixed></el-table-column>
-            <el-table-column label="					状态		" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="					会员账号		" prop="account" fixed></el-table-column>
+            <el-table-column label="					提交时间		" prop="submit_date" fixed></el-table-column>
+            <el-table-column label="					审核时间		" prop="audit_date" fixed></el-table-column>
+            <el-table-column label="					IP		" prop="ip" fixed></el-table-column>
+            <el-table-column label="					类型		" prop="type" fixed></el-table-column>
+            <el-table-column label="					修改详情		" prop="edit_info" fixed></el-table-column>
+            <el-table-column label="					申请人		" prop="requestor" fixed></el-table-column>
+            <el-table-column label="					审核人		" prop="auditor" fixed></el-table-column>
+            <el-table-column label="					备注		" prop="memo" fixed></el-table-column>
+            <el-table-column label="					状态		" prop="status" fixed></el-table-column>
 
 
             <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>

@@ -117,19 +117,19 @@
             优惠总额
 -->
             <el-table-column label="					ID		" prop="id" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
-            <el-table-column label="					注册时间		" prop="id" fixed></el-table-column>
-            <el-table-column label="					登录时间		" prop="id" fixed></el-table-column>
-            <el-table-column label="					用户名		" prop="id" fixed></el-table-column>
-            <el-table-column label="					用户类型		" prop="id" fixed></el-table-column>
-            <el-table-column label="					一级代理		" prop="id" fixed></el-table-column>
-            <el-table-column label="					真实姓名		" prop="id" fixed></el-table-column>
-            <el-table-column label="					账户余额		" prop="id" fixed></el-table-column>
-            <el-table-column label="					存款次数		" prop="id" fixed></el-table-column>
-            <el-table-column label="					提款次数		" prop="id" fixed></el-table-column>
-            <el-table-column label="					存款总数		" prop="id" fixed></el-table-column>
-            <el-table-column label="					提款总数		" prop="id" fixed></el-table-column>
-            <el-table-column label="					优惠总额		" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="					注册时间		" prop="register_date" fixed></el-table-column>
+            <el-table-column label="					登录时间		" prop="login_date" fixed></el-table-column>
+            <el-table-column label="					用户名		" prop="username" fixed></el-table-column>
+            <el-table-column label="					用户类型		" prop="user_type" fixed></el-table-column>
+            <el-table-column label="					一级代理		" prop="top_agent" fixed></el-table-column>
+            <el-table-column label="					真实姓名		" prop="realname" fixed></el-table-column>
+            <el-table-column label="					账户余额		" prop="final_amount" fixed></el-table-column>
+            <el-table-column label="					存款次数		" prop="deposit_count" fixed></el-table-column>
+            <el-table-column label="					提款次数		" prop="withdraw_count" fixed></el-table-column>
+            <el-table-column label="					存款总数		" prop="deposit_amount" fixed></el-table-column>
+            <el-table-column label="					提款总数		" prop="withdraw_amount" fixed></el-table-column>
+            <el-table-column label="					优惠总额		" prop="benefit_amount" fixed></el-table-column>
 
 
             <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>

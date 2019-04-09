@@ -88,10 +88,10 @@
             </el-table-column>
             <el-table-column label="					公告状态		" prop="status" fixed></el-table-column>
             <el-table-column label="					标题		" prop="title" fixed></el-table-column>
-            <el-table-column label="					发送版本		" prop="id" fixed></el-table-column>
-            <el-table-column label="					编辑日期		" prop="id" fixed></el-table-column>
-            <el-table-column label="					发布人员		" prop="id" fixed></el-table-column>
-            <el-table-column label="					公告类型		" prop="id" fixed></el-table-column>
+            <el-table-column label="					发送版本		" prop="send_terminal" fixed></el-table-column>
+            <el-table-column label="					编辑日期		" prop="updated_at" fixed></el-table-column>
+            <el-table-column label="					发布人员		" prop="updater" fixed></el-table-column>
+            <el-table-column label="					公告类型		" prop="type" fixed></el-table-column>
 
 
             <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>

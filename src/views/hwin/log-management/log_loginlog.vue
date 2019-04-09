@@ -111,11 +111,11 @@
             <el-table-column label="					商户		" prop="merchant_name" fixed></el-table-column>
             <el-table-column label="					用户名		" prop="username" fixed></el-table-column>
             <el-table-column label="					类别		" prop="type" fixed></el-table-column>
-            <el-table-column label="					登入信息		" prop="id" fixed></el-table-column>
-            <el-table-column label="					IP地址		" prop="id" fixed></el-table-column>
-            <el-table-column label="					位置		" prop="id" fixed></el-table-column>
-            <el-table-column label="					访问网址		" prop="id" fixed></el-table-column>
-            <el-table-column label="					登入日期		" prop="id" fixed></el-table-column>
+            <el-table-column label="					登入信息		" prop="login_info" fixed></el-table-column>
+            <el-table-column label="					IP地址		" prop="ip_address" fixed></el-table-column>
+            <el-table-column label="					位置		" prop="district" fixed></el-table-column>
+            <el-table-column label="					访问网址		" prop="request_url" fixed></el-table-column>
+            <el-table-column label="					登入日期		" prop="login_date" fixed></el-table-column>
 
 
             <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>

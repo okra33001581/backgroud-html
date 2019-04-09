@@ -61,8 +61,8 @@
             <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
 
             <el-table-column label="					状态		" prop="status" fixed></el-table-column>
-            <el-table-column label="					名称		" prop="id" fixed></el-table-column>
-            <el-table-column label="					排序值		" prop="id" fixed>
+            <el-table-column label="					名称		" prop="name" fixed></el-table-column>
+            <el-table-column label="					排序值		" prop="sequence" fixed>
 
                 <template scope="scope">
                     <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="updateLotterygroupSequence(scope.$index, scope.row)"

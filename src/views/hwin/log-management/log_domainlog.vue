@@ -85,9 +85,9 @@
 
             <el-table-column label="			Id				" prop="id" fixed></el-table-column>
             <el-table-column label="			商户				" prop="merchant_name" fixed></el-table-column>
-            <el-table-column label="			域名				" prop="id" fixed></el-table-column>
-            <el-table-column label="			总访问人数				" prop="id" fixed></el-table-column>
-            <el-table-column label="			总访问量				" prop="id" fixed></el-table-column>
+            <el-table-column label="			域名				" prop="domain" fixed></el-table-column>
+            <el-table-column label="			总访问人数				" prop="total_visit_people_count" fixed></el-table-column>
+            <el-table-column label="			总访问量				" prop="tatal_visit_count" fixed></el-table-column>
 
             <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column

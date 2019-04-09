@@ -110,14 +110,14 @@ r
             <el-table-column label="					日期		" prop="date" fixed></el-table-column>
             <el-table-column label="					平台		" prop="platform" fixed></el-table-column>
             <el-table-column label="					模式		" prop="model" fixed></el-table-column>
-            <el-table-column label="					ip量		" prop="id" fixed></el-table-column>
-            <el-table-column label="					注册人数		" prop="id" fixed></el-table-column>
-            <el-table-column label="					活跃数		" prop="id" fixed></el-table-column>
-            <el-table-column label="					首存人数		" prop="id" fixed></el-table-column>
-            <el-table-column label="					首存金额		" prop="id" fixed></el-table-column>
-            <el-table-column label="					入款人数		" prop="id" fixed></el-table-column>
-            <el-table-column label="					入款次数		" prop="id" fixed></el-table-column>
-            <el-table-column label="					出款次数		" prop="id" fixed></el-table-column>
+            <el-table-column label="					ip量		" prop="ip_count" fixed></el-table-column>
+            <el-table-column label="					注册人数		" prop="register_count" fixed></el-table-column>
+            <el-table-column label="					活跃数		" prop="active_count" fixed></el-table-column>
+            <el-table-column label="					首存人数		" prop="first_deposit_count" fixed></el-table-column>
+            <el-table-column label="					首存金额		" prop="first_deposit_amount" fixed></el-table-column>
+            <el-table-column label="					入款人数		" prop="in_people_count" fixed></el-table-column>
+            <el-table-column label="					入款次数		" prop="in_times" fixed></el-table-column>
+            <el-table-column label="					出款次数		" prop="out_times" fixed></el-table-column>
 
             <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
