@@ -152,20 +152,10 @@
                     <el-option label="倍数" value="2"></el-option>
                 </el-select>
             </el-form-item>
---=-=-=-
+
             <el-form-item class="query-form-item">
-                <el-date-picker
-                        v-model="query.beginDate"
-                        type="date"
-                        placeholder="开始时间"
-                        :picker-options="pickerOptions0">
-                </el-date-picker>
-                <el-date-picker
-                        v-model="query.endDate"
-                        type="date"
-                        placeholder="结束时间"
-                        :picker-options="pickerOptions1">
-                </el-date-picker>
+                <el-input v-model="query.min" placeholder="min"></el-input>
+                <el-input v-model="query.max" placeholder="max"></el-input>
             </el-form-item>
 
 
