@@ -55,9 +55,9 @@
             <el-table-column label="			Id				" prop="id" fixed></el-table-column>
             <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
             <!--<el-table-column label="			Name				" prop="id" fixed></el-table-column>-->
-            <el-table-column label="			状态				" prop="id" fixed></el-table-column>
-            <el-table-column label="			创建时间				" prop="id" fixed></el-table-column>
-            <el-table-column label="			更新时间				" prop="id" fixed></el-table-column>
+            <el-table-column label="			状态				" prop="status" fixed></el-table-column>
+            <el-table-column label="			创建时间				" prop="created_at" fixed></el-table-column>
+            <el-table-column label="			更新时间				" prop="updated_at" fixed></el-table-column>
 
             <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
@@ -137,6 +137,9 @@
                     <el-input style="width:550px;" v-model="formData.web_title" placeholder="请输入" background-color="rgba(255, 255, 255, 0.8)"></el-input>
                 </td>-->
 
+
+                <!--<el-input v-model="formData.is_login" auto-complete="off"></el-input>-->
+
                 <table  border=1 cellspacing=0 cellpadding=0  class="ui-jqgrid-htable ui-common-table table table-bordered bgcol-white" role="presentation" aria-labelledby="gbox_table_list">
                     <thead>
                     <tr class="ui-jqgrid-labels" role="row">
@@ -146,6 +149,9 @@
                         <th width="407">参数描述</th>
                     </tr>
                     </thead>
+
+
+
                     <tbody><tr>
                         <!-- 顶级配置 -->
                         <td class="center" rowspan="7">前端页面设定</td>
@@ -155,8 +161,8 @@
                             <template>
                                 <el-switch
                                         v-model="formData.is_login"
-                                        active-text="是"
-                                        inactive-text="否">
+                                    active-text="是"
+                                    inactive-text="否">
                                 </el-switch>
                             </template>
                         </td>
@@ -203,7 +209,11 @@
                         <td>免费试玩</td>
                         <td>
                             <template>
-                                <el-checkbox-group v-model="formData.free_play">
+
+                                <el-checkbox-group
+                                        v-model="formData.free_play"
+                                        :min="1"
+                                        :max="6">
                                     <el-checkbox label="pc端"></el-checkbox>
                                     <el-checkbox label="移动端"></el-checkbox>
                                 </el-checkbox-group>
@@ -384,7 +394,11 @@
                         <td>用户自主注册需要填写的信息</td>
                         <td>
                             <template>
-                                <el-checkbox-group v-model="formData.user_register_column">
+
+                                <el-checkbox-group
+                                        v-model="formData.user_register_column"
+                                        :min="1"
+                                        :max="6">
                                     <el-checkbox label="真实姓名"></el-checkbox>
                                     <el-checkbox label="手机号码"></el-checkbox>
                                     <el-checkbox label="QQ"></el-checkbox>
@@ -392,6 +406,14 @@
                                     <el-checkbox label="邮件"></el-checkbox>
                                     <el-checkbox label="邀请码"></el-checkbox>
                                 </el-checkbox-group>
+                                <!--<el-checkbox-group v-model="formData.user_register_column">
+                                    <el-checkbox label="真实姓名"></el-checkbox>
+                                    <el-checkbox label="手机号码"></el-checkbox>
+                                    <el-checkbox label="QQ"></el-checkbox>
+                                    <el-checkbox label="微信"></el-checkbox>
+                                    <el-checkbox label="邮件"></el-checkbox>
+                                    <el-checkbox label="邀请码"></el-checkbox>
+                                </el-checkbox-group>-->
                             </template>
                         <td>用户自主注册需要填写的信息,默认不要求额外信息</td>
                         <!-- 名称第一条 end -->
@@ -403,13 +425,31 @@
                         <td>代理开设下级需要填写的用户信息</td>
                         <td>
                             <template>
-                                <el-checkbox-group v-model="formData.lower_register_column">
+
+
+                                <el-checkbox-group
+                                        v-model="formData.lower_register_column"
+                                        :min="1"
+                                        :max="6">
                                     <el-checkbox label="真实姓名"></el-checkbox>
                                     <el-checkbox label="手机号码"></el-checkbox>
                                     <el-checkbox label="QQ"></el-checkbox>
                                     <el-checkbox label="微信"></el-checkbox>
                                     <el-checkbox label="邮件"></el-checkbox>
+                                    <el-checkbox label="邀请码"></el-checkbox>
                                 </el-checkbox-group>
+
+
+                               <!-- <el-checkbox-group
+                                        v-model="formData.lower_register_column"
+                                        :min="1"
+                                        :max="6">
+                                    <el-checkbox label="真实姓名"></el-checkbox>
+                                    <el-checkbox label="手机号码"></el-checkbox>
+                                    <el-checkbox label="QQ"></el-checkbox>
+                                    <el-checkbox label="微信"></el-checkbox>
+                                    <el-checkbox label="邮件"></el-checkbox>
+                                </el-checkbox-group>-->
                             </template>
                         </td>
                         <td>代理开设下级需要填写的用户信息,默认不要求填写额外信息</td>
@@ -499,21 +539,20 @@
                         <td>允许出款时间</td>
                         <td>
                             <template>
-                                <el-time-picker
-                                        v-model="formData.withdraw_date"
-                                        :picker-options="{
-      selectableRange: '18:30:00 - 20:30:00'
-    }"
-                                        placeholder="任意时间点">
-                                </el-time-picker>
-                                <el-time-picker
-                                        arrow-control
-                                        v-model="value3"
-                                        :picker-options="{
-      selectableRange: '18:30:00 - 20:30:00'
-    }"
-                                        placeholder="任意时间点">
-                                </el-time-picker>
+                                <el-date-picker
+                                        v-model="formData.withdraw_date_begin"
+                                        type="date"
+                                        value-format="yyyy-MM-dd"
+                                        placeholder="开始时间"
+                                        :picker-options="pickerOptions0">
+                                </el-date-picker>
+                                <el-date-picker
+                                        v-model="formData.withdraw_date_end"
+                                        type="date"
+                                        value-format="yyyy-MM-dd"
+                                        placeholder="结束时间"
+                                        :picker-options="pickerOptions1">
+                                </el-date-picker>
                             </template>
                         </td>
                         <td>每天在指定的时间段内，允许用户申请出款，超出时间段，则不允许申请出款</td>
@@ -655,7 +694,9 @@
                         <td>前台转账方式</td>
                         <td>
                             <template>
-                                <el-checkbox-group v-model="formData.transfer_type">
+
+                                <el-checkbox-group
+                                        v-model="formData.transfer_type">
                                     <el-checkbox label="自动"></el-checkbox>
                                     <el-checkbox label="手动"></el-checkbox>
                                 </el-checkbox-group>
@@ -685,6 +726,15 @@
         systemConfigSave,
         authAdminDelete
     } from "../../../api/site-management";
+
+    const accountType = [
+        { key: '真实姓名', name: '自动发放' },
+        { key: '手机号码', name: '手动领取' },
+        { key: 'QQ', name: '手动领取' },
+        { key: '微信', name: '手动领取' },
+        { key: '邮件', name: '手动领取' },
+        { key: '邀请码', name: '手动领取' }
+    ];
 
     const formJson = {
     };
@@ -716,6 +766,7 @@
                     role_id: "",
                     sort: '+id'
                 },
+                accountType,
                 value3: true,
                 value4: true,
                 value2: new Date(2016, 9, 10, 18, 40),

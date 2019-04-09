@@ -40,8 +40,8 @@
 
 
             <el-form-item class="query-form-item">
-                <el-input v-model="query.min" placeholder="min"></el-input>
-                <<el-input v-model="query.max" placeholder="max"></el-input>
+                <el-input v-model="query.min" placeholder="min" style="width:150px;"></el-input>
+                <el-input v-model="query.max" placeholder="max" style="width:150px;"></el-input>
             </el-form-item>
 
 

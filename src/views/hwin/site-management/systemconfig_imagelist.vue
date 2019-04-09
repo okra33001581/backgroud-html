@@ -52,16 +52,15 @@
                 :header-cell-style="getRowClass">
             <el-table-column label="			Id				" prop="id" fixed></el-table-column>
             <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
-            <el-table-column label="			图标				" prop="id" fixed></el-table-column>
-            <el-table-column label="			预览				" prop="id" fixed>
-
+            <el-table-column label="			图标				" prop="pic" fixed></el-table-column>
+            <el-table-column label="			预览				" prop="pic" fixed>
                 <template slot-scope="scope">
                     <el-popover
                             placement="right"
                             title=""
                             trigger="hover">
-                        <img src="../../images/1.png"/>
-                        <img slot="reference" src="../../images/1.png" :alt="id" style="max-height: 50px;max-width: 130px">
+                        <img src="pic"/>
+                        <img slot="reference" src="pic" :alt="pic" style="max-height: 50px;max-width: 130px">
                     </el-popover>
                 </template>
 
