@@ -4,6 +4,10 @@
         <el-form :inline="true" :model="query" class="query-form" size="mini">
 
             <el-form-item class="query-form-item">
+                <el-input v-model="query.merchant_name" placeholder="商户"></el-input>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
                 <el-date-picker
                         v-model="query.beginDate"
                         type="date"
@@ -20,59 +24,46 @@
 
 
             <el-form-item class="query-form-item">
-                <el-date-picker
-                        v-model="query.beginDate"
-                        type="date"
-                        placeholder="min"
-                        :picker-options="pickerOptions0">
-                </el-date-picker>
-                <el-date-picker
-                        v-model="query.endDate"
-                        type="date"
-                        placeholder="max"
-                        :picker-options="pickerOptions1">
-                </el-date-picker>
+                <el-input v-model="query.min" placeholder="min"></el-input>
+                <el-input v-model="query.max" placeholder="max"></el-input>
             </el-form-item>
 
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="类型">
+                <el-select v-model="query.type" placeholder="类型">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="普通存入" value="0"></el-option>
-                    <el-option label="存款存入" value="1"></el-option>
-                    <el-option label="活动优惠" value="2"></el-option>
-                    <el-option label="人工取款" value="2"></el-option>
-                    <el-option label="手动申请出款" value="2"></el-option>
-                    <el-option label="公司入款误存" value="2"></el-option>
-                    <el-option label="优惠扣除" value="2"></el-option>
+                    <el-option label="普通存入" value="普通存入"></el-option>
+                    <el-option label="存款存入" value="存款存入"></el-option>
+                    <el-option label="活动优惠" value="活动优惠"></el-option>
+                    <el-option label="人工取款" value="人工取款"></el-option>
+                    <el-option label="手动申请出款" value="手动申请出款"></el-option>
+                    <el-option label="公司入款误存" value="公司入款误存"></el-option>
+                    <el-option label="优惠扣除" value="优惠扣除"></el-option>
                 </el-select>
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="审核状态">
+                <el-select v-model="query.audit_status" placeholder="审核状态">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="未处理" value="0"></el-option>
-                    <el-option label="已通过" value="1"></el-option>
-                    <el-option label="已拒绝" value="2"></el-option>
+                    <el-option label="未处理" value="未处理"></el-option>
+                    <el-option label="已通过" value="已通过"></el-option>
+                    <el-option label="已拒绝" value="已拒绝"></el-option>
                 </el-select>
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="管理员类型">
+                <el-select v-model="query.operate_type" placeholder="管理员类型">
                     <el-option label="全部" value=""></el-option>
                     <el-option label="提交人" value="0"></el-option>
                     <el-option label="操作人" value="2"></el-option>
                 </el-select>
             </el-form-item>
 
-
-
-
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="账号"></el-input>
+                <el-input v-model="query.account" placeholder="账号"></el-input>
             </el-form-item>
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="备注"></el-input>
+                <el-input v-model="query.memo" placeholder="备注"></el-input>
             </el-form-item>
             <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
                 <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key"/>

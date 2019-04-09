@@ -3,6 +3,11 @@
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
 
+
+            <el-form-item class="query-form-item">
+                <el-input v-model="query.merchant_name" placeholder="商户"></el-input>
+            </el-form-item>
+
             <el-form-item class="query-form-item">
                 <el-date-picker
                         v-model="query.beginDate"
@@ -20,6 +25,23 @@
 
 
             <el-form-item class="query-form-item">
+                <el-select v-model="query.select_search_type" placeholder="状态">
+                    <el-option label="全部" value=""></el-option>
+                    <el-option label="会员账号" value="会员账号"></el-option>
+                    <el-option label="订单号" value="订单号"></el-option>
+                    <el-option label="IP地址" value="IP地址"></el-option>
+                </el-select>
+            </el-form-item>
+
+
+
+            <el-form-item class="query-form-item">
+                <el-input v-model="query.keywords" placeholder="用户名"></el-input>
+            </el-form-item>
+
+
+
+            <!--<el-form-item class="query-form-item">
                 <el-select v-model="query.status" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
                     <el-option label="会员账号" value="0"></el-option>
@@ -27,90 +49,63 @@
                     <el-option label="IP地址" value="2"></el-option>
                 </el-select>
             </el-form-item>
-
-
-
-            <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="用户名"></el-input>
-            </el-form-item>
-
-
-
-            <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="状态">
-                    <el-option label="全部" value=""></el-option>
-                    <el-option label="会员账号" value="0"></el-option>
-                    <el-option label="订单号" value="1"></el-option>
-                    <el-option label="IP地址" value="2"></el-option>
-                </el-select>
-            </el-form-item>
-
+-->
 
             <el-form-item label="是否包含下级"  prop="status">
-                <el-checkbox v-model="checked"></el-checkbox>
+                <el-checkbox v-model="is_has_child"></el-checkbox>
             </el-form-item>
 
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="类别">
+                <el-select v-model="query.transaction_type" placeholder="类别">
                     <el-option label="全选" value="0"></el-option>
-                    <el-option label="入款" value="1"></el-option>
-                    <el-option label="出款" value="2"></el-option>
-                    <el-option label="优惠/其他" value="3"></el-option>
-                    <el-option label="存提" value="4"></el-option>
-                    <el-option label="账户充值" value="5"></el-option>
-                    <el-option label="人工存入 " value="6"></el-option>
-                    <el-option label="转账转入" value="7"></el-option>
-                    <el-option label="转账失败" value="8"></el-option>
-                    <el-option label="出款申请" value="9"></el-option>
-                    <el-option label="成功出款" value="10"></el-option>
-                    <el-option label="取消出款 " value="11"></el-option>
-                    <el-option label="转账转出" value="12"></el-option>
-                    <el-option label="活动礼金" value="13"></el-option>
-                    <el-option label="特殊金额整理" value="14"></el-option>
-                    <el-option label="系统扣减" value="15"></el-option>
-                    <el-option label="下注" value="16"></el-option>
-                    <el-option label="结算" value="17"></el-option>
-                    <el-option label="其他" value="18"></el-option>
-                    <el-option label="游戏" value="19"></el-option>
-                    <el-option label="投注扣款" value="20"></el-option>
-                    <el-option label="追号扣款" value="21"></el-option>
-                    <el-option label="游戏返点" value="22"></el-option>
-                    <el-option label="追号返款" value="23"></el-option>
-                    <el-option label="真实扣款" value="24"></el-option>
-                    <el-option label="奖金派送" value="25"></el-option>
-                    <el-option label="撤销返点" value="26"></el-option>
-                    <el-option label="撤销派奖" value="27"></el-option>
-                    <el-option label="撤单返款" value="28"></el-option>
-                    <el-option label="撤销手续费" value="29"></el-option>
+                    <el-option label="入款" value="入款"></el-option>
+                    <el-option label="出款" value="出款"></el-option>
+                    <el-option label="优惠/其他" value="优惠/其他"></el-option>
+                    <el-option label="存提" value="存提"></el-option>
+                    <el-option label="账户充值" value="账户充值"></el-option>
+                    <el-option label="人工存入 " value="人工存入"></el-option>
+                    <el-option label="转账转入" value="转账转入"></el-option>
+                    <el-option label="转账失败" value="转账失败"></el-option>
+                    <el-option label="出款申请" value="出款申请"></el-option>
+                    <el-option label="成功出款" value="成功出款"></el-option>
+                    <el-option label="取消出款 " value="取消出款"></el-option>
+                    <el-option label="转账转出" value="转账转出"></el-option>
+                    <el-option label="活动礼金" value="活动礼金"></el-option>
+                    <el-option label="特殊金额整理" value="特殊金额整理"></el-option>
+                    <el-option label="系统扣减" value="系统扣减"></el-option>
+                    <el-option label="下注" value="下注"></el-option>
+                    <el-option label="结算" value="结算"></el-option>
+                    <el-option label="其他" value="其他"></el-option>
+                    <el-option label="游戏" value="游戏"></el-option>
+                    <el-option label="投注扣款" value="投注扣款"></el-option>
+                    <el-option label="追号扣款" value="追号扣款"></el-option>
+                    <el-option label="游戏返点" value="游戏返点"></el-option>
+                    <el-option label="追号返款" value="追号返款"></el-option>
+                    <el-option label="真实扣款" value="真实扣款"></el-option>
+                    <el-option label="奖金派送" value="奖金派送"></el-option>
+                    <el-option label="撤销返点" value="撤销返点"></el-option>
+                    <el-option label="撤销派奖" value="撤销派奖"></el-option>
+                    <el-option label="撤单返款" value="撤单返款"></el-option>
+                    <el-option label="撤销手续费" value="撤销手续费"></el-option>
 
                 </el-select>
             </el-form-item>
 
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="状态">
+                <el-select v-model="query.sort_type" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="逆序" value="0"></el-option>
-                    <el-option label="顺序" value="2"></el-option>
+                    <el-option label="逆序" value="逆序"></el-option>
+                    <el-option label="顺序" value="顺序"></el-option>
                 </el-select>
             </el-form-item>
 
 
 
             <el-form-item class="query-form-item">
-                <el-date-picker
-                        v-model="query.beginDate"
-                        type="text"
-                        placeholder="min"
-                        :picker-options="pickerOptions0">
-                </el-date-picker>
-                <el-date-picker
-                        v-model="query.endDate"
-                        type="text"
-                        placeholder="max"
-                        :picker-options="pickerOptions1">
-                </el-date-picker>
+                <<el-input v-model="query.min" placeholder="min"></el-input>
+                <<el-input v-model="query.max" placeholder="max"></el-input>
             </el-form-item>
 
 

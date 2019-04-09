@@ -3,6 +3,9 @@
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
 
+            <el-form-item class="query-form-item">
+                <el-input v-model="query.merchant_name" placeholder="商户"></el-input>
+            </el-form-item>
 
             <el-form-item class="query-form-item">
                 <el-date-picker
@@ -20,40 +23,30 @@
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-date-picker
-                        v-model="query.beginDate"
-                        type="date"
-                        placeholder="最小金额"
-                        :picker-options="pickerOptions0">
-                </el-date-picker>
-                <el-date-picker
-                        v-model="query.endDate"
-                        type="date"
-                        placeholder="最大金额"
-                        :picker-options="pickerOptions1">
-                </el-date-picker>
+                <el-input v-model="query.min" placeholder="min"></el-input>
+                <el-input v-model="query.max" placeholder="max"></el-input>
             </el-form-item>
 
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="状态">
+                <el-select v-model="query.select_search_type" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="用户名" value="0"></el-option>
-                    <el-option label="订单编号" value="1"></el-option>
+                    <el-option label="用户名" value="用户名"></el-option>
+                    <el-option label="订单编号" value="订单编号"></el-option>
                 </el-select>
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="用户名"></el-input>
+                <el-input v-model="query.keywords" placeholder="用户名"></el-input>
             </el-form-item>
 
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="转账平台">
+                <el-select v-model="query.platform" placeholder="转账平台">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="主账户" value="0"></el-option>
-                    <el-option label="开元棋牌" value="1"></el-option>
-                    <el-option label="乐游棋牌" value="2"></el-option>
+                    <el-option label="主账户" value="主账户"></el-option>
+                    <el-option label="开元棋牌" value="开元棋牌"></el-option>
+                    <el-option label="乐游棋牌" value="乐游棋牌"></el-option>
                 </el-select>
             </el-form-item>
 
