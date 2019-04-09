@@ -15,15 +15,6 @@
                     <el-option label="QQ转账" value="QQ转账"></el-option>
                 </el-select>
             </el-form-item>
-            <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
-                <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key"/>
-            </el-select>-->
-            <!--<el-form-item class="query-form-item">
-                <el-select v-model="query.role_id" placeholder="角色">
-                    <el-option label="全部角色" value=""></el-option>
-                    <el-option v-for="item in roles" :key="item.id" :label="item.name" :value="item.id"></el-option>
-                </el-select>
-            </el-form-item>-->
 
             <el-form-item>
                 <el-button-group>
@@ -33,20 +24,7 @@
                 </el-button-group>
             </el-form-item>
         </el-form>
-        <!--<el-table
-            v-loading="loading"
-            :data="list" stripe
-            style="width: 100%;"
-            max-height="500">-->
-        <!--<el-table
-                v-loading="loading"
-                :key="tableKey"
-                :data="list" stripe
-                border
-                fit
-                highlight-current-row
-                style="width: 100%;"
-                @sort-change="sortChange">-->
+
         <el-table
                 v-loading="loading"
                 :key="tableKey"
@@ -60,21 +38,6 @@
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
-
-
-            <!--序号
-            添加时间
-            层级
-            支付类型
-            银行名称
-            银行账号
-            账号别名
-            收款人
-            附言
-            温馨提示
-            二维码
-            操作人
--->
             <el-table-column label="					序号		" prop="id" fixed></el-table-column>
             <el-table-column label="					排序值		" prop="id" fixed>
 
@@ -97,59 +60,10 @@
             <el-table-column label="					二维码		" prop="id" fixed></el-table-column>
             <el-table-column label="					操作人		" prop="id" fixed></el-table-column>
 
-
-            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
-            &lt;!&ndash;<el-table-column
-                label="用户 ID"
-                prop="id"
-                sortable="custom"
-                align="center"
-                fixed>
-                <template slot-scope="scope">
-                    <span>{{ scope.row.id }}</span>
-                </template>
-            </el-table-column>&ndash;&gt;
-
-            <el-table-column
-                    label="用户名"
-                    prop="username"
-                    sortable="custom"
-                    fixed>
-            </el-table-column>
-
-            <el-table-column
-                    sortable="custom"
-                    label="状态" prop="status">
-                <template slot-scope="scope">
-                    <el-tag :type="scope.row.status | statusFilterType">{{scope.row.status | statusFilterName}}</el-tag>
-                </template>
-            </el-table-column>
-            <el-table-column
-                    label="登录时间"
-                    with="300"
-                    sortable="custom"
-                    :show-overflow-tooltip="true" prop="last_login_time">
-                <template slot-scope="scope">
-                    <i class="el-icon-time"></i>
-                    <span>{{ scope.row.last_login_time }}</span>
-                </template>
-            </el-table-column>
-            <el-table-column
-                    sortable="custom"
-                    label="登录IP" prop="last_login_ip">
-                <template slot-scope="scope">
-                    <span>{{ scope.row.last_login_ip }}</span>
-                </template>
-            </el-table-column>-->
             <el-table-column
                     label="操作" width="360"
                     fixed="right">
                 <template slot-scope="scope">
-                    <!--<el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">启用
-                    </el-button>
-                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">禁用
-                    </el-button>-->
-
                     <el-button v-if="scope.row.status === '0'" type="primary" size="small" icon="el-icon-edit" @click.native="itemSuccessServer(scope.$index, scope.row)">启用
                     </el-button>
                     <el-button v-if="scope.row.status === '1'" type="primary" size="small" icon="el-icon-edit" @click.native="itemFailedServer(scope.$index, scope.row)">禁用

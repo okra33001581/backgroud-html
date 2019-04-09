@@ -31,20 +31,7 @@
                 </el-button-group>
             </el-form-item>
         </el-form>
-        <!--<el-table
-            v-loading="loading"
-            :data="list" stripe
-            style="width: 100%;"
-            max-height="500">-->
-        <!--<el-table
-                v-loading="loading"
-                :key="tableKey"
-                :data="list" stripe
-                border
-                fit
-                highlight-current-row
-                style="width: 100%;"
-                @sort-change="sortChange">-->
+
         <el-table
                 v-loading="loading"
                 :key="tableKey"
@@ -58,20 +45,6 @@
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
-
-
-            <!--日期
-            公司入款
-            第三方存入
-            存款存入
-            普通存入
-            给予优惠
-            总返点
-            银行卡出款
-            三方出款
-            会员出款被扣除金额
-            人工取款
-            小计-->
 
             <el-table-column label="					ID		" prop="id" fixed></el-table-column>
             <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
@@ -88,49 +61,6 @@
             <el-table-column label="					人工取款		" prop="artifical_withdraw" fixed></el-table-column>
             <el-table-column label="					小计		" prop="total" fixed></el-table-column>
 
-            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
-            &lt;!&ndash;<el-table-column
-                label="用户 ID"
-                prop="id"
-                sortable="custom"
-                align="center"
-                fixed>
-                <template slot-scope="scope">
-                    <span>{{ scope.row.id }}</span>
-                </template>
-            </el-table-column>&ndash;&gt;
-
-            <el-table-column
-                    label="用户名"
-                    prop="username"
-                    sortable="custom"
-                    fixed>
-            </el-table-column>
-
-            <el-table-column
-                    sortable="custom"
-                    label="状态" prop="status">
-                <template slot-scope="scope">
-                    <el-tag :type="scope.row.status | statusFilterType">{{scope.row.status | statusFilterName}}</el-tag>
-                </template>
-            </el-table-column>
-            <el-table-column
-                    label="登录时间"
-                    with="300"
-                    sortable="custom"
-                    :show-overflow-tooltip="true" prop="last_login_time">
-                <template slot-scope="scope">
-                    <i class="el-icon-time"></i>
-                    <span>{{ scope.row.last_login_time }}</span>
-                </template>
-            </el-table-column>
-            <el-table-column
-                    sortable="custom"
-                    label="登录IP" prop="last_login_ip">
-                <template slot-scope="scope">
-                    <span>{{ scope.row.last_login_ip }}</span>
-                </template>
-            </el-table-column>-->
             <el-table-column
                     label="操作" width="260"
                     fixed="right">
@@ -153,7 +83,7 @@
         <!--<pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />-->
 
         <!--表单-->
-        <el-dialog
+        <!--<el-dialog
                 :title="formMap[formName]"
                 :visible.sync="formVisible"
                 :before-close="hideForm"
@@ -177,9 +107,9 @@
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideForm">关闭</el-button>
-                <!--<el-button type="primary" @click.native="formSubmit()" :loading="formLoading">提交</el-button>-->
+                &lt;!&ndash;<el-button type="primary" @click.native="formSubmit()" :loading="formLoading">提交</el-button>&ndash;&gt;
             </div>
-        </el-dialog>
+        </el-dialog>-->
     </div>
 
 </template>

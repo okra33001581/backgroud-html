@@ -26,16 +26,6 @@
                 <el-input v-model="query.username" placeholder="用户名"></el-input>
             </el-form-item>
 
-            <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
-                <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key"/>
-            </el-select>-->
-            <!--<el-form-item class="query-form-item">
-                <el-select v-model="query.role_id" placeholder="角色">
-                    <el-option label="全部角色" value=""></el-option>
-                    <el-option v-for="item in roles" :key="item.id" :label="item.name" :value="item.id"></el-option>
-                </el-select>
-            </el-form-item>-->
-
             <el-form-item>
                 <el-button-group>
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
@@ -44,20 +34,7 @@
                 </el-button-group>
             </el-form-item>
         </el-form>
-        <!--<el-table
-            v-loading="loading"
-            :data="list" stripe
-            style="width: 100%;"
-            max-height="500">-->
-        <!--<el-table
-                v-loading="loading"
-                :key="tableKey"
-                :data="list" stripe
-                border
-                fit
-                highlight-current-row
-                style="width: 100%;"
-                @sort-change="sortChange">-->
+
         <el-table
                 v-loading="loading"
                 :key="tableKey"
@@ -72,9 +49,6 @@
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
 
-
-            <!--用户名	重复项目	重复值	重复人数	重复用户-->
-
             <el-table-column label="			Id				" prop="id" fixed></el-table-column>
             <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
             <el-table-column label="			用户名				" prop="username" fixed></el-table-column>
@@ -83,59 +57,6 @@
             <el-table-column label="			重复人数				" prop="duplicate_people_count" fixed></el-table-column>
             <el-table-column label="			重复用户				" prop="duplicate_user" fixed></el-table-column>
 
-            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
-            &lt;!&ndash;<el-table-column
-                label="用户 ID"
-                prop="id"
-                sortable="custom"
-                align="center"
-                fixed>
-                <template slot-scope="scope">
-                    <span>{{ scope.row.id }}</span>
-                </template>
-            </el-table-column>&ndash;&gt;
-
-            <el-table-column
-                    label="用户名"
-                    prop="username"
-                    sortable="custom"
-                    fixed>
-            </el-table-column>
-
-            <el-table-column
-                    sortable="custom"
-                    label="状态" prop="status">
-                <template slot-scope="scope">
-                    <el-tag :type="scope.row.status | statusFilterType">{{scope.row.status | statusFilterName}}</el-tag>
-                </template>
-            </el-table-column>
-            <el-table-column
-                    label="登录时间"
-                    with="300"
-                    sortable="custom"
-                    :show-overflow-tooltip="true" prop="last_login_time">
-                <template slot-scope="scope">
-                    <i class="el-icon-time"></i>
-                    <span>{{ scope.row.last_login_time }}</span>
-                </template>
-            </el-table-column>
-            <el-table-column
-                    sortable="custom"
-                    label="登录IP" prop="last_login_ip">
-                <template slot-scope="scope">
-                    <span>{{ scope.row.last_login_ip }}</span>
-                </template>
-            </el-table-column>-->
-            <!--<el-table-column
-                    label="操作" width="260"
-                    fixed="right">
-                <template slot-scope="scope">
-                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
-                    </el-button>
-                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
-                    </el-button>
-                </template>
-            </el-table-column>-->
         </el-table>
 
         <el-pagination

@@ -23,16 +23,6 @@
                 </el-select>
             </el-form-item>
 
-            <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
-                <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key"/>
-            </el-select>-->
-            <!--<el-form-item class="query-form-item">
-                <el-select v-model="query.role_id" placeholder="角色">
-                    <el-option label="全部角色" value=""></el-option>
-                    <el-option v-for="item in roles" :key="item.id" :label="item.name" :value="item.id"></el-option>
-                </el-select>
-            </el-form-item>-->
-
             <el-form-item>
                 <el-button-group>
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
@@ -41,20 +31,7 @@
                 </el-button-group>
             </el-form-item>
         </el-form>
-        <!--<el-table
-            v-loading="loading"
-            :data="list" stripe
-            style="width: 100%;"
-            max-height="500">-->
-        <!--<el-table
-                v-loading="loading"
-                :key="tableKey"
-                :data="list" stripe
-                border
-                fit
-                highlight-current-row
-                style="width: 100%;"
-                @sort-change="sortChange">-->
+
         <el-table
                 v-loading="loading"
                 :key="tableKey"
@@ -69,14 +46,6 @@
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
 
-
-          <!--  入款方式
-            支付类型
-            排序值
-            属性
-            支付类型别名
-            菜单状态-->
-
             <el-table-column label="					ID		" prop="id" fixed></el-table-column>
             <el-table-column label="					入款方式		" prop="in_type" fixed></el-table-column>
             <el-table-column label="					支付类型		" prop="pay_type" fixed></el-table-column>
@@ -89,13 +58,6 @@
 
             </el-table-column>
 
-<!--            <el-table-column label="					属性		" prop="id" fixed>
-                <template slot-scope="scope">
-                    &lt;!&ndash;<el-checkbox-group v-model="checked" @change="isTest">&ndash;&gt;
-                        <el-checkbox  v-model="scope.row.property" @click.native="updatePropertyServer(scope.$index, scope.row)" @change="isTest">热门</el-checkbox>
-                    &lt;!&ndash;</el-checkbox-group>&ndash;&gt;
-                </template>
-            </el-table-column>-->
             <el-table-column label="					属性		" prop="id" fixed>
                 <template slot-scope="scope">
                 <h1 v-if="scope.row.property.includes('热门') > 0">
@@ -118,49 +80,6 @@
 
             <el-table-column label="					菜单状态		" prop="id" fixed></el-table-column>
 
-            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
-            &lt;!&ndash;<el-table-column
-                label="用户 ID"
-                prop="id"
-                sortable="custom"
-                align="center"
-                fixed>
-                <template slot-scope="scope">
-                    <span>{{ scope.row.id }}</span>
-                </template>
-            </el-table-column>&ndash;&gt;
-
-            <el-table-column
-                    label="用户名"
-                    prop="username"
-                    sortable="custom"
-                    fixed>
-            </el-table-column>
-
-            <el-table-column
-                    sortable="custom"
-                    label="状态" prop="status">
-                <template slot-scope="scope">
-                    <el-tag :type="scope.row.status | statusFilterType">{{scope.row.status | statusFilterName}}</el-tag>
-                </template>
-            </el-table-column>
-            <el-table-column
-                    label="登录时间"
-                    with="300"
-                    sortable="custom"
-                    :show-overflow-tooltip="true" prop="last_login_time">
-                <template slot-scope="scope">
-                    <i class="el-icon-time"></i>
-                    <span>{{ scope.row.last_login_time }}</span>
-                </template>
-            </el-table-column>
-            <el-table-column
-                    sortable="custom"
-                    label="登录IP" prop="last_login_ip">
-                <template slot-scope="scope">
-                    <span>{{ scope.row.last_login_ip }}</span>
-                </template>
-            </el-table-column>-->
             <el-table-column
                     label="操作" width="260"
                     fixed="right">
@@ -171,11 +90,6 @@
                     </el-button>
                     <el-button v-if="scope.row.status === '1'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemFailedServer(scope.$index, scope.row)">隐藏
                     </el-button>
-
-                   <!-- <el-button v-if="scope.row.status === '0'" type="primary" size="small" icon="el-icon-delete" @click.native="auditItemSuccessServer(scope.$index, scope.row)">黑名單
-                    </el-button>
-                    <el-button v-if="scope.row.status === '1'" type="primary" size="small" icon="el-icon-delete" @click.native="auditItemFailedServer(scope.$index, scope.row)">白名單
-                    </el-button>-->
 
                 </template>
             </el-table-column>

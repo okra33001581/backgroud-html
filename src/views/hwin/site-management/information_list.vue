@@ -14,14 +14,6 @@
                     <el-option label="隐藏" value="0"></el-option>
                 </el-select>
             </el-form-item>
-            <!---->
-            <!--<el-form-item class="query-form-item">-->
-                <!--<el-select v-model="query.status" placeholder="资讯状态">-->
-                    <!--<el-option label="全部" value=""></el-option>-->
-                    <!--<el-option label="正常" value="0"></el-option>-->
-                    <!--<el-option label="隐藏" value="2"></el-option>-->
-                <!--</el-select>-->
-            <!--</el-form-item>-->
 
             <el-form-item class="query-form-item">
                 <el-select v-model="query.type" placeholder="资讯类型">
@@ -31,22 +23,6 @@
                 </el-select>
             </el-form-item>
 
-            <!--<el-form-item class="query-form-item">-->
-            <!--<el-radio-group v-model="query.autoWidth">-->
-                <!--<el-radio :label="true" border>True</el-radio>-->
-                <!--<el-radio :label="false" border>False</el-radio>-->
-            <!--</el-radio-group>-->
-            <!--</el-form-item>-->
-            <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
-                <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key"/>
-            </el-select>-->
-            <!--<el-form-item class="query-form-item">
-                <el-select v-model="query.role_id" placeholder="角色">
-                    <el-option label="全部角色" value=""></el-option>
-                    <el-option v-for="item in roles" :key="item.id" :label="item.name" :value="item.id"></el-option>
-                </el-select>
-            </el-form-item>-->
-
             <el-form-item>
                 <el-button-group>
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
@@ -54,31 +30,10 @@
                     <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">新增</el-button>
                     <el-button type="primary" icon="el-icon-search" @click="handleDownload">excel</el-button>
 
-                   <!-- <div style="padding-left: 20px">
-                        <el-button @click="changeLanguage">切换语言</el-button>
-                    </div>-->
-
-                   <!-- <div style="padding-left: 20px">
-                        <el-button @click="changeLanguage" v-if="hasPerm('article:add')">控件权限</el-button>
-                    </div>-->
-
                 </el-button-group>
             </el-form-item>
         </el-form>
-        <!--<el-table
-            v-loading="loading"
-            :data="list" stripe
-            style="width: 100%;"
-            max-height="500">-->
-        <!--<el-table
-                v-loading="loading"
-                :key="tableKey"
-                :data="list" stripe
-                border
-                fit
-                highlight-current-row
-                style="width: 100%;"
-                @sort-change="sortChange">-->
+
         <el-table
                 v-loading="loading"
                 :key="tableKey"
@@ -118,64 +73,7 @@
             <el-table-column label="					最后更新时间		" prop="updated_at" fixed></el-table-column>
             <el-table-column label="					管理员		" prop="updater" fixed></el-table-column>
 
-
-
-
-          <!--  <div class="container">
-                <div class="plugins-tips">
-                    Vue-Quill-Editor：基于Quill、适用于Vue2的富文本编辑器。
-                    访问地址：<a href="https://github.com/surmon-china/vue-quill-editor" target="_blank">vue-quill-editor</a>
-                </div>
-                <quill-editor ref="myTextEditor" v-model="content" :options="editorOption"></quill-editor>
-                <el-button class="editor-btn" type="primary" @click="submit">提交</el-button>
-            </div>-->
-
             <el-table-column label="					状态		" prop="id" fixed></el-table-column>
-
-
-            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
-            &lt;!&ndash;<el-table-column
-                label="用户 ID"
-                prop="id"
-                sortable="custom"
-                align="center"
-                fixed>
-                <template slot-scope="scope">
-                    <span>{{ scope.row.id }}</span>
-                </template>
-            </el-table-column>&ndash;&gt;
-
-            <el-table-column
-                    label="用户名"
-                    prop="username"
-                    sortable="custom"
-                    fixed>
-            </el-table-column>
-
-            <el-table-column
-                    sortable="custom"
-                    label="状态" prop="status">
-                <template slot-scope="scope">
-                    <el-tag :type="scope.row.status | statusFilterType">{{scope.row.status | statusFilterName}}</el-tag>
-                </template>
-            </el-table-column>
-            <el-table-column
-                    label="登录时间"
-                    with="300"
-                    sortable="custom"
-                    :show-overflow-tooltip="true" prop="last_login_time">
-                <template slot-scope="scope">
-                    <i class="el-icon-time"></i>
-                    <span>{{ scope.row.last_login_time }}</span>
-                </template>
-            </el-table-column>
-            <el-table-column
-                    sortable="custom"
-                    label="登录IP" prop="last_login_ip">
-                <template slot-scope="scope">
-                    <span>{{ scope.row.last_login_ip }}</span>
-                </template>
-            </el-table-column>-->
             <el-table-column
                     label="操作" width="450"
                     fixed="right">
@@ -191,9 +89,6 @@
                     </el-button>
                     <el-button v-if="scope.row.status === '1'" type="primary" size="small" icon="el-icon-edit" @click.native="itemFailedServer(scope.$index, scope.row)">解除置顶
                     </el-button>
-
-
-
                 </template>
             </el-table-column>
         </el-table>
@@ -242,89 +137,6 @@
                 <el-form-item label="内容" prop="content">
                     <el-input type="textarea" v-model="formData.content" auto-complete="off"></el-input>
                 </el-form-item>
-
-                <!--<template>
-                    <el-row>
-                        <quill-editor v-model="content"
-                                      :options="editorOption"
-                                      @blur="onEditorBlur($event)"
-                                      @focus="onEditorFocus($event)"
-                                      @change="onEditorChange($event)">
-                        </quill-editor>
-                    </el-row>
-                </template>
-
-                <div class="content-title">支持裁剪</div>
-                <div class="plugins-tips">
-                    vue-cropperjs：一个封装了 cropperjs 的 Vue 组件。
-                    访问地址：<a href="https://github.com/Agontuk/vue-cropperjs" target="_blank">vue-cropperjs</a>
-                </div>
-                <div class="crop-demo">
-                    <img :src="cropImg" class="pre-img">
-                    <div class="crop-demo-btn">选择图片
-                        <input class="crop-input" type="file" name="image" accept="image/*" @change="setImage"/>
-                    </div>
-                </div>
-
-                <el-dialog title="裁剪图片" :visible.sync="dialogVisible" width="30%">
-                    <vue-cropper ref='cropper' :src="imgSrc" :ready="cropImage" :zoom="cropImage" :cropmove="cropImage" style="width:100%;height:300px;"></vue-cropper>
-                    <span slot="footer" class="dialog-footer">
-                    <el-button @click="cancelCrop">取 消</el-button>
-                    <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
-                </span>
-                </el-dialog>
-
-
-                <template>
-                    <div>
-                        <p class="warn-content">
-                            <a href="https://v-charts.js.org/#/" target="_blank">charts组件参考v-charts
-                            </a>
-                        </p>
-                        <ve-line :data="chartData"></ve-line>
-                    </div>
-                </template>
-
-
-                <el-form-item style="margin-bottom: 40px;" prop="title">
-                    <MDinput v-model="formData.id" :maxlength="100" name="name" required>
-                        标题
-                    </MDinput>
-                </el-form-item>
-&lt;!&ndash;
-                <el-col :span="10">
-                    <el-form-item label-width="80px" label="发布时间:" class="postInfo-container-item">
-                        <el-date-picker v-model="formData.id" type="datetime" format="yyyy-MM-dd HH:mm:ss" placeholder="选择日期时间"/>
-                    </el-form-item>
-                </el-col>&ndash;&gt;
-
-                <el-col :span="6">
-                    <el-form-item label-width="60px" label="重要性:" class="postInfo-container-item">
-                        <el-rate
-                                v-model="formData.importance"
-                                :max="3"
-                                :colors="['#99A9BF', '#F7BA2A', '#FF9900']"
-                                :low-threshold="1"
-                                :high-threshold="3"
-                                style="margin-top:8px;"/>
-                    </el-form-item>
-                </el-col>
-
-                <el-col :span="10">
-                    <el-form-item label-width="80px" label="发布时间:" class="postInfo-container-item">
-                        <el-date-picker v-model="formData.display_time" type="datetime" format="yyyy-MM-dd HH:mm:ss" placeholder="选择日期时间"/>
-                    </el-form-item>
-                </el-col>
-
-                <el-form-item style="margin-bottom: 40px;" label-width="45px" label="摘要:">
-                    <el-input :rows="1" v-model="formData.content_short" type="textarea" class="article-textarea" autosize placeholder="请输入内容"/>
-                    <span v-show="contentShortLength" class="word-counter">{{ contentShortLength }}字</span>
-                </el-form-item>
-
-                <el-form-item prop="image_uri" style="margin-bottom: 30px;">
-                    <Upload v-model="formData.image_uri" />
-                </el-form-item>-->
-
 
             </el-form>
             <div slot="footer" class="dialog-footer">

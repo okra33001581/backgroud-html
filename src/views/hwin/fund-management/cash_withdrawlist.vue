@@ -90,34 +90,6 @@
             <el-form-item class="query-form-item">
                 <el-input v-model="query.account" placeholder="会员账号"></el-input>
             </el-form-item>
-
-
-
-           <!-- <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="刷新">
-                    &lt;!&ndash;<el-option label="不刷新" value=""></el-option>&ndash;&gt;
-                    &lt;!&ndash;<el-option label="30s" value="0"></el-option>&ndash;&gt;
-                    &lt;!&ndash;<el-option label="60s" value="1"></el-option>&ndash;&gt;
-                    &lt;!&ndash;<el-option label="120s" value="2"></el-option>&ndash;&gt;
-                    &lt;!&ndash;<el-option label="180s" value="2"></el-option>&ndash;&gt;
-
-                    <el-checkbox label="vip2" value="0"></el-checkbox>
-                    <el-checkbox label="vip3" value="0"></el-checkbox>
-                    <el-checkbox label="vip4" value="0"></el-checkbox>
-                    <el-checkbox label="vip5" value="0"></el-checkbox>
-                    <el-checkbox label="vip6" value="0"></el-checkbox>
-                    <el-checkbox label="vip7" value="0"></el-checkbox>
-                    <el-checkbox label="vip8" value="0"></el-checkbox>
-                    <el-checkbox label="vip9" value="0"></el-checkbox>
-                    <el-checkbox label="vip10" value="0"></el-checkbox>
-                    <el-checkbox label="vip11" value="0"></el-checkbox>
-                    <el-checkbox label="vip12" value="0"></el-checkbox>
-
-                </el-select>
-            </el-form-item>-->
-
-
-            <!--<template>-->
                 <el-form-item class="query-form-item">
                 <el-select v-model="value5" multiple placeholder="请选择">
                     <el-option
@@ -128,46 +100,6 @@
                     </el-option>
                 </el-select>
                 </el-form-item>
-                <!--<el-select
-                        v-model="value11"
-                        multiple
-                        collapse-tags
-                        style="margin-left: 20px;"
-                        placeholder="请选择">
-                    <el-option
-                            v-for="item in options"
-                            :key="item.value"
-                            :label="item.label"
-                            :value="item.value">
-                    </el-option>
-                </el-select>-->
-            <!--</template>-->
-
-
-
-           <!-- <el-form-item class="query-form-item">
-                <el-checkbox label="vip2">vip2</el-checkbox>
-                <el-checkbox label="vip2">vip3</el-checkbox>
-                <el-checkbox label="vip2">vip4</el-checkbox>
-                <el-checkbox label="vip2">vip5</el-checkbox>
-                <el-checkbox label="vip2">vip6</el-checkbox>
-                <el-checkbox label="vip2">vip7</el-checkbox>
-                <el-checkbox label="vip2">vip8</el-checkbox>
-                <el-checkbox label="vip2">vip9</el-checkbox>
-                <el-checkbox label="vip2">vip10</el-checkbox>
-                <el-checkbox label="vip2">vip11</el-checkbox>
-                <el-checkbox label="vip2">vip12</el-checkbox>
-            </el-form-item>-->
-
-            <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
-                <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key"/>
-            </el-select>-->
-            <!--<el-form-item class="query-form-item">
-                <el-select v-model="query.role_id" placeholder="角色">
-                    <el-option label="全部角色" value=""></el-option>
-                    <el-option v-for="item in roles" :key="item.id" :label="item.name" :value="item.id"></el-option>
-                </el-select>
-            </el-form-item>-->
 
             <el-form-item>
                 <el-button-group>
@@ -177,20 +109,7 @@
                 </el-button-group>
             </el-form-item>
         </el-form>
-        <!--<el-table
-            v-loading="loading"
-            :data="list" stripe
-            style="width: 100%;"
-            max-height="500">-->
-        <!--<el-table
-                v-loading="loading"
-                :key="tableKey"
-                :data="list" stripe
-                border
-                fit
-                highlight-current-row
-                style="width: 100%;"
-                @sort-change="sortChange">-->
+
         <el-table
                 v-loading="loading"
                 :key="tableKey"
@@ -204,25 +123,6 @@
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
-
-
-            <!--层级
-            订单号
-            会员账号
-            姓名
-            出款类型
-            手续费
-            实际出款
-            出款状态
-            申请时间
-            确认时间
-            风控
-            风控人
-            出款操作
-            操作人
-            前台备注
-            后台备注
--->
             <el-table-column label="					ID		" prop="id" fixed></el-table-column>
             <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
             <el-table-column label="					层级		" prop="id" fixed></el-table-column>
@@ -242,59 +142,10 @@
             <el-table-column label="					前台备注		" prop="id" fixed></el-table-column>
             <el-table-column label="					后台备注		" prop="id" fixed></el-table-column>
 
-
-            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
-            &lt;!&ndash;<el-table-column
-                label="用户 ID"
-                prop="id"
-                sortable="custom"
-                align="center"
-                fixed>
-                <template slot-scope="scope">
-                    <span>{{ scope.row.id }}</span>
-                </template>
-            </el-table-column>&ndash;&gt;
-
-            <el-table-column
-                    label="用户名"
-                    prop="username"
-                    sortable="custom"
-                    fixed>
-            </el-table-column>
-
-            <el-table-column
-                    sortable="custom"
-                    label="状态" prop="status">
-                <template slot-scope="scope">
-                    <el-tag :type="scope.row.status | statusFilterType">{{scope.row.status | statusFilterName}}</el-tag>
-                </template>
-            </el-table-column>
-            <el-table-column
-                    label="登录时间"
-                    with="300"
-                    sortable="custom"
-                    :show-overflow-tooltip="true" prop="last_login_time">
-                <template slot-scope="scope">
-                    <i class="el-icon-time"></i>
-                    <span>{{ scope.row.last_login_time }}</span>
-                </template>
-            </el-table-column>
-            <el-table-column
-                    sortable="custom"
-                    label="登录IP" prop="last_login_ip">
-                <template slot-scope="scope">
-                    <span>{{ scope.row.last_login_ip }}</span>
-                </template>
-            </el-table-column>-->
             <el-table-column
                     label="操作" width="260"
                     fixed="right">
                 <template slot-scope="scope">
-                    <!--<el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">同意
-                    </el-button>
-                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">拒绝
-                    </el-button>-->
-
                     <el-button v-if="scope.row.out_status === '0'" type="primary" size="small" icon="el-icon-edit" @click.native="itemSuccessServer(scope.$index, scope.row)">同意
                     </el-button>
                     <el-button v-if="scope.row.out_status === '1'" type="primary" size="small" icon="el-icon-edit" @click.native="itemFailedServer(scope.$index, scope.row)">拒绝

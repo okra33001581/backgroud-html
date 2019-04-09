@@ -21,27 +21,6 @@
                     :picker-options="pickerOptions1">
             </el-date-picker>
             </el-form-item>
-<!--
-            <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="用户名"></el-input>
-            </el-form-item>
-            <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="状态">
-                    <el-option label="全部" value=""></el-option>
-                    <el-option label="禁用" value="0"></el-option>
-                    <el-option label="正常" value="1"></el-option>
-                    <el-option label="未验证" value="2"></el-option>
-                </el-select>
-            </el-form-item>-->
-            <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
-                <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key"/>
-            </el-select>-->
-            <!--<el-form-item class="query-form-item">
-                <el-select v-model="query.role_id" placeholder="角色">
-                    <el-option label="全部角色" value=""></el-option>
-                    <el-option v-for="item in roles" :key="item.id" :label="item.name" :value="item.id"></el-option>
-                </el-select>
-            </el-form-item>-->
 
             <el-form-item>
                 <el-button-group>
@@ -50,20 +29,7 @@
                 </el-button-group>
             </el-form-item>
         </el-form>
-        <!--<el-table
-            v-loading="loading"
-            :data="list" stripe
-            style="width: 100%;"
-            max-height="500">-->
-        <!--<el-table
-                v-loading="loading"
-                :key="tableKey"
-                :data="list" stripe
-                border
-                fit
-                highlight-current-row
-                style="width: 100%;"
-                @sort-change="sortChange">-->
+
         <el-table
                 v-loading="loading"
                 :key="tableKey"
@@ -78,60 +44,12 @@
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
 
-
-            <!--域名-->
-            <!--总访问人数-->
-            <!--总访问量-->
-
             <el-table-column label="			Id				" prop="id" fixed></el-table-column>
             <el-table-column label="			商户				" prop="merchant_name" fixed></el-table-column>
             <el-table-column label="			域名				" prop="domain" fixed></el-table-column>
             <el-table-column label="			总访问人数				" prop="total_visit_people_count" fixed></el-table-column>
             <el-table-column label="			总访问量				" prop="tatal_visit_count" fixed></el-table-column>
 
-            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
-            &lt;!&ndash;<el-table-column
-                label="用户 ID"
-                prop="id"
-                sortable="custom"
-                align="center"
-                fixed>
-                <template slot-scope="scope">
-                    <span>{{ scope.row.id }}</span>
-                </template>
-            </el-table-column>&ndash;&gt;
-
-            <el-table-column
-                    label="用户名"
-                    prop="username"
-                    sortable="custom"
-                    fixed>
-            </el-table-column>
-
-            <el-table-column
-                    sortable="custom"
-                    label="状态" prop="status">
-                <template slot-scope="scope">
-                    <el-tag :type="scope.row.status | statusFilterType">{{scope.row.status | statusFilterName}}</el-tag>
-                </template>
-            </el-table-column>
-            <el-table-column
-                    label="登录时间"
-                    with="300"
-                    sortable="custom"
-                    :show-overflow-tooltip="true" prop="last_login_time">
-                <template slot-scope="scope">
-                    <i class="el-icon-time"></i>
-                    <span>{{ scope.row.last_login_time }}</span>
-                </template>
-            </el-table-column>
-            <el-table-column
-                    sortable="custom"
-                    label="登录IP" prop="last_login_ip">
-                <template slot-scope="scope">
-                    <span>{{ scope.row.last_login_ip }}</span>
-                </template>
-            </el-table-column>-->
             <el-table-column
                     label="操作" width="260"
                     fixed="right">
@@ -165,26 +83,6 @@
                 <el-form-item label="			总访问人数  		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="			总访问量   		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
 
-
-
-                <!--<el-form-item label="登录密码" prop="password">
-                    <el-input type="password" v-model="formData.password" auto-complete="off"></el-input>
-                </el-form-item>
-                <el-form-item label="确认密码" prop="checkPassword">
-                    <el-input type="password" v-model="formData.checkPassword" auto-complete="off"></el-input>
-                </el-form-item>
-                <el-form-item label="状态" prop="status">
-                    <el-radio-group v-model="formData.status">
-                        <el-radio label="0">禁用</el-radio>
-                        <el-radio label="1">正常</el-radio>
-                        <el-radio label="2">未验证</el-radio>
-                    </el-radio-group>
-                </el-form-item>
-                <el-form-item label="角色">
-                    <el-checkbox-group v-model="formData.roles">
-                        <el-checkbox v-for="item in roles" :key="item.id" :label="item.id">{{item.name}}</el-checkbox>
-                    </el-checkbox-group>
-                </el-form-item>-->
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideForm">关闭</el-button>

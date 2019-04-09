@@ -217,24 +217,6 @@
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
 
-
-            <!--注单
-            用户名
-            时间
-            彩种
-            期数
-            开奖结果
-            玩法
-            动态奖金
-            投注内容
-            倍数
-            投注总金额
-            模式
-            返点金额
-            中奖金额
-            中奖状态
-            状态
-            -->
             <el-table-column label="					ID		" prop="id" fixed></el-table-column>
             <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
             <el-table-column label="					注单		" prop="project" fixed></el-table-column>
@@ -254,49 +236,6 @@
             <el-table-column label="					中奖状态		" prop="prize_status" fixed></el-table-column>
             <el-table-column label="					状态		" prop="status" fixed></el-table-column>
 
-            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
-            &lt;!&ndash;<el-table-column
-                label="用户 ID"
-                prop="id"
-                sortable="custom"
-                align="center"
-                fixed>
-                <template slot-scope="scope">
-                    <span>{{ scope.row.id }}</span>
-                </template>
-            </el-table-column>&ndash;&gt;
-
-            <el-table-column
-                    label="用户名"
-                    prop="username"
-                    sortable="custom"
-                    fixed>
-            </el-table-column>
-
-            <el-table-column
-                    sortable="custom"
-                    label="状态" prop="status">
-                <template slot-scope="scope">
-                    <el-tag :type="scope.row.status | statusFilterType">{{scope.row.status | statusFilterName}}</el-tag>
-                </template>
-            </el-table-column>
-            <el-table-column
-                    label="登录时间"
-                    with="300"
-                    sortable="custom"
-                    :show-overflow-tooltip="true" prop="last_login_time">
-                <template slot-scope="scope">
-                    <i class="el-icon-time"></i>
-                    <span>{{ scope.row.last_login_time }}</span>
-                </template>
-            </el-table-column>
-            <el-table-column
-                    sortable="custom"
-                    label="登录IP" prop="last_login_ip">
-                <template slot-scope="scope">
-                    <span>{{ scope.row.last_login_ip }}</span>
-                </template>
-            </el-table-column>-->
             <el-table-column
                     label="操作" width="260"
                     fixed="right">
@@ -319,7 +258,7 @@
         <!--<pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />-->
 
         <!--表单-->
-        <el-dialog
+        <!--<el-dialog
                 :title="formMap[formName]"
                 :visible.sync="formVisible"
                 :before-close="hideForm"
@@ -346,9 +285,9 @@
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideForm">关闭</el-button>
-                <!--<el-button type="primary" @click.native="formSubmit()" :loading="formLoading">提交</el-button>-->
+                &lt;!&ndash;<el-button type="primary" @click.native="formSubmit()" :loading="formLoading">提交</el-button>&ndash;&gt;
             </div>
-        </el-dialog>
+        </el-dialog>-->
     </div>
 
 </template>
