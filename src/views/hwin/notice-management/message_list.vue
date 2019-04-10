@@ -8,6 +8,13 @@
             </el-form-item>
 
             <el-form-item class="query-form-item">
+                <el-select v-model="query.category" placeholder="列表">
+                    <el-option value="站内信" label="站内信"></el-option>
+                    <el-option value="推送" label="推送"></el-option>
+                </el-select>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
                 <el-select v-model="query.type" placeholder="消息类型">
                     <el-option value="" label="全部"></el-option>
                     <el-option value="充提消息" label="充提消息"></el-option>
@@ -87,6 +94,7 @@
 
             <el-table-column label="					ID		" prop="id" fixed></el-table-column>
             <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="					分类		" prop="category" fixed></el-table-column>
             <el-table-column label="					状态		" prop="receive_flag" fixed></el-table-column>
             <el-table-column label="					是否已删		" prop="status" fixed></el-table-column>
             <el-table-column label="					标题		" prop="title" fixed></el-table-column>
@@ -125,8 +133,26 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                <el-form-item label="消息类型" prop="type">
-                    <el-input v-model="formData.type" auto-complete="off"></el-input>
+                <el-form-item class="query-form-item">
+                    <el-select v-model="formData.category" placeholder="列表">
+                        <el-option value="站内信" label="站内信"></el-option>
+                        <el-option value="推送" label="推送"></el-option>
+                    </el-select>
+                </el-form-item>
+
+
+                <el-form-item class="query-form-item">
+                    <el-select v-model="formData.type" placeholder="消息类型">
+                        <el-option value="" label="全部"></el-option>
+                        <el-option value="充提消息" label="充提消息"></el-option>
+                        <el-option value="用户私信" label="用户私信"></el-option>
+                        <el-option value="监控用户消息" label="监控用户消息"></el-option>
+                        <el-option value="大额撤单消息" label="大额撤单消息"></el-option>
+                        <el-option value="财务每日消息" label="财务每日消息"></el-option>
+                        <el-option value="系统消息" label="系统消息"></el-option>
+                        <el-option value="活动消息" label="活动消息"></el-option>
+                        <el-option value="中奖消息" label="中奖消息"></el-option>
+                    </el-select>
                 </el-form-item>
 
                 <el-form-item label="消息标题" prop="title">

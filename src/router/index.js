@@ -797,13 +797,13 @@ export const asyncRouterMap = [
             {
                 path: "message_list",
                 component: message_list,
-                name: "站内信列表",
+                name: "站内信-推送列表",
                 icon: "message_list",
                 meta: {
                     authRule: ["hwin/message_list"]
                 }
             },
-            {
+            /*{
                 path: "push_list",
                 component: push_list,
                 name: "移动端推送",
@@ -811,7 +811,8 @@ export const asyncRouterMap = [
                 meta: {
                     authRule: ["hwin/push_list"]
                 }
-            }, {
+            },*/
+            {
                 path: "notice_list",
                 component: notice_list,
                 name: "公告列表",
