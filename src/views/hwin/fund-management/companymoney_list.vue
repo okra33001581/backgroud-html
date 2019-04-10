@@ -329,8 +329,8 @@
                 companymoneyList(this.query)
                     .then(response => {
                         this.loading = false;
-                        this.list = response.data.list || [];
-                        this.total = response.data.total || 0;
+                        this.list = response.data.list.data || [];
+                        this.total = response.data.list.total || 0;
                     })
                     .catch(() => {
                         this.loading = false;

@@ -59,9 +59,10 @@
 
             <el-table-column label="					排序值		" prop="position" fixed>
 
-                template scope="scope">
-                <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="updatefloatwindowSequence(scope.$index, scope.row)"
-                ></el-input>
+                <template scope="scope">
+                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="updatefloatwindowSequence(scope.$index, scope.row)">
+                    </el-input>
+                </template>
 
             </el-table-column>
             <el-table-column label="				名称		" prop="title" fixed></el-table-column>
@@ -360,8 +361,8 @@
                 floatwindowconfigList(this.query)
                     .then(response => {
                         this.loading = false;
-                        this.list = response.data.list || [];
-                        this.total = response.data.total || 0;
+                        this.list = response.data.list.data || [];
+                        this.total = response.data.list.total || 0;
                     })
                     .catch(() => {
                         this.loading = false;
