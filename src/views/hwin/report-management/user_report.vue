@@ -23,12 +23,22 @@
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-button>昨天</el-button>
-                <el-button>上周</el-button>
-                <el-button>本周</el-button>
-                <el-button>上月</el-button>
-                <el-button>本月</el-button>
-                <el-button>近三月</el-button>
+
+
+                <el-button @click="getDayBetween('yesterday')">今天</el-button>
+                <el-button @click="getDayBetween('today')">今天</el-button>
+                <el-button @click="getDayBetween('last_week')">上周</el-button>
+                <el-button @click="getDayBetween('current_week')">本周</el-button>
+                <el-button @click="getDayBetween('last_month')">上月</el-button>
+                <el-button @click="getDayBetween('current_month')">本月</el-button>
+                <el-button @click="getDayBetween('last_three_month')">近三月</el-button>
+
+                <!--<el-button>昨天</el-button>-->
+                <!--<el-button>上周</el-button>-->
+                <!--<el-button>本周</el-button>-->
+                <!--<el-button>上月</el-button>-->
+                <!--<el-button>本月</el-button>-->
+                <!--<el-button>近三月</el-button>-->
             </el-form-item>
 
             <el-form-item class="query-form-item">
@@ -335,6 +345,9 @@
                     this.query.sort = '-last_login_time'
                 }
                 this.handleFilter()
+            },
+            getDayBetween(flag) {
+                this.query.datePeriod = flag;
             },
             sortByLastLoginIp(order) {
                 if (order === 'ascending') {

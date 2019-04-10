@@ -19,6 +19,15 @@ export function lotterygroupSort(query) {
         params: query
     });
 }
+export function getDayBetween(query) {
+    return axios({
+        url: "event/getDayBetween",
+        method: "get",
+        params: query
+    });
+}
+
+
 
 // 获取列表
 export function financeIndex(query) {

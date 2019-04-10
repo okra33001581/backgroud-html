@@ -10,25 +10,23 @@
                 <el-date-picker
                         v-model="query.beginDate"
                         type="date"
-                        placeholder="开始时间"
-                        :picker-options="pickerOptions0">
+                        placeholder="开始时间">
                 </el-date-picker>
                 <el-date-picker
                         v-model="query.endDate"
                         type="date"
-                        placeholder="结束时间"
-                        :picker-options="pickerOptions1">
+                        placeholder="结束时间">
                 </el-date-picker>
             </el-form-item>
 
             <el-form-item class="query-form-item">
             <el-button>昨天</el-button>
-                <el-button>今天</el-button>
-                <el-button>上周</el-button>
-                <el-button>本周</el-button>
-                <el-button>上月</el-button>
-                <el-button>本月</el-button>
-                <el-button>近三月</el-button>
+                <el-button @click="getDayBetween('today')">今天</el-button>
+                <el-button @click="getDayBetween('last_week')">上周</el-button>
+                <el-button @click="getDayBetween('current_week')">本周</el-button>
+                <el-button @click="getDayBetween('last_month')">上月</el-button>
+                <el-button @click="getDayBetween('current_month')">本月</el-button>
+                <el-button @click="getDayBetween('last_three_month')">近三月</el-button>
             </el-form-item>
 
 
@@ -187,6 +185,7 @@
     import {
         operationProfit,
         authAdminRoleList,
+        getDayBetween,
         authAdminSave,
         authAdminDelete
     } from "../../../api/report-management";
@@ -359,8 +358,9 @@
                 }
                 this.handleFilter()
             },
-
-
+            getDayBetween(flag) {
+                this.query.datePeriod = flag;
+            },
             sortByUserName(order) {
                 if (order === 'ascending') {
                     this.query.sort = '+username'

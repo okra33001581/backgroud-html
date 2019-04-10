@@ -7,17 +7,17 @@
             <el-form-item class="query-form-item">
                 <el-select v-model="query.way_type" placeholder="玩法类型">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="官方玩法" value="0"></el-option>
-                    <el-option label="信用玩法" value="2"></el-option>
+                    <el-option label="官方玩法" value="官方玩法"></el-option>
+                    <el-option label="信用玩法" value="信用玩法"></el-option>
                 </el-select>
             </el-form-item>
             <el-form-item class="query-form-item">
                 <el-select v-model="query.lottery" placeholder="游戏名称">
                     <el-option label="全部游戏" value="0"> </el-option>
-                    <el-option label="江西多乐彩(官)" value="1"></el-option>
-                    <el-option label="江西多乐彩(信)" value="2"></el-option>
-                    <el-option label="广东十一选五(官)" value="3"></el-option>
-                    <el-option label="广东十一选五(信)" value="4"></el-option>
+                    <el-option label="江西多乐彩(官)" value="江西多乐彩(官)"></el-option>
+                    <el-option label="江西多乐彩(信)" value="江西多乐彩(信)"></el-option>
+                    <el-option label="广东十一选五(官)" value="广东十一选五(官)"></el-option>
+                    <!--<el-option label="广东十一选五(信)" value="4"></el-option>
                     <el-option label="十一运夺金(官)" value="5"></el-option>
                     <el-option label="新疆时时彩(官)" value="6"></el-option>
                     <el-option label="上海时时乐(官)" value="7"></el-option>
@@ -88,7 +88,7 @@
                     <el-option label="一分十一选五(官)" value="72"></el-option>
                     <el-option label="一分十一选五(信)" value="73"></el-option>
                     <el-option label="新疆时时彩(信)" value="74"></el-option>
-                    <el-option label="一分六合彩(信)" value="75"></el-option>
+                    <el-option label="一分六合彩(信)" value="75"></el-option>-->
 
                 </el-select>
             </el-form-item>
@@ -105,9 +105,9 @@
             <el-form-item class="query-form-item">
                 <el-select v-model="query.prize_status" placeholder="中奖状态">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="未判断"  value="73"></el-option>
-                    <el-option label="中奖" value="74"></el-option>
-                    <el-option label="未中奖" value="75"></el-option>
+                    <el-option label="未判断"  value="未判断"></el-option>
+                    <el-option label="中奖" value="中奖"></el-option>
+                    <el-option label="未中奖" value="未中奖"></el-option>
                 </el-select>
             </el-form-item>
 
@@ -115,9 +115,9 @@
             <el-form-item class="query-form-item">
                 <el-select v-model="query.operate_type" placeholder="用户撤单">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="正常"  value="73"></el-option>
-                    <el-option label="用户撤单" value="74"></el-option>
-                    <el-option label="系统撤单" value="75"></el-option>
+                    <el-option label="正常"  value="正常"></el-option>
+                    <el-option label="用户撤单" value="用户撤单"></el-option>
+                    <el-option label="系统撤单" value="系统撤单"></el-option>
                 </el-select>
             </el-form-item>
 
@@ -140,16 +140,16 @@
             <el-form-item class="query-form-item">
                 <el-select v-model="query.sort" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="逆序" value="0"></el-option>
-                    <el-option label="顺序" value="2"></el-option>
+                    <el-option label="逆序" value="逆序"></el-option>
+                    <el-option label="顺序" value="顺序"></el-option>
                 </el-select>
             </el-form-item>
 
             <el-form-item class="query-form-item">
                 <el-select v-model="query.prize_type" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="奖金" value="0"></el-option>
-                    <el-option label="倍数" value="2"></el-option>
+                    <el-option label="奖金" value="奖金"></el-option>
+                    <el-option label="倍数" value="倍数"></el-option>
                 </el-select>
             </el-form-item>
 
@@ -163,8 +163,8 @@
             <el-form-item class="query-form-item">
                 <el-select v-model="query.select_info_type" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="用户名" value="0"></el-option>
-                    <el-option label="注单" value="2"></el-option>
+                    <el-option label="用户名" value="用户名"></el-option>
+                    <el-option label="注单" value="注单"></el-option>
                 </el-select>
             </el-form-item>
 
@@ -416,6 +416,9 @@
             handleCurrentChange(val) {
                 this.query.page = val;
                 this.getList();
+            },
+            getDayBetween(flag) {
+                this.query.datePeriod = flag;
             },
             handleFilter() {
                 this.query.page = 1
