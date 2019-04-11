@@ -385,12 +385,3 @@ export function thirdAccountIsTopSave(data) {
     });
 }
 
-export function thirdAccountIsTopSave(data) {
-    return axios({
-        url: "event/thirdAccountIsTopSave",
-        method: "post",
-        data: data
-    });
-}
-
-
