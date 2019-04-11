@@ -119,12 +119,15 @@
 
             <el-table-column label="					编号		" prop="id" fixed></el-table-column>
             <el-table-column label="					子账号		" prop="sub_account" fixed></el-table-column>
+            <el-table-column label="					商户名称		" prop="merchant_name" fixed></el-table-column>
             <el-table-column label="					操作名称		" prop="operate_name" fixed></el-table-column>
             <el-table-column label="					日志内容		" prop="log_content" fixed></el-table-column>
             <el-table-column label="					IP		" prop="ip" fixed></el-table-column>
-            <el-table-column label="					Cookies		" prop="cookies" fixed></el-table-column>
+            <el-table-column label="					cookies		" prop="cookies" fixed></el-table-column>
+            <el-table-column label="					origin		" prop="origin" fixed></el-table-column>
+            <el-table-column label="					referer		" prop="referer" fixed></el-table-column>
+            <el-table-column label="					user_agent		" prop="user_agent" fixed></el-table-column>
             <el-table-column label="					时间		" prop="date" fixed></el-table-column>
-
             <el-table-column
                     label="操作" width="260"
                     fixed="right">
@@ -154,10 +157,14 @@
             <el-form :model="formData" :rules="formRules" ref="dataForm">
                 <el-form-item label="			编号  		" prop="id"><el-input v-model="formData.id" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="			子账号    		" prop="sub_account"><el-input v-model="formData.sub_account" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			商户    		" prop="merchant_name"><el-input v-model="formData.merchant_name" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="			操作名称		" prop="operate_name"><el-input v-model="formData.operate_name" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="			日志内容		" prop="log_content"><el-input v-model="formData.log_content" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="			IP 		" prop="ip"><el-input v-model="formData.ip" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			Cook		" prop="cookies"><el-input v-model="formData.cookies" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			Cook		" prop="cookies"><el-input v-model="formData.cookies" type="textarea" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			origin		" prop="origin"><el-input v-model="formData.origin" type="textarea" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			referer		" prop="cookies"><el-input v-model="formData.referer" type="textarea" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			user_agent		" prop="user_agent"><el-input v-model="formData.user_agent" type="textarea" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="			时间 		" prop="date"><el-input v-model="formData.date" auto-complete="off"></el-input></el-form-item>
 
             </el-form>
