@@ -58,9 +58,9 @@
                     label="操作" width="260"
                     fixed="right">
                 <template slot-scope="scope">
-                    <el-button v-if="scope.row.status === '0'" type="primary" size="small" icon="el-icon-edit" @click.native="itemSuccessServer(scope.$index, scope.row)">同意
+                    <el-button v-if="scope.row.status === '拒绝'" type="primary" size="small" icon="el-icon-edit" @click.native="itemSuccessServer(scope.$index, scope.row)">同意
                     </el-button>
-                    <el-button v-if="scope.row.status === '1'" type="primary" size="small" icon="el-icon-edit" @click.native="itemFailedServer(scope.$index, scope.row)">拒绝
+                    <el-button v-if="scope.row.status === '同意'" type="primary" size="small" icon="el-icon-edit" @click.native="itemFailedServer(scope.$index, scope.row)">拒绝
                     </el-button>
                 </template>
             </el-table-column>
@@ -278,7 +278,7 @@
             itemSuccessServer(index, row) {
                 var params = {
                     id: row.id,
-                    flag: 1
+                    flag: '同意'
                 }
                 // debugger
                 userbetscheckStatusSave(params).then(
@@ -307,7 +307,7 @@
             itemFailedServer(index, row) {
                 var params = {
                     id: row.id,
-                    flag: 0
+                    flag: '拒绝'
                 }
                 // debugger
                 userbetscheckStatusSave(params).then(

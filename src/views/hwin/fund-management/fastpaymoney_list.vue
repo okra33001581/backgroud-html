@@ -60,9 +60,8 @@
             <el-form-item class="query-form-item">
                 <el-select v-model="query.status" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="已确认" value="0"></el-option>
-                    <el-option label="已取消" value="1"></el-option>
-                    <el-option label="未处理" value="2"></el-option>
+                    <el-option label="同意" value="同意"></el-option>
+                    <el-option label="拒绝" value="拒绝"></el-option>
                 </el-select>
             </el-form-item>
 
@@ -135,9 +134,9 @@
                     label="操作" width="260"
                     fixed="right">
                 <template slot-scope="scope">
-                    <el-button v-if="scope.row.status === '0'" type="primary" size="small" icon="el-icon-edit" @click.native="itemSuccessServer(scope.$index, scope.row)">同意
+                    <el-button v-if="scope.row.status === '拒绝'" type="primary" size="small" icon="el-icon-edit" @click.native="itemSuccessServer(scope.$index, scope.row)">同意
                     </el-button>
-                    <el-button v-if="scope.row.status === '1'" type="primary" size="small" icon="el-icon-edit" @click.native="itemFailedServer(scope.$index, scope.row)">拒绝
+                    <el-button v-if="scope.row.status === '同意'" type="primary" size="small" icon="el-icon-edit" @click.native="itemFailedServer(scope.$index, scope.row)">拒绝
                     </el-button>
                 </template>
             </el-table-column>
@@ -355,7 +354,7 @@
             itemSuccessServer(index, row) {
                 var params = {
                     id: row.id,
-                    flag: 1
+                    flag: '同意'
                 }
                 // debugger
                 fastpaymoneyStatusSave(params).then(
@@ -384,7 +383,7 @@
             itemFailedServer(index, row) {
                 var params = {
                     id: row.id,
-                    flag: 0
+                    flag: '拒绝'
                 }
                 // debugger
                 fastpaymoneyStatusSave(params).then(

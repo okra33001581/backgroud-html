@@ -76,9 +76,8 @@
             <el-form-item class="query-form-item">
                 <el-select v-model="query.audit_status" placeholder="审核状态">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="已通过" value="已通过"></el-option>
-                    <el-option label="已拒绝" value="已拒绝"></el-option>
-                    <el-option label="待审核" value="待审核"></el-option>
+                    <el-option label="同意" value="同意"></el-option>
+                    <el-option label="拒绝" value="拒绝"></el-option>
                 </el-select>
             </el-form-item>
 
@@ -146,9 +145,9 @@
                     label="操作" width="260"
                     fixed="right">
                 <template slot-scope="scope">
-                    <el-button v-if="scope.row.out_status === '0'" type="primary" size="small" icon="el-icon-edit" @click.native="itemSuccessServer(scope.$index, scope.row)">同意
+                    <el-button v-if="scope.row.out_status === '拒绝'" type="primary" size="small" icon="el-icon-edit" @click.native="itemSuccessServer(scope.$index, scope.row)">同意
                     </el-button>
-                    <el-button v-if="scope.row.out_status === '1'" type="primary" size="small" icon="el-icon-edit" @click.native="itemFailedServer(scope.$index, scope.row)">拒绝
+                    <el-button v-if="scope.row.out_status === '同意'" type="primary" size="small" icon="el-icon-edit" @click.native="itemFailedServer(scope.$index, scope.row)">拒绝
                     </el-button>
 
                 </template>
@@ -368,7 +367,7 @@
             itemSuccessServer(index, row) {
                 var params = {
                     id: row.id,
-                    flag: 1
+                    flag: '同意'
                 }
                 // debugger
                 cashwithdrawStatusSave(params).then(
@@ -397,7 +396,7 @@
             itemFailedServer(index, row) {
                 var params = {
                     id: row.id,
-                    flag: 0
+                    flag: '拒绝'
                 }
                 // debugger
                 cashwithdrawStatusSave(params).then(
