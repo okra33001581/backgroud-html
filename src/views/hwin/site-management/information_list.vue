@@ -85,9 +85,9 @@
                     <!--<el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">置顶</el-button>-->
                     <!--<el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">解除置顶</el-button>-->
 
-                    <el-button v-if="scope.row.status === '隐藏'" type="primary" size="small" icon="el-icon-edit" @click.native="itemSuccessServer(scope.$index, scope.row)">置顶
+                    <el-button v-if="scope.row.status === '解除置顶'" type="primary" size="small" icon="el-icon-edit" @click.native="itemSuccessServer(scope.$index, scope.row)">置顶
                     </el-button>
-                    <el-button v-if="scope.row.status === '正常'" type="primary" size="small" icon="el-icon-edit" @click.native="itemFailedServer(scope.$index, scope.row)">解除置顶
+                    <el-button v-if="scope.row.status === '置顶'" type="primary" size="small" icon="el-icon-edit" @click.native="itemFailedServer(scope.$index, scope.row)">解除置顶
                     </el-button>
                 </template>
             </el-table-column>
@@ -153,7 +153,7 @@
         informationList,
         authAdminRoleList,
         informationSave,
-        informationStatusSave,
+        informationIsTopSave,
         updateInformationSequence,
         informationDelete
     } from "../../../api/site-management";
@@ -420,10 +420,10 @@
             itemSuccessServer(index, row) {
                 var params = {
                     id: row.id,
-                    flag: '正常'
+                    flag: '置顶'
                 }
                 // debugger
-                informationStatusSave(params).then(
+                informationIsTopSave(params).then(
                     function (res) {
                         // debugger
                         /*if(res.code === 1){
@@ -449,10 +449,10 @@
             itemFailedServer(index, row) {
                 var params = {
                     id: row.id,
-                    flag:  '隐藏'
+                    flag:  '解除置顶'
                 }
                 // debugger
-                informationStatusSave(params).then(
+                informationIsTopSave(params).then(
                     function (res) {
                         // debugger
                         /*if(res.code === 1){

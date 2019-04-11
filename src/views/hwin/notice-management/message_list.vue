@@ -43,8 +43,8 @@
             <el-form-item class="query-form-item">
                 <el-select v-model="query.status" placeholder="删除状态">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="未删" value="0"></el-option>
-                    <el-option label="已删除" value="1"></el-option>
+                    <el-option label="未删" value="未删"></el-option>
+                    <el-option label="已删除" value="已删除"></el-option>
                 </el-select>
             </el-form-item>
 

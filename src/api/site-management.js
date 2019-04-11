@@ -325,4 +325,12 @@ export function updateRotateSequence(data) {
         data: data
     });
 }
+export function informationIsTopSave(data) {
+    return axios({
+        url: "event/informationIsTopSave",
+        method: "post",
+        data: data
+    });
+}
+
 
