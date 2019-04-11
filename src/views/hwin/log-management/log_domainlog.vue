@@ -78,10 +78,10 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                <el-form-item label="			Id     		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			域名    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			总访问人数  		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			总访问量   		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			Id     		" prop="id"><el-input v-model="formData.id" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			域名    		" prop="domain"><el-input v-model="formData.domain" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			总访问人数  		" prop="total_visit_people_count"><el-input v-model="formData.total_visit_people_count" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			总访问量   		" prop="tatal_visit_count"><el-input v-model="formData.tatal_visit_count" auto-complete="off"></el-input></el-form-item>
 
             </el-form>
             <div slot="footer" class="dialog-footer">

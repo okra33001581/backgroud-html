@@ -7,14 +7,12 @@
                 <el-date-picker
                         v-model="query.beginDate"
                         type="date"
-                        placeholder="开始日期"
-                        :picker-options="pickerOptions0">
+                        placeholder="开始日期">
                 </el-date-picker>
                 <el-date-picker
                         v-model="query.endDate"
                         type="date"
-                        placeholder="结束日期"
-                        :picker-options="pickerOptions1">
+                        placeholder="结束日期">
                 </el-date-picker>
             </el-form-item>
 
