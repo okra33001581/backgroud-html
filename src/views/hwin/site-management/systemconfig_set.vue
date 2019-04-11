@@ -153,8 +153,8 @@
                             <template>
                                 <el-select v-model="formData.favorite_skin" clearable placeholder="请选择">
                                     <el-option label="全部" value=""></el-option>
-                                    <el-option label="禁用" value="0"></el-option>
-                                    <el-option label="正常" value="1"></el-option>
+                                    <el-option label="禁用" value="禁用"></el-option>
+                                    <el-option label="正常" value="正常"></el-option>
                                 </el-select>
                             </template>
                         </td>
@@ -882,12 +882,88 @@
             },
             // 显示表单
             handleForm(index, row) {
+                // china
                 this.formVisible = true;
                 this.formData = Object.assign({}, formJson);
                 if (row !== null) {
                     this.formData = Object.assign({}, row);
                 }
                 this.formData.status += ""; // 转为字符串（解决默认选中的时候字符串和数字不能比较的问题）
+
+
+                if (this.formData.is_login == 1) {
+                    this.formData.is_login = true;
+                } else {
+                    this.formData.is_login = false;
+                }
+
+                if (this.formData.is_maintain == 1) {
+                    this.formData.is_maintain = true;
+                } else {
+                    this.formData.is_maintain = false;
+                }
+
+                if (this.formData.is_web_register == 1) {
+                    this.formData.is_web_register = true;
+                } else {
+                    this.formData.is_web_register = false;
+                }
+
+                if (this.formData.is_mobile_register == 1) {
+                    this.formData.is_mobile_register = true;
+                } else {
+                    this.formData.is_mobile_register = false;
+                }
+
+                if (this.formData.autoregister_usertype == 1) {
+                    this.formData.autoregister_usertype = true;
+                } else {
+                    this.formData.autoregister_usertype = false;
+                }
+
+                if (this.formData.can_set_rebate == 1) {
+                    this.formData.can_set_rebate = true;
+                } else {
+                    this.formData.can_set_rebate = false;
+                }
+
+                if (this.formData.fast_deposit_link_flag == 1) {
+                    this.formData.fast_deposit_link_flag = true;
+                } else {
+                    this.formData.fast_deposit_link_flag = false;
+                }
+
+                if (this.formData.google_login_flag == 1) {
+                    this.formData.google_login_flag = true;
+                } else {
+                    this.formData.google_login_flag = false;
+                }
+
+                if (this.formData.login_onetime_flag == 1) {
+                    this.formData.login_onetime_flag = true;
+                } else {
+                    this.formData.login_onetime_flag = false;
+                }
+                if (this.formData.qq_help_flag == 1) {
+                    this.formData.qq_help_flag = true;
+                } else {
+                    this.formData.qq_help_flag = false;
+                }
+
+                if (this.formData.can_deposit_decimal_point == 1) {
+                    this.formData.can_deposit_decimal_point = true;
+                } else {
+                    this.formData.can_deposit_decimal_point = false;
+                }
+
+                this.formData.free_play = this.formData.free_play.split(',');
+
+                this.formData.user_register_column = this.formData.user_register_column.split(',');
+
+                this.formData.lower_register_column = this.formData.lower_register_column.split(',');
+
+                this.formData.transfer_type = this.formData.transfer_type.split(',');
+
                 this.formName = "add";
                 this.formRules = this.addRules;
                 if (index !== null) {

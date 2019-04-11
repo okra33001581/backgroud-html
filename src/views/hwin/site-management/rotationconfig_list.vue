@@ -54,8 +54,8 @@
                             placement="right"
                             title=""
                             trigger="hover">
-                        <img src="../../images/1.png"/>
-                        <img slot="reference" src="../../images/1.png" :alt="id" style="max-height: 50px;max-width: 130px">
+                        <img :src="'http://apidemo.test/public/' + scope.row.pc_pic"/>
+                        <img slot="reference" :src="'http://apidemo.test/public/' + scope.row.pc_pic" :alt="pc_pic" style="max-height: 50px;max-width: 130px">
                     </el-popover>
                 </template>
 
@@ -68,8 +68,8 @@
                             placement="right"
                             title=""
                             trigger="hover">
-                        <img src="../../images/1.png"/>
-                        <img slot="reference" src="../../images/1.png" :alt="id" style="max-height: 50px;max-width: 130px">
+                        <img :src="'http://apidemo.test/public/' + scope.row.mobile_pic"/>
+                        <img slot="reference" :src="'http://apidemo.test/public/' + scope.row.mobile_pic" :alt="mobile_pic" style="max-height: 50px;max-width: 130px">
                     </el-popover>
                 </template>
 

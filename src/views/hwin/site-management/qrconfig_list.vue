@@ -37,8 +37,8 @@
                             placement="right"
                             title=""
                             trigger="hover">
-                        <img src="pic"/>
-                        <img slot="reference" src="pic" :alt="id" style="max-height: 50px;max-width: 130px">
+                        <img :src="'http://apidemo.test/public/' + scope.row.pic"/>
+                        <img slot="reference" :src="'http://apidemo.test/public/' + scope.row.pic" :alt="pic" style="max-height: 50px;max-width: 130px">
                     </el-popover>
                 </template>
             </el-table-column>

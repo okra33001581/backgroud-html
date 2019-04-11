@@ -31,15 +31,15 @@
             <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
             <el-table-column label="			图标				" prop="pic" fixed></el-table-column>
             <el-table-column label="			预览				" prop="pic" fixed>
-                <template slot-scope="scope">
-                    <el-popover
-                            placement="right"
-                            title=""
-                            trigger="hover">
-                        <img src="pic"/>
-                        <img slot="reference" src="pic" :alt="pic" style="max-height: 50px;max-width: 130px">
-                    </el-popover>
-                </template>
+                < <template slot-scope="scope">
+                <el-popover
+                        placement="right"
+                        title=""
+                        trigger="hover">
+                    <img :src="'http://apidemo.test/public/' + scope.row.pic"/>
+                    <img slot="reference" :src="'http://apidemo.test/public/' + scope.row.pic" :alt="pic" style="max-height: 50px;max-width: 130px">
+                </el-popover>
+            </template>
 
             </el-table-column>
 

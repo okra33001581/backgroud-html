@@ -41,15 +41,15 @@
             <el-table-column label="					位置		" prop="position" fixed></el-table-column>
             <el-table-column label="					状态		" prop="status" fixed></el-table-column>
             <el-table-column label="					关闭图标		" prop="pic" fixed></el-table-column>
-            <el-table-column label="					电脑版图片		" prop="id" fixed>
+            <el-table-column label="					电脑版图片		" prop="pic" fixed>
 
                 <template slot-scope="scope">
                     <el-popover
                             placement="right"
                             title=""
                             trigger="hover">
-                        <img src="../../images/1.png"/>
-                        <img slot="reference" src="../../images/1.png" :alt="id" style="max-height: 50px;max-width: 130px">
+                        <img :src="'http://apidemo.test/public/' + scope.row.pic"/>
+                        <img slot="reference" :src="'http://apidemo.test/public/' + scope.row.pic" :alt="pic" style="max-height: 50px;max-width: 130px">
                     </el-popover>
                 </template>
 
