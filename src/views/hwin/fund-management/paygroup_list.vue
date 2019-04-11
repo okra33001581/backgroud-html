@@ -10,8 +10,8 @@
             <el-form-item class="query-form-item">
                 <el-select v-model="query.status" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="正常" value="1"></el-option>
-                    <el-option label="隐藏" value="0"></el-option>
+                    <el-option label="正常" value="正常"></el-option>
+                    <el-option label="隐藏" value="隐藏"></el-option>
                 </el-select>
             </el-form-item>
 
@@ -86,9 +86,9 @@
                 <template slot-scope="scope">
                    <!-- <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
                     </el-button>-->
-                    <el-button v-if="scope.row.status === '0'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemSuccessServer(scope.$index, scope.row)">显示
+                    <el-button v-if="scope.row.status === '隐藏'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemSuccessServer(scope.$index, scope.row)">显示
                     </el-button>
-                    <el-button v-if="scope.row.status === '1'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemFailedServer(scope.$index, scope.row)">隐藏
+                    <el-button v-if="scope.row.status === '显示'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemFailedServer(scope.$index, scope.row)">隐藏
                     </el-button>
 
                 </template>
@@ -327,7 +327,7 @@
             auditItemSuccessServer(index, row) {
                 var params = {
                     id: row.id,
-                    flag: 1
+                    flag: '显示'
                 }
                 // debugger
                 payGroupStatusSave(params).then(
@@ -446,7 +446,7 @@
             auditItemFailedServer(index, row) {
                 var params = {
                     id: row.id,
-                    flag: 0
+                    flag: '隐藏'
                 }
                 // debugger
                 payGroupStatusSave(params).then(

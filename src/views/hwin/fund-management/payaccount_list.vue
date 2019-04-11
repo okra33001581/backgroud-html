@@ -64,9 +64,9 @@
                     label="操作" width="360"
                     fixed="right">
                 <template slot-scope="scope">
-                    <el-button v-if="scope.row.status === '0'" type="primary" size="small" icon="el-icon-edit" @click.native="itemSuccessServer(scope.$index, scope.row)">启用
+                    <el-button v-if="scope.row.status === '隐藏'" type="primary" size="small" icon="el-icon-edit" @click.native="itemSuccessServer(scope.$index, scope.row)">正常
                     </el-button>
-                    <el-button v-if="scope.row.status === '1'" type="primary" size="small" icon="el-icon-edit" @click.native="itemFailedServer(scope.$index, scope.row)">禁用
+                    <el-button v-if="scope.row.status === '正常'" type="primary" size="small" icon="el-icon-edit" @click.native="itemFailedServer(scope.$index, scope.row)">隐藏
                     </el-button>
 
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
@@ -338,7 +338,7 @@
             itemSuccessServer(index, row) {
                 var params = {
                     id: row.id,
-                    flag: 1
+                    flag: '正常'
                 }
                 // debugger
                 payAccountStatusSave(params).then(
@@ -367,7 +367,7 @@
             itemFailedServer(index, row) {
                 var params = {
                     id: row.id,
-                    flag: 0
+                    flag: '隐藏'
                 }
                 // debugger
                 payAccountStatusSave(params).then(

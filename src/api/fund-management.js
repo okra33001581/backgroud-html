@@ -369,7 +369,28 @@ export function tripartiteDelete(data) {
         data: data
     });
 }
+export function thirdAccountStatusSave(data) {
+    return axios({
+        url: "event/thirdAccountStatusSave",
+        method: "post",
+        data: data
+    });
+}
 
+export function thirdAccountIsTopSave(data) {
+    return axios({
+        url: "event/thirdAccountIsTopSave",
+        method: "post",
+        data: data
+    });
+}
 
+export function thirdAccountIsTopSave(data) {
+    return axios({
+        url: "event/thirdAccountIsTopSave",
+        method: "post",
+        data: data
+    });
+}
 
 

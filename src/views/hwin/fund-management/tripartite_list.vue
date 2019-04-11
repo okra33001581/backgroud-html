@@ -10,8 +10,8 @@
             <el-form-item class="query-form-item">
                 <el-select v-model="query.status" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="正常" value="1"></el-option>
-                    <el-option label="隐藏" value="0"></el-option>
+                    <el-option label="正常" value="正常"></el-option>
+                    <el-option label="隐藏" value="隐藏"></el-option>
                 </el-select>
             </el-form-item>
 
@@ -97,10 +97,22 @@
                     </el-button>
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
                     </el-button>
-                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">启用</el-button>
-                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">停用</el-button>
-                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">置顶</el-button>
-                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">解除置顶</el-button>
+
+                    <el-button v-if="scope.row.status === '隐藏'" type="primary" size="small" icon="el-icon-edit" @click.native="itemSuccessServer(scope.$index, scope.row)">正常
+                    </el-button>
+                    <el-button v-if="scope.row.status === '正常'" type="primary" size="small" icon="el-icon-edit" @click.native="itemFailedServer(scope.$index, scope.row)">隐藏
+                    </el-button>
+
+                    <el-button v-if="scope.row.is_top === '解除置顶'" type="primary" size="small" icon="el-icon-edit" @click.native="itemIsTopSuccessServer(scope.$index, scope.row)">置顶
+                    </el-button>
+                    <el-button v-if="scope.row.is_top === '置顶'" type="primary" size="small" icon="el-icon-edit" @click.native="itemIsTopFailedServer(scope.$index, scope.row)">解除置顶
+                    </el-button>
+
+                    <!--<el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">启用</el-button>-->
+                    <!--<el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">停用</el-button>-->
+
+                    <!--<el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">置顶</el-button>
+                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">解除置顶</el-button>-->
                     <!--<el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">停用</el-button>-->
                 </template>
             </el-table-column>
@@ -238,6 +250,8 @@
         tripartiteList,
         authAdminRoleList,
         thirdAccountSave,
+        thirdAccountStatusSave,
+        thirdAccountIsTopSave,
         tripartiteDelete
     } from "../../../api/fund-management";
 
@@ -514,6 +528,122 @@
                         });
                     }
                 });
+            },
+            itemSuccessServer(index, row) {
+                var params = {
+                    id: row.id,
+                    flag: '正常'
+                }
+                // debugger
+                thirdAccountStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
+            },
+            itemFailedServer(index, row) {
+                var params = {
+                    id: row.id,
+                    flag: '隐藏'
+                }
+                // debugger
+                thirdAccountStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
+            },
+            itemIsTopSuccessServer(index, row) {
+                var params = {
+                    id: row.id,
+                    flag: '置顶'
+                }
+                // debugger
+                thirdAccountIsTopSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
+            },
+            itemIsTopFailedServer(index, row) {
+                var params = {
+                    id: row.id,
+                    flag: '解除置顶'
+                }
+                // debugger
+                thirdAccountIsTopSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
             },
             // 删除
             handleDel(index, row) {
