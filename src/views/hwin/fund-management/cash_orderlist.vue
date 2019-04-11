@@ -114,17 +114,17 @@
                 :header-cell-style="getRowClass">
 
             <el-table-column label="					ID		" prop="id" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
-            <el-table-column label="					订单号		" prop="id" fixed></el-table-column>
-            <el-table-column label="					时间		" prop="id" fixed></el-table-column>
-            <el-table-column label="					会员账号		" prop="id" fixed></el-table-column>
-            <el-table-column label="					类型		" prop="id" fixed></el-table-column>
-            <el-table-column label="					平台		" prop="id" fixed></el-table-column>
-            <el-table-column label="					收入		" prop="id" fixed></el-table-column>
-            <el-table-column label="					支出		" prop="id" fixed></el-table-column>
-            <el-table-column label="					可用金额		" prop="id" fixed></el-table-column>
-            <el-table-column label="					IP地址		" prop="id" fixed></el-table-column>
-            <el-table-column label="					备注		" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="					订单号		" prop="order_number" fixed></el-table-column>
+            <el-table-column label="					时间		" prop="date" fixed></el-table-column>
+            <el-table-column label="					会员账号		" prop="account" fixed></el-table-column>
+            <el-table-column label="					类型		" prop="type" fixed></el-table-column>
+            <el-table-column label="					平台		" prop="platform" fixed></el-table-column>
+            <el-table-column label="					收入		" prop="income" fixed></el-table-column>
+            <el-table-column label="					支出		" prop="outcome" fixed></el-table-column>
+            <el-table-column label="					可用金额		" prop="avaiable_amount" fixed></el-table-column>
+            <el-table-column label="					IP地址		" prop="ip_address" fixed></el-table-column>
+            <el-table-column label="					备注		" prop="message" fixed></el-table-column>
 
         </el-table>
 

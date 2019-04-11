@@ -108,20 +108,20 @@
                 :header-cell-style="getRowClass">
 
             <el-table-column label="					ID		" prop="id" align="center" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
-            <el-table-column label="					订单号		" prop="id" align="center" fixed></el-table-column>
-            <el-table-column label="					会员账号		" prop="id" align="center" fixed></el-table-column>
-            <el-table-column label="					存款人姓名/昵称		" prop="id" align="center" fixed></el-table-column>
-            <el-table-column label="					申请金额		" prop="id" align="center" fixed></el-table-column>
-            <el-table-column label="					入款优惠		" prop="id" align="center" fixed></el-table-column>
-            <el-table-column label="					附言码		" prop="id" align="center" fixed></el-table-column>
-            <el-table-column label="					充值订单尾号		" prop="id" align="center" fixed></el-table-column>
-            <el-table-column label="					存入银行账号		" prop="id" align="center" fixed></el-table-column>
-            <el-table-column label="					申请时间		" prop="id" align="center" fixed></el-table-column>
-            <el-table-column label="					确认时间		" prop="id" align="center" fixed></el-table-column>
-            <el-table-column label="					操作人		" prop="id" align="center" fixed></el-table-column>
-            <el-table-column label="					状态		" prop="id" align="center" fixed></el-table-column>
-            <el-table-column label="					备注		" prop="id" align="center" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="					订单号		" prop="order_number" align="center" fixed></el-table-column>
+            <el-table-column label="					会员账号		" prop="account" align="center" fixed></el-table-column>
+            <el-table-column label="					存款人姓名/昵称		" prop="depositor_name" align="center" fixed></el-table-column>
+            <el-table-column label="					申请金额		" prop="request_amount" align="center" fixed></el-table-column>
+            <el-table-column label="					入款优惠		" prop="in_benefit" align="center" fixed></el-table-column>
+            <el-table-column label="					附言码		" prop="postscript" align="center" fixed></el-table-column>
+            <el-table-column label="					充值订单尾号		" prop="deposit_order_no" align="center" fixed></el-table-column>
+            <el-table-column label="					存入银行账号		" prop="in_bank_account" align="center" fixed></el-table-column>
+            <el-table-column label="					申请时间		" prop="request_date" align="center" fixed></el-table-column>
+            <el-table-column label="					确认时间		" prop="confirm_date" align="center" fixed></el-table-column>
+            <el-table-column label="					操作人		" prop="operator" align="center" fixed></el-table-column>
+            <el-table-column label="					状态		" prop="status" align="center" fixed></el-table-column>
+            <el-table-column label="					备注		" prop="memo" align="center" fixed></el-table-column>
 
             <el-table-column
                     label="操作" width="260"

@@ -8,8 +8,8 @@
             <el-form-item class="query-form-item">
                 <el-select v-model="query.status" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="正常" value="1"></el-option>
-                    <el-option label="隐藏" value="0"></el-option>
+                    <el-option label="正常" value="正常"></el-option>
+                    <el-option label="隐藏" value="隐藏"></el-option>
                 </el-select>
             </el-form-item>
 
@@ -70,17 +70,17 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                <el-form-item label="显示状态" prop="display_status">
-                    <el-radio-group v-model="formData.display_status">
-                        <el-radio label="0">启用</el-radio>
-                        <el-radio label="1">停用</el-radio>
+                <el-form-item label="显示状态" prop="status">
+                    <el-radio-group v-model="formData.status">
+                        <el-radio label="正常">正常</el-radio>
+                        <el-radio label="隐藏">隐藏</el-radio>
                     </el-radio-group>
                 </el-form-item>
 
-                <el-form-item label="显示方式" prop="stdisplay_styleatus">
+                <el-form-item label="显示方式" prop="display_style">
                     <el-radio-group v-model="formData.display_style">
-                        <el-radio label="0"> 启用</el-radio>
-                        <el-radio label="1">停用</el-radio>
+                        <el-radio label="启用"> 启用</el-radio>
+                        <el-radio label="停用">停用</el-radio>
                     </el-radio-group>
                 </el-form-item>
 

@@ -48,17 +48,17 @@
 
             </el-table-column>
             <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
-            <el-table-column label="					添加时间		" prop="id" fixed></el-table-column>
-            <el-table-column label="					层级		" prop="id" fixed></el-table-column>
+            <el-table-column label="					添加时间		" prop="created_at" fixed></el-table-column>
+            <el-table-column label="					层级		" prop="user_levels" fixed></el-table-column>
             <el-table-column label="					支付类型		" prop="pay_type" fixed></el-table-column>
-            <el-table-column label="					银行名称		" prop="id" fixed></el-table-column>
-            <el-table-column label="					银行账号		" prop="id" fixed></el-table-column>
-            <el-table-column label="					账号别名		" prop="id" fixed></el-table-column>
-            <el-table-column label="					收款人		" prop="id" fixed></el-table-column>
-            <el-table-column label="					附言		" prop="id" fixed></el-table-column>
-            <el-table-column label="					温馨提示		" prop="id" fixed></el-table-column>
-            <el-table-column label="					二维码		" prop="id" fixed></el-table-column>
-            <el-table-column label="					操作人		" prop="id" fixed></el-table-column>
+            <el-table-column label="					银行名称		" prop="bank" fixed></el-table-column>
+            <el-table-column label="					银行账号		" prop="account" fixed></el-table-column>
+            <el-table-column label="					账号别名		" prop="account_alias" fixed></el-table-column>
+            <el-table-column label="					收款人		" prop="receiver" fixed></el-table-column>
+            <el-table-column label="					附言		" prop="postscript" fixed></el-table-column>
+            <el-table-column label="					温馨提示		" prop="alert" fixed></el-table-column>
+            <el-table-column label="					二维码		" prop="qr_code" fixed></el-table-column>
+            <el-table-column label="					操作人		" prop="creator" fixed></el-table-column>
 
             <el-table-column
                     label="操作" width="360"

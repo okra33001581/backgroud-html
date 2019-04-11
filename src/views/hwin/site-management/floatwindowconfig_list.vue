@@ -8,8 +8,8 @@
             <el-form-item class="query-form-item">
                 <el-select v-model="query.status" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="正常" value="1"></el-option>
-                    <el-option label="隐藏" value="0"></el-option>
+                    <el-option label="正常" value="正常"></el-option>
+                    <el-option label="隐藏" value="隐藏"></el-option>
                 </el-select>
             </el-form-item>
 
@@ -156,12 +156,12 @@
 
                 <el-form-item label="			 排序 		" prop="sequence"><el-input v-model="formData.sequence" auto-complete="off"></el-input></el-form-item>
 
-                <el-form-item class="query-form-item">
+               <!-- <el-form-item class="query-form-item">
                     <el-select v-model="formData.status" placeholder="状态">
                         <el-option label="启用" value="启用"></el-option>
                         <el-option label="停用" value="停用"></el-option>
                     </el-select>
-                </el-form-item>
+                </el-form-item>-->
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideForm">取消</el-button>

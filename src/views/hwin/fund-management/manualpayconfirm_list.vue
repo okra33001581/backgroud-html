@@ -90,23 +90,23 @@
                 :header-cell-style="getRowClass">
 
             <el-table-column label="					ID		" prop="id" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
-            <el-table-column label="					会员账号		" prop="id" fixed></el-table-column>
-            <el-table-column label="					入款金额		" prop="id" fixed></el-table-column>
-            <el-table-column label="					出款金额		" prop="id" fixed></el-table-column>
-            <el-table-column label="					优惠金额		" prop="id" fixed></el-table-column>
-            <el-table-column label="					出/入款		" prop="id" fixed></el-table-column>
-            <el-table-column label="					出款银行卡卡号		" prop="id" fixed></el-table-column>
-            <el-table-column label="					综合打码量		" prop="id" fixed></el-table-column>
-            <el-table-column label="					常态稽核		" prop="id" fixed></el-table-column>
-            <el-table-column label="					申请时间		" prop="id" fixed></el-table-column>
-            <el-table-column label="					确认时间		" prop="id" fixed></el-table-column>
-            <el-table-column label="					提交人		" prop="id" fixed></el-table-column>
-            <el-table-column label="					提交备注		" prop="id" fixed></el-table-column>
-            <el-table-column label="					存入类型		" prop="id" fixed></el-table-column>
-            <el-table-column label="					审核人		" prop="id" fixed></el-table-column>
-            <el-table-column label="					审核备注		" prop="id" fixed></el-table-column>
-            <el-table-column label="					审核状态		" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="					会员账号		" prop="account" fixed></el-table-column>
+            <el-table-column label="					入款金额		" prop="in_amount" fixed></el-table-column>
+            <el-table-column label="					出款金额		" prop="out_amount" fixed></el-table-column>
+            <el-table-column label="					优惠金额		" prop="benefit_amount" fixed></el-table-column>
+            <el-table-column label="					出/入款		" prop="out_in_amount" fixed></el-table-column>
+            <el-table-column label="					出款银行卡卡号		" prop="out_bankcardnumber" fixed></el-table-column>
+            <el-table-column label="					综合打码量		" prop="general_project" fixed></el-table-column>
+            <el-table-column label="					常态稽核		" prop="common_audit" fixed></el-table-column>
+            <el-table-column label="					申请时间		" prop="request_date" fixed></el-table-column>
+            <el-table-column label="					确认时间		" prop="confirm_date" fixed></el-table-column>
+            <el-table-column label="					提交人		" prop="submitor" fixed></el-table-column>
+            <el-table-column label="					提交备注		" prop="request_memo" fixed></el-table-column>
+            <el-table-column label="					存入类型		" prop="deposit_type" fixed></el-table-column>
+            <el-table-column label="					审核人		" prop="auditor" fixed></el-table-column>
+            <el-table-column label="					审核备注		" prop="audit_memo" fixed></el-table-column>
+            <el-table-column label="					审核状态		" prop="status" fixed></el-table-column>
 
             <el-table-column
                     label="操作" width="260"

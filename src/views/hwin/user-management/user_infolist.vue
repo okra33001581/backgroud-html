@@ -20,9 +20,13 @@
                 </el-select>
             </el-form-item>
 
-            <el-form-item class="query-form-item">
+            <!--<el-form-item class="query-form-item">
                 <el-input v-model="query.username" placeholder="用户名"></el-input>
+            </el-form-item>-->
+            <el-form-item class="query-form-item">
+                <el-input v-model="query.username" type="textarea" placeholder="用户名(支持批量查询,逗号间隔)"></el-input>
             </el-form-item>
+
 
             <el-form-item class="query-form-item">
                 <el-select v-model="query.group" placeholder="所属组">
@@ -85,7 +89,7 @@
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
                     <el-button type="primary" icon="el-icon-search" @click="onSubmit">查询</el-button>
                     <!--<el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">新增</el-button>-->
-                    <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">批量查询</el-button>
+                    <!--<el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">批量查询</el-button>-->
                     <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">导出</el-button>
                 </el-button-group>
             </el-form-item>

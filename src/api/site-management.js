@@ -317,3 +317,12 @@ export function informationDelete(data) {
     });
 }
 
+// 删除管理员
+export function updateRotateSequence(data) {
+    return axios({
+        url: "event/updateRotateSequence",
+        method: "post",
+        data: data
+    });
+}
+

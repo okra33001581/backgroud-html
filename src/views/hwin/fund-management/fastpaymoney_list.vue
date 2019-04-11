@@ -117,19 +117,19 @@
                 :header-cell-style="getRowClass">
 
             <el-table-column label="					ID		" prop="id" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
-            <el-table-column label="					层级		" prop="id" fixed></el-table-column>
-            <el-table-column label="					订单号		" prop="id" fixed></el-table-column>
-            <el-table-column label="					收款账号		" prop="id" fixed></el-table-column>
-            <el-table-column label="					支付类型		" prop="id" fixed></el-table-column>
-            <el-table-column label="					会员账号		" prop="id" fixed></el-table-column>
-            <el-table-column label="					充值金额		" prop="id" fixed></el-table-column>
-            <el-table-column label="					实际入款		" prop="id" fixed></el-table-column>
-            <el-table-column label="					申请日期		" prop="id" fixed></el-table-column>
-            <el-table-column label="					确认日期		" prop="id" fixed></el-table-column>
-            <el-table-column label="					操作人		" prop="id" fixed></el-table-column>
-            <el-table-column label="					状态		" prop="id" fixed></el-table-column>
-            <el-table-column label="					备注		" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="					层级		" prop="layer" fixed></el-table-column>
+            <el-table-column label="					订单号		" prop="order_number" fixed></el-table-column>
+            <el-table-column label="					收款账号		" prop="receive_account" fixed></el-table-column>
+            <el-table-column label="					支付类型		" prop="pay_type" fixed></el-table-column>
+            <el-table-column label="					会员账号		" prop="account" fixed></el-table-column>
+            <el-table-column label="					充值金额		" prop="desposit_amount" fixed></el-table-column>
+            <el-table-column label="					实际入款		" prop="real_in_amount" fixed></el-table-column>
+            <el-table-column label="					申请日期		" prop="request_date" fixed></el-table-column>
+            <el-table-column label="					确认日期		" prop="confirm_date" fixed></el-table-column>
+            <el-table-column label="					操作人		" prop="operator" fixed></el-table-column>
+            <el-table-column label="					状态		" prop="status" fixed></el-table-column>
+            <el-table-column label="					备注		" prop="memo" fixed></el-table-column>
 
             <el-table-column
                     label="操作" width="260"

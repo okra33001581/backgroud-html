@@ -80,14 +80,14 @@
             <el-table-column label="					序号		" prop="id" fixed></el-table-column>
             <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
             <el-table-column label="					三方类型		" prop="third_type" fixed></el-table-column>
-            <el-table-column label="					商户代称		" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="					商户代称		" prop="merchant_alias" fixed></el-table-column>
             <el-table-column label="					支付类型		" prop="pay_type" fixed></el-table-column>
             <el-table-column label="					三方公司		" prop="third_company" fixed></el-table-column>
-            <el-table-column label="					商户号		" prop="merchant_name" fixed></el-table-column>
-            <el-table-column label="					启用层级		" prop="id" fixed></el-table-column>
-            <el-table-column label="					当前额度		" prop="id" fixed></el-table-column>
-            <el-table-column label="					启用状态		" prop="id" fixed></el-table-column>
-            <el-table-column label="					操作人		" prop="id" fixed></el-table-column>
+            <el-table-column label="					商户号		" prop="merchant_code" fixed></el-table-column>
+            <el-table-column label="					启用层级		" prop="layers" fixed></el-table-column>
+            <el-table-column label="					当前额度		" prop="quota" fixed></el-table-column>
+            <el-table-column label="					启用状态		" prop="status" fixed></el-table-column>
+            <el-table-column label="					操作人		" prop="operator" fixed></el-table-column>
 
             <el-table-column
                     label="操作" width="650"

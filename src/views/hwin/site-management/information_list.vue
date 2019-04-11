@@ -10,16 +10,16 @@
             <el-form-item class="query-form-item">
                 <el-select v-model="query.status" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="正常" value="1"></el-option>
-                    <el-option label="隐藏" value="0"></el-option>
+                    <el-option label="正常" value="正常"></el-option>
+                    <el-option label="隐藏" value="隐藏"></el-option>
                 </el-select>
             </el-form-item>
 
             <el-form-item class="query-form-item">
                 <el-select v-model="query.type" placeholder="资讯类型">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="新闻" value="0"></el-option>
-                    <el-option label="技巧" value="1"></el-option>
+                    <el-option label="新闻" value="新闻"></el-option>
+                    <el-option label="技巧" value="技巧"></el-option>
                 </el-select>
             </el-form-item>
 
@@ -85,9 +85,9 @@
                     <!--<el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">置顶</el-button>-->
                     <!--<el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">解除置顶</el-button>-->
 
-                    <el-button v-if="scope.row.status === '0'" type="primary" size="small" icon="el-icon-edit" @click.native="itemSuccessServer(scope.$index, scope.row)">置顶
+                    <el-button v-if="scope.row.status === '隐藏'" type="primary" size="small" icon="el-icon-edit" @click.native="itemSuccessServer(scope.$index, scope.row)">置顶
                     </el-button>
-                    <el-button v-if="scope.row.status === '1'" type="primary" size="small" icon="el-icon-edit" @click.native="itemFailedServer(scope.$index, scope.row)">解除置顶
+                    <el-button v-if="scope.row.status === '正常'" type="primary" size="small" icon="el-icon-edit" @click.native="itemFailedServer(scope.$index, scope.row)">解除置顶
                     </el-button>
                 </template>
             </el-table-column>
@@ -122,15 +122,15 @@
                 <el-form-item label="状态"  prop="status">
                     <el-select v-model="query.status" placeholder="状态">
                         <el-option label="全部" value=""></el-option>
-                        <el-option label="正常" value="0"></el-option>
-                        <el-option label="隐藏" value="1"></el-option>
+                        <el-option label="正常" value="正常"></el-option>
+                        <el-option label="隐藏" value="隐藏"></el-option>
                     </el-select>
                 </el-form-item>
 
                 <el-form-item label="分类" prop="type">
                     <el-radio-group v-model="formData.type" label="分类">
-                        <el-radio label="0">新闻</el-radio>
-                        <el-radio label="1">技巧</el-radio>
+                        <el-radio label="新闻">新闻</el-radio>
+                        <el-radio label="技巧">技巧</el-radio>
                     </el-radio-group>
                 </el-form-item>
 
@@ -420,7 +420,7 @@
             itemSuccessServer(index, row) {
                 var params = {
                     id: row.id,
-                    flag: 1
+                    flag: '正常'
                 }
                 // debugger
                 informationStatusSave(params).then(
@@ -449,7 +449,7 @@
             itemFailedServer(index, row) {
                 var params = {
                     id: row.id,
-                    flag: 0
+                    flag:  '隐藏'
                 }
                 // debugger
                 informationStatusSave(params).then(

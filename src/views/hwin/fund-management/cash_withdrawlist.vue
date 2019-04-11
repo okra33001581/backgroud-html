@@ -124,23 +124,23 @@
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
             <el-table-column label="					ID		" prop="id" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
-            <el-table-column label="					层级		" prop="id" fixed></el-table-column>
-            <el-table-column label="					订单号		" prop="id" fixed></el-table-column>
-            <el-table-column label="					会员账号		" prop="id" fixed></el-table-column>
-            <el-table-column label="					姓名		" prop="id" fixed></el-table-column>
-            <el-table-column label="					出款类型		" prop="id" fixed></el-table-column>
-            <el-table-column label="					手续费		" prop="id" fixed></el-table-column>
-            <el-table-column label="					实际出款		" prop="id" fixed></el-table-column>
-            <el-table-column label="					出款状态		" prop="id" fixed></el-table-column>
-            <el-table-column label="					申请时间		" prop="id" fixed></el-table-column>
-            <el-table-column label="					确认时间		" prop="id" fixed></el-table-column>
-            <el-table-column label="					风控		" prop="id" fixed></el-table-column>
-            <el-table-column label="					风控人		" prop="id" fixed></el-table-column>
-            <el-table-column label="					出款操作		" prop="id" fixed></el-table-column>
-            <el-table-column label="					操作人		" prop="id" fixed></el-table-column>
-            <el-table-column label="					前台备注		" prop="id" fixed></el-table-column>
-            <el-table-column label="					后台备注		" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="					层级		" prop="layer" fixed></el-table-column>
+            <el-table-column label="					订单号		" prop="order_no" fixed></el-table-column>
+            <el-table-column label="					会员账号		" prop="account" fixed></el-table-column>
+            <el-table-column label="					姓名		" prop="username" fixed></el-table-column>
+            <el-table-column label="					出款类型		" prop="out_type" fixed></el-table-column>
+            <el-table-column label="					手续费		" prop="fee" fixed></el-table-column>
+            <el-table-column label="					实际出款		" prop="final_out_amount" fixed></el-table-column>
+            <el-table-column label="					出款状态		" prop="out_status" fixed></el-table-column>
+            <el-table-column label="					申请时间		" prop="request_date" fixed></el-table-column>
+            <el-table-column label="					确认时间		" prop="confirm_date" fixed></el-table-column>
+            <el-table-column label="					风控		" prop="risk" fixed></el-table-column>
+            <el-table-column label="					风控人		" prop="risk_operator" fixed></el-table-column>
+            <el-table-column label="					出款操作		" prop="out_operate" fixed></el-table-column>
+            <el-table-column label="					操作人		" prop="operator" fixed></el-table-column>
+            <el-table-column label="					前台备注		" prop="front_memo" fixed></el-table-column>
+            <el-table-column label="					后台备注		" prop="back_memo" fixed></el-table-column>
 
             <el-table-column
                     label="操作" width="260"
@@ -165,7 +165,7 @@
         <!--<pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />-->
 
         <!--表单-->
-        <el-dialog
+        <!--<el-dialog
                 :title="formMap[formName]"
                 :visible.sync="formVisible"
                 :before-close="hideForm"
@@ -195,7 +195,7 @@
                 <el-button @click.native="hideForm">取消</el-button>
                 <el-button type="primary" @click.native="formSubmit()" :loading="formLoading">提交</el-button>
             </div>
-        </el-dialog>
+        </el-dialog>-->
     </div>
 
 </template>

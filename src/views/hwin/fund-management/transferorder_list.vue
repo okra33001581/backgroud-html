@@ -84,17 +84,17 @@
                 :header-cell-style="getRowClass">
 
             <el-table-column label="					ID		" prop="id" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
-            <el-table-column label="					订单号		" prop="id" fixed></el-table-column>
-            <el-table-column label="					时间		" prop="id" fixed></el-table-column>
-            <el-table-column label="					会员账户		" prop="id" fixed></el-table-column>
-            <el-table-column label="					转账平台		" prop="id" fixed></el-table-column>
-            <el-table-column label="					转账金额		" prop="id" fixed></el-table-column>
-            <el-table-column label="					主账户余额(前)		" prop="id" fixed></el-table-column>
-            <el-table-column label="					主账户余额(后)		" prop="id" fixed></el-table-column>
-            <el-table-column label="					平台金额(前)		" prop="id" fixed></el-table-column>
-            <el-table-column label="					平台金额(后)		" prop="id" fixed></el-table-column>
-            <el-table-column label="					状态		" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="					订单号		" prop="order_number" fixed></el-table-column>
+            <el-table-column label="					时间		" prop="date" fixed></el-table-column>
+            <el-table-column label="					会员账户		" prop="account" fixed></el-table-column>
+            <el-table-column label="					转账平台		" prop="transfer_platform" fixed></el-table-column>
+            <el-table-column label="					转账金额		" prop="transfer_amount" fixed></el-table-column>
+            <el-table-column label="					主账户余额(前)		" prop="main_avaibleamount_pre" fixed></el-table-column>
+            <el-table-column label="					主账户余额(后)		" prop="main_avaibleamount_after" fixed></el-table-column>
+            <el-table-column label="					平台金额(前)		" prop="platform_amount_pre" fixed></el-table-column>
+            <el-table-column label="					平台金额(后)		" prop="platform_amount_after" fixed></el-table-column>
+            <el-table-column label="					状态		" prop="status" fixed></el-table-column>
 
             <el-table-column
                     label="操作" width="260"

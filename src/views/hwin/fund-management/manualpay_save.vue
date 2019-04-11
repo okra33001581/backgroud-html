@@ -30,17 +30,17 @@
                 :header-cell-style="getRowClass">
 
             <el-table-column label="					ID		" prop="id" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
-            <el-table-column label="					账号		" prop="id" fixed></el-table-column>
-            <el-table-column label="					姓名		" prop="id" fixed></el-table-column>
-            <el-table-column label="					可用余额		" prop="id" fixed></el-table-column>
-            <el-table-column label="					存入项目		" prop="id" fixed></el-table-column>
-            <el-table-column label="					存入金额		" prop="id" fixed></el-table-column>
-            <el-table-column label="					存款优惠		" prop="id" fixed></el-table-column>
-            <el-table-column label="					综合打码量稽核		" prop="id" fixed></el-table-column>
-            <el-table-column label="					常态性稽核		" prop="id" fixed></el-table-column>
-            <el-table-column label="					备注		" prop="id" fixed></el-table-column>
-            <el-table-column label="					会员备注		" prop="id" fixed></el-table-column>
+            <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="					账号		" prop="account" fixed></el-table-column>
+            <el-table-column label="					姓名		" prop="username" fixed></el-table-column>
+            <el-table-column label="					可用余额		" prop="avaible_amount" fixed></el-table-column>
+            <el-table-column label="					存入项目		" prop="in_project" fixed></el-table-column>
+            <el-table-column label="					存入金额		" prop="in_amount" fixed></el-table-column>
+            <el-table-column label="					存款优惠		" prop="in_benefit" fixed></el-table-column>
+            <el-table-column label="					综合打码量稽核		" prop="general_project_audit" fixed></el-table-column>
+            <el-table-column label="					常态性稽核		" prop="common_audit" fixed></el-table-column>
+            <el-table-column label="					备注		" prop="memo" fixed></el-table-column>
+            <el-table-column label="					会员备注		" prop="user_memo" fixed></el-table-column>
 
             <el-table-column
                     label="操作" width="260"

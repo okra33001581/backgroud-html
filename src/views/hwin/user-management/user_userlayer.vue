@@ -8,9 +8,9 @@
             <el-form-item class="query-form-item">
                 <el-select v-model="query.status" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="禁用" value="0"></el-option>
-                    <el-option label="正常" value="1"></el-option>
-                    <el-option label="未验证" value="2"></el-option>
+                    <el-option label="禁用" value="禁用"></el-option>
+                    <el-option label="正常" value="正常"></el-option>
+                    <el-option label="未验证" value="未验证"></el-option>
                 </el-select>
             </el-form-item>
 
@@ -138,20 +138,20 @@
 
                     <el-form-item label="支付设定" prop="pay_setting">
                     <el-select v-model="formData.pay_setting" placeholder="支付设定">
-                        <el-option value="11" label="新用户层级"></el-option>
-                        <el-option value="26" label="普通用户层级"></el-option>
-                        <el-option value="32" label="代理用户层级"></el-option>
-                        <el-option value="33" label="VIP"></el-option>
-                        <el-option value="36" label="普通会员"></el-option>
-                        <el-option value="37" label="vip10"></el-option>
-                        <el-option value="39" label="vip11"></el-option>
+                        <el-option value="新用户层级" label="新用户层级"></el-option>
+                        <el-option value="普通用户层级" label="普通用户层级"></el-option>
+                        <el-option value="代理用户层级" label="代理用户层级"></el-option>
+                        <el-option value="VIP" label="VIP"></el-option>
+                        <el-option value="普通会员" label="普通会员"></el-option>
+                        <el-option value="vip10" label="vip10"></el-option>
+                        <el-option value="vip11" label="vip11"></el-option>
                     </el-select>
                 </el-form-item>
 
                     <el-form-item label="投注限额" prop="project_limit">
                     <el-select v-model="formData.project_limit" placeholder="投注限额">
-                        <el-option value="22" label="彩种投注限额"></el-option>
-                        <el-option value="30" label="新增限额"></el-option>
+                        <el-option value="彩种投注限额" label="彩种投注限额"></el-option>
+                        <el-option value="新增限额" label="新增限额"></el-option>
                     </el-select>
                 </el-form-item>
 

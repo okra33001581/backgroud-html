@@ -8,8 +8,8 @@
            <el-form-item class="query-form-item">
                <el-select v-model="query.status" placeholder="状态">
                    <el-option label="全部" value=""></el-option>
-                   <el-option label="正常" value="1"></el-option>
-                   <el-option label="隐藏" value="0"></el-option>
+                   <el-option label="正常" value="正常"></el-option>
+                   <el-option label="隐藏" value="隐藏"></el-option>
                </el-select>
            </el-form-item>
 
@@ -36,10 +36,10 @@
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
 
-            <el-table-column label="					排序值		" prop="id" fixed>
+            <el-table-column label="					排序值		" prop="sequence" fixed>
 
                 <template scope="scope">
-                    <el-input size="small" v-model="scope.row.languageCode" placeholder="请输入排序值"
+                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="updateRotateSequence(scope.$index, scope.row)"
                     ></el-input>
                 </template>
 
@@ -138,8 +138,8 @@
 
                 <el-form-item label="类型" prop="link_type">
                     <el-radio-group v-model="formData.link_type">
-                        <el-radio label="0">内链</el-radio>
-                        <el-radio label="1">外链</el-radio>
+                        <el-radio label="内链">内链</el-radio>
+                        <el-radio label="外链">外链</el-radio>
                     </el-radio-group>
                 </el-form-item>
 
@@ -151,8 +151,8 @@
 
                 <el-form-item label="类型" prop="status">
                     <el-radio-group v-model="formData.status">
-                        <el-radio label="0">启用</el-radio>
-                        <el-radio label="1">禁用</el-radio>
+                        <el-radio label="启用">启用</el-radio>
+                        <el-radio label="禁用">禁用</el-radio>
                     </el-radio-group>
                 </el-form-item>
 
@@ -175,6 +175,7 @@
         rotationconfigList,
         authAdminRoleList,
         rotatePlaySave,
+        updateRotateSequence,
         rotationconfigDelete
     } from "../../../api/site-management";
 
@@ -378,6 +379,35 @@
                     this.query.sort = '-last_login_time'
                 }
                 this.handleFilter()
+            },
+            updateRotateSequence(index, row) {
+                var params = {
+                    id: row.id,
+                    sequence: row.sequence
+                }
+                // debugger
+                updateRotateSequence(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
             },
             sortByLastLoginIp(order) {
                 if (order === 'ascending') {

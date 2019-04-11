@@ -37,22 +37,22 @@
             <el-table-column label="					ID		" prop="id" fixed></el-table-column>
             <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
             <el-table-column label="					用户名称		" prop="username" fixed></el-table-column>
-            <el-table-column label="					存款日期		" prop="id" fixed></el-table-column>
-            <el-table-column label="					存款额		" prop="id" fixed></el-table-column>
-            <el-table-column label="					优惠		" prop="id" fixed></el-table-column>
-            <el-table-column label="					实际有效投注		" prop="id" fixed></el-table-column>
+            <el-table-column label="					存款日期		" prop="deposit_date" fixed></el-table-column>
+            <el-table-column label="					存款额		" prop="depoist_amount" fixed></el-table-column>
+            <el-table-column label="					优惠		" prop="benefit" fixed></el-table-column>
+            <el-table-column label="					实际有效投注		" prop="valid_project" fixed></el-table-column>
             <el-table-column label="					优惠稽核		" prop="id" fixed>
-                <el-table-column label="					综合打码量		" prop="id" fixed></el-table-column>
-                <el-table-column label="					是否达到		" prop="id" fixed></el-table-column>
+                <el-table-column label="					综合打码量		" prop="general_project" fixed></el-table-column>
+                <el-table-column label="					是否达到		" prop="general_is_obtain" fixed></el-table-column>
             </el-table-column>
             <el-table-column label="					常态稽核		" prop="id" fixed>
-                <el-table-column label="					常态打码量		" prop="id" fixed></el-table-column>
-                <el-table-column label="					放宽额度		" prop="id" fixed></el-table-column>
-                <el-table-column label="					是否达到		" prop="id" fixed></el-table-column>
-                <el-table-column label="					不需扣除费用		" prop="id" fixed></el-table-column>
+                <el-table-column label="					常态打码量		" prop="common_project" fixed></el-table-column>
+                <el-table-column label="					放宽额度		" prop="quota" fixed></el-table-column>
+                <el-table-column label="					是否达到		" prop="commin_is_obtain" fixed></el-table-column>
+                <el-table-column label="					不需扣除费用		" prop="no_subtraction_fee" fixed></el-table-column>
             </el-table-column>
-            <el-table-column label="					需要扣除金额		" prop="id" fixed></el-table-column>
-            <el-table-column label="					备注		" prop="id" fixed></el-table-column>
+            <el-table-column label="					需要扣除金额		" prop="subtraction_fee" fixed></el-table-column>
+            <el-table-column label="					备注		" prop="memo" fixed></el-table-column>
 
             <el-table-column
                     label="操作" width="260"

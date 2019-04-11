@@ -16,7 +16,7 @@
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="用户名"></el-input>
+                <el-input v-model="query.username" type="textarea" placeholder="用户名(支持批量查询,逗号间隔)"></el-input>
             </el-form-item>
 
             <el-form-item class="query-form-item">
@@ -110,7 +110,7 @@
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
                     <el-button type="primary" icon="el-icon-search" @click="onSubmit">查询</el-button>
                     <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">新增用户</el-button>
-                    <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">批量查询</el-button>
+                    <!--<el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">批量查询</el-button>-->
                     <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">导出</el-button>
                 </el-button-group>
             </el-form-item>
@@ -139,7 +139,7 @@
             <el-table-column label="					所属上级		" prop="top_level" fixed></el-table-column>
             <el-table-column label="					返点		" prop="rake_setting" fixed></el-table-column>
             <el-table-column
-                    label="操作" width="700"
+                    label="操作" width="500"
                     fixed="right">
                 <template slot-scope="scope">
 
@@ -151,7 +151,7 @@
                     </el-button>-->
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleLockForm(scope.$index, scope.row)">冻结</el-button>
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleAdjustForm(scope.$index, scope.row)">调点</el-button>
-                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleProject(scope.$index, scope.row)">下注记录</el-button>
+                    <!--<el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleProject(scope.$index, scope.row)">下注记录</el-button>-->
                     <!--<el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleBankCardLockForm(scope.$index, scope.row)">锁卡</el-button>-->
                     <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleQuotaForm(scope.$index, scope.row)">配额设置</el-button>
                     <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleEditParentForm(scope.$index, scope.row)">修改上级</el-button>
@@ -1324,10 +1324,10 @@
             formEditLevelSubmit() {
                 this.$refs["dataForm"].validate(valid => {
                     if (valid) {
-                        this.formLoading = true;
+                        this.formEditParentLoading = true;
                         let data = Object.assign({}, this.formData);
                         userTopParentSave(data, this.formName).then(response => {
-                            this.formLoading = false;
+                            this.formEditParentLoading = false;
                             if (response.code) {
                                 this.$message({
                                     message: response.message,
@@ -1342,14 +1342,15 @@
                                 // this.list.unshift(res)
                                 // 刷新表单
                                 this.$refs["dataForm"].resetFields();
-                                this.formVisible = false;
-                                if (this.formName === "add") {
-                                    // 向头部添加数据
-                                    let resData = response.data || {};
-                                    this.list.unshift(resData);
-                                } else {
-                                    this.list.splice(this.index, 1, data);
-                                }
+                                this.formEditParentVisible = false;
+                                this.getList();
+                                // if (this.formName === "add") {
+                                //     // 向头部添加数据
+                                //     let resData = response.data || {};
+                                //     this.list.unshift(resData);
+                                // } else {
+                                //     this.list.splice(this.index, 1, data);
+                                // }
                             }
                         });
                     }
@@ -1358,10 +1359,10 @@
             formUserLockSubmit() {
                 this.$refs["dataForm"].validate(valid => {
                     if (valid) {
-                        this.formLoading = true;
+                        this.formLockLoading = true;
                         let data = Object.assign({}, this.formData);
                         userLockSave(data, this.formName).then(response => {
-                            this.formLoading = false;
+                            this.formLockLoading = false;
                             if (response.code) {
                                 this.$message({
                                     message: response.message,
@@ -1372,10 +1373,12 @@
                                     message: "操作成功",
                                     type: "success"
                                 });
+                                this.formLockVisible = false;
+                                this.getList();
                                 // 向头部添加数据
                                 // this.list.unshift(res)
                                 // 刷新表单
-                                this.$refs["dataForm"].resetFields();
+                                /*this.$refs["dataForm"].resetFields();
                                 this.formVisible = false;
                                 if (this.formName === "add") {
                                     // 向头部添加数据
@@ -1383,7 +1386,7 @@
                                     this.list.unshift(resData);
                                 } else {
                                     this.list.splice(this.index, 1, data);
-                                }
+                                }*/
                             }
                         });
                     }
@@ -1392,10 +1395,10 @@
             formEditRebateSubmit() {
                 this.$refs["dataForm"].validate(valid => {
                     if (valid) {
-                        this.formLoading = true;
+                        this.formAdjustLoading = true;
                         let data = Object.assign({}, this.formData);
                         userRebateSave(data, this.formName).then(response => {
-                            this.formLoading = false;
+                            this.formAdjustLoading = false;
                             if (response.code) {
                                 this.$message({
                                     message: response.message,
@@ -1409,7 +1412,8 @@
                                 // 向头部添加数据
                                 // this.list.unshift(res)
                                 // 刷新表单
-                                this.$refs["dataForm"].resetFields();
+                                this.formAdjustVisible = false;
+                               /* this.$refs["dataForm"].resetFields();
                                 this.formVisible = false;
                                 if (this.formName === "add") {
                                     // 向头部添加数据
@@ -1417,7 +1421,7 @@
                                     this.list.unshift(resData);
                                 } else {
                                     this.list.splice(this.index, 1, data);
-                                }
+                                }*/
                             }
                         });
                     }
@@ -1426,10 +1430,10 @@
             formQuotaSubmit() {
                 this.$refs["dataForm"].validate(valid => {
                     if (valid) {
-                        this.formLoading = true;
+                        this.formQuotaLoading = true;
                         let data = Object.assign({}, this.model);
                         userQuotaSave(data, this.formName).then(response => {
-                            this.formLoading = false;
+                            this.formQuotaLoading = false;
                             if (response.code) {
                                 this.$message({
                                     message: response.message,
@@ -1440,7 +1444,10 @@
                                     message: "操作成功",
                                     type: "success"
                                 });
-                                // 向头部添加数据
+
+                                this.formQuotaVisible = false;
+
+                                /*// 向头部添加数据
                                 // this.list.unshift(res)
                                 // 刷新表单
                                 this.$refs["dataForm"].resetFields();
@@ -1451,7 +1458,7 @@
                                     this.list.unshift(resData);
                                 } else {
                                     this.list.splice(this.index, 1, data);
-                                }
+                                }*/
                             }
                         });
                     }

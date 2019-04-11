@@ -66,13 +66,13 @@
             <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
             <el-table-column label="					投注日期		" prop="project_date" fixed></el-table-column>
             <el-table-column label="					用户名		" prop="username" fixed></el-table-column>
-            <el-table-column label="					有效投注额		" prop="id" fixed></el-table-column>
-            <el-table-column label="					返水比例		" prop="id" fixed></el-table-column>
-            <el-table-column label="					返水金额		" prop="id" fixed></el-table-column>
-            <el-table-column label="					发放时间		" prop="id" fixed></el-table-column>
-            <el-table-column label="					发放人		" prop="id" fixed></el-table-column>
-            <el-table-column label="					审核备注		" prop="id" fixed></el-table-column>
-            <el-table-column label="					审核状态		" prop="id" fixed></el-table-column>
+            <el-table-column label="					有效投注额		" prop="project_amount" fixed></el-table-column>
+            <el-table-column label="					返水比例		" prop="rebate_ratio" fixed></el-table-column>
+            <el-table-column label="					返水金额		" prop="rebate_amount" fixed></el-table-column>
+            <el-table-column label="					发放时间		" prop="send_date" fixed></el-table-column>
+            <el-table-column label="					发放人		" prop="sender" fixed></el-table-column>
+            <el-table-column label="					审核备注		" prop="audit_memo" fixed></el-table-column>
+            <el-table-column label="					审核状态		" prop="status" fixed></el-table-column>
 
             <el-table-column
                     label="操作" width="260"
