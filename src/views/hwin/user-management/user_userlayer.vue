@@ -67,16 +67,16 @@
                 </template>
             </el-table-column>
 
-            <el-table-column label="					加入条件		" prop="id" fixed>
+            <!--<el-table-column label="					加入条件		" prop="id" fixed>-->
                 <el-table-column label="					存款次数		" prop="deposit_times" fixed></el-table-column>
                 <el-table-column label="					存款总额		" prop="deposit_amount" fixed></el-table-column>
                 <el-table-column label="					最大存款额度		" prop="deposit_max" fixed></el-table-column>
                 <el-table-column label="					提款次数		" prop="withdraw_times" fixed></el-table-column>
-                <el-table-column label="					提款总额		" prop="withdraw_amount" fixed></el-table-column>
-            </el-table-column>
+                <!--<el-table-column label="					提款总额		" prop="withdraw_amount" fixed></el-table-column>-->
+            <!--</el-table-column>-->
 
             <el-table-column
-                    label="操作" width="260"
+                    label="操作" width="200"
                     fixed="right">
                 <template slot-scope="scope">
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑

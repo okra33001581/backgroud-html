@@ -111,7 +111,8 @@
                     <el-button type="primary" icon="el-icon-search" @click="onSubmit">查询</el-button>
                     <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">新增用户</el-button>
                     <!--<el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">批量查询</el-button>-->
-                    <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">导出</el-button>
+                    <el-button type="primary" icon="el-icon-search" @click="handleDownload">excel</el-button>
+
                 </el-button-group>
             </el-form-item>
         </el-form>
@@ -708,6 +709,7 @@
         userLockSave,
         authAdminDelete
     } from "../../../api/user-management";
+    import { parseTime } from '@/utils';
 
     const formJson = {
         id: "",
@@ -915,6 +917,31 @@
             handleFilter() {
                 this.query.page = 1
                 this.getList()
+            },
+            handleDownload() {
+                this.downloadLoading = true
+                import('@/vendor/Export2Excel').then(excel => {
+                    const tHeader = ['商户名称', '在线状态', '用户名', '所属组', '用户层级', '所属上级', '返点']
+                    const filterVal = ['merchant_name', 'online_status', 'username', 'group', 'user_level', 'top_level', 'rake_setting']
+                    const list = this.list
+                    const data = this.formatJson(filterVal, list)
+                    excel.export_json_to_excel({
+                        header: tHeader,
+                        data,
+                        filename: this.filename,
+                        autoWidth: this.autoWidth
+                    })
+                    this.downloadLoading = false
+                })
+            },
+            formatJson(filterVal, jsonData) {
+                return jsonData.map(v => filterVal.map(j => {
+                    if (j === 'timestamp') {
+                        return parseTime(v[j])
+                    } else {
+                        return v[j]
+                    }
+                }))
             },
             sortChange: function (column) {
                 // console.log(column)

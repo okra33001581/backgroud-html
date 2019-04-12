@@ -116,7 +116,7 @@
             <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
             <el-table-column label="					用户名		" prop="username" fixed></el-table-column>
             <el-table-column label="					平台		" prop="platform" fixed></el-table-column>
-            <el-table-column label="					模式		" prop="mode" fixed></el-table-column>
+            <el-table-column label="					模式		" prop="model" fixed></el-table-column>
             <el-table-column label="					所属组		" prop="group" fixed></el-table-column>
             <el-table-column label="					总入款		" prop="in_total_amount" fixed></el-table-column>
             <el-table-column label="					总取款		" prop="total_out_amount" fixed></el-table-column>
