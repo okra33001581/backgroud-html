@@ -480,7 +480,7 @@ export const asyncRouterMap = [
                     authRule: ["hwin/tripartite_list"]
                 }
             },
-            {
+            /*{
                 path: "layerchart_index",
                 component: layerchart_index,
                 name: "层级状态图",
@@ -488,7 +488,7 @@ export const asyncRouterMap = [
                 meta: {
                     authRule: ["hwin/layerchart_index"]
                 }
-            },
+            },*/
             {
                 path: "userbetscheck_list",
                 component: userbetscheck_list,
