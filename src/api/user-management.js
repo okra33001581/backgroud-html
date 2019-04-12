@@ -245,4 +245,17 @@ export function userLockSave(data) {
     });
 }
 
-
+export function updateUserlayerProjectLimit(data) {
+    return axios({
+        url: "event/updateUserlayerProjectLimit",
+        method: "post",
+        data: data
+    });
+}
+export function updateUserlayerPaySetting(data) {
+    return axios({
+        url: "event/updateUserlayerPaySetting",
+        method: "post",
+        data: data
+    });
+}
