@@ -128,14 +128,14 @@
             <el-table-column label="					referer		" prop="referer" fixed></el-table-column>
             <el-table-column label="					user_agent		" prop="user_agent" fixed></el-table-column>
             <el-table-column label="					时间		" prop="date" fixed></el-table-column>
-            <el-table-column
+           <!-- <el-table-column
                     label="操作" width="260"
                     fixed="right">
                 <template slot-scope="scope">
                     <el-button type="primary" size="small" icon="el-icon-view" @click.native="handleForm(scope.$index, scope.row)">查看
                     </el-button>
                 </template>
-            </el-table-column>
+            </el-table-column>-->
         </el-table>
 
         <el-pagination

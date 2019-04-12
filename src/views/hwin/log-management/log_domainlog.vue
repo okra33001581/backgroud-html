@@ -50,14 +50,14 @@
             <el-table-column label="			总访问人数				" prop="total_visit_people_count" fixed></el-table-column>
             <el-table-column label="			总访问量				" prop="tatal_visit_count" fixed></el-table-column>
 
-            <el-table-column
+            <!--<el-table-column
                     label="操作" width="260"
                     fixed="right">
                 <template slot-scope="scope">
                     <el-button type="primary" size="small" icon="el-icon-view" @click.native="handleForm(scope.$index, scope.row)">查看
                     </el-button>
                 </template>
-            </el-table-column>
+            </el-table-column>-->
         </el-table>
 
         <el-pagination
