@@ -175,13 +175,10 @@
         <!--</el-pagination>-->
 
         <el-pagination
-                @size-change="handleSizeChange"
+                :page-size="query.limit"
                 @current-change="handleCurrentChange"
-                :current-page="currentPage"
-                :page-sizes="[15, 30, 50, 100]"
-                :page-size="pageSize"
-                layout="total, sizes, prev, pager, next, jumper"
-                :total="currentTotal">
+                layout="prev, pager, next"
+                :total="total">
         </el-pagination>
 
 
@@ -240,7 +237,7 @@
                         <table width="1200" border=1 cellpadding=0 cellspacing=0 class="ui-jqgrid-htable ui-common-table table table-bordered" style="margin-top: 35px" aria-labelledby="gbox_table_list"  role="presentation">
                             <tr>
                                 <td width="324" class="center">用户账号</td>
-                                <td width="521" class="center"><el-input style="width:550px;" v-model="formData.password" auto-complete="off"></el-input></td>
+                                <td width="521" class="center"><el-input style="width:550px;" v-model="formData.username" auto-complete="off"></el-input></td>
                             </tr>
                             <tr>
                                 <td class="center">密码修改</td>
@@ -248,7 +245,7 @@
                             </tr>
                             <tr>
                                 <td class="center">再次输入密码</td>
-                                <td class="center"><el-input style="width:550px;" v-model="formData.password" auto-complete="off"></el-input></td>
+                                <td class="center"><el-input style="width:550px;" v-model="formData.password_new" auto-complete="off"></el-input></td>
                             </tr>
                         </table>
                     </el-tab-pane>
@@ -264,7 +261,7 @@
                             </tr>
                             <tr>
                                 <td class="center">再次输入密码</td>
-                                <td class="center"><el-input style="width:550px;" v-model="formData.fund_password" auto-complete="off"></el-input></td>
+                                <td class="center"><el-input style="width:550px;" v-model="formData.fund_password_new" auto-complete="off"></el-input></td>
                             </tr>
                         </table>
                     </el-tab-pane>
