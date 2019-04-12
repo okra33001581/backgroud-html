@@ -7,16 +7,23 @@
                 <el-date-picker
                         v-model="query.beginDate"
                         type="date"
+                        value-format="yyyy-MM-dd 00:00:00" format="yyyy-MM-dd 00:00:00"
                         placeholder="开始日期">
                 </el-date-picker>
                 <el-date-picker
                         v-model="query.endDate"
                         type="date"
+                        value-format="yyyy-MM-dd 23:59:59" format="yyyy-MM-dd 23:59:59"
                         placeholder="结束日期">
                 </el-date-picker>
             </el-form-item>
 
             <el-form-item class="query-form-item">
+                <el-input v-model="query.log_content" placeholder="日志内容(模糊) "></el-input>
+            </el-form-item>
+
+
+            <!--<el-form-item class="query-form-item">
                 <el-select v-model="query.type" placeholder="日志类型">
                     <el-option label="全部" value="全部"></el-option>
                     <el-option label="更新信息" value="更新信息"></el-option>
@@ -77,7 +84,7 @@
                     <el-option label="支付类型管理修改" value="支付类型管理修改"></el-option>
                     <el-option label="棋牌列表" value="棋牌列表"></el-option>
                 </el-select>
-            </el-form-item>
+            </el-form-item>-->
 
             <el-form-item class="query-form-item">
             <el-input v-model="query.sub_account" placeholder="子账号"></el-input>
@@ -91,9 +98,9 @@
                 <el-input v-model="query.cookies" placeholder="Cookies"></el-input>
             </el-form-item>
 
-            <el-form-item class="query-form-item">
+            <!--<el-form-item class="query-form-item">
                 <el-input v-model="query.content" placeholder="日志内容(模糊)"></el-input>
-            </el-form-item>
+            </el-form-item>-->
 
             <el-form-item>
                 <el-button-group>

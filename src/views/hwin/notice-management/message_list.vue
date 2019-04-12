@@ -43,11 +43,10 @@
             <el-form-item class="query-form-item">
                 <el-select v-model="query.status" placeholder="删除状态">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="未删" value="未删"></el-option>
-                    <el-option label="已删除" value="已删除"></el-option>
+                    <el-option label="正常" value="正常"></el-option>
+                    <el-option label="隐藏" value="隐藏"></el-option>
                 </el-select>
             </el-form-item>
-
 
             <el-form-item class="query-form-item">
                 <el-input v-model="query.title" placeholder="消息标题"></el-input>
@@ -59,12 +58,14 @@
                         v-model="query.beginDate"
                         type="date"
                         placeholder="开始时间"
+                        value-format="yyyy-MM-dd 00:00:00" format="yyyy-MM-dd 00:00:00"
                         :picker-options="pickerOptions0">
                 </el-date-picker>
                 <el-date-picker
                         v-model="query.endDate"
                         type="date"
                         placeholder="结束时间"
+                        value-format="yyyy-MM-dd 23:59:59" format="yyyy-MM-dd 23:59:59"
                         :picker-options="pickerOptions1">
                 </el-date-picker>
             </el-form-item>
