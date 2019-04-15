@@ -371,18 +371,20 @@
                                     message: "操作成功",
                                     type: "success"
                                 });
+                                this.formVisible = false;
+                                this.getList();
                                 // 向头部添加数据
                                 // this.list.unshift(res)
                                 // 刷新表单
-                                this.$refs["dataForm"].resetFields();
-                                this.formVisible = false;
-                                if (this.formName === "add") {
-                                    // 向头部添加数据
-                                    let resData = response.data || {};
-                                    this.list.unshift(resData);
-                                } else {
-                                    this.list.splice(this.index, 1, data);
-                                }
+                                // this.$refs["dataForm"].resetFields();
+                                // this.formVisible = false;
+                                // if (this.formName === "add") {
+                                //     // 向头部添加数据
+                                //     let resData = response.data || {};
+                                //     this.list.unshift(resData);
+                                // } else {
+                                //     this.list.splice(this.index, 1, data);
+                                // }
                             }
                         });
                     }

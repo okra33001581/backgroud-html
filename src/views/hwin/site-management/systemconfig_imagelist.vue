@@ -142,6 +142,8 @@
                     role_id: "",
                     sort: '+id'
                 },
+                pic:"",
+                图片:"",
                 tableKey: 0,
                 sortOptions: [{label: 'ID Ascending', key: '+id'}, {
                     label: 'ID Descending',
@@ -243,6 +245,27 @@
                 } else if (prop === 'last_login_ip') {
                     this.sortByLastLoginIp(order)
                 }
+            },
+            beforeAvatarUpload(file) {
+                var testmsg=file.name.substring(file.name.lastIndexOf('.')+1)
+                const extension = testmsg === 'jpg'
+                const extension2 = testmsg === 'png'
+                const isLt2M = file.size / 1024 / 1024 < 10
+                if(!extension && !extension2) {
+                    this.$message({
+                        message: '上传文件只能是 jpg、png格式!',
+                        type: 'warning'
+                    });
+                }
+                if(!isLt2M) {
+                    this.$message({
+                        message: '上传文件大小不能超过 10MB!',
+                        type: 'warning'
+                    });
+                }  return extension || extension2 && isLt2M
+            },
+            handleRemove(file, fileList) {
+                console.log(file, fileList);
             },
             handlePicSuccess(response, file, fileList) {
                 //response这个

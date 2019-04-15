@@ -63,16 +63,16 @@
             <el-table-column label="					人工取款		" prop="artifical_withdraw" fixed></el-table-column>
             <el-table-column label="					小计		" prop="total" fixed></el-table-column>
 
-            <el-table-column
+           <!-- <el-table-column
                     label="操作" width="260"
                     fixed="right">
                 <template slot-scope="scope">
                     <el-button type="primary" size="small" icon="el-icon-view" @click.native="handleForm(scope.$index, scope.row)">查看
                     </el-button>
-                    <!--<el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
-                    </el-button>-->
+                    &lt;!&ndash;<el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
+                    </el-button>&ndash;&gt;
                 </template>
-            </el-table-column>
+            </el-table-column>-->
         </el-table>
 
         <el-pagination

@@ -238,16 +238,16 @@
             <el-table-column label="					中奖状态		" prop="prize_status" fixed></el-table-column>
             <el-table-column label="					状态		" prop="status" fixed></el-table-column>
 
-            <el-table-column
+           <!-- <el-table-column
                     label="操作" width="260"
                     fixed="right">
                 <template slot-scope="scope">
                     <el-button type="primary" size="small" icon="el-icon-view" @click.native="handleForm(scope.$index, scope.row)">查看
                     </el-button>
-                   <!-- <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
-                    </el-button>-->
+                   &lt;!&ndash; <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
+                    </el-button>&ndash;&gt;
                 </template>
-            </el-table-column>
+            </el-table-column>-->
         </el-table>
 
         <el-pagination
