@@ -138,3 +138,10 @@ ElasticHD 1.3 修复细节处的BUG
 
 ln -s /home/ok/api/storage/app/public/ /home/ok/api/public/
 
+
+
+
+
+vue h5:
+可以参考地址:
+https://github.com/yrinleung/openshopping-vue
