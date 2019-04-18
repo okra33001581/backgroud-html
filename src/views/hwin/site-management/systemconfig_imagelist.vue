@@ -31,7 +31,7 @@
             <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
             <el-table-column label="			图标				" prop="pic" fixed></el-table-column>
             <el-table-column label="			预览				" prop="pic" fixed>
-                < <template slot-scope="scope">
+                <template slot-scope="scope">
                 <el-popover
                         placement="right"
                         title=""
