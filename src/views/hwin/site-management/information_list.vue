@@ -173,8 +173,8 @@
     import VueCropper from 'vue-cropperjs'
 
     // import local from '../../i18n-demo/local'
-    const viewName = 'VueI18n'
-    import VueCookies from 'vue-cookies'
+    // const viewName = 'VueI18n'
+    // import VueCookies from 'vue-cookies'
     const formJson = {
         id: "",
         password: "",
@@ -184,7 +184,7 @@
         display_time: undefined, // 前台展示时间
         content_short: '', // 文章摘要
         roles: [],
-        loginUser:$cookies.get('ADMIN-ID')
+        // loginUser:$cookies.get('ADMIN-ID')
     };
     export default {
         data() {
