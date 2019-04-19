@@ -7,8 +7,8 @@
             </el-form-item>
             <el-form-item class="query-form-item">
                 <el-select v-model="query.status" placeholder="状态">
-                    <el-option label="商户启用图" value=""></el-option>
-                    <el-option label="商户停用图 value="0"></el-option>
+                    <el-option label="商户启用图" value="商户启用图"></el-option>
+                    <el-option label="商户启用图" value="商户停用图"></el-option>
                 </el-select>
             </el-form-item>
 
