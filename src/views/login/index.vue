@@ -96,12 +96,12 @@ export default {
                             // });
                             window.location.replace(path);
                             // this.showDialog = true
-                            var goodsData = require('G:\\vue\\new-html\\src\\components\\data.json')
+                            /*var goodsData = require('G:\\vue\\new-html\\src\\components\\data.json')
                             let { menus } = goodsData;
                             this.$router.addRoutes(menus)
                             this.$router.push({ path: '/userManage' });
                             window.sessionStorage.setItem('user',JSON.stringify(menus))
-                            MenuUtils(routers,menus)
+                            MenuUtils(routers,menus)*/
                         })
                         .catch((e) => {
                             console.log(e)

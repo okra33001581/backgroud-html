@@ -49,10 +49,10 @@
                 this.$refs.ruleForm2.resetFields();
             },
             login(data){
-                var goodsData = require('G:\\vue\\new-html\\src\\components\\data.json')
+               /* var goodsData = require('G:\\vue\\new-html\\src\\components\\data.json')
                 let { errno, menus } = goodsData;
                 window.sessionStorage.setItem('user',JSON.stringify(menus))
-                MenuUtils(routers,data)
+                MenuUtils(routers,data)*/
 
             },
             handleSubmit2(ev) {
@@ -80,10 +80,10 @@
                                 //     this.$router.addRoutes(menus)
                                 //     this.$router.push({ path: '/main' });
                                 // });
-                                var goodsData = require('G:\\vue\\new-html\\src\\components\\data.json')
+                                /*var goodsData = require('G:\\vue\\new-html\\src\\components\\data.json')
                                 let { errno, menus } = goodsData;
                                 this.$router.addRoutes(menus)
-                                this.$router.push({ path: '/main' });
+                                this.$router.push({ path: '/main' });*/
                             }
                         });
                     } else {
