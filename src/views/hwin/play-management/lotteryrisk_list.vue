@@ -1,9 +1,8 @@
 <template>
-
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="用户名"></el-input>
+                <el-input v-model="query.merchant_name" placeholder="商户名"></el-input>
             </el-form-item>
             <el-form-item class="query-form-item">
                 <el-select v-model="query.status" placeholder="状态">
@@ -13,15 +12,6 @@
                     <el-option label="未验证" value="2"></el-option>
                 </el-select>
             </el-form-item>
-            <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
-                <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key"/>
-            </el-select>-->
-            <!--<el-form-item class="query-form-item">
-                <el-select v-model="query.role_id" placeholder="角色">
-                    <el-option label="全部角色" value=""></el-option>
-                    <el-option v-for="item in roles" :key="item.id" :label="item.name" :value="item.id"></el-option>
-                </el-select>
-            </el-form-item>-->
 
             <el-form-item>
                 <el-button-group>
@@ -31,114 +21,39 @@
                 </el-button-group>
             </el-form-item>
         </el-form>
-        <!--<el-table
-            v-loading="loading"
-            :data="list" stripe
-            style="width: 100%;"
-            max-height="500">-->
-        <!--<el-table
-                v-loading="loading"
-                :key="tableKey"
-                :data="list" stripe
-                border
-                fit
-                highlight-current-row
-                style="width: 100%;"
-                @sort-change="sortChange">-->
         <el-table
-                v-loading="loading"
-                :key="tableKey"
-                :data="list" stripe
-                border
-                fit
-                highlight-current-row
-                style="width: 100%;"
-                @sort-change="sortChange"
-                element-loading-text="拼命加载中"
-                element-loading-spinner="el-icon-loading"
-                element-loading-background="rgba(0, 0, 0, 0.8)"
-                :header-cell-style="getRowClass">
+            v-loading="loading"
+            :key="tableKey"
+            :data="list" stripe
+            border
+            fit
+            highlight-current-row
+            style="width: 100%;"
+            element-loading-text="拼命加载中"
+            element-loading-spinner="el-icon-loading"
+            element-loading-background="rgba(0, 0, 0, 0.8)"
+            :header-cell-style="getRowClass">
 
-
-            <!--游戏
-            日期
-            期号
-            投注人数
-            中奖人数
-            中奖人数比例
-            注单数
-            中奖注单数
-            中奖注单比例
-            下注总额
-            返奖总额
-            亏损比
--->
-            <el-table-column label="					ID		" prop="id" fixed></el-table-column>
-            <el-table-column label="					游戏		" prop="id" fixed></el-table-column>
-            <el-table-column label="					日期		" prop="id" fixed></el-table-column>
-            <el-table-column label="					期号		" prop="id" fixed></el-table-column>
-            <el-table-column label="					投注人数		" prop="id" fixed></el-table-column>
-            <el-table-column label="					中奖人数		" prop="id" fixed></el-table-column>
-            <el-table-column label="					中奖人数比例		" prop="id" fixed></el-table-column>
-            <el-table-column label="					注单数		" prop="id" fixed></el-table-column>
-            <el-table-column label="					中奖注单数		" prop="id" fixed></el-table-column>
-            <el-table-column label="					中奖注单比例		" prop="id" fixed></el-table-column>
-            <el-table-column label="					下注总额		" prop="id" fixed></el-table-column>
-            <el-table-column label="					返奖总额		" prop="id" fixed></el-table-column>
-            <el-table-column label="					亏损比		" prop="id" fixed></el-table-column>
-
-            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
-            &lt;!&ndash;<el-table-column
-                label="用户 ID"
-                prop="id"
-                sortable="custom"
-                align="center"
-                fixed>
-                <template slot-scope="scope">
-                    <span>{{ scope.row.id }}</span>
-                </template>
-            </el-table-column>&ndash;&gt;
-
-            <el-table-column
-                    label="用户名"
-                    prop="username"
-                    sortable="custom"
-                    fixed>
-            </el-table-column>
-
-            <el-table-column
-                    sortable="custom"
-                    label="状态" prop="status">
-                <template slot-scope="scope">
-                    <el-tag :type="scope.row.status | statusFilterType">{{scope.row.status | statusFilterName}}</el-tag>
-                </template>
-            </el-table-column>
-            <el-table-column
-                    label="登录时间"
-                    with="300"
-                    sortable="custom"
-                    :show-overflow-tooltip="true" prop="last_login_time">
-                <template slot-scope="scope">
-                    <i class="el-icon-time"></i>
-                    <span>{{ scope.row.last_login_time }}</span>
-                </template>
-            </el-table-column>
-            <el-table-column
-                    sortable="custom"
-                    label="登录IP" prop="last_login_ip">
-                <template slot-scope="scope">
-                    <span>{{ scope.row.last_login_ip }}</span>
-                </template>
-            </el-table-column>-->
-            <el-table-column
-                    label="操作" width="260"
-                    fixed="right">
-                <template slot-scope="scope">
-                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
-                    </el-button>
-                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
-                    </el-button>
-                </template>
+            <el-table-column label="ID" prop="game_id" fixed></el-table-column>
+            <el-table-column label="游戏" prop="game" fixed></el-table-column>
+            <el-table-column label="日期" prop="date" fixed></el-table-column>
+            <el-table-column label="期号" prop="issue" fixed></el-table-column>
+            <el-table-column label="投注人数" prop="project_people_count" fixed></el-table-column>
+            <el-table-column label="中奖人数" prop="winner_people_count" fixed></el-table-column>
+            <el-table-column label="中奖人数比例" prop="winner_people_count_ratio" fixed></el-table-column>
+            <el-table-column label="注单数" prop="project_count" fixed></el-table-column>
+            <el-table-column label="中奖注单数" prop="winner_project_count" fixed></el-table-column>
+            <el-table-column label="中奖注单比例" prop="winner_project_count_ratio" fixed></el-table-column>
+            <el-table-column label="下注总额" prop="project_amount" fixed></el-table-column>
+            <el-table-column label="返奖总额" prop="back_award_amount" fixed></el-table-column>
+            <el-table-column label="亏损比" prop="loss_ratio" fixed></el-table-column>
+            <el-table-column label="操作" width="260" fixed="right">
+            <template slot-scope="scope">
+                <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
+                </el-button>
+                <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
+                </el-button>
+            </template>
             </el-table-column>
         </el-table>
 
@@ -149,8 +64,6 @@
                 :total="total">
         </el-pagination>
 
-        <!--<pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />-->
-
         <!--表单-->
         <el-dialog
                 :title="formMap[formName]"
@@ -159,19 +72,31 @@
                 width="35%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
-                <el-form-item label="			ID    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			游戏    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			日期    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			期号    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			投注人数   		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			中奖人数   		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			中奖人数比例 		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			注单数       		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			中奖注单数  		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			中奖注单比例 		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			下注总额   		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			返奖总额   		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			亏损比       		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="ID" prop="game_id"><el-input v-model="formData.game_id" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="游戏" prop="game"><el-input v-model="formData.game" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="日期" required>
+                <el-col :span="8">
+                  <el-form-item prop="date1">
+                    <el-date-picker type="date" placeholder="选择日期" v-model="formData.date1" style="width: 100%;"></el-date-picker>
+                  </el-form-item>
+                </el-col>
+                <el-col class="line" :span="2">-</el-col>
+                <el-col :span="8">
+                  <el-form-item prop="date2">
+                    <el-time-picker placeholder="选择时间" v-model="formData.date2" style="width: 100%;"></el-time-picker>
+                  </el-form-item>
+                </el-col>
+              </el-form-item>
+                <el-form-item label="期号" prop="issue"><el-input v-model="formData.issue" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="投注人数" prop="project_people_count"><el-input v-model="formData.project_people_count" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="中奖人数" prop="winner_people_count"><el-input v-model="formData.winner_people_count" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="中奖人数比例" prop="winner_people_count_ratio"><el-input v-model="formData.winner_people_count_ratio" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="注单数" prop="project_count"><el-input v-model="formData.project_count" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="中奖注单数" prop="winner_project_count"><el-input v-model="formData.winner_project_count" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="中奖注单比例" prop="winner_project_count_ratio"><el-input v-model="formData.winner_project_count_ratio" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="下注总额" prop="project_amount"><el-input v-model="formData.project_amount" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="返奖总额" prop="back_award_amount"><el-input v-model="formData.back_award_amount" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="亏损比" prop="loss_ratio"><el-input v-model="formData.loss_ratio" auto-complete="off"></el-input></el-form-item>
 
             </el-form>
             <div slot="footer" class="dialog-footer">
@@ -186,18 +111,24 @@
 <script>
     import {
         lotteryriskList,
-        authAdminRoleList,
-        authAdminSave,
-        authAdminDelete
+        lotteryriskSave,
+        lotteryriskDelete
     } from "../../../api/play-management";
 
     const formJson = {
         id: "",
-        password: "",
-        username: "",
-        checkPassword: "",
-        status: "1",
-        roles: []
+        game: "",
+        date: "",
+        issue: "",
+        project_people_count: "",
+        winner_people_count: "",
+        winner_people_count_ratio: "",
+        project_count: "",
+        winner_project_count: "",
+        winner_project_count_ratio: "",
+        project_amount: "",
+        back_award_amount: "",
+        loss_ratio: ""
     };
     export default {
         data() {
@@ -218,32 +149,13 @@
                 }
             };
             return {
-                roles: [],
                 query: {
-                    username: "",
+                    merchant_name: "",
                     status: "",
                     page: 1,
                     limit: 20,
-                    role_id: "",
-                    sort: '+id'
                 },
                 tableKey: 0,
-                sortOptions: [{label: 'ID Ascending', key: '+id'}, {
-                    label: 'ID Descending',
-                    key: '-id'
-                }, {label: 'username Ascending', key: '+username'}, {
-                    label: 'username Descending',
-                    key: '-username'
-                }, {label: 'status Ascending', key: '+status'}, {
-                    label: 'status Descending',
-                    key: '-status'
-                }, {label: 'last_login_time Ascending', key: '+last_login_time'}, {
-                    label: 'last_login_time Descending',
-                    key: '-last_login_time'
-                }, {label: 'last_login_ip Ascending', key: '+last_login_ip'}, {
-                    label: 'last_login_ip Descending',
-                    key: '-last_login_ip'
-                }],
                 list: [],
                 total: 0,
                 loading: true,
@@ -258,24 +170,49 @@
                 formData: formJson,
                 formRules: {},
                 addRules: {
-                    username: [
-                        {required: true, message: "请输入姓名", trigger: "blur"}
+                    game_id: [
+                        {required: true, message: "请输入ID", trigger: "blur"}
                     ],
-                    password: [
-                        {required: true, message: "请输入密码", trigger: "blur"},
-                        {validator: validatePass, trigger: "blur"}
+                    game: [
+                        {required: true, message: "请输入游戏", trigger: "blur"}
                     ],
-                    checkPassword: [
-                        {
-                            required: true,
-                            message: "请再次输入密码",
-                            trigger: "blur"
-                        },
-                        {validator: validatePass2, trigger: "blur"}
+                    date1: [
+                        { type: 'date', required: true, message: '请选择日期', trigger: 'change' }
                     ],
-                    status: [
-                        {required: true, message: "请选择状态", trigger: "change"}
+                    date2: [
+                        { type: 'date', required: true, message: '请选择时间', trigger: 'change' }
+                    ],
+                    issue: [
+                        {required: true, message: "请输入期号", trigger: "blur"}
+                    ],
+                    project_people_count: [
+                        {required: true, message: "请输入姓名投注人数", trigger: "blur"}
+                    ],
+                    winner_people_count: [
+                        {required: true, message: "请输入中奖人数", trigger: "blur"}
+                    ],
+                    winner_people_count_ratio: [
+                        {required: true, message: "请输入中奖人数比例", trigger: "blur"}
+                    ],
+                    project_count: [
+                        {required: true, message: "请输入注单数", trigger: "blur"}
+                    ],
+                    winner_project_count: [
+                        {required: true, message: "请输入中奖注单数", trigger: "blur"}
+                    ],
+                    winner_project_count_ratio: [
+                        {required: true, message: "请输入中奖注单比例", trigger: "blur"}
+                    ],
+                    project_amount: [
+                        {required: true, message: "请输入下注总额", trigger: "blur"}
+                    ],
+                    back_award_amount: [
+                        {required: true, message: "请输入返奖总额", trigger: "blur"}
+                    ],
+                    loss_ratio: [
+                        {required: true, message: "请输入亏损比", trigger: "blur"}
                     ]
+
                 },
                 editRules: {
                     username: [
@@ -312,97 +249,21 @@
                 this.query.page = 1
                 this.getList()
             },
-            sortChange: function (column) {
-                // console.log(column)
-                // console.log(prop)
-                // console.log(order)
-                const {prop, order} = column
-                if (prop === 'id') {
-                    this.sortByID(order)
-                } else if (prop === 'username') {
-                    this.sortByUserName(order)
-                } else if (prop === 'status') {
-                    this.sortByStatus(order)
-                } else if (prop === 'last_login_time') {
-                    this.sortByLastLoginTime(order)
-                } else if (prop === 'last_login_ip') {
-                    this.sortByLastLoginIp(order)
-                }
-            },
             getList() {
                 this.loading = true;
                 lotteryriskList(this.query)
                     .then(response => {
                         this.loading = false;
-                        this.list = response.data.list.data || [];
-                        this.total = response.data.list.total || 0;
+                        this.list = response.data.list || [];
+                        this.total = response.data.total || 0;
                     })
                     .catch(() => {
                         this.loading = false;
                         this.list = [];
                         this.total = 0;
-                        this.roles = [];
                     });
             },
-            /*sortChange2(data) {
-                const { prop, order } = data
-                if (prop === 'id') {
-                    this.sortByID(order)
-                }
-            },*/
-
-            sortByID(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+id'
-                } else {
-                    this.query.sort = '-id'
-                }
-                this.handleFilter()
-            },
-
-
-            sortByUserName(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+username'
-                } else {
-                    this.query.sort = '-username'
-                }
-                this.handleFilter()
-            },
-            sortByStatus(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+status'
-                } else {
-                    this.query.sort = '-status'
-                }
-                this.handleFilter()
-            },
-            sortByLastLoginTime(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+last_login_time'
-                } else {
-                    this.query.sort = '-last_login_time'
-                }
-                this.handleFilter()
-            },
-            sortByLastLoginIp(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+last_login_ip'
-                } else {
-                    this.query.sort = '-last_login_ip'
-                }
-                this.handleFilter()
-            },
-            getRoleList() {
-                authAdminRoleList(this.query)
-                    .then(response => {
-                        this.roles = response.list || [];
-                    })
-                    .catch((e) => {
-                        console.log(e)
-                        this.roles = [];
-                    });
-            },
+          
             // 隐藏表单
             hideForm() {
                 // 更改值
@@ -418,13 +279,12 @@
                 if (row !== null) {
                     this.formData = Object.assign({}, row);
                 }
-                this.formData.status += ""; // 转为字符串（解决默认选中的时候字符串和数字不能比较的问题）
                 this.formName = "add";
                 this.formRules = this.addRules;
                 if (index !== null) {
                     this.index = index;
                     this.formName = "edit";
-                    this.formRules = this.editRules;
+                    //this.formRules = this.editRules;
                 }
                 // 清空验证信息表单
                 if (this.$refs["dataForm"]) {
@@ -435,8 +295,13 @@
                 this.$refs["dataForm"].validate(valid => {
                     if (valid) {
                         this.formLoading = true;
+                        var date1 = new Date(this.formData.date1);  
+                        var date2 = new Date(this.formData.date2);  
+                        this.formData.date=date1.getFullYear() + '-' + (date1.getMonth() + 1) + '-' + date1.getDate() + ' ' + date2.getHours() + ':' + date2.getMinutes() + ':' + date2.getSeconds();  
+                        delete this.formData.date1;
+                        delete this.formData.date2;
                         let data = Object.assign({}, this.formData);
-                        authAdminSave(data, this.formName).then(response => {
+                        lotteryriskSave(data).then(response => {
                             this.formLoading = false;
                             if (response.code) {
                                 this.$message({
@@ -473,7 +338,7 @@
                     })
                         .then(() => {
                             let para = {id: row.id};
-                            authAdminDelete(para)
+                            lotteryriskDelete(para)
                                 .then(response => {
                                     this.deleteLoading = false;
                                     if (response.code) {

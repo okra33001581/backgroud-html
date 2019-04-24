@@ -3,50 +3,17 @@
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="用户名"></el-input>
+                <el-input v-model="query.merchant_name" placeholder="用户名"></el-input>
             </el-form-item>
-            <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="状态">
-                    <el-option label="全部" value=""></el-option>
-                    <el-option label="禁用" value="0"></el-option>
-                    <el-option label="正常" value="1"></el-option>
-                    <el-option label="未验证" value="2"></el-option>
-                </el-select>
-            </el-form-item>
-            <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
-                <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key"/>
-            </el-select>-->
-            <!--<el-form-item class="query-form-item">
-                <el-select v-model="query.role_id" placeholder="角色">
-                    <el-option label="全部角色" value=""></el-option>
-                    <el-option v-for="item in roles" :key="item.id" :label="item.name" :value="item.id"></el-option>
-                </el-select>
-            </el-form-item>-->
-
+            
             <el-form-item>
                 <el-button-group>
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
                     <el-button type="primary" icon="el-icon-search" @click="onSubmit">查询</el-button>
                     <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">新增</el-button>
-                    <!--<el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">解除加盟-->
-                    <!--</el-button>-->
                 </el-button-group>
             </el-form-item>
         </el-form>
-        <!--<el-table
-            v-loading="loading"
-            :data="list" stripe
-            style="width: 100%;"
-            max-height="500">-->
-        <!--<el-table
-                v-loading="loading"
-                :key="tableKey"
-                :data="list" stripe
-                border
-                fit
-                highlight-current-row
-                style="width: 100%;"
-                @sort-change="sortChange">-->
         <el-table
                 v-loading="loading"
                 :key="tableKey"
@@ -66,11 +33,11 @@
             <!--返点-->
             <!--默认配额-->
 
-            <el-table-column label="			Id				" prop="id" fixed></el-table-column>
-            <el-table-column label="			代理层级				" prop="id" fixed></el-table-column>
-            <el-table-column label="			返点				" prop="id" fixed></el-table-column>
-            <el-table-column label="			默认配额				" prop="id" fixed></el-table-column>
-            <!--<el-table-column label="			Updated At				" prop="id" fixed></el-table-column>-->
+            <el-table-column label="Id" prop="id" fixed></el-table-column>
+            <el-table-column label="代理层级" prop="delegate_level" fixed></el-table-column>
+            <el-table-column label="返点" align="center" prop="rebate" fixed></el-table-column>
+            <el-table-column label="默认配额" prop="default_quota" fixed></el-table-column>
+            <!--<el-table-column label="修改时间" prop="update_at" fixed></el-table-column>-->
 
             <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
             &lt;!&ndash;<el-table-column
@@ -86,7 +53,7 @@
 
             <el-table-column
                     label="用户名"
-                    prop="username"
+                    prop="merchant_name"
                     sortable="custom"
                     fixed>
             </el-table-column>
@@ -119,12 +86,8 @@
                     label="操作" width="360"
                     fixed="right">
                 <template slot-scope="scope">
-                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
+                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">修改
                     </el-button>
-
-                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">解除加盟
-                    </el-button>
-
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
                     </el-button>
                 </template>
@@ -148,10 +111,10 @@
                 width="35%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
-                <el-form-item label="			Id  		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			代理层级		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			返点 		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			默认配额		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			用户id  		" prop="merchant_id"><el-input v-model="formData.merchant_id" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			代理层级		" prop="delegate_level"><el-input v-model="formData.delegate_level" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			返点 		" prop="rebate"><el-input v-model="formData.rebate" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			默认配额		" prop="default_quota"><el-input v-model="formData.default_quota" auto-complete="off"></el-input></el-form-item>
 
 
             </el-form>
@@ -167,22 +130,21 @@
 <script>
     import {
         proxycommissionList,
-        authAdminRoleList,
-        authAdminSave,
-        authAdminDelete
+        proxycommissionSave,
+        proxycommissionDelete
     } from "../../../api/delegate-management";
 
     const formJson = {
         id: "",
-        password: "",
-        username: "",
-        checkPassword: "",
-        status: "1",
-        roles: []
+        merchant_id: "",
+        delegate_level: "",
+        rebate: "",
+        default_quota: "1",
+        creator: ""
     };
     export default {
         data() {
-            let validatePass = (rule, value, callback) => {
+            /*let validatePass = (rule, value, callback) => {
                 if (value === "") {
                     callback(new Error("请输入密码"));
                 } else {
@@ -197,16 +159,12 @@
                 } else {
                     callback();
                 }
-            };
+            };*/
             return {
-                roles: [],
                 query: {
-                    username: "",
-                    status: "",
+                    merchant_name: "",
                     page: 1,
-                    limit: 20,
-                    role_id: "",
-                    sort: '+id'
+                    limit: 20
                 },
                 tableKey: 0,
                 sortOptions: [{label: 'ID Ascending', key: '+id'}, {
@@ -239,31 +197,31 @@
                 formData: formJson,
                 formRules: {},
                 addRules: {
-                    username: [
-                        {required: true, message: "请输入姓名", trigger: "blur"}
+                    merchant_id: [
+                        {required: true, message: "请输入用户Id", trigger: "blur"}
                     ],
-                    password: [
-                        {required: true, message: "请输入密码", trigger: "blur"},
-                        {validator: validatePass, trigger: "blur"}
+                    delegate_level: [
+                        {required: true, message: "请输入代理层级", trigger: "blur"}
                     ],
-                    checkPassword: [
-                        {
-                            required: true,
-                            message: "请再次输入密码",
-                            trigger: "blur"
-                        },
-                        {validator: validatePass2, trigger: "blur"}
+                    rebate: [
+                        {required: true, message: "请输入返点", trigger: "blur"}
                     ],
-                    status: [
-                        {required: true, message: "请选择状态", trigger: "change"}
+                    default_quota: [
+                        {required: true, message: "请输入默认配额", trigger: "blur"}
                     ]
                 },
                 editRules: {
-                    username: [
-                        {required: true, message: "请输入姓名", trigger: "blur"}
+                    merchant_id: [
+                        {required: true, message: "请输入用户Id", trigger: "blur"}
                     ],
-                    status: [
-                        {required: true, message: "请选择状态", trigger: "change"}
+                    delegate_level: [
+                        {required: true, message: "请输入代理层级", trigger: "blur"}
+                    ],
+                    rebate: [
+                        {required: true, message: "请输入返点", trigger: "blur"}
+                    ],
+                    default_quota: [
+                        {required: true, message: "请输入默认配额", trigger: "blur"}
                     ]
                 },
                 deleteLoading: false
@@ -322,7 +280,6 @@
                         this.loading = false;
                         this.list = [];
                         this.total = 0;
-                        this.roles = [];
                     });
             },
             /*sortChange2(data) {
@@ -374,16 +331,7 @@
                 }
                 this.handleFilter()
             },
-            getRoleList() {
-                authAdminRoleList(this.query)
-                    .then(response => {
-                        this.roles = response.list || [];
-                    })
-                    .catch((e) => {
-                        console.log(e)
-                        this.roles = [];
-                    });
-            },
+            
             // 隐藏表单
             hideForm() {
                 // 更改值
@@ -417,7 +365,7 @@
                     if (valid) {
                         this.formLoading = true;
                         let data = Object.assign({}, this.formData);
-                        authAdminSave(data, this.formName).then(response => {
+                        proxycommissionSave(data).then(response => {
                             this.formLoading = false;
                             if (response.code) {
                                 this.$message({
@@ -454,7 +402,7 @@
                     })
                         .then(() => {
                             let para = {id: row.id};
-                            authAdminDelete(para)
+                            proxycommissionDelete(para)
                                 .then(response => {
                                     this.deleteLoading = false;
                                     if (response.code) {
@@ -511,8 +459,7 @@
             this.query.limit = parseInt(this.query.limit);
             // 加载表格数据
             this.getList();
-            // 加载角色列表
-            // this.getRoleList();
+          
         }
     };
 </script>

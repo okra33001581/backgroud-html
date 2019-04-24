@@ -12,7 +12,7 @@ export function betlimitList(query) {
     });
 }
 
-// 获取列表
+// 风控相关获取列表
 export function lotteryriskList(query) {
     return axios({
         url: "event/lotteryriskList",
@@ -20,6 +20,25 @@ export function lotteryriskList(query) {
         params: query
     });
 }
+
+// 保存
+export function lotteryriskSave(data) {
+    return axios({
+        url: "event/lotteryriskSave",
+        method: "post",
+        data: data
+    });
+}
+
+// 删除管理员
+export function lotteryriskDelete(data) {
+    return axios({
+        url: "event/lotteryriskDelete",
+        method: "post",
+        data: data
+    });
+}
+
 
 // 获取列表
 export function pgameList(query) {
