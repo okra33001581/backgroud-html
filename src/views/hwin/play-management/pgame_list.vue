@@ -2,9 +2,9 @@
 
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
-
-            <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="彩种类别">
+            <el-form-item class="query-form-item" style="color:#666">
+                彩票类别：
+                <el-select v-model="query.lottery_name" placeholder="彩种类别">
                     <el-option label="全部" value=""></el-option>
                     <el-option label="其他" value="0"></el-option>
                     <el-option label="时时彩" value="1"></el-option>
@@ -18,23 +18,18 @@
             </el-form-item>
 
 
-            <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="玩法">
+            <el-form-item class="query-form-item" style="color:#666">
+                玩法:
+                <el-select v-model="query.way_type" placeholder="玩法">
                     <el-option label="全部" value=""></el-option>
                     <el-option label="官方" value="0"></el-option>
                     <el-option label="信用" value="2"></el-option>
                 </el-select>
             </el-form-item>
 
-            <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
-                <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key"/>
-            </el-select>-->
-            <!--<el-form-item class="query-form-item">
-                <el-select v-model="query.role_id" placeholder="角色">
-                    <el-option label="全部角色" value=""></el-option>
-                    <el-option v-for="item in roles" :key="item.id" :label="item.name" :value="item.id"></el-option>
-                </el-select>
-            </el-form-item>-->
+            <el-form-item class="query-form-item">
+                <el-input v-model="query.merchant_name" placeholder="请输入商户名称"></el-input>
+            </el-form-item>
 
             <el-form-item>
                 <el-button-group>
@@ -44,26 +39,12 @@
                     </el-button-group>
             </el-form-item>
         </el-form>
-        <!--<el-table
-            v-loading="loading"
-            :data="list" stripe
-            style="width: 100%;"
-            max-height="500">-->
-        <!--<el-table
-                v-loading="loading"
-                :key="tableKey"
-                :data="list" stripe
-                border
-                fit
-                highlight-current-row
-                style="width: 100%;"
-                @sort-change="sortChange">-->
         <el-table
                 v-loading="loading"
                 :key="tableKey"
                 :data="list" stripe
-                border
                 fit
+                @expand="rowExpand"
                 highlight-current-row
                 style="width: 100%;"
                 @sort-change="sortChange"
@@ -72,104 +53,85 @@
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
 
+           
 
 
-            <!--游戏
-            类型
-            周期（天）
-            周期（秒）
-            销售时间（开始）
-            销售时间（结束）
-            状态
-            排序
-            属性
--->
-            <el-table-column label="					ID		" prop="id" fixed></el-table-column>
-            <el-table-column label="					游戏		" prop="id" fixed></el-table-column>
-            <el-table-column label="					类型		" prop="id" fixed></el-table-column>
-            <el-table-column label="					周期（天）		" prop="id" fixed></el-table-column>
-            <el-table-column label="					周期（秒）		" prop="id" fixed></el-table-column>
-            <el-table-column label="					销售时间（开始）		" prop="id" fixed></el-table-column>
-            <el-table-column label="					销售时间（结束）		" prop="id" fixed></el-table-column>
-            <el-table-column label="					状态		" prop="id" fixed></el-table-column>
-            <el-table-column label="					排序值		" prop="id" fixed>
+           <el-table-column type="expand" fixed>
+                <template slot-scope="props">
+                    <el-form label-position="left" inline class="demo-table-expand">
+                        <el-table
+                                :data="listChildren"
+                                border
+                                style="width: 100%">
+                            <el-table-column label="游戏" prop="props.row.way_type" fixed></el-table-column>
+                            <el-table-column label="类型" prop="type" fixed></el-table-column>
+                            <el-table-column label="周期（天）" prop="period_day" fixed></el-table-column>
+                            <el-table-column label="周期（秒）" prop="period_second" fixed></el-table-column>
+                            <el-table-column label="销售时间（开始）" prop="sales_begin" fixed></el-table-column>
+                            <el-table-column label="销售时间（结束）" prop="sales_end" fixed></el-table-column>
+                            <el-table-column label="状态" prop="status" fixed></el-table-column>
+                            <el-table-column label="排序值" prop="sequence" fixed>
 
-                <template scope="scope">
-                    <el-input size="small" v-model="scope.row.languageCode" placeholder="请输入排序值"
-                    ></el-input>
-                </template>
+                                <template scope="scope">
+                                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值"
+                                    ></el-input>
+                                </template>
 
-            </el-table-column>
-            <el-table-column label="					属性		" prop="id"  width="250" fixed>
-                <template slot-scope="scope">
-                    <el-checkbox  v-model="scope.row.isCheck1">热门</el-checkbox>
-                    <el-checkbox  v-model="scope.row.isCheck2">推荐</el-checkbox>
-                    <el-checkbox  v-model="scope.row.isCheck3">新上</el-checkbox>
-                </template>
-
-            </el-table-column>
-
-
-            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
-            &lt;!&ndash;<el-table-column
-                label="用户 ID"
-                prop="id"
-                sortable="custom"
-                align="center"
-                fixed>
-                <template slot-scope="scope">
-                    <span>{{ scope.row.id }}</span>
-                </template>
-            </el-table-column>&ndash;&gt;
-
-            <el-table-column
-                    label="用户名"
-                    prop="username"
-                    sortable="custom"
-                    fixed>
-            </el-table-column>
-
-            <el-table-column
-                    sortable="custom"
-                    label="状态" prop="status">
-                <template slot-scope="scope">
-                    <el-tag :type="scope.row.status | statusFilterType">{{scope.row.status | statusFilterName}}</el-tag>
-                </template>
-            </el-table-column>
-            <el-table-column
-                    label="登录时间"
-                    with="300"
-                    sortable="custom"
-                    :show-overflow-tooltip="true" prop="last_login_time">
-                <template slot-scope="scope">
-                    <i class="el-icon-time"></i>
-                    <span>{{ scope.row.last_login_time }}</span>
+                            </el-table-column>
+                    <el-table-column label="属性" prop="id" fixed >
+                        <!--<template slot-scope="scope">
+                            <h1 v-if="scope.row.hot.includes('热门') > 0">
+                                <el-checkbox checked  @click.native="updateLotteryGroupPropertySave(scope.row.id, '-热门','','')">热门</el-checkbox>
+                            </h1>
+                            <h1 v-else>
+                                <el-checkbox @click.native="updateLotteryGroupPropertySave(scope.row.id, '+热门','','')">热门</el-checkbox>
+                            </h1>
+                            <h1 v-if="scope.row.recommand.includes('推荐') > 0">
+                                <el-checkbox checked  @click.native="updateLotteryGroupPropertySave(scope.row.id,'', '-推荐', '')">推荐</el-checkbox>
+                            </h1>
+                            <h1 v-else>
+                                <el-checkbox @click.native="updateLotteryGroupPropertySave(scope.row.id,'', '+推荐', '')">推荐</el-checkbox>
+                            </h1>
+                            <h1 v-if="scope.row.new.includes('新上') > 0">
+                                <el-checkbox checked  @click.native="updateLotteryGroupPropertySave(scope.row.id,'','', '-新上')">新上</el-checkbox>
+                            </h1>
+                            <h1 v-else>
+                                <el-checkbox @click.native="updateLotteryGroupPropertySave(scope.row.id,'','','+新上')">新上</el-checkbox>
+                            </h1>
+                        </template>-->
+                    </el-table-column>
+                            <el-table-column
+                                    label="操作" width="600"
+                                    fixed="right">
+                                <template slot-scope="scope">
+                                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
+                                    </el-button>
+                                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleWayGroupForm(scope.$index, scope.row)">玩法群组
+                                    </el-button>
+                                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handlePrizeForm(scope.$index, scope.row)">奖金设定
+                                    </el-button>
+                                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handlePrizePeriodForm(scope.$index, scope.row)">奖金期间
+                                    </el-button>
+                                    <el-button type="danger" size="small" @click.native="handleDel(scope.$index, scope.row)">停售</el-button>
+                                </template>
+                            </el-table-column>
+                        </el-table>
+                    </el-form>
                 </template>
             </el-table-column>
-            <el-table-column
-                    sortable="custom"
-                    label="登录IP" prop="last_login_ip">
-                <template slot-scope="scope">
-                    <span>{{ scope.row.last_login_ip }}</span>
-                </template>
-            </el-table-column>-->
-            <el-table-column
-                    label="操作" width="600"
-                    fixed="right">
-                <template slot-scope="scope">
-                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
-                    </el-button>
-                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
-                    </el-button>
-                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleWayGroupForm(scope.$index, scope.row)">玩法群组
-                    </el-button>
-                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handlePrizeForm(scope.$index, scope.row)">奖金设定
-                    </el-button>
-                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handlePrizePeriodForm(scope.$index, scope.row)">奖金期间
-                    </el-button>
-                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">停售</el-button>
-                </template>
-            </el-table-column>
+
+
+
+
+            <el-table-column label="游戏" prop="lottery_name" fixed></el-table-column>
+            <el-table-column label="类型" fixed></el-table-column>
+            <el-table-column label="周期（天）" fixed></el-table-column>
+            <el-table-column label="周期（秒）" fixed></el-table-column>
+            <el-table-column label="销售时间（开始）" fixed></el-table-column>
+            <el-table-column label="销售时间（结束）" fixed></el-table-column>
+            <el-table-column label="状态" fixed></el-table-column>
+            <el-table-column label="排序值" fixed></el-table-column>
+            <el-table-column label="操作" width="600" fixed="right"></el-table-column>
         </el-table>
 
         <el-pagination
@@ -190,16 +152,16 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                <el-form-item label="			ID     		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			游戏    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			类型    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			周期（天）  		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			周期（秒）  		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			销售时间（开始）		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			销售时间（结束）		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			状态    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			排序    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			属性    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="ID     " prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="游戏    " prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="类型    " prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="周期（天）  " prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="周期（秒）  " prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="销售时间（开始）" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="销售时间（结束）" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="状态    " prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="排序    " prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="属性    " prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
 
 
             </el-form>
@@ -350,61 +312,61 @@
                             style="width: 100%">
                         <el-table-column
                                 prop="date"
-                                label="玩法组	"
+                                label="玩法组"
                                 width="180">
                         </el-table-column>
                         <el-table-column
                                 prop="date"
-                                label="玩法名称	"
+                                label="玩法名称"
                                 width="180">
                         </el-table-column>
                         <el-table-column
                                 prop="name"
-                                label="奖金等级	"
+                                label="奖金等级"
                                 width="180">
                         </el-table-column>
                         <el-table-column
                                 prop="address"
-                                label="修改确认	">
+                                label="修改确认">
                             <template slot-scope="scope">
                                 <el-checkbox :checked="scope.row.isKey== 1"/>
                             </template>
                         </el-table-column>
                         <el-table-column
                                 prop="address"
-                                label="最低奖金	">
+                                label="最低奖金">
                             <template slot-scope="scope">
                                 <el-input v-model="formData.username" auto-complete="off"></el-input>
                             </template>
                         </el-table-column>
                         <el-table-column
                                 prop="address"
-                                label="总利润	">
+                                label="总利润">
                         </el-table-column>
                         <el-table-column
                                 prop="address"
-                                label="修改确认	">
+                                label="修改确认">
                             <template slot-scope="scope">
                                 <el-checkbox :checked="scope.row.isKey== 1"/>
                             </template>
                         </el-table-column>
                         <el-table-column
                                 prop="address"
-                                label="最高返点	">
+                                label="最高返点">
                             <template slot-scope="scope">
                                 <el-input v-model="formData.username" auto-complete="off"></el-input>
                             </template>
                         </el-table-column>
                         <el-table-column
                                 prop="address"
-                                label="最高奖金		">
+                                label="最高奖金">
                             <template slot-scope="scope">
                                 <el-input v-model="formData.username" auto-complete="off" readonly="readonly"></el-input>
                             </template>
                         </el-table-column>
                         <el-table-column
                                 prop="address"
-                                label="公司抽水		">
+                                label="公司抽水">
                             <template slot-scope="scope">
                                 <el-input v-model="formData.username" auto-complete="off" readonly="readonly"></el-input>
                             </template>
@@ -435,6 +397,7 @@
         pgameList,
         authAdminRoleList,
         authAdminSave,
+        updateLotteryGroupPropertySave,
         authAdminDelete
     } from "../../../api/play-management";
 
@@ -443,8 +406,7 @@
         password: "",
         username: "",
         checkPassword: "",
-        status: "1",
-        roles: []
+        status: "1"
     };
 
     export default {
@@ -466,7 +428,6 @@
                 }
             };
             return {
-                roles: [],
                 tableData: [{
                     date: '2016-05-02',
                     name: '王小虎',
@@ -485,31 +446,15 @@
                     address: '上海市普陀区金沙江路 1516 弄'
                 }],
                 query: {
-                    username: "",
-                    status: "",
+                    merchant_name: "",
+                    lottery_name: "",
+                    way_type: "",
                     page: 1,
-                    limit: 20,
-                    role_id: "",
-                    sort: '+id'
+                    limit: 20
                 },
                 tableKey: 0,
-                sortOptions: [{label: 'ID Ascending', key: '+id'}, {
-                    label: 'ID Descending',
-                    key: '-id'
-                }, {label: 'username Ascending', key: '+username'}, {
-                    label: 'username Descending',
-                    key: '-username'
-                }, {label: 'status Ascending', key: '+status'}, {
-                    label: 'status Descending',
-                    key: '-status'
-                }, {label: 'last_login_time Ascending', key: '+last_login_time'}, {
-                    label: 'last_login_time Descending',
-                    key: '-last_login_time'
-                }, {label: 'last_login_ip Ascending', key: '+last_login_ip'}, {
-                    label: 'last_login_ip Descending',
-                    key: '-last_login_ip'
-                }],
                 list: [],
+                listChildren: [],
                 total: 0,
                 loading: true,
                 index: null,
@@ -519,6 +464,7 @@
                     edit: "编辑"
                 },
                 formLoading: false,
+                formVisible: false,
                 formWayGroupLoading: false,
                 formPrizePeriodLoading: false,
                 formPrizeLoading: false,
@@ -561,6 +507,9 @@
             };
         },
         methods: {
+            rowExpand:function(row){
+                this.listChildren = row.children;
+            },
             onSubmit() {
                 this.$router.push({
                     path: "",
@@ -601,19 +550,51 @@
                     this.sortByLastLoginIp(order)
                 }
             },
+
+            updateLotteryGroupPropertySave(index, hot, recommand, newVal) {
+                var params = {
+                    id: index,
+                    hot: hot,
+                    recommand: recommand,
+                    new: newVal
+                }
+                // debugger
+                updateLotteryGroupPropertySave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
+            },
+
             getList() {
                 this.loading = true;
                 pgameList(this.query)
                     .then(response => {
                         this.loading = false;
-                        this.list = response.data.list.data || [];
-                        this.total = response.data.list.total || 0;
+                        this.list = response.data.list || [];
+                        this.total = response.data.total || 0;
                     })
                     .catch(() => {
                         this.loading = false;
                         this.list = [];
                         this.total = 0;
-                        this.roles = [];
                     });
             },
             /*sortChange2(data) {
@@ -665,16 +646,7 @@
                 }
                 this.handleFilter()
             },
-            getRoleList() {
-                authAdminRoleList(this.query)
-                    .then(response => {
-                        this.roles = response.list || [];
-                    })
-                    .catch((e) => {
-                        console.log(e)
-                        this.roles = [];
-                    });
-            },
+           
             // 隐藏表单
             hideForm() {
                 // 更改值

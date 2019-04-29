@@ -1,5 +1,4 @@
 <template>
-
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
             <el-form-item class="query-form-item">
@@ -12,16 +11,6 @@
                     <el-option label="停用" value="1"></el-option>
                 </el-select>
             </el-form-item>
-            <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
-                <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key"/>
-            </el-select>-->
-            <!--<el-form-item class="query-form-item">
-                <el-select v-model="query.role_id" placeholder="角色">
-                    <el-option label="全部角色" value=""></el-option>
-                    <el-option v-for="item in roles" :key="item.id" :label="item.name" :value="item.id"></el-option>
-                </el-select>
-            </el-form-item>-->
-
             <el-form-item>
                 <el-button-group>
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
@@ -30,20 +19,6 @@
                 </el-button-group>
             </el-form-item>
         </el-form>
-        <!--<el-table
-            v-loading="loading"
-            :data="list" stripe
-            style="width: 100%;"
-            max-height="500">-->
-        <!--<el-table
-                v-loading="loading"
-                :key="tableKey"
-                :data="list" stripe
-                border
-                fit
-                highlight-current-row
-                style="width: 100%;"
-                @sort-change="sortChange">-->
         <el-table
                 v-loading="loading"
                 :key="tableKey"
@@ -52,25 +27,13 @@
                 fit
                 highlight-current-row
                 style="width: 100%;"
-                @sort-change="sortChange"
                 element-loading-text="拼命加载中"
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
-
-
-            <!--排序值
-            活动名称
-            开始时间
-            结束时间
-            显示终端
-            编辑时间
-            操作人员
-            活动状态
--->
-            <el-table-column label="					ID		" prop="id" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
-            <el-table-column label="					排序值		" prop="id" fixed>
+            <el-table-column label="ID" prop="id" fixed></el-table-column>
+            <el-table-column label="商户名称" prop="id" fixed></el-table-column>
+            <el-table-column label="排序值" prop="id" fixed>
 
                 <template scope="scope">
                     <el-input size="small" v-model="scope.row.languageCode" placeholder="请输入排序值"
@@ -78,58 +41,13 @@
                 </template>
 
             </el-table-column>
-            <el-table-column label="					活动名称		" prop="id" fixed></el-table-column>
-            <el-table-column label="					开始时间		" prop="id" fixed></el-table-column>
-            <el-table-column label="					结束时间		" prop="id" fixed></el-table-column>
-            <el-table-column label="					显示终端		" prop="id" fixed></el-table-column>
-            <el-table-column label="					编辑时间		" prop="id" fixed></el-table-column>
-            <el-table-column label="					操作人员		" prop="id" fixed></el-table-column>
-            <el-table-column label="					活动状态		" prop="id" fixed></el-table-column>
-
-
-            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
-            &lt;!&ndash;<el-table-column
-                label="用户 ID"
-                prop="id"
-                sortable="custom"
-                align="center"
-                fixed>
-                <template slot-scope="scope">
-                    <span>{{ scope.row.id }}</span>
-                </template>
-            </el-table-column>&ndash;&gt;
-
-            <el-table-column
-                    label="用户名"
-                    prop="username"
-                    sortable="custom"
-                    fixed>
-            </el-table-column>
-
-            <el-table-column
-                    sortable="custom"
-                    label="状态" prop="status">
-                <template slot-scope="scope">
-                    <el-tag :type="scope.row.status | statusFilterType">{{scope.row.status | statusFilterName}}</el-tag>
-                </template>
-            </el-table-column>
-            <el-table-column
-                    label="登录时间"
-                    with="300"
-                    sortable="custom"
-                    :show-overflow-tooltip="true" prop="last_login_time">
-                <template slot-scope="scope">
-                    <i class="el-icon-time"></i>
-                    <span>{{ scope.row.last_login_time }}</span>
-                </template>
-            </el-table-column>
-            <el-table-column
-                    sortable="custom"
-                    label="登录IP" prop="last_login_ip">
-                <template slot-scope="scope">
-                    <span>{{ scope.row.last_login_ip }}</span>
-                </template>
-            </el-table-column>-->
+            <el-table-column label="活动名称" prop="id" fixed></el-table-column>
+            <el-table-column label="开始时间" prop="id" fixed></el-table-column>
+            <el-table-column label="结束时间" prop="id" fixed></el-table-column>
+            <el-table-column label="显示终端" prop="id" fixed></el-table-column>
+            <el-table-column label="编辑时间" prop="id" fixed></el-table-column>
+            <el-table-column label="操作人员" prop="id" fixed></el-table-column>
+            <el-table-column label="活动状态" prop="id" fixed></el-table-column>
             <el-table-column
                     label="操作" width="350"
                     fixed="right">
@@ -153,7 +71,6 @@
                 :total="total">
         </el-pagination>
 
-        <!--<pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />-->
 
         <!--表单-->
         <el-dialog
@@ -209,9 +126,8 @@
 <script>
     import {
         activityList,
-        authAdminRoleList,
-        authAdminSave,
-        authAdminDelete
+        activitySave,
+        activityDelete
     } from "../../../api/event-management";
 
     const formJson = {
@@ -251,22 +167,6 @@
                     sort: '+id'
                 },
                 tableKey: 0,
-                sortOptions: [{label: 'ID Ascending', key: '+id'}, {
-                    label: 'ID Descending',
-                    key: '-id'
-                }, {label: 'username Ascending', key: '+username'}, {
-                    label: 'username Descending',
-                    key: '-username'
-                }, {label: 'status Ascending', key: '+status'}, {
-                    label: 'status Descending',
-                    key: '-status'
-                }, {label: 'last_login_time Ascending', key: '+last_login_time'}, {
-                    label: 'last_login_time Descending',
-                    key: '-last_login_time'
-                }, {label: 'last_login_ip Ascending', key: '+last_login_ip'}, {
-                    label: 'last_login_ip Descending',
-                    key: '-last_login_ip'
-                }],
                 list: [],
                 total: 0,
                 loading: true,
@@ -335,23 +235,7 @@
                 this.query.page = 1
                 this.getList()
             },
-            sortChange: function (column) {
-                // console.log(column)
-                // console.log(prop)
-                // console.log(order)
-                const {prop, order} = column
-                if (prop === 'id') {
-                    this.sortByID(order)
-                } else if (prop === 'username') {
-                    this.sortByUserName(order)
-                } else if (prop === 'status') {
-                    this.sortByStatus(order)
-                } else if (prop === 'last_login_time') {
-                    this.sortByLastLoginTime(order)
-                } else if (prop === 'last_login_ip') {
-                    this.sortByLastLoginIp(order)
-                }
-            },
+            
             getList() {
                 this.loading = true;
                 activityList(this.query)
@@ -364,65 +248,6 @@
                         this.loading = false;
                         this.list = [];
                         this.total = 0;
-                        this.roles = [];
-                    });
-            },
-            /*sortChange2(data) {
-                const { prop, order } = data
-                if (prop === 'id') {
-                    this.sortByID(order)
-                }
-            },*/
-
-            sortByID(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+id'
-                } else {
-                    this.query.sort = '-id'
-                }
-                this.handleFilter()
-            },
-
-
-            sortByUserName(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+username'
-                } else {
-                    this.query.sort = '-username'
-                }
-                this.handleFilter()
-            },
-            sortByStatus(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+status'
-                } else {
-                    this.query.sort = '-status'
-                }
-                this.handleFilter()
-            },
-            sortByLastLoginTime(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+last_login_time'
-                } else {
-                    this.query.sort = '-last_login_time'
-                }
-                this.handleFilter()
-            },
-            sortByLastLoginIp(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+last_login_ip'
-                } else {
-                    this.query.sort = '-last_login_ip'
-                }
-                this.handleFilter()
-            },
-            getRoleList() {
-                authAdminRoleList(this.query)
-                    .then(response => {
-                        this.roles = response.list || [];
-                    })
-                    .catch((e) => {
-                        console.log(e)
                         this.roles = [];
                     });
             },
@@ -459,7 +284,7 @@
                     if (valid) {
                         this.formLoading = true;
                         let data = Object.assign({}, this.formData);
-                        authAdminSave(data, this.formName).then(response => {
+                        activitySave(data, this.formName).then(response => {
                             this.formLoading = false;
                             if (response.code) {
                                 this.$message({
@@ -496,7 +321,7 @@
                     })
                         .then(() => {
                             let para = {id: row.id};
-                            authAdminDelete(para)
+                            activityDelete(para)
                                 .then(response => {
                                     this.deleteLoading = false;
                                     if (response.code) {
@@ -553,8 +378,6 @@
             this.query.limit = parseInt(this.query.limit);
             // 加载表格数据
             this.getList();
-            // 加载角色列表
-            // this.getRoleList();
         }
     };
 </script>

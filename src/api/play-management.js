@@ -3,12 +3,63 @@
  */
 import axios from "../utils/axios";
 
+// 投注限额相关
 // 获取列表
 export function betlimitList(query) {
     return axios({
         url: "event/betlimitList",
         method: "get",
         params: query
+    });
+}
+
+// 获取下拉框列表
+export function betlimitOptions(query) {
+    return axios({
+        url: "event/betlimitOptions",
+        method: "get",
+        params: query
+    });
+}
+export function updateLotteryGroupPropertySave(data) {
+    return axios({
+        url: "event/updateLotteryGroupPropertySave",
+        method: "post",
+        data: data
+    });
+}
+// 内容保存
+export function betlimitSave(data) {
+    return axios({
+        url: "event/betlimitSave",
+        method: "post",
+        data: data
+    });
+}
+
+// 姓名保存
+export function betlimitNameSave(data) {
+    return axios({
+        url: "event/betlimitNameSave",
+        method: "post",
+        data: data
+    });
+}
+
+// 单一用户单次中奖金额保存
+export function betlimitPrizeSave(data) {
+    return axios({
+        url: "event/betlimitPrizeSave",
+        method: "post",
+        data: data
+    });
+}
+// 单一用户单次中奖金额保存
+export function betlimitDelete(data) {
+    return axios({
+        url: "event/betlimitDelete",
+        method: "post",
+        data: data
     });
 }
 
@@ -20,6 +71,16 @@ export function lotteryriskList(query) {
         params: query
     });
 }
+
+// 保存
+export function lotteryriskStatusSave(data) {
+    return axios({
+        url: "event/lotteryriskStatusSave",
+        method: "post",
+        data: data
+    });
+}
+
 
 // 保存
 export function lotteryriskSave(data) {
