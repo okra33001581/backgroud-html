@@ -21,13 +21,7 @@ export function betlimitOptions(query) {
         params: query
     });
 }
-export function updateLotteryGroupPropertySave(data) {
-    return axios({
-        url: "event/updateLotteryGroupPropertySave",
-        method: "post",
-        data: data
-    });
-}
+
 // 内容保存
 export function betlimitSave(data) {
     return axios({
@@ -107,6 +101,48 @@ export function pgameList(query) {
         url: "event/pgameList",
         method: "get",
         params: query
+    });
+}
+
+// 修改属性值
+export function pgameSave(data) {
+    return axios({
+        url: "event/pgameSave",
+        method: "post",
+        data: data
+    });
+}
+// 修改属性值
+export function pgamePropertySave(data) {
+    return axios({
+        url: "event/pgamePropertySave",
+        method: "post",
+        data: data
+    });
+}
+
+// 修改排序值
+export function pgameSequenceSave(data) {
+    return axios({
+        url: "event/pgameSequenceSave",
+        method: "post",
+        data: data
+    });
+}
+// 修改状态值
+export function pgameStatusSave(data) {
+    return axios({
+        url: "event/pgameStatusSave",
+        method: "post",
+        data: data
+    });
+}
+// 修改游戏杀率值
+export function pgameKillRateSave(data) {
+    return axios({
+        url: "event/pgameKillRateSave",
+        method: "post",
+        data: data
     });
 }
 
