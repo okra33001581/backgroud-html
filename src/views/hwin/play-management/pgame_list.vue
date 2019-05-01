@@ -4,7 +4,7 @@
         <el-form :inline="true" :model="query" class="query-form" size="mini">
             <el-form-item class="query-form-item" style="color:#666">
                 彩票类别：
-                <el-select v-model="query.lottery_name" placeholder="彩种类别">
+                <!--<el-select v-model="query.lottery_name" placeholder="彩种类别">
                     <el-option label="全部" value=""></el-option>
                     <el-option label="其他" value="0"></el-option>
                     <el-option label="时时彩" value="1"></el-option>
@@ -14,16 +14,28 @@
                     <el-option label="快三" value="5"></el-option>
                     <el-option label="六合彩" value="6"></el-option>
                     <el-option label="3D彩" value="7"></el-option>
+                </el-select>-->
+                <el-select v-model="query.lottery_name" placeholder="请选择">
+                    <el-option label="全部" value=""></el-option>
+                    <el-option
+                      v-for="item in lotteryNameList"
+                      :key="item.lottery_name"
+                      :label="item.lottery_name"
+                      :value="item.lottery_name">
+                    </el-option>
                 </el-select>
             </el-form-item>
 
-
             <el-form-item class="query-form-item" style="color:#666">
                 玩法:
-                <el-select v-model="query.way_type" placeholder="玩法">
+                <el-select v-model="query.way_type" placeholder="请选择">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="官方" value="0"></el-option>
-                    <el-option label="信用" value="2"></el-option>
+                    <el-option
+                      v-for="item in wayTypeList"
+                      :key="item.way_type"
+                      :label="item.way_type"
+                      :value="item.way_type">
+                    </el-option>
                 </el-select>
             </el-form-item>
 
@@ -179,6 +191,7 @@
         pgamePropertySave,
         pgameSequenceSave,
         pgameKillRateSave,
+        pgameSearchList,
         pgameStatusSave
     } from "../../../api/play-management";
 
@@ -212,6 +225,8 @@
                 },
                 tableKey: 0,
                 list: [],
+                wayTypeList: [],
+                lotteryNameList: [],
                 listChildren: [],
                 total: 0,
                 loading: true,
@@ -373,6 +388,21 @@
                         this.loading = false;
                         this.list = [];
                         this.total = 0;
+                    });
+            },
+
+            getSearchList() {
+                this.loading = true;
+                pgameSearchList(this.query)
+                    .then(response => {
+                        this.loading = false;
+                        this.wayTypeList = response.data.wayTypeList || [];
+                        this.lotteryNameList = response.data.lotteryNameList || [];
+                    })
+                    .catch(() => {
+                        this.loading = false;
+                        this.wayTypeList = [];
+                        this.lotteryNameList = [];
                     });
             },
             
@@ -559,8 +589,8 @@
             this.query.limit = parseInt(this.query.limit);
             // 加载表格数据
             this.getList();
-            // 加载角色列表
-            // this.getRoleList();
+            // 加载玩法列表
+            this.getSearchList();
         }
     };
 </script>

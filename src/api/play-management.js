@@ -12,6 +12,13 @@ export function betlimitList(query) {
         params: query
     });
 }
+export function pgameSearchList(query) {
+    return axios({
+        url: "event/pgameSearchList",
+        method: "get",
+        params: query
+    });
+}
 
 // 获取下拉框列表
 export function betlimitOptions(query) {
