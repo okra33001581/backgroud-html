@@ -65,6 +65,16 @@ import event_process from "../views/new/event/event_process.vue";
 import points_mall from "../views/new/event/points_mall.vue";
 import prize_audit from "../views/new/event/prize_audit.vue";
 
+
+import ag_log_list 	from "../views/hwin/third-game-management/ag_log_list.vue";
+import ag_user_turnover_list 	from "../views/hwin/third-game-management/ag_user_turnover_list.vue";
+import basketball_list 	from "../views/hwin/third-game-management/basketball_list.vue";
+import football_list 	from "../views/hwin/third-game-management/football_list.vue";
+import ga_user_turnover_list 	from "../views/hwin/third-game-management/ga_user_turnover_list.vue";
+import game_type_list 	from "../views/hwin/third-game-management/game_type_list.vue";
+import third_plat_list 	from "../views/hwin/third-game-management/third_plat_list.vue";
+import merchant_game_list 	from "../views/hwin/third-game-management/merchant_game_list.vue";
+
 // 管理组相关
 import adminRouter from "../views/userManage/admin/router.vue";
 import authAdmin from "../views/userManage/admin/authAdmin.vue";
@@ -829,6 +839,86 @@ export const asyncRouterMap = [
                     authRule: ["hwin/marquee_list"]
                 }
             }
+        ]
+    },
+    {
+        path: "/hwin-noticemanagement22",
+        redirect: "/events/events22",
+        component: Home,
+        icon: "noticemanagement",
+        name: "第三方游戏管理",
+        meta: {
+            authRule: ["公告管理"]
+        },
+        // noDropdown: true,
+        children: [
+            {
+                path: "message_list",
+                component: game_type_list,
+                name: "游戏类别管理",
+                icon: "message_list",
+                meta: {
+                    authRule: ["hwin/message_list"]
+                }
+            },
+            {
+                path: "notice_list",
+                component: third_plat_list,
+                name: "第三方平台",
+                icon: "notice_list",
+                meta: {
+                    authRule: ["hwin/notice_list"]
+                }
+            }, {
+                path: "marquee_list",
+                component: ag_user_turnover_list,
+                name: "AG流水",
+                icon: "marquee_list",
+                meta: {
+                    authRule: ["hwin/marquee_list"]
+                }
+            }, {
+                path: "marquee_list2",
+                component: ga_user_turnover_list,
+                name: "GA流水",
+                icon: "marquee_list",
+                meta: {
+                    authRule: ["hwin/marquee_list"]
+                }
+            }, {
+                path: "marquee_list3",
+                component: ag_log_list,
+                name: "AG日志管理",
+                icon: "marquee_list",
+                meta: {
+                    authRule: ["hwin/marquee_list"]
+                }
+            }, {
+                path: "marquee_list4",
+                component: football_list,
+                name: "竞彩-足球",
+                icon: "marquee_list",
+                meta: {
+                    authRule: ["hwin/marquee_list"]
+                }
+            }, {
+                path: "basketball_list",
+                component: basketball_list,
+                name: "竞彩-篮球",
+                icon: "marquee_list",
+                meta: {
+                    authRule: ["hwin/marquee_list"]
+                }
+            }, {
+                path: "merchant_game_list",
+                component: merchant_game_list,
+                name: "商户游戏管理",
+                icon: "marquee_list",
+                meta: {
+                    authRule: ["hwin/marquee_list"]
+                }
+            }
+
         ]
     },
     {
