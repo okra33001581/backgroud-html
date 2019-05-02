@@ -47,11 +47,12 @@
             <el-table-column label="下注总额" prop="project_amount" fixed></el-table-column>
             <el-table-column label="返奖总额" prop="back_award_amount" fixed></el-table-column>
             <el-table-column label="亏损比" prop="loss_ratio" fixed></el-table-column>
+            <el-table-column label="状态" prop="status" fixed></el-table-column>
             <el-table-column label="操作" width="260" fixed="right">
             <template slot-scope="scope">
-                <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
+                <el-button type="success" size="small" @click.native="auditRisk(scope.$index, scope.row,'pass')">通过
                 </el-button>
-                <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
+                <el-button type="danger" size="small" @click.native="auditRisk(scope.$index, scope.row,'refuse')">拒绝
                 </el-button>
             </template>
             </el-table-column>
@@ -111,6 +112,7 @@
 <script>
     import {
         lotteryriskList,
+        lotteryriskStatusSave,
         lotteryriskSave,
         lotteryriskDelete
     } from "../../../api/play-management";
@@ -128,6 +130,7 @@
         winner_project_count_ratio: "",
         project_amount: "",
         back_award_amount: "",
+        status: "",
         loss_ratio: ""
     };
     export default {
@@ -272,6 +275,37 @@
                 this.$refs["dataForm"].resetFields();
                 return true;
             },
+
+            auditRisk(index, row,type) {
+                var params = {
+                    id: row.id,
+                    flag: type
+                }
+                // debugger
+                lotteryriskStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
+            },
+
             // 显示表单
             handleForm(index, row) {
                 this.formVisible = true;

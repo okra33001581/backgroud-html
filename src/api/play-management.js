@@ -3,12 +3,64 @@
  */
 import axios from "../utils/axios";
 
+// 投注限额相关
 // 获取列表
 export function betlimitList(query) {
     return axios({
         url: "event/betlimitList",
         method: "get",
         params: query
+    });
+}
+export function pgameSearchList(query) {
+    return axios({
+        url: "event/pgameSearchList",
+        method: "get",
+        params: query
+    });
+}
+
+// 获取下拉框列表
+export function betlimitOptions(query) {
+    return axios({
+        url: "event/betlimitOptions",
+        method: "get",
+        params: query
+    });
+}
+
+// 内容保存
+export function betlimitSave(data) {
+    return axios({
+        url: "event/betlimitSave",
+        method: "post",
+        data: data
+    });
+}
+
+// 姓名保存
+export function betlimitNameSave(data) {
+    return axios({
+        url: "event/betlimitNameSave",
+        method: "post",
+        data: data
+    });
+}
+
+// 单一用户单次中奖金额保存
+export function betlimitPrizeSave(data) {
+    return axios({
+        url: "event/betlimitPrizeSave",
+        method: "post",
+        data: data
+    });
+}
+// 单一用户单次中奖金额保存
+export function betlimitDelete(data) {
+    return axios({
+        url: "event/betlimitDelete",
+        method: "post",
+        data: data
     });
 }
 
@@ -20,6 +72,16 @@ export function lotteryriskList(query) {
         params: query
     });
 }
+
+// 保存
+export function lotteryriskStatusSave(data) {
+    return axios({
+        url: "event/lotteryriskStatusSave",
+        method: "post",
+        data: data
+    });
+}
+
 
 // 保存
 export function lotteryriskSave(data) {
@@ -46,6 +108,48 @@ export function pgameList(query) {
         url: "event/pgameList",
         method: "get",
         params: query
+    });
+}
+
+// 修改属性值
+export function pgameSave(data) {
+    return axios({
+        url: "event/pgameSave",
+        method: "post",
+        data: data
+    });
+}
+// 修改属性值
+export function pgamePropertySave(data) {
+    return axios({
+        url: "event/pgamePropertySave",
+        method: "post",
+        data: data
+    });
+}
+
+// 修改排序值
+export function pgameSequenceSave(data) {
+    return axios({
+        url: "event/pgameSequenceSave",
+        method: "post",
+        data: data
+    });
+}
+// 修改状态值
+export function pgameStatusSave(data) {
+    return axios({
+        url: "event/pgameStatusSave",
+        method: "post",
+        data: data
+    });
+}
+// 修改游戏杀率值
+export function pgameKillRateSave(data) {
+    return axios({
+        url: "event/pgameKillRateSave",
+        method: "post",
+        data: data
     });
 }
 
