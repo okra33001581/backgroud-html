@@ -247,6 +247,7 @@
                     key: '-last_login_ip'
                 }],
                 list: [],
+                excelList: [],
                 total: 0,
                 loading: true,
                 index: null,
@@ -320,23 +321,27 @@
                 this.query.limit = 9999;
                 operationProfit(this.query)
                     .then(response => {
-                        this.list = response.data.list.data || [];
+                        this.excelList = response.data.list.data || [];
+
+                        import('@/vendor/Export2Excel').then(excel => {
+                            const tHeader = ['ID','商户名称', '用户名', '平台', '模式', '所属组', '总入款', '总取款','有效盈利','投注总额','中奖金额','返点总额','游戏盈亏','优惠总额','系统扣减','余额']
+                            const filterVal = ['id','merchant_name', 'username', 'platform', 'model', 'group', 'in_total_amount', 'total_out_amount', 'valid_profit', 'sum_turnover', 'prize_amount', 'rebate_amount', 'game_profit_loss', 'benefit_amount', 'system_subtraction','final_amount']
+                            const excelList = this.excelList
+                            const data = this.formatJson(filterVal, excelList)
+                            excel.export_json_to_excel({
+                                header: tHeader,
+                                data,
+                                filename: this.filename,
+                                autoWidth: this.autoWidth
+                            })
+                            this.downloadLoading = false
+                        })
+
+                        
                     })
                     .catch(() => {
                     });
-                import('@/vendor/Export2Excel').then(excel => {
-                    const tHeader = ['ID','商户名称', '用户名', '平台', '模式', '所属组', '总入款', '总取款','有效盈利','投注总额','中奖金额','返点总额','游戏盈亏','优惠总额','系统扣减','余额']
-                    const filterVal = ['id','merchant_name', 'username', 'platform', 'model', 'group', 'in_total_amount', 'total_out_amount', 'valid_profit', 'sum_turnover', 'prize_amount', 'rebate_amount', 'game_profit_loss', 'benefit_amount', 'system_subtraction','final_amount']
-                    const list = this.list
-                    const data = this.formatJson(filterVal, list)
-                    excel.export_json_to_excel({
-                        header: tHeader,
-                        data,
-                        filename: this.filename,
-                        autoWidth: this.autoWidth
-                    })
-                    this.downloadLoading = false
-                })
+                
                 this.loading = false;
             },
             formatJson(filterVal, jsonData) {
