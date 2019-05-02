@@ -47,6 +47,7 @@
                 </template>
 
             </el-table-column>
+            <el-table-column label="			类别				" prop="type" fixed></el-table-column>
             <el-table-column label="			区域				" prop="district" fixed></el-table-column>
             <el-table-column label="			国家				" prop="nationality" fixed></el-table-column>
             <el-table-column label="			国旗				" prop="icon" fixed>

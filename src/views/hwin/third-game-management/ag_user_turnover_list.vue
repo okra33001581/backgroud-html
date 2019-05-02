@@ -48,13 +48,13 @@
             </el-table-column>-->
             <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
             <el-table-column label="			id		" prop="id" fixed></el-table-column>
-            <el-table-column label="			data_type		" prop="data_type" fixed></el-table-column>
-            <el-table-column label="			bill_no		" prop="bill_no" fixed></el-table-column>
-            <el-table-column label="			user_id		" prop="user_id" fixed></el-table-column>
-            <el-table-column label="			username		" prop="username" fixed></el-table-column>
-            <el-table-column label="			is_tester		" prop="is_tester" fixed></el-table-column>
-            <el-table-column label="			is_agent		" prop="is_agent" fixed></el-table-column>
-            <el-table-column label="			user_level		" prop="user_level" fixed></el-table-column>
+            <el-table-column label="			数据类型		" prop="data_type" fixed></el-table-column>
+            <el-table-column label="			订单编号		" prop="bill_no" fixed></el-table-column>
+            <el-table-column label="			用户		" prop="user_id" fixed></el-table-column>
+            <el-table-column label="			用户名		" prop="username" fixed></el-table-column>
+            <el-table-column label="			测试账号		" prop="is_tester" fixed></el-table-column>
+            <el-table-column label="			代理		" prop="is_agent" fixed></el-table-column>
+            <el-table-column label="			用户等级		" prop="user_level" fixed></el-table-column>
             <!--<el-table-column label="			lottery_id		" prop="lottery_id" fixed></el-table-column>
             <el-table-column label="			agent_code		" prop="agent_code" fixed></el-table-column>
             <el-table-column label="			game_code		" prop="game_code" fixed></el-table-column>
@@ -84,12 +84,10 @@
             <el-table-column label="			updated_at		" prop="updated_at" fixed></el-table-column>-->
 
             <el-table-column
-                    label="操作" width="260"
+                    label="操作" width="100"
                     fixed="right">
                 <template slot-scope="scope">
-                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
-                    </el-button>
-                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
+                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">查看
                     </el-button>
                 </template>
             </el-table-column>
@@ -109,50 +107,50 @@
                 :title="formMap[formName]"
                 :visible.sync="formVisible"
                 :before-close="hideForm"
-                width="35%"
+                width="40%"
                 top="5vh">
-            <el-form :model="formData" :rules="formRules" ref="dataForm">
-                <el-form-item label="		id		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		data_type		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		bill_no		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		user_id		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		username		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		is_tester		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		is_agent		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		user_level		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		lottery_id		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		agent_code		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		game_code		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		net_amount		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		bet_time		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		game_type		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		bet_amount		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		valid_bet_amount		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		flag		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		play_type		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		currency		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		login_ip		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		recalcu_time		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		platform_type		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		remark		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		round		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		result		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		before_credit		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		device_type		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		table_code		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		mainbillno		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		other_data		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		plat_turnovers_used		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		ftp_get_logs_id		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		fund_used		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		created_at		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		updated_at		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
+            <el-form :model="formData" :rules="formRules" ref="dataForm"   label-width="130px">
+                <el-form-item label="		id" prop="id"><el-input style="width:550px;max-width:100%;" v-model="formData.id" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		数据类型" prop="data_type"><el-input style="width:550px;max-width:100%;"  v-model="formData.data_type" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		订单编号" prop="bill_no"><el-input style="width:550px;max-width:100%;" v-model="formData.bill_no" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		用户名" prop="user_id"><el-input style="width:550px;max-width:100%;" v-model="formData.user_id" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		用户名" prop="username"><el-input style="width:550px;max-width:100%;" v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		测试账号" prop="is_tester"><el-input style="width:550px;max-width:100%;" v-model="formData.is_tester" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		代理" prop="is_agent"><el-input style="width:550px;max-width:100%;" v-model="formData.is_agent" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		用户等级" prop="user_level"><el-input style="width:550px;max-width:100%;" v-model="formData.user_level" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		彩种" prop="lottery_id"><el-input style="width:550px;max-width:100%;" v-model="formData.lottery_id" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		代理商编号" prop="agent_code"><el-input style="width:550px;max-width:100%;" v-model="formData.agent_code" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		游戏局号" prop="game_code"><el-input style="width:550px;max-width:100%;" v-model="formData.game_code" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		玩家输赢额度" prop="net_amount"><el-input style="width:550px;max-width:100%;" v-model="formData.net_amount" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		投注时间" prop="bet_time"><el-input style="width:550px;max-width:100%;" v-model="formData.bet_time" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		游戏类别" prop="game_type"><el-input style="width:550px;max-width:100%;" v-model="formData.game_type" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		投注金额" prop="bet_amount"><el-input style="width:550px;max-width:100%;" v-model="formData.bet_amount" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		有效投注额" prop="valid_bet_amount	"><el-input style="width:550px;max-width:100%;" v-model="formData.valid_bet_amount	" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		计算状态" prop="flag"><el-input style="width:550px;max-width:100%;" v-model="formData.flag" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		游戏玩法" prop="play_type"><el-input style="width:550px;max-width:100%;" v-model="formData.play_type" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		货币类型" prop="currency"><el-input style="width:550px;max-width:100%;" v-model="formData.currency" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		玩家IP" prop="login_ip"><el-input style="width:550px;max-width:100%;" v-model="formData.login_ip" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		注单重新派彩时间" prop="recalcu_time"><el-input style="width:550px;max-width:100%;" v-model="formData.recalcu_time" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		平台类型" prop="platform_type"><el-input style="width:550px;max-width:100%;" v-model="formData.platform_type" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		备注" prop="remark"><el-input style="width:550px;max-width:100%;" v-model="formData.remark" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		平台内大厅类型" prop="round"><el-input style="width:550px;max-width:100%;" v-model="formData.round" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		result" prop="result"><el-input style="width:550px;max-width:100%;" v-model="formData.result" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		玩家下注前剩余额度" prop="before_credit"><el-input style="width:550px;max-width:100%;" v-model="formData.before_credit" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		设备类型" prop="device_type"><el-input style="width:550px;max-width:100%;" v-model="formData.device_type" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		桌子编号" prop="table_code"><el-input style="width:550px;max-width:100%;" v-model="formData.table_code" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		主订单号" prop="mainbillno"><el-input style="width:550px;max-width:100%;" v-model="formData.mainbillno" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		其他xml字段序列化数据" prop="other_data"><el-input style="width:550px;max-width:100%;" v-model="formData.other_data" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		是否统计进入平台投注额" prop="plat_turnovers_used"><el-input style="width:550px;max-width:100%;" v-model="formData.plat_turnovers_used" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		数据对应的ftp_get_logs id" prop="ftp_get_logs_id"><el-input style="width:550px;max-width:100%;" v-model="formData.ftp_get_logs_id" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		是否统计过盈亏" prop="fund_used"><el-input style="width:550px;max-width:100%;" v-model="formData.fund_used" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		创建时间" prop="created_at"><el-input style="width:550px;max-width:100%;" v-model="formData.created_at" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		更新时间" prop="updated_at"><el-input style="width:550px;max-width:100%;" v-model="formData.updated_at" auto-complete="off"></el-input></el-form-item>
+
 
 
             </el-form>
             <div slot="footer" class="dialog-footer">
-                <el-button @click.native="hideForm">取消</el-button>
-                <el-button type="primary" @click.native="formSubmit()" :loading="formLoading">提交</el-button>
+                <el-button @click.native="hideForm">关闭</el-button>
             </div>
         </el-dialog>
     </div>

@@ -47,16 +47,15 @@
                 </template>
 
             </el-table-column>
-            <el-table-column label="			remote_path				" prop="remote_path" fixed></el-table-column>
-            <el-table-column label="			local_path				" prop="local_path" fixed></el-table-column>
-            <el-table-column label="			file_name				" prop="file_name" fixed></el-table-column>
+            <el-table-column label="			远程地址				" prop="remote_path" fixed></el-table-column>
+            <el-table-column label="			本地地址				" prop="local_path" fixed></el-table-column>
+            <el-table-column label="			文件名称				" prop="file_name" fixed></el-table-column>
 
-            <el-table-column label="			type				" prop="type" fixed></el-table-column>
-            <el-table-column label="			is_parse				" prop="is_parse" fixed></el-table-column>
-            <el-table-column label="			created_at				" prop="created_at" fixed></el-table-column>
-            <el-table-column label="			updated_at				" prop="updated_at" fixed></el-table-column>
-            <el-table-column label="			remote_file_last_modify_time				" prop="remote_file_last_modify_time" fixed></el-table-column>
-            <el-table-column label="			remote_file_last_modify_time				" prop="remote_file_last_modify_time" fixed></el-table-column>
+            <el-table-column label="			类型				" prop="type" fixed></el-table-column>
+            <el-table-column label="			解析				" prop="is_parse" fixed></el-table-column>
+            <el-table-column label="			创建时间				" prop="created_at" fixed></el-table-column>
+            <el-table-column label="			更新时间				" prop="updated_at" fixed></el-table-column>
+            <el-table-column label="			最后修改时间				" prop="remote_file_last_modify_time" fixed></el-table-column>
 
             <el-table-column
                     label="操作" width="260"

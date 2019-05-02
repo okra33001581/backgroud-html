@@ -45,14 +45,14 @@
                     ></el-input>
                 </template>
             </el-table-column>
-            <el-table-column label="			type				" prop="type" fixed></el-table-column>
-            <el-table-column label="			name				" prop="name" fixed></el-table-column>
-            <el-table-column label="			identifier				" prop="identifier" fixed></el-table-column>
-            <el-table-column label="			plat_id				" prop="plat_id" fixed></el-table-column>
-            <el-table-column label="			rate_basis				" prop="rate_basis" fixed></el-table-column>
-            <el-table-column label="			created_at				" prop="created_at" fixed></el-table-column>
-            <el-table-column label="			updated_at				" prop="updated_at" fixed></el-table-column>
-            <el-table-column label="			status				" prop="status" fixed></el-table-column>
+            <el-table-column label="			类型				" prop="type" fixed></el-table-column>
+            <el-table-column label="			游戏类型名				" prop="name" fixed></el-table-column>
+            <el-table-column label="			游戏类型标记				" prop="identifier" fixed></el-table-column>
+            <el-table-column label="			归属三方平台				" prop="plat_id" fixed></el-table-column>
+            <el-table-column label="			比例确定依据				" prop="rate_basis" fixed></el-table-column>
+            <el-table-column label="			创建时间				" prop="created_at" fixed></el-table-column>
+            <el-table-column label="			更新时间				" prop="updated_at" fixed></el-table-column>
+            <el-table-column label="			状态				" prop="status" fixed></el-table-column>
 
             <el-table-column
                     label="操作" width="360"
@@ -102,7 +102,7 @@
                     <el-input v-model="formData.sequence" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="name" prop="name">
+                <el-form-item label="游戏类型名" prop="name">
                     <el-input v-model="formData.name" auto-complete="off"></el-input>
                 </el-form-item>
 
@@ -110,26 +110,26 @@
                     <!--<el-input v-model="formData.sequence" auto-complete="off"></el-input>-->
                 <!--</el-form-item>-->
 
-                <el-form-item label="identifier" prop="identifier">
+                <el-form-item label="游戏类型标记" prop="identifier">
                     <el-input v-model="formData.identifier" auto-complete="off"></el-input>
                 </el-form-item>
-                <el-form-item label="plat_id" prop="plat_id">
+                <el-form-item label="归属三方平台" prop="plat_id">
                     <el-input v-model="formData.plat_id" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="rate_basis" prop="rate_basis">
+                <el-form-item label="比例确定依据" prop="rate_basis">
                     <el-input v-model="formData.rate_basis" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="created_at" prop="created_at">
+                <el-form-item label="创建时间" prop="created_at">
                     <el-input v-model="formData.created_at" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="updated_at" prop="updated_at">
+                <el-form-item label="更新时间" prop="updated_at">
                     <el-input v-model="formData.updated_at" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="status" prop="status">
+                <el-form-item label="状态" prop="status">
                     <el-input v-model="formData.status" auto-complete="off"></el-input>
                 </el-form-item>
 
@@ -152,6 +152,21 @@
             <el-form :model="formSubData" :rules="formSubRules" ref="dataSubForm">
 
                 <template>
+                    <el-form :inline="true" :model="query" class="query-form" size="mini">
+                        <el-form-item class="query-form-item">
+                            <el-input v-model="query.merchant_name" placeholder="商户"></el-input>
+                        </el-form-item>
+
+                        <el-form-item>
+                            <el-button-group>
+                                <el-button type="primary" icon="el-icon-refresh" @click="getSubList"></el-button>
+                                <el-button type="primary" icon="el-icon-search" @click="onSubSubmit">查询</el-button>
+                                <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">新增</el-button>
+                            </el-button-group>
+                        </el-form-item>
+
+                    </el-form>
+
                     <el-table
                             :data="tableData"
                             style="width: 100%">
@@ -161,7 +176,7 @@
                                 width="180">
                         </el-table-column>
 
-                        <el-table-column label="			图标				" prop="icon">
+                        <!--<el-table-column label="			图标				" prop="icon">
                             <template slot-scope="scope">
                                 <el-popover
                                         placement="right"
@@ -172,7 +187,22 @@
                                 </el-popover>
                             </template>
 
+                        </el-table-column>-->
+
+
+                        <el-table-column label="			图标				" prop="icon" >
+                            <template slot-scope="scope">
+                                <el-popover
+                                        placement="right"
+                                        title=""
+                                        trigger="hover">
+                                    <img :src="'http://apidemo.test/public/' + scope.row.icon"/>
+                                    <img slot="reference" :src="'http://apidemo.test/public/' + scope.row.icon" :alt="icon" style="max-height: 50px;max-width: 130px">
+                                </el-popover>
+                            </template>
+
                         </el-table-column>
+
 
                         <el-table-column
                                 prop="status"
@@ -185,7 +215,7 @@
                         </el-table-column>
 
                         <el-table-column
-                                label="操作" width="100"
+                                label="操作" width="150"
                                 fixed="right">
                             <template slot-scope="scope">
 
@@ -204,7 +234,7 @@
 
                     <el-pagination
                             :page-size="query.limit"
-                            @current-change="handleCurrentChange"
+                            @current-change="handleCurrentSubChange"
                             layout="prev, pager, next"
                             :total="totalSub">
                     </el-pagination>
@@ -360,6 +390,13 @@
                 });
                 this.getList();
             },
+            onSubSubmit() {
+                this.$router.push({
+                    path: "",
+                    query: this.query
+                });
+                this.getSubList();
+            },
             //设置表格第一行的颜色
             getRowClass({ row, column, rowIndex, columnIndex }) {
                 if (rowIndex == 0) {
@@ -371,6 +408,10 @@
             handleCurrentChange(val) {
                 this.query.page = val;
                 this.getList();
+            },
+            handleCurrentSubChange(val) {
+                this.query.page = val;
+                this.getSubList();
             },
             handleFilter() {
                 this.query.page = 1
@@ -408,13 +449,17 @@
                         this.roles = [];
                     });
             },
-            /*sortChange2(data) {
-                const { prop, order } = data
-                if (prop === 'id') {
-                    this.sortByID(order)
-                }
-            },*/
-
+            getSubList() {
+                // this.loading = true;
+                gameTypeDetailList(this.query)
+                    .then(response => {
+                        this.tableData = response.data.list.data || [];
+                        // this.list = response.data.list.data || [];
+                        this.totalSub = response.data.list.total || 0;
+                    })
+                    .catch(() => {
+                    });
+            },
             sortByID(order) {
                 if (order === 'ascending') {
                     this.query.sort = '+id'

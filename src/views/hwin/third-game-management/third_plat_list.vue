@@ -47,17 +47,16 @@
                 </template>
 
             </el-table-column>
-            <el-table-column label="			identity				" prop="identity" fixed></el-table-column>
-            <el-table-column label="			name				" prop="name" fixed></el-table-column>
-            <el-table-column label="			plat_identity				" prop="plat_identity" fixed></el-table-column>
-            <el-table-column label="			params_key				" prop="params_key" fixed></el-table-column>
-            <el-table-column label="			key				" prop="key" fixed></el-table-column>
-            <el-table-column label="			iframe_url				" prop="iframe_url" fixed></el-table-column>
-            <el-table-column label="			data_url				" prop="data_url" fixed></el-table-column>
-            <el-table-column label="			status				" prop="status" fixed></el-table-column>
-            <el-table-column label="			query_enabled				" prop="query_enabled" fixed></el-table-column>
-            <el-table-column label="			free_data_url				" prop="free_data_url" fixed></el-table-column>
-            <el-table-column label="			free_data_url				" prop="free_data_url" fixed></el-table-column>
+            <el-table-column label="			平台唯一标识				" prop="identity" fixed></el-table-column>
+            <el-table-column label="			平台名				" prop="name" fixed></el-table-column>
+            <el-table-column label="			平台分配的标识				" prop="plat_identity" fixed></el-table-column>
+            <el-table-column label="			密钥				" prop="params_key" fixed></el-table-column>
+            <el-table-column label="			唯一密钥				" prop="key" fixed></el-table-column>
+            <el-table-column label="			请求地址				" prop="iframe_url" fixed></el-table-column>
+            <el-table-column label="			推送数据url				" prop="data_url" fixed></el-table-column>
+            <el-table-column label="			状态				" prop="status" fixed></el-table-column>
+            <el-table-column label="			查询启用				" prop="query_enabled" fixed></el-table-column>
+            <el-table-column label="			数据url				" prop="free_data_url" fixed></el-table-column>
 
             <el-table-column
                     label="操作" width="260"
