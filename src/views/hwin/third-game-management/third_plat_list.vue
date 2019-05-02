@@ -42,22 +42,22 @@
             <el-table-column label="					排序值		" prop="id" fixed>
 
                 <template scope="scope">
-                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="marqueeSequence(scope.$index, scope.row)"
+                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="thirdPlatsSequence(scope.$index, scope.row)"
                     ></el-input>
                 </template>
 
             </el-table-column>
-            <el-table-column label="			identity				" prop="merchant_name" fixed></el-table-column>
-            <el-table-column label="			name				" prop="title" fixed></el-table-column>
-            <el-table-column label="			plat_identity				" prop="status" fixed></el-table-column>
-            <el-table-column label="			params_key				" prop="status" fixed></el-table-column>
-            <el-table-column label="			key				" prop="status" fixed></el-table-column>
-            <el-table-column label="			iframe_url				" prop="status" fixed></el-table-column>
-            <el-table-column label="			data_url				" prop="status" fixed></el-table-column>
+            <el-table-column label="			identity				" prop="identity" fixed></el-table-column>
+            <el-table-column label="			name				" prop="name" fixed></el-table-column>
+            <el-table-column label="			plat_identity				" prop="plat_identity" fixed></el-table-column>
+            <el-table-column label="			params_key				" prop="params_key" fixed></el-table-column>
+            <el-table-column label="			key				" prop="key" fixed></el-table-column>
+            <el-table-column label="			iframe_url				" prop="iframe_url" fixed></el-table-column>
+            <el-table-column label="			data_url				" prop="data_url" fixed></el-table-column>
             <el-table-column label="			status				" prop="status" fixed></el-table-column>
-            <el-table-column label="			query_enabled				" prop="status" fixed></el-table-column>
-            <el-table-column label="			free_data_url				" prop="status" fixed></el-table-column>
-            <el-table-column label="			free_data_url				" prop="status" fixed></el-table-column>
+            <el-table-column label="			query_enabled				" prop="query_enabled" fixed></el-table-column>
+            <el-table-column label="			free_data_url				" prop="free_data_url" fixed></el-table-column>
+            <el-table-column label="			free_data_url				" prop="free_data_url" fixed></el-table-column>
 
             <el-table-column
                     label="操作" width="260"
@@ -67,6 +67,12 @@
                     </el-button>
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
                     </el-button>
+
+                    <el-button v-if="scope.row.status === '禁用'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemSuccessServer(scope.$index, scope.row)">启用
+                    </el-button>
+                    <el-button v-if="scope.row.status === '启用'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemFailedServer(scope.$index, scope.row)">禁用
+                    </el-button>
+
                 </template>
             </el-table-column>
         </el-table>
@@ -154,8 +160,8 @@
     import {
         thirdPlatList,
         authAdminRoleList,
-        marqueeSave,
-        marqueeSequence,
+        thirdPlatsStatusSave,
+        thirdPlatsSequence,
         marqueeDelete
     } from "../../../api/third-game-management";
 
@@ -327,13 +333,13 @@
                 }
                 this.handleFilter()
             },
-            marqueeSequence(index, row) {
+            thirdPlatsSequence(index, row) {
                 var params = {
                     id: row.id,
                     sequence: row.sequence
                 }
                 // debugger
-                marqueeSequence(params).then(
+                thirdPlatsSequence(params).then(
                     function (res) {
                         // debugger
                         /*if(res.code === 1){
@@ -397,6 +403,64 @@
                         console.log(e)
                         this.roles = [];
                     });
+            },
+            auditItemSuccessServer(index, row) {
+                var params = {
+                    id: row.id,
+                    flag: '启用'
+                }
+                // debugger
+                thirdPlatsStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
+            },
+            auditItemFailedServer(index, row) {
+                var params = {
+                    id: row.id,
+                    flag: '禁用'
+                }
+                // debugger
+                thirdPlatsStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
             },
             // 隐藏表单
             hideForm() {

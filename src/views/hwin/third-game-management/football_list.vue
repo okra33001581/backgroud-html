@@ -42,15 +42,27 @@
             <el-table-column label="					排序值		" prop="id" fixed>
 
                 <template scope="scope">
-                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="marqueeSequence(scope.$index, scope.row)"
+                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="thirdBallSequence(scope.$index, scope.row)"
                     ></el-input>
                 </template>
 
             </el-table-column>
-            <!--<el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>-->
-            <el-table-column label="			国家				" prop="title" fixed></el-table-column>
-            <el-table-column label="			国旗				" prop="status" fixed></el-table-column>
-            <el-table-column label="			联赛名称				" prop="status" fixed></el-table-column>
+            <el-table-column label="			区域				" prop="district" fixed></el-table-column>
+            <el-table-column label="			国家				" prop="nationality" fixed></el-table-column>
+            <el-table-column label="			国旗				" prop="icon" fixed>
+                <template slot-scope="scope">
+                    <el-popover
+                            placement="right"
+                            title=""
+                            trigger="hover">
+                        <img :src="'http://apidemo.test/public/' + scope.row.icon"/>
+                        <img slot="reference" :src="'http://apidemo.test/public/' + scope.row.icon" :alt="icon" style="max-height: 50px;max-width: 130px">
+                    </el-popover>
+                </template>
+
+            </el-table-column>
+
+            <el-table-column label="			联赛名称				" prop="name" fixed></el-table-column>
             <el-table-column
                     label="操作" width="260"
                     fixed="right">
@@ -59,6 +71,12 @@
                     </el-button>
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
                     </el-button>
+
+                    <el-button v-if="scope.row.status === '禁用'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemSuccessServer(scope.$index, scope.row)">启用
+                    </el-button>
+                    <el-button v-if="scope.row.status === '启用'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemFailedServer(scope.$index, scope.row)">禁用
+                    </el-button>
+
                 </template>
             </el-table-column>
         </el-table>
@@ -80,24 +98,29 @@
                 width="35%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
-                <el-form-item label="Id" prop="title">
-                    <el-input v-model="formData.title" auto-complete="off"></el-input>
+                <el-form-item label="Id" prop="id">
+                    <el-input v-model="formData.id" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="排序值" prop="terminal">
-                    <el-input v-model="formData.terminal" auto-complete="off"></el-input>
-                </el-form-item>
-
-                <el-form-item label="国家" prop="sequence">
+                <el-form-item label="排序值" prop="sequence">
                     <el-input v-model="formData.sequence" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="国旗" prop="content">
-                    <el-input v-model="formData.content" auto-complete="off"></el-input>
+
+                <el-form-item label="区域" prop="district">
+                    <el-input v-model="formData.district" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="联赛名称" prop="content">
-                    <el-input v-model="formData.content" auto-complete="off"></el-input>
+                <el-form-item label="国家" prop="nationality">
+                    <el-input v-model="formData.nationality" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item label="国旗" prop="icon">
+                    <el-input v-model="formData.icon" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item label="联赛名称" prop="name">
+                    <el-input v-model="formData.name" auto-complete="off"></el-input>
                 </el-form-item>
 
 
@@ -116,7 +139,7 @@
         footballList,
         authAdminRoleList,
         marqueeSave,
-        marqueeSequence,
+        thirdBallSequence,
         marqueeDelete
     } from "../../../api/third-game-management";
 
@@ -258,6 +281,65 @@
                     this.sortByLastLoginIp(order)
                 }
             },
+
+            auditItemSuccessServer(index, row) {
+                var params = {
+                    id: row.id,
+                    flag: '启用'
+                }
+                // debugger
+                thirdBallStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
+            },
+            auditItemFailedServer(index, row) {
+                var params = {
+                    id: row.id,
+                    flag: '禁用'
+                }
+                // debugger
+                thirdBallStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
+            },
             getList() {
                 this.loading = true;
                 footballList(this.query)
@@ -288,13 +370,13 @@
                 }
                 this.handleFilter()
             },
-            marqueeSequence(index, row) {
+            thirdBallSequence(index, row) {
                 var params = {
                     id: row.id,
                     sequence: row.sequence
                 }
                 // debugger
-                marqueeSequence(params).then(
+                thirdBallSequence(params).then(
                     function (res) {
                         // debugger
                         /*if(res.code === 1){

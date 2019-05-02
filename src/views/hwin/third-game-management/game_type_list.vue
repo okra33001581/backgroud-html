@@ -41,26 +41,37 @@
             <el-table-column label="			Id				" prop="id" fixed></el-table-column>
             <el-table-column label="					排序值		" prop="id" fixed>
                 <template scope="scope">
-                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="marqueeSequence(scope.$index, scope.row)"
+                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="thirdGameTypesSequence(scope.$index, scope.row)"
                     ></el-input>
                 </template>
             </el-table-column>
-            <el-table-column label="			name				" prop="merchant_name" fixed></el-table-column>
-            <el-table-column label="			identifier				" prop="title" fixed></el-table-column>
-            <el-table-column label="			plat_id				" prop="status" fixed></el-table-column>
-            <el-table-column label="			rate_basis				" prop="status" fixed></el-table-column>
-            <el-table-column label="			created_at				" prop="status" fixed></el-table-column>
-            <el-table-column label="			updated_at				" prop="status" fixed></el-table-column>
+            <el-table-column label="			type				" prop="type" fixed></el-table-column>
+            <el-table-column label="			name				" prop="name" fixed></el-table-column>
+            <el-table-column label="			identifier				" prop="identifier" fixed></el-table-column>
+            <el-table-column label="			plat_id				" prop="plat_id" fixed></el-table-column>
+            <el-table-column label="			rate_basis				" prop="rate_basis" fixed></el-table-column>
+            <el-table-column label="			created_at				" prop="created_at" fixed></el-table-column>
+            <el-table-column label="			updated_at				" prop="updated_at" fixed></el-table-column>
             <el-table-column label="			status				" prop="status" fixed></el-table-column>
 
             <el-table-column
-                    label="操作" width="260"
+                    label="操作" width="360"
                     fixed="right">
                 <template slot-scope="scope">
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
                     </el-button>
+
+                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleSubForm(scope.$index, scope.row)">明细
+                    </el-button>
+
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
                     </el-button>
+
+                    <el-button v-if="scope.row.status === '禁用'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemSuccessServer(scope.$index, scope.row)">启用
+                    </el-button>
+                    <el-button v-if="scope.row.status === '启用'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemFailedServer(scope.$index, scope.row)">禁用
+                    </el-button>
+
                 </template>
             </el-table-column>
         </el-table>
@@ -83,39 +94,43 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                <el-form-item label="Id" prop="title">
-                    <el-input v-model="formData.title" auto-complete="off"></el-input>
+                <el-form-item label="Id" prop="id">
+                    <el-input v-model="formData.id" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="排序值" prop="terminal">
-                    <el-input v-model="formData.terminal" auto-complete="off"></el-input>
-                </el-form-item>
-
-                <el-form-item label="name" prop="sequence">
+                <el-form-item label="排序值" prop="sequence">
                     <el-input v-model="formData.sequence" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="identifier" prop="content">
-                    <el-input v-model="formData.content" auto-complete="off"></el-input>
-                </el-form-item>
-                <el-form-item label="plat_id" prop="title">
-                    <el-input v-model="formData.title" auto-complete="off"></el-input>
+                <el-form-item label="name" prop="name">
+                    <el-input v-model="formData.name" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="rate_basis" prop="terminal">
-                    <el-input v-model="formData.terminal" auto-complete="off"></el-input>
+                <!--<el-form-item label="name" prop="sequence">-->
+                    <!--<el-input v-model="formData.sequence" auto-complete="off"></el-input>-->
+                <!--</el-form-item>-->
+
+                <el-form-item label="identifier" prop="identifier">
+                    <el-input v-model="formData.identifier" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="plat_id" prop="plat_id">
+                    <el-input v-model="formData.plat_id" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="created_at" prop="sequence">
-                    <el-input v-model="formData.sequence" auto-complete="off"></el-input>
+                <el-form-item label="rate_basis" prop="rate_basis">
+                    <el-input v-model="formData.rate_basis" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="updated_at" prop="content">
-                    <el-input v-model="formData.content" auto-complete="off"></el-input>
+                <el-form-item label="created_at" prop="created_at">
+                    <el-input v-model="formData.created_at" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="status" prop="content">
-                    <el-input v-model="formData.content" auto-complete="off"></el-input>
+                <el-form-item label="updated_at" prop="updated_at">
+                    <el-input v-model="formData.updated_at" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item label="status" prop="status">
+                    <el-input v-model="formData.status" auto-complete="off"></el-input>
                 </el-form-item>
 
             </el-form>
@@ -124,6 +139,85 @@
                 <el-button type="primary" @click.native="formSubmit()" :loading="formLoading">提交</el-button>
             </div>
         </el-dialog>
+
+
+
+        <!--表单-->
+        <el-dialog
+                :title="formMap[formName]"
+                :visible.sync="formSubVisible"
+                :before-close="hideSubForm"
+                width="35%"
+                top="5vh">
+            <el-form :model="formSubData" :rules="formSubRules" ref="dataSubForm">
+
+                <template>
+                    <el-table
+                            :data="tableData"
+                            style="width: 100%">
+                        <el-table-column
+                                prop="name"
+                                label="游戏名称"
+                                width="180">
+                        </el-table-column>
+
+                        <el-table-column label="			图标				" prop="icon">
+                            <template slot-scope="scope">
+                                <el-popover
+                                        placement="right"
+                                        title=""
+                                        trigger="hover">
+                                    <img src="http://192.168.36.146:8082/static/img/c367a5df-8c4f-4b7a-8703-9a88111c2a04.600d6f1.png"/>
+                                    <img slot="reference" src="http://192.168.36.146:8082/static/img/c367a5df-8c4f-4b7a-8703-9a88111c2a04.600d6f1.png" :alt="icon" style="max-height: 50px;max-width: 130px">
+                                </el-popover>
+                            </template>
+
+                        </el-table-column>
+
+                        <el-table-column
+                                prop="status"
+                                label="状态">
+                        </el-table-column>
+
+                        <el-table-column
+                                prop="desc"
+                                label="简介">
+                        </el-table-column>
+
+                        <el-table-column
+                                label="操作" width="100"
+                                fixed="right">
+                            <template slot-scope="scope">
+
+                                <el-button v-if="scope.row.status === '禁用'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemSubSuccessServer(scope.$index, scope.row)">启用
+                                </el-button>
+                                <el-button v-if="scope.row.status === '启用'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemSubFailedServer(scope.$index, scope.row)">禁用
+                                </el-button>
+
+                                <el-checkbox v-model="checked">选择</el-checkbox>
+
+                                <!--<el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
+                                </el-button>-->
+                            </template>
+                        </el-table-column>
+                    </el-table>
+
+                    <el-pagination
+                            :page-size="query.limit"
+                            @current-change="handleCurrentChange"
+                            layout="prev, pager, next"
+                            :total="totalSub">
+                    </el-pagination>
+
+                </template>
+
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+                <el-button @click.native="hideSubForm">取消</el-button>
+                <el-button type="primary" @click.native="formSubSubmit()" :loading="formSubLoading">提交</el-button>
+            </div>
+        </el-dialog>
+
     </div>
 
 </template>
@@ -131,9 +225,10 @@
 <script>
     import {
         gameTypeList,
-        authAdminRoleList,
-        marqueeSave,
-        marqueeSequence,
+        gameTypeDetailList,
+        thirdGameTypesStatusSave,
+        thirdGameTypesSequence,
+        thirdGameTypesSubStatusSave,
         marqueeDelete
     } from "../../../api/third-game-management";
 
@@ -173,6 +268,24 @@
                     role_id: "",
                     sort: '+id'
                 },
+                tableData: [],
+                /*tableData: [{
+                    date: '2016-05-02',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1518 弄'
+                }, {
+                    date: '2016-05-04',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1517 弄'
+                }, {
+                    date: '2016-05-01',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1519 弄'
+                }, {
+                    date: '2016-05-03',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1516 弄'
+                }],*/
                 tableKey: 0,
                 sortOptions: [{label: 'ID Ascending', key: '+id'}, {
                     label: 'ID Descending',
@@ -192,6 +305,7 @@
                 }],
                 list: [],
                 total: 0,
+                totalSub: 0,
                 loading: true,
                 index: null,
                 formName: null,
@@ -200,9 +314,13 @@
                     edit: "编辑"
                 },
                 formLoading: false,
+                formSubLoading: false,
                 formVisible: false,
+                formSubVisible: false,
                 formData: formJson,
+                formSubData: formJson,
                 formRules: {},
+                formSubRules: {},
                 addRules: {
                     username: [
                         {required: true, message: "请输入姓名", trigger: "blur"}
@@ -305,13 +423,13 @@
                 }
                 this.handleFilter()
             },
-            marqueeSequence(index, row) {
+            thirdGameTypesSequence(index, row) {
                 var params = {
                     id: row.id,
                     sequence: row.sequence
                 }
                 // debugger
-                marqueeSequence(params).then(
+                thirdGameTypesSequence(params).then(
                     function (res) {
                         // debugger
                         /*if(res.code === 1){
@@ -331,6 +449,135 @@
                             type: 'success'
                         })
                         this.getList();
+                    }.bind(this)
+                )
+            },
+            auditItemSuccessServer(index, row) {
+                var params = {
+                    id: row.id,
+                    flag: '启用'
+                }
+                // debugger
+                thirdGameTypesStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
+            },
+            auditItemFailedServer(index, row) {
+                var params = {
+                    id: row.id,
+                    flag: '禁用'
+                }
+                // debugger
+                thirdGameTypesStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
+            },
+            auditItemSubSuccessServer(index, row) {
+                var params = {
+                    id: row.id,
+                    flag: '启用'
+                }
+                // debugger
+                thirdGameTypesSubStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        gameTypeDetailList(this.query)
+                            .then(response => {
+                                this.tableData = response.data.list.data || [];
+                            })
+                            .catch(() => {
+                                this.roles = [];
+                            });
+                    }.bind(this)
+                )
+            },
+            auditItemSubFailedServer(index, row) {
+                var params = {
+                    id: row.id,
+                    flag: '禁用'
+                }
+                // debugger
+                thirdGameTypesSubStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        gameTypeDetailList(this.query)
+                            .then(response => {
+                                this.tableData = response.data.list.data || [];
+                            })
+                            .catch(() => {
+                                this.roles = [];
+                            });
+
                     }.bind(this)
                 )
             },
@@ -384,6 +631,14 @@
                 this.$refs["dataForm"].resetFields();
                 return true;
             },
+            // 隐藏表单
+            hideSubForm() {
+                // 更改值
+                this.formSubVisible = !this.formSubVisible;
+                // 清空表单
+                this.$refs["dataSubForm"].resetFields();
+                return true;
+            },
             // 显示表单
             handleForm(index, row) {
                 this.formVisible = true;
@@ -402,6 +657,33 @@
                 // 清空验证信息表单
                 if (this.$refs["dataForm"]) {
                     this.$refs["dataForm"].clearValidate();
+                }
+            },// 显示表单
+            handleSubForm(index, row) {
+                gameTypeDetailList(this.query)
+                    .then(response => {
+                        this.tableData = response.data.list.data || [];
+                        // this.list = response.data.list.data || [];
+                        this.totalSub = response.data.list.total || 0;
+                    })
+                    .catch(() => {
+                    });
+                this.formSubVisible = true;
+                this.formSubData = Object.assign({}, formJson);
+                if (row !== null) {
+                    this.formSubData = Object.assign({}, row);
+                }
+                this.formSubData.status += ""; // 转为字符串（解决默认选中的时候字符串和数字不能比较的问题）
+                this.formSubName = "add";
+                this.formSubRules = this.addRules;
+                if (index !== null) {
+                    this.index = index;
+                    this.formSubName = "edit";
+                    this.formSubRules = this.editRules;
+                }
+                // 清空验证信息表单
+                if (this.$refs["dataSubForm"]) {
+                    this.$refs["dataSubForm"].clearValidate();
                 }
             },
             formSubmit() {

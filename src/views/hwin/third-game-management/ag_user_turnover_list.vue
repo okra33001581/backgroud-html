@@ -39,49 +39,49 @@
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
             <el-table-column label="			Id				" prop="id" fixed></el-table-column>
-            <el-table-column label="					排序值		" prop="id" fixed>
+            <!--<el-table-column label="					排序值		" prop="sequence" fixed>
 
                 <template scope="scope">
                     <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="marqueeSequence(scope.$index, scope.row)"
                     ></el-input>
                 </template>
-            </el-table-column>
+            </el-table-column>-->
             <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
-            <el-table-column label="			id		" prop="title" fixed></el-table-column>
-            <el-table-column label="			data_type		" prop="title" fixed></el-table-column>
-            <el-table-column label="			bill_no		" prop="title" fixed></el-table-column>
-            <el-table-column label="			user_id		" prop="title" fixed></el-table-column>
-            <el-table-column label="			username		" prop="title" fixed></el-table-column>
-            <el-table-column label="			is_tester		" prop="title" fixed></el-table-column>
-            <el-table-column label="			is_agent		" prop="title" fixed></el-table-column>
-            <el-table-column label="			user_level		" prop="title" fixed></el-table-column>
-            <el-table-column label="			lottery_id		" prop="title" fixed></el-table-column>
-            <el-table-column label="			agent_code		" prop="title" fixed></el-table-column>
-            <el-table-column label="			game_code		" prop="title" fixed></el-table-column>
-            <el-table-column label="			net_amount		" prop="title" fixed></el-table-column>
-            <el-table-column label="			bet_time		" prop="title" fixed></el-table-column>
-            <el-table-column label="			game_type		" prop="title" fixed></el-table-column>
-            <el-table-column label="			bet_amount		" prop="title" fixed></el-table-column>
-            <el-table-column label="			valid_bet_amount		" prop="title" fixed></el-table-column>
-            <el-table-column label="			flag		" prop="title" fixed></el-table-column>
-            <el-table-column label="			play_type		" prop="title" fixed></el-table-column>
-            <el-table-column label="			currency		" prop="title" fixed></el-table-column>
-            <el-table-column label="			login_ip		" prop="title" fixed></el-table-column>
-            <el-table-column label="			recalcu_time		" prop="title" fixed></el-table-column>
-            <el-table-column label="			platform_type		" prop="title" fixed></el-table-column>
-            <el-table-column label="			remark		" prop="title" fixed></el-table-column>
-            <el-table-column label="			round		" prop="title" fixed></el-table-column>
-            <el-table-column label="			result		" prop="title" fixed></el-table-column>
-            <el-table-column label="			before_credit		" prop="title" fixed></el-table-column>
-            <el-table-column label="			device_type		" prop="title" fixed></el-table-column>
-            <el-table-column label="			table_code		" prop="title" fixed></el-table-column>
-            <el-table-column label="			mainbillno		" prop="title" fixed></el-table-column>
-            <el-table-column label="			other_data		" prop="title" fixed></el-table-column>
-            <el-table-column label="			plat_turnovers_used		" prop="title" fixed></el-table-column>
-            <el-table-column label="			ftp_get_logs_id		" prop="title" fixed></el-table-column>
-            <el-table-column label="			fund_used		" prop="title" fixed></el-table-column>
-            <el-table-column label="			created_at		" prop="title" fixed></el-table-column>
-            <el-table-column label="			updated_at		" prop="title" fixed></el-table-column>
+            <el-table-column label="			id		" prop="id" fixed></el-table-column>
+            <el-table-column label="			data_type		" prop="data_type" fixed></el-table-column>
+            <el-table-column label="			bill_no		" prop="bill_no" fixed></el-table-column>
+            <el-table-column label="			user_id		" prop="user_id" fixed></el-table-column>
+            <el-table-column label="			username		" prop="username" fixed></el-table-column>
+            <el-table-column label="			is_tester		" prop="is_tester" fixed></el-table-column>
+            <el-table-column label="			is_agent		" prop="is_agent" fixed></el-table-column>
+            <el-table-column label="			user_level		" prop="user_level" fixed></el-table-column>
+            <!--<el-table-column label="			lottery_id		" prop="lottery_id" fixed></el-table-column>
+            <el-table-column label="			agent_code		" prop="agent_code" fixed></el-table-column>
+            <el-table-column label="			game_code		" prop="game_code" fixed></el-table-column>
+            <el-table-column label="			net_amount		" prop="net_amount" fixed></el-table-column>
+            <el-table-column label="			bet_time		" prop="bet_time" fixed></el-table-column>
+            <el-table-column label="			game_type		" prop="game_type" fixed></el-table-column>
+            <el-table-column label="			bet_amount		" prop="bet_amount" fixed></el-table-column>
+            <el-table-column label="			valid_bet_amount		" prop="valid_bet_amount" fixed></el-table-column>
+            <el-table-column label="			flag		" prop="flag" fixed></el-table-column>
+            <el-table-column label="			play_type		" prop="play_type" fixed></el-table-column>
+            <el-table-column label="			currency		" prop="currency" fixed></el-table-column>
+            <el-table-column label="			login_ip		" prop="login_ip" fixed></el-table-column>
+            <el-table-column label="			recalcu_time		" prop="recalcu_time" fixed></el-table-column>
+            <el-table-column label="			platform_type		" prop="platform_type" fixed></el-table-column>
+            <el-table-column label="			remark		" prop="remark" fixed></el-table-column>
+            <el-table-column label="			round		" prop="round" fixed></el-table-column>
+            <el-table-column label="			result		" prop="result" fixed></el-table-column>
+            <el-table-column label="			before_credit		" prop="before_credit" fixed></el-table-column>
+            <el-table-column label="			device_type		" prop="device_type" fixed></el-table-column>
+            <el-table-column label="			table_code		" prop="table_code" fixed></el-table-column>
+            <el-table-column label="			mainbillno		" prop="mainbillno" fixed></el-table-column>
+            <el-table-column label="			other_data		" prop="other_data" fixed></el-table-column>
+            <el-table-column label="			plat_turnovers_used		" prop="plat_turnovers_used" fixed></el-table-column>
+            <el-table-column label="			ftp_get_logs_id		" prop="ftp_get_logs_id" fixed></el-table-column>
+            <el-table-column label="			fund_used		" prop="fund_used" fixed></el-table-column>
+            <el-table-column label="			created_at		" prop="created_at" fixed></el-table-column>
+            <el-table-column label="			updated_at		" prop="updated_at" fixed></el-table-column>-->
 
             <el-table-column
                     label="操作" width="260"

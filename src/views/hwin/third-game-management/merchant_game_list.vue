@@ -42,15 +42,15 @@
             <el-table-column label="					排序值		" prop="id" fixed>
 
                 <template scope="scope">
-                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="marqueeSequence(scope.$index, scope.row)"
+                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="thirdMerchantGameSequence(scope.$index, scope.row)"
                     ></el-input>
                 </template>
 
             </el-table-column>
             <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
-            <el-table-column label="			游戏分类				" prop="title" fixed></el-table-column>
-            <el-table-column label="			游戏平台				" prop="status" fixed></el-table-column>
-            <el-table-column label="			游戏明细				" prop="status" fixed></el-table-column>
+            <el-table-column label="			游戏分类				" prop="type" fixed></el-table-column>
+            <el-table-column label="			游戏平台				" prop="plat_name" fixed></el-table-column>
+            <el-table-column label="			游戏明细				" prop="sub_game_name" fixed></el-table-column>
             <el-table-column
                     label="操作" width="260"
                     fixed="right">
@@ -59,6 +59,13 @@
                     </el-button>
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
                     </el-button>
+
+
+                    <el-button v-if="scope.row.status === '禁用'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemSuccessServer(scope.$index, scope.row)">启用
+                    </el-button>
+                    <el-button v-if="scope.row.status === '启用'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemFailedServer(scope.$index, scope.row)">禁用
+                    </el-button>
+
                 </template>
             </el-table-column>
         </el-table>
@@ -81,29 +88,29 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                <el-form-item label="Id" prop="title">
-                    <el-input v-model="formData.title" auto-complete="off"></el-input>
+                <el-form-item label="Id" prop="id">
+                    <el-input v-model="formData.id" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="排序值" prop="terminal">
-                    <el-input v-model="formData.terminal" auto-complete="off"></el-input>
-                </el-form-item>
-
-                <el-form-item label="商户名称" prop="sequence">
+                <el-form-item label="排序值" prop="sequence">
                     <el-input v-model="formData.sequence" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="游戏分类" prop="content">
-                    <el-input v-model="formData.content" auto-complete="off"></el-input>
+                <el-form-item label="商户名称" prop="merchant_name">
+                    <el-input v-model="formData.merchant_name" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="游戏平台" prop="content">
-                    <el-input v-model="formData.content" auto-complete="off"></el-input>
+                <el-form-item label="游戏分类" prop="type">
+                    <el-input v-model="formData.type" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item label="游戏平台" prop="plat_name">
+                    <el-input v-model="formData.plat_name" auto-complete="off"></el-input>
                 </el-form-item>
 
 
-                <el-form-item label="游戏明细" prop="content">
-                    <el-input v-model="formData.content" auto-complete="off"></el-input>
+                <el-form-item label="游戏明细" prop="sub_game_name">
+                    <el-input v-model="formData.sub_game_name" auto-complete="off"></el-input>
                 </el-form-item>
 
             </el-form>
@@ -120,8 +127,8 @@
     import {
         merchantGameList,
         authAdminRoleList,
-        marqueeSave,
-        marqueeSequence,
+        thirdMerchantGameStatusSave,
+        thirdMerchantGameSequence,
         marqueeDelete
     } from "../../../api/third-game-management";
 
@@ -262,6 +269,63 @@
                 } else if (prop === 'last_login_ip') {
                     this.sortByLastLoginIp(order)
                 }
+            },auditItemSuccessServer(index, row) {
+                var params = {
+                    id: row.id,
+                    flag: '启用'
+                }
+                // debugger
+                thirdMerchantGameStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
+            },
+            auditItemFailedServer(index, row) {
+                var params = {
+                    id: row.id,
+                    flag: '禁用'
+                }
+                // debugger
+                thirdMerchantGameStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
             },
             getList() {
                 this.loading = true;
@@ -293,13 +357,13 @@
                 }
                 this.handleFilter()
             },
-            marqueeSequence(index, row) {
+            thirdMerchantGameSequence(index, row) {
                 var params = {
                     id: row.id,
                     sequence: row.sequence
                 }
                 // debugger
-                marqueeSequence(params).then(
+                thirdMerchantGameSequence(params).then(
                     function (res) {
                         // debugger
                         /*if(res.code === 1){

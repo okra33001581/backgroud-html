@@ -24,6 +24,16 @@ export function agUserTurnoverList(query) {
 }
 
 // 获取列表
+export function gameTypeDetailList(query) {
+    return axios({
+        url: "event/gameTypeDetailList",
+        method: "get",
+        params: query
+    });
+}
+
+
+// 获取列表
 export function basketballList(query) {
     return axios({
         url: "event/basketballList",
@@ -74,6 +84,124 @@ export function thirdPlatList(query) {
         url: "event/thirdPlatList",
         method: "get",
         params: query
+    });
+}
+
+// 保存
+export function thirdBallSequence(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "event/thirdBallSequence"
+            : "event/thirdBallSequence";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+// 保存
+export function thirdPlatsSequence(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "event/thirdPlatsSequence"
+            : "event/thirdPlatsSequence";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+// 保存
+export function thirdGameTypesSequence(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "event/thirdGameTypesSequence"
+            : "event/thirdGameTypesSequence";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+// 保存
+export function thirdMerchantGameSequence(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "event/thirdMerchantGameSequence"
+            : "event/thirdMerchantGameSequence";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+// 保存
+export function thirdGameTypesSubStatusSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "event/thirdGameTypesSubStatusSave"
+            : "event/thirdGameTypesSubStatusSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+// 保存
+export function thirdBallStatusSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "event/thirdBallStatusSave"
+            : "event/thirdBallStatusSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+// 保存
+export function thirdGameTypesStatusSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "event/thirdGameTypesStatusSave"
+            : "event/thirdGameTypesStatusSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+
+// 保存
+export function thirdMerchantGameStatusSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "event/thirdMerchantGameStatusSave"
+            : "event/thirdMerchantGameStatusSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+
+// 保存
+export function thirdPlatsStatusSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "event/thirdPlatsStatusSave"
+            : "event/thirdPlatsStatusSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
     });
 }
 

@@ -853,7 +853,7 @@ export const asyncRouterMap = [
         // noDropdown: true,
         children: [
             {
-                path: "message_list",
+                path: "game_type_list",
                 component: game_type_list,
                 name: "游戏类别管理",
                 icon: "message_list",
@@ -862,7 +862,7 @@ export const asyncRouterMap = [
                 }
             },
             {
-                path: "notice_list",
+                path: "third_plat_list",
                 component: third_plat_list,
                 name: "第三方平台",
                 icon: "notice_list",
@@ -870,7 +870,7 @@ export const asyncRouterMap = [
                     authRule: ["hwin/notice_list"]
                 }
             }, {
-                path: "marquee_list",
+                path: "ag_user_turnover_list",
                 component: ag_user_turnover_list,
                 name: "AG流水",
                 icon: "marquee_list",
@@ -878,7 +878,7 @@ export const asyncRouterMap = [
                     authRule: ["hwin/marquee_list"]
                 }
             }, {
-                path: "marquee_list2",
+                path: "ga_user_turnover_list",
                 component: ga_user_turnover_list,
                 name: "GA流水",
                 icon: "marquee_list",
@@ -886,7 +886,7 @@ export const asyncRouterMap = [
                     authRule: ["hwin/marquee_list"]
                 }
             }, {
-                path: "marquee_list3",
+                path: "ag_log_list",
                 component: ag_log_list,
                 name: "AG日志管理",
                 icon: "marquee_list",
@@ -894,7 +894,7 @@ export const asyncRouterMap = [
                     authRule: ["hwin/marquee_list"]
                 }
             }, {
-                path: "marquee_list4",
+                path: "football_list",
                 component: football_list,
                 name: "竞彩-足球",
                 icon: "marquee_list",

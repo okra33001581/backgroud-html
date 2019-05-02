@@ -47,16 +47,16 @@
                 </template>
 
             </el-table-column>
-            <el-table-column label="			remote_path				" prop="merchant_name" fixed></el-table-column>
-            <el-table-column label="			local_path				" prop="title" fixed></el-table-column>
-            <el-table-column label="			file_name				" prop="status" fixed></el-table-column>
+            <el-table-column label="			remote_path				" prop="remote_path" fixed></el-table-column>
+            <el-table-column label="			local_path				" prop="local_path" fixed></el-table-column>
+            <el-table-column label="			file_name				" prop="file_name" fixed></el-table-column>
 
-            <el-table-column label="			type				" prop="status" fixed></el-table-column>
-            <el-table-column label="			is_parse				" prop="status" fixed></el-table-column>
-            <el-table-column label="			created_at				" prop="status" fixed></el-table-column>
-            <el-table-column label="			updated_at				" prop="status" fixed></el-table-column>
-            <el-table-column label="			remote_file_last_modify_time				" prop="status" fixed></el-table-column>
-            <el-table-column label="			remote_file_last_modify_time				" prop="status" fixed></el-table-column>
+            <el-table-column label="			type				" prop="type" fixed></el-table-column>
+            <el-table-column label="			is_parse				" prop="is_parse" fixed></el-table-column>
+            <el-table-column label="			created_at				" prop="created_at" fixed></el-table-column>
+            <el-table-column label="			updated_at				" prop="updated_at" fixed></el-table-column>
+            <el-table-column label="			remote_file_last_modify_time				" prop="remote_file_last_modify_time" fixed></el-table-column>
+            <el-table-column label="			remote_file_last_modify_time				" prop="remote_file_last_modify_time" fixed></el-table-column>
 
             <el-table-column
                     label="操作" width="260"
@@ -88,15 +88,15 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
                 <el-form-item label="		id		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		remote_path		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		local_path		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		file_name		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		type		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		is_parse		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		created_at		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		updated_at		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		remote_file_last_modify_time		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		remote_file_last_modify_time		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		remote_path		" prop="title"><el-input v-model="formData.remote_path" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		local_path		" prop="title"><el-input v-model="formData.local_path" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		file_name		" prop="title"><el-input v-model="formData.file_name" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		type		" prop="title"><el-input v-model="formData.type" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		is_parse		" prop="title"><el-input v-model="formData.is_parse" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		created_at		" prop="title"><el-input v-model="formData.created_at" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		updated_at		" prop="title"><el-input v-model="formData.updated_at" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		remote_file_last_modify_time		" prop="title"><el-input v-model="formData.remote_file_last_modify_time" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="		remote_file_last_modify_time		" prop="title"><el-input v-model="formData.remote_file_last_modify_time" auto-complete="off"></el-input></el-form-item>
 
 
             </el-form>

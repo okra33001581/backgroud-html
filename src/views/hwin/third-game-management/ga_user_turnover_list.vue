@@ -39,36 +39,35 @@
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
             <el-table-column label="			Id				" prop="id" fixed></el-table-column>
-            <el-table-column label="					排序值		" prop="id" fixed>
+            <!--<el-table-column label="					排序值		" prop="id" fixed>
 
                 <template scope="scope">
                     <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="marqueeSequence(scope.$index, scope.row)"
                     ></el-input>
                 </template>
 
-            </el-table-column>
-            <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
-            <el-table-column label="			id		" prop="title" fixed></el-table-column>
-            <el-table-column label="			date		" prop="title" fixed></el-table-column>
-            <el-table-column label="			user_id		" prop="title" fixed></el-table-column>
-            <el-table-column label="			terminal_id		" prop="title" fixed></el-table-column>
-            <el-table-column label="			lottery_id		" prop="title" fixed></el-table-column>
-            <el-table-column label="			game_type		" prop="title" fixed></el-table-column>
-            <el-table-column label="			game_code		" prop="title" fixed></el-table-column>
-            <el-table-column label="			is_agent		" prop="title" fixed></el-table-column>
-            <el-table-column label="			is_tester		" prop="title" fixed></el-table-column>
-            <el-table-column label="			user_level		" prop="title" fixed></el-table-column>
-            <el-table-column label="			username		" prop="title" fixed></el-table-column>
-            <el-table-column label="			ga_balance		" prop="title" fixed></el-table-column>
-            <el-table-column label="			turnover		" prop="title" fixed></el-table-column>
-            <el-table-column label="			prize		" prop="title" fixed></el-table-column>
-            <el-table-column label="			discount_amount		" prop="title" fixed></el-table-column>
-            <el-table-column label="			origin_prize		" prop="title" fixed></el-table-column>
-            <el-table-column label="			profit		" prop="title" fixed></el-table-column>
-            <el-table-column label="			fund_used		" prop="title" fixed></el-table-column>
-            <el-table-column label="			created_at		" prop="title" fixed></el-table-column>
-            <el-table-column label="			updated_at		" prop="title" fixed></el-table-column>
-
+            </el-table-column>-->
+            <el-table-column label="			商户名称				 " prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="			id		 " prop="id" fixed></el-table-column>
+            <el-table-column label="			date		 " prop="date" fixed></el-table-column>
+            <el-table-column label="			user_id		 " prop="user_id" fixed></el-table-column>
+            <el-table-column label="			terminal_id		" prop="terminal_id" fixed></el-table-column>
+            <el-table-column label="			lottery_id		" prop="lottery_id" fixed></el-table-column>
+            <el-table-column label="			game_type		" prop="game_type" fixed></el-table-column>
+            <el-table-column label="			game_code		" prop="game_code" fixed></el-table-column>
+            <el-table-column label="			is_agent		" prop="is_agent" fixed></el-table-column>
+            <el-table-column label="			is_tester		" prop="is_tester" fixed></el-table-column>
+            <el-table-column label="			user_level		" prop="user_level" fixed></el-table-column>
+            <el-table-column label="			username		" prop="username" fixed></el-table-column>
+            <el-table-column label="			ga_balance		" prop="ga_balance" fixed></el-table-column>
+            <el-table-column label="			turnover		" prop="turnover" fixed></el-table-column>
+            <el-table-column label="			prize		 " prop="prize" fixed></el-table-column>
+            <el-table-column label="			discount_amount		" prop="discount_amount " fixed></el-table-column>
+            <el-table-column label="			origin_prize		" prop="origin_prize	 " fixed></el-table-column>
+            <el-table-column label="			profit		 " prop="profit" fixed></el-table-column>
+            <el-table-column label="			fund_used		" prop="fund_used" fixed></el-table-column>
+            <el-table-column label="			created_at		" prop="created_at" fixed></el-table-column>
+            <el-table-column label="			updated_at		" prop="updated_at" fixed></el-table-column>
             <el-table-column
                     label="操作" width="260"
                     fixed="right">
