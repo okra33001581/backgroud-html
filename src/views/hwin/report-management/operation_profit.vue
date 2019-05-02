@@ -337,6 +337,7 @@
                     })
                     this.downloadLoading = false
                 })
+                this.loading = false;
             },
             formatJson(filterVal, jsonData) {
                 return jsonData.map(v => filterVal.map(j => {
