@@ -57,6 +57,8 @@
                 :data="list" stripe
                 fit
                 @expand-change="rowExpand"
+                @row-click="clickTable"
+                ref="refTable"
                 highlight-current-row
                 style="width: 100%;"
                 element-loading-text="拼命加载中"
@@ -316,7 +318,9 @@
                     }.bind(this)
                 )
             },
-
+            clickTable(row,index,e){
+                this.$refs.refTable.toggleRowExpansion(row)
+            },
             rowExpand:function(row,expandedRows){
                 this.listChildren = row.children;
                 //如果展开行数大于1
