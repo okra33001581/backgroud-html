@@ -105,7 +105,7 @@
                 </el-form-item>
                 <el-form-item>
                     <el-button-group>
-                        <el-button type="primary" icon="el-icon-search" @click="onSearch">确定</el-button>
+                        <el-button type="primary" icon="el-icon-search" :loading="tableLoading" @click="onSearch">查询</el-button>
                     </el-button-group>
                 </el-form-item>
             </el-form>
@@ -222,6 +222,7 @@
                     edit: "编辑"
                 },
                 formLoading: false,
+                tableLoading: false,
                 formVisible: false,
                 tableVisible: false,
                 formData: formJson,
@@ -329,7 +330,7 @@
             },
 
             getTableData(name='',lottery_name=''){
-                this.loading = true;
+                this.tableLoading = true;
                 if(name!=''){
                     this.query.table = name;
                 }
@@ -338,25 +339,22 @@
                 }
                 betlimitList(this.query)
                     .then(response => {
-                        this.loading = false;
+                        this.tableLoading = false;
                         this.tableData = response.data.list || [];
                     })
                     .catch(() => {
-                        this.loading = false;
+                        this.tableLoading = false;
                         this.tableData = [];
                     });
             },
 
             getOptions() {
-                this.loading = true;
                 this.query.name = this.name;
                 betlimitOptions(this.query)
                     .then(response => {
-                        this.loading = false;
                         this.options = response.data.list || [];
                     })
                     .catch(() => {
-                        this.loading = false;
                         this.options = [];
                     });
             },

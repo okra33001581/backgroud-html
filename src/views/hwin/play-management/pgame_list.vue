@@ -70,14 +70,14 @@
                                 :data="listChildren"
                                 border
                                 style="width: 100%">
-                            <el-table-column label="游戏" prop="way_type" fixed></el-table-column>
-                            <el-table-column label="类型" prop="type" fixed></el-table-column>
-                            <el-table-column label="周期（天）" prop="period_day" fixed></el-table-column>
-                            <el-table-column label="周期（秒）" prop="period_second" fixed></el-table-column>
-                            <el-table-column label="销售时间（开始）" prop="sales_begin" fixed></el-table-column>
-                            <el-table-column label="销售时间（结束）" prop="sales_end" fixed></el-table-column>
-                            <el-table-column label="状态" prop="status" fixed></el-table-column>
-                            <el-table-column label="排序值" prop="sequence" fixed>
+                            <el-table-column width="150" prop="way_type" fixed></el-table-column>
+                            <el-table-column width="150" prop="type" fixed></el-table-column>
+                            <el-table-column width="100" prop="period_day" fixed></el-table-column>
+                            <el-table-column width="120" prop="period_second" fixed></el-table-column>
+                            <el-table-column width="180" prop="sales_begin" fixed></el-table-column>
+                            <el-table-column width="180" prop="sales_end" fixed></el-table-column>
+                            <el-table-column width="120" prop="status" fixed></el-table-column>
+                            <el-table-column  prop="sequence" fixed>
 
                                 <template scope="scope">
                                     <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="updatePgameSequence(scope.$index, scope.row)"
@@ -85,7 +85,7 @@
                                 </template>
 
                             </el-table-column>
-                            <el-table-column label="属性" prop="id" fixed >
+                            <el-table-column  prop="id" fixed >
                                 <template scope="scope">
                                     <el-checkbox-group v-model="scope.row.properties">
                                         <el-checkbox style="margin-left:0;" v-for="property in properties" :label="property" :key="property"  @click.native="updatePgamePropertySave(scope.row.lottery_name,scope.row.id,property,scope.row.properties.includes(property))" >{{property}}</el-checkbox>
@@ -93,7 +93,7 @@
                                 </template>
                             </el-table-column>
                             <el-table-column
-                                    label="操作" width="600"
+                                    width="200"
                                     fixed="right">
                                 <template slot-scope="scope">
                                     <!--<el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
@@ -115,15 +115,16 @@
                 </template>
             </el-table-column>
 
-            <el-table-column label="游戏" prop="lottery_name" fixed></el-table-column>
-            <el-table-column label="类型" fixed></el-table-column>
-            <el-table-column label="周期（天）" fixed></el-table-column>
-            <el-table-column label="周期（秒）" fixed></el-table-column>
-            <el-table-column label="销售时间（开始）" fixed></el-table-column>
-            <el-table-column label="销售时间（结束）" fixed></el-table-column>
-            <el-table-column label="状态" fixed></el-table-column>
-            <el-table-column label="排序值" fixed></el-table-column>
-            <el-table-column label="操作" width="600" fixed="right"></el-table-column>
+            <el-table-column label="游戏" width="150" prop="lottery_name" fixed></el-table-column>
+            <el-table-column label="类型" width="150" fixed></el-table-column>
+            <el-table-column label="周期(天)" width="100" fixed></el-table-column>
+            <el-table-column label="周期(秒)" width="120" fixed></el-table-column>
+            <el-table-column label="销售时间(开始)" width="180" fixed></el-table-column>
+            <el-table-column label="销售时间(结束)" width="180" fixed></el-table-column>
+            <el-table-column label="状态" width="120" fixed></el-table-column>
+            <el-table-column label="排序值"  fixed></el-table-column>
+            <el-table-column label="属性"  fixed></el-table-column>
+            <el-table-column label="操作" width="200" fixed="right"></el-table-column>
         </el-table>
 
         <el-pagination
@@ -172,7 +173,10 @@
                 top="5vh">
             <el-form :model="formKillRate" :rules="formRules" ref="dataForm">
                 <el-form-item class="query-form-item">
-                    <el-input v-model="formKillRate.kill_rate" placeholder="请输入游戏杀率"></el-input>%
+                    <el-input v-model="formKillRate.kill_rate" placeholder="请输入游戏杀率"  class="input-with-select">
+                        <el-button slot="append">%</el-button>
+                    </el-input>
+
                 </el-form-item>
             </el-form>
             <div slot="footer" class="dialog-footer">
