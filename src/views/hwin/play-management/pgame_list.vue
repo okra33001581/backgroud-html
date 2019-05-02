@@ -143,15 +143,15 @@
                 :before-close="hideForm"
                 width="35%"
                 top="5vh">
-            <el-form :model="formData" :rules="formRules" ref="dataForm">
+            <el-form :model="formData" label-width="17%" :rules="formRules" ref="dataForm">
 
                 <el-form-item label="ID" prop="lottery_id"><el-input v-model="formData.lottery_id" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="游戏" prop="lottery_name"><el-input v-model="formData.lottery_name" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="类型" prop="type"><el-input v-model="formData.type" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="周期（天）" prop="period_day"><el-input v-model="formData.period_day" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="周期（秒）" prop="period_second"><el-input v-model="formData.period_second" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="销售时间（开始）" prop="sales_begin"><el-input v-model="formData.sales_begin" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="销售时间（结束）" prop="sales_end"><el-input v-model="formData.sales_end" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="周期(天)" prop="period_day"><el-input v-model="formData.period_day" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="周期(秒)" prop="period_second"><el-input v-model="formData.period_second" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="销售时间(开始)" prop="sales_begin"><el-input v-model="formData.sales_begin" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="销售时间(结束)" prop="sales_end"><el-input v-model="formData.sales_end" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="状态" prop="status"><el-input v-model="formData.status" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="排序" prop="sequence"><el-input v-model="formData.sequence" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="属性" prop="property"><el-input v-model="formData.property" auto-complete="off"></el-input></el-form-item>

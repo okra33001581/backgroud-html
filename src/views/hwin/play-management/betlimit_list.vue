@@ -65,7 +65,7 @@
                 :before-close="hideForm"
                 width="35%"
                 top="5vh">
-               <el-form :model="formData" :rules="formRules" ref="dataForm">
+               <el-form :model="formData" label-width="8%" :rules="formRules" ref="dataForm">
                 <el-form-item label="Id" prop="id"><el-input v-model="formData.id" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="名称" prop="name"><el-input v-model="formData.name" auto-complete="off"></el-input></el-form-item>
                 </el-form>

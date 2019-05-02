@@ -162,7 +162,7 @@
                 :before-close="hideForm"
                 width="35%"
                 top="5vh">
-            <el-form :model="formData" :rules="formRules" ref="dataForm">
+            <el-form :model="formData" label-width="20%" :rules="formRules" ref="dataForm">
 
                 <el-form-item label="开始时间" prop="username">
                     <el-input v-model="formData.username" auto-complete="off"></el-input>

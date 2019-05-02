@@ -98,7 +98,7 @@
                 :before-close="hideForm"
                 width="35%"
                 top="5vh">
-            <el-form :model="formData" :rules="formRules" ref="dataForm">
+            <el-form :model="formData" label-width="11%" :rules="formRules" ref="dataForm">
                 <el-form-item label="			Id		" prop="id"><el-input v-model="formData.id" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="			位置 		" prop="position"><el-input v-model="formData.position" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="			名称 		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>

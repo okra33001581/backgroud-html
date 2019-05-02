@@ -74,7 +74,7 @@
                 :before-close="hideForm"
                 width="35%"
                 top="5vh">
-            <el-form :model="formData" :rules="formRules" ref="dataForm">
+            <el-form :model="formData" label-width="16%" :rules="formRules" ref="dataForm">
                 <el-form-item label="H5下载页" prop="h5_address">
                     <el-input v-model="formData.h5_address" auto-complete="off"></el-input>
                 </el-form-item>

@@ -93,7 +93,7 @@
                 :before-close="hideForm"
                 width="35%"
                 top="5vh">
-            <el-form :model="formData" :rules="formRules" ref="dataForm">
+            <el-form :model="formData" label-width="15%" :rules="formRules" ref="dataForm">
 
                 <el-form-item label="层级" prop="user_levels">
                     <el-input v-model="formData.user_levels" auto-complete="off"></el-input>

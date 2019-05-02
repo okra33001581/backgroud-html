@@ -76,7 +76,7 @@
                 :before-close="hideForm"
                 width="35%"
                 top="5vh">
-            <el-form :model="formData" :rules="formRules" ref="dataForm">
+            <el-form :model="formData" label-width="17%" :rules="formRules" ref="dataForm">
                 <el-form-item label="ID" prop="game_id"><el-input v-model="formData.game_id" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="游戏" prop="game"><el-input v-model="formData.game" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="日期" required>

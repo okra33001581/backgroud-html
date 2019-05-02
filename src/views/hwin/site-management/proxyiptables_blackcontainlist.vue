@@ -70,7 +70,7 @@
                 :before-close="hideForm"
                 width="35%"
                 top="5vh">
-            <el-form :model="formData" :rules="formRules" ref="dataForm">
+            <el-form :model="formData" label-width="9%" :rules="formRules" ref="dataForm">
 
                 <el-form-item label="类型" prop="type">
                     <el-radio-group v-model="formData.type">

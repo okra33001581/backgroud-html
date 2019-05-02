@@ -37,7 +37,7 @@
             :before-close="hideForm"
             width="85%"
             top="5vh">
-            <el-form :model="formData" :rules="formRules" ref="dataForm">
+            <el-form :model="formData" label-width="5%" :rules="formRules" ref="dataForm">
                 <el-form-item :label="$t('page.parentId')" prop="pid">
                     <el-select v-model="formData.pid" placeholder="顶级">
                         <el-option

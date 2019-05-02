@@ -132,7 +132,7 @@
                 :before-close="hideForm"
                 width="35%"
                 top="5vh">
-            <el-form :model="formData" :rules="formRules" ref="dataForm">
+            <el-form :model="formData" label-width="14%" :rules="formRules" ref="dataForm">
 
                 <el-form-item class="query-form-item">
                     <el-select v-model="formData.category" placeholder="列表">
