@@ -39,31 +39,23 @@
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
             <el-table-column label="			Id				" prop="id" fixed></el-table-column>
-            <el-table-column label="					排序值		" prop="id" fixed>
-
-                <template scope="scope">
-                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="marqueeSequence(scope.$index, scope.row)"
-                    ></el-input>
-                </template>
-
-            </el-table-column>
-            <el-table-column label="			远程地址				" prop="remote_path" fixed></el-table-column>
-            <el-table-column label="			本地地址				" prop="local_path" fixed></el-table-column>
-            <el-table-column label="			文件名称				" prop="file_name" fixed></el-table-column>
-
-            <el-table-column label="			类型				" prop="type" fixed></el-table-column>
+            <el-table-column label="			远程地址		" prop="remote_path" fixed></el-table-column>
+            <el-table-column label="			本地地址		" prop="local_path" fixed></el-table-column>
+            <el-table-column label="			文件名称		" prop="file_name" fixed></el-table-column>
+            <el-table-column label="			类型			" prop="type" fixed></el-table-column>
             <el-table-column label="			解析				" prop="is_parse" fixed></el-table-column>
             <el-table-column label="			创建时间				" prop="created_at" fixed></el-table-column>
             <el-table-column label="			更新时间				" prop="updated_at" fixed></el-table-column>
             <el-table-column label="			最后修改时间				" prop="remote_file_last_modify_time" fixed></el-table-column>
 
+
+
+
             <el-table-column
-                    label="操作" width="260"
+                    label="操作" width="100"
                     fixed="right">
                 <template slot-scope="scope">
-                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
-                    </el-button>
-                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
+                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">查看
                     </el-button>
                 </template>
             </el-table-column>
@@ -83,21 +75,18 @@
                 :title="formMap[formName]"
                 :visible.sync="formVisible"
                 :before-close="hideForm"
-                width="35%"
+                width="40%"
                 top="5vh">
-            <el-form :model="formData" :rules="formRules" ref="dataForm">
-                <el-form-item label="		id		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		remote_path		" prop="title"><el-input v-model="formData.remote_path" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		local_path		" prop="title"><el-input v-model="formData.local_path" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		file_name		" prop="title"><el-input v-model="formData.file_name" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		type		" prop="title"><el-input v-model="formData.type" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		is_parse		" prop="title"><el-input v-model="formData.is_parse" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		created_at		" prop="title"><el-input v-model="formData.created_at" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		updated_at		" prop="title"><el-input v-model="formData.updated_at" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		remote_file_last_modify_time		" prop="title"><el-input v-model="formData.remote_file_last_modify_time" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="		remote_file_last_modify_time		" prop="title"><el-input v-model="formData.remote_file_last_modify_time" auto-complete="off"></el-input></el-form-item>
-
-
+            <el-form :model="formData" :rules="formRules" ref="dataForm" label-width="120px">
+                <el-form-item label="Id			" prop="id"><el-input style="width:550px;max-width:100%;" v-model="formData.id" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="远程地址			" prop="remote_path"><el-input style="width:550px;max-width:100%;" v-model="formData.remote_path" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="本地地址		" prop="local_path"><el-input style="width:550px;max-width:100%;" v-model="formData.local_path" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="文件名称		" prop="file_name"><el-input style="width:550px;max-width:100%;" v-model="formData.file_name" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="类型		" prop="type"><el-input style="width:550px;max-width:100%;" v-model="formData.type" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="解析			" prop="is_parse"><el-input style="width:550px;max-width:100%;" v-model="formData.is_parse" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="创建时间		" prop="created_at"><el-input style="width:550px;max-width:100%;" v-model="formData.created_at" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="更新时间			" prop="updated_at"><el-input style="width:550px;max-width:100%;" v-model="formData.updated_at" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="最后修改时间	" prop="remote_file_last_modify_time"><el-input style="width:550px;max-width:100%;" v-model="formData.remote_file_last_modify_time" auto-complete="off"></el-input></el-form-item>
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideForm">取消</el-button>
