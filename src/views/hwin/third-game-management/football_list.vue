@@ -65,7 +65,7 @@
 
             <el-table-column label="			联赛名称				" prop="name" fixed></el-table-column>
             <el-table-column
-                    label="操作" width="260"
+                    label="操作" width="360"
                     fixed="right">
                 <template slot-scope="scope">
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
