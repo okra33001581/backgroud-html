@@ -72,6 +72,7 @@ import basketball_list 	from "../views/hwin/third-game-management/basketball_lis
 import football_list 	from "../views/hwin/third-game-management/football_list.vue";
 import ga_user_turnover_list 	from "../views/hwin/third-game-management/ga_user_turnover_list.vue";
 import game_type_list 	from "../views/hwin/third-game-management/game_type_list.vue";
+import game_type_list_detail 	from "../views/hwin/third-game-management/game_type_list_detail.vue";
 import third_plat_list 	from "../views/hwin/third-game-management/third_plat_list.vue";
 import merchant_game_list 	from "../views/hwin/third-game-management/merchant_game_list.vue";
 
@@ -860,6 +861,14 @@ export const asyncRouterMap = [
                 meta: {
                     authRule: ["hwin/message_list"]
                 }
+            },{
+                path: "game_type_list_detail",
+                component: game_type_list_detail,
+                name: "游戏类别明细管理",
+                icon: "message_list",
+                meta: {
+                    authRule: ["hwin/message_list"]
+                }
             },
             {
                 path: "third_plat_list",
@@ -873,7 +882,7 @@ export const asyncRouterMap = [
                 path: "ag_user_turnover_list",
                 component: ag_user_turnover_list,
                 name: "AG流水",
-                icon: "marquee_list",
+                icon: "message_list",
                 meta: {
                     authRule: ["hwin/marquee_list"]
                 }
@@ -881,7 +890,7 @@ export const asyncRouterMap = [
                 path: "ga_user_turnover_list",
                 component: ga_user_turnover_list,
                 name: "GA流水",
-                icon: "marquee_list",
+                icon: "message_list",
                 meta: {
                     authRule: ["hwin/marquee_list"]
                 }
@@ -889,7 +898,7 @@ export const asyncRouterMap = [
                 path: "ag_log_list",
                 component: ag_log_list,
                 name: "AG日志管理",
-                icon: "marquee_list",
+                icon: "message_list",
                 meta: {
                     authRule: ["hwin/marquee_list"]
                 }
@@ -897,7 +906,7 @@ export const asyncRouterMap = [
                 path: "football_list",
                 component: football_list,
                 name: "竞彩-足球",
-                icon: "marquee_list",
+                icon: "message_list",
                 meta: {
                     authRule: ["hwin/marquee_list"]
                 }
@@ -905,7 +914,7 @@ export const asyncRouterMap = [
                 path: "basketball_list",
                 component: basketball_list,
                 name: "竞彩-篮球",
-                icon: "marquee_list",
+                icon: "message_list",
                 meta: {
                     authRule: ["hwin/marquee_list"]
                 }
@@ -913,7 +922,7 @@ export const asyncRouterMap = [
                 path: "merchant_game_list",
                 component: merchant_game_list,
                 name: "商户游戏管理",
-                icon: "marquee_list",
+                icon: "message_list",
                 meta: {
                     authRule: ["hwin/marquee_list"]
                 }

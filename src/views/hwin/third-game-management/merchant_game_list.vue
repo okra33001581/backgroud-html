@@ -20,7 +20,7 @@
                 <el-button-group>
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
                     <el-button type="primary" icon="el-icon-search" @click="onSubmit">查询</el-button>
-                    <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">新增</el-button>
+                    <!--<el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">新增</el-button>-->
                 </el-button-group>
             </el-form-item>
         </el-form>
@@ -51,12 +51,26 @@
             <el-table-column label="			游戏分类				" prop="type" fixed></el-table-column>
             <el-table-column label="			游戏平台				" prop="plat_name" fixed></el-table-column>
             <el-table-column label="			游戏明细				" prop="sub_game_name" fixed></el-table-column>
+
+            <el-table-column label="			图标				" prop="sub_game_icon" >
+                <template slot-scope="scope">
+                    <el-popover
+                            placement="right"
+                            title=""
+                            trigger="hover">
+                        <img :src="'http://apidemo.test/public/' + scope.row.sub_game_icon"/>
+                        <img slot="reference" :src="'http://apidemo.test/public/' + scope.row.sub_game_icon" :alt="sub_game_icon" style="max-height: 50px;max-width: 130px">
+                    </el-popover>
+                </template>
+
+            </el-table-column>
+
             <el-table-column
                     label="操作" width="260"
                     fixed="right">
                 <template slot-scope="scope">
-                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
-                    </el-button>
+                    <!--<el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
+                    </el-button>-->
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
                     </el-button>
 
@@ -126,10 +140,9 @@
 <script>
     import {
         merchantGameList,
-        authAdminRoleList,
         thirdMerchantGameStatusSave,
         thirdMerchantGameSequence,
-        marqueeDelete
+        thirdMerchantgameDel
     } from "../../../api/third-game-management";
 
     const formJson = {
@@ -498,7 +511,7 @@
                     })
                         .then(() => {
                             let para = {id: row.id};
-                            marqueeDelete(para)
+                            thirdMerchantgameDel(para)
                                 .then(response => {
                                     this.deleteLoading = false;
                                     if (response.code) {

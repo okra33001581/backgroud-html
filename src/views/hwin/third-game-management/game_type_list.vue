@@ -175,21 +175,6 @@
                                 label="游戏名称"
                                 width="180">
                         </el-table-column>
-
-                        <!--<el-table-column label="			图标				" prop="icon">
-                            <template slot-scope="scope">
-                                <el-popover
-                                        placement="right"
-                                        title=""
-                                        trigger="hover">
-                                    <img src="http://192.168.36.146:8082/static/img/c367a5df-8c4f-4b7a-8703-9a88111c2a04.600d6f1.png"/>
-                                    <img slot="reference" src="http://192.168.36.146:8082/static/img/c367a5df-8c4f-4b7a-8703-9a88111c2a04.600d6f1.png" :alt="icon" style="max-height: 50px;max-width: 130px">
-                                </el-popover>
-                            </template>
-
-                        </el-table-column>-->
-
-
                         <el-table-column label="			图标				" prop="icon" >
                             <template slot-scope="scope">
                                 <el-popover
@@ -202,8 +187,6 @@
                             </template>
 
                         </el-table-column>
-
-
                         <el-table-column
                                 prop="status"
                                 label="状态">
@@ -218,6 +201,9 @@
                                 label="操作" width="150"
                                 fixed="right">
                             <template slot-scope="scope">
+
+                                <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
+                                </el-button>
 
                                 <el-button v-if="scope.row.status === '禁用'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemSubSuccessServer(scope.$index, scope.row)">启用
                                 </el-button>
@@ -259,7 +245,8 @@
         thirdGameTypesStatusSave,
         thirdGameTypesSequence,
         thirdGameTypesSubStatusSave,
-        marqueeDelete
+        thirdGameTypesSave,
+        thirdGameTypesDel
     } from "../../../api/third-game-management";
 
     const formJson = {
@@ -736,7 +723,7 @@
                     if (valid) {
                         this.formLoading = true;
                         let data = Object.assign({}, this.formData);
-                        marqueeSave(data, this.formName).then(response => {
+                        thirdGameTypesSave(data, this.formName).then(response => {
                             this.formLoading = false;
                             if (response.code) {
                                 this.$message({
@@ -773,7 +760,7 @@
                     })
                         .then(() => {
                             let para = {id: row.id};
-                            marqueeDelete(para)
+                            thirdGameTypesDel(para)
                                 .then(response => {
                                     this.deleteLoading = false;
                                     if (response.code) {

@@ -64,12 +64,15 @@
             </el-table-column>
             <el-table-column label="			联赛名称				" prop="name" fixed></el-table-column>
             <el-table-column
-                    label="操作" width="260"
+                    label="操作" width="360"
                     fixed="right">
                 <template slot-scope="scope">
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
                     </el-button>
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
+                    </el-button>
+
+                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="selItemSuccessServer(scope.$index, scope.row)">选择
                     </el-button>
 
                     <el-button v-if="scope.row.status === '禁用'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemSuccessServer(scope.$index, scope.row)">启用
@@ -99,8 +102,12 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
 
-                <el-form-item label="Id" prop="id">
+                <!--<el-form-item label="Id" prop="id">
                     <el-input v-model="formData.id" auto-complete="off"></el-input>
+                </el-form-item>-->
+
+                <el-form-item label="type" prop="type">
+                    <el-input v-model="formData.type" auto-complete="off"></el-input>
                 </el-form-item>
 
                 <el-form-item label="排序值" prop="sequence">
@@ -137,10 +144,11 @@
 <script>
     import {
         basketballList,
-        authAdminRoleList,
+        thirdBallDel,
         thirdBallStatusSave,
         thirdBallSequence,
-        marqueeDelete
+        thirdMerchantgameSave,
+        thirdBallSave
     } from "../../../api/third-game-management";
 
     const formJson = {
@@ -280,6 +288,35 @@
                 } else if (prop === 'last_login_ip') {
                     this.sortByLastLoginIp(order)
                 }
+            },
+            selItemSuccessServer(index, row) {
+                var params = {
+                    id: row.id,
+                    type: 'third_all'
+                }
+                // debugger
+                thirdMerchantgameSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
             },
             getList() {
                 this.loading = true;
@@ -474,7 +511,7 @@
                     if (valid) {
                         this.formLoading = true;
                         let data = Object.assign({}, this.formData);
-                        marqueeSave(data, this.formName).then(response => {
+                        thirdBallSave(data, this.formName).then(response => {
                             this.formLoading = false;
                             if (response.code) {
                                 this.$message({
@@ -511,7 +548,7 @@
                     })
                         .then(() => {
                             let para = {id: row.id};
-                            marqueeDelete(para)
+                            thirdBallDel(para)
                                 .then(response => {
                                     this.deleteLoading = false;
                                     if (response.code) {

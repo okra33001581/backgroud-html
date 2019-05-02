@@ -93,58 +93,62 @@
                 width="35%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
-                <el-form-item label="Id" prop="title">
-                    <el-input v-model="formData.title" auto-complete="off"></el-input>
+                <el-form-item label="Id" prop="id">
+                    <el-input v-model="formData.id" auto-complete="off"></el-input>
                 </el-form-item>
+
+
+
+                <el-form-item label="identity" prop="identity">
+                    <el-input v-model="formData.identity" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item label="name" prop="name">
+                    <el-input v-model="formData.name" auto-complete="off"></el-input>
+                </el-form-item>
+
+                    <el-form-item label="plat_identity" prop="plat_identity">
+                        <el-input v-model="formData.plat_identity" auto-complete="off"></el-input>
+                    </el-form-item>
+
+                    <el-form-item label="params_key" prop="params_key">
+                        <el-input v-model="formData.params_key" auto-complete="off"></el-input>
+                    </el-form-item>
+
+                    <el-form-item label="key" prop="key">
+                        <el-input v-model="formData.key" auto-complete="off"></el-input>
+                    </el-form-item>
+
+                    <el-form-item label="iframe_url" prop="iframe_url">
+                        <el-input v-model="formData.iframe_url" auto-complete="off"></el-input>
+                    </el-form-item>
+
+                    <el-form-item label="data_url" prop="data_url">
+                        <el-input v-model="formData.data_url" auto-complete="off"></el-input>
+                    </el-form-item>
+
+                    <el-form-item label="status" prop="status">
+                        <el-input v-model="formData.status" auto-complete="off"></el-input>
+                    </el-form-item>
+
+                    <el-form-item label="query_enabled" prop="query_enabled">
+                        <el-input v-model="formData.query_enabled" auto-complete="off"></el-input>
+                    </el-form-item>
+
+                    <el-form-item label="free_data_url" prop="free_data_url">
+                        <el-input v-model="formData.free_data_url" auto-complete="off"></el-input>
+                    </el-form-item>
+
+
+                    <el-form-item label="free_data_url" prop="free_data_url">
+                        <el-input v-model="formData.free_data_url" auto-complete="off"></el-input>
+                    </el-form-item>
 
                 <el-form-item label="排序值" prop="terminal">
                     <el-input v-model="formData.terminal" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="identity" prop="sequence">
-                    <el-input v-model="formData.sequence" auto-complete="off"></el-input>
-                </el-form-item>
 
-                <el-form-item label="name" prop="content">
-                    <el-input v-model="formData.content" auto-complete="off"></el-input>
-                </el-form-item>
-
-                    <el-form-item label="plat_identity" prop="title">
-                        <el-input v-model="formData.title" auto-complete="off"></el-input>
-                    </el-form-item>
-
-                    <el-form-item label="params_key" prop="terminal">
-                        <el-input v-model="formData.terminal" auto-complete="off"></el-input>
-                    </el-form-item>
-
-                    <el-form-item label="key" prop="sequence">
-                        <el-input v-model="formData.sequence" auto-complete="off"></el-input>
-                    </el-form-item>
-
-                    <el-form-item label="iframe_url" prop="content">
-                        <el-input v-model="formData.content" auto-complete="off"></el-input>
-                    </el-form-item>
-
-                    <el-form-item label="data_url" prop="title">
-                        <el-input v-model="formData.title" auto-complete="off"></el-input>
-                    </el-form-item>
-
-                    <el-form-item label="status" prop="terminal">
-                        <el-input v-model="formData.terminal" auto-complete="off"></el-input>
-                    </el-form-item>
-
-                    <el-form-item label="query_enabled" prop="sequence">
-                        <el-input v-model="formData.sequence" auto-complete="off"></el-input>
-                    </el-form-item>
-
-                    <el-form-item label="free_data_url" prop="content">
-                        <el-input v-model="formData.content" auto-complete="off"></el-input>
-                    </el-form-item>
-
-
-                    <el-form-item label="free_data_url" prop="content">
-                        <el-input v-model="formData.content" auto-complete="off"></el-input>
-                    </el-form-item>
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideForm">取消</el-button>
@@ -158,10 +162,10 @@
 <script>
     import {
         thirdPlatList,
-        authAdminRoleList,
+        thirdPlatsDel,
         thirdPlatsStatusSave,
         thirdPlatsSequence,
-        marqueeDelete
+        thirdPlatsSave
     } from "../../../api/third-game-management";
 
     const formJson = {
@@ -494,7 +498,7 @@
                     if (valid) {
                         this.formLoading = true;
                         let data = Object.assign({}, this.formData);
-                        marqueeSave(data, this.formName).then(response => {
+                        thirdPlatsSave(data, this.formName).then(response => {
                             this.formLoading = false;
                             if (response.code) {
                                 this.$message({
@@ -531,7 +535,7 @@
                     })
                         .then(() => {
                             let para = {id: row.id};
-                            marqueeDelete(para)
+                            thirdPlatsDel(para)
                                 .then(response => {
                                     this.deleteLoading = false;
                                     if (response.code) {

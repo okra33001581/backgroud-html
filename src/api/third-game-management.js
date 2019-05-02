@@ -205,6 +205,110 @@ export function thirdPlatsStatusSave(data, formName, method = "post") {
     });
 }
 
+// 保存
+export function thirdBallSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "event/thirdBallSave"
+            : "event/thirdBallSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+// 保存
+export function thirdGameTypesSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "event/thirdGameTypesSave"
+            : "event/thirdGameTypesSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+// 保存
+export function thirdGameTypesDetailSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "event/thirdGameTypesDetailSave"
+            : "event/thirdGameTypesDetailSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+// 保存
+export function thirdMerchantgameSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "event/thirdMerchantgameSave"
+            : "event/thirdMerchantgameSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+// 保存
+export function thirdPlatsSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "event/thirdPlatsSave"
+            : "event/thirdPlatsSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+export function thirdPlatsDel(data) {
+    return axios({
+        url: "event/thirdPlatsDel",
+        method: "post",
+        data: data
+    });
+}
+
+export function thirdMerchantgameDel(data) {
+    return axios({
+        url: "event/thirdMerchantgameDel",
+        method: "post",
+        data: data
+    });
+}
+
+export function thirdGameTypesDetailDel(data) {
+    return axios({
+        url: "event/thirdGameTypesDetailDel",
+        method: "post",
+        data: data
+    });
+}
+
+export function thirdGameTypesDel(data) {
+    return axios({
+        url: "event/thirdGameTypesDel",
+        method: "post",
+        data: data
+    });
+}
+
+export function thirdBallDel(data) {
+    return axios({
+        url: "event/thirdBallDel",
+        method: "post",
+        data: data
+    });
+}
 
 
 
