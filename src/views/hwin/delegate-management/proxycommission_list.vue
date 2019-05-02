@@ -108,13 +108,13 @@
                 :title="formMap[formName]"
                 :visible.sync="formVisible"
                 :before-close="hideForm"
-                width="35%"
+                width="30%"
                 top="5vh">
-            <el-form :model="formData" :rules="formRules" ref="dataForm">
-                <el-form-item label="			用户id  		" prop="merchant_id"><el-input v-model="formData.merchant_id" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			代理层级		" prop="delegate_level"><el-input v-model="formData.delegate_level" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			返点 		" prop="rebate"><el-input v-model="formData.rebate" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			默认配额		" prop="default_quota"><el-input v-model="formData.default_quota" auto-complete="off"></el-input></el-form-item>
+            <el-form :model="formData" :rules="formRules" label-width="16%" ref="dataForm">
+                <el-form-item label="用户id" prop="merchant_id"><el-input v-model="formData.merchant_id" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="代理层级" prop="delegate_level"><el-input v-model="formData.delegate_level" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="返点" prop="rebate"><el-input v-model="formData.rebate" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="默认配额" prop="default_quota"><el-input v-model="formData.default_quota" auto-complete="off"></el-input></el-form-item>
 
 
             </el-form>

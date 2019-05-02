@@ -67,6 +67,7 @@
                 <el-button-group>
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
                     <el-button type="primary" icon="el-icon-search" @click="onSubmit">查询</el-button>
+                    <el-button type="primary" icon="el-icon-search" @click="handleDownload">excel</el-button>
                     <!--<el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">新增</el-button>-->
                 </el-button-group>
             </el-form-item>
@@ -312,6 +313,31 @@
             handleFilter() {
                 this.query.page = 1
                 this.getList()
+            },
+            handleDownload() {
+                this.downloadLoading = true
+                import('@/vendor/Export2Excel').then(excel => {
+                    const tHeader = ['ID','商户名称', '用户名', '平台', '模式', '所属组', '总入款', '总取款','有效盈利','投注总额','中奖金额','返点总额','游戏盈亏','优惠总额','系统扣减','余额']
+                    const filterVal = ['id','merchant_name', 'username', 'platform', 'model', 'group', 'in_total_amount', 'total_out_amount', 'valid_profit', 'sum_turnover', 'prize_amount', 'rebate_amount', 'game_profit_loss', 'benefit_amount', 'system_subtraction','final_amount']
+                    const list = this.list
+                    const data = this.formatJson(filterVal, list)
+                    excel.export_json_to_excel({
+                        header: tHeader,
+                        data,
+                        filename: this.filename,
+                        autoWidth: this.autoWidth
+                    })
+                    this.downloadLoading = false
+                })
+            },
+            formatJson(filterVal, jsonData) {
+                return jsonData.map(v => filterVal.map(j => {
+                    if (j === 'timestamp') {
+                        return parseTime(v[j])
+                    } else {
+                        return v[j]
+                    }
+                }))
             },
             sortChange: function (column) {
                 // console.log(column)

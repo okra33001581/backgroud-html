@@ -139,7 +139,7 @@
                 :before-close="hideForm"
                 width="85%"
                 top="5vh">
-            <el-form :model="formData" :rules="formRules" ref="dataForm">
+            <el-form :model="formData" label-width="5%" :rules="formRules" ref="dataForm">
                 <el-form-item :label="$t('page.username')" prop="username">
                     <el-input v-model="formData.username" auto-complete="off"></el-input>
                 </el-form-item>

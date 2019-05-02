@@ -99,7 +99,7 @@
                 :before-close="hideForm"
                 width="35%"
                 top="5vh">
-            <el-form :model="formData" :rules="formRules" ref="dataForm">
+            <el-form :model="formData" label-width="11%" :rules="formRules" ref="dataForm">
 
                 <el-form-item label="公告标题" prop="title">
                     <el-input v-model="formData.title" auto-complete="off"></el-input>

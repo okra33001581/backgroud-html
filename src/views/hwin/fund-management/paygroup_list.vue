@@ -111,7 +111,7 @@
                 :before-close="hideForm"
                 width="85%"
                 top="5vh">
-            <el-form :model="formData" :rules="formRules" ref="dataForm">
+            <el-form :model="formData" label-width="7%" :rules="formRules" ref="dataForm">
                 <!--<el-form-item label="			ID    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>-->
                 <el-form-item label="			入款方式   		" prop="in_type"><el-input v-model="formData.in_type" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="			支付类型   		" prop="pay_type"><el-input v-model="formData.pay_type" auto-complete="off"></el-input></el-form-item>

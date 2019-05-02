@@ -50,10 +50,14 @@
             <el-table-column label="状态" prop="status" fixed></el-table-column>
             <el-table-column label="操作" width="260" fixed="right">
             <template slot-scope="scope">
-                <el-button type="success" size="small" @click.native="auditRisk(scope.$index, scope.row,'pass')">通过
-                </el-button>
-                <el-button type="danger" size="small" @click.native="auditRisk(scope.$index, scope.row,'refuse')">拒绝
-                </el-button>
+                <h1 v-if="scope.row.status=='已通过'">
+                    <el-button type="danger" size="small" @click.native="auditRisk(scope.$index, scope.row,'refuse')">拒绝
+                    </el-button>
+                </h1>
+                <h1 v-else>
+                    <el-button type="primary" size="small" @click.native="auditRisk(scope.$index, scope.row,'pass')">通过
+                    </el-button>
+                </h1>
             </template>
             </el-table-column>
         </el-table>
@@ -72,7 +76,7 @@
                 :before-close="hideForm"
                 width="35%"
                 top="5vh">
-            <el-form :model="formData" :rules="formRules" ref="dataForm">
+            <el-form :model="formData" label-width="17%" :rules="formRules" ref="dataForm">
                 <el-form-item label="ID" prop="game_id"><el-input v-model="formData.game_id" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="游戏" prop="game"><el-input v-model="formData.game" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="日期" required>

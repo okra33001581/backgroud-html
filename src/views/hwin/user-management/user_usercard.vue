@@ -112,7 +112,7 @@
                 :before-close="hideForm"
                 width="35%"
                 top="5vh">
-            <el-form :model="formData" :rules="formRules" ref="dataForm">
+            <el-form :model="formData" label-width="11%" :rules="formRules" ref="dataForm">
 
                 <el-form-item label="账号名" prop="account">
                     <el-input v-model="formData.account" auto-complete="off"></el-input>

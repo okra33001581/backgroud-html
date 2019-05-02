@@ -146,7 +146,7 @@
                 :before-close="hideForm"
                 width="85%"
                 top="5vh">
-            <el-form :model="formData" :rules="formRules" ref="dataForm">
+            <el-form :model="formData" label-width="6%" :rules="formRules" ref="dataForm">
                 <el-form-item label="			ID  		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
                 <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
                 <el-form-item label="			订单号    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>

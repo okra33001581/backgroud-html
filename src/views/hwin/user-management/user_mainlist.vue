@@ -327,7 +327,7 @@
                 :before-close="hideLockForm"
                 width="45%"
                 top="5vh">
-            <el-form :model="formData" :rules="formRules" ref="dataForm">
+            <el-form :model="formData" label-width="9%" :rules="formRules" ref="dataForm">
 
                 <el-form-item label="冻结范围" prop="lock_range">
                     <el-radio-group v-model="formData.lock_range">
@@ -539,7 +539,7 @@
                 :before-close="hideEditParentForm"
                 width="35%"
                 top="5vh">
-            <el-form :model="formData" :rules="formRules" ref="dataForm">
+            <el-form :model="formData" label-width="16%" :rules="formRules" ref="dataForm">
                 <el-form-item label="当前上级账号" prop="top_level">
                     <el-input v-model="formData.top_level" auto-complete="off"></el-input>
                 </el-form-item>
