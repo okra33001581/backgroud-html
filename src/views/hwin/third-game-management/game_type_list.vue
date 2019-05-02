@@ -90,47 +90,47 @@
                 :title="formMap[formName]"
                 :visible.sync="formVisible"
                 :before-close="hideForm"
-                width="35%"
+                width="40%"
                 top="5vh">
-            <el-form :model="formData" :rules="formRules" ref="dataForm">
+            <el-form :model="formData" :rules="formRules" ref="dataForm"   label-width="110px">
 
                 <el-form-item label="Id" prop="id">
-                    <el-input v-model="formData.id" auto-complete="off"></el-input>
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.id" auto-complete="off"></el-input>
                 </el-form-item>
 
                 <el-form-item label="排序值" prop="sequence">
-                    <el-input v-model="formData.sequence" auto-complete="off"></el-input>
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.sequence" auto-complete="off"></el-input>
                 </el-form-item>
 
                 <el-form-item label="游戏类型名" prop="name">
-                    <el-input v-model="formData.name" auto-complete="off"></el-input>
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.name" auto-complete="off"></el-input>
                 </el-form-item>
 
                 <!--<el-form-item label="name" prop="sequence">-->
-                    <!--<el-input v-model="formData.sequence" auto-complete="off"></el-input>-->
+                    <!--<el-input style="width:550px;max-width:100%;" v-model="formData.sequence" auto-complete="off"></el-input>-->
                 <!--</el-form-item>-->
 
                 <el-form-item label="游戏类型标记" prop="identifier">
-                    <el-input v-model="formData.identifier" auto-complete="off"></el-input>
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.identifier" auto-complete="off"></el-input>
                 </el-form-item>
                 <el-form-item label="归属三方平台" prop="plat_id">
-                    <el-input v-model="formData.plat_id" auto-complete="off"></el-input>
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.plat_id" auto-complete="off"></el-input>
                 </el-form-item>
 
                 <el-form-item label="比例确定依据" prop="rate_basis">
-                    <el-input v-model="formData.rate_basis" auto-complete="off"></el-input>
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.rate_basis" auto-complete="off"></el-input>
                 </el-form-item>
 
                 <el-form-item label="创建时间" prop="created_at">
-                    <el-input v-model="formData.created_at" auto-complete="off"></el-input>
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.created_at" auto-complete="off"></el-input>
                 </el-form-item>
 
                 <el-form-item label="更新时间" prop="updated_at">
-                    <el-input v-model="formData.updated_at" auto-complete="off"></el-input>
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.updated_at" auto-complete="off"></el-input>
                 </el-form-item>
 
                 <el-form-item label="状态" prop="status">
-                    <el-input v-model="formData.status" auto-complete="off"></el-input>
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.status" auto-complete="off"></el-input>
                 </el-form-item>
 
             </el-form>
@@ -161,7 +161,6 @@
                             <el-button-group>
                                 <el-button type="primary" icon="el-icon-refresh" @click="getSubList"></el-button>
                                 <el-button type="primary" icon="el-icon-search" @click="onSubSubmit">查询</el-button>
-                                <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">新增</el-button>
                             </el-button-group>
                         </el-form-item>
 
@@ -198,19 +197,13 @@
                         </el-table-column>
 
                         <el-table-column
-                                label="操作" width="150"
+                                label="操作" width="100"
                                 fixed="right">
                             <template slot-scope="scope">
-
-                                <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
-                                </el-button>
-
                                 <el-button v-if="scope.row.status === '禁用'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemSubSuccessServer(scope.$index, scope.row)">启用
                                 </el-button>
                                 <el-button v-if="scope.row.status === '启用'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemSubFailedServer(scope.$index, scope.row)">禁用
                                 </el-button>
-
-                                <el-checkbox v-model="checked">选择</el-checkbox>
 
                                 <!--<el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
                                 </el-button>-->

@@ -57,6 +57,8 @@
                 :data="list" stripe
                 fit
                 @expand-change="rowExpand"
+                @row-click="clickTable"
+                ref="refTable"
                 highlight-current-row
                 style="width: 100%;"
                 element-loading-text="拼命加载中"
@@ -69,6 +71,7 @@
                         <el-table
                                 :data="listChildren"
                                 border
+                                :show-header="false"
                                 style="width: 100%">
                             <el-table-column width="150" prop="way_type" fixed></el-table-column>
                             <el-table-column width="150" prop="type" fixed></el-table-column>
@@ -315,14 +318,16 @@
                     }.bind(this)
                 )
             },
-
+            clickTable(row,index,e){
+                this.$refs.refTable.toggleRowExpansion(row)
+            },
             rowExpand:function(row,expandedRows){
                 this.listChildren = row.children;
                 //如果展开行数大于1
                   if(expandedRows.length>1){
                     //shift() 方法用于把数组的第一个元素从其中删除，并返回第一个元素的值。
                     expandedRows.shift();
-                  }   
+                  }
             },
             onSubmit() {
                 this.$router.push({
@@ -347,7 +352,7 @@
                 this.query.page = 1
                 this.getList()
             },
-            
+
 
             updatePgamePropertySave(lottery_name,index,property_name,property_value) {
                 var params = {
@@ -409,7 +414,7 @@
                         this.lotteryNameList = [];
                     });
             },
-            
+
             // 隐藏表单
             hideForm() {
                 // 更改值
@@ -426,7 +431,7 @@
                 this.$refs["dataForm"].resetFields();
                 return true;
             },
-       
+
             // 显示表单
             handleForm(index, row) {
                 this.formVisible = true;
@@ -447,7 +452,7 @@
                     this.$refs["dataForm"].clearValidate();
                 }
             },
-           
+
             // 显示表单
             handleKillRateForm(index, row) {
                 this.formKillRateVisible = true;
@@ -462,7 +467,7 @@
                     this.$refs["dataForm"].clearValidate();
                 }
             },
-            
+
             formSubmit() {
                 this.$refs["dataForm"].validate(valid => {
                     if (valid) {
@@ -516,7 +521,7 @@
                                     message: "操作成功",
                                     type: "success"
                                 });
-                                
+
                                 // 刷新表单
                                 //this.$refs["dataForm"].resetFields();
                                 this.formKillRateVisible = false;

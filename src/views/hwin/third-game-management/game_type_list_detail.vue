@@ -102,32 +102,32 @@
                 :title="formMap[formName]"
                 :visible.sync="formVisible"
                 :before-close="hideForm"
-                width="35%"
+                width="40%"
                 top="5vh">
-            <el-form :model="formData" :rules="formRules" ref="dataForm">
+            <el-form :model="formData" :rules="formRules" ref="dataForm"  label-width="110px">
                 <el-form-item label="Id" prop="id">
-                    <el-input v-model="formData.id" auto-complete="off"></el-input>
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.id" auto-complete="off"></el-input>
                 </el-form-item>
 
                 <el-form-item label="plat_id" prop="plat_id">
-                    <el-input v-model="formData.plat_id" auto-complete="off"></el-input>
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.plat_id" auto-complete="off"></el-input>
                 </el-form-item>
 
 
                 <el-form-item label="plat_name" prop="plat_name">
-                    <el-input v-model="formData.plat_name" auto-complete="off"></el-input>
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.plat_name" auto-complete="off"></el-input>
                 </el-form-item>
 
                 <el-form-item label="name" prop="name">
-                    <el-input v-model="formData.name" auto-complete="off"></el-input>
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.name" auto-complete="off"></el-input>
                 </el-form-item>
 
                 <el-form-item label="icon" prop="icon">
-                    <el-input v-model="formData.icon" auto-complete="off"></el-input>
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.icon" auto-complete="off"></el-input>
                 </el-form-item>
 
                 <el-form-item label="desc" prop="desc">
-                    <el-input v-model="formData.desc" auto-complete="off"></el-input>
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.desc" auto-complete="off"></el-input>
                 </el-form-item>
 
 

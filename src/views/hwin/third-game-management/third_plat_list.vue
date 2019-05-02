@@ -90,62 +90,61 @@
                 :title="formMap[formName]"
                 :visible.sync="formVisible"
                 :before-close="hideForm"
-                width="35%"
+                width="40%"
                 top="5vh">
-            <el-form :model="formData" :rules="formRules" ref="dataForm">
+            <el-form :model="formData" :rules="formRules" ref="dataForm" label-width="120px">
                 <el-form-item label="Id" prop="id">
-                    <el-input v-model="formData.id" auto-complete="off"></el-input>
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.id" auto-complete="off"></el-input>
                 </el-form-item>
-
 
 
                 <el-form-item label="identity" prop="identity">
-                    <el-input v-model="formData.identity" auto-complete="off"></el-input>
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.identity" auto-complete="off"></el-input>
                 </el-form-item>
 
                 <el-form-item label="name" prop="name">
-                    <el-input v-model="formData.name" auto-complete="off"></el-input>
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.name" auto-complete="off"></el-input>
                 </el-form-item>
 
                     <el-form-item label="plat_identity" prop="plat_identity">
-                        <el-input v-model="formData.plat_identity" auto-complete="off"></el-input>
+                        <el-input style="width:550px;max-width:100%;" v-model="formData.plat_identity" auto-complete="off"></el-input>
                     </el-form-item>
 
                     <el-form-item label="params_key" prop="params_key">
-                        <el-input v-model="formData.params_key" auto-complete="off"></el-input>
+                        <el-input style="width:550px;max-width:100%;" v-model="formData.params_key" auto-complete="off"></el-input>
                     </el-form-item>
 
                     <el-form-item label="key" prop="key">
-                        <el-input v-model="formData.key" auto-complete="off"></el-input>
+                        <el-input style="width:550px;max-width:100%;" v-model="formData.key" auto-complete="off"></el-input>
                     </el-form-item>
 
                     <el-form-item label="iframe_url" prop="iframe_url">
-                        <el-input v-model="formData.iframe_url" auto-complete="off"></el-input>
+                        <el-input style="width:550px;max-width:100%;" v-model="formData.iframe_url" auto-complete="off"></el-input>
                     </el-form-item>
 
                     <el-form-item label="data_url" prop="data_url">
-                        <el-input v-model="formData.data_url" auto-complete="off"></el-input>
+                        <el-input style="width:550px;max-width:100%;" v-model="formData.data_url" auto-complete="off"></el-input>
                     </el-form-item>
 
                     <el-form-item label="status" prop="status">
-                        <el-input v-model="formData.status" auto-complete="off"></el-input>
+                        <el-input style="width:550px;max-width:100%;" v-model="formData.status" auto-complete="off"></el-input>
                     </el-form-item>
 
                     <el-form-item label="query_enabled" prop="query_enabled">
-                        <el-input v-model="formData.query_enabled" auto-complete="off"></el-input>
+                        <el-input style="width:550px;max-width:100%;" v-model="formData.query_enabled" auto-complete="off"></el-input>
                     </el-form-item>
 
                     <el-form-item label="free_data_url" prop="free_data_url">
-                        <el-input v-model="formData.free_data_url" auto-complete="off"></el-input>
+                        <el-input style="width:550px;max-width:100%;" v-model="formData.free_data_url" auto-complete="off"></el-input>
                     </el-form-item>
 
 
                     <el-form-item label="free_data_url" prop="free_data_url">
-                        <el-input v-model="formData.free_data_url" auto-complete="off"></el-input>
+                        <el-input style="width:550px;max-width:100%;" v-model="formData.free_data_url" auto-complete="off"></el-input>
                     </el-form-item>
 
                 <el-form-item label="排序值" prop="terminal">
-                    <el-input v-model="formData.terminal" auto-complete="off"></el-input>
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.terminal" auto-complete="off"></el-input>
                 </el-form-item>
 
 
