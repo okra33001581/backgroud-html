@@ -198,7 +198,7 @@ export const asyncRouterMap = [
                     {
                         path: "department",
                         component: department,
-                        name: "角色管理--部门管理",
+                        name: "部门管理",
                         icon: "delete",
                         meta: {
                             authRule: ["admin/auth_role/index"]
