@@ -64,9 +64,10 @@
                     label="操作" width="360"
                     fixed="right">
                 <template slot-scope="scope">
-                    <el-button v-if="scope.row.status === '隐藏'" type="primary" size="small" icon="el-icon-edit" @click.native="itemSuccessServer(scope.$index, scope.row)">正常
+                    
+                    <el-button v-if="scope.row.status === '启用'" type="danger" size="small" icon="el-icon-edit" @click.native="itemFailedServer(scope.$index, scope.row)">禁用
                     </el-button>
-                    <el-button v-if="scope.row.status === '正常'" type="primary" size="small" icon="el-icon-edit" @click.native="itemFailedServer(scope.$index, scope.row)">隐藏
+                    <el-button v-else type="primary" size="small" icon="el-icon-edit" @click.native="itemSuccessServer(scope.$index, scope.row)">启用
                     </el-button>
 
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
@@ -338,7 +339,7 @@
             itemSuccessServer(index, row) {
                 var params = {
                     id: row.id,
-                    flag: '正常'
+                    flag: '启用'
                 }
                 // debugger
                 payAccountStatusSave(params).then(
@@ -367,7 +368,7 @@
             itemFailedServer(index, row) {
                 var params = {
                     id: row.id,
-                    flag: '隐藏'
+                    flag: '禁用'
                 }
                 // debugger
                 payAccountStatusSave(params).then(
@@ -584,7 +585,7 @@
             statusFilterName(status) {
                 const statusMap = {
                     0: "禁用",
-                    1: "正常",
+                    1: "启用",
                     2: "未验证"
                 };
                 return statusMap[status];

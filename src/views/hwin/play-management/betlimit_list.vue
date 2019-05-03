@@ -8,7 +8,7 @@
                 <el-select v-model="query.status" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
                     <el-option label="禁用" value="0"></el-option>
-                    <el-option label="正常" value="1"></el-option>
+                    <el-option label="启用" value="1"></el-option>
                     <el-option label="未验证" value="2"></el-option>
                 </el-select>
             </el-form-item>
@@ -584,7 +584,7 @@
             statusFilterName(status) {
                 const statusMap = {
                     0: "禁用",
-                    1: "正常",
+                    1: "启用",
                     2: "未验证"
                 };
                 return statusMap[status];

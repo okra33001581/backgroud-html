@@ -43,8 +43,8 @@
             <el-form-item class="query-form-item">
                 <el-select v-model="query.status" placeholder="删除状态">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="正常" value="正常"></el-option>
-                    <el-option label="隐藏" value="隐藏"></el-option>
+                    <el-option label="启用" value="启用"></el-option>
+                    <el-option label="禁用" value="禁用"></el-option>
                 </el-select>
             </el-form-item>
 
@@ -93,16 +93,16 @@
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
 
-            <el-table-column label="					ID		" prop="id" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
-            <el-table-column label="					分类		" prop="category" fixed></el-table-column>
-            <el-table-column label="					状态		" prop="receive_flag" fixed></el-table-column>
-            <el-table-column label="					是否已删		" prop="status" fixed></el-table-column>
-            <el-table-column label="					标题		" prop="title" fixed></el-table-column>
-            <el-table-column label="					消息类型		" prop="type" fixed></el-table-column>
-            <el-table-column label="					发送用户		" prop="sender" fixed></el-table-column>
-            <el-table-column label="					接收用户		" prop="receivers" fixed></el-table-column>
-            <el-table-column label="					发送时间		" prop="created_at" fixed></el-table-column>
+            <el-table-column label="ID" prop="id" fixed></el-table-column>
+            <el-table-column label="商户名称" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="分类" prop="category" fixed></el-table-column>
+            <el-table-column label="是否已读" prop="receive_flag" fixed></el-table-column>
+            <el-table-column label="状态" prop="status" fixed></el-table-column>
+            <el-table-column label="标题" prop="title" fixed></el-table-column>
+            <el-table-column label="消息类型" prop="type" fixed></el-table-column>
+            <el-table-column label="发送用户" prop="sender" fixed></el-table-column>
+            <el-table-column label="接收用户" prop="receivers" fixed></el-table-column>
+            <el-table-column label="发送时间" prop="created_at" fixed></el-table-column>
 
             <el-table-column
                     label="操作" width="260"
@@ -514,7 +514,7 @@
             statusFilterName(status) {
                 const statusMap = {
                     0: "禁用",
-                    1: "正常",
+                    1: "启用",
                     2: "未验证"
                 };
                 return statusMap[status];

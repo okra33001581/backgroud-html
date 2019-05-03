@@ -293,8 +293,11 @@
             handleDownload() {
                 this.downloadLoading = true
                 this.loading = true;
-                this.query.limit = 9999;
-                preportProfit(this.query)
+                let params = {
+                    page: 1,
+                    limit: 9999
+                };
+                preportProfit(params)
                     .then(response => {
                         this.excelList = response.data.list.data || [];
                         import('@/vendor/Export2Excel').then(excel => {

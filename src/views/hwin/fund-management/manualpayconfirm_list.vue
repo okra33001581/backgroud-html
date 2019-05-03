@@ -110,13 +110,15 @@
             <el-table-column label="					审核状态		" prop="status" fixed></el-table-column>
 
             <el-table-column
-                    label="操作" width="260"
+                    label="操作"
                     fixed="right">
                 <template slot-scope="scope">
-                    <el-button v-if="scope.row.status === '拒绝'" type="primary" size="small" icon="el-icon-edit" @click.native="itemSuccessServer(scope.$index, scope.row)">同意
+
+                    <el-button v-if="scope.row.status === '同意'" type="danger" size="small" icon="el-icon-edit" @click.native="itemFailedServer(scope.$index, scope.row)">拒绝
                     </el-button>
-                    <el-button v-if="scope.row.status === '同意'" type="primary" size="small" icon="el-icon-edit" @click.native="itemFailedServer(scope.$index, scope.row)">拒绝
+                    <el-button v-else type="primary" size="small" icon="el-icon-edit" @click.native="itemSuccessServer(scope.$index, scope.row)">同意
                     </el-button>
+                    
                 </template>
             </el-table-column>
         </el-table>
@@ -557,7 +559,7 @@
             statusFilterName(status) {
                 const statusMap = {
                     0: "禁用",
-                    1: "正常",
+                    1: "启用",
                     2: "未验证"
                 };
                 return statusMap[status];

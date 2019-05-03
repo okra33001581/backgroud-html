@@ -28,7 +28,6 @@
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
 
-
             <!--代理层级-->
             <!--返点-->
             <!--默认配额-->
@@ -38,50 +37,7 @@
             <el-table-column label="返点" align="center" prop="rebate" fixed></el-table-column>
             <el-table-column label="默认配额" prop="default_quota" fixed></el-table-column>
             <!--<el-table-column label="修改时间" prop="update_at" fixed></el-table-column>-->
-
-            <!--<el-table-column label="ID" prop="id" align="center" width="65"></el-table-column>
-            &lt;!&ndash;<el-table-column
-                label="用户 ID"
-                prop="id"
-                sortable="custom"
-                align="center"
-                fixed>
-                <template slot-scope="scope">
-                    <span>{{ scope.row.id }}</span>
-                </template>
-            </el-table-column>&ndash;&gt;
-
-            <el-table-column
-                    label="用户名"
-                    prop="merchant_name"
-                    sortable="custom"
-                    fixed>
-            </el-table-column>
-
-            <el-table-column
-                    sortable="custom"
-                    label="状态" prop="status">
-                <template slot-scope="scope">
-                    <el-tag :type="scope.row.status | statusFilterType">{{scope.row.status | statusFilterName}}</el-tag>
-                </template>
-            </el-table-column>
-            <el-table-column
-                    label="登录时间"
-                    with="300"
-                    sortable="custom"
-                    :show-overflow-tooltip="true" prop="last_login_time">
-                <template slot-scope="scope">
-                    <i class="el-icon-time"></i>
-                    <span>{{ scope.row.last_login_time }}</span>
-                </template>
-            </el-table-column>
-            <el-table-column
-                    sortable="custom"
-                    label="登录IP" prop="last_login_ip">
-                <template slot-scope="scope">
-                    <span>{{ scope.row.last_login_ip }}</span>
-                </template>
-            </el-table-column>-->
+           
             <el-table-column
                     label="操作" width="360"
                     fixed="right">
@@ -144,22 +100,6 @@
     };
     export default {
         data() {
-            /*let validatePass = (rule, value, callback) => {
-                if (value === "") {
-                    callback(new Error("请输入密码"));
-                } else {
-                    callback();
-                }
-            };
-            let validatePass2 = (rule, value, callback) => {
-                if (value === "") {
-                    callback(new Error("请再次输入密码"));
-                } else if (value !== this.formData.password) {
-                    callback(new Error("两次输入密码不一致!"));
-                } else {
-                    callback();
-                }
-            };*/
             return {
                 query: {
                     merchant_name: "",
@@ -197,20 +137,6 @@
                 formData: formJson,
                 formRules: {},
                 addRules: {
-                    merchant_id: [
-                        {required: true, message: "请输入用户Id", trigger: "blur"}
-                    ],
-                    delegate_level: [
-                        {required: true, message: "请输入代理层级", trigger: "blur"}
-                    ],
-                    rebate: [
-                        {required: true, message: "请输入返点", trigger: "blur"}
-                    ],
-                    default_quota: [
-                        {required: true, message: "请输入默认配额", trigger: "blur"}
-                    ]
-                },
-                editRules: {
                     merchant_id: [
                         {required: true, message: "请输入用户Id", trigger: "blur"}
                     ],
@@ -337,7 +263,7 @@
                 // 更改值
                 this.formVisible = !this.formVisible;
                 // 清空表单
-                this.$refs["dataForm"].resetFields();
+                //this.$refs["dataForm"].resetFields();
                 return true;
             },
             // 显示表单
@@ -353,7 +279,6 @@
                 if (index !== null) {
                     this.index = index;
                     this.formName = "edit";
-                    this.formRules = this.editRules;
                 }
                 // 清空验证信息表单
                 if (this.$refs["dataForm"]) {

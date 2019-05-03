@@ -90,7 +90,7 @@ export default {
         confirm:'确定',
         sort:'排序',
         forbid:'禁用',
-        regular:'正常',
+        regular:'启用',
         unaudit:'未验证',
         ruleName:'规则名称',
         ruleTitle:'规则标题',

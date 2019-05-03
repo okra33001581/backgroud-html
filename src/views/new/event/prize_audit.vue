@@ -46,7 +46,7 @@
                 <el-select v-model="query.status" :placeholder="$t('page.status')">
                     <el-option label="全部" value=""></el-option>
                     <el-option label="启用" value="1"></el-option>
-                    <el-option label="停用" value="0"></el-option>
+                    <el-option label="禁用" value="0"></el-option>
                 </el-select>
             </el-form-item>
             <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
@@ -174,7 +174,7 @@
                 <template slot-scope="scope">
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">{{$t('page.detail')}}
                     </el-button>
-                    <el-button v-if="scope.row.status === '1'"  type="primary" size="small" icon="el-icon-delete" @click.native="auditItemSuccessServer(scope.$index, scope.row)">{{$t('page.success')}}
+                    <el-button v-if="scope.row.status === '1'"  type="danger" size="small" icon="el-icon-delete" @click.native="auditItemSuccessServer(scope.$index, scope.row)">{{$t('page.success')}}
                     </el-button>
                     <el-button v-if="scope.row.status === '0'"  type="primary" size="small" icon="el-icon-delete" @click.native="auditItemFailedServer(scope.$index, scope.row)">{{$t('page.reject')}}
                     </el-button>
