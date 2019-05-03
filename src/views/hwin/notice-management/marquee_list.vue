@@ -12,8 +12,8 @@
             <el-form-item class="query-form-item">
                 <el-select v-model="query.status" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="正常" value="正常"></el-option>
-                    <el-option label="隐藏" value="隐藏"></el-option>
+                    <el-option label="启用" value="启用"></el-option>
+                    <el-option label="禁用" value="禁用"></el-option>
                 </el-select>
             </el-form-item>
             <el-form-item>
@@ -465,8 +465,8 @@
             statusFilterName(status) {
                 const statusMap = {
                     0: "禁用",
-                    1: "正常",
-                    2: "未验证"
+                    1: "启用",
+                    2: "未处理"
                 };
                 return statusMap[status];
             }
