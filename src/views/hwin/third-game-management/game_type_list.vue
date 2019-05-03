@@ -137,8 +137,7 @@
 
             </el-form>
             <div slot="footer" class="dialog-footer">
-                <el-button @click.native="hideForm">取消</el-button>
-                <el-button type="primary" @click.native="formSubmit()" :loading="formLoading">提交</el-button>
+                <el-button @click.native="hideForm">关闭</el-button>
             </div>
         </el-dialog>
 
@@ -154,7 +153,7 @@
             <el-form :model="formSubData" :rules="formSubRules" ref="dataSubForm">
 
                 <template>
-                    <el-form :inline="true" :model="query" class="query-form" size="mini">
+                   <!-- <el-form :inline="true" :model="query" class="query-form" size="mini">
                         <el-form-item class="query-form-item">
                             <el-input v-model="query.merchant_name" placeholder="商户"></el-input>
                         </el-form-item>
@@ -166,7 +165,7 @@
                             </el-button-group>
                         </el-form-item>
 
-                    </el-form>
+                    </el-form>-->
 
                     <el-table
                             :data="tableData"
@@ -224,8 +223,7 @@
 
             </el-form>
             <div slot="footer" class="dialog-footer">
-                <el-button @click.native="hideSubForm">取消</el-button>
-                <el-button type="primary" @click.native="formSubSubmit()" :loading="formSubLoading">提交</el-button>
+                <el-button @click.native="hideSubForm">关闭</el-button>
             </div>
         </el-dialog>
 
@@ -687,6 +685,8 @@
                 }
             },// 显示表单
             handleSubForm(index, row) {
+                console.log(row.name)
+                this.query.plat_name = row.name;
                 gameTypeDetailList(this.query)
                     .then(response => {
                         this.tableData = response.data.list.data || [];

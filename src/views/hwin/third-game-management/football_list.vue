@@ -23,6 +23,13 @@
                 <el-input v-model="query.name" placeholder="联赛名称"></el-input>
             </el-form-item>
 
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.status" placeholder="状态">
+                    <el-option label="全部" value=""></el-option>
+                    <el-option label="启用" value="启用"></el-option>
+                    <el-option label="禁用" value="禁用"></el-option>
+                </el-select>
+            </el-form-item>
 
             <el-form-item>
                 <el-button-group>
@@ -153,7 +160,7 @@
 <script>
     import {
         footballList,
-        authAdminRoleList,
+        thirdBallStatusSave,
         thirdBallSave,
         thirdBallSequence,
         thirdMerchantgameSave,
@@ -307,9 +314,9 @@
                 thirdMerchantgameSave(params).then(
                     function (res) {
                         // debugger
-                        /*if(res.code === 1){
+                        if(res.code === '1'){
                             this.$message({
-                                message: res.data,
+                                message: res.message,
                                 type: 'success'
                             })
                             this.dialogFormVisible = false
@@ -318,12 +325,11 @@
                                 message: '错误信息：'+res.message,
                                 type: 'error'
                             });
-                        }*/
-                        this.$message({
+                        }
+                        /*this.$message({
                             message: '数据处理成功',
                             type: 'success'
-                        })
-                        this.getList();
+                        })*/
                     }.bind(this)
                 )
             },

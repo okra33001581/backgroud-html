@@ -326,9 +326,9 @@
                 thirdMerchantgameSave(params).then(
                     function (res) {
                         // debugger
-                        /*if(res.code === 1){
+                        if(res.code === '1'){
                             this.$message({
-                                message: res.data,
+                                message: res.message,
                                 type: 'success'
                             })
                             this.dialogFormVisible = false
@@ -337,12 +337,11 @@
                                 message: '错误信息：'+res.message,
                                 type: 'error'
                             });
-                        }*/
-                        this.$message({
+                        }
+                        /*this.$message({
                             message: '数据处理成功',
                             type: 'success'
-                        })
-                        this.getList();
+                        })*/
                     }.bind(this)
                 )
             },
