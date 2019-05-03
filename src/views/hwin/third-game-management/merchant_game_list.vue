@@ -3,19 +3,31 @@
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
             <el-form-item class="query-form-item">
-                <el-input v-model="query.merchant_name" placeholder="商户"></el-input>
+                <el-input v-model="query.merchant_name" placeholder="商户名称"></el-input>
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-input v-model="query.title" placeholder="标题"></el-input>
+                <el-input v-model="query.type" placeholder="游戏分类"></el-input>
             </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-input v-model="query.plat_name" placeholder="游戏平台"></el-input>
+            </el-form-item>
+
+            <el-form-item class="query-form-item">
+                <el-input v-model="query.sub_game_name" placeholder="游戏明细"></el-input>
+            </el-form-item>
+
             <el-form-item class="query-form-item">
                 <el-select v-model="query.status" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
                     <el-option label="正常" value="正常"></el-option>
-                    <el-option label="隐藏" value="隐藏"></el-option>
+                    <el-option label="禁用" value="禁用"></el-option>
                 </el-select>
             </el-form-item>
+
+
+
             <el-form-item>
                 <el-button-group>
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
@@ -75,7 +87,7 @@
                     </el-button>
 
 
-                    <el-button v-if="scope.row.status === '禁用'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemSuccessServer(scope.$index, scope.row)">启用
+                    <el-button v-if="scope.row.status === '禁用' || scope.row.status === null" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemSuccessServer(scope.$index, scope.row)">启用
                     </el-button>
                     <el-button v-if="scope.row.status === '启用'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemFailedServer(scope.$index, scope.row)">禁用
                     </el-button>

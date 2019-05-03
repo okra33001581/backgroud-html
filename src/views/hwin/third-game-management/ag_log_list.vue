@@ -3,17 +3,10 @@
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
             <el-form-item class="query-form-item">
-                <el-input v-model="query.merchant_name" placeholder="商户"></el-input>
-            </el-form-item>
-
-            <el-form-item class="query-form-item">
-                <el-input v-model="query.title" placeholder="标题"></el-input>
-            </el-form-item>
-            <el-form-item class="query-form-item">
-                <el-select v-model="query.status" placeholder="状态">
+                <el-select v-model="query.is_parse" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="正常" value="正常"></el-option>
-                    <el-option label="隐藏" value="隐藏"></el-option>
+                    <el-option label="解析" value="解析"></el-option>
+                    <el-option label="未解析" value="未解析"></el-option>
                 </el-select>
             </el-form-item>
             <el-form-item>
