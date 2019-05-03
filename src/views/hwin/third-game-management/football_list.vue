@@ -138,8 +138,15 @@
                     <el-input v-model="formData.nationality" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="国旗" prop="icon">
-                    <el-input v-model="formData.icon" auto-complete="off"></el-input>
+                <el-form-item :label="国旗" prop="icon">
+                    <el-upload
+                            action="http://apidemo.test/api/event/fileSave?table=eventPic1"
+                            list-type="picture-card"
+                            :on-success="handlePic1Success"
+                            :beforeUpload="beforeAvatarUpload"
+                            :on-remove="handleRemove">
+                        <img :src="formData.icon" class="el-upload el-upload--picture-card"/>
+                    </el-upload>
                 </el-form-item>
 
                 <el-form-item label="联赛名称" prop="name">
@@ -271,6 +278,10 @@
                     query: this.query
                 });
                 this.getList();
+            },
+            handlePic1Success(response, file, fileList) {
+                //response这个
+                this.formData.icon = response.data;
             },
             //设置表格第一行的颜色
             getRowClass({ row, column, rowIndex, columnIndex }) {
