@@ -607,7 +607,7 @@ export const asyncRouterMap = [
         },
         // noDropdown: true,
         children: [
-            {
+            /*{
                 path: "proxygames_list",
                 component: proxygames_list,
                 name: "三方游戏",
@@ -615,7 +615,7 @@ export const asyncRouterMap = [
                 meta: {
                     authRule: ["hwin/proxygames_list"]
                 }
-            },
+            },*/
             {
                 path: "pgame_list",
                 component: pgame_list,
