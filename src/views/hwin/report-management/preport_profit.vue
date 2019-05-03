@@ -219,6 +219,7 @@
                     key: '-last_login_ip'
                 }],
                 list: [],
+                excelList: [],
                 total: 0,
                 loading: true,
                 index: null,
@@ -291,21 +292,30 @@
 
             handleDownload() {
                 this.downloadLoading = true
-                import('@/vendor/Export2Excel').then(excel => {
-                    const tHeader = ['ID','商户名称', '用户名', '时间', '所属组', '投注总额', '有效投注','中奖总额','返点总额','游戏盈亏','盈利率','注单量','活跃数']
-                    const filterVal = ['id','merchant_name', 'username', 'date', 'group', 'total_project', 'valid_project', 'prize_total_amount', 'rebate_amount', 'game_profit_loss', 'profit_ratio', 'project_count', 'active_count']
-                    const list = this.list
-                    const data = this.formatJson(filterVal, list)
-                    excel.export_json_to_excel({
-                        header: tHeader,
-                        data,
-                        filename: this.filename,
-                        autoWidth: this.autoWidth
+                this.loading = true;
+                this.query.limit = 9999;
+                preportProfit(this.query)
+                    .then(response => {
+                        this.excelList = response.data.list.data || [];
+                        import('@/vendor/Export2Excel').then(excel => {
+                            const tHeader = ['ID','商户名称', '用户名', '时间', '所属组', '投注总额', '有效投注','中奖总额','返点总额','游戏盈亏','盈利率','注单量','活跃数']
+                            const filterVal = ['id','merchant_name', 'username', 'date', 'group', 'total_project', 'valid_project', 'prize_total_amount', 'rebate_amount', 'game_profit_loss', 'profit_ratio', 'project_count', 'active_count']
+                            const excelList = this.excelList
+                            const data = this.formatJson(filterVal, excelList)
+                            excel.export_json_to_excel({
+                                header: tHeader,
+                                data,
+                                filename: this.filename,
+                                autoWidth: this.autoWidth
+                            })
+                            this.downloadLoading = false
+                        })
                     })
-                    this.downloadLoading = false
-                })
+                    .catch(() => {
+                    });
+                
+                this.loading = false;
             },
-            
 
             formatJson(filterVal, jsonData) {
                 return jsonData.map(v => filterVal.map(j => {

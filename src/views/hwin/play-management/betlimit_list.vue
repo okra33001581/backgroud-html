@@ -349,8 +349,13 @@
             },
 
             getOptions() {
-                this.query.name = this.name;
-                betlimitOptions(this.query)
+                var parms =  {
+                    name: this.name,
+                    status: "",
+                    page: 1,
+                    limit: 20
+                }
+                betlimitOptions(parms)
                     .then(response => {
                         this.options = response.data.list || [];
                     })
