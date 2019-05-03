@@ -132,7 +132,7 @@
                             :on-success="handlePic1Success"
                             :beforeUpload="beforeAvatarUpload"
                             :on-remove="handleRemove">
-                        <img :src="formData.icon" class="el-upload el-upload--picture-card"/>
+                        <img :src="'http://apidemo.test/public/' + formData.icon" width="200px" height="150px"/>
                     </el-upload>
                 </el-form-item>
 
