@@ -178,9 +178,7 @@
                         {required: true, message: "请选择开户类型", trigger: "blur"}
                     ]
                 },
-                editRules: {
-        
-                },
+                
                 deleteLoading: false
             };
         },
@@ -228,7 +226,7 @@
                 // 更改值
                 this.formVisible = !this.formVisible;
                 // 清空表单
-                this.$refs["dataForm"].resetFields();
+                //this.$refs["dataForm"].resetFields();
                 return true;
             },
             // 显示表单
@@ -244,7 +242,6 @@
                 if (index !== null) {
                     this.index = index;
                     this.formName = "edit";
-                    this.formRules = this.editRules;
                 }
                 // 清空验证信息表单
                 if (this.$refs["dataForm"]) {

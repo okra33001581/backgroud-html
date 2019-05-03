@@ -501,7 +501,7 @@
             statusFilterName(status) {
                 const statusMap = {
                     0: "禁用",
-                    1: "正常",
+                    1: "启用",
                     2: "未验证"
                 };
                 return statusMap[status];

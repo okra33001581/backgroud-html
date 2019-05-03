@@ -10,8 +10,8 @@
             <el-form-item class="query-form-item">
                 <el-select v-model="query.status" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="正常" value="正常"></el-option>
-                    <el-option label="隐藏" value="隐藏"></el-option>
+                    <el-option label="启用" value="启用"></el-option>
+                    <el-option label="禁用" value="禁用"></el-option>
                 </el-select>
             </el-form-item>
 
@@ -49,7 +49,7 @@
             <el-table-column label="					ID		" prop="id" fixed></el-table-column>
             <el-table-column label="					入款方式		" prop="in_type" fixed></el-table-column>
             <el-table-column label="					支付类型		" prop="pay_type" fixed></el-table-column>
-            <el-table-column label="					排序值		" prop="id" fixed>
+            <el-table-column label="					排序值		" prop="sequence" fixed>
 
                 <template scope="scope">
                     <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="updateSequenceServer(scope.$index, scope.row)"
@@ -58,7 +58,7 @@
 
             </el-table-column>
 
-            <el-table-column label="					属性		" prop="id" fixed>
+            <el-table-column label="					属性		" prop="property" fixed>
                 <template slot-scope="scope">
                 <h1 v-if="scope.row.property.includes('热门') > 0">
                     <el-checkbox checked  @click.native="updatePropertyServer(scope.row.id, '-热门')">热门</el-checkbox>
@@ -69,7 +69,7 @@
                 </template>
             </el-table-column>
 
-            <el-table-column label="					支付类型别名		" prop="id" fixed>
+            <el-table-column label="					支付类型别名		" prop="pay_type_alias" fixed>
 
                 <template scope="scope">
                     <el-input size="small" v-model="scope.row.pay_type_alias" placeholder="请输入支付类型别名" @keyup.enter.native="updatePayTypeAliasServer(scope.$index, scope.row)"
@@ -78,7 +78,7 @@
 
             </el-table-column>
 
-            <el-table-column label="					菜单状态		" prop="id" fixed></el-table-column>
+            <el-table-column label="					菜单状态		" prop="status" fixed></el-table-column>
 
             <el-table-column
                     label="操作" width="260"
@@ -86,9 +86,10 @@
                 <template slot-scope="scope">
                    <!-- <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
                     </el-button>-->
-                    <el-button v-if="scope.row.status === '隐藏'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemSuccessServer(scope.$index, scope.row)">显示
+                    
+                    <el-button v-if="scope.row.status === '启用'" type="danger" size="small" icon="el-icon-edit" @click.native="auditItemFailedServer(scope.$index, scope.row)">禁用
                     </el-button>
-                    <el-button v-if="scope.row.status === '显示'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemFailedServer(scope.$index, scope.row)">隐藏
+                    <el-button v-else type="primary" size="small" icon="el-icon-edit" @click.native="auditItemSuccessServer(scope.$index, scope.row)">启用
                     </el-button>
 
                 </template>
@@ -115,24 +116,24 @@
                 <!--<el-form-item label="			ID    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>-->
                 <el-form-item label="			入款方式   		" prop="in_type"><el-input v-model="formData.in_type" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="			支付类型   		" prop="pay_type"><el-input v-model="formData.pay_type" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			排序值       		" prop="username">
+                <el-form-item label="			排序值       		" prop="sequence">
                     <template scope="scope">
                         <el-input size="small" v-model="formData.languageCode" placeholder="请输入排序值"
                         ></el-input>
                     </template>
                 </el-form-item>
-                <el-form-item label="			属性    		" prop="username">
+                <el-form-item label="			属性    		" prop="property">
                     <template slot-scope="scope">
                         <el-checkbox  v-model="formData.isCheck1">热门</el-checkbox>
                     </template>
                 </el-form-item>
-                <el-form-item label="			支付类型别名 		" prop="username">
+                <el-form-item label="			支付类型别名 		" prop="pay_type_alias">
                     <template scope="scope">
                         <el-input size="small" v-model="formData.languageCode" placeholder="请输入支付类型别名"
                         ></el-input>
                     </template>
                 </el-form-item>
-                <el-form-item label="			菜单状态   		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="			菜单状态   		" prop="status"><el-input v-model="formData.status" auto-complete="off"></el-input></el-form-item>
 
             </el-form>
             <div slot="footer" class="dialog-footer">
@@ -161,7 +162,7 @@
         password: "",
         username: "",
         checkPassword: "",
-        status: "1",
+        status: "",
         roles: []
     };
     export default {
@@ -327,7 +328,7 @@
             auditItemSuccessServer(index, row) {
                 var params = {
                     id: row.id,
-                    flag: '显示'
+                    flag: '启用'
                 }
                 // debugger
                 payGroupStatusSave(params).then(
@@ -446,7 +447,7 @@
             auditItemFailedServer(index, row) {
                 var params = {
                     id: row.id,
-                    flag: '隐藏'
+                    flag: '禁用'
                 }
                 // debugger
                 payGroupStatusSave(params).then(
@@ -626,7 +627,7 @@
             statusFilterName(status) {
                 const statusMap = {
                     0: "禁用",
-                    1: "正常",
+                    1: "启用",
                     2: "未验证"
                 };
                 return statusMap[status];

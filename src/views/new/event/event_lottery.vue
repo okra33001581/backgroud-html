@@ -9,7 +9,7 @@
                 <el-select v-model="query.status" placeholder="活动状态">
                     <el-option label="全部" value=""></el-option>
                     <el-option label="启用" value="0"></el-option>
-                    <el-option label="停用" value="1"></el-option>
+                    <el-option label="禁用" value="1"></el-option>
                 </el-select>
             </el-form-item>
             <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
@@ -140,7 +140,7 @@
                     </el-button>
                     <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">启用
                     </el-button>
-                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">停用
+                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">禁用
                     </el-button>
                 </template>
             </el-table-column>
@@ -538,7 +538,7 @@
             statusFilterName(status) {
                 const statusMap = {
                     0: "禁用",
-                    1: "正常",
+                    1: "启用",
                     2: "未验证"
                 };
                 return statusMap[status];

@@ -318,8 +318,11 @@
             handleDownload() {
                 this.downloadLoading = true
                 this.loading = true;
-                this.query.limit = 9999;
-                operationProfit(this.query)
+                let params = {
+                    page: 1,
+                    limit: 9999
+                };
+                operationProfit(params)
                     .then(response => {
                         this.excelList = response.data.list.data || [];
 

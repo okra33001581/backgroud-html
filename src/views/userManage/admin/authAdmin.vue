@@ -9,7 +9,7 @@
                 <el-select v-model="query.status" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
                     <el-option label="禁用" value="0"></el-option>
-                    <el-option label="正常" value="1"></el-option>
+                    <el-option label="启用" value="1"></el-option>
                     <el-option label="未验证" value="2"></el-option>
                 </el-select>
             </el-form-item>
@@ -114,9 +114,9 @@
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">{{$t('page.del')}}
                     </el-button>
 
-                    <el-button v-if="scope.row.status === 0" type="primary" size="small" icon="el-icon-edit" @click.native="itemSuccessServer(scope.$index, scope.row)">锁定
+                    <el-button v-if="scope.row.status === 0" type="danger" size="small" icon="el-icon-edit" @click.native="itemSuccessServer(scope.$index, scope.row)">禁用
                     </el-button>
-                    <el-button v-if="scope.row.status === 1" type="primary" size="small" icon="el-icon-edit" @click.native="itemFailedServer(scope.$index, scope.row)">解锁
+                    <el-button v-else type="primary" size="small" icon="el-icon-edit" @click.native="itemFailedServer(scope.$index, scope.row)">启用
                     </el-button>
 
                 </template>
@@ -566,7 +566,7 @@
             statusFilterName(status) {
                 const statusMap = {
                     0: "禁用",
-                    1: "正常",
+                    1: "启用",
                     2: "未验证"
                 };
                 return statusMap[status];

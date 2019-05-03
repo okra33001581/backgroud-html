@@ -10,8 +10,8 @@
             <el-form-item class="query-form-item">
                 <el-select v-model="query.status" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="正常" value="正常"></el-option>
-                    <el-option label="隐藏" value="隐藏"></el-option>
+                    <el-option label="启用" value="启用"></el-option>
+                    <el-option label="禁用" value="禁用"></el-option>
                 </el-select>
             </el-form-item>
 
@@ -98,10 +98,12 @@
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
                     </el-button>
 
-                    <el-button v-if="scope.row.status === '隐藏'" type="primary" size="small" icon="el-icon-edit" @click.native="itemSuccessServer(scope.$index, scope.row)">正常
+
+                    <el-button v-if="scope.row.status === '启用'" type="danger" size="small" icon="el-icon-edit" @click.native="itemFailedServer(scope.$index, scope.row)">禁用
                     </el-button>
-                    <el-button v-if="scope.row.status === '正常'" type="primary" size="small" icon="el-icon-edit" @click.native="itemFailedServer(scope.$index, scope.row)">隐藏
+                    <el-button v-else type="primary" size="small" icon="el-icon-edit" @click.native="itemSuccessServer(scope.$index, scope.row)">启用
                     </el-button>
+                    
 
                     <el-button v-if="scope.row.is_top === '解除置顶'" type="primary" size="small" icon="el-icon-edit" @click.native="itemIsTopSuccessServer(scope.$index, scope.row)">置顶
                     </el-button>
@@ -532,7 +534,7 @@
             itemSuccessServer(index, row) {
                 var params = {
                     id: row.id,
-                    flag: '正常'
+                    flag: '启用'
                 }
                 // debugger
                 thirdAccountStatusSave(params).then(
@@ -561,7 +563,7 @@
             itemFailedServer(index, row) {
                 var params = {
                     id: row.id,
-                    flag: '隐藏'
+                    flag: '禁用'
                 }
                 // debugger
                 thirdAccountStatusSave(params).then(
@@ -695,7 +697,7 @@
             statusFilterName(status) {
                 const statusMap = {
                     0: "禁用",
-                    1: "正常",
+                    1: "启用",
                     2: "未验证"
                 };
                 return statusMap[status];

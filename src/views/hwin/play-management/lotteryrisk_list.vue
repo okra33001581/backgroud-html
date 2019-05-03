@@ -7,8 +7,8 @@
             <el-form-item class="query-form-item">
                 <el-select v-model="query.status" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="禁用" value="0"></el-option>
-                    <el-option label="正常" value="1"></el-option>
+                    <el-option label="拒绝" value="0"></el-option>
+                    <el-option label="同意" value="1"></el-option>
                     <el-option label="未验证" value="2"></el-option>
                 </el-select>
             </el-form-item>
@@ -50,12 +50,12 @@
             <el-table-column label="状态" prop="status" fixed></el-table-column>
             <el-table-column label="操作" width="260" fixed="right">
             <template slot-scope="scope">
-                <h1 v-if="scope.row.status=='已通过'">
+                <h1 v-if="scope.row.status=='同意'">
                     <el-button type="danger" size="small" @click.native="auditRisk(scope.$index, scope.row,'refuse')">拒绝
                     </el-button>
                 </h1>
                 <h1 v-else>
-                    <el-button type="primary" size="small" @click.native="auditRisk(scope.$index, scope.row,'pass')">通过
+                    <el-button type="primary" size="small" @click.native="auditRisk(scope.$index, scope.row,'pass')">同意
                     </el-button>
                 </h1>
             </template>
@@ -418,7 +418,7 @@
             statusFilterName(status) {
                 const statusMap = {
                     0: "禁用",
-                    1: "正常",
+                    1: "启用",
                     2: "未验证"
                 };
                 return statusMap[status];

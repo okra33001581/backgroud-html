@@ -8,8 +8,8 @@
             <el-form-item class="query-form-item">
                 <el-select v-model="query.status" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="正常" value="正常"></el-option>
-                    <el-option label="隐藏" value="隐藏"></el-option>
+                    <el-option label="启用" value="启用"></el-option>
+                    <el-option label="禁用" value="禁用"></el-option>
                 </el-select>
             </el-form-item>
 
@@ -72,15 +72,15 @@
 
                 <el-form-item label="显示状态" prop="status">
                     <el-radio-group v-model="formData.status">
-                        <el-radio label="正常">正常</el-radio>
-                        <el-radio label="隐藏">隐藏</el-radio>
+                        <el-radio label="启用">启用</el-radio>
+                        <el-radio label="禁用">禁用</el-radio>
                     </el-radio-group>
                 </el-form-item>
 
                 <el-form-item label="显示方式" prop="display_style">
                     <el-radio-group v-model="formData.display_style">
                         <el-radio label="启用"> 启用</el-radio>
-                        <el-radio label="停用">停用</el-radio>
+                        <el-radio label="禁用">禁用</el-radio>
                     </el-radio-group>
                 </el-form-item>
 
@@ -430,7 +430,7 @@
             statusFilterName(status) {
                 const statusMap = {
                     0: "禁用",
-                    1: "正常",
+                    1: "启用",
                     2: "未验证"
                 };
                 return statusMap[status];
