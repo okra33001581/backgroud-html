@@ -104,7 +104,7 @@
                 <el-form-item label="			名称 		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
 
 
-                <el-form-item :label="图片" prop="bannerPc">
+                <el-form-item label="图片" prop="bannerPc">
                     <el-upload
                             action="http://apidemo.test/api/event/fileSave?table=eventPic1"
                             list-type="picture-card"
@@ -140,7 +140,7 @@
                 </el-form-item>
 
 
-                <el-form-item :label="图片" prop="bannerPc">
+                <el-form-item label="图片" prop="bannerPc">
                     <el-upload
                             action="http://apidemo.test/api/event/fileSave?table=eventPic1"
                             list-type="picture-card"
@@ -218,6 +218,7 @@
                     sort: '+id'
                 },
                 tableKey: 0,
+                pic:'',
                 sortOptions: [{label: 'ID Ascending', key: '+id'}, {
                     label: 'ID Descending',
                     key: '-id'
@@ -301,6 +302,27 @@
             handleFilter() {
                 this.query.page = 1
                 this.getList()
+            },
+            beforeAvatarUpload(file) {
+                var testmsg=file.name.substring(file.name.lastIndexOf('.')+1)
+                const extension = testmsg === 'jpg'
+                const extension2 = testmsg === 'png'
+                const isLt2M = file.size / 1024 / 1024 < 10
+                if(!extension && !extension2) {
+                    this.$message({
+                        message: '上传文件只能是 jpg、png格式!',
+                        type: 'warning'
+                    });
+                }
+                if(!isLt2M) {
+                    this.$message({
+                        message: '上传文件大小不能超过 10MB!',
+                        type: 'warning'
+                    });
+                }  return extension || extension2 && isLt2M
+            },
+            handleRemove(file, fileList) {
+                console.log(file, fileList);
             },
             handlePic1Success(response, file, fileList) {
                 //response这个

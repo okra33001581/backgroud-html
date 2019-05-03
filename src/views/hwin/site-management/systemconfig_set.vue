@@ -468,15 +468,13 @@
                                         v-model="formData.withdraw_date_begin"
                                         type="date"
                                         value-format="yyyy-MM-dd"
-                                        placeholder="开始时间"
-                                        :picker-options="pickerOptions0">
+                                        placeholder="开始时间">
                                 </el-date-picker>
                                 <el-date-picker
                                         v-model="formData.withdraw_date_end"
                                         type="date"
                                         value-format="yyyy-MM-dd"
-                                        placeholder="结束时间"
-                                        :picker-options="pickerOptions1">
+                                        placeholder="结束时间">
                                 </el-date-picker>
                             </template>
                         </td>

@@ -194,6 +194,7 @@
                     sort: '+id'
                 },
                 tableKey: 0,
+                sub_game_icon:'',
                 sortOptions: [{label: 'ID Ascending', key: '+id'}, {
                     label: 'ID Descending',
                     key: '-id'
