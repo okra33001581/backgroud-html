@@ -16,15 +16,13 @@
                         v-model="query.beginDate"
                         type="date"
                         placeholder="开始时间"
-                        value-format="yyyy-MM-dd 00:00:00" format="yyyy-MM-dd 00:00:00"
-                        :picker-options="pickerOptions0">
+                        value-format="yyyy-MM-dd 00:00:00" format="yyyy-MM-dd 00:00:00">
                 </el-date-picker>
                 <el-date-picker
                         v-model="query.endDate"
                         type="date"
                         placeholder="结束时间"
-                        value-format="yyyy-MM-dd 23:59:59" format="yyyy-MM-dd 23:59:59"
-                        :picker-options="pickerOptions1">
+                        value-format="yyyy-MM-dd 23:59:59" format="yyyy-MM-dd 23:59:59">
                 </el-date-picker>
             </el-form-item>
 
@@ -61,7 +59,7 @@
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass"
-                @selection-change="selsChange" @row-click="handleChange">
+                @selection-change="selsChange">
             <el-table-column type="selection" width="55">
             </el-table-column>
             <el-table-column label="					ID		" prop="id" fixed></el-table-column>
@@ -85,7 +83,7 @@
                     </el-button>
                     <el-button v-else type="primary" size="small" icon="el-icon-edit" @click.native="itemSuccessServer(scope.$index, scope.row)">同意
                     </el-button>
-                    
+
                 </template>
             </el-table-column>
         </el-table>
