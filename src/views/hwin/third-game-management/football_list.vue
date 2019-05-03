@@ -114,31 +114,31 @@
                 :title="formMap[formName]"
                 :visible.sync="formVisible"
                 :before-close="hideForm"
-                width="35%"
+                width="40%"
                 top="5vh">
-            <el-form :model="formData" :rules="formRules" ref="dataForm">
+            <el-form :model="formData" :rules="formRules" ref="dataForm" label-width="120px">
                 <!--<el-form-item label="Id" prop="id">
                    <el-input v-model="formData.id" auto-complete="off"></el-input>
                </el-form-item>-->
 
                 <el-form-item label="type" prop="type">
-                    <el-input v-model="formData.type" auto-complete="off"></el-input>
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.type" auto-complete="off"></el-input>
                 </el-form-item>
 
                 <el-form-item label="排序值" prop="sequence">
-                    <el-input v-model="formData.sequence" auto-complete="off"></el-input>
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.sequence" auto-complete="off"></el-input>
                 </el-form-item>
 
 
                 <el-form-item label="区域" prop="district">
-                    <el-input v-model="formData.district" auto-complete="off"></el-input>
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.district" auto-complete="off"></el-input>
                 </el-form-item>
 
                 <el-form-item label="国家" prop="nationality">
-                    <el-input v-model="formData.nationality" auto-complete="off"></el-input>
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.nationality" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item :label="国旗" prop="icon">
+                <el-form-item label="国旗" prop="icon">
                     <el-upload
                             action="http://apidemo.test/api/event/fileSave?table=eventPic1"
                             list-type="picture-card"
@@ -150,7 +150,7 @@
                 </el-form-item>
 
                 <el-form-item label="联赛名称" prop="name">
-                    <el-input v-model="formData.name" auto-complete="off"></el-input>
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.name" auto-complete="off"></el-input>
                 </el-form-item>
 
 
@@ -211,6 +211,7 @@
                     sort: '+id'
                 },
                 tableKey: 0,
+                icon:'',
                 sortOptions: [{label: 'ID Ascending', key: '+id'}, {
                     label: 'ID Descending',
                     key: '-id'
@@ -278,6 +279,27 @@
                     query: this.query
                 });
                 this.getList();
+            },
+            beforeAvatarUpload(file) {
+                var testmsg=file.name.substring(file.name.lastIndexOf('.')+1)
+                const extension = testmsg === 'jpg'
+                const extension2 = testmsg === 'png'
+                const isLt2M = file.size / 1024 / 1024 < 10
+                if(!extension && !extension2) {
+                    this.$message({
+                        message: '上传文件只能是 jpg、png格式!',
+                        type: 'warning'
+                    });
+                }
+                if(!isLt2M) {
+                    this.$message({
+                        message: '上传文件大小不能超过 10MB!',
+                        type: 'warning'
+                    });
+                }  return extension || extension2 && isLt2M
+            },
+            handleRemove(file, fileList) {
+                console.log(file, fileList);
             },
             handlePic1Success(response, file, fileList) {
                 //response这个

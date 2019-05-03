@@ -13,15 +13,13 @@
                         v-model="query.request_beginDate"
                         type="date"
                         placeholder="开始时间"
-                        value-format="yyyy-MM-dd 00:00:00" format="yyyy-MM-dd 00:00:00"
-                        :picker-options="pickerOptions0">
+                        value-format="yyyy-MM-dd 00:00:00" format="yyyy-MM-dd 00:00:00">
                 </el-date-picker>
                 <el-date-picker
                         v-model="query.request_endDate"
                         type="date"
                         placeholder="结束时间"
-                        value-format="yyyy-MM-dd 23:59:59" format="yyyy-MM-dd 23:59:59"
-                        :picker-options="pickerOptions1">
+                        value-format="yyyy-MM-dd 23:59:59" format="yyyy-MM-dd 23:59:59">
                 </el-date-picker>
             </el-form-item>
 
@@ -135,7 +133,7 @@
             <el-table-column label="					备注		" prop="memo" fixed></el-table-column>
 
             <el-table-column
-                    label="操作" 
+                    label="操作"
                     fixed="right">
                 <template slot-scope="scope">
 
@@ -143,7 +141,7 @@
                     </el-button>
                     <el-button v-else type="primary" size="small" icon="el-icon-edit" @click.native="itemSuccessServer(scope.$index, scope.row)">同意
                     </el-button>
-                    
+
                 </template>
             </el-table-column>
         </el-table>
