@@ -64,9 +64,9 @@
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
                     </el-button>
 
-                    <el-button v-if="scope.row.status === '禁用' || scope.row.status === null" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemSuccessServer(scope.$index, scope.row)">启用
+                    <el-button v-if="scope.row.status === '禁用' || scope.row.status === null" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'启用')">启用
                     </el-button>
-                    <el-button v-if="scope.row.status === '启用'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemFailedServer(scope.$index, scope.row)">禁用
+                    <el-button v-if="scope.row.status === '启用'" type="danger" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'禁用')">禁用
                     </el-button>
 
                 </template>
@@ -398,18 +398,19 @@
                         this.roles = [];
                     });
             },
-            auditItemSuccessServer(index, row) {
+            
+            auditItemServer(row,flag) {
                 var params = {
                     id: row.id,
-                    flag: '启用'
+                    flag: flag
                 }
                 // debugger
                 thirdPlatsStatusSave(params).then(
                     function (res) {
                         // debugger
-                        /*if(res.code === 1){
+                        if(res.code === 1){
                             this.$message({
-                                message: res.data,
+                                message: res.message,
                                 type: 'success'
                             })
                             this.dialogFormVisible = false
@@ -418,44 +419,12 @@
                                 message: '错误信息：'+res.message,
                                 type: 'error'
                             });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
+                        }
                         this.getList();
                     }.bind(this)
                 )
             },
-            auditItemFailedServer(index, row) {
-                var params = {
-                    id: row.id,
-                    flag: '禁用'
-                }
-                // debugger
-                thirdPlatsStatusSave(params).then(
-                    function (res) {
-                        // debugger
-                        /*if(res.code === 1){
-                            this.$message({
-                                message: res.data,
-                                type: 'success'
-                            })
-                            this.dialogFormVisible = false
-                        }else{
-                            this.$message({
-                                message: '错误信息：'+res.message,
-                                type: 'error'
-                            });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
-                        this.getList();
-                    }.bind(this)
-                )
-            },
+
             // 隐藏表单
             hideForm() {
                 // 更改值

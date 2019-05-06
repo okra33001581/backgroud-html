@@ -69,9 +69,9 @@
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
                     </el-button>
 
-                    <el-button v-if="scope.row.status === '禁用' || scope.row.status === null" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemSuccessServer(scope.$index, scope.row)">启用
+                    <el-button v-if="scope.row.status === '禁用' || scope.row.status === null" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'启用')">启用
                     </el-button>
-                    <el-button v-if="scope.row.status === '启用'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemFailedServer(scope.$index, scope.row)">禁用
+                    <el-button v-if="scope.row.status === '启用'" type="danger" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'禁用')">禁用
                     </el-button>
 
                 </template>
@@ -201,9 +201,9 @@
                                 label="操作" width="100"
                                 fixed="right">
                             <template slot-scope="scope">
-                                <el-button v-if="scope.row.status === '禁用'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemSubSuccessServer(scope.$index, scope.row)">启用
+                                <el-button v-if="scope.row.status === '禁用'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemSubServer(scope.row,'启用')">启用
                                 </el-button>
-                                <el-button v-if="scope.row.status === '启用'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemSubFailedServer(scope.$index, scope.row)">禁用
+                                <el-button v-if="scope.row.status === '启用'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemSubServer(scope.row,'禁用')">禁用
                                 </el-button>
 
                                 <!--<el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
@@ -477,132 +477,56 @@
                     }.bind(this)
                 )
             },
-            auditItemSuccessServer(index, row) {
-                var params = {
-                    id: row.id,
-                    flag: '启用'
-                }
-                // debugger
-                thirdGameTypesStatusSave(params).then(
-                    function (res) {
-                        // debugger
-                        /*if(res.code === 1){
-                            this.$message({
-                                message: res.data,
-                                type: 'success'
-                            })
-                            this.dialogFormVisible = false
-                        }else{
-                            this.$message({
-                                message: '错误信息：'+res.message,
-                                type: 'error'
-                            });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
-                        this.getList();
-                    }.bind(this)
-                )
-            },
-            auditItemFailedServer(index, row) {
-                var params = {
-                    id: row.id,
-                    flag: '禁用'
-                }
-                // debugger
-                thirdGameTypesStatusSave(params).then(
-                    function (res) {
-                        // debugger
-                        /*if(res.code === 1){
-                            this.$message({
-                                message: res.data,
-                                type: 'success'
-                            })
-                            this.dialogFormVisible = false
-                        }else{
-                            this.$message({
-                                message: '错误信息：'+res.message,
-                                type: 'error'
-                            });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
-                        this.getList();
-                    }.bind(this)
-                )
-            },
-            auditItemSubSuccessServer(index, row) {
-                var params = {
-                    id: row.id,
-                    flag: '启用'
-                }
-                // debugger
-                thirdGameTypesSubStatusSave(params).then(
-                    function (res) {
-                        // debugger
-                        /*if(res.code === 1){
-                            this.$message({
-                                message: res.data,
-                                type: 'success'
-                            })
-                            this.dialogFormVisible = false
-                        }else{
-                            this.$message({
-                                message: '错误信息：'+res.message,
-                                type: 'error'
-                            });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
-                        gameTypeDetailList(this.query)
-                            .then(response => {
-                                this.tableData = response.data.list.data || [];
-                            })
-                            .catch(() => {
-                                this.roles = [];
-                            });
-                    }.bind(this)
-                )
-            },
-            auditItemSubFailedServer(index, row) {
-                var params = {
-                    id: row.id,
-                    flag: '禁用'
-                }
-                // debugger
-                thirdGameTypesSubStatusSave(params).then(
-                    function (res) {
-                        // debugger
-                        /*if(res.code === 1){
-                            this.$message({
-                                message: res.data,
-                                type: 'success'
-                            })
-                            this.dialogFormVisible = false
-                        }else{
-                            this.$message({
-                                message: '错误信息：'+res.message,
-                                type: 'error'
-                            });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
-                        gameTypeDetailList(this.query)
-                            .then(response => {
-                                this.tableData = response.data.list.data || [];
-                            })
-                            .catch(() => {
-                                this.roles = [];
-                            });
 
+            
+            auditItemServer(row,flag) {
+                var params = {
+                    id: row.id,
+                    flag: flag
+                }
+                // debugger
+                thirdGameTypesStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        if(res.code === 1){
+                            this.$message({
+                                message: res.message,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }
+                        this.getList();
+                    }.bind(this)
+                )
+            },
+
+            auditItemSubServer(row,flag) {
+                var params = {
+                    id: row.id,
+                    flag: flag
+                }
+                // debugger
+                thirdGameTypesSubStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        if(res.code === 1){
+                            this.$message({
+                                message: res.message,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }
+                        this.getList();
                     }.bind(this)
                 )
             },

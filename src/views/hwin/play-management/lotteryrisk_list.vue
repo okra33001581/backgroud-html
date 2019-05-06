@@ -7,9 +7,9 @@
             <el-form-item class="query-form-item">
                 <el-select v-model="query.status" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="拒绝" value="0"></el-option>
-                    <el-option label="同意" value="1"></el-option>
-                    <el-option label="未验证" value="2"></el-option>
+                    <el-option label="拒绝" value="拒绝"></el-option>
+                    <el-option label="同意" value="同意"></el-option>
+                    <el-option label="未验证" value="未验证"></el-option>
                 </el-select>
             </el-form-item>
 
@@ -51,11 +51,11 @@
             <el-table-column label="操作" width="260" fixed="right">
             <template slot-scope="scope">
                 <h1 v-if="scope.row.status=='同意'">
-                    <el-button type="danger" size="small" @click.native="auditRisk(scope.$index, scope.row,'refuse')">拒绝
+                    <el-button type="danger" size="small" @click.native="auditRisk(scope.row,'拒绝')">拒绝
                     </el-button>
                 </h1>
                 <h1 v-else>
-                    <el-button type="primary" size="small" @click.native="auditRisk(scope.$index, scope.row,'pass')">同意
+                    <el-button type="primary" size="small" @click.native="auditRisk(scope.row,'同意')">同意
                     </el-button>
                 </h1>
             </template>
@@ -139,22 +139,6 @@
     };
     export default {
         data() {
-            let validatePass = (rule, value, callback) => {
-                if (value === "") {
-                    callback(new Error("请输入密码"));
-                } else {
-                    callback();
-                }
-            };
-            let validatePass2 = (rule, value, callback) => {
-                if (value === "") {
-                    callback(new Error("请再次输入密码"));
-                } else if (value !== this.formData.password) {
-                    callback(new Error("两次输入密码不一致!"));
-                } else {
-                    callback();
-                }
-            };
             return {
                 query: {
                     merchant_name: "",
@@ -280,7 +264,7 @@
                 return true;
             },
 
-            auditRisk(index, row,type) {
+            auditRisk(row,type) {
                 var params = {
                     id: row.id,
                     flag: type
@@ -289,9 +273,9 @@
                 lotteryriskStatusSave(params).then(
                     function (res) {
                         // debugger
-                        /*if(res.code === 1){
+                        if(res.code === 1){
                             this.$message({
-                                message: res.data,
+                                message: res.message,
                                 type: 'success'
                             })
                             this.dialogFormVisible = false
@@ -300,11 +284,7 @@
                                 message: '错误信息：'+res.message,
                                 type: 'error'
                             });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
+                        }
                         this.getList();
                     }.bind(this)
                 )
