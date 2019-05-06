@@ -24,7 +24,7 @@
 
             <el-form-item class="query-form-item">
 
-                <el-button @click="getDayBetween('yesterday')">今天</el-button>
+                <el-button @click="getDayBetween('yesterday')">昨天</el-button>
                 <el-button @click="getDayBetween('today')">今天</el-button>
                 <el-button @click="getDayBetween('last_week')">上周</el-button>
                 <el-button @click="getDayBetween('current_week')">本周</el-button>
@@ -291,10 +291,7 @@
             handleDownload() {
                 this.downloadLoading = true
                 this.loading = true;
-                let params = {
-                    page: 1,
-                    limit: 9999
-                };
+                let params = Object.assign({}, this.query, {'limit': 9999});
                 preportProfit(params)
                     .then(response => {
                         this.excelList = response.data.list.data || [];

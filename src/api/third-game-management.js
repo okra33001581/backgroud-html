@@ -126,7 +126,7 @@ export function thirdGameTypesSequence(data, formName, method = "post") {
     });
 }
 
-// 保存
+// 修改排序值
 export function thirdMerchantGameSequence(data, formName, method = "post") {
     let url =
         formName === "add"
@@ -135,6 +135,23 @@ export function thirdMerchantGameSequence(data, formName, method = "post") {
     return axios({
         url: url,
         method: method,
+        data: data
+    });
+}
+
+// 修改游戏费用值
+export function thirdMerchantGameFee(data) {
+    return axios({
+        url: "event/thirdMerchantGameFee",
+        method: "post",
+        data: data
+    });
+}
+// 修改游戏费用明细值
+export function thirdMerchantGameSubFee(data) {
+    return axios({
+        url: "event/thirdMerchantGameSubFee",
+        method: "post",
         data: data
     });
 }
