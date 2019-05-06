@@ -11,15 +11,13 @@
                         v-model="query.beginDate"
                         type="date"
                         placeholder="开始时间"
-                        value-format="yyyy-MM-dd 00:00:00" format="yyyy-MM-dd 00:00:00"
-                        :picker-options="pickerOptions0">
+                        value-format="yyyy-MM-dd 00:00:00" format="yyyy-MM-dd 00:00:00">
                 </el-date-picker>
                 <el-date-picker
                         v-model="query.endDate"
                         type="date"
                         placeholder="结束时间"
-                        value-format="yyyy-MM-dd 23:59:59" format="yyyy-MM-dd 23:59:59"
-                        :picker-options="pickerOptions1">
+                        value-format="yyyy-MM-dd 23:59:59" format="yyyy-MM-dd 23:59:59">
                 </el-date-picker>
             </el-form-item>
 
@@ -288,7 +286,7 @@
                 this.getList()
             },
 
-            
+
 
             handleDownload() {
                 this.downloadLoading = true
@@ -313,7 +311,7 @@
                     })
                     .catch(() => {
                     });
-                
+
                 this.loading = false;
             },
 

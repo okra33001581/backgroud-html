@@ -64,7 +64,7 @@
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass"
-                @selection-change="selsChange" @expand-change="rowExpand">
+                @expand-change="rowExpand">
             <el-table-column type="expand">
                 <template slot-scope="props">
                     <el-form label-position="left" inline class="demo-table-expand">
@@ -720,6 +720,7 @@
                 terminalDisplay,
                 selectedOption:{},
                 auditMode,
+                fileList:[],
                 value5: [],
                 value11: [],
                 tableData: [],
