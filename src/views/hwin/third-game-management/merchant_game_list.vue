@@ -26,8 +26,6 @@
                 </el-select>
             </el-form-item>
 
-
-
             <el-form-item>
                 <el-button-group>
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
@@ -45,13 +43,12 @@
                 fit
                 highlight-current-row
                 style="width: 100%;"
-                @sort-change="sortChange"
                 element-loading-text="拼命加载中"
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
-            <el-table-column label="			Id				" prop="id" fixed></el-table-column>
-            <el-table-column label="					排序值		" prop="id" fixed>
+            <el-table-column label="Id" prop="id" fixed></el-table-column>
+            <el-table-column label="排序值" prop="id" fixed>
 
                 <template scope="scope">
                     <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="thirdMerchantGameSequence(scope.$index, scope.row)"
@@ -59,12 +56,12 @@
                 </template>
 
             </el-table-column>
-            <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
-            <el-table-column label="			游戏分类				" prop="type" fixed></el-table-column>
-            <el-table-column label="			游戏平台				" prop="plat_name" fixed></el-table-column>
-            <el-table-column label="			游戏明细				" prop="sub_game_name" fixed></el-table-column>
+            <el-table-column label="商户名称" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="游戏分类" prop="type" fixed></el-table-column>
+            <el-table-column label="游戏平台" prop="plat_name" fixed></el-table-column>
+            <el-table-column label="游戏明细" prop="sub_game_name" fixed></el-table-column>
 
-            <el-table-column label="			图标				" prop="sub_game_icon" >
+            <el-table-column label="图标" prop="sub_game_icon" >
                 <template slot-scope="scope">
                     <el-popover
                             placement="right"
@@ -76,6 +73,18 @@
                 </template>
 
             </el-table-column>
+            <el-table-column label="游戏费用" prop="id" fixed>
+                <template scope="scope">
+                    <el-input size="small" v-model="scope.row.fee" placeholder="请输入排序值" @keyup.enter.native="thirdMerchantGameFee(scope.$index, scope.row)"
+                    ></el-input>
+                </template>
+            </el-table-column>
+            <el-table-column label="游戏明细费用" prop="id" fixed>
+                <template scope="scope">
+                    <el-input size="small" v-model="scope.row.sub_fee" placeholder="请输入排序值" @keyup.enter.native="thirdMerchantGameSubFee(scope.$index, scope.row)"
+                    ></el-input>
+                </template>
+            </el-table-column>
 
             <el-table-column
                     label="操作" width="260"
@@ -86,10 +95,9 @@
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
                     </el-button>
 
-
                     <el-button v-if="scope.row.status === '禁用' || scope.row.status === null" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemSuccessServer(scope.$index, scope.row)">启用
                     </el-button>
-                    <el-button v-if="scope.row.status === '启用'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemFailedServer(scope.$index, scope.row)">禁用
+                    <el-button v-if="scope.row.status === '启用'" type="danger" size="small" icon="el-icon-edit" @click.native="auditItemFailedServer(scope.$index, scope.row)">禁用
                     </el-button>
 
                 </template>
@@ -154,63 +162,33 @@
         merchantGameList,
         thirdMerchantGameStatusSave,
         thirdMerchantGameSequence,
+        thirdMerchantGameFee,
+        thirdMerchantGameSubFee,
         thirdMerchantgameDel
     } from "../../../api/third-game-management";
 
     const formJson = {
         id: "",
-        password: "",
-        username: "",
-        checkPassword: "",
-        status: "1",
-        roles: []
+        sequence: "",
+        merchant_name: "",
+        type: "",
+        plat_name: "1",
+        sub_game_name: "1"
     };
     export default {
         data() {
-            let validatePass = (rule, value, callback) => {
-                if (value === "") {
-                    callback(new Error("请输入密码"));
-                } else {
-                    callback();
-                }
-            };
-            let validatePass2 = (rule, value, callback) => {
-                if (value === "") {
-                    callback(new Error("请再次输入密码"));
-                } else if (value !== this.formData.password) {
-                    callback(new Error("两次输入密码不一致!"));
-                } else {
-                    callback();
-                }
-            };
             return {
-                roles: [],
                 query: {
-                    username: "",
+                    merchant_name: "",
                     status: "",
                     page: 1,
                     limit: 20,
-                    role_id: "",
-                    sort: '+id'
+                    plat_name: '',
+                    sub_game_name: "",
+                    type: ''
                 },
                 tableKey: 0,
                 sub_game_icon:'',
-                sortOptions: [{label: 'ID Ascending', key: '+id'}, {
-                    label: 'ID Descending',
-                    key: '-id'
-                }, {label: 'username Ascending', key: '+username'}, {
-                    label: 'username Descending',
-                    key: '-username'
-                }, {label: 'status Ascending', key: '+status'}, {
-                    label: 'status Descending',
-                    key: '-status'
-                }, {label: 'last_login_time Ascending', key: '+last_login_time'}, {
-                    label: 'last_login_time Descending',
-                    key: '-last_login_time'
-                }, {label: 'last_login_ip Ascending', key: '+last_login_ip'}, {
-                    label: 'last_login_ip Descending',
-                    key: '-last_login_ip'
-                }],
                 list: [],
                 total: 0,
                 loading: true,
@@ -227,18 +205,6 @@
                 addRules: {
                     username: [
                         {required: true, message: "请输入姓名", trigger: "blur"}
-                    ],
-                    password: [
-                        {required: true, message: "请输入密码", trigger: "blur"},
-                        {validator: validatePass, trigger: "blur"}
-                    ],
-                    checkPassword: [
-                        {
-                            required: true,
-                            message: "请再次输入密码",
-                            trigger: "blur"
-                        },
-                        {validator: validatePass2, trigger: "blur"}
                     ],
                     status: [
                         {required: true, message: "请选择状态", trigger: "change"}
@@ -279,23 +245,7 @@
                 this.query.page = 1
                 this.getList()
             },
-            sortChange: function (column) {
-                // console.log(column)
-                // console.log(prop)
-                // console.log(order)
-                const {prop, order} = column
-                if (prop === 'id') {
-                    this.sortByID(order)
-                } else if (prop === 'username') {
-                    this.sortByUserName(order)
-                } else if (prop === 'status') {
-                    this.sortByStatus(order)
-                } else if (prop === 'last_login_time') {
-                    this.sortByLastLoginTime(order)
-                } else if (prop === 'last_login_ip') {
-                    this.sortByLastLoginIp(order)
-                }
-            },auditItemSuccessServer(index, row) {
+            auditItemSuccessServer(index, row) {
                 var params = {
                     id: row.id,
                     flag: '启用'
@@ -303,19 +253,6 @@
                 // debugger
                 thirdMerchantGameStatusSave(params).then(
                     function (res) {
-                        // debugger
-                        /*if(res.code === 1){
-                            this.$message({
-                                message: res.data,
-                                type: 'success'
-                            })
-                            this.dialogFormVisible = false
-                        }else{
-                            this.$message({
-                                message: '错误信息：'+res.message,
-                                type: 'error'
-                            });
-                        }*/
                         this.$message({
                             message: '数据处理成功',
                             type: 'success'
@@ -332,19 +269,6 @@
                 // debugger
                 thirdMerchantGameStatusSave(params).then(
                     function (res) {
-                        // debugger
-                        /*if(res.code === 1){
-                            this.$message({
-                                message: res.data,
-                                type: 'success'
-                            })
-                            this.dialogFormVisible = false
-                        }else{
-                            this.$message({
-                                message: '错误信息：'+res.message,
-                                type: 'error'
-                            });
-                        }*/
                         this.$message({
                             message: '数据处理成功',
                             type: 'success'
@@ -365,23 +289,7 @@
                         this.loading = false;
                         this.list = [];
                         this.total = 0;
-                        this.roles = [];
                     });
-            },
-            /*sortChange2(data) {
-                const { prop, order } = data
-                if (prop === 'id') {
-                    this.sortByID(order)
-                }
-            },*/
-
-            sortByID(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+id'
-                } else {
-                    this.query.sort = '-id'
-                }
-                this.handleFilter()
             },
             thirdMerchantGameSequence(index, row) {
                 var params = {
@@ -391,19 +299,6 @@
                 // debugger
                 thirdMerchantGameSequence(params).then(
                     function (res) {
-                        // debugger
-                        /*if(res.code === 1){
-                            this.$message({
-                                message: res.data,
-                                type: 'success'
-                            })
-                            this.dialogFormVisible = false
-                        }else{
-                            this.$message({
-                                message: '错误信息：'+res.message,
-                                type: 'error'
-                            });
-                        }*/
                         this.$message({
                             message: '数据处理成功',
                             type: 'success'
@@ -412,47 +307,38 @@
                     }.bind(this)
                 )
             },
-            sortByUserName(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+username'
-                } else {
-                    this.query.sort = '-username'
+            thirdMerchantGameFee(index, row) {
+                var params = {
+                    fee: row.fee,
+                    type: row.type,
+                    plat_name: row.plat_name
                 }
-                this.handleFilter()
+                // debugger
+                thirdMerchantGameFee(params).then(
+                    function (res) {
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
             },
-            sortByStatus(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+status'
-                } else {
-                    this.query.sort = '-status'
+            thirdMerchantGameSubFee(index, row) {
+                var params = {
+                    id: row.id,
+                    sub_fee: row.sub_fee
                 }
-                this.handleFilter()
-            },
-            sortByLastLoginTime(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+last_login_time'
-                } else {
-                    this.query.sort = '-last_login_time'
-                }
-                this.handleFilter()
-            },
-            sortByLastLoginIp(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+last_login_ip'
-                } else {
-                    this.query.sort = '-last_login_ip'
-                }
-                this.handleFilter()
-            },
-            getRoleList() {
-                authAdminRoleList(this.query)
-                    .then(response => {
-                        this.roles = response.list || [];
-                    })
-                    .catch((e) => {
-                        console.log(e)
-                        this.roles = [];
-                    });
+                // debugger
+                thirdMerchantGameSubFee(params).then(
+                    function (res) {
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
             },
             // 隐藏表单
             hideForm() {
@@ -581,8 +467,6 @@
             this.query.limit = parseInt(this.query.limit);
             // 加载表格数据
             this.getList();
-            // 加载角色列表
-            // this.getRoleList();
         }
     };
 </script>
