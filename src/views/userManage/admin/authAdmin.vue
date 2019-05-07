@@ -114,9 +114,9 @@
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">{{$t('page.del')}}
                     </el-button>
 
-                    <el-button v-if="scope.row.status === 0" type="danger" size="small" icon="el-icon-edit" @click.native="itemSuccessServer(scope.$index, scope.row)">禁用
+                    <el-button v-if="scope.row.status === '启用'" type="danger" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'禁用')">禁用
                     </el-button>
-                    <el-button v-else type="primary" size="small" icon="el-icon-edit" @click.native="itemFailedServer(scope.$index, scope.row)">启用
+                    <el-button v-else type="primary" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'启用')">启用
                     </el-button>
 
                 </template>
@@ -305,18 +305,18 @@
                 this.query.page = 1
                 this.getList()
             },
-            itemSuccessServer(index, row) {
+            auditItemServer(row,flag) {
                 var params = {
                     id: row.id,
-                    flag: 1
+                    flag: flag
                 }
                 // debugger
                 adminStatusSave(params).then(
                     function (res) {
                         // debugger
-                        /*if(res.code === 1){
+                        if(res.code === 1){
                             this.$message({
-                                message: res.data,
+                                message: res.message,
                                 type: 'success'
                             })
                             this.dialogFormVisible = false
@@ -325,44 +325,12 @@
                                 message: '错误信息：'+res.message,
                                 type: 'error'
                             });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
+                        }
                         this.getList();
                     }.bind(this)
                 )
             },
-            itemFailedServer(index, row) {
-                var params = {
-                    id: row.id,
-                    flag: 0
-                }
-                // debugger
-                adminStatusSave(params).then(
-                    function (res) {
-                        // debugger
-                        /*if(res.code === 1){
-                            this.$message({
-                                message: res.data,
-                                type: 'success'
-                            })
-                            this.dialogFormVisible = false
-                        }else{
-                            this.$message({
-                                message: '错误信息：'+res.message,
-                                type: 'error'
-                            });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
-                        this.getList();
-                    }.bind(this)
-                )
-            },
+            
             sortChange: function (column) {
                 // console.log(column)
                 // console.log(prop)
@@ -557,17 +525,17 @@
         filters: {
             statusFilterType(status) {
                 const statusMap = {
-                    0: "gray",
-                    1: "success",
-                    2: "danger"
+                    '': "gray",
+                    '启用': "success",
+                    '禁用': "danger"
                 };
                 return statusMap[status];
             },
             statusFilterName(status) {
                 const statusMap = {
-                    0: "禁用",
-                    1: "启用",
-                    2: "未验证"
+                    '禁用': "禁用",
+                    '启用': "启用",
+                    '': "未验证"
                 };
                 return statusMap[status];
             }

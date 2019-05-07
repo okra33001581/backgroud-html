@@ -24,8 +24,8 @@
             <el-form-item class="query-form-item">
                 <el-select v-model="query.status" :placeholder="$t('page.status')">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="启用" value="0"></el-option>
-                    <el-option label="禁用" value="1"></el-option>
+                    <el-option label="启用" value="启用"></el-option>
+                    <el-option label="禁用" value="禁用"></el-option>
                 </el-select>
             </el-form-item>
 
@@ -93,19 +93,19 @@
                                     prop="updated_at" >
                             </el-table-column>
 
-                            <!--<el-table-column
+                            <el-table-column
                                     :label="$t('page.status')"
                                     prop="status" >
-                            </el-table-column>-->
+                            </el-table-column>
 
-                            <el-table-column
+                            <!--<el-table-column
                                     prop="status"
                                     sortable="custom"
                                     :label="$t('page.status')" >
                                 <template slot-scope="scope">
                                     <el-tag :type="scope.row.status | statusFilterType">{{scope.row.status | statusFilterName}}</el-tag>
                                 </template>
-                            </el-table-column>
+                            </el-table-column>-->
 
                             <el-table-column
                                     :label="$t('page.operate')" width="350"
@@ -141,12 +141,16 @@
                     :label="$t('page.updated_at')"
                     prop="updated_at">
             </el-table-column>
-            <el-table-column
+            <!--<el-table-column
                     prop="status"
                     :label="$t('page.status')" >
                 <template slot-scope="scope">
                     <el-tag :type="scope.row.status | statusFilterType">{{scope.row.status | statusFilterName}}</el-tag>
                 </template>
+            </el-table-column>-->
+            <el-table-column
+                    :label="$t('page.status')"
+                    prop="status">
             </el-table-column>
 
             <el-table-column
@@ -161,10 +165,11 @@
                     </el-button>-->
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">{{$t('page.del')}}
                     </el-button>
-                    <el-button v-if="scope.row.status === '0'" type="primary" size="small" icon="el-icon-delete" @click.native="auditItemSuccessServer(scope.$index, scope.row)">{{$t('page.enable')}}
+                    <el-button v-if="scope.row.status === '启用'" type="danger" size="small" icon="el-icon-delete" @click.native="auditItemServer(scope.row,'禁用')">{{$t('page.disable')}}
                     </el-button>
-                    <el-button v-if="scope.row.status === '1'" type="danger" size="small" icon="el-icon-delete" @click.native="auditItemFailedServer(scope.$index, scope.row)">{{$t('page.disable')}}
+                    <el-button v-else type="primary" size="small" icon="el-icon-delete" @click.native="auditItemServer(scope.row,'启用')">{{$t('page.enable')}}
                     </el-button>
+                    
                 </template>
             </el-table-column>
 
@@ -1118,18 +1123,19 @@
                     }
                 });
             },
-            auditItemSuccessServer(index, row) {
+            
+            auditItemServer(row,flag) {
                 var params = {
                     id: row.id,
-                    flag: 1
+                    flag: flag
                 }
                 // debugger
                 eventStatusSave(params).then(
                     function (res) {
                         // debugger
-                        /*if(res.code === 1){
+                        if(res.code === 1){
                             this.$message({
-                                message: res.data,
+                                message: res.message,
                                 type: 'success'
                             })
                             this.dialogFormVisible = false
@@ -1138,40 +1144,7 @@
                                 message: '错误信息：'+res.message,
                                 type: 'error'
                             });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
-                        this.getList();
-                    }.bind(this)
-                )
-            },
-            auditItemFailedServer(index, row) {
-                var params = {
-                    id: row.id,
-                    flag: 0
-                }
-                // debugger
-                eventStatusSave(params).then(
-                    function (res) {
-                        // debugger
-                        /*if(res.code === 1){
-                            this.$message({
-                                message: res.data,
-                                type: 'success'
-                            })
-                            this.dialogFormVisible = false
-                        }else{
-                            this.$message({
-                                message: '错误信息：'+res.message,
-                                type: 'error'
-                            });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
+                        }
                         this.getList();
                     }.bind(this)
                 )

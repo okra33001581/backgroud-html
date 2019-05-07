@@ -139,7 +139,7 @@
             renderContent (h, { node, data, store }) {
                 console.log(data);
 
-                if (data.status === 1) {
+                if (data.status === '启用') {
                     return (
                         <span style="flex: 2; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px">
                         <span>
@@ -148,7 +148,7 @@
                         <span>
                         <el-button style="font-size: 12px;" icon="el-icon-plus" type="primary" on-click={ () => this.handleForm(node, data, 'add') }>添加子部门</el-button>
                     <el-button style="font-size: 12px;" icon="el-icon-edit" type="primary" on-click={ () => this.handleForm(node, data, 'edit') }>编辑</el-button>
-                    <el-button style="font-size: 12px;" icon="el-icon-delete" type="danger" on-click={ () => this.itemFailedServer(node, data) }>禁用</el-button>
+                    <el-button style="font-size: 12px;" icon="el-icon-delete" type="danger" on-click={ () => this.auditItemServer(data,'禁用') }>禁用</el-button>
                     <el-button style="font-size: 12px;" icon="el-icon-delete" type="danger" on-click={ () => this.itemDelServer(node, data) }>删除</el-button>
                     </span>
                     </span>)
@@ -161,7 +161,7 @@
                         <span>
                         <el-button style="font-size: 12px;" icon="el-icon-plus" type="primary" on-click={ () => this.handleForm(node, data, 'add') }>添加子部门</el-button>
                     <el-button style="font-size: 12px;" icon="el-icon-edit" type="primary" on-click={ () => this.handleForm(node, data, 'edit') }>编辑</el-button>
-                    <el-button style="font-size: 12px;" icon="el-icon-delete" type="danger" on-click={ () => this.itemSuccessServer(node, data) }>启用</el-button>
+                    <el-button style="font-size: 12px;" icon="el-icon-delete" type="primary" on-click={ () => this.auditItemServer(data,'启用') }>启用</el-button>
                     <el-button style="font-size: 12px;" icon="el-icon-delete" type="danger" on-click={ () => this.itemDelServer(node, data) }>删除</el-button>
                     </span>
                     </span>)
@@ -178,18 +178,20 @@
             },
             onSubmit() {
                 this.getList();
-            },itemSuccessServer(index, row) {
+            },
+
+            auditItemServer(row,flag) {
                 var params = {
                     id: row.id,
-                    flag: 1
+                    flag: flag
                 }
                 // debugger
                 ruleDeptStatusSave(params).then(
                     function (res) {
                         // debugger
-                        /*if(res.code === 1){
+                        if(res.code === 1){
                             this.$message({
-                                message: res.data,
+                                message: res.message,
                                 type: 'success'
                             })
                             this.dialogFormVisible = false
@@ -198,11 +200,7 @@
                                 message: '错误信息：'+res.message,
                                 type: 'error'
                             });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
+                        }
                         this.getList();
                     }.bind(this)
                 )
@@ -235,35 +233,7 @@
                     }.bind(this)
                 )
             },
-            itemFailedServer(index, row) {
-                var params = {
-                    id: row.id,
-                    flag: 0
-                }
-                // debugger
-                ruleDeptStatusSave(params).then(
-                    function (res) {
-                        // debugger
-                        /*if(res.code === 1){
-                            this.$message({
-                                message: res.data,
-                                type: 'success'
-                            })
-                            this.dialogFormVisible = false
-                        }else{
-                            this.$message({
-                                message: '错误信息：'+res.message,
-                                type: 'error'
-                            });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
-                        this.getList();
-                    }.bind(this)
-                )
-            },
+            
             getList() {
                 this.loading = true;
                 permissionRuleDeptIndex(this.query)

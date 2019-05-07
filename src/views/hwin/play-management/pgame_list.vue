@@ -103,14 +103,12 @@
                                     </el-button>-->
                                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleKillRateForm(scope.$index, scope.row)">杀率
                                     </el-button>
-                                    <el-button type="danger" size="small" @click.native="handleDel(scope.$index, scope.row)">
-                                    <div v-if="scope.row.status == '停止销售'">
-                                        开售
-                                    </div>
-                                    <div v-else>
-                                        停售
-                                    </div>
+
+                                    <el-button v-if="scope.row.status === '销售中'" type="danger" size="small" icon="el-icon-delete" @click.native="auditItemServer(scope.row,'停止销售')">停售
                                     </el-button>
+                                    <el-button v-else type="primary" size="small" icon="el-icon-delete" @click.native="auditItemServer(scope.row,'销售中')">开售
+                                    </el-button>
+
                                 </template>
                             </el-table-column>
                         </el-table>
@@ -531,30 +529,29 @@
                     }
                 });
             },
-            // 删除
-            handleDel(index, row) {
+            // 开售停售操作
+            auditItemServer(row,flag) {
                 //if (row.id) {
                     //this.$confirm("确认停售吗?", "提示", {
                     //    type: "warning"
                     //})
                        // .then(() => {
-                            let para = {id: row.id,status:row.status};
+                            let para = {id: row.id,flag:flag};
                             var lottery_name = row.lottery_name;
                             pgameStatusSave(para)
                                 .then(response => {
                                     this.deleteLoading = false;
-                                    if (response.code) {
+                                    if (response.code==0) {
                                         this.$message({
                                             message: response.message,
                                             type: "error"
                                         });
                                     } else {
                                         this.$message({
-                                            message: "成功",
+                                            message: response.message,
                                             type: "success"
                                         });
                                         // 刷新数据
-                                        //this.list.splice(index, 1);
                                         this.getChildrenList(lottery_name);
                                     }
                                 })

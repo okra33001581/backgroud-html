@@ -38,8 +38,8 @@
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
-            <el-table-column label="					序号		" prop="id" fixed></el-table-column>
-            <el-table-column label="					排序值		" prop="id" fixed>
+            <el-table-column label="序号" prop="id" fixed></el-table-column>
+            <el-table-column label="排序值" prop="id" fixed>
 
                 <template scope="scope">
                     <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="payAccountSequenceServer(scope.$index, scope.row)"
@@ -47,27 +47,27 @@
                 </template>
 
             </el-table-column>
-            <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
-            <el-table-column label="					添加时间		" prop="created_at" fixed></el-table-column>
-            <el-table-column label="					层级		" prop="user_levels" fixed></el-table-column>
-            <el-table-column label="					支付类型		" prop="pay_type" fixed></el-table-column>
-            <el-table-column label="					银行名称		" prop="bank" fixed></el-table-column>
-            <el-table-column label="					银行账号		" prop="account" fixed></el-table-column>
-            <el-table-column label="					账号别名		" prop="account_alias" fixed></el-table-column>
-            <el-table-column label="					收款人		" prop="receiver" fixed></el-table-column>
-            <el-table-column label="					附言		" prop="postscript" fixed></el-table-column>
-            <el-table-column label="					温馨提示		" prop="alert" fixed></el-table-column>
-            <el-table-column label="					二维码		" prop="qr_code" fixed></el-table-column>
-            <el-table-column label="					操作人		" prop="creator" fixed></el-table-column>
+            <el-table-column label="商户名称" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="添加时间" prop="created_at" fixed></el-table-column>
+            <el-table-column label="层级" prop="user_levels" fixed></el-table-column>
+            <el-table-column label="支付类型" prop="pay_type" fixed></el-table-column>
+            <el-table-column label="银行名称" prop="bank" fixed></el-table-column>
+            <el-table-column label="银行账号" prop="account" fixed></el-table-column>
+            <el-table-column label="账号别名" prop="account_alias" fixed></el-table-column>
+            <el-table-column label="收款人" prop="receiver" fixed></el-table-column>
+            <el-table-column label="附言" prop="postscript" fixed></el-table-column>
+            <el-table-column label="温馨提示" prop="alert" fixed></el-table-column>
+            <el-table-column label="二维码" prop="qr_code" fixed></el-table-column>
+            <el-table-column label="操作人" prop="creator" fixed></el-table-column>
 
             <el-table-column
                     label="操作" width="360"
                     fixed="right">
                 <template slot-scope="scope">
                     
-                    <el-button v-if="scope.row.status === '启用'" type="danger" size="small" icon="el-icon-edit" @click.native="itemFailedServer(scope.$index, scope.row)">禁用
+                    <el-button v-if="scope.row.status === '启用'" type="danger" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'禁用')">禁用
                     </el-button>
-                    <el-button v-else type="primary" size="small" icon="el-icon-edit" @click.native="itemSuccessServer(scope.$index, scope.row)">启用
+                    <el-button v-else type="primary" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'启用')">启用
                     </el-button>
 
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
@@ -336,18 +336,19 @@
                     this.sortByID(order)
                 }
             },*/
-            itemSuccessServer(index, row) {
+            
+            auditItemServer(row,flag) {
                 var params = {
                     id: row.id,
-                    flag: '启用'
+                    flag: flag
                 }
                 // debugger
                 payAccountStatusSave(params).then(
                     function (res) {
                         // debugger
-                        /*if(res.code === 1){
+                        if(res.code === 1){
                             this.$message({
-                                message: res.data,
+                                message: res.message,
                                 type: 'success'
                             })
                             this.dialogFormVisible = false
@@ -356,44 +357,12 @@
                                 message: '错误信息：'+res.message,
                                 type: 'error'
                             });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
+                        }
                         this.getList();
                     }.bind(this)
                 )
             },
-            itemFailedServer(index, row) {
-                var params = {
-                    id: row.id,
-                    flag: '禁用'
-                }
-                // debugger
-                payAccountStatusSave(params).then(
-                    function (res) {
-                        // debugger
-                        /*if(res.code === 1){
-                            this.$message({
-                                message: res.data,
-                                type: 'success'
-                            })
-                            this.dialogFormVisible = false
-                        }else{
-                            this.$message({
-                                message: '错误信息：'+res.message,
-                                type: 'error'
-                            });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
-                        this.getList();
-                    }.bind(this)
-                )
-            },
+            
             sortByID(order) {
                 if (order === 'ascending') {
                     this.query.sort = '+id'

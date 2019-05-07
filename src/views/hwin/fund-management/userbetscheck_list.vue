@@ -34,34 +34,34 @@
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
-            <el-table-column label="					ID		" prop="id" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
-            <el-table-column label="					用户名称		" prop="username" fixed></el-table-column>
-            <el-table-column label="					存款日期		" prop="deposit_date" fixed></el-table-column>
-            <el-table-column label="					存款额		" prop="depoist_amount" fixed></el-table-column>
-            <el-table-column label="					优惠		" prop="benefit" fixed></el-table-column>
-            <el-table-column label="					实际有效投注		" prop="valid_project" fixed></el-table-column>
-            <el-table-column label="					优惠稽核		" prop="id" fixed>
-                <el-table-column label="					综合打码量		" prop="general_project" fixed></el-table-column>
-                <el-table-column label="					是否达到		" prop="general_is_obtain" fixed></el-table-column>
+            <el-table-column label="ID" prop="id" fixed></el-table-column>
+            <el-table-column label="商户名称" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="用户名称" prop="username" fixed></el-table-column>
+            <el-table-column label="存款日期" prop="deposit_date" fixed></el-table-column>
+            <el-table-column label="存款额" prop="depoist_amount" fixed></el-table-column>
+            <el-table-column label="优惠" prop="benefit" fixed></el-table-column>
+            <el-table-column label="实际有效投注" prop="valid_project" fixed></el-table-column>
+            <el-table-column label="优惠稽核" prop="id" fixed>
+                <el-table-column label="综合打码量" prop="general_project" fixed></el-table-column>
+                <el-table-column label="是否达到" prop="general_is_obtain" fixed></el-table-column>
             </el-table-column>
-            <el-table-column label="					常态稽核		" prop="id" fixed>
-                <el-table-column label="					常态打码量		" prop="common_project" fixed></el-table-column>
-                <el-table-column label="					放宽额度		" prop="quota" fixed></el-table-column>
-                <el-table-column label="					是否达到		" prop="commin_is_obtain" fixed></el-table-column>
-                <el-table-column label="					不需扣除费用		" prop="no_subtraction_fee" fixed></el-table-column>
+            <el-table-column label="常态稽核" prop="id" fixed>
+                <el-table-column label="常态打码量" prop="common_project" fixed></el-table-column>
+                <el-table-column label="放宽额度" prop="quota" fixed></el-table-column>
+                <el-table-column label="是否达到" prop="commin_is_obtain" fixed></el-table-column>
+                <el-table-column label="不需扣除费用" prop="no_subtraction_fee" fixed></el-table-column>
             </el-table-column>
-            <el-table-column label="					需要扣除金额		" prop="subtraction_fee" fixed></el-table-column>
-            <el-table-column label="					备注		" prop="memo" fixed></el-table-column>
+            <el-table-column label="需要扣除金额" prop="subtraction_fee" fixed></el-table-column>
+            <el-table-column label="备注" prop="memo" fixed></el-table-column>
 
             <el-table-column
                     label="操作" width="260"
                     fixed="right">
                 <template slot-scope="scope">
 
-                    <el-button v-if="scope.row.status === '同意'" type="danger" size="small" icon="el-icon-edit" @click.native="itemFailedServer(scope.$index, scope.row)">拒绝
+                    <el-button v-if="scope.row.status === '同意'" type="danger" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'拒绝')">拒绝
                     </el-button>
-                    <el-button v-else type="primary" size="small" icon="el-icon-edit" @click.native="itemSuccessServer(scope.$index, scope.row)">同意
+                    <el-button v-else type="primary" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'同意')">同意
                     </el-button>
                     
                 </template>
@@ -85,19 +85,19 @@
                 width="85%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
-                <el-form-item label="			ID  		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			存款日期 		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			存款额  		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			优惠  		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <!--<el-form-item label="			实际有效投注 优惠稽核   常态稽核		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>-->
-                <!--<el-form-item label="			需要扣除金额 		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>-->
-                <el-form-item label="			备注  		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			综合打码量 		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			是否达到 		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			常态打码量 		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			放宽额度 		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			是否达到 		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			不需扣除费用 		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="ID" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="存款日期" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="存款额" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="优惠" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <!--<el-form-item label="实际有效投注 优惠稽核 常态稽核" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>-->
+                <!--<el-form-item label="需要扣除金额" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>-->
+                <el-form-item label="备注" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="综合打码量" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="是否达到" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="常态打码量" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="放宽额度" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="是否达到" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="不需扣除费用	" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
 
             </el-form>
             <div slot="footer" class="dialog-footer">
@@ -277,18 +277,19 @@
                     this.sortByID(order)
                 }
             },*/
-            itemSuccessServer(index, row) {
+
+            auditItemServer(row,flag) {
                 var params = {
                     id: row.id,
-                    flag: '同意'
+                    flag: flag
                 }
                 // debugger
                 userbetscheckStatusSave(params).then(
                     function (res) {
                         // debugger
-                        /*if(res.code === 1){
+                        if(res.code === 1){
                             this.$message({
-                                message: res.data,
+                                message: res.message,
                                 type: 'success'
                             })
                             this.dialogFormVisible = false
@@ -297,44 +298,12 @@
                                 message: '错误信息：'+res.message,
                                 type: 'error'
                             });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
+                        }
                         this.getList();
                     }.bind(this)
                 )
             },
-            itemFailedServer(index, row) {
-                var params = {
-                    id: row.id,
-                    flag: '拒绝'
-                }
-                // debugger
-                userbetscheckStatusSave(params).then(
-                    function (res) {
-                        // debugger
-                        /*if(res.code === 1){
-                            this.$message({
-                                message: res.data,
-                                type: 'success'
-                            })
-                            this.dialogFormVisible = false
-                        }else{
-                            this.$message({
-                                message: '错误信息：'+res.message,
-                                type: 'error'
-                            });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
-                        this.getList();
-                    }.bind(this)
-                )
-            },
+            
             sortByID(order) {
                 if (order === 'ascending') {
                     this.query.sort = '+id'

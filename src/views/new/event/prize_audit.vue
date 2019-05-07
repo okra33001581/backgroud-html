@@ -174,14 +174,13 @@
                 <template slot-scope="scope">
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">{{$t('page.detail')}}
                     </el-button>
-                    <el-button v-if="scope.row.status === '1'"  type="danger" size="small" icon="el-icon-delete" @click.native="auditItemSuccessServer(scope.$index, scope.row)">{{$t('page.success')}}
+
+                    <el-button v-if="scope.row.status === '同意'"  type="danger" size="small" icon="el-icon-delete" @click.native="auditItemServer( scope.row,'拒绝')">{{$t('page.reject')}}
                     </el-button>
-                    <el-button v-if="scope.row.status === '0'"  type="primary" size="small" icon="el-icon-delete" @click.native="auditItemFailedServer(scope.$index, scope.row)">{{$t('page.reject')}}
+                    <el-button v-else  type="primary" size="small" icon="el-icon-delete" @click.native="auditItemServer( scope.row,'同意')">{{$t('page.success')}}
                     </el-button>
-                    <!--<el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">{{$t('page.success')}}
+                    
                     </el-button>
-                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">{{$t('page.reject')}}
-                    </el-button>-->
                 </template>
             </el-table-column>
         </el-table>
@@ -363,18 +362,18 @@
             handleChange(row, event, column) {
                 this.$refs.multipleTable.toggleRowSelection(row)
             },
-            auditItemSuccessServer (index, row) {
+            auditItemServer(row,flag) {
                 var params = {
-                    id:row.id,
-                    flag:1
+                    id: row.id,
+                    flag: flag
                 }
                 // debugger
                 eventUserPrizeStatusSave(params).then(
                     function (res) {
                         // debugger
-                        /*if(res.code === 1){
+                        if(res.code === 1){
                             this.$message({
-                                message: res.data,
+                                message: res.message,
                                 type: 'success'
                             })
                             this.dialogFormVisible = false
@@ -383,40 +382,7 @@
                                 message: '错误信息：'+res.message,
                                 type: 'error'
                             });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
-                        this.getList();
-                    }.bind(this)
-                )
-            },
-            auditItemFailedServer (index, row) {
-                var params = {
-                    id:row.id,
-                    flag:0
-                }
-                // debugger
-                eventUserPrizeStatusSave(params).then(
-                    function (res) {
-                        // debugger
-                        /*if(res.code === 1){
-                            this.$message({
-                                message: res.data,
-                                type: 'success'
-                            })
-                            this.dialogFormVisible = false
-                        }else{
-                            this.$message({
-                                message: '错误信息：'+res.message,
-                                type: 'error'
-                            });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
+                        }
                         this.getList();
                     }.bind(this)
                 )
@@ -506,8 +472,8 @@
                 eventUserPrizeList(this.query)
                     .then(response => {
                         this.loading = false;
-                        this.list = response.data.list.data || [];
-                        this.total = response.data.list.total || 0;
+                        this.list = response.data.list || [];
+                        this.total = response.data.total || 0;
                     })
                     .catch(() => {
                         this.loading = false;
@@ -679,17 +645,17 @@
         filters: {
             statusFilterType(status) {
                 const statusMap = {
-                    0: "gray",
-                    1: "success",
-                    2: "danger"
+                    "": "gray",
+                    "同意": "success",
+                    '拒绝': "danger"
                 };
                 return statusMap[status];
             },
             statusFilterName(status) {
                 const statusMap = {
-                    0: "拒绝",
-                    1: "通过",
-                    2: "未处理"
+                    '拒绝': "拒绝",
+                    '同意': "通过",
+                    '': "未处理"
                 };
                 return statusMap[status];
             }

@@ -7,8 +7,8 @@
             <el-form-item class="query-form-item">
                 <el-select v-model="query.status" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="禁用" value="0"></el-option>
-                    <el-option label="启用" value="1"></el-option>
+                    <el-option label="禁用" value="禁用"></el-option>
+                    <el-option label="启用" value="启用"></el-option>
                 </el-select>
             </el-form-item>
 
@@ -123,8 +123,8 @@
                 </el-form-item>
                 <el-form-item :label="$t('page.status')" prop="status">
                     <el-radio-group v-model="formData.status">
-                        <el-radio label="0">{{$t('page.forbid')}}</el-radio>
-                        <el-radio label="1">{{$t('page.regular')}}</el-radio>
+                        <el-radio label="禁用">{{$t('page.forbid')}}</el-radio>
+                        <el-radio label="启用">{{$t('page.regular')}}</el-radio>
                     </el-radio-group>
                 </el-form-item>
                 <el-form-item :label="$t('page.desc')">
@@ -153,7 +153,7 @@ import {
 const formJson = {
     id: "",
     name: "",
-    status: "1",
+    status: "",
     remark: "",
     listorder: 999
 };
@@ -511,15 +511,15 @@ export default {
     filters: {
         statusFilterType(status) {
             const statusMap = {
-                0: "gray",
-                1: "success"
+                '禁用': "gray",
+                '启用': "success"
             };
             return statusMap[status];
         },
         statusFilterName(status) {
             const statusMap = {
-                0: "禁用",
-                1: "启用"
+                "禁用": "禁用",
+                "启用": "启用"
             };
             return statusMap[status];
         }

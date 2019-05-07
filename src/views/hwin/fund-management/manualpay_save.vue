@@ -29,27 +29,27 @@
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
 
-            <el-table-column label="					ID		" prop="id" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
-            <el-table-column label="					账号		" prop="account" fixed></el-table-column>
-            <el-table-column label="					姓名		" prop="username" fixed></el-table-column>
-            <el-table-column label="					可用余额		" prop="avaible_amount" fixed></el-table-column>
-            <el-table-column label="					存入项目		" prop="in_project" fixed></el-table-column>
-            <el-table-column label="					存入金额		" prop="in_amount" fixed></el-table-column>
-            <el-table-column label="					存款优惠		" prop="in_benefit" fixed></el-table-column>
-            <el-table-column label="					综合打码量稽核		" prop="general_project_audit" fixed></el-table-column>
-            <el-table-column label="					常态性稽核		" prop="common_audit" fixed></el-table-column>
-            <el-table-column label="					备注		" prop="memo" fixed></el-table-column>
-            <el-table-column label="					会员备注		" prop="user_memo" fixed></el-table-column>
+            <el-table-column label="ID" prop="id" fixed></el-table-column>
+            <el-table-column label="商户名称" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="账号" prop="account" fixed></el-table-column>
+            <el-table-column label="姓名" prop="username" fixed></el-table-column>
+            <el-table-column label="可用余额" prop="avaible_amount" fixed></el-table-column>
+            <el-table-column label="存入项目" prop="in_project" fixed></el-table-column>
+            <el-table-column label="存入金额" prop="in_amount" fixed></el-table-column>
+            <el-table-column label="存款优惠" prop="in_benefit" fixed></el-table-column>
+            <el-table-column label="综合打码量稽核" prop="general_project_audit" fixed></el-table-column>
+            <el-table-column label="常态性稽核" prop="common_audit" fixed></el-table-column>
+            <el-table-column label="备注" prop="memo" fixed></el-table-column>
+            <el-table-column label="会员备注" prop="user_memo" fixed></el-table-column>
 
             <el-table-column
                     label="操作" width="260"
                     fixed="right">
                 <template slot-scope="scope">
 
-                    <el-button v-if="scope.row.status === '同意'" type="danger" size="small" icon="el-icon-edit" @click.native="itemFailedServer(scope.$index, scope.row)">拒绝
+                    <el-button v-if="scope.row.status === '同意'" type="danger" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'拒绝')">拒绝
                     </el-button>
-                    <el-button v-else type="primary" size="small" icon="el-icon-edit" @click.native="itemSuccessServer(scope.$index, scope.row)">同意
+                    <el-button v-else type="primary" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'同意')">同意
                     </el-button>
                     
                 </template>
@@ -73,21 +73,18 @@
                 width="85%"
                 top="5vh">
             <el-form :model="formData" label-width="8%" :rules="formRules" ref="dataForm">
-
-                <el-form-item label="			ID     		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
-                <el-form-item label="			账号       		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			姓名    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			可用余额   		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			存入项目   		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			存入金额   		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			存款优惠   		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			综合打码量稽核    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			常态性稽核  		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			备注    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			会员备注   		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-
-
+                <el-form-item label="ID" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-table-column label="商户名称" prop="id" fixed></el-table-column>
+                <el-form-item label="账号" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="姓名" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="可用余额" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="存入项目" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="存入金额" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="存款优惠" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="综合打码量稽核" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="常态性稽核" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="备注" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="会员备注" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideForm">取消</el-button>
@@ -266,18 +263,19 @@
                     this.sortByID(order)
                 }
             },*/
-            itemSuccessServer(index, row) {
+            
+            auditItemServer(row,flag) {
                 var params = {
                     id: row.id,
-                    flag: '同意'
+                    flag: flag
                 }
                 // debugger
                 manualpayStatusSave(params).then(
                     function (res) {
                         // debugger
-                        /*if(res.code === 1){
+                        if(res.code === 1){
                             this.$message({
-                                message: res.data,
+                                message: res.message,
                                 type: 'success'
                             })
                             this.dialogFormVisible = false
@@ -286,40 +284,7 @@
                                 message: '错误信息：'+res.message,
                                 type: 'error'
                             });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
-                        this.getList();
-                    }.bind(this)
-                )
-            },
-            itemFailedServer(index, row) {
-                var params = {
-                    id: row.id,
-                    flag: '拒绝'
-                }
-                // debugger
-                manualpayStatusSave(params).then(
-                    function (res) {
-                        // debugger
-                        /*if(res.code === 1){
-                            this.$message({
-                                message: res.data,
-                                type: 'success'
-                            })
-                            this.dialogFormVisible = false
-                        }else{
-                            this.$message({
-                                message: '错误信息：'+res.message,
-                                type: 'error'
-                            });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
+                        }
                         this.getList();
                     }.bind(this)
                 )

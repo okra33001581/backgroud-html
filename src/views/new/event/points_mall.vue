@@ -138,9 +138,9 @@
                     </el-button>
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
                     </el-button>
-                    <el-button type="primary" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">启用
+                    <el-button v-if="scope.row.status === '启用'" type="danger" size="small" icon="el-icon-delete" @click.native="auditItemServer(scope.row,'禁用')">{{$t('page.disable')}}
                     </el-button>
-                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">禁用
+                    <el-button v-else type="primary" size="small" icon="el-icon-delete" @click.native="auditItemServer(scope.row,'启用')">{{$t('page.enable')}}
                     </el-button>
                 </template>
             </el-table-column>
@@ -335,6 +335,34 @@
                 this.query.page = 1
                 this.getList()
             },
+
+            auditItemServer(row,flag) {
+                var params = {
+                    id: row.id,
+                    flag: flag
+                }
+                // debugger
+                eventStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        if(res.code === 1){
+                            this.$message({
+                                message: res.message,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }
+                        this.getList();
+                    }.bind(this)
+                )
+            },
+            
+            
             sortChange: function (column) {
                 // console.log(column)
                 // console.log(prop)
@@ -357,8 +385,8 @@
                 activityList(this.query)
                     .then(response => {
                         this.loading = false;
-                        this.list = response.data.list.data || [];
-                        this.total = response.data.list.total || 0;
+                        this.list = response.data.list || [];
+                        this.total = response.data.total || 0;
                     })
                     .catch(() => {
                         this.loading = false;

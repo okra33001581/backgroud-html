@@ -122,35 +122,32 @@
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
-            <el-table-column label="					ID		" prop="id" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
-            <el-table-column label="					层级		" prop="layer" fixed></el-table-column>
-            <el-table-column label="					订单号		" prop="order_no" fixed></el-table-column>
-            <el-table-column label="					会员账号		" prop="account" fixed></el-table-column>
-            <el-table-column label="					姓名		" prop="username" fixed></el-table-column>
-            <el-table-column label="					出款类型		" prop="out_type" fixed></el-table-column>
-            <el-table-column label="					手续费		" prop="fee" fixed></el-table-column>
-            <el-table-column label="					实际出款		" prop="final_out_amount" fixed></el-table-column>
-            <el-table-column label="					出款状态		" prop="out_status" fixed></el-table-column>
-            <el-table-column label="					申请时间		" prop="request_date" fixed></el-table-column>
-            <el-table-column label="					确认时间		" prop="confirm_date" fixed></el-table-column>
-            <el-table-column label="					风控		" prop="risk" fixed></el-table-column>
-            <el-table-column label="					风控人		" prop="risk_operator" fixed></el-table-column>
-            <el-table-column label="					出款操作		" prop="out_operate" fixed></el-table-column>
-            <el-table-column label="					操作人		" prop="operator" fixed></el-table-column>
-            <el-table-column label="					前台备注		" prop="front_memo" fixed></el-table-column>
-            <el-table-column label="					后台备注		" prop="back_memo" fixed></el-table-column>
-
+            <el-table-column label="ID" prop="id" fixed></el-table-column>
+            <el-table-column label="商户名称" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="层级" prop="layer" fixed></el-table-column>
+            <el-table-column label="订单号" prop="order_no" fixed></el-table-column>
+            <el-table-column label="会员账号" prop="account" fixed></el-table-column>
+            <el-table-column label="姓名" prop="username" fixed></el-table-column>
+            <el-table-column label="出款类型" prop="out_type" fixed></el-table-column>
+            <el-table-column label="手续费" prop="fee" fixed></el-table-column>
+            <el-table-column label="实际出款" prop="final_out_amount" fixed></el-table-column>
+            <el-table-column label="出款状态" prop="out_status" fixed></el-table-column>
+            <el-table-column label="申请时间" prop="request_date" fixed></el-table-column>
+            <el-table-column label="确认时间" prop="confirm_date" fixed></el-table-column>
+            <el-table-column label="风控" prop="risk" fixed></el-table-column>
+            <el-table-column label="风控人" prop="risk_operator" fixed></el-table-column>
+            <el-table-column label="出款操作" prop="out_operate" fixed></el-table-column>
+            <el-table-column label="操作人" prop="operator" fixed></el-table-column>
+            <el-table-column label="前台备注" prop="front_memo" fixed></el-table-column>
+            <el-table-column label="后台备注" prop="back_memo" fixed></el-table-column>
             <el-table-column
                     label="操作"
                     fixed="right">
                 <template slot-scope="scope">
-                    <el-button v-if="scope.row.out_status === '同意'" type="danger" size="small" icon="el-icon-edit" @click.native="itemFailedServer(scope.$index, scope.row)">拒绝
+                    <el-button v-if="scope.row.out_status === '同意'" type="danger" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'拒绝')">拒绝
                     </el-button>
-                    <el-button v-else type="primary" size="small" icon="el-icon-edit" @click.native="itemSuccessServer(scope.$index, scope.row)">同意
+                    <el-button v-else type="primary" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'同意')">同意
                     </el-button>
-
-
                 </template>
             </el-table-column>
         </el-table>
@@ -172,24 +169,24 @@
                 width="85%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
-                <el-form-item label="			ID 		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-table-column label="			商户名称				" prop="id" fixed></el-table-column>
-                <el-form-item label="			层级 		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			订单号    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			会员账号		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			姓名 		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			出款类型		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			手续费    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			实际出款		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			出款状态		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			申请时间		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			确认时间		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			风控 		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			风控人    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			出款操作		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			操作人    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			前台备注		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			后台备注		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="ID" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-table-column label="商户名称" prop="id" fixed></el-table-column>
+                <el-form-item label="层级" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="订单号" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="会员账号" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="姓名" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="出款类型" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="手续费" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="实际出款" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="出款状态" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="申请时间" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="确认时间" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="风控" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="风控人" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="出款操作" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="操作人" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="前台备注" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="后台备注" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideForm">取消</el-button>
@@ -365,18 +362,19 @@
                     this.sortByLastLoginIp(order)
                 }
             },
-            itemSuccessServer(index, row) {
+            
+            auditItemServer(row,flag) {
                 var params = {
                     id: row.id,
-                    flag: '同意'
+                    flag: flag
                 }
                 // debugger
                 cashwithdrawStatusSave(params).then(
                     function (res) {
                         // debugger
-                        /*if(res.code === 1){
+                        if(res.code === 1){
                             this.$message({
-                                message: res.data,
+                                message: res.message,
                                 type: 'success'
                             })
                             this.dialogFormVisible = false
@@ -385,40 +383,7 @@
                                 message: '错误信息：'+res.message,
                                 type: 'error'
                             });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
-                        this.getList();
-                    }.bind(this)
-                )
-            },
-            itemFailedServer(index, row) {
-                var params = {
-                    id: row.id,
-                    flag: '拒绝'
-                }
-                // debugger
-                cashwithdrawStatusSave(params).then(
-                    function (res) {
-                        // debugger
-                        /*if(res.code === 1){
-                            this.$message({
-                                message: res.data,
-                                type: 'success'
-                            })
-                            this.dialogFormVisible = false
-                        }else{
-                            this.$message({
-                                message: '错误信息：'+res.message,
-                                type: 'error'
-                            });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
+                        }
                         this.getList();
                     }.bind(this)
                 )

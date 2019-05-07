@@ -46,10 +46,10 @@
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
 
-            <el-table-column label="					ID		" prop="id" fixed></el-table-column>
-            <el-table-column label="					入款方式		" prop="in_type" fixed></el-table-column>
-            <el-table-column label="					支付类型		" prop="pay_type" fixed></el-table-column>
-            <el-table-column label="					排序值		" prop="sequence" fixed>
+            <el-table-column label="ID" prop="id" fixed></el-table-column>
+            <el-table-column label="入款方式" prop="in_type" fixed></el-table-column>
+            <el-table-column label="支付类型" prop="pay_type" fixed></el-table-column>
+            <el-table-column label="排序值" prop="sequence" fixed>
 
                 <template scope="scope">
                     <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="updateSequenceServer(scope.$index, scope.row)"
@@ -58,7 +58,7 @@
 
             </el-table-column>
 
-            <el-table-column label="					属性		" prop="property" fixed>
+            <el-table-column label="属性" prop="property" fixed>
                 <template slot-scope="scope">
                 <h1 v-if="scope.row.property.includes('热门') > 0">
                     <el-checkbox checked  @click.native="updatePropertyServer(scope.row.id, '-热门')">热门</el-checkbox>
@@ -69,7 +69,7 @@
                 </template>
             </el-table-column>
 
-            <el-table-column label="					支付类型别名		" prop="pay_type_alias" fixed>
+            <el-table-column label="支付类型别名" prop="pay_type_alias" fixed>
 
                 <template scope="scope">
                     <el-input size="small" v-model="scope.row.pay_type_alias" placeholder="请输入支付类型别名" @keyup.enter.native="updatePayTypeAliasServer(scope.$index, scope.row)"
@@ -78,7 +78,7 @@
 
             </el-table-column>
 
-            <el-table-column label="					菜单状态		" prop="status" fixed></el-table-column>
+            <el-table-column label="菜单状态" prop="status" fixed></el-table-column>
 
             <el-table-column
                     label="操作" width="260"
@@ -87,9 +87,9 @@
                    <!-- <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
                     </el-button>-->
                     
-                    <el-button v-if="scope.row.status === '启用'" type="danger" size="small" icon="el-icon-edit" @click.native="auditItemFailedServer(scope.$index, scope.row)">禁用
+                    <el-button v-if="scope.row.status === '启用'" type="danger" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'禁用')">禁用
                     </el-button>
-                    <el-button v-else type="primary" size="small" icon="el-icon-edit" @click.native="auditItemSuccessServer(scope.$index, scope.row)">启用
+                    <el-button v-else type="primary" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'启用')">启用
                     </el-button>
 
                 </template>
@@ -113,27 +113,27 @@
                 width="85%"
                 top="5vh">
             <el-form :model="formData" label-width="7%" :rules="formRules" ref="dataForm">
-                <!--<el-form-item label="			ID    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>-->
-                <el-form-item label="			入款方式   		" prop="in_type"><el-input v-model="formData.in_type" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			支付类型   		" prop="pay_type"><el-input v-model="formData.pay_type" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			排序值       		" prop="sequence">
+                <!--<el-form-item label="ID" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>-->
+                <el-form-item label="入款方式" prop="in_type"><el-input v-model="formData.in_type" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="支付类型" prop="pay_type"><el-input v-model="formData.pay_type" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="排序值" prop="sequence">
                     <template scope="scope">
                         <el-input size="small" v-model="formData.languageCode" placeholder="请输入排序值"
                         ></el-input>
                     </template>
                 </el-form-item>
-                <el-form-item label="			属性    		" prop="property">
+                <el-form-item label="属性" prop="property">
                     <template slot-scope="scope">
                         <el-checkbox  v-model="formData.isCheck1">热门</el-checkbox>
                     </template>
                 </el-form-item>
-                <el-form-item label="			支付类型别名 		" prop="pay_type_alias">
+                <el-form-item label="支付类型别名" prop="pay_type_alias">
                     <template scope="scope">
                         <el-input size="small" v-model="formData.languageCode" placeholder="请输入支付类型别名"
                         ></el-input>
                     </template>
                 </el-form-item>
-                <el-form-item label="			菜单状态   		" prop="status"><el-input v-model="formData.status" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="菜单状态" prop="status"><el-input v-model="formData.status" auto-complete="off"></el-input></el-form-item>
 
             </el-form>
             <div slot="footer" class="dialog-footer">
@@ -325,18 +325,19 @@
                 }
                 this.handleFilter()
             },
-            auditItemSuccessServer(index, row) {
+
+            auditItemServer(row,flag) {
                 var params = {
                     id: row.id,
-                    flag: '启用'
+                    flag: flag
                 }
                 // debugger
                 payGroupStatusSave(params).then(
                     function (res) {
                         // debugger
-                        /*if(res.code === 1){
+                        if(res.code === 1){
                             this.$message({
-                                message: res.data,
+                                message: res.message,
                                 type: 'success'
                             })
                             this.dialogFormVisible = false
@@ -345,11 +346,7 @@
                                 message: '错误信息：'+res.message,
                                 type: 'error'
                             });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
+                        }
                         this.getList();
                     }.bind(this)
                 )
@@ -444,35 +441,7 @@
                     }.bind(this)
                 )
             },
-            auditItemFailedServer(index, row) {
-                var params = {
-                    id: row.id,
-                    flag: '禁用'
-                }
-                // debugger
-                payGroupStatusSave(params).then(
-                    function (res) {
-                        // debugger
-                        /*if(res.code === 1){
-                            this.$message({
-                                message: res.data,
-                                type: 'success'
-                            })
-                            this.dialogFormVisible = false
-                        }else{
-                            this.$message({
-                                message: '错误信息：'+res.message,
-                                type: 'error'
-                            });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
-                        this.getList();
-                    }.bind(this)
-                )
-            },
+            
             sortByUserName(order) {
                 if (order === 'ascending') {
                     this.query.sort = '+username'
