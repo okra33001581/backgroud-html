@@ -99,7 +99,7 @@
                             :key="domain.key"
                             :prop="'domains.' + index + '.value'"
                             :rules="{required: true, message: '内容不能为空', trigger: 'blur'}">
-                        <el-input v-model="domain.value"></el-input>
+                        <el-input style="width:550px;max-width:100%;" v-model="domain.value"></el-input>
                         <a class="remove-item" v-show="formAddData.domains.length>1" @click.prevent="removeDomain(domain)"><i class="el-icon-close"></i></a>
                     </el-form-item>
                     <el-form-item class="submit-btn">
