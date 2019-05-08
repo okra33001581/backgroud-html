@@ -92,15 +92,24 @@
                 :before-close="hideAddForm"
                 width="40%"
                 top="5vh">
-            <el-form :model="formAddData" :rules="formAddRules" ref="dataAddForm"  label-width="110px">
-                <el-form-item label="plat_id" prop="plat_id">
-                    <el-input style="width:550px;max-width:100%;" v-model="formData.plat_id" auto-complete="off"></el-input>
-                </el-form-item>
-            </el-form>
-            <div slot="footer" class="dialog-footer">
-                <el-button @click.native="hideAddForm">取消</el-button>
-                <el-button type="primary" @click.native="formAddSubmit()" :loading="formAddLoading">提交</el-button>
-            </div>
+            <template>
+                <el-form :model="formAddData" ref="formAddData" label-width="80px" class="form-dynamic">
+                    <el-form-item
+                            v-for="(domain, index) in formAddData.domains"
+                            :label="'表单项' + (index+1)"
+                            :key="domain.key"
+                            :prop="'domains.' + index + '.value'"
+                            :rules="{required: true, message: '内容不能为空', trigger: 'blur'}">
+                        <el-input v-model="domain.value"></el-input>
+                        <a class="remove-item" v-show="formAddData.domains.length>1" @click.prevent="removeDomain(domain)"><i class="el-icon-close"></i></a>
+                    </el-form-item>
+                    <el-form-item class="submit-btn">
+                        <el-button type="primary" @click="submitAddForm('formAddData')">提交</el-button>
+                        <el-button @click="addDomain">新增一项</el-button>
+                        <el-button @click="resetForm('formAddData')">重置</el-button>
+                    </el-form-item>
+                </el-form>
+            </template>
         </el-dialog>
 
         <!--表单-->
@@ -212,7 +221,12 @@
                     sort: '+id'
                 },
                 tableKey: 0,
-                icon:'',
+                icon: '',
+                formAddData: {
+                    domains: [{
+                        value: ''
+                    }],
+                },
                 sortOptions: [{label: 'ID Ascending', key: '+id'}, {
                     label: 'ID Descending',
                     key: '-id'
@@ -249,7 +263,6 @@
                 formRules: {},
                 formAddLoading: false,
                 formAddVisible: false,
-                formAddData: formJson,
                 formAddRules: {},
                 addRules: {
                     username: [
@@ -283,6 +296,42 @@
             };
         },
         methods: {
+            /*增加表单项*/
+            addDomain() {
+                this.formAddData.domains.push({
+                    value: '',
+                });
+            },
+            /*删除表单项*/
+            removeDomain(item) {
+                var index = this.formAddData.domains.indexOf(item)
+                if (index !== -1) {
+                    this.formAddData.domains.splice(index, 1)
+                }
+            },
+            /*格式化表单数据*/
+            formatData(data){   //动态表单生成的是一个对象数组，需要把对象数组转成一个对象
+                let obj = {};
+                data.forEach((item,index)=>{
+                    obj['value'+(index+1)] = item.value
+                });
+                return obj
+            },
+            /*提交表单*/
+            submitAddForm(formName) {
+                this.$refs[formName].validate((valid) => {
+                    if (valid) {
+                        console.log(this.formatData(this.formAddData.domains))
+                    } else {
+                        alert('表单项不能为空！！！');
+                        return false;
+                    }
+                });
+            },
+            /*重置表单*/
+            resetForm(formName) {
+                this.$refs[formName].resetFields();
+            },
             onSubmit() {
                 this.$router.push({
                     path: "",

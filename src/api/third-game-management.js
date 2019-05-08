@@ -327,5 +327,19 @@ export function thirdBallDel(data) {
     });
 }
 
-
-
+// 获取列表
+export function gameTypeSetList(query) {
+    return axios({
+        url: "event/gameTypeSetList",
+        method: "get",
+        params: query
+    });
+}
+// 获取列表
+export function gameProfitList(query) {
+    return axios({
+        url: "event/gameProfitList",
+        method: "get",
+        params: query
+    });
+}

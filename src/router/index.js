@@ -54,6 +54,10 @@ import paygroup_list from "../views/hwin/fund-management/paygroup_list.vue";
 import transferorder_list from "../views/hwin/fund-management/transferorder_list.vue";
 import tripartite_list from "../views/hwin/fund-management/tripartite_list.vue";
 import userbetscheck_list from "../views/hwin/fund-management/userbetscheck_list.vue";
+
+import user_account_list from "../views/hwin/fund-management/user_account_list.vue";
+import merchant_account_list from "../views/hwin/fund-management/merchant_account_list.vue";
+
 import log_adminlog from "../views/hwin/log-management/log_adminlog.vue";
 import log_domainlog from "../views/hwin/log-management/log_domainlog.vue";
 import log_loginlog from "../views/hwin/log-management/log_loginlog.vue";
@@ -75,6 +79,8 @@ import game_type_list 	from "../views/hwin/third-game-management/game_type_list.
 import game_type_list_detail 	from "../views/hwin/third-game-management/game_type_list_detail.vue";
 import third_plat_list 	from "../views/hwin/third-game-management/third_plat_list.vue";
 import merchant_game_list 	from "../views/hwin/third-game-management/merchant_game_list.vue";
+import game_type_set_list 	from "../views/hwin/third-game-management/game_type_set_list.vue";
+import game_profit_list 	from "../views/hwin/third-game-management/game_profit_list.vue";
 
 // 管理组相关
 import adminRouter from "../views/userManage/admin/router.vue";
@@ -469,6 +475,24 @@ export const asyncRouterMap = [
         // noDropdown: true,
         children: [
             {
+                path: "user_account_list",
+                component: user_account_list,
+                name: "用户账户",
+                icon: "user_account_list",
+                meta: {
+                    authRule: ["hwin/paygroup_list"]
+                }
+            },
+            {
+                path: "merchant_account_list",
+                component: merchant_account_list,
+                name: "商户账户",
+                icon: "merchant_account_list",
+                meta: {
+                    authRule: ["hwin/paygroup_list"]
+                }
+            },
+            {
                 path: "paygroup_list",
                 component: paygroup_list,
                 name: "支付类型管理",
@@ -601,9 +625,9 @@ export const asyncRouterMap = [
         redirect: "/events/events",
         component: Home,
         icon: "playmanagement",
-        name: "游戏管理",
+        name: "彩票管理",
         meta: {
-            authRule: ["游戏管理"]
+            authRule: ["彩票管理"]
         },
         // noDropdown: true,
         children: [
@@ -875,9 +899,25 @@ export const asyncRouterMap = [
                     authRule: ["hwin/message_list"]
                 }
             },{
+                path: "game_type_set_list",
+                component: game_type_set_list,
+                name: "游戏类别设置",
+                icon: "message_list",
+                meta: {
+                    authRule: ["hwin/message_list"]
+                }
+            },{
                 path: "game_type_list_detail",
                 component: game_type_list_detail,
                 name: "游戏类别明细管理",
+                icon: "message_list",
+                meta: {
+                    authRule: ["hwin/message_list"]
+                }
+            },{
+                path: "game_profit_list",
+                component: game_profit_list,
+                name: "游戏盈亏",
                 icon: "message_list",
                 meta: {
                     authRule: ["hwin/message_list"]

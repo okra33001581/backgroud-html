@@ -36,30 +36,29 @@
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
-            <el-table-column label="			Id				" prop="id" fixed></el-table-column>
-            <el-table-column
-                    prop="name"
-                    label="游戏名称"
-                    width="180">
-            </el-table-column>
-            <el-table-column label="			图标				" prop="icon" >
-                <template slot-scope="scope">
-                    <el-popover
-                            placement="right"
-                            title=""
-                            trigger="hover">
-                        <img :src="'http://apidemo.test/public/' + scope.row.icon"/>
-                        <img slot="reference" :src="'http://apidemo.test/public/' + scope.row.icon" :alt="icon" style="max-height: 50px;max-width: 130px">
-                    </el-popover>
-                </template>
 
-            </el-table-column>
-            <el-table-column
-                    prop="status"
-                    label="状态">
-            </el-table-column>
-
-            <el-table-column prop="desc" label="简介"></el-table-column>
+            <el-table-column label="id" prop="id" fixed></el-table-column>
+            <el-table-column label="merchant_id" prop="merchant_id" fixed></el-table-column>
+            <el-table-column label="merchant_name" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="date" prop="date" fixed></el-table-column>
+            <el-table-column label="user_id" prop="user_id" fixed></el-table-column>
+            <el-table-column label="is_agent" prop="is_agent" fixed></el-table-column>
+            <el-table-column label="is_tester" prop="is_tester" fixed></el-table-column>
+            <el-table-column label="prize_group" prop="prize_group" fixed></el-table-column>
+            <el-table-column label="user_level" prop="user_level" fixed></el-table-column>
+            <el-table-column label="username" prop="username" fixed></el-table-column>
+            <el-table-column label="parent_user_id" prop="parent_user_id" fixed></el-table-column>
+            <el-table-column label="parent_user" prop="parent_user" fixed></el-table-column>
+            <el-table-column label="user_forefather_ids" prop="user_forefather_ids" fixed></el-table-column>
+            <el-table-column label="user_forefathers" prop="user_forefathers" fixed></el-table-column>
+            <el-table-column label="turnover" prop="turnover" fixed></el-table-column>
+            <el-table-column label="prize" prop="prize" fixed></el-table-column>
+            <el-table-column label="bonus" prop="bonus" fixed></el-table-column>
+            <el-table-column label="commission" prop="commission" fixed></el-table-column>
+            <el-table-column label="lose_commission" prop="lose_commission" fixed></el-table-column>
+            <el-table-column label="profit" prop="profit" fixed></el-table-column>
+            <el-table-column label="created_at" prop="created_at" fixed></el-table-column>
+            <el-table-column label="updated_at" prop="updated_at" fixed></el-table-column>
 
 
 
@@ -72,8 +71,8 @@
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
                     </el-button>
 
-                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="selItemSuccessServer(scope.$index, scope.row)">选择
-                    </el-button>
+                <!--    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="selItemSuccessServer(scope.$index, scope.row)">选择
+                    </el-button>-->
 
                     <el-button v-if="scope.row.status === '禁用' || scope.row.status === null" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemSuccessServer(scope.$index, scope.row)">启用
                     </el-button>
@@ -134,13 +133,11 @@
                     </el-upload>
                 </el-form-item>
 
+
                 <el-form-item label="desc" prop="desc">
                     <el-input style="width:550px;max-width:100%;" v-model="formData.desc" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item v-if="formData.ext_column1 != ''" :label="formData.ext_column1" prop="ext_field1">
-                    <el-input style="width:550px;max-width:100%;" v-model="formData.ext_field1" auto-complete="off"></el-input>
-                </el-form-item>
 
             </el-form>
             <div slot="footer" class="dialog-footer">
@@ -154,7 +151,7 @@
 
 <script>
     import {
-        gameTypeDetailList,
+        gameProfitList,
         thirdGameTypesSubStatusSave,
         thirdGameTypesDetailSave,
         thirdBallSequence,
@@ -415,10 +412,9 @@
             },
             getList() {
                 this.loading = true;
-                gameTypeDetailList(this.query)
+                gameProfitList(this.query)
                     .then(response => {
                         this.loading = false;
-                        // haicheng
                         this.list = response.data.list.data || [];
                         this.total = response.data.list.total || 0;
                     })
