@@ -16,6 +16,9 @@ import information_companylist from "../views/hwin/site-management/information_c
 import information_list from "../views/hwin/site-management/information_list.vue";
 import lotterygroup_sort from "../views/hwin/site-management/lotterygroup_sort.vue";
 import proxyiptables_blackcontainlist from "../views/hwin/site-management/proxyiptables_blackcontainlist.vue";
+
+import transaction_type_list from "../views/hwin/site-management/transaction_type_list.vue";
+
 import marquee_list from "../views/hwin/notice-management/marquee_list.vue";
 import message_list from "../views/hwin/notice-management/message_list.vue";
 import notice_list from "../views/hwin/notice-management/notice_list.vue";
@@ -261,6 +264,17 @@ export const asyncRouterMap = [
                 path: "systemconfig_set",
                 component: systemconfig_set,
                 name: "系统参数设定",
+                icon: "systemconfig_set",
+                meta: {
+                    authRule: ["hwin/systemconfig_set"]
+                    // ,
+                    // btnPermissions: ['admin','supper','normal', 'okra0000021'] //页面需要的权限
+                }
+            },
+            {
+                path: "transaction_type_list",
+                component: transaction_type_list,
+                name: "帐变类别设置",
                 icon: "systemconfig_set",
                 meta: {
                     authRule: ["hwin/systemconfig_set"]
