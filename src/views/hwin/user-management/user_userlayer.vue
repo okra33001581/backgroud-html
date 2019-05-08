@@ -39,12 +39,12 @@
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
-            <el-table-column label="					ID		" prop="id" fixed></el-table-column>
-            <el-table-column label="					层级名称		" prop="level_name" fixed></el-table-column>
-            <el-table-column label="					优先级		" prop="prior" fixed></el-table-column>
-            <el-table-column label="					会员人数		" prop="id" fixed></el-table-column>
-            <el-table-column label="					备注		" prop="memo" fixed></el-table-column>
-            <el-table-column label="					支付平台选项设定		" prop="id" fixed>
+            <el-table-column label="ID" prop="id" fixed></el-table-column>
+            <el-table-column label="层级名称" prop="level_name" fixed></el-table-column>
+            <el-table-column label="优先级" prop="prior" fixed></el-table-column>
+            <el-table-column label="会员人数" prop="id" fixed></el-table-column>
+            <el-table-column label="备注" prop="memo" fixed></el-table-column>
+            <el-table-column label="支付平台选项设定" prop="id" fixed>
                 <template slot-scope="scope">
                     <el-select v-model="scope.row.pay_setting" placeholder="支付平台选项设定" @change="updateUserlayerPaySetting(scope.row.id, scope.row.pay_setting)">
                         <el-option label="新用户层级" value="新用户层级"></el-option>
@@ -58,7 +58,7 @@
                 </template>
             </el-table-column>
 
-            <el-table-column label="					投注限额		" prop="project_limit" fixed>
+            <el-table-column label="投注限额" prop="project_limit" fixed>
                 <template slot-scope="scope">
                     <el-select v-model="scope.row.project_limit" placeholder="投注限额"  @change="updateUserlayerProjectLimit(scope.row.id, scope.row.project_limit)">
                         <el-option label="彩种投注限额" value="彩种投注限额"></el-option>
@@ -67,12 +67,12 @@
                 </template>
             </el-table-column>
 
-            <!--<el-table-column label="					加入条件		" prop="id" fixed>-->
-                <el-table-column label="					存款次数		" prop="deposit_times" fixed></el-table-column>
-                <el-table-column label="					存款总额		" prop="deposit_amount" fixed></el-table-column>
-                <el-table-column label="					最大存款额度		" prop="deposit_max" fixed></el-table-column>
-                <el-table-column label="					提款次数		" prop="withdraw_times" fixed></el-table-column>
-                <!--<el-table-column label="					提款总额		" prop="withdraw_amount" fixed></el-table-column>-->
+            <!--<el-table-column label="加入条件" prop="id" fixed>-->
+                <el-table-column label="存款次数" prop="deposit_times" fixed></el-table-column>
+                <el-table-column label="存款总额" prop="deposit_amount" fixed></el-table-column>
+                <el-table-column label="最大存款额度" prop="deposit_max" fixed></el-table-column>
+                <el-table-column label="提款次数" prop="withdraw_times" fixed></el-table-column>
+                <!--<el-table-column label="提款总额" prop="withdraw_amount" fixed></el-table-column>-->
             <!--</el-table-column>-->
 
             <el-table-column
@@ -362,9 +362,9 @@
                 updateUserlayerPaySetting(params).then(
                     function (res) {
                         // debugger
-                        /*if(res.code === 1){
+                        if(res.code === 1){
                             this.$message({
-                                message: res.data,
+                                message: res.message,
                                 type: 'success'
                             })
                             this.dialogFormVisible = false
@@ -373,11 +373,7 @@
                                 message: '错误信息：'+res.message,
                                 type: 'error'
                             });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
+                        }
                         this.getList();
                     }.bind(this)
                 )
@@ -392,9 +388,9 @@
                 updateUserlayerProjectLimit(params).then(
                     function (res) {
                         // debugger
-                        /*if(res.code === 1){
+                        if(res.code === 1){
                             this.$message({
-                                message: res.data,
+                                message: res.message,
                                 type: 'success'
                             })
                             this.dialogFormVisible = false
@@ -403,11 +399,7 @@
                                 message: '错误信息：'+res.message,
                                 type: 'error'
                             });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
+                        }
                         this.getList();
                     }.bind(this)
                 )

@@ -34,20 +34,20 @@
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
-            <el-table-column label="			Id				" prop="id" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="Id" prop="id" fixed></el-table-column>
+            <el-table-column label="商户名称" prop="merchant_name" fixed></el-table-column>
 
-            <el-table-column label="					状态		" prop="status" fixed></el-table-column>
-            <el-table-column label="					名称		" prop="name" fixed></el-table-column>
-            <el-table-column label="					排序值		" prop="sequence" fixed>
+            <el-table-column label="状态" prop="status" fixed></el-table-column>
+            <el-table-column label="名称" prop="name" fixed></el-table-column>
+            <el-table-column label="排序值" prop="sequence" fixed>
 
                 <template scope="scope">
-                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="updateLotterygroupSequence(scope.$index, scope.row)"
+                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="updateLotterygroupSequence(scope.row)"
                     ></el-input>
                 </template>
 
             </el-table-column>
-            <el-table-column label="					属性		" prop="id" fixed >
+            <el-table-column label="属性" prop="id" fixed >
 
                 <template slot-scope="scope">
                     <!--<el-checkbox-group-->
@@ -94,15 +94,15 @@
                 width="35%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
-                <el-form-item label="			Id		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			名称		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			排序值		" prop="username">
+                <el-form-item label="Id" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="名称" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="排序值" prop="username">
                     <template scope="scope">
                         <el-input size="small" v-model="formData.languageCode" placeholder="请输入排序值"
                         ></el-input>
                     </template>
                 </el-form-item>
-                <el-form-item label="			属性		" prop="username">
+                <el-form-item label="属性" prop="username">
                     <template slot-scope="scope">
                         <el-checkbox  v-model="formData.isCheck1">热门</el-checkbox>
                         <el-checkbox  v-model="formData.isCheck2">推荐</el-checkbox>
@@ -308,9 +308,9 @@
                 updateLotteryGroupPropertySave(params).then(
                     function (res) {
                         // debugger
-                        /*if(res.code === 1){
+                        if(res.code === 1){
                             this.$message({
-                                message: res.data,
+                                message: res.message,
                                 type: 'success'
                             })
                             this.dialogFormVisible = false
@@ -319,11 +319,7 @@
                                 message: '错误信息：'+res.message,
                                 type: 'error'
                             });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
+                        }
                         this.getList();
                     }.bind(this)
                 )
@@ -336,7 +332,7 @@
                 }
                 this.handleFilter()
             },
-            updateLotterygroupSequence(index, row) {
+            updateLotterygroupSequence(row) {
                 var params = {
                     id: row.id,
                     sequence: row.sequence
@@ -345,9 +341,9 @@
                 updateLotterygroupSequence(params).then(
                     function (res) {
                         // debugger
-                        /*if(res.code === 1){
+                        if(res.code === 1){
                             this.$message({
-                                message: res.data,
+                                message: res.message,
                                 type: 'success'
                             })
                             this.dialogFormVisible = false
@@ -356,11 +352,7 @@
                                 message: '错误信息：'+res.message,
                                 type: 'error'
                             });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
+                        }
                         this.getList();
                     }.bind(this)
                 )

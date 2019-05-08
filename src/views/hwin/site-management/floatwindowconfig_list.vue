@@ -36,12 +36,12 @@
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
 
-            <el-table-column label="					编号		" prop="id" fixed></el-table-column>
-            <el-table-column label="					商户		" prop="merchant_name" fixed></el-table-column>
-            <el-table-column label="					位置		" prop="position" fixed></el-table-column>
-            <el-table-column label="					状态		" prop="status" fixed></el-table-column>
-            <el-table-column label="					关闭图标		" prop="pic" fixed></el-table-column>
-            <el-table-column label="					电脑版图片		" prop="pic" fixed>
+            <el-table-column label="编号" prop="id" fixed></el-table-column>
+            <el-table-column label="商户" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="位置" prop="position" fixed></el-table-column>
+            <el-table-column label="状态" prop="status" fixed></el-table-column>
+            <el-table-column label="关闭图标" prop="pic" fixed></el-table-column>
+            <el-table-column label="电脑版图片" prop="pic" fixed>
 
                 <template slot-scope="scope">
                     <el-popover
@@ -57,18 +57,18 @@
 
 
 
-            <el-table-column label="					排序值		" prop="position" fixed>
+            <el-table-column label="排序值" prop="position" fixed>
 
                 <template scope="scope">
-                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="updatefloatwindowSequence(scope.$index, scope.row)">
+                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="updatefloatwindowSequence(scope.row)">
                     </el-input>
                 </template>
 
             </el-table-column>
-            <el-table-column label="				名称		" prop="title" fixed></el-table-column>
-            <el-table-column label="				图片		" prop="pic" fixed></el-table-column>
-            <el-table-column label="				展开图片		" prop="expand_pic" fixed></el-table-column>
-            <el-table-column label="				链接地址		" prop="link" fixed></el-table-column>
+            <el-table-column label="名称" prop="title" fixed></el-table-column>
+            <el-table-column label="图片" prop="pic" fixed></el-table-column>
+            <el-table-column label="展开图片" prop="expand_pic" fixed></el-table-column>
+            <el-table-column label="链接地址" prop="link" fixed></el-table-column>
 
             <el-table-column
                     label="操作" width="260"
@@ -99,9 +99,9 @@
                 width="35%"
                 top="5vh">
             <el-form :model="formData" label-width="11%" :rules="formRules" ref="dataForm">
-                <el-form-item label="			Id		" prop="id"><el-input v-model="formData.id" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			位置 		" prop="position"><el-input v-model="formData.position" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			名称 		" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="Id" prop="id"><el-input v-model="formData.id" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="位置" prop="position"><el-input v-model="formData.position" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="名称" prop="title"><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
 
 
                 <el-form-item label="图片" prop="bannerPc">
@@ -123,13 +123,13 @@
                     </el-select>
                 </el-form-item>
 
-                <el-form-item label="				链接地址		" prop="link"><el-input v-model="formData.link" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="链接地址" prop="link"><el-input v-model="formData.link" auto-complete="off"></el-input></el-form-item>
 
 
-                <el-form-item label="				宽度		" prop="width"><el-input v-model="formData.width" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="宽度" prop="width"><el-input v-model="formData.width" auto-complete="off"></el-input></el-form-item>
 
 
-                <el-form-item label="				右边距		" prop="right_margin"><el-input v-model="formData.right_margin" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="右边距" prop="right_margin"><el-input v-model="formData.right_margin" auto-complete="off"></el-input></el-form-item>
 
 
                 <el-form-item class="query-form-item">
@@ -152,9 +152,9 @@
                 </el-form-item>
 
 
-                <el-form-item label="				说明文字  		" prop="expand_pic_desc"><el-input v-model="formData.expand_pic_desc" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="说明文字" prop="expand_pic_desc"><el-input v-model="formData.expand_pic_desc" auto-complete="off"></el-input></el-form-item>
 
-                <el-form-item label="			 排序 		" prop="sequence"><el-input v-model="formData.sequence" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="排序" prop="sequence"><el-input v-model="formData.sequence" auto-complete="off"></el-input></el-form-item>
 
                <!-- <el-form-item class="query-form-item">
                     <el-select v-model="formData.status" placeholder="状态">
@@ -349,7 +349,7 @@
                     this.sortByLastLoginIp(order)
                 }
             },
-            updatefloatwindowSequence(index, row) {
+            updatefloatwindowSequence(row) {
                 var params = {
                     id: row.id,
                     sequence: row.sequence
@@ -358,9 +358,9 @@
                 updatefloatwindowSequence(params).then(
                     function (res) {
                         // debugger
-                        /*if(res.code === 1){
+                        if(res.code === 1){
                             this.$message({
-                                message: res.data,
+                                message: res.message,
                                 type: 'success'
                             })
                             this.dialogFormVisible = false
@@ -369,11 +369,7 @@
                                 message: '错误信息：'+res.message,
                                 type: 'error'
                             });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
+                        }
                         this.getList();
                     }.bind(this)
                 )

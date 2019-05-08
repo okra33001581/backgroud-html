@@ -40,21 +40,21 @@
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
-            <el-table-column label="			Id				" prop="id" fixed></el-table-column>
-            <el-table-column label="					排序值		" prop="id" fixed>
+            <el-table-column label="Id" prop="id" fixed></el-table-column>
+            <el-table-column label="排序值" prop="id" fixed>
                 <template scope="scope">
-                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="thirdGameTypesSequence(scope.$index, scope.row)"
+                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="thirdGameTypesSequence(scope.row)"
                     ></el-input>
                 </template>
             </el-table-column>
-            <el-table-column label="			类型				" prop="type" fixed></el-table-column>
-            <el-table-column label="			游戏类型名				" prop="name" fixed></el-table-column>
-            <el-table-column label="			游戏类型标记				" prop="identifier" fixed></el-table-column>
-            <el-table-column label="			归属三方平台				" prop="plat_id" fixed></el-table-column>
-            <el-table-column label="			比例确定依据				" prop="rate_basis" fixed></el-table-column>
-            <el-table-column label="			创建时间				" prop="created_at" fixed></el-table-column>
-            <el-table-column label="			更新时间				" prop="updated_at" fixed></el-table-column>
-            <el-table-column label="			状态				" prop="status" fixed></el-table-column>
+            <el-table-column label="类型" prop="type" fixed></el-table-column>
+            <el-table-column label="游戏类型名" prop="name" fixed></el-table-column>
+            <el-table-column label="游戏类型标记" prop="identifier" fixed></el-table-column>
+            <el-table-column label="归属三方平台" prop="plat_id" fixed></el-table-column>
+            <el-table-column label="比例确定依据" prop="rate_basis" fixed></el-table-column>
+            <el-table-column label="创建时间" prop="created_at" fixed></el-table-column>
+            <el-table-column label="更新时间" prop="updated_at" fixed></el-table-column>
+            <el-table-column label="状态" prop="status" fixed></el-table-column>
 
             <el-table-column
                     label="操作" width="360"
@@ -175,7 +175,7 @@
                                 label="游戏名称"
                                 width="180">
                         </el-table-column>
-                        <el-table-column label="			图标				" prop="icon" >
+                        <el-table-column label="图标" prop="icon" >
                             <template slot-scope="scope">
                                 <el-popover
                                         placement="right"
@@ -203,7 +203,7 @@
                             <template slot-scope="scope">
                                 <el-button v-if="scope.row.status === '禁用'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemSubServer(scope.row,'启用')">启用
                                 </el-button>
-                                <el-button v-if="scope.row.status === '启用'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemSubServer(scope.row,'禁用')">禁用
+                                <el-button v-if="scope.row.status === '启用'" type="danger" size="small" icon="el-icon-edit" @click.native="auditItemSubServer(scope.row,'禁用')">禁用
                                 </el-button>
 
                                 <!--<el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
@@ -448,7 +448,7 @@
                 }
                 this.handleFilter()
             },
-            thirdGameTypesSequence(index, row) {
+            thirdGameTypesSequence(row) {
                 var params = {
                     id: row.id,
                     sequence: row.sequence
@@ -457,9 +457,9 @@
                 thirdGameTypesSequence(params).then(
                     function (res) {
                         // debugger
-                        /*if(res.code === 1){
+                        if(res.code === 1){
                             this.$message({
-                                message: res.data,
+                                message: res.message,
                                 type: 'success'
                             })
                             this.dialogFormVisible = false
@@ -468,11 +468,7 @@
                                 message: '错误信息：'+res.message,
                                 type: 'error'
                             });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
+                        }
                         this.getList();
                     }.bind(this)
                 )
@@ -526,7 +522,7 @@
                                 type: 'error'
                             });
                         }
-                        this.getList();
+                        this.getSubList();
                     }.bind(this)
                 )
             },

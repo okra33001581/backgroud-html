@@ -83,7 +83,7 @@
                             <el-table-column  prop="sequence" fixed>
 
                                 <template scope="scope">
-                                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="updatePgameSequence(scope.$index, scope.row)"
+                                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="updatePgameSequence(scope.row)"
                                     ></el-input>
                                 </template>
 
@@ -287,7 +287,7 @@
                     });
             },
             //修改排序值
-            updatePgameSequence(index, row) {
+            updatePgameSequence(row) {
                 var params = {
                     id: row.id,
                     sequence: row.sequence
@@ -296,9 +296,9 @@
                 pgameSequenceSave(params).then(
                     function (res) {
                         // debugger
-                        /*if(res.code === 1){
+                        if(res.code === 1){
                             this.$message({
-                                message: res.data,
+                                message: res.message,
                                 type: 'success'
                             })
                             this.dialogFormVisible = false
@@ -307,11 +307,7 @@
                                 message: '错误信息：'+res.message,
                                 type: 'error'
                             });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
+                        }
                         //this.getList();
                     }.bind(this)
                 )
@@ -362,9 +358,9 @@
                 pgamePropertySave(params).then(
                     function (res) {
                         // debugger
-                        /*if(res.code === 1){
+                        if(res.code === 1){
                             this.$message({
-                                message: res.data,
+                                message: res.message,
                                 type: 'success'
                             })
                             this.dialogFormVisible = false
@@ -373,11 +369,7 @@
                                 message: '错误信息：'+res.message,
                                 type: 'error'
                             });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
+                        }
                         //this.getChildrenList(lottery_name);
                     }.bind(this)
                 )

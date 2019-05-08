@@ -52,7 +52,7 @@
             <el-table-column label="排序值" prop="sequence" fixed>
 
                 <template scope="scope">
-                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="updateSequenceServer(scope.$index, scope.row)"
+                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="updateSequenceServer(scope.row)"
                     ></el-input>
                 </template>
 
@@ -72,7 +72,7 @@
             <el-table-column label="支付类型别名" prop="pay_type_alias" fixed>
 
                 <template scope="scope">
-                    <el-input size="small" v-model="scope.row.pay_type_alias" placeholder="请输入支付类型别名" @keyup.enter.native="updatePayTypeAliasServer(scope.$index, scope.row)"
+                    <el-input size="small" v-model="scope.row.pay_type_alias" placeholder="请输入支付类型别名" @keyup.enter.native="updatePayTypeAliasServer(scope.row)"
                     ></el-input>
                 </template>
 
@@ -351,7 +351,7 @@
                     }.bind(this)
                 )
             },
-            updateSequenceServer(index, row) {
+            updateSequenceServer(row) {
                 var params = {
                     id: row.id,
                     sequence: row.sequence
@@ -360,9 +360,9 @@
                 sequenceSave(params).then(
                     function (res) {
                         // debugger
-                        /*if(res.code === 1){
+                        if(res.code === 1){
                             this.$message({
-                                message: res.data,
+                                message: res.message,
                                 type: 'success'
                             })
                             this.dialogFormVisible = false
@@ -371,16 +371,12 @@
                                 message: '错误信息：'+res.message,
                                 type: 'error'
                             });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
+                        }
                         this.getList();
                     }.bind(this)
                 )
             },
-            updatePayTypeAliasServer(index, row) {
+            updatePayTypeAliasServer(row) {
                 var params = {
                     id: row.id,
                     paytype_alias: row.pay_type_alias
@@ -389,9 +385,9 @@
                 paytypeAliasSave(params).then(
                     function (res) {
                         // debugger
-                        /*if(res.code === 1){
+                        if(res.code === 1){
                             this.$message({
-                                message: res.data,
+                                message: res.message,
                                 type: 'success'
                             })
                             this.dialogFormVisible = false
@@ -400,11 +396,7 @@
                                 message: '错误信息：'+res.message,
                                 type: 'error'
                             });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
+                        }
                         this.getList();
                     }.bind(this)
                 )
@@ -415,15 +407,15 @@
             updatePropertyServer(index, property) {
                 var params = {
                     id: index,
-                    property: property
+                    hot: property
                 }
                 // debugger
                 propertySave(params).then(
                     function (res) {
                         // debugger
-                        /*if(res.code === 1){
+                        if(res.code === 1){
                             this.$message({
-                                message: res.data,
+                                message: res.message,
                                 type: 'success'
                             })
                             this.dialogFormVisible = false
@@ -432,11 +424,7 @@
                                 message: '错误信息：'+res.message,
                                 type: 'error'
                             });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
+                        }
                         this.getList();
                     }.bind(this)
                 )

@@ -47,7 +47,7 @@
             <el-table-column label="排序值" prop="id" fixed>
 
                 <template scope="scope">
-                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="noticeSequence(scope.$index, scope.row)"
+                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="noticeSequence(scope.row)"
                     ></el-input>
                 </template>
 
@@ -75,9 +75,9 @@
                     <el-button v-else type="primary" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'启用')">启用
                     </el-button>
 
-                    <el-button v-if="scope.row.is_top === '解除置顶'" type="primary" size="small" icon="el-icon-edit" @click.native="itemSuccessTopServer(scope.$index, scope.row)">置顶
+                    <el-button v-if="scope.row.is_top === '解除置顶'" type="primary" size="small" icon="el-icon-edit" @click.native="itemTopServer(scope.row,'置顶')">置顶
                     </el-button>
-                    <el-button v-if="scope.row.is_top === '置顶'" type="primary" size="small" icon="el-icon-edit" @click.native="itemFailedTopServer(scope.$index, scope.row)">解除置顶
+                    <el-button v-if="scope.row.is_top === '置顶'" type="primary" size="small" icon="el-icon-edit" @click.native="itemTopServer(scope.row,'解除置顶')">解除置顶
                     </el-button>
                 </template>
             </el-table-column>
@@ -318,18 +318,18 @@
                     }.bind(this)
                 )
             },
-            itemSuccessTopServer(index, row) {
+            itemTopServer(row,flag) {
                 var params = {
                     id: row.id,
-                    flag: '置顶'
+                    flag: flag
                 }
                 // debugger
                 noticeTopSave(params).then(
                     function (res) {
                         // debugger
-                        /*if(res.code === 1){
+                        if(res.code === 1){
                             this.$message({
-                                message: res.data,
+                                message: res.message,
                                 type: 'success'
                             })
                             this.dialogFormVisible = false
@@ -338,16 +338,12 @@
                                 message: '错误信息：'+res.message,
                                 type: 'error'
                             });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
+                        }
                         this.getList();
                     }.bind(this)
                 )
             },
-            noticeSequence(index, row) {
+            noticeSequence(row) {
                 var params = {
                     id: row.id,
                     sequence: row.sequence
@@ -356,9 +352,9 @@
                 noticeSequence(params).then(
                     function (res) {
                         // debugger
-                        /*if(res.code === 1){
+                        if(res.code === 1){
                             this.$message({
-                                message: res.data,
+                                message: res.message,
                                 type: 'success'
                             })
                             this.dialogFormVisible = false
@@ -367,40 +363,7 @@
                                 message: '错误信息：'+res.message,
                                 type: 'error'
                             });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
-                        this.getList();
-                    }.bind(this)
-                )
-            },
-            itemFailedTopServer(index, row) {
-                var params = {
-                    id: row.id,
-                    flag: '解除置顶'
-                }
-                // debugger
-                noticeTopSave(params).then(
-                    function (res) {
-                        // debugger
-                        /*if(res.code === 1){
-                            this.$message({
-                                message: res.data,
-                                type: 'success'
-                            })
-                            this.dialogFormVisible = false
-                        }else{
-                            this.$message({
-                                message: '错误信息：'+res.message,
-                                type: 'error'
-                            });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
+                        }
                         this.getList();
                     }.bind(this)
                 )

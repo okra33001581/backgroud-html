@@ -52,19 +52,19 @@
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
-            <el-table-column label="			Id				" prop="id" fixed></el-table-column>
-            <el-table-column label="					排序值		" prop="id" fixed>
+            <el-table-column label="Id" prop="id" fixed></el-table-column>
+            <el-table-column label="排序值" prop="id" fixed>
 
                 <template scope="scope">
-                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="thirdBallSequence(scope.$index, scope.row)"
+                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="thirdBallSequence(scope.row)"
                     ></el-input>
                 </template>
 
             </el-table-column>
-            <el-table-column label="			类别				" prop="type" fixed></el-table-column>
-            <el-table-column label="			区域				" prop="district" fixed></el-table-column>
-            <el-table-column label="			国家				" prop="nationality" fixed></el-table-column>
-            <el-table-column label="			国旗				" prop="icon" fixed>
+            <el-table-column label="类别" prop="type" fixed></el-table-column>
+            <el-table-column label="区域" prop="district" fixed></el-table-column>
+            <el-table-column label="国家" prop="nationality" fixed></el-table-column>
+            <el-table-column label="国旗" prop="icon" fixed>
                 <template slot-scope="scope">
                     <el-popover
                             placement="right"
@@ -76,7 +76,7 @@
                 </template>
 
             </el-table-column>
-            <el-table-column label="			联赛名称				" prop="name" fixed></el-table-column>
+            <el-table-column label="联赛名称" prop="name" fixed></el-table-column>
             <el-table-column
                     label="操作" width="360"
                     fixed="right">
@@ -421,7 +421,7 @@
                     }.bind(this)
                 )
             },
-            thirdBallSequence(index, row) {
+            thirdBallSequence(row) {
                 var params = {
                     id: row.id,
                     sequence: row.sequence
@@ -430,9 +430,9 @@
                 thirdBallSequence(params).then(
                     function (res) {
                         // debugger
-                        /*if(res.code === 1){
+                        if(res.code === 1){
                             this.$message({
-                                message: res.data,
+                                message: res.message,
                                 type: 'success'
                             })
                             this.dialogFormVisible = false
@@ -441,11 +441,7 @@
                                 message: '错误信息：'+res.message,
                                 type: 'error'
                             });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
+                        }
                         this.getList();
                     }.bind(this)
                 )

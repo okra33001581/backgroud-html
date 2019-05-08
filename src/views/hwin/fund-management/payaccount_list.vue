@@ -42,7 +42,7 @@
             <el-table-column label="排序值" prop="id" fixed>
 
                 <template scope="scope">
-                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="payAccountSequenceServer(scope.$index, scope.row)"
+                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="payAccountSequenceServer(scope.row)"
                     ></el-input>
                 </template>
 
@@ -371,7 +371,7 @@
                 }
                 this.handleFilter()
             },
-            payAccountSequenceServer(index, row) {
+            payAccountSequenceServer(row) {
                 var params = {
                     id: row.id,
                     sequence: row.sequence
@@ -380,9 +380,9 @@
                 payAccountSequence(params).then(
                     function (res) {
                         // debugger
-                        /*if(res.code === 1){
+                        if(res.code === 1){
                             this.$message({
-                                message: res.data,
+                                message: res.message,
                                 type: 'success'
                             })
                             this.dialogFormVisible = false
@@ -391,11 +391,7 @@
                                 message: '错误信息：'+res.message,
                                 type: 'error'
                             });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
+                        }
                         this.getList();
                     }.bind(this)
                 )

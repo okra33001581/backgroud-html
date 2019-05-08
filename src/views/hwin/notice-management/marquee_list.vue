@@ -38,18 +38,18 @@
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
-            <el-table-column label="			Id				" prop="id" fixed></el-table-column>
-            <el-table-column label="					排序值		" prop="id" fixed>
+            <el-table-column label="Id" prop="id" fixed></el-table-column>
+            <el-table-column label="排序值" prop="id" fixed>
 
                 <template scope="scope">
-                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="marqueeSequence(scope.$index, scope.row)"
+                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="marqueeSequence(scope.row)"
                     ></el-input>
                 </template>
 
             </el-table-column>
-            <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
-            <el-table-column label="			标题				" prop="title" fixed></el-table-column>
-            <el-table-column label="			状态				" prop="status" fixed></el-table-column>
+            <el-table-column label="商户名称" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="标题" prop="title" fixed></el-table-column>
+            <el-table-column label="状态" prop="status" fixed></el-table-column>
             <el-table-column
                     label="操作" width="260"
                     fixed="right">
@@ -282,7 +282,7 @@
                 }
                 this.handleFilter()
             },
-            marqueeSequence(index, row) {
+            marqueeSequence(row) {
                 var params = {
                     id: row.id,
                     sequence: row.sequence
@@ -291,9 +291,9 @@
                 marqueeSequence(params).then(
                     function (res) {
                         // debugger
-                        /*if(res.code === 1){
+                        if(res.code === 1){
                             this.$message({
-                                message: res.data,
+                                message: res.message,
                                 type: 'success'
                             })
                             this.dialogFormVisible = false
@@ -302,11 +302,7 @@
                                 message: '错误信息：'+res.message,
                                 type: 'error'
                             });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
+                        }
                         this.getList();
                     }.bind(this)
                 )

@@ -35,7 +35,7 @@
             <el-table-column label="ID" prop="id" fixed></el-table-column>
             <el-table-column label="名称" prop="id" fixed>
                 <template scope="scope">
-                    <el-input size="small" v-model="scope.row.name" placeholder="请输入名称" @keyup.enter.native="updateBetlimitName(scope.$index, scope.row)"
+                    <el-input size="small" v-model="scope.row.name" placeholder="请输入名称" @keyup.enter.native="updateBetlimitName(scope.row)"
                     ></el-input>
                 </template>
             </el-table-column>
@@ -138,7 +138,7 @@
                 </el-table-column>-->
                 <el-table-column label="单一用户单期最高中奖金额" prop="id">
                 <template scope="scope">
-                    <el-input size="small" v-model="scope.row.prize_limit" placeholder="请输入名称" @keyup.enter.native="updateBetlimitPrize(scope.$index, scope.row)"
+                    <el-input size="small" v-model="scope.row.prize_limit" placeholder="请输入单一用户单期最高中奖金额" @keyup.enter.native="updateBetlimitPrize(scope.row)"
                     ></el-input>
                 </template>
                 </el-table-column>
@@ -365,7 +365,7 @@
             },
 
            //修改名字
-            updateBetlimitName(index, row) {
+            updateBetlimitName(row) {
                 var params = {
                     id: row.id,
                     name: row.name
@@ -374,9 +374,9 @@
                 betlimitNameSave(params).then(
                     function (res) {
                         // debugger
-                        /*if(res.code === 1){
+                        if(res.code === 1){
                             this.$message({
-                                message: res.data,
+                                message: res.message,
                                 type: 'success'
                             })
                             this.dialogFormVisible = false
@@ -385,18 +385,14 @@
                                 message: '错误信息：'+res.message,
                                 type: 'error'
                             });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
+                        }
                         this.getList();
                     }.bind(this)
                 )
             },
 
             //修改单一用户单期最高中奖金额值
-            updateBetlimitPrize(index, row) {
+            updateBetlimitPrize(row) {
                 var params = {
                     id: row.id,
                     prize_limit: row.prize_limit
@@ -405,9 +401,9 @@
                 betlimitPrizeSave(params).then(
                     function (res) {
                         // debugger
-                        /*if(res.code === 1){
+                        if(res.code === 1){
                             this.$message({
-                                message: res.data,
+                                message: res.message,
                                 type: 'success'
                             })
                             this.dialogFormVisible = false
@@ -416,11 +412,7 @@
                                 message: '错误信息：'+res.message,
                                 type: 'error'
                             });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
+                        }
                         this.getTableData(this.name);
                     }.bind(this)
                 )
@@ -518,19 +510,20 @@
                 let data = this.multipleSelection;
                 betlimitPrizeSave(data).then(response => {
                     this.formLoading = false;
-                    if (response.code) {
+                    if(response.code === 1){
                         this.$message({
                             message: response.message,
-                            type: "error"
-                        });
-                    } else {
-                        this.$message({
-                            message: "操作成功",
-                            type: "success"
-                        });
-                        //刷新列表
+                            type: 'success'
+                        })
+                        this.dialogFormVisible = false
                         this.getTableData(this.name);
+                    }else{
+                        this.$message({
+                            message: '错误信息：'+response.message,
+                            type: 'error'
+                        });
                     }
+                    
                 });
                
             },

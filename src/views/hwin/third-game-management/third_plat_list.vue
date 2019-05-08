@@ -35,8 +35,8 @@
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
-            <el-table-column label="			Id				" prop="id" fixed></el-table-column>
-            <el-table-column label="					排序值		" prop="id" fixed>
+            <el-table-column label="Id" prop="id" fixed></el-table-column>
+            <el-table-column label="排序值" prop="id" fixed>
 
                 <template scope="scope">
                     <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="thirdPlatsSequence(scope.$index, scope.row)"
@@ -44,16 +44,16 @@
                 </template>
 
             </el-table-column>
-            <el-table-column label="			平台唯一标识				" prop="identity" fixed></el-table-column>
-            <el-table-column label="			平台名				" prop="name" fixed></el-table-column>
-            <el-table-column label="			平台分配的标识				" prop="plat_identity" fixed></el-table-column>
-            <el-table-column label="			密钥				" prop="params_key" fixed></el-table-column>
-            <el-table-column label="			唯一密钥				" prop="key" fixed></el-table-column>
-            <el-table-column label="			请求地址				" prop="iframe_url" fixed></el-table-column>
-            <el-table-column label="			推送数据url				" prop="data_url" fixed></el-table-column>
-            <el-table-column label="			状态				" prop="status" fixed></el-table-column>
-            <el-table-column label="			查询启用				" prop="query_enabled" fixed></el-table-column>
-            <el-table-column label="			数据url				" prop="free_data_url" fixed></el-table-column>
+            <el-table-column label="平台唯一标识" prop="identity" fixed></el-table-column>
+            <el-table-column label="平台名" prop="name" fixed></el-table-column>
+            <el-table-column label="平台分配的标识" prop="plat_identity" fixed></el-table-column>
+            <el-table-column label="密钥" prop="params_key" fixed></el-table-column>
+            <el-table-column label="唯一密钥" prop="key" fixed></el-table-column>
+            <el-table-column label="请求地址" prop="iframe_url" fixed></el-table-column>
+            <el-table-column label="推送数据url" prop="data_url" fixed></el-table-column>
+            <el-table-column label="状态" prop="status" fixed></el-table-column>
+            <el-table-column label="查询启用" prop="query_enabled" fixed></el-table-column>
+            <el-table-column label="数据url" prop="free_data_url" fixed></el-table-column>
 
             <el-table-column
                     label="操作" width="260"
@@ -336,9 +336,9 @@
                 thirdPlatsSequence(params).then(
                     function (res) {
                         // debugger
-                        /*if(res.code === 1){
+                        if(res.code === 1){
                             this.$message({
-                                message: res.data,
+                                message: res.message,
                                 type: 'success'
                             })
                             this.dialogFormVisible = false
@@ -347,11 +347,7 @@
                                 message: '错误信息：'+res.message,
                                 type: 'error'
                             });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
+                        }
                         this.getList();
                     }.bind(this)
                 )

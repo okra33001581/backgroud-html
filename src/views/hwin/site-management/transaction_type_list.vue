@@ -36,18 +36,18 @@
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
 
-            <el-table-column label="					排序值		" prop="sequence" fixed>
+            <el-table-column label="排序值" prop="sequence" fixed>
 
                 <template scope="scope">
-                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="updateRotateSequence(scope.$index, scope.row)"
+                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="updateRotateSequence(scope.row)"
                     ></el-input>
                 </template>
 
             </el-table-column>
-            <el-table-column label="					商户		" prop="merchant_name" fixed></el-table-column>
-            <el-table-column label="					状态		" prop="status" fixed></el-table-column>
-            <el-table-column label="					名称		" prop="title" fixed></el-table-column>
-            <el-table-column label="					电脑版图片		" prop="pc_pic" fixed>
+            <el-table-column label="商户" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="状态" prop="status" fixed></el-table-column>
+            <el-table-column label="名称" prop="title" fixed></el-table-column>
+            <el-table-column label="电脑版图片" prop="pc_pic" fixed>
 
                 <template slot-scope="scope">
                     <el-popover
@@ -61,7 +61,7 @@
 
             </el-table-column>
 
-            <el-table-column label="					手机版图片		" prop="mobile_pic" fixed>
+            <el-table-column label="手机版图片" prop="mobile_pic" fixed>
 
                 <template slot-scope="scope">
                     <el-popover
@@ -75,9 +75,9 @@
 
             </el-table-column>
 
-            <el-table-column label="					链接地址		" prop="link" fixed></el-table-column>
-            <el-table-column label="					更新时间		" prop="updated_at" fixed></el-table-column>
-            <el-table-column label="					操作者		" prop="updater" fixed></el-table-column>
+            <el-table-column label="链接地址" prop="link" fixed></el-table-column>
+            <el-table-column label="更新时间" prop="updated_at" fixed></el-table-column>
+            <el-table-column label="操作者" prop="updater" fixed></el-table-column>
 
             <el-table-column
                     label="操作" width="200"
@@ -403,7 +403,7 @@
                 }
                 this.handleFilter()
             },
-            updateRotateSequence(index, row) {
+            updateRotateSequence(row) {
                 var params = {
                     id: row.id,
                     sequence: row.sequence
@@ -412,9 +412,9 @@
                 updateRotateSequence(params).then(
                     function (res) {
                         // debugger
-                        /*if(res.code === 1){
+                        if(res.code === 1){
                             this.$message({
-                                message: res.data,
+                                message: res.message,
                                 type: 'success'
                             })
                             this.dialogFormVisible = false
@@ -423,11 +423,7 @@
                                 message: '错误信息：'+res.message,
                                 type: 'error'
                             });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
+                        }
                         this.getList();
                     }.bind(this)
                 )

@@ -51,7 +51,7 @@
             <el-table-column label="排序值" prop="id" fixed>
 
                 <template scope="scope">
-                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="thirdMerchantGameSequence(scope.$index, scope.row)"
+                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="thirdMerchantGameSequence(scope.row)"
                     ></el-input>
                 </template>
 
@@ -75,13 +75,13 @@
             </el-table-column>
             <el-table-column label="游戏费用" prop="id" fixed>
                 <template scope="scope">
-                    <el-input size="small" v-model="scope.row.fee" placeholder="请输入排序值" @keyup.enter.native="thirdMerchantGameFee(scope.$index, scope.row)"
+                    <el-input size="small" v-model="scope.row.fee" placeholder="请输入排序值" @keyup.enter.native="thirdMerchantGameFee(scope.row)"
                     ></el-input>
                 </template>
             </el-table-column>
             <el-table-column label="游戏明细费用" prop="id" fixed>
                 <template scope="scope">
-                    <el-input size="small" v-model="scope.row.sub_fee" placeholder="请输入排序值" @keyup.enter.native="thirdMerchantGameSubFee(scope.$index, scope.row)"
+                    <el-input size="small" v-model="scope.row.sub_fee" placeholder="请输入排序值" @keyup.enter.native="thirdMerchantGameSubFee(scope.row)"
                     ></el-input>
                 </template>
             </el-table-column>
@@ -284,7 +284,7 @@
                         this.total = 0;
                     });
             },
-            thirdMerchantGameSequence(index, row) {
+            thirdMerchantGameSequence(row) {
                 var params = {
                     id: row.id,
                     sequence: row.sequence
@@ -292,15 +292,23 @@
                 // debugger
                 thirdMerchantGameSequence(params).then(
                     function (res) {
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
+                        if(res.code === 1){
+                            this.$message({
+                                message: res.message,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }
                         this.getList();
                     }.bind(this)
                 )
             },
-            thirdMerchantGameFee(index, row) {
+            thirdMerchantGameFee(row) {
                 var params = {
                     fee: row.fee,
                     type: row.type,
@@ -309,15 +317,23 @@
                 // debugger
                 thirdMerchantGameFee(params).then(
                     function (res) {
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
+                        if(res.code === 1){
+                            this.$message({
+                                message: res.message,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }
                         this.getList();
                     }.bind(this)
                 )
             },
-            thirdMerchantGameSubFee(index, row) {
+            thirdMerchantGameSubFee(row) {
                 var params = {
                     id: row.id,
                     sub_fee: row.sub_fee
@@ -325,10 +341,18 @@
                 // debugger
                 thirdMerchantGameSubFee(params).then(
                     function (res) {
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
+                        if(res.code === 1){
+                            this.$message({
+                                message: res.message,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }
                         this.getList();
                     }.bind(this)
                 )
