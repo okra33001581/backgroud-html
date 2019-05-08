@@ -18,7 +18,7 @@
                 <el-button-group>
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
                     <el-button type="primary" icon="el-icon-search" @click="onSubmit">查询</el-button>
-                    <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">新增</el-button>
+                    <el-button type="primary" icon="el-icon-plus" @click.native="handleAddForm(null,null)">新增</el-button>
                 </el-button-group>
             </el-form-item>
         </el-form>
@@ -36,48 +36,39 @@
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
-            <el-table-column label="			Id				" prop="id" fixed></el-table-column>
-            <el-table-column
-                    prop="name"
-                    label="游戏名称"
-                    width="180">
-            </el-table-column>
-            <el-table-column label="			图标				" prop="icon" >
-                <template slot-scope="scope">
-                    <el-popover
-                            placement="right"
-                            title=""
-                            trigger="hover">
-                        <img :src="'http://apidemo.test/public/' + scope.row.icon"/>
-                        <img slot="reference" :src="'http://apidemo.test/public/' + scope.row.icon" :alt="icon" style="max-height: 50px;max-width: 130px">
-                    </el-popover>
-                </template>
-
-            </el-table-column>
-            <el-table-column
-                    prop="status"
-                    label="状态">
-            </el-table-column>
-
-            <el-table-column prop="desc" label="简介"></el-table-column>
-
-
-
+            <el-table-column prop="id" label="表单项"></el-table-column>
+            <el-table-column prop="ext_column1" label="表单项"></el-table-column>
+            <el-table-column prop="ext_column2" label="表单项"></el-table-column>
+            <el-table-column prop="ext_column3" label="表单项"></el-table-column>
+            <el-table-column prop="ext_column4" label="表单项"></el-table-column>
+            <el-table-column prop="ext_column5" label="表单项"></el-table-column>
+            <el-table-column prop="ext_column6" label="表单项"></el-table-column>
+            <el-table-column prop="ext_column7" label="表单项"></el-table-column>
+            <el-table-column prop="ext_column8" label="表单项"></el-table-column>
+            <el-table-column prop="ext_column9" label="表单项"></el-table-column>
+            <el-table-column prop="ext_column10" label="表单项"></el-table-column>
+            <el-table-column prop="ext_column11" label="表单项"></el-table-column>
+            <el-table-column prop="ext_column12" label="表单项"></el-table-column>
+            <el-table-column prop="ext_column13" label="表单项"></el-table-column>
+            <el-table-column prop="ext_column14" label="表单项"></el-table-column>
+            <el-table-column prop="ext_column15" label="表单项"></el-table-column>
+            <el-table-column prop="ext_column16" label="表单项"></el-table-column>
+            <el-table-column prop="ext_column17" label="表单项"></el-table-column>
+            <el-table-column prop="ext_column18" label="表单项"></el-table-column>
+            <el-table-column prop="ext_column19" label="表单项"></el-table-column>
+            <el-table-column prop="ext_column20" label="表单项"></el-table-column>
             <el-table-column
                     label="操作" width="350"
                     fixed="right">
                 <template slot-scope="scope">
-                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
+                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">添加游戏
                     </el-button>
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
                     </el-button>
 
-                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="selItemSuccessServer(scope.$index, scope.row)">选择
+                    <el-button v-if="scope.row.status === '禁用' || scope.row.status === null" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemSuccessServer(scope.$index, scope.row)">启用
                     </el-button>
-
-                    <el-button v-if="scope.row.status === '禁用' || scope.row.status === null" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'启用')">启用
-                    </el-button>
-                    <el-button v-if="scope.row.status === '启用'" type="danger" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'禁用')">禁用
+                    <el-button v-if="scope.row.status === '启用'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemFailedServer(scope.$index, scope.row)">禁用
                     </el-button>
 
                 </template>
@@ -95,21 +86,43 @@
 
         <!--表单-->
         <el-dialog
+                :title="formAddMap[formName]"
+                :visible.sync="formAddVisible"
+                :before-close="hideAddForm"
+                width="40%"
+                top="5vh">
+            <template>
+                <el-form :model="formAddData" ref="formAddData" label-width="80px" class="form-dynamic">
+                    <el-form-item
+                            v-for="(domain, index) in formAddData.domains"
+                            :label="'表单项' + (index+1)"
+                            :key="domain.key"
+                            :prop="'domains.' + index + '.value'"
+                            :rules="{required: true, message: '内容不能为空', trigger: 'blur'}">
+                        <el-input style="width:550px;max-width:100%;" v-model="domain.value"></el-input>
+                        <a class="remove-item" v-show="formAddData.domains.length>1" @click.prevent="removeDomain(domain)"><i class="el-icon-close"></i></a>
+                    </el-form-item>
+                    <el-form-item class="submit-btn">
+                        <!--<el-button type="primary" @click="submitAddForm('formAddData')">提交</el-button>-->
+                        <el-button @click="addDomain">新增一项</el-button>
+                        <!--<el-button @click="resetForm('formAddData')">重置</el-button>-->
+                        <el-button type="primary" @click.native="formAddSubmit()" :loading="formAddLoading">提交</el-button>
+                    </el-form-item>
+                </el-form>
+            </template>
+        </el-dialog>
+
+        <!--表单-->
+        <el-dialog
                 :title="formMap[formName]"
                 :visible.sync="formVisible"
                 :before-close="hideForm"
                 width="40%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm"  label-width="110px">
-                <el-form-item label="Id" prop="id">
-                    <el-input style="width:550px;max-width:100%;" v-model="formData.id" auto-complete="off"></el-input>
-                </el-form-item>
-
                 <el-form-item label="plat_id" prop="plat_id">
                     <el-input style="width:550px;max-width:100%;" v-model="formData.plat_id" auto-complete="off"></el-input>
                 </el-form-item>
-
-
                 <el-form-item label="plat_name" prop="plat_name">
                     <el-input style="width:550px;max-width:100%;" v-model="formData.plat_name" auto-complete="off"></el-input>
                 </el-form-item>
@@ -117,12 +130,6 @@
                 <el-form-item label="name" prop="name">
                     <el-input style="width:550px;max-width:100%;" v-model="formData.name" auto-complete="off"></el-input>
                 </el-form-item>
-
-                <!--<el-form-item label="icon" prop="icon">-->
-                    <!--<el-input style="width:550px;max-width:100%;" v-model="formData.icon" auto-complete="off"></el-input>-->
-                <!--</el-form-item>-->
-
-
                 <el-form-item label="图片" prop="icon">
                     <el-upload
                             action="http://apidemo.test/api/event/fileSave?table=eventPic1"
@@ -133,13 +140,28 @@
                         <img :src="'http://apidemo.test/public/' + formData.icon" width="200px" height="150px"/>
                     </el-upload>
                 </el-form-item>
-
                 <el-form-item label="desc" prop="desc">
                     <el-input style="width:550px;max-width:100%;" v-model="formData.desc" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item v-if="formData.ext_column1 != ''" :label="formData.ext_column1" prop="ext_field1">
-                    <el-input style="width:550px;max-width:100%;" v-model="formData.ext_field1" auto-complete="off"></el-input>
+                <el-form-item v-if="formData.ext_column1 != ''" :label="formData.ext_column1" prop="plat_id">
+                    <el-input v-if="formData.ext_column1 != ''" style="width:550px;max-width:100%;" v-model="formData.ext_column1_val" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item v-if="formData.ext_column2 != ''" :label="formData.ext_column2" prop="plat_id">
+                    <el-input v-if="formData.ext_column2 != ''" style="width:550px;max-width:100%;" v-model="formData.ext_column2_val" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item :label="formData.ext_column3" prop="plat_id">
+                    <el-input v-if="formData.ext_column3 != ''" style="width:550px;max-width:100%;" v-model="formData.ext_column3_val" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item v-if="formData.ext_column4 != ''" :label="formData.ext_column4" prop="plat_id">
+                    <el-input v-if="formData.ext_column5 != ''" style="width:550px;max-width:100%;" v-model="formData.ext_column4_val" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item v-if="formData.ext_column5 != ''" :label="formData.ext_column5" prop="plat_id">
+                    <el-input v-if="formData.ext_column5 != ''" style="width:550px;max-width:100%;" v-model="formData.ext_column5_val" auto-complete="off"></el-input>
                 </el-form-item>
 
             </el-form>
@@ -154,7 +176,7 @@
 
 <script>
     import {
-        gameTypeDetailList,
+        gameTypeSetList,
         thirdGameTypesSubStatusSave,
         thirdGameTypesDetailSave,
         thirdBallSequence,
@@ -168,7 +190,10 @@
         username: "",
         checkPassword: "",
         status: "1",
-        roles: []
+        roles: [],
+        domains: [{
+            value: ''
+        }],
     };
     export default {
         data() {
@@ -189,6 +214,11 @@
                 }
             };
             return {
+                formAddData: {
+                    domains: [{
+                        value: ''
+                    }],
+                },
                 roles: [],
                 query: {
                     username: "",
@@ -199,7 +229,7 @@
                     sort: '+id'
                 },
                 tableKey: 0,
-                icon:'',
+                icon: '',
                 sortOptions: [{label: 'ID Ascending', key: '+id'}, {
                     label: 'ID Descending',
                     key: '-id'
@@ -221,7 +251,12 @@
                 loading: true,
                 index: null,
                 formName: null,
+                formAddName: null,
                 formMap: {
+                    add: "新增",
+                    edit: "编辑"
+                },
+                formAddMap: {
                     add: "新增",
                     edit: "编辑"
                 },
@@ -229,6 +264,9 @@
                 formVisible: false,
                 formData: formJson,
                 formRules: {},
+                formAddLoading: false,
+                formAddVisible: false,
+                formAddRules: {},
                 addRules: {
                     username: [
                         {required: true, message: "请输入姓名", trigger: "blur"}
@@ -261,6 +299,43 @@
             };
         },
         methods: {
+            /*增加表单项*/
+            addDomain() {
+                // anshan
+                this.formAddData.domains.push({
+                    value: '',
+                });
+            },
+            /*删除表单项*/
+            removeDomain(item) {
+                var index = this.formAddData.domains.indexOf(item)
+                if (index !== -1) {
+                    this.formAddData.domains.splice(index, 1)
+                }
+            },
+            /*格式化表单数据*/
+            formatData(data){   //动态表单生成的是一个对象数组，需要把对象数组转成一个对象
+                let obj = {};
+                data.forEach((item,index)=>{
+                    obj['value'+(index+1)] = item.value
+                });
+                return obj
+            },
+            /*提交表单*/
+            submitAddForm(formName){
+                this.$refs[formName].validate((valid) => {
+                    if (valid) {
+                        console.log(this.formatData(this.formAddData.domains))
+                    } else {
+                        alert('表单项不能为空！！！');
+                        return false;
+                    }
+                });
+            },
+            /*重置表单*/
+            resetForm(formName) {
+                this.$refs[formName].resetFields();
+            },
             onSubmit() {
                 this.$router.push({
                     path: "",
@@ -327,18 +402,18 @@
                 }
             },
 
-            auditItemServer(row,flag) {
+            auditItemSuccessServer(index, row) {
                 var params = {
                     id: row.id,
-                    flag: flag
+                    flag: '启用'
                 }
                 // debugger
                 thirdGameTypesSubStatusSave(params).then(
                     function (res) {
                         // debugger
-                        if(res.code === 1){
+                        /*if(res.code === 1){
                             this.$message({
-                                message: res.message,
+                                message: res.data,
                                 type: 'success'
                             })
                             this.dialogFormVisible = false
@@ -347,7 +422,11 @@
                                 message: '错误信息：'+res.message,
                                 type: 'error'
                             });
-                        }
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
                         this.getList();
                     }.bind(this)
                 )
@@ -380,13 +459,40 @@
                     }.bind(this)
                 )
             },
-            
+            auditItemFailedServer(index, row) {
+                var params = {
+                    id: row.id,
+                    flag: '禁用'
+                }
+                // debugger
+                thirdGameTypesSubStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        /*if(res.code === 1){
+                            this.$message({
+                                message: res.data,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }*/
+                        this.$message({
+                            message: '数据处理成功',
+                            type: 'success'
+                        })
+                        this.getList();
+                    }.bind(this)
+                )
+            },
             getList() {
                 this.loading = true;
-                gameTypeDetailList(this.query)
+                gameTypeSetList(this.query)
                     .then(response => {
                         this.loading = false;
-                        // haicheng
                         this.list = response.data.list.data || [];
                         this.total = response.data.list.total || 0;
                     })
@@ -491,6 +597,34 @@
                 this.$refs["dataForm"].resetFields();
                 return true;
             },
+            // 隐藏表单
+            hideAddForm() {
+                // 更改值
+                this.formAddVisible = !this.formAddVisible;
+                // 清空表单AddAdd
+                this.$refs["dataAddForm"].resetFields();
+                return true;
+            },
+            // 显示表单
+            handleAddForm(index, row) {
+                this.formAddVisible = true;
+                this.formAddData = Object.assign({}, formJson);
+                if (row !== null) {
+                    this.formAddData = Object.assign({}, row);
+                }
+                this.formAddData.status += ""; // 转为字符串（解决默认选中的时候字符串和数字不能比较的问题）
+                this.formAddName = "add";
+                this.formAddRules = this.addRules;
+                if (index !== null) {
+                    this.index = index;
+                    this.formAddName = "edit";
+                    this.formAddRules = this.editRules;
+                }
+                // 清空验证信息表单
+                if (this.$refs["dataAddForm"]) {
+                    this.$refs["dataAddForm"].clearValidate();
+                }
+            },
             // 显示表单
             handleForm(index, row) {
                 this.formVisible = true;
@@ -544,6 +678,36 @@
                         });
                     }
                 });
+            },
+            formAddSubmit() {
+                        this.formAddLoading = true;
+                        let data = Object.assign({}, this.formData);
+                        thirdGameTypesDetailSave(data, this.formName).then(response => {
+                            this.formAddLoading = false;
+                            if (response.code) {
+                                this.$message({
+                                    message: response.message,
+                                    type: "error"
+                                });
+                            } else {
+                                this.$message({
+                                    message: "操作成功",
+                                    type: "success"
+                                });
+                                // 向头部添加数据
+                                // this.list.unshift(res)
+                                // 刷新表单
+                                this.$refs["dataAddForm"].resetFields();
+                                this.formAddVisible = false;
+                                if (this.formAddName === "add") {
+                                    // 向头部添加数据
+                                    let resData = response.data || {};
+                                    this.list.unshift(resData);
+                                } else {
+                                    this.list.splice(this.index, 1, data);
+                                }
+                            }
+                        });
             },
             // 删除
             handleDel(index, row) {
