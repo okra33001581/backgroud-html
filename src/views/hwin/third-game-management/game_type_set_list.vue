@@ -84,7 +84,6 @@
 
         <!--<pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />-->
 
-
         <!--表单-->
         <el-dialog
                 :title="formAddMap[formName]"
@@ -104,9 +103,10 @@
                         <a class="remove-item" v-show="formAddData.domains.length>1" @click.prevent="removeDomain(domain)"><i class="el-icon-close"></i></a>
                     </el-form-item>
                     <el-form-item class="submit-btn">
-                        <el-button type="primary" @click="submitAddForm('formAddData')">提交</el-button>
+                        <!--<el-button type="primary" @click="submitAddForm('formAddData')">提交</el-button>-->
                         <el-button @click="addDomain">新增一项</el-button>
-                        <el-button @click="resetForm('formAddData')">重置</el-button>
+                        <!--<el-button @click="resetForm('formAddData')">重置</el-button>-->
+                        <el-button type="primary" @click.native="formAddSubmit()" :loading="formAddLoading">提交</el-button>
                     </el-form-item>
                 </el-form>
             </template>
@@ -190,7 +190,10 @@
         username: "",
         checkPassword: "",
         status: "1",
-        roles: []
+        roles: [],
+        domains: [{
+            value: ''
+        }],
     };
     export default {
         data() {
@@ -211,6 +214,11 @@
                 }
             };
             return {
+                formAddData: {
+                    domains: [{
+                        value: ''
+                    }],
+                },
                 roles: [],
                 query: {
                     username: "",
@@ -222,11 +230,6 @@
                 },
                 tableKey: 0,
                 icon: '',
-                formAddData: {
-                    domains: [{
-                        value: ''
-                    }],
-                },
                 sortOptions: [{label: 'ID Ascending', key: '+id'}, {
                     label: 'ID Descending',
                     key: '-id'
@@ -298,6 +301,7 @@
         methods: {
             /*增加表单项*/
             addDomain() {
+                // anshan
                 this.formAddData.domains.push({
                     value: '',
                 });
@@ -318,7 +322,7 @@
                 return obj
             },
             /*提交表单*/
-            submitAddForm(formName) {
+            submitAddForm(formName){
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
                         console.log(this.formatData(this.formAddData.domains))
@@ -676,8 +680,6 @@
                 });
             },
             formAddSubmit() {
-                this.$refs["dataAddForm"].validate(valid => {
-                    if (valid) {
                         this.formAddLoading = true;
                         let data = Object.assign({}, this.formData);
                         thirdGameTypesDetailSave(data, this.formName).then(response => {
@@ -706,8 +708,6 @@
                                 }
                             }
                         });
-                    }
-                });
             },
             // 删除
             handleDel(index, row) {
