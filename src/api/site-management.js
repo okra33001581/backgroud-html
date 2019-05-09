@@ -427,7 +427,24 @@ export function merchantsDomainsDel(data) {
     });
 }
 
-
-
-
-
+export function merchantsIpStatusSave(data) {
+    return axios({
+        url: "event/merchantsIpStatusSave",
+        method: "post",
+        data: data
+    });
+}
+export function transactionTypeStatusSave(data) {
+    return axios({
+        url: "event/transactionTypeStatusSave",
+        method: "post",
+        data: data
+    });
+}
+export function merchantsDomainsStatusSave(data) {
+    return axios({
+        url: "event/merchantsDomainsStatusSave",
+        method: "post",
+        data: data
+    });
+}

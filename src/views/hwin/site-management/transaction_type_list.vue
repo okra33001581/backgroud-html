@@ -42,7 +42,7 @@
             <el-table-column label="排序值" prop="sequence" fixed>
 
                 <template scope="scope">
-                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="updateRotateSequence(scope.row)"
+                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="transactionTypeStatusSave(scope.row)"
                     ></el-input>
                 </template>
 
@@ -71,13 +71,21 @@
 
 
             <el-table-column
-                    label="操作" width="200"
+                    label="操作" width="300"
                     fixed="right">
                 <template slot-scope="scope">
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
                     </el-button>
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
                     </el-button>
+
+                    <el-button v-if="scope.row.status === '禁用'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemSubServer(scope.row,'启用')">启用
+                    </el-button>
+                    <el-button v-if="scope.row.status === '启用'" type="danger" size="small" icon="el-icon-edit" @click.native="auditItemSubServer(scope.row,'禁用')">禁用
+                    </el-button>
+
+
+
                 </template>
             </el-table-column>
         </el-table>
@@ -131,7 +139,7 @@
         transactionTypeList,
         authAdminRoleList,
         transactionTypeSave,
-        updateRotateSequence,
+        transactionTypeStatusSave,
         transactionTypeDel
     } from "../../../api/site-management";
 
@@ -275,6 +283,31 @@
                     this.sortByLastLoginIp(order)
                 }
             },
+            auditItemSubServer(row,flag) {
+                var params = {
+                    id: row.id,
+                    flag: flag
+                }
+                // debugger
+                transactionTypeStatusSave(params).then(
+                    function (res) {
+                        // debugger
+                        if(res.code === 1){
+                            this.$message({
+                                message: res.message,
+                                type: 'success'
+                            })
+                            this.dialogFormVisible = false
+                        }else{
+                            this.$message({
+                                message: '错误信息：'+res.message,
+                                type: 'error'
+                            });
+                        }
+                        this.getList();
+                    }.bind(this)
+                )
+            },
             getList() {
                 this.loading = true;
                 transactionTypeList(this.query)
@@ -359,13 +392,13 @@
                 }
                 this.handleFilter()
             },
-            updateRotateSequence(row) {
+            transactionTypeStatusSave(row) {
                 var params = {
                     id: row.id,
                     sequence: row.sequence
                 }
                 // debugger
-                updateRotateSequence(params).then(
+                transactionTypeStatusSave(params).then(
                     function (res) {
                         // debugger
                         if(res.code === 1){
