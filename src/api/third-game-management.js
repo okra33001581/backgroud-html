@@ -343,3 +343,11 @@ export function gameProfitList(query) {
         params: query
     });
 }
+
+export function thirdGameSetSave(data) {
+    return axios({
+        url: "event/thirdGameSetSave",
+        method: "post",
+        data: data
+    });
+}

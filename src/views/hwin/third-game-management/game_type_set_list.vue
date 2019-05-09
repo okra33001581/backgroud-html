@@ -178,7 +178,7 @@
     import {
         gameTypeSetList,
         thirdGameTypesSubStatusSave,
-        thirdGameTypesDetailSave,
+        thirdGameSetSave,
         thirdBallSequence,
         thirdMerchantgameSave,
         thirdGameTypesDetailDel
@@ -650,7 +650,7 @@
                     if (valid) {
                         this.formLoading = true;
                         let data = Object.assign({}, this.formData);
-                        thirdGameTypesDetailSave(data, this.formName).then(response => {
+                        thirdGameSetSave(data, this.formName).then(response => {
                             this.formLoading = false;
                             if (response.code) {
                                 this.$message({
@@ -682,7 +682,7 @@
             formAddSubmit() {
                         this.formAddLoading = true;
                         let data = Object.assign({}, this.formData);
-                        thirdGameTypesDetailSave(data, this.formName).then(response => {
+                        thirdGameSetSave(data, this.formName).then(response => {
                             this.formAddLoading = false;
                             if (response.code) {
                                 this.$message({
