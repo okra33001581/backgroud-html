@@ -96,60 +96,25 @@
                 :title="formMap[formName]"
                 :visible.sync="formVisible"
                 :before-close="hideForm"
-                width="35%"
+                width="40%"
                 top="5vh">
-            <el-form :model="formData" label-width="8%" :rules="formRules" ref="dataForm">
-                <el-form-item label="名称" prop="title">
-                    <el-input v-model="formData.title" auto-complete="off"></el-input>
-                </el-form-item>
+            <el-form :model="formData" label-width="12%" :rules="formRules" ref="dataForm">
 
-
-                <el-form-item label="图片" prop="bannerPc">
-                    <el-upload
-                            action="http://apidemo.test/api/event/fileSave?table=eventPic1"
-                            list-type="picture-card"
-                            :on-success="handlePic1Success"
-                            :beforeUpload="beforeAvatarUpload"
-                            :on-remove="handleRemove">
-                        <img :src="formData.pc_pic" class="el-upload el-upload--picture-card"/>
-                    </el-upload>
-                </el-form-item>
-
-                <el-form-item label="图片" prop="bannerPc">
-                    <el-upload
-                            action="http://apidemo.test/api/event/fileSave?table=eventPic1"
-                            list-type="picture-card"
-                            :on-success="handlePic2Success"
-                            :beforeUpload="beforeAvatarUpload"
-                            :on-remove="handleRemove">
-                        <img :src="formData.mobile_pic" class="el-upload el-upload--picture-card"/>
-                    </el-upload>
-                </el-form-item>
-
-
-                <el-form-item label="类型" prop="link_type">
-                    <el-radio-group v-model="formData.link_type">
-                        <el-radio label="内链">内链</el-radio>
-                        <el-radio label="外链">外链</el-radio>
-                    </el-radio-group>
-                </el-form-item>
-
-
-                <el-form-item label="链接" prop="link">
-                    <el-input v-model="formData.link" auto-complete="off"></el-input>
-                </el-form-item>
-
-
-                <el-form-item label="类型" prop="status">
-                    <el-radio-group v-model="formData.status">
-                        <el-radio label="启用">启用</el-radio>
-                        <el-radio label="禁用">禁用</el-radio>
-                    </el-radio-group>
-                </el-form-item>
-
-                <el-form-item label="排序" prop="sequence">
-                    <el-input v-model="formData.sequence" auto-complete="off"></el-input>
-                </el-form-item>
+                <el-form-item label="资金流" prop="fund_flow_id" fixed><el-input v-model="formData.fund_flow_id" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="账变类型" prop="description" fixed><el-input v-model="formData.description" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="中文标题" prop="cn_title" fixed><el-input v-model="formData.cn_title" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="余额" prop="balance" fixed><el-input v-model="formData.balance" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="可用余额" prop="available" fixed><el-input v-model="formData.available" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="冻结金额" prop="frozen" fixed><el-input v-model="formData.frozen" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="可提现余额" prop="withdrawable" fixed><el-input v-model="formData.withdrawable" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="不可提现金额" prop="prohibit_amount" fixed><el-input v-model="formData.prohibit_amount" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="收入" prop="credit" fixed><el-input v-model="formData.credit" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="支出" prop="debit" fixed><el-input v-model="formData.debit" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="关联注单" prop="project_linked" fixed><el-input v-model="formData.project_linked" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="关联追号" prop="trace_linked" fixed><el-input v-model="formData.trace_linked" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="反向类型" prop="reverse_type" fixed><el-input v-model="formData.reverse_type" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="创建时间" prop="created_at" fixed><el-input v-model="formData.created_at" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="更新时间" prop="updated_at" fixed><el-input v-model="formData.updated_at" auto-complete="off"></el-input></el-form-item>
 
             </el-form>
             <div slot="footer" class="dialog-footer">
@@ -165,9 +130,9 @@
     import {
         transactionTypeList,
         authAdminRoleList,
-        rotatePlaySave,
+        transactionTypeSave,
         updateRotateSequence,
-        rotationconfigDelete
+        transactionTypeDel
     } from "../../../api/site-management";
 
     const formJson = {
@@ -470,7 +435,7 @@
                     if (valid) {
                         this.formLoading = true;
                         let data = Object.assign({}, this.formData);
-                        rotatePlaySave(data, this.formName).then(response => {
+                        transactionTypeSave(data, this.formName).then(response => {
                             this.formLoading = false;
                             if (response.code) {
                                 this.$message({
@@ -507,7 +472,7 @@
                     })
                         .then(() => {
                             let para = {id: row.id};
-                            rotationconfigDelete(para)
+                            transactionTypeDel(para)
                                 .then(response => {
                                     this.deleteLoading = false;
                                     if (response.code) {

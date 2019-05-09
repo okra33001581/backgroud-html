@@ -360,3 +360,74 @@ export function transactionTypeList(query) {
         params: query
     });
 }
+
+// 保存
+export function merchantsIpSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "event/merchantsIpSave"
+            : "event/merchantsIpSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+// 保存
+export function transactionTypeSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "event/transactionTypeSave"
+            : "event/transactionTypeSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+// 保存
+export function merchantsDomainsSave(data, formName, method = "post") {
+    let url =
+        formName === "add"
+            ? "event/merchantsDomainsSave"
+            : "event/merchantsDomainsSave";
+    return axios({
+        url: url,
+        method: method,
+        data: data
+    });
+}
+
+// 删除
+export function merchantsIpDel(data) {
+    return axios({
+        url: "event/merchantsIpDel",
+        method: "post",
+        data: data
+    });
+}
+
+// 删除
+export function transactionTypeDel(data) {
+    return axios({
+        url: "event/transactionTypeDel",
+        method: "post",
+        data: data
+    });
+}
+
+// 删除
+export function merchantsDomainsDel(data) {
+    return axios({
+        url: "event/merchantsDomainsDel",
+        method: "post",
+        data: data
+    });
+}
+
+
+
+
+
