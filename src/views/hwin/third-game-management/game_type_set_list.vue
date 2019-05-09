@@ -57,18 +57,19 @@
             <el-table-column prop="ext_column19" label="表单项"></el-table-column>
             <el-table-column prop="ext_column20" label="表单项"></el-table-column>
             <el-table-column
-                    label="操作" width="350"
+                    label="操作" width="440"
                     fixed="right">
                 <template slot-scope="scope">
+                    <el-button type="primary" icon="el-icon-edit" @click.native="handleAddForm(scope.$index, scope.row)">编辑</el-button>
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">添加游戏
                     </el-button>
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
                     </el-button>
-
-                    <el-button v-if="scope.row.status === '禁用' || scope.row.status === null" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemSuccessServer(scope.$index, scope.row)">启用
+                    <el-button v-if="scope.row.status === '启用'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'禁用')">禁用
                     </el-button>
-                    <el-button v-if="scope.row.status === '启用'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemFailedServer(scope.$index, scope.row)">禁用
+                    <el-button v-else type="primary" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'启用')">启用
                     </el-button>
+                    
 
                 </template>
             </el-table-column>
@@ -119,14 +120,14 @@
                 width="40%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm"  label-width="110px">
-                <el-form-item label="plat_id" prop="plat_id">
+                <el-form-item label="平台ID" prop="plat_id">
                     <el-input style="width:550px;max-width:100%;" v-model="formData.plat_id" auto-complete="off"></el-input>
                 </el-form-item>
-                <el-form-item label="plat_name" prop="plat_name">
+                <el-form-item label="平台名称" prop="plat_name">
                     <el-input style="width:550px;max-width:100%;" v-model="formData.plat_name" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="name" prop="name">
+                <el-form-item label="游戏名称" prop="name">
                     <el-input style="width:550px;max-width:100%;" v-model="formData.name" auto-complete="off"></el-input>
                 </el-form-item>
                 <el-form-item label="图片" prop="icon">
@@ -139,28 +140,89 @@
                         <img :src="'http://apidemo.test/public/' + formData.icon" width="200px" height="150px"/>
                     </el-upload>
                 </el-form-item>
-                <el-form-item label="desc" prop="desc">
+                <el-form-item label="描述" prop="desc">
                     <el-input style="width:550px;max-width:100%;" v-model="formData.desc" auto-complete="off"></el-input>
                 </el-form-item>
 
                 <el-form-item v-if="formData.ext_column1 != ''" :label="formData.ext_column1" prop="plat_id">
-                    <el-input v-if="formData.ext_column1 != ''" style="width:550px;max-width:100%;" v-model="formData.ext_column1_val" auto-complete="off"></el-input>
+                    <el-input v-if="formData.ext_column1 != ''" style="width:550px;max-width:100%;" v-model="formData.ext_field1" auto-complete="off"></el-input>
                 </el-form-item>
 
                 <el-form-item v-if="formData.ext_column2 != ''" :label="formData.ext_column2" prop="plat_id">
-                    <el-input v-if="formData.ext_column2 != ''" style="width:550px;max-width:100%;" v-model="formData.ext_column2_val" auto-complete="off"></el-input>
+                    <el-input v-if="formData.ext_column2 != ''" style="width:550px;max-width:100%;" v-model="formData.ext_field2" auto-complete="off"></el-input>
                 </el-form-item>
 
                 <el-form-item :label="formData.ext_column3" prop="plat_id">
-                    <el-input v-if="formData.ext_column3 != ''" style="width:550px;max-width:100%;" v-model="formData.ext_column3_val" auto-complete="off"></el-input>
+                    <el-input v-if="formData.ext_column3 != ''" style="width:550px;max-width:100%;" v-model="formData.ext_field3" auto-complete="off"></el-input>
                 </el-form-item>
 
                 <el-form-item v-if="formData.ext_column4 != ''" :label="formData.ext_column4" prop="plat_id">
-                    <el-input v-if="formData.ext_column5 != ''" style="width:550px;max-width:100%;" v-model="formData.ext_column4_val" auto-complete="off"></el-input>
+                    <el-input v-if="formData.ext_column4 != ''" style="width:550px;max-width:100%;" v-model="formData.ext_field4" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item v-if="formData.ext_column5 != ''" :label="formData.ext_column5" prop="plat_id">
-                    <el-input v-if="formData.ext_column5 != ''" style="width:550px;max-width:100%;" v-model="formData.ext_column5_val" auto-complete="off"></el-input>
+                <el-form-item v-if="formData.ext_column6 != ''" :label="formData.ext_column6" prop="plat_id">
+                    <el-input v-if="formData.ext_column6 != ''" style="width:550px;max-width:100%;" v-model="formData.ext_field6" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item v-if="formData.ext_column7 != ''" :label="formData.ext_column7" prop="plat_id">
+                    <el-input v-if="formData.ext_column7 != ''" style="width:550px;max-width:100%;" v-model="formData.ext_field7" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item v-if="formData.ext_column8 != ''" :label="formData.ext_column8" prop="plat_id">
+                    <el-input v-if="formData.ext_column8 != ''" style="width:550px;max-width:100%;" v-model="formData.ext_field8" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item v-if="formData.ext_column9 != ''" :label="formData.ext_column9" prop="plat_id">
+                    <el-input v-if="formData.ext_column9 != ''" style="width:550px;max-width:100%;" v-model="formData.ext_field9" auto-complete="off"></el-input>
+                </el-form-item>
+
+
+                <el-form-item v-if="formData.ext_column10 != ''" :label="formData.ext_column10" prop="plat_id">
+                    <el-input v-if="formData.ext_column10 != ''" style="width:550px;max-width:100%;" v-model="formData.ext_field10" auto-complete="off"></el-input>
+                </el-form-item>
+
+
+                <el-form-item v-if="formData.ext_column11 != ''" :label="formData.ext_column11" prop="plat_id">
+                    <el-input v-if="formData.ext_column11 != ''" style="width:550px;max-width:100%;" v-model="formData.ext_field11" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item v-if="formData.ext_column12 != ''" :label="formData.ext_column12" prop="plat_id">
+                    <el-input v-if="formData.ext_column12 != ''" style="width:550px;max-width:100%;" v-model="formData.ext_field12" auto-complete="off"></el-input>
+                </el-form-item>
+
+
+                <el-form-item v-if="formData.ext_column13 != ''" :label="formData.ext_column13" prop="plat_id">
+                    <el-input v-if="formData.ext_column13 != ''" style="width:550px;max-width:100%;" v-model="formData.ext_field13" auto-complete="off"></el-input>
+                </el-form-item>
+
+
+                <el-form-item v-if="formData.ext_column14 != ''" :label="formData.ext_column14" prop="plat_id">
+                    <el-input v-if="formData.ext_column14 != ''" style="width:550px;max-width:100%;" v-model="formData.ext_field14" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item v-if="formData.ext_column15 != ''" :label="formData.ext_column15" prop="plat_id">
+                    <el-input v-if="formData.ext_column15 != ''" style="width:550px;max-width:100%;" v-model="formData.ext_field15" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item v-if="formData.ext_column16 != ''" :label="formData.ext_column16" prop="plat_id">
+                    <el-input v-if="formData.ext_column16 != ''" style="width:550px;max-width:100%;" v-model="formData.ext_field16" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item v-if="formData.ext_column17 != ''" :label="formData.ext_column17" prop="plat_id">
+                    <el-input v-if="formData.ext_column17 != ''" style="width:550px;max-width:100%;" v-model="formData.ext_field17" auto-complete="off"></el-input>
+                </el-form-item>
+
+
+                <el-form-item v-if="formData.ext_column18 != ''" :label="formData.ext_column18" prop="plat_id">
+                    <el-input v-if="formData.ext_column18 != ''" style="width:550px;max-width:100%;" v-model="formData.ext_field18" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item v-if="formData.ext_column19 != ''" :label="formData.ext_column19" prop="plat_id">
+                    <el-input v-if="formData.ext_column19 != ''" style="width:550px;max-width:100%;" v-model="formData.ext_field19" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item v-if="formData.ext_column20 != ''" :label="formData.ext_column20" prop="plat_id">
+                    <el-input v-if="formData.ext_column20 != ''" style="width:550px;max-width:100%;" v-model="formData.ext_field20" auto-complete="off"></el-input>
                 </el-form-item>
 
             </el-form>
@@ -180,18 +242,16 @@
         thirdGameSetSave,
         thirdBallSequence,
         thirdMerchantgameSave,
+        thirdGameTypesDetailSave,
         thirdGameTypesDetailDel
     } from "../../../api/third-game-management";
 
     const formJson = {
         id: "",
-        password: "",
-        username: "",
-        checkPassword: "",
-        status: "1",
+        //status: "1",
         domains: [{
             value: ''
-        }],
+        }]
     };
     export default {
         data() {
@@ -285,7 +345,7 @@
             },
             /*重置表单*/
             resetForm(formName) {
-                this.$refs[formName].resetFields();
+                //this.$refs[formName].resetFields();
             },
             onSubmit() {
                 this.$router.push({
@@ -335,10 +395,10 @@
                 this.query.page = 1
                 this.getList()
             },
-            auditItemSuccessServer(index, row) {
+            auditItemServer(row,flag) {
                 var params = {
                     id: row.id,
-                    flag: '启用'
+                    flag: flag
                 }
                 // debugger
                 thirdGameTypesSubStatusSave(params).then(
@@ -392,35 +452,6 @@
                     }.bind(this)
                 )
             },
-            auditItemFailedServer(index, row) {
-                var params = {
-                    id: row.id,
-                    flag: '禁用'
-                }
-                // debugger
-                thirdGameTypesSubStatusSave(params).then(
-                    function (res) {
-                        // debugger
-                        /*if(res.code === 1){
-                            this.$message({
-                                message: res.data,
-                                type: 'success'
-                            })
-                            this.dialogFormVisible = false
-                        }else{
-                            this.$message({
-                                message: '错误信息：'+res.message,
-                                type: 'error'
-                            });
-                        }*/
-                        this.$message({
-                            message: '数据处理成功',
-                            type: 'success'
-                        })
-                        this.getList();
-                    }.bind(this)
-                )
-            },
             getList() {
                 this.loading = true;
                 gameTypeSetList(this.query)
@@ -469,7 +500,7 @@
                 // 更改值
                 this.formVisible = !this.formVisible;
                 // 清空表单
-                this.$refs["dataForm"].resetFields();
+                //this.$refs["dataForm"].resetFields();
                 return true;
             },
             // 隐藏表单
@@ -477,7 +508,7 @@
                 // 更改值
                 this.formAddVisible = !this.formAddVisible;
                 // 清空表单AddAdd
-                this.$refs["dataAddForm"].resetFields();
+                //this.$refs["dataAddForm"].resetFields();
                 return true;
             },
             // 显示表单
@@ -485,7 +516,20 @@
                 this.formAddVisible = true;
                 this.formAddData = Object.assign({}, formJson);
                 if (row !== null) {
-                    this.formAddData = Object.assign({}, row);
+                    var index = 0;
+                    var temp = [];
+                    for(var x in row) {
+                        if(x.indexOf("ext_column")>-1 && row[x]!=''){
+                            temp[index] = {value:row[x]};
+                            index++;
+                        }
+                    }
+                    //console.log(temp)
+                    var data = {};
+                    data.domains = temp;
+                    data.id = row.id;
+                    this.formAddData = Object.assign({}, data);
+
                 }
                 this.formAddData.status += ""; // 转为字符串（解决默认选中的时候字符串和数字不能比较的问题）
                 this.formAddName = "add";
@@ -507,6 +551,7 @@
                 if (row !== null) {
                     this.formData = Object.assign({}, row);
                 }
+                this.formData.set_id = this.formData.id;
                 this.formData.status += ""; // 转为字符串（解决默认选中的时候字符串和数字不能比较的问题）
                 this.formName = "add";
                 this.formRules = this.addRules;
@@ -525,7 +570,7 @@
                     if (valid) {
                         this.formLoading = true;
                         let data = Object.assign({}, this.formData);
-                        thirdGameSetSave(data, this.formName).then(response => {
+                        thirdGameTypesDetailSave(data, this.formName).then(response => {
                             this.formLoading = false;
                             if (response.code) {
                                 this.$message({
@@ -540,7 +585,7 @@
                                 // 向头部添加数据
                                 // this.list.unshift(res)
                                 // 刷新表单
-                                this.$refs["dataForm"].resetFields();
+                                //this.$refs["dataForm"].resetFields();
                                 this.formVisible = false;
                                 if (this.formName === "add") {
                                     // 向头部添加数据
@@ -555,6 +600,8 @@
                 });
             },
             formAddSubmit() {
+                console.log(this.formAddData)
+                    return
                         this.formAddLoading = true;
                         let data = Object.assign({}, this.formData);
                         thirdGameSetSave(data, this.formName).then(response => {
@@ -572,7 +619,7 @@
                                 // 向头部添加数据
                                 // this.list.unshift(res)
                                 // 刷新表单
-                                this.$refs["dataAddForm"].resetFields();
+                                //this.$refs["dataAddForm"].resetFields();
                                 this.formAddVisible = false;
                                 if (this.formAddName === "add") {
                                     // 向头部添加数据
