@@ -54,6 +54,7 @@
             <el-table-column label="parent_id" prop="parent_id" fixed></el-table-column>
             <el-table-column label="parent" prop="parent" fixed></el-table-column>-->
             <el-table-column label="资金流" prop="fund_flow_id" fixed></el-table-column>
+            <el-table-column label="状态" prop="status" fixed></el-table-column>
             <el-table-column label="账变类型" prop="description" fixed></el-table-column>
             <el-table-column label="中文标题" prop="cn_title" fixed></el-table-column>
             <el-table-column label="余额" prop="balance" fixed></el-table-column>

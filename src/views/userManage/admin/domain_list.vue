@@ -36,6 +36,7 @@
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
             <el-table-column label="商户" prop="merchant_id" fixed></el-table-column>
+            <el-table-column label="状态" prop="status" fixed></el-table-column>
             <el-table-column label="domain" prop="domain" fixed></el-table-column>
             <el-table-column label="状态" prop="status" fixed></el-table-column>
             <el-table-column label="更新时间" prop="updated_at" fixed></el-table-column>
