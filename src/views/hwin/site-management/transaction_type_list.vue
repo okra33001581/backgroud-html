@@ -106,7 +106,7 @@
                 :before-close="hideForm"
                 width="40%"
                 top="5vh">
-            <el-form :model="formData" label-width="12%" :rules="formRules" ref="dataForm">
+            <el-form :model="formData" label-width="14%" :rules="formRules" ref="dataForm">
 
                 <el-form-item label="资金流" prop="fund_flow_id" fixed><el-input v-model="formData.fund_flow_id" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="账变类型" prop="description" fixed><el-input v-model="formData.description" auto-complete="off"></el-input></el-form-item>
@@ -121,8 +121,8 @@
                 <el-form-item label="关联注单" prop="project_linked" fixed><el-input v-model="formData.project_linked" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="关联追号" prop="trace_linked" fixed><el-input v-model="formData.trace_linked" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="反向类型" prop="reverse_type" fixed><el-input v-model="formData.reverse_type" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="创建时间" prop="created_at" fixed><el-input v-model="formData.created_at" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="更新时间" prop="updated_at" fixed><el-input v-model="formData.updated_at" auto-complete="off"></el-input></el-form-item>
+                <!--<el-form-item label="创建时间" prop="created_at" fixed><el-input v-model="formData.created_at" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="更新时间" prop="updated_at" fixed><el-input v-model="formData.updated_at" auto-complete="off"></el-input></el-form-item>-->
 
             </el-form>
             <div slot="footer" class="dialog-footer">

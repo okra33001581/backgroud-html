@@ -72,9 +72,9 @@
                 :title="formMap[formName]"
                 :visible.sync="formVisible"
                 :before-close="hideForm"
-                width="35%"
+                width="40%"
                 top="5vh">
-            <el-form :model="formData" label-width="8%" :rules="formRules" ref="dataForm">
+            <el-form :model="formData" label-width="12%" :rules="formRules" ref="dataForm">
                 <el-form-item label="merchant_id" prop="merchant_id">
                     <el-input v-model="formData.merchant_id" auto-complete="off"></el-input>
                 </el-form-item>
@@ -88,12 +88,12 @@
                     <el-input v-model="formData.status" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="created_at" prop="created_at">
+                <!--<el-form-item label="created_at" prop="created_at">
                     <el-input v-model="formData.created_at" auto-complete="off"></el-input>
                 </el-form-item>
                 <el-form-item label="updated_at" prop="updated_at">
                     <el-input v-model="formData.updated_at" auto-complete="off"></el-input>
-                </el-form-item>
+                </el-form-item>-->
 
 
             </el-form>

@@ -72,10 +72,10 @@
                 :title="formMap[formName]"
                 :visible.sync="formVisible"
                 :before-close="hideForm"
-                width="35%"
+                width="40%"
                 top="5vh">
-            <el-form :model="formData" label-width="8%" :rules="formRules" ref="dataForm">
-                <el-form-item label="merchant_id" prop="merchant_id">
+            <el-form :model="formData" label-width="12%" :rules="formRules" ref="dataForm">
+                <el-form-item label="商户" prop="merchant_id">
                     <el-input v-model="formData.merchant_id" auto-complete="off"></el-input>
                 </el-form-item>
 
