@@ -90,11 +90,15 @@ import adminRouter from "../views/userManage/admin/router.vue";
 import authAdmin from "../views/userManage/admin/authAdmin.vue";
 import authRole from "../views/userManage/admin/authRole.vue";
 
+import domain_list from "../views/userManage/admin/domain_list.vue";
+import ip_white_list from "../views/userManage/admin/ip_white_list.vue";
+
 
 import department from "../views/userManage/admin/department.vue";
 
 import authPermissionRule from "../views/userManage/admin/authPermissionRule.vue";
 import Main1 from '@/components/Main'
+// import domain_list from "../views/userManage/admin/domain_list";
 
 // import information_list from "../views/new/event/event_list.vue";
 
@@ -202,6 +206,24 @@ export const asyncRouterMap = [
                         icon: "delete",
                         meta: {
                             authRule: ["admin/auth_admin/index"]
+                        }
+                    },
+                    {
+                        path: "domain_list",
+                        component: domain_list,
+                        name: "域名管理",
+                        icon: "domain_list",
+                        meta: {
+                            authRule: ["admin/auth_role/index"]
+                        }
+                    },
+                    {
+                        path: "ip_white_list",
+                        component: ip_white_list,
+                        name: "白名单管理",
+                        icon: "ip_white_list",
+                        meta: {
+                            authRule: ["admin/auth_role/index"]
                         }
                     },
                     {

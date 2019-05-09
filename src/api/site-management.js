@@ -333,4 +333,21 @@ export function informationIsTopSave(data) {
     });
 }
 
+// 获取列表
+export function merchantsDomains(query) {
+    return axios({
+        url: "event/merchantsDomains",
+        method: "get",
+        params: query
+    });
+}
+
+// 获取列表
+export function merchantsIp(query) {
+    return axios({
+        url: "event/merchantsIp",
+        method: "get",
+        params: query
+    });
+}
 
