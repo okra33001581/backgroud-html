@@ -351,3 +351,12 @@ export function merchantsIp(query) {
     });
 }
 
+
+// 获取列表
+export function transactionTypeList(query) {
+    return axios({
+        url: "event/transactionTypeList",
+        method: "get",
+        params: query
+    });
+}

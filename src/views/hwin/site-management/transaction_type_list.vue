@@ -36,6 +36,9 @@
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
 
+            <el-table-column label="id" prop="id" fixed></el-table-column>
+
+
             <el-table-column label="排序值" prop="sequence" fixed>
 
                 <template scope="scope">
@@ -44,40 +47,28 @@
                 </template>
 
             </el-table-column>
-            <el-table-column label="商户" prop="merchant_name" fixed></el-table-column>
-            <el-table-column label="状态" prop="status" fixed></el-table-column>
-            <el-table-column label="名称" prop="title" fixed></el-table-column>
-            <el-table-column label="电脑版图片" prop="pc_pic" fixed>
 
-                <template slot-scope="scope">
-                    <el-popover
-                            placement="right"
-                            title=""
-                            trigger="hover">
-                        <img :src="'http://apidemo.test/public/' + scope.row.pc_pic"/>
-                        <img slot="reference" :src="'http://apidemo.test/public/' + scope.row.pc_pic" :alt="pc_pic" style="max-height: 50px;max-width: 130px">
-                    </el-popover>
-                </template>
 
-            </el-table-column>
-
-            <el-table-column label="手机版图片" prop="mobile_pic" fixed>
-
-                <template slot-scope="scope">
-                    <el-popover
-                            placement="right"
-                            title=""
-                            trigger="hover">
-                        <img :src="'http://apidemo.test/public/' + scope.row.mobile_pic"/>
-                        <img slot="reference" :src="'http://apidemo.test/public/' + scope.row.mobile_pic" :alt="mobile_pic" style="max-height: 50px;max-width: 130px">
-                    </el-popover>
-                </template>
-
-            </el-table-column>
-
-            <el-table-column label="链接地址" prop="link" fixed></el-table-column>
+            <!--<el-table-column label="merchant_id" prop="merchant_id" fixed></el-table-column>
+            <el-table-column label="merchant_name" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="parent_id" prop="parent_id" fixed></el-table-column>
+            <el-table-column label="parent" prop="parent" fixed></el-table-column>-->
+            <el-table-column label="资金流" prop="fund_flow_id" fixed></el-table-column>
+            <el-table-column label="账变类型" prop="description" fixed></el-table-column>
+            <el-table-column label="中文标题" prop="cn_title" fixed></el-table-column>
+            <el-table-column label="余额" prop="balance" fixed></el-table-column>
+            <el-table-column label="可用余额" prop="available" fixed></el-table-column>
+            <el-table-column label="冻结金额" prop="frozen" fixed></el-table-column>
+            <el-table-column label="可提现余额" prop="withdrawable" fixed></el-table-column>
+            <el-table-column label="不可提现金额" prop="prohibit_amount" fixed></el-table-column>
+            <el-table-column label="收入" prop="credit" fixed></el-table-column>
+            <el-table-column label="支出" prop="debit" fixed></el-table-column>
+            <el-table-column label="关联注单" prop="project_linked" fixed></el-table-column>
+            <el-table-column label="关联追号" prop="trace_linked" fixed></el-table-column>
+            <el-table-column label="反向类型" prop="reverse_type" fixed></el-table-column>
+            <el-table-column label="创建时间" prop="created_at" fixed></el-table-column>
             <el-table-column label="更新时间" prop="updated_at" fixed></el-table-column>
-            <el-table-column label="操作者" prop="updater" fixed></el-table-column>
+
 
             <el-table-column
                     label="操作" width="200"
@@ -172,7 +163,7 @@
 
 <script>
     import {
-        rotationconfigList,
+        transactionTypeList,
         authAdminRoleList,
         rotatePlaySave,
         updateRotateSequence,
@@ -321,7 +312,7 @@
             },
             getList() {
                 this.loading = true;
-                rotationconfigList(this.query)
+                transactionTypeList(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list.data || [];
