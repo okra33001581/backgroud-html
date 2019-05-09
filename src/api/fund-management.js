@@ -4,6 +4,23 @@
 import axios from "../utils/axios";
 
 // 获取列表
+export function userAccountsList(query) {
+    return axios({
+        url: "event/userAccountsList",
+        method: "get",
+        params: query
+    });
+}
+
+// 获取列表
+export function merchantAccountsList(query) {
+    return axios({
+        url: "event/merchantAccountsList",
+        method: "get",
+        params: query
+    });
+}
+// 获取列表
 export function cashOrderlist(query) {
     return axios({
         url: "event/cashOrderlist",
@@ -122,6 +139,23 @@ export function authAdminRoleList(query) {
         url: "event/adminRoleList",
         method: "get",
         params: query
+    });
+}
+
+// 用户账户列表状态审核
+export function userAccountsStatusSave(data) {
+    return axios({
+        url: "event/userAccountsStatusSave",
+        method: "post",
+        data: data
+    });
+}
+// 商户账户列表状态审核
+export function merchantAccountsStatusSave(data) {
+    return axios({
+        url: "event/merchantAccountsStatusSave",
+        method: "post",
+        data: data
     });
 }
 

@@ -1,11 +1,9 @@
 <template>
-
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
             <el-form-item class="query-form-item">
                 <el-input v-model="query.name" placeholder="游戏名称"></el-input>
             </el-form-item>
-
             <el-form-item class="query-form-item">
                 <el-select v-model="query.status" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
@@ -13,7 +11,6 @@
                     <el-option label="禁用" value="禁用"></el-option>
                 </el-select>
             </el-form-item>
-
             <el-form-item>
                 <el-button-group>
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
@@ -22,7 +19,6 @@
                 </el-button-group>
             </el-form-item>
         </el-form>
-
         <el-table
                 v-loading="loading"
                 :key="tableKey"
@@ -31,18 +27,13 @@
                 fit
                 highlight-current-row
                 style="width: 100%;"
-                @sort-change="sortChange"
                 element-loading-text="拼命加载中"
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
-            <el-table-column label="			Id				" prop="id" fixed></el-table-column>
-            <el-table-column
-                    prop="name"
-                    label="游戏名称"
-                    width="180">
-            </el-table-column>
-            <el-table-column label="			图标				" prop="icon" >
+            <el-table-column label="Id" prop="plat_id" fixed></el-table-column>
+            <el-table-column prop="name" label="游戏名称" width="180"></el-table-column>
+            <el-table-column label="图标" prop="icon" >
                 <template slot-scope="scope">
                     <el-popover
                             placement="right"
@@ -52,17 +43,9 @@
                         <img slot="reference" :src="'http://apidemo.test/public/' + scope.row.icon" :alt="icon" style="max-height: 50px;max-width: 130px">
                     </el-popover>
                 </template>
-
             </el-table-column>
-            <el-table-column
-                    prop="status"
-                    label="状态">
-            </el-table-column>
-
+            <el-table-column prop="status" label="状态"></el-table-column>
             <el-table-column prop="desc" label="简介"></el-table-column>
-
-
-
             <el-table-column
                     label="操作" width="350"
                     fixed="right">
@@ -71,28 +54,23 @@
                     </el-button>
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
                     </el-button>
-
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="selItemSuccessServer(scope.$index, scope.row)">选择
-                    </el-button>
-
-                    <el-button v-if="scope.row.status === '禁用' || scope.row.status === null" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'启用')">启用
                     </el-button>
                     <el-button v-if="scope.row.status === '启用'" type="danger" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'禁用')">禁用
                     </el-button>
-
+                    <el-button v-else type="primary" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'启用')">启用
+                    </el-button>
+                    
                 </template>
             </el-table-column>
         </el-table>
-
         <el-pagination
                 :page-size="query.limit"
                 @current-change="handleCurrentChange"
                 layout="prev, pager, next"
                 :total="total">
         </el-pagination>
-
         <!--<pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />-->
-
         <!--表单-->
         <el-dialog
                 :title="formMap[formName]"
@@ -101,28 +79,15 @@
                 width="40%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm"  label-width="110px">
-                <el-form-item label="Id" prop="id">
-                    <el-input style="width:550px;max-width:100%;" v-model="formData.id" auto-complete="off"></el-input>
-                </el-form-item>
-
-                <el-form-item label="plat_id" prop="plat_id">
+                <el-form-item label="平台id" prop="plat_id">
                     <el-input style="width:550px;max-width:100%;" v-model="formData.plat_id" auto-complete="off"></el-input>
                 </el-form-item>
-
-
-                <el-form-item label="plat_name" prop="plat_name">
+                <el-form-item label="平台名称" prop="plat_name">
                     <el-input style="width:550px;max-width:100%;" v-model="formData.plat_name" auto-complete="off"></el-input>
                 </el-form-item>
-
-                <el-form-item label="name" prop="name">
+                <el-form-item label="游戏名称" prop="name">
                     <el-input style="width:550px;max-width:100%;" v-model="formData.name" auto-complete="off"></el-input>
                 </el-form-item>
-
-                <!--<el-form-item label="icon" prop="icon">-->
-                    <!--<el-input style="width:550px;max-width:100%;" v-model="formData.icon" auto-complete="off"></el-input>-->
-                <!--</el-form-item>-->
-
-
                 <el-form-item label="图片" prop="icon">
                     <el-upload
                             action="http://apidemo.test/api/event/fileSave?table=eventPic1"
@@ -133,15 +98,69 @@
                         <img :src="'http://apidemo.test/public/' + formData.icon" width="200px" height="150px"/>
                     </el-upload>
                 </el-form-item>
-
-                <el-form-item label="desc" prop="desc">
+                <el-form-item label="描述" prop="desc">
                     <el-input style="width:550px;max-width:100%;" v-model="formData.desc" auto-complete="off"></el-input>
                 </el-form-item>
-
-                <el-form-item v-if="formData.ext_column1 != ''" :label="formData.ext_column1" prop="ext_field1">
+                <el-form-item v-show="formData.ext_column1 != '' && formData.ext_column1 !=null" :label="formData.ext_column1" prop="ext_field1">
                     <el-input style="width:550px;max-width:100%;" v-model="formData.ext_field1" auto-complete="off"></el-input>
                 </el-form-item>
-
+                <el-form-item v-show="formData.ext_column2 != '' && formData.ext_column2 !=null" :label="formData.ext_column2" prop="ext_field2">
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.ext_field2" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item v-show="formData.ext_column3 != '' && formData.ext_column3 !=null" :label="formData.ext_column3" prop="ext_field3">
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.ext_field3" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item v-show="formData.ext_column4 != '' && formData.ext_column4 !=null" :label="formData.ext_column4" prop="ext_field4">
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.ext_field4" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item v-show="formData.ext_column5 != '' && formData.ext_column5 !=null" :label="formData.ext_column5" prop="ext_field5">
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.ext_field5" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item v-show="formData.ext_column6 != '' && formData.ext_column6 !=null" :label="formData.ext_column6" prop="ext_field6">
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.ext_field6" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item v-show="formData.ext_column7 != '' && formData.ext_column7 !=null" :label="formData.ext_column7" prop="ext_field7">
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.ext_field7" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item v-show="formData.ext_column8 != '' && formData.ext_column8 !=null" :label="formData.ext_column8" prop="ext_field8">
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.ext_field8" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item v-show="formData.ext_column9 != '' && formData.ext_column9 !=null" :label="formData.ext_column9" prop="ext_field9">
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.ext_field9" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item v-show="formData.ext_column10 != '' && formData.ext_column10 !=null" :label="formData.ext_column10" prop="ext_field10">
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.ext_field10" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item v-show="formData.ext_column11 != '' && formData.ext_column11 !=null" :label="formData.ext_column11" prop="ext_field11">
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.ext_field11" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item v-show="formData.ext_column12 != '' && formData.ext_column12 !=null" :label="formData.ext_column12" prop="ext_field2">
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.ext_field2" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item v-show="formData.ext_column13 != '' && formData.ext_column13 !=null" :label="formData.ext_column13" prop="ext_field13">
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.ext_field13" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item v-show="formData.ext_column14 != '' && formData.ext_column14 !=null" :label="formData.ext_column14" prop="ext_field14">
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.ext_field14" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item v-show="formData.ext_column15 != '' && formData.ext_column15 !=null" :label="formData.ext_column15" prop="ext_field15">
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.ext_field15" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item v-show="formData.ext_column16 != '' && formData.ext_column16 !=null" :label="formData.ext_column16" prop="ext_field16">
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.ext_field16" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item v-show="formData.ext_column17 != '' && formData.ext_column17 !=null" :label="formData.ext_column17" prop="ext_field17">
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.ext_field17" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item v-show="formData.ext_column18 != '' && formData.ext_column18 !=null" :label="formData.ext_column18" prop="ext_field18">
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.ext_field18" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item v-show="formData.ext_column19 != '' && formData.ext_column19 !=null" :label="formData.ext_column19" prop="ext_field18">
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.ext_field18" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item v-show="formData.ext_column20 != '' && formData.ext_column20 !=null" :label="formData.ext_column20" prop="ext_field18">
+                    <el-input style="width:550px;max-width:100%;" v-model="formData.ext_field18" auto-complete="off"></el-input>
+                </el-form-item>
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideForm">取消</el-button>
@@ -149,7 +168,6 @@
             </div>
         </el-dialog>
     </div>
-
 </template>
 
 <script>
@@ -164,58 +182,44 @@
 
     const formJson = {
         id: "",
-        password: "",
-        username: "",
-        checkPassword: "",
-        status: "1",
-        roles: []
+        plat_id: "",
+        plat_name: "",
+        name: "",
+        icon: "",
+        desc: "",
+        ext_column1: "",
+        ext_column2: "",
+        ext_column3: "",
+        ext_column4: "",
+        ext_column5: "",
+        ext_column6: "",
+        ext_column7: "",
+        ext_column8: "",
+        ext_column9: "",
+        ext_column10: "",
+        ext_column11: "",
+        ext_column12: "",
+        ext_column13: "",
+        ext_column14: "",
+        ext_column15: "",
+        ext_column16: "",
+        ext_column17: "",
+        ext_column18: "",
+        ext_column19: "",
+        ext_column20: "",
+        status: ""
     };
     export default {
         data() {
-            let validatePass = (rule, value, callback) => {
-                if (value === "") {
-                    callback(new Error("请输入密码"));
-                } else {
-                    callback();
-                }
-            };
-            let validatePass2 = (rule, value, callback) => {
-                if (value === "") {
-                    callback(new Error("请再次输入密码"));
-                } else if (value !== this.formData.password) {
-                    callback(new Error("两次输入密码不一致!"));
-                } else {
-                    callback();
-                }
-            };
             return {
-                roles: [],
                 query: {
-                    username: "",
+                    name: "",
                     status: "",
                     page: 1,
-                    limit: 20,
-                    role_id: "",
-                    sort: '+id'
+                    limit: 20
                 },
                 tableKey: 0,
                 icon:'',
-                sortOptions: [{label: 'ID Ascending', key: '+id'}, {
-                    label: 'ID Descending',
-                    key: '-id'
-                }, {label: 'username Ascending', key: '+username'}, {
-                    label: 'username Descending',
-                    key: '-username'
-                }, {label: 'status Ascending', key: '+status'}, {
-                    label: 'status Descending',
-                    key: '-status'
-                }, {label: 'last_login_time Ascending', key: '+last_login_time'}, {
-                    label: 'last_login_time Descending',
-                    key: '-last_login_time'
-                }, {label: 'last_login_ip Ascending', key: '+last_login_ip'}, {
-                    label: 'last_login_ip Descending',
-                    key: '-last_login_ip'
-                }],
                 list: [],
                 total: 0,
                 loading: true,
@@ -230,27 +234,15 @@
                 formData: formJson,
                 formRules: {},
                 addRules: {
-                    username: [
+                    name: [
                         {required: true, message: "请输入姓名", trigger: "blur"}
-                    ],
-                    password: [
-                        {required: true, message: "请输入密码", trigger: "blur"},
-                        {validator: validatePass, trigger: "blur"}
-                    ],
-                    checkPassword: [
-                        {
-                            required: true,
-                            message: "请再次输入密码",
-                            trigger: "blur"
-                        },
-                        {validator: validatePass2, trigger: "blur"}
                     ],
                     status: [
                         {required: true, message: "请选择状态", trigger: "change"}
                     ]
                 },
                 editRules: {
-                    username: [
+                    name: [
                         {required: true, message: "请输入姓名", trigger: "blur"}
                     ],
                     status: [
@@ -394,23 +386,7 @@
                         this.loading = false;
                         this.list = [];
                         this.total = 0;
-                        this.roles = [];
                     });
-            },
-            /*sortChange2(data) {
-                const { prop, order } = data
-                if (prop === 'id') {
-                    this.sortByID(order)
-                }
-            },*/
-
-            sortByID(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+id'
-                } else {
-                    this.query.sort = '-id'
-                }
-                this.handleFilter()
             },
             thirdBallSequence(index, row) {
                 var params = {
@@ -441,54 +417,12 @@
                     }.bind(this)
                 )
             },
-            sortByUserName(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+username'
-                } else {
-                    this.query.sort = '-username'
-                }
-                this.handleFilter()
-            },
-            sortByStatus(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+status'
-                } else {
-                    this.query.sort = '-status'
-                }
-                this.handleFilter()
-            },
-            sortByLastLoginTime(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+last_login_time'
-                } else {
-                    this.query.sort = '-last_login_time'
-                }
-                this.handleFilter()
-            },
-            sortByLastLoginIp(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+last_login_ip'
-                } else {
-                    this.query.sort = '-last_login_ip'
-                }
-                this.handleFilter()
-            },
-            getRoleList() {
-                authAdminRoleList(this.query)
-                    .then(response => {
-                        this.roles = response.list || [];
-                    })
-                    .catch((e) => {
-                        console.log(e)
-                        this.roles = [];
-                    });
-            },
             // 隐藏表单
             hideForm() {
                 // 更改值
                 this.formVisible = !this.formVisible;
                 // 清空表单
-                this.$refs["dataForm"].resetFields();
+                //this.$refs["dataForm"].resetFields();
                 return true;
             },
             // 显示表单
@@ -640,8 +574,6 @@
             this.query.limit = parseInt(this.query.limit);
             // 加载表格数据
             this.getList();
-            // 加载角色列表
-            // this.getRoleList();
         }
     };
 </script>

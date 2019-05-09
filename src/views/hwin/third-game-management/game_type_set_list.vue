@@ -31,7 +31,6 @@
                 fit
                 highlight-current-row
                 style="width: 100%;"
-                @sort-change="sortChange"
                 element-loading-text="拼命加载中"
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
@@ -190,62 +189,26 @@
         username: "",
         checkPassword: "",
         status: "1",
-        roles: [],
         domains: [{
             value: ''
         }],
     };
     export default {
         data() {
-            let validatePass = (rule, value, callback) => {
-                if (value === "") {
-                    callback(new Error("请输入密码"));
-                } else {
-                    callback();
-                }
-            };
-            let validatePass2 = (rule, value, callback) => {
-                if (value === "") {
-                    callback(new Error("请再次输入密码"));
-                } else if (value !== this.formData.password) {
-                    callback(new Error("两次输入密码不一致!"));
-                } else {
-                    callback();
-                }
-            };
             return {
                 formAddData: {
                     domains: [{
                         value: ''
                     }],
                 },
-                roles: [],
                 query: {
                     username: "",
                     status: "",
                     page: 1,
-                    limit: 20,
-                    role_id: "",
-                    sort: '+id'
+                    limit: 20
                 },
                 tableKey: 0,
                 icon: '',
-                sortOptions: [{label: 'ID Ascending', key: '+id'}, {
-                    label: 'ID Descending',
-                    key: '-id'
-                }, {label: 'username Ascending', key: '+username'}, {
-                    label: 'username Descending',
-                    key: '-username'
-                }, {label: 'status Ascending', key: '+status'}, {
-                    label: 'status Descending',
-                    key: '-status'
-                }, {label: 'last_login_time Ascending', key: '+last_login_time'}, {
-                    label: 'last_login_time Descending',
-                    key: '-last_login_time'
-                }, {label: 'last_login_ip Ascending', key: '+last_login_ip'}, {
-                    label: 'last_login_ip Descending',
-                    key: '-last_login_ip'
-                }],
                 list: [],
                 total: 0,
                 loading: true,
@@ -270,18 +233,6 @@
                 addRules: {
                     username: [
                         {required: true, message: "请输入姓名", trigger: "blur"}
-                    ],
-                    password: [
-                        {required: true, message: "请输入密码", trigger: "blur"},
-                        {validator: validatePass, trigger: "blur"}
-                    ],
-                    checkPassword: [
-                        {
-                            required: true,
-                            message: "请再次输入密码",
-                            trigger: "blur"
-                        },
-                        {validator: validatePass2, trigger: "blur"}
                     ],
                     status: [
                         {required: true, message: "请选择状态", trigger: "change"}
@@ -384,24 +335,6 @@
                 this.query.page = 1
                 this.getList()
             },
-            sortChange: function (column) {
-                // console.log(column)
-                // console.log(prop)
-                // console.log(order)
-                const {prop, order} = column
-                if (prop === 'id') {
-                    this.sortByID(order)
-                } else if (prop === 'username') {
-                    this.sortByUserName(order)
-                } else if (prop === 'status') {
-                    this.sortByStatus(order)
-                } else if (prop === 'last_login_time') {
-                    this.sortByLastLoginTime(order)
-                } else if (prop === 'last_login_ip') {
-                    this.sortByLastLoginIp(order)
-                }
-            },
-
             auditItemSuccessServer(index, row) {
                 var params = {
                     id: row.id,
@@ -500,23 +433,7 @@
                         this.loading = false;
                         this.list = [];
                         this.total = 0;
-                        this.roles = [];
                     });
-            },
-            /*sortChange2(data) {
-                const { prop, order } = data
-                if (prop === 'id') {
-                    this.sortByID(order)
-                }
-            },*/
-
-            sortByID(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+id'
-                } else {
-                    this.query.sort = '-id'
-                }
-                this.handleFilter()
             },
             thirdBallSequence(index, row) {
                 var params = {
@@ -546,48 +463,6 @@
                         this.getList();
                     }.bind(this)
                 )
-            },
-            sortByUserName(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+username'
-                } else {
-                    this.query.sort = '-username'
-                }
-                this.handleFilter()
-            },
-            sortByStatus(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+status'
-                } else {
-                    this.query.sort = '-status'
-                }
-                this.handleFilter()
-            },
-            sortByLastLoginTime(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+last_login_time'
-                } else {
-                    this.query.sort = '-last_login_time'
-                }
-                this.handleFilter()
-            },
-            sortByLastLoginIp(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+last_login_ip'
-                } else {
-                    this.query.sort = '-last_login_ip'
-                }
-                this.handleFilter()
-            },
-            getRoleList() {
-                authAdminRoleList(this.query)
-                    .then(response => {
-                        this.roles = response.list || [];
-                    })
-                    .catch((e) => {
-                        console.log(e)
-                        this.roles = [];
-                    });
             },
             // 隐藏表单
             hideForm() {
@@ -804,8 +679,6 @@
             this.query.limit = parseInt(this.query.limit);
             // 加载表格数据
             this.getList();
-            // 加载角色列表
-            // this.getRoleList();
         }
     };
 </script>
