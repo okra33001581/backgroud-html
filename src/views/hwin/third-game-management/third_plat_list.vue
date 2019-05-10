@@ -625,6 +625,7 @@
             handleSubForm(index, row) {
                 this.formSubVisible = true;
                 let param = {identity:row.identity};
+                this.query.identity = row.identity;
                 gameTypeDetailList(param)
                     .then(response => {
                         this.tableData = response.data.list.data || [];
