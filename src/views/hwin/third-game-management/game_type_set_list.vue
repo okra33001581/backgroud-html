@@ -13,7 +13,14 @@
                     <el-option label="禁用" value="禁用"></el-option>
                 </el-select>
             </el-form-item>
-
+             <el-form-item class="query-form-item">
+                <el-select v-model="query.type" placeholder="类别">
+                    <el-option label="全部" value=""></el-option>
+                    <el-option label="AG" value="AG"></el-option>
+                    <el-option label="GA" value="GA"></el-option>
+                    <el-option label="电子游戏" value="电子游戏"></el-option>
+                </el-select>
+            </el-form-item>
             <el-form-item>
                 <el-button-group>
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
@@ -87,7 +94,7 @@
 
         <!--表单-->
         <el-dialog
-                :title="formAddMap[formName]"
+                :title="formAddMap[formAddName]"
                 :visible.sync="formAddVisible"
                 :before-close="hideAddForm"
                 width="40%"
@@ -96,8 +103,9 @@
                 <el-form :model="formAddData" ref="formAddData" label-width="80px" class="form-dynamic">
 
 
-                    <el-form-item label="类别" prop="id">
+                    <el-form-item label="类别" prop="type">
                         <el-select v-model="formAddData.type" placeholder="类别">
+                            <el-option label="全部" value=""></el-option>
                             <el-option label="AG" value="AG"></el-option>
                             <el-option label="GA" value="GA"></el-option>
                             <el-option label="电子游戏" value="电子游戏"></el-option>
@@ -275,6 +283,7 @@
                 query: {
                     username: "",
                     status: "",
+                    type: "",
                     page: 1,
                     limit: 20
                 },
@@ -539,6 +548,7 @@
                     var data = {};
                     data.domains = temp;
                     data.id = row.id;
+                    data.type = row.type;
                     this.formAddData = Object.assign({}, data);
 
                 }
