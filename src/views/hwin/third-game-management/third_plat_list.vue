@@ -163,7 +163,8 @@
                             :data="tableData"
                             style="width: 100%">
                         <el-table-column label="Id" prop="id" fixed></el-table-column>
-                        <el-table-column prop="name" label="游戏名称" width="180"></el-table-column>
+                        <el-table-column label="游戏分类" prop="plat_name" fixed></el-table-column>
+                        <el-table-column label="游戏名称" prop="name" width="180"></el-table-column>
                         <el-table-column label="图标" prop="icon" >
                             <template slot-scope="scope">
                                 <el-popover
@@ -558,7 +559,7 @@
                     }.bind(this)
                 )
             },
-            
+
             // 隐藏表单
             hideForm() {
                 // 更改值
@@ -826,7 +827,7 @@
 
         },
 
-        
+
 
         filters: {
             statusFilterType(status) {
