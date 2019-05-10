@@ -461,7 +461,7 @@
             },
             handlePic1Success(response, file, fileList) {
                 //response这个
-                this.formData.icon = response.data;
+                this.formSubDetailData.icon = response.data;
             },
             handleRemove(file, fileList) {
                 console.log(file, fileList);
