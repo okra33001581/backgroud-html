@@ -31,7 +31,7 @@
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
-            <el-table-column label="Id" prop="plat_id" fixed></el-table-column>
+            <el-table-column label="Id" prop="id" fixed></el-table-column>
             <el-table-column prop="name" label="游戏名称" width="180"></el-table-column>
             <el-table-column label="图标" prop="icon" >
                 <template slot-scope="scope">
