@@ -37,7 +37,7 @@
                 :header-cell-style="getRowClass">
             <el-table-column label="商户" prop="merchant_id" fixed></el-table-column>
             <el-table-column label="状态" prop="status" fixed></el-table-column>
-            <el-table-column label="ip" prop="ip" fixed></el-table-column>
+            <el-table-column label="ip地址" prop="ip" fixed></el-table-column>
             <el-table-column label="创建时间" prop="created_at" fixed></el-table-column>
             <el-table-column label="更新时间" prop="updated_at" fixed></el-table-column>
             <el-table-column
@@ -80,11 +80,11 @@
                     <el-input v-model="formData.merchant_id" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="ip" prop="ip">
+                <el-form-item label="ip地址" prop="ip">
                     <el-input v-model="formData.ip" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="parent_id" prop="parent_id">
+               <!-- <el-form-item label="parent_id" prop="parent_id">
                     <el-input v-model="formData.parent_id" auto-complete="off"></el-input>
                 </el-form-item>
 
@@ -94,7 +94,7 @@
 
                 <el-form-item label="parent_path" prop="parent_path">
                     <el-input v-model="formData.parent_path" auto-complete="off"></el-input>
-                </el-form-item>
+                </el-form-item>-->
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideForm">取消</el-button>

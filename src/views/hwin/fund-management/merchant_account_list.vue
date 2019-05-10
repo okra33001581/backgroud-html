@@ -31,8 +31,8 @@
                     <el-option label="全部" value=""></el-option>
                     <!--<el-option label="未审核" value="未审核"></el-option>-->
                     <!--<el-option label="未结束" value="未结束"></el-option>-->
-                    <el-option label="同意" value="同意"></el-option>
-                    <el-option label="拒绝" value="拒绝"></el-option>
+                    <el-option label="启用" value="启用"></el-option>
+                    <el-option label="禁用" value="禁用"></el-option>
                 </el-select>
             </el-form-item>
 
@@ -40,8 +40,8 @@
                 <el-button-group>
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
                     <el-button type="primary" icon="el-icon-search" @click="onSubmit">查询</el-button>
-                    <el-button type="primary" icon="el-icon-plus" @click.native="auditSuccessServer()">{{$t('page.batch_success')}}</el-button>
-                    <el-button type="primary" icon="el-icon-plus" @click.native="auditFailedServer()">{{$t('page.batch_reject')}}</el-button>
+                    <el-button type="primary" icon="el-icon-plus" @click.native="auditSuccessServer()">批量启用</el-button>
+                    <el-button type="primary" icon="el-icon-plus" @click.native="auditFailedServer()">批量禁用</el-button>
                 </el-button-group>
             </el-form-item>
         </el-form>
@@ -70,16 +70,16 @@
             <el-table-column label="可用余额" prop="available" fixed></el-table-column>
             <el-table-column label="可提现金额" prop="withdrawable" fixed></el-table-column>
             <el-table-column label="不可提现金额" prop="prohibit_amount" fixed></el-table-column>
-            <el-table-column label="审核状态" prop="status" fixed></el-table-column>
+            <el-table-column label="状态" prop="status" fixed></el-table-column>
 
             <el-table-column
                     label="操作"
                     fixed="right">
                 <template slot-scope="scope">
 
-                    <el-button v-if="scope.row.status === '同意'" type="danger" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'拒绝')">拒绝
+                    <el-button v-if="scope.row.status === '启用'" type="danger" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'禁用')">禁用
                     </el-button>
-                    <el-button v-else type="primary" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'同意')">同意
+                    <el-button v-else type="primary" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'启用')">启用
                     </el-button>
 
                 </template>
@@ -253,12 +253,12 @@
                     }.bind(this)
                 )
             },
-            
+
             auditSuccessServer () {
                 var servids = this.sels.map(item => item.id).join(",")
                 var params = {
                     id:servids,
-                    flag:'同意'
+                    flag:'启用'
                 }
                 // debugger
                 rakebackStatusSave(params).then(
@@ -288,7 +288,7 @@
                 var servids = this.sels.map(item => item.id).join(",")
                 var params = {
                     id:servids,
-                    flag:'拒绝'
+                    flag:'禁用'
                 }
                 // debugger
                 rakebackStatusSave(params).then(
