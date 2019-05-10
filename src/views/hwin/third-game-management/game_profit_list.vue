@@ -66,7 +66,7 @@
                     label="操作" width="100"
                     fixed="right">
                 <template slot-scope="scope">
-                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
+                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">明细
                     </el-button>
                     <!--<el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
                     </el-button>-->
@@ -99,30 +99,29 @@
                 :before-close="hideForm"
                 width="40%"
                 top="5vh">
-            <el-form :model="formData" :rules="formRules" ref="dataForm"  label-width="110px">
-                <el-form-item label="id" prop=" id"><el-input style="width:550px;max-width:100%;" v-model="formData.id" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="merchant_id" prop=" merchant_id"><el-input style="width:550px;max-width:100%;" v-model="formData.merchant_id" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="merchant_name" prop=" merchant_name"><el-input style="width:550px;max-width:100%;" v-model="formData.merchant_name" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="date" prop=" date"><el-input style="width:550px;max-width:100%;" v-model="formData.date" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="user_id" prop=" user_id"><el-input style="width:550px;max-width:100%;" v-model="formData.user_id" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="is_agent" prop=" is_agent"><el-input style="width:550px;max-width:100%;" v-model="formData.is_agent" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="is_tester" prop=" is_tester"><el-input style="width:550px;max-width:100%;" v-model="formData.is_tester" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="prize_group" prop=" prize_group"><el-input style="width:550px;max-width:100%;" v-model="formData.prize_group" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="user_level" prop=" user_level"><el-input style="width:550px;max-width:100%;" v-model="formData.user_level" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="username" prop=" username"><el-input style="width:550px;max-width:100%;" v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="parent_user_id" prop=" parent_user_id"><el-input style="width:550px;max-width:100%;" v-model="formData.parent_user_id" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="parent_user" prop=" parent_user"><el-input style="width:550px;max-width:100%;" v-model="formData.parent_user" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="user_forefather_ids" prop=" user_forefather_ids"><el-input style="width:550px;max-width:100%;" v-model="formData.user_forefather_ids" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="user_forefathers" prop=" user_forefathers"><el-input style="width:550px;max-width:100%;" v-model="formData.user_forefathers" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="turnover" prop=" turnover"><el-input style="width:550px;max-width:100%;" v-model="formData.turnover" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="prize" prop=" prize"><el-input style="width:550px;max-width:100%;" v-model="formData.prize" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="bonus" prop=" bonus"><el-input style="width:550px;max-width:100%;" v-model="formData.bonus" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="commission" prop=" commission"><el-input style="width:550px;max-width:100%;" v-model="formData.commission" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="lose_commission" prop=" lose_commission"><el-input style="width:550px;max-width:100%;" v-model="formData.lose_commission" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="profit" prop=" profit"><el-input style="width:550px;max-width:100%;" v-model="formData.profit" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="created_at" prop=" created_at"><el-input style="width:550px;max-width:100%;" v-model="formData.created_at" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="updated_at" prop=" updated_at"><el-input style="width:550px;max-width:100%;" v-model="formData.updated_at" auto-complete="off"></el-input></el-form-item>
-
+            <el-form :model="formData" :rules="formRules" ref="dataForm"  label-width="140px">
+                <el-form-item label="id" prop="id"><el-input style="width:550px;max-width:100%;" v-model="formData.id" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="商户ID" prop="merchant_id"><el-input style="width:550px;max-width:100%;" v-model="formData.merchant_id" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="商户" prop="merchant_name"><el-input style="width:550px;max-width:100%;" v-model="formData.merchant_name" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="日期" prop="date"><el-input style="width:550px;max-width:100%;" v-model="formData.date" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="用户ID" prop="user_id"><el-input style="width:550px;max-width:100%;" v-model="formData.user_id" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="是否代理" prop="is_agent"><el-input style="width:550px;max-width:100%;" v-model="formData.is_agent" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="是否测试" prop="is_tester"><el-input style="width:550px;max-width:100%;" v-model="formData.is_tester" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="奖金组" prop="prize_group"><el-input style="width:550px;max-width:100%;" v-model="formData.prize_group" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="用户级别" prop="user_level"><el-input style="width:550px;max-width:100%;" v-model="formData.user_level" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="用户名" prop="username"><el-input style="width:550px;max-width:100%;" v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="上级用户" prop="parent_user_id"><el-input style="width:550px;max-width:100%;" v-model="formData.parent_user_id" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="上级用户" prop="parent_user"><el-input style="width:550px;max-width:100%;" v-model="formData.parent_user" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="祖先ID" prop="user_forefather_ids"><el-input style="width:550px;max-width:100%;" v-model="formData.user_forefather_ids" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="祖先" prop="user_forefathers"><el-input style="width:550px;max-width:100%;" v-model="formData.user_forefathers" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="投注" prop="turnover"><el-input style="width:550px;max-width:100%;" v-model="formData.turnover" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="奖金" prop="prize"><el-input style="width:550px;max-width:100%;" v-model="formData.prize" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="促销奖金" prop="bonus"><el-input style="width:550px;max-width:100%;" v-model="formData.bonus" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="佣金" prop="commission"><el-input style="width:550px;max-width:100%;" v-model="formData.commission" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="输值佣金" prop="lose_commission"><el-input style="width:550px;max-width:100%;" v-model="formData.lose_commission" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="盈利" prop="profit"><el-input style="width:550px;max-width:100%;" v-model="formData.profit" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="创建时间" prop="created_at"><el-input style="width:550px;max-width:100%;" v-model="formData.created_at" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="更新时间" prop="updated_at"><el-input style="width:550px;max-width:100%;" v-model="formData.updated_at" auto-complete="off"></el-input></el-form-item>
 
             </el-form>
             <div slot="footer" class="dialog-footer">
