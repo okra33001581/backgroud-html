@@ -613,6 +613,7 @@
                     if (valid) {
                         this.formLoading = true;
                         let data = Object.assign({}, this.formData);
+                        delete data.id;
                         thirdGameTypesDetailSave(data, this.formName).then(response => {
                             this.formLoading = false;
                             if (response.code) {
