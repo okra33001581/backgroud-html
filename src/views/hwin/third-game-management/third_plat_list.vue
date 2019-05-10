@@ -159,6 +159,26 @@
                 top="5vh">
             <el-form :model="formSubData" label-width="5%" :rules="formRules" ref="dataForm">
                 <template>
+                    <el-form :inline="true" :model="query" class="query-form" size="mini">
+                        <el-form-item class="query-form-item">
+                            <el-input v-model="query.plat_name" placeholder="平台名"></el-input>
+                        </el-form-item>
+
+                        <el-form-item class="query-form-item">
+                            <el-select v-model="query.status" placeholder="状态">
+                                <el-option label="全部" value=""></el-option>
+                                <el-option label="启用" value="启用"></el-option>
+                                <el-option label="禁用" value="禁用"></el-option>
+                            </el-select>
+                        </el-form-item>
+                        <el-form-item>
+                            <el-button-group>
+                                <el-button type="primary" icon="el-icon-refresh" @click="getSubList"></el-button>
+                                <el-button type="primary" icon="el-icon-search" @click="onSubSubmit">查询</el-button>
+                            </el-button-group>
+                        </el-form-item>
+                    </el-form>
+
                     <el-table
                             :data="tableData"
                             style="width: 100%">
@@ -413,6 +433,13 @@
                     query: this.query
                 });
                 this.getList();
+            },
+            onSubSubmit() {
+                this.$router.push({
+                    path: "",
+                    query: this.query
+                });
+                this.getSubList();
             },
             beforeAvatarUpload(file) {
                 var testmsg=file.name.substring(file.name.lastIndexOf('.')+1)
