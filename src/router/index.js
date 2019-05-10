@@ -937,7 +937,7 @@ export const asyncRouterMap = [
             },{
                 path: "game_type_set_list",
                 component: game_type_set_list,
-                name: "游戏类别设置",
+                name: "动态属性设置",
                 icon: "message_list",
                 meta: {
                     authRule: ["hwin/message_list"]

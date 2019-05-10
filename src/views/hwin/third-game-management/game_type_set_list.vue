@@ -35,27 +35,28 @@
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
-            <el-table-column prop="id" label="表单项"></el-table-column>
-            <el-table-column prop="ext_column1" label="表单项"></el-table-column>
-            <el-table-column prop="ext_column2" label="表单项"></el-table-column>
-            <el-table-column prop="ext_column3" label="表单项"></el-table-column>
-            <el-table-column prop="ext_column4" label="表单项"></el-table-column>
-            <el-table-column prop="ext_column5" label="表单项"></el-table-column>
-            <el-table-column prop="ext_column6" label="表单项"></el-table-column>
-            <el-table-column prop="ext_column7" label="表单项"></el-table-column>
-            <el-table-column prop="ext_column8" label="表单项"></el-table-column>
-            <el-table-column prop="ext_column9" label="表单项"></el-table-column>
-            <el-table-column prop="ext_column10" label="表单项"></el-table-column>
-            <el-table-column prop="ext_column11" label="表单项"></el-table-column>
-            <el-table-column prop="ext_column12" label="表单项"></el-table-column>
-            <el-table-column prop="ext_column13" label="表单项"></el-table-column>
-            <el-table-column prop="ext_column14" label="表单项"></el-table-column>
-            <el-table-column prop="ext_column15" label="表单项"></el-table-column>
-            <el-table-column prop="ext_column16" label="表单项"></el-table-column>
-            <el-table-column prop="ext_column17" label="表单项"></el-table-column>
-            <el-table-column prop="ext_column18" label="表单项"></el-table-column>
-            <el-table-column prop="ext_column19" label="表单项"></el-table-column>
-            <el-table-column prop="ext_column20" label="表单项"></el-table-column>
+            <el-table-column prop="id" label="id"></el-table-column>
+            <el-table-column prop="type" label="type"></el-table-column>
+            <el-table-column prop="ext_column1" label="表单项1"></el-table-column>
+            <el-table-column prop="ext_column2" label="表单项2"></el-table-column>
+            <el-table-column prop="ext_column3" label="表单项3"></el-table-column>
+            <el-table-column prop="ext_column4" label="表单项4"></el-table-column>
+            <el-table-column prop="ext_column5" label="表单项5"></el-table-column>
+            <el-table-column prop="ext_column6" label="表单项6"></el-table-column>
+            <el-table-column prop="ext_column7" label="表单项7"></el-table-column>
+            <el-table-column prop="ext_column8" label="表单项8"></el-table-column>
+            <el-table-column prop="ext_column9" label="表单项9"></el-table-column>
+            <el-table-column prop="ext_column10" label="表单项10"></el-table-column>
+            <el-table-column prop="ext_column11" label="表单项11"></el-table-column>
+            <el-table-column prop="ext_column12" label="表单项12"></el-table-column>
+            <el-table-column prop="ext_column13" label="表单项13"></el-table-column>
+            <el-table-column prop="ext_column14" label="表单项14"></el-table-column>
+            <el-table-column prop="ext_column15" label="表单项15"></el-table-column>
+            <el-table-column prop="ext_column16" label="表单项16"></el-table-column>
+            <el-table-column prop="ext_column17" label="表单项17"></el-table-column>
+            <el-table-column prop="ext_column18" label="表单项18"></el-table-column>
+            <el-table-column prop="ext_column19" label="表单项19"></el-table-column>
+            <el-table-column prop="ext_column20" label="表单项20"></el-table-column>
             <el-table-column
                     label="操作" width="440"
                     fixed="right">
@@ -69,7 +70,7 @@
                     </el-button>
                     <el-button v-else type="primary" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'启用')">启用
                     </el-button>
-                    
+
 
                 </template>
             </el-table-column>
@@ -93,6 +94,16 @@
                 top="5vh">
             <template>
                 <el-form :model="formAddData" ref="formAddData" label-width="80px" class="form-dynamic">
+
+
+                    <el-form-item label="类别" prop="id">
+                        <el-select v-model="formAddData.type" placeholder="类别">
+                            <el-option label="AG" value="AG"></el-option>
+                            <el-option label="GA" value="GA"></el-option>
+                            <el-option label="电子游戏" value="电子游戏"></el-option>
+                        </el-select>
+                    </el-form-item>
+
                     <el-form-item
                             v-for="(domain, index) in formAddData.domains"
                             :label="'表单项' + (index+1)"
