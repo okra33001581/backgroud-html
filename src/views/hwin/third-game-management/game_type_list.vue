@@ -122,16 +122,26 @@
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm"   label-width="110px">
 
-                <el-form-item label="Id" prop="id">
+                <!--<el-form-item label="Id" prop="id">
                     <el-input style="width:550px;max-width:100%;" v-model="formData.id" auto-complete="off"></el-input>
-                </el-form-item>
+                </el-form-item>-->
 
                 <el-form-item label="排序值" prop="sequence">
                     <el-input style="width:550px;max-width:100%;" v-model="formData.sequence" auto-complete="off"></el-input>
                 </el-form-item>
 
                 <el-form-item label="游戏类型名" prop="name">
-                    <el-input style="width:550px;max-width:100%;" v-model="formData.name" auto-complete="off"></el-input>
+                    <!--<el-input style="width:550px;max-width:100%;" v-model="formData.name" auto-complete="off"></el-input>-->
+                    <el-select v-model="formData.name" placeholder="游戏类型名">
+                        <el-option label="棋牌" value="棋牌"></el-option>
+                        <el-option label="捕鱼" value="捕鱼"></el-option>
+                        <el-option label="老虎机" value="老虎机 "></el-option>
+                        <el-option label="电子" value="电子"></el-option>
+                        <el-option label="街机游戏" value="街机游戏"></el-option>
+                        <el-option label="电子彩票" value="电子彩票"></el-option>
+                        <el-option label="视讯" value="视讯"></el-option>
+                        <el-option label="泛亚电竞 " value="泛亚电竞"></el-option>
+                    </el-select>
                 </el-form-item>
 
                 <!--<el-form-item label="name" prop="sequence">-->
