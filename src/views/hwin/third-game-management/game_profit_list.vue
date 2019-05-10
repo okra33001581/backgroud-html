@@ -18,7 +18,7 @@
                 <el-button-group>
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
                     <el-button type="primary" icon="el-icon-search" @click="onSubmit">查询</el-button>
-                    <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">新增</el-button>
+                    <!--<el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">新增</el-button>-->
                 </el-button-group>
             </el-form-item>
         </el-form>
@@ -38,46 +38,46 @@
                 :header-cell-style="getRowClass">
 
             <el-table-column label="id" prop="id" fixed></el-table-column>
-            <el-table-column label="merchant_id" prop="merchant_id" fixed></el-table-column>
-            <el-table-column label="merchant_name" prop="merchant_name" fixed></el-table-column>
-            <el-table-column label="date" prop="date" fixed></el-table-column>
-            <el-table-column label="user_id" prop="user_id" fixed></el-table-column>
-            <el-table-column label="is_agent" prop="is_agent" fixed></el-table-column>
-            <el-table-column label="is_tester" prop="is_tester" fixed></el-table-column>
-            <el-table-column label="prize_group" prop="prize_group" fixed></el-table-column>
-            <el-table-column label="user_level" prop="user_level" fixed></el-table-column>
-            <el-table-column label="username" prop="username" fixed></el-table-column>
-            <el-table-column label="parent_user_id" prop="parent_user_id" fixed></el-table-column>
-            <el-table-column label="parent_user" prop="parent_user" fixed></el-table-column>
-            <el-table-column label="user_forefather_ids" prop="user_forefather_ids" fixed></el-table-column>
-            <el-table-column label="user_forefathers" prop="user_forefathers" fixed></el-table-column>
-            <el-table-column label="turnover" prop="turnover" fixed></el-table-column>
-            <el-table-column label="prize" prop="prize" fixed></el-table-column>
-            <el-table-column label="bonus" prop="bonus" fixed></el-table-column>
-            <el-table-column label="commission" prop="commission" fixed></el-table-column>
-            <el-table-column label="lose_commission" prop="lose_commission" fixed></el-table-column>
-            <el-table-column label="profit" prop="profit" fixed></el-table-column>
-            <el-table-column label="created_at" prop="created_at" fixed></el-table-column>
-            <el-table-column label="updated_at" prop="updated_at" fixed></el-table-column>
+            <el-table-column label="商户ID" prop="merchant_id" fixed></el-table-column>
+            <el-table-column label="商户" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="日期" prop="date" fixed></el-table-column>
+            <el-table-column label="用户ID" prop="user_id" fixed></el-table-column>
+            <el-table-column label="是否代理" prop="is_agent" fixed></el-table-column>
+            <el-table-column label="是否测试" prop="is_tester" fixed></el-table-column>
+            <el-table-column label="奖金组" prop="prize_group" fixed></el-table-column>
+            <el-table-column label="用户级别" prop="user_level" fixed></el-table-column>
+            <el-table-column label="用户名" prop="username" fixed></el-table-column>
+            <el-table-column label="上级用户" prop="parent_user_id" fixed></el-table-column>
+            <el-table-column label="上级用户" prop="parent_user" fixed></el-table-column>
+            <el-table-column label="祖先ID" prop="user_forefather_ids" fixed></el-table-column>
+            <el-table-column label="祖先" prop="user_forefathers" fixed></el-table-column>
+            <el-table-column label="投注" prop="turnover" fixed></el-table-column>
+            <el-table-column label="奖金" prop="prize" fixed></el-table-column>
+            <el-table-column label="促销奖金" prop="bonus" fixed></el-table-column>
+            <el-table-column label="佣金" prop="commission" fixed></el-table-column>
+            <el-table-column label="输值佣金" prop="lose_commission" fixed></el-table-column>
+            <el-table-column label="盈利" prop="profit" fixed></el-table-column>
+            <el-table-column label="创建时间" prop="created_at" fixed></el-table-column>
+            <el-table-column label="更新时间" prop="updated_at" fixed></el-table-column>
 
 
 
             <el-table-column
-                    label="操作" width="350"
+                    label="操作" width="100"
                     fixed="right">
                 <template slot-scope="scope">
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
                     </el-button>
-                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
-                    </el-button>
+                    <!--<el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
+                    </el-button>-->
 
                 <!--    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="selItemSuccessServer(scope.$index, scope.row)">选择
                     </el-button>-->
 
-                    <el-button v-if="scope.row.status === '禁用' || scope.row.status === null" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemSuccessServer(scope.$index, scope.row)">启用
+                    <!--<el-button v-if="scope.row.status === '禁用' || scope.row.status === null" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemSuccessServer(scope.$index, scope.row)">启用
                     </el-button>
                     <el-button v-if="scope.row.status === '启用'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemFailedServer(scope.$index, scope.row)">禁用
-                    </el-button>
+                    </el-button>-->
 
                 </template>
             </el-table-column>
@@ -100,49 +100,33 @@
                 width="40%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm"  label-width="110px">
-                <el-form-item label="Id" prop="id">
-                    <el-input style="width:550px;max-width:100%;" v-model="formData.id" auto-complete="off"></el-input>
-                </el-form-item>
-
-                <el-form-item label="plat_id" prop="plat_id">
-                    <el-input style="width:550px;max-width:100%;" v-model="formData.plat_id" auto-complete="off"></el-input>
-                </el-form-item>
-
-
-                <el-form-item label="plat_name" prop="plat_name">
-                    <el-input style="width:550px;max-width:100%;" v-model="formData.plat_name" auto-complete="off"></el-input>
-                </el-form-item>
-
-                <el-form-item label="name" prop="name">
-                    <el-input style="width:550px;max-width:100%;" v-model="formData.name" auto-complete="off"></el-input>
-                </el-form-item>
-
-                <!--<el-form-item label="icon" prop="icon">-->
-                    <!--<el-input style="width:550px;max-width:100%;" v-model="formData.icon" auto-complete="off"></el-input>-->
-                <!--</el-form-item>-->
-
-
-                <el-form-item label="图片" prop="icon">
-                    <el-upload
-                            action="http://apidemo.test/api/event/fileSave?table=eventPic1"
-                            list-type="picture-card"
-                            :on-success="handlePic1Success"
-                            :beforeUpload="beforeAvatarUpload"
-                            :on-remove="handleRemove">
-                        <img :src="'http://apidemo.test/public/' + formData.icon" width="200px" height="150px"/>
-                    </el-upload>
-                </el-form-item>
-
-
-                <el-form-item label="desc" prop="desc">
-                    <el-input style="width:550px;max-width:100%;" v-model="formData.desc" auto-complete="off"></el-input>
-                </el-form-item>
+                <el-form-item label="id" prop=" id"><el-input style="width:550px;max-width:100%;" v-model="formData.id" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="merchant_id" prop=" merchant_id"><el-input style="width:550px;max-width:100%;" v-model="formData.merchant_id" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="merchant_name" prop=" merchant_name"><el-input style="width:550px;max-width:100%;" v-model="formData.merchant_name" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="date" prop=" date"><el-input style="width:550px;max-width:100%;" v-model="formData.date" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="user_id" prop=" user_id"><el-input style="width:550px;max-width:100%;" v-model="formData.user_id" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="is_agent" prop=" is_agent"><el-input style="width:550px;max-width:100%;" v-model="formData.is_agent" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="is_tester" prop=" is_tester"><el-input style="width:550px;max-width:100%;" v-model="formData.is_tester" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="prize_group" prop=" prize_group"><el-input style="width:550px;max-width:100%;" v-model="formData.prize_group" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="user_level" prop=" user_level"><el-input style="width:550px;max-width:100%;" v-model="formData.user_level" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="username" prop=" username"><el-input style="width:550px;max-width:100%;" v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="parent_user_id" prop=" parent_user_id"><el-input style="width:550px;max-width:100%;" v-model="formData.parent_user_id" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="parent_user" prop=" parent_user"><el-input style="width:550px;max-width:100%;" v-model="formData.parent_user" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="user_forefather_ids" prop=" user_forefather_ids"><el-input style="width:550px;max-width:100%;" v-model="formData.user_forefather_ids" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="user_forefathers" prop=" user_forefathers"><el-input style="width:550px;max-width:100%;" v-model="formData.user_forefathers" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="turnover" prop=" turnover"><el-input style="width:550px;max-width:100%;" v-model="formData.turnover" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="prize" prop=" prize"><el-input style="width:550px;max-width:100%;" v-model="formData.prize" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="bonus" prop=" bonus"><el-input style="width:550px;max-width:100%;" v-model="formData.bonus" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="commission" prop=" commission"><el-input style="width:550px;max-width:100%;" v-model="formData.commission" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="lose_commission" prop=" lose_commission"><el-input style="width:550px;max-width:100%;" v-model="formData.lose_commission" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="profit" prop=" profit"><el-input style="width:550px;max-width:100%;" v-model="formData.profit" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="created_at" prop=" created_at"><el-input style="width:550px;max-width:100%;" v-model="formData.created_at" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="updated_at" prop=" updated_at"><el-input style="width:550px;max-width:100%;" v-model="formData.updated_at" auto-complete="off"></el-input></el-form-item>
 
 
             </el-form>
             <div slot="footer" class="dialog-footer">
-                <el-button @click.native="hideForm">取消</el-button>
-                <el-button type="primary" @click.native="formSubmit()" :loading="formLoading">提交</el-button>
+                <el-button @click.native="hideForm">关闭</el-button>
             </div>
         </el-dialog>
     </div>
