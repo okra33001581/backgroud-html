@@ -70,7 +70,7 @@
             <el-table-column label="可用余额" prop="available" fixed></el-table-column>
             <el-table-column label="可提现金额" prop="withdrawable" fixed></el-table-column>
             <el-table-column label="不可提现金额" prop="prohibit_amount" fixed></el-table-column>
-            <el-table-column label="审核状态" prop="status" fixed></el-table-column>
+            <el-table-column label="状态" prop="status" fixed></el-table-column>
 
             <el-table-column
                     label="操作"
