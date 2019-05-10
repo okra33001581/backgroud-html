@@ -37,8 +37,7 @@
                 :header-cell-style="getRowClass">
             <el-table-column label="商户" prop="merchant_id" fixed></el-table-column>
             <el-table-column label="状态" prop="status" fixed></el-table-column>
-            <el-table-column label="domain" prop="domain" fixed></el-table-column>
-            <el-table-column label="状态" prop="status" fixed></el-table-column>
+            <el-table-column label="域名" prop="domain" fixed></el-table-column>
             <el-table-column label="更新时间" prop="updated_at" fixed></el-table-column>
 
             <el-table-column
@@ -76,16 +75,16 @@
                 width="40%"
                 top="5vh">
             <el-form :model="formData" label-width="12%" :rules="formRules" ref="dataForm">
-                <el-form-item label="merchant_id" prop="merchant_id">
+                <el-form-item label="商户" prop="merchant_id">
                     <el-input v-model="formData.merchant_id" auto-complete="off"></el-input>
                 </el-form-item>
 
 
-                <el-form-item label="domain" prop="domain">
+                <el-form-item label="域名" prop="domain">
                     <el-input v-model="formData.domain" auto-complete="off"></el-input>
                 </el-form-item>
 
-                <el-form-item label="status" prop="status">
+                <el-form-item label="状态" prop="status">
                     <el-input v-model="formData.status" auto-complete="off"></el-input>
                 </el-form-item>
 
