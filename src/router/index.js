@@ -967,7 +967,8 @@ export const asyncRouterMap = [
                 meta: {
                     authRule: ["hwin/notice_list"]
                 }
-            }, {
+            },
+            /*{
                 path: "ag_user_turnover_list",
                 component: ag_user_turnover_list,
                 name: "AG流水",
@@ -975,10 +976,11 @@ export const asyncRouterMap = [
                 meta: {
                     authRule: ["hwin/marquee_list"]
                 }
-            }, {
+            },*/
+            {
                 path: "ga_user_turnover_list",
                 component: ga_user_turnover_list,
-                name: "GA流水",
+                name: "三方流水",
                 icon: "message_list",
                 meta: {
                     authRule: ["hwin/marquee_list"]

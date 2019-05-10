@@ -9,6 +9,20 @@
             <el-form-item class="query-form-item">
                 <el-input v-model="query.username" placeholder="用户"></el-input>
             </el-form-item>
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.type" placeholder="类别">
+                    <el-option label="GA" value="GA"></el-option>
+                    <el-option label="AG" value="AG"></el-option>
+                    <el-option label="PT" value="PT"></el-option>
+                    <el-option label="AM" value="AM"></el-option>
+                    <el-option label="PQ" value="PQ"></el-option>
+                    <el-option label="RS" value="RS"></el-option>
+                    <el-option label="AAA" value="AAA"></el-option>
+                    <el-option label="TY" value="TY"></el-option>
+                    <el-option label="TG" value="TG"></el-option>
+                    <el-option label="FH" value="FH"></el-option>
+                </el-select>
+            </el-form-item>
 
             <el-form-item>
                 <el-button-group>
@@ -38,6 +52,7 @@
                     ></el-input>
                 </template>
             </el-table-column>-->
+            <el-table-column label="类别 " prop="type" fixed></el-table-column>
             <el-table-column label="商户名称 " prop="merchant_name" fixed></el-table-column>
             <el-table-column label="id " prop="id" fixed></el-table-column>
             <el-table-column label="日期 " prop="date" fixed></el-table-column>
