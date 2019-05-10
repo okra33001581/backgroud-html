@@ -108,7 +108,29 @@
                             <el-option label="全部" value=""></el-option>
                             <el-option label="AG" value="AG"></el-option>
                             <el-option label="GA" value="GA"></el-option>
-                            <el-option label="电子游戏" value="电子游戏"></el-option>
+                            <el-option label="竞彩" value="竞彩"></el-option>
+                            <el-option label="开元棋牌 " value="开元棋牌"></el-option>
+                            <el-option label="爱棋牌" value="爱棋牌"></el-option>
+                            <el-option label="龙城棋牌 " value="龙城棋牌"></el-option>
+                            <el-option label="FG棋牌" value="FG棋牌"></el-option>
+                            <el-option label="JDB棋牌" value="JDB棋牌"></el-option>
+                            <el-option label="CQ9棋牌" value="CQ9棋牌"></el-option>
+                            <el-option label="FG捕鱼" value="FG捕鱼"></el-option>
+                            <el-option label="JDB捕鱼" value="JDB捕鱼"></el-option>
+                            <el-option label="AG捕鱼王 " value="AG捕鱼王"></el-option>
+                            <el-option label="CQ9捕鱼" value="CQ9捕鱼"></el-option>
+                            <el-option label="AQP捕鱼" value="AQP捕鱼"></el-option>
+                            <el-option label="JDB老虎机" value="JDB老虎机 "></el-option>
+                            <el-option label="CQ9电子" value="CQ9电子"></el-option>
+                            <el-option label="MG电子" value="MG电子"></el-option>
+                            <el-option label="FG老虎机 " value="FG老虎机"></el-option>
+                            <el-option label="AG电子" value="AG电子"></el-option>
+                            <el-option label="JDB街机游戏" value="JDB街机游戏"></el-option>
+                            <el-option label="CQ9街机游戏" value="CQ9街机游戏"></el-option>
+                            <el-option label="FG街机游戏" value="FG街机游戏"></el-option>
+                            <el-option label="JDB电子彩票" value="JDB电子彩票"></el-option>
+                            <el-option label="视讯" value="视讯"></el-option>
+                            <el-option label="泛亚电竞 " value="泛亚电竞"></el-option>
                         </el-select>
                     </el-form-item>
 
