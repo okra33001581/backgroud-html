@@ -182,6 +182,14 @@ export function thirdBallStatusSave(data, formName, method = "post") {
 }
 
 // 保存
+export function thirdGameSetStatusSave(data) {
+    return axios({
+        url: "event/thirdGameSetStatusSave",
+        method: "post",
+        data: data
+    });
+}
+// 保存
 export function thirdGameTypesStatusSave(data, formName, method = "post") {
     let url =
         formName === "add"
@@ -314,6 +322,14 @@ export function thirdGameTypesDetailDel(data) {
 export function thirdGameTypesDel(data) {
     return axios({
         url: "event/thirdGameTypesDel",
+        method: "post",
+        data: data
+    });
+}
+
+export function thirdGameSetDel(data) {
+    return axios({
+        url: "event/thirdGameSetDel",
         method: "post",
         data: data
     });

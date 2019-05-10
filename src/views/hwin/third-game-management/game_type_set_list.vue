@@ -65,7 +65,7 @@
                     </el-button>
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
                     </el-button>
-                    <el-button v-if="scope.row.status === '启用'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'禁用')">禁用
+                    <el-button v-if="scope.row.status === '启用'" type="danger" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'禁用')">禁用
                     </el-button>
                     <el-button v-else type="primary" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'启用')">启用
                     </el-button>
@@ -238,12 +238,12 @@
 <script>
     import {
         gameTypeSetList,
-        thirdGameTypesSubStatusSave,
+        thirdGameSetStatusSave,
         thirdGameSetSave,
         thirdBallSequence,
         thirdMerchantgameSave,
         thirdGameTypesDetailSave,
-        thirdGameTypesDetailDel
+        thirdGameSetDel
     } from "../../../api/third-game-management";
 
     const formJson = {
@@ -401,7 +401,7 @@
                     flag: flag
                 }
                 // debugger
-                thirdGameTypesSubStatusSave(params).then(
+                thirdGameSetStatusSave(params).then(
                     function (res) {
                         // debugger
                         /*if(res.code === 1){
@@ -531,7 +531,7 @@
                     this.formAddData = Object.assign({}, data);
 
                 }
-                this.formAddData.status += ""; // 转为字符串（解决默认选中的时候字符串和数字不能比较的问题）
+                //this.formAddData.status += ""; // 转为字符串（解决默认选中的时候字符串和数字不能比较的问题）
                 this.formAddName = "add";
                 this.formAddRules = this.addRules;
                 if (index !== null) {
@@ -552,7 +552,7 @@
                     this.formData = Object.assign({}, row);
                 }
                 this.formData.set_id = this.formData.id;
-                this.formData.status += ""; // 转为字符串（解决默认选中的时候字符串和数字不能比较的问题）
+                //this.formData.status += ""; // 转为字符串（解决默认选中的时候字符串和数字不能比较的问题）
                 this.formName = "add";
                 this.formRules = this.addRules;
                 if (index !== null) {
@@ -600,11 +600,9 @@
                 });
             },
             formAddSubmit() {
-                console.log(this.formAddData)
-                    return
                         this.formAddLoading = true;
-                        let data = Object.assign({}, this.formData);
-                        thirdGameSetSave(data, this.formName).then(response => {
+                        let data = Object.assign({}, this.formAddData);
+                        thirdGameSetSave(data).then(response => {
                             this.formAddLoading = false;
                             if (response.code) {
                                 this.$message({
@@ -626,6 +624,7 @@
                                     let resData = response.data || {};
                                     this.list.unshift(resData);
                                 } else {
+                                    this.getList();
                                     this.list.splice(this.index, 1, data);
                                 }
                             }
@@ -639,7 +638,7 @@
                     })
                         .then(() => {
                             let para = {id: row.id};
-                            thirdGameTypesDetailDel(para)
+                            thirdGameSetDel(para)
                                 .then(response => {
                                     this.deleteLoading = false;
                                     if (response.code) {
