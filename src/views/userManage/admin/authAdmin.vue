@@ -8,9 +8,8 @@
             <el-form-item class="query-form-item">
                 <el-select v-model="query.status" placeholder="状态">
                     <el-option label="全部" value=""></el-option>
-                    <el-option label="禁用" value="0"></el-option>
-                    <el-option label="启用" value="1"></el-option>
-                    <el-option label="未验证" value="2"></el-option>
+                    <el-option label="禁用" value="禁用"></el-option>
+                    <el-option label="启用" value="启用"></el-option>
                 </el-select>
             </el-form-item>
             <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
@@ -104,6 +103,14 @@
                     <span>{{ scope.row.last_login_ip }}</span>
                 </template>
             </el-table-column>
+
+            <el-table-column prop="identity" label="商户唯一标识"></el-table-column>
+            <el-table-column prop="wallet_id" label="商户荷包id"></el-table-column>
+            <el-table-column prop="safe_key" label="商户唯一密钥"></el-table-column>
+            <el-table-column prop="post_url" label="推送数据url"></el-table-column>
+            <el-table-column prop="is_tester" label="测试"></el-table-column>
+            <el-table-column prop="template" label="模板样式"></el-table-column>
+
             <el-table-column
                     prop="operate"
                     :label="$t('page.operate')" width="260"
@@ -137,9 +144,9 @@
                 :title="formMap[formName]"
                 :visible.sync="formVisible"
                 :before-close="hideForm"
-                width="85%"
+                width="45%"
                 top="5vh">
-            <el-form :model="formData" label-width="5%" :rules="formRules" ref="dataForm">
+            <el-form :model="formData" label-width="15%" :rules="formRules" ref="dataForm">
                 <el-form-item :label="$t('page.username')" prop="username">
                     <el-input v-model="formData.username" auto-complete="off"></el-input>
                 </el-form-item>
@@ -149,6 +156,32 @@
                 <el-form-item :label="$t('page.checkPassword')" prop="checkPassword">
                     <el-input type="password" v-model="formData.checkPassword" auto-complete="off"></el-input>
                 </el-form-item>
+
+                <el-form-item label="商户唯一标识" prop="checkPassword">
+                    <el-input v-model="formData.identity" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item label="商户荷包id" prop="wallet_id">
+                    <el-input v-model="formData.wallet_id" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item label="商户唯一密钥" prop="safe_key">
+                    <el-input v-model="formData.safe_key" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item label="推送数据url" prop="post_url">
+                    <el-input v-model="formData.post_url" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item label="测试" prop="is_tester">
+                    <el-input v-model="formData.is_tester" auto-complete="off"></el-input>
+                </el-form-item>
+
+                <el-form-item label="模板样式" prop="template">
+                    <el-input v-model="formData.template" auto-complete="off"></el-input>
+                </el-form-item>
+
+
                 <el-form-item :label="$t('page.status')" prop="status">
                     <el-radio-group v-model="formData.status">
                         <el-radio label="0">{{$t('page.forbid')}}</el-radio>
@@ -330,7 +363,7 @@
                     }.bind(this)
                 )
             },
-            
+
             sortChange: function (column) {
                 // console.log(column)
                 // console.log(prop)
