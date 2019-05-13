@@ -85,6 +85,9 @@ import merchant_game_list 	from "../views/hwin/third-game-management/merchant_ga
 import game_type_set_list 	from "../views/hwin/third-game-management/game_type_set_list.vue";
 import game_profit_list 	from "../views/hwin/third-game-management/game_profit_list.vue";
 
+
+import system_set_list 	from "../views/hwin/system_management/system_set_list.vue";
+
 // 管理组相关
 import adminRouter from "../views/userManage/admin/router.vue";
 import authAdmin from "../views/userManage/admin/authAdmin.vue";
@@ -255,6 +258,26 @@ export const asyncRouterMap = [
                     }
                 ]
             }
+        ]
+    },
+    ,
+    {
+        path: "/system_management",
+        redirect: "/proxyiptables/authAdmin/index",
+        component: Home,
+        icon: "sitemanagement",
+        name: "系统管理",
+        meta: {
+            authRule: ["网站管理"]
+        },
+        // noDropdown: true,
+        children: [
+            {
+                path: "system_set_list",
+                component: system_set_list,
+                icon: "system_set_list",
+                name: '系统参数',
+            },
         ]
     },
     {
