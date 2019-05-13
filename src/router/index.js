@@ -87,6 +87,7 @@ import game_profit_list 	from "../views/hwin/third-game-management/game_profit_l
 
 
 import system_set_list 	from "../views/hwin/system_management/system_set_list.vue";
+import system_monitor_list 	from "../views/hwin/system_management/system_monitor_list.vue";
 
 // 管理组相关
 import adminRouter from "../views/userManage/admin/router.vue";
@@ -277,7 +278,13 @@ export const asyncRouterMap = [
                 component: system_set_list,
                 icon: "system_set_list",
                 name: '系统参数',
+            },{
+                path: "system_monitor_list",
+                component: system_monitor_list,
+                icon: "system_monitor_list",
+                name: '系统监控',
             },
+
         ]
     },
     {
