@@ -30,45 +30,29 @@
                 fit
                 highlight-current-row
                 style="width: 100%;"
-                @sort-change="sortChange"
                 element-loading-text="拼命加载中"
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
 
             <el-table-column label="id" prop="id" fixed></el-table-column>
-
-
             <el-table-column label="排序值" prop="sequence" fixed>
 
                 <template scope="scope">
-                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="transactionTypeStatusSave(scope.row)"
+                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="sysConfigsSequenceSave(scope.row)"
                     ></el-input>
                 </template>
-
             </el-table-column>
 
-
-            <!--<el-table-column label="merchant_id" prop="merchant_id" fixed></el-table-column>
-            <el-table-column label="merchant_name" prop="merchant_name" fixed></el-table-column>
-            <el-table-column label="parent_id" prop="parent_id" fixed></el-table-column>
-            <el-table-column label="parent" prop="parent" fixed></el-table-column>-->
-            <el-table-column label="资金流" prop="fund_flow_id" fixed></el-table-column>
+            <el-table-column label="祖先ID" prop="parent_id" fixed></el-table-column>
+            <el-table-column label="祖先" prop="parent" fixed></el-table-column>
+            <el-table-column label="项目" prop="item" fixed></el-table-column>
+            <el-table-column label="值" prop="value" fixed></el-table-column>
+            <el-table-column label="默认值" prop="default_value" fixed></el-table-column>
+            <el-table-column label="标题" prop="title" fixed></el-table-column>
+            <el-table-column label="描述" prop="description" fixed></el-table-column>
             <el-table-column label="状态" prop="status" fixed></el-table-column>
-            <el-table-column label="账变类型" prop="description" fixed></el-table-column>
-            <el-table-column label="中文标题" prop="cn_title" fixed></el-table-column>
-            <el-table-column label="余额" prop="balance" fixed></el-table-column>
-            <el-table-column label="可用余额" prop="available" fixed></el-table-column>
-            <el-table-column label="冻结金额" prop="frozen" fixed></el-table-column>
-            <el-table-column label="可提现余额" prop="withdrawable" fixed></el-table-column>
-            <el-table-column label="不可提现金额" prop="prohibit_amount" fixed></el-table-column>
-            <el-table-column label="收入" prop="credit" fixed></el-table-column>
-            <el-table-column label="支出" prop="debit" fixed></el-table-column>
-            <el-table-column label="关联注单" prop="project_linked" fixed></el-table-column>
-            <el-table-column label="关联追号" prop="trace_linked" fixed></el-table-column>
-            <el-table-column label="反向类型" prop="reverse_type" fixed></el-table-column>
-            <el-table-column label="创建时间" prop="created_at" fixed></el-table-column>
-            <el-table-column label="更新时间" prop="updated_at" fixed></el-table-column>
+            <el-table-column label="修改时间" prop="updated_at" fixed></el-table-column>
 
 
             <el-table-column
@@ -79,14 +63,11 @@
                     </el-button>
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
                     </el-button>
-
-                    <el-button v-if="scope.row.status === '禁用'" type="primary" size="small" icon="el-icon-edit" @click.native="auditItemSubServer(scope.row,'启用')">启用
+                    <el-button v-if="scope.row.status === '启用'" type="danger" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'禁用')">禁用
                     </el-button>
-                    <el-button v-if="scope.row.status === '启用'" type="danger" size="small" icon="el-icon-edit" @click.native="auditItemSubServer(scope.row,'禁用')">禁用
+                    <el-button v-else type="primary" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'启用')">启用
                     </el-button>
-
-
-
+                    
                 </template>
             </el-table-column>
         </el-table>
@@ -108,23 +89,20 @@
                 width="40%"
                 top="5vh">
             <el-form :model="formData" label-width="14%" :rules="formRules" ref="dataForm">
-
-                <el-form-item label="资金流" prop="fund_flow_id" fixed><el-input v-model="formData.fund_flow_id" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="账变类型" prop="description" fixed><el-input v-model="formData.description" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="中文标题" prop="cn_title" fixed><el-input v-model="formData.cn_title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="余额" prop="balance" fixed><el-input v-model="formData.balance" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="可用余额" prop="available" fixed><el-input v-model="formData.available" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="冻结金额" prop="frozen" fixed><el-input v-model="formData.frozen" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="可提现余额" prop="withdrawable" fixed><el-input v-model="formData.withdrawable" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="不可提现金额" prop="prohibit_amount" fixed><el-input v-model="formData.prohibit_amount" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="收入" prop="credit" fixed><el-input v-model="formData.credit" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="支出" prop="debit" fixed><el-input v-model="formData.debit" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="关联注单" prop="project_linked" fixed><el-input v-model="formData.project_linked" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="关联追号" prop="trace_linked" fixed><el-input v-model="formData.trace_linked" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="反向类型" prop="reverse_type" fixed><el-input v-model="formData.reverse_type" auto-complete="off"></el-input></el-form-item>
-                <!--<el-form-item label="创建时间" prop="created_at" fixed><el-input v-model="formData.created_at" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="更新时间" prop="updated_at" fixed><el-input v-model="formData.updated_at" auto-complete="off"></el-input></el-form-item>-->
-
+                <el-form-item label="祖先ID" prop="parent_id" fixed><el-input v-model="formData.parent_id" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="祖先" prop="parent" fixed><el-input v-model="formData.parent" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="项目" prop="item" fixed><el-input v-model="formData.item" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="排序" prop="sequence" fixed><el-input v-model="formData.sequence" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="值" prop="value" fixed><el-input v-model="formData.value" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="默认值" prop="default_value" fixed><el-input v-model="formData.default_value" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="标题" prop="title" fixed><el-input v-model="formData.title" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="描述" prop="description" fixed><el-input v-model="formData.description" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="状态" prop="status">
+                    <el-radio-group v-model="formData.status">
+                        <el-radio label="启用">启用</el-radio>
+                        <el-radio label="禁用">禁用</el-radio>
+                    </el-radio-group>
+                </el-form-item>
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideForm">取消</el-button>
@@ -137,68 +115,32 @@
 
 <script>
     import {
-        transactionTypeList,
-        authAdminRoleList,
-        transactionTypeSave,
-        transactionTypeStatusSave,
-        transactionTypeDel
-    } from "../../../api/site-management";
+        sysConfigsList,
+        sysConfigsSave,
+        sysConfigsSequenceSave,
+        sysConfigsStatusSave,
+        sysConfigsDel
+    } from "../../../api/system-management";
 
     const formJson = {
         id: "",
         password: "",
         username: "",
         checkPassword: "",
-        status: "1",
-        roles: []
+        status: ""
     };
     export default {
         data() {
-            let validatePass = (rule, value, callback) => {
-                if (value === "") {
-                    callback(new Error("请输入密码"));
-                } else {
-                    callback();
-                }
-            };
-            let validatePass2 = (rule, value, callback) => {
-                if (value === "") {
-                    callback(new Error("请再次输入密码"));
-                } else if (value !== this.formData.password) {
-                    callback(new Error("两次输入密码不一致!"));
-                } else {
-                    callback();
-                }
-            };
             return {
-                roles: [],
                 query: {
                     username: "",
                     status: "",
                     page: 1,
-                    limit: 20,
-                    role_id: "",
-                    sort: '+id'
+                    limit: 20
                 },
                 tableKey: 0,
                 pc_pic:'',
                 mobile_pic:'',
-                sortOptions: [{label: 'ID Ascending', key: '+id'}, {
-                    label: 'ID Descending',
-                    key: '-id'
-                }, {label: 'username Ascending', key: '+username'}, {
-                    label: 'username Descending',
-                    key: '-username'
-                }, {label: 'status Ascending', key: '+status'}, {
-                    label: 'status Descending',
-                    key: '-status'
-                }, {label: 'last_login_time Ascending', key: '+last_login_time'}, {
-                    label: 'last_login_time Descending',
-                    key: '-last_login_time'
-                }, {label: 'last_login_ip Ascending', key: '+last_login_ip'}, {
-                    label: 'last_login_ip Descending',
-                    key: '-last_login_ip'
-                }],
                 list: [],
                 total: 0,
                 loading: true,
@@ -213,28 +155,14 @@
                 formData: formJson,
                 formRules: {},
                 addRules: {
-                    username: [
-                        {required: true, message: "请输入姓名", trigger: "blur"}
+                    parent_id: [
+                        {required: true, message: "请输入祖先id", trigger: "blur"}
                     ],
-                    password: [
-                        {required: true, message: "请输入密码", trigger: "blur"},
-                        {validator: validatePass, trigger: "blur"}
+                    parent: [
+                        {required: true, message: "请输入祖先", trigger: "blur"}
                     ],
-                    checkPassword: [
-                        {
-                            required: true,
-                            message: "请再次输入密码",
-                            trigger: "blur"
-                        },
-                        {validator: validatePass2, trigger: "blur"}
-                    ],
-                    status: [
-                        {required: true, message: "请选择状态", trigger: "change"}
-                    ]
-                },
-                editRules: {
-                    username: [
-                        {required: true, message: "请输入姓名", trigger: "blur"}
+                    item: [
+                        {required: true, message: "请输入项目", trigger: "blur"}
                     ],
                     status: [
                         {required: true, message: "请选择状态", trigger: "change"}
@@ -267,30 +195,13 @@
                 this.query.page = 1
                 this.getList()
             },
-            sortChange: function (column) {
-                // console.log(column)
-                // console.log(prop)
-                // console.log(order)
-                const {prop, order} = column
-                if (prop === 'id') {
-                    this.sortByID(order)
-                } else if (prop === 'username') {
-                    this.sortByUserName(order)
-                } else if (prop === 'status') {
-                    this.sortByStatus(order)
-                } else if (prop === 'last_login_time') {
-                    this.sortByLastLoginTime(order)
-                } else if (prop === 'last_login_ip') {
-                    this.sortByLastLoginIp(order)
-                }
-            },
-            auditItemSubServer(row,flag) {
+            auditItemServer(row,flag) {
                 var params = {
                     id: row.id,
                     flag: flag
                 }
                 // debugger
-                transactionTypeStatusSave(params).then(
+                sysConfigsStatusSave(params).then(
                     function (res) {
                         // debugger
                         if(res.code === 1){
@@ -311,7 +222,7 @@
             },
             getList() {
                 this.loading = true;
-                transactionTypeList(this.query)
+                sysConfigsList(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list.data || [];
@@ -321,85 +232,15 @@
                         this.loading = false;
                         this.list = [];
                         this.total = 0;
-                        this.roles = [];
                     });
             },
-            /*sortChange2(data) {
-                const { prop, order } = data
-                if (prop === 'id') {
-                    this.sortByID(order)
-                }
-            },*/
-
-            sortByID(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+id'
-                } else {
-                    this.query.sort = '-id'
-                }
-                this.handleFilter()
-            },
-            beforeAvatarUpload(file) {
-                var testmsg=file.name.substring(file.name.lastIndexOf('.')+1)
-                const extension = testmsg === 'jpg'
-                const extension2 = testmsg === 'png'
-                const isLt2M = file.size / 1024 / 1024 < 10
-                if(!extension && !extension2) {
-                    this.$message({
-                        message: '上传文件只能是 jpg、png格式!',
-                        type: 'warning'
-                    });
-                }
-                if(!isLt2M) {
-                    this.$message({
-                        message: '上传文件大小不能超过 10MB!',
-                        type: 'warning'
-                    });
-                }  return extension || extension2 && isLt2M
-            },
-            handleRemove(file, fileList) {
-                console.log(file, fileList);
-            },
-            handlePic1Success(response, file, fileList) {
-                //response这个
-                this.formData.pc_pic = response.data;
-            },
-            handlePic2Success(response, file, fileList) {
-                //response这个
-                this.formData.mobile_pic = response.data;
-            },
-
-            sortByUserName(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+username'
-                } else {
-                    this.query.sort = '-username'
-                }
-                this.handleFilter()
-            },
-            sortByStatus(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+status'
-                } else {
-                    this.query.sort = '-status'
-                }
-                this.handleFilter()
-            },
-            sortByLastLoginTime(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+last_login_time'
-                } else {
-                    this.query.sort = '-last_login_time'
-                }
-                this.handleFilter()
-            },
-            transactionTypeStatusSave(row) {
+            sysConfigsSequenceSave(row) {
                 var params = {
                     id: row.id,
                     sequence: row.sequence
                 }
                 // debugger
-                transactionTypeStatusSave(params).then(
+                sysConfigsSequenceSave(params).then(
                     function (res) {
                         // debugger
                         if(res.code === 1){
@@ -418,24 +259,6 @@
                     }.bind(this)
                 )
             },
-            sortByLastLoginIp(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+last_login_ip'
-                } else {
-                    this.query.sort = '-last_login_ip'
-                }
-                this.handleFilter()
-            },
-            getRoleList() {
-                authAdminRoleList(this.query)
-                    .then(response => {
-                        this.roles = response.list || [];
-                    })
-                    .catch((e) => {
-                        console.log(e)
-                        this.roles = [];
-                    });
-            },
             // 隐藏表单
             hideForm() {
                 // 更改值
@@ -451,13 +274,12 @@
                 if (row !== null) {
                     this.formData = Object.assign({}, row);
                 }
-                this.formData.status += ""; // 转为字符串（解决默认选中的时候字符串和数字不能比较的问题）
+                //this.formData.status += ""; // 转为字符串（解决默认选中的时候字符串和数字不能比较的问题）
                 this.formName = "add";
                 this.formRules = this.addRules;
                 if (index !== null) {
                     this.index = index;
                     this.formName = "edit";
-                    this.formRules = this.editRules;
                 }
                 // 清空验证信息表单
                 if (this.$refs["dataForm"]) {
@@ -469,7 +291,7 @@
                     if (valid) {
                         this.formLoading = true;
                         let data = Object.assign({}, this.formData);
-                        transactionTypeSave(data, this.formName).then(response => {
+                        sysConfigsSave(data, this.formName).then(response => {
                             this.formLoading = false;
                             if (response.code) {
                                 this.$message({
@@ -506,7 +328,7 @@
                     })
                         .then(() => {
                             let para = {id: row.id};
-                            transactionTypeDel(para)
+                            sysConfigsDel(para)
                                 .then(response => {
                                     this.deleteLoading = false;
                                     if (response.code) {
@@ -563,11 +385,6 @@
             this.query.limit = parseInt(this.query.limit);
             // 加载表格数据
             this.getList();
-            // 加载角色列表
-            // this.getRoleList();
         }
     };
 </script>
-
-<style type="text/scss" lang="scss">
-</style>

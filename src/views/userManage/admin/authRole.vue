@@ -26,7 +26,7 @@
             style="width: 100%;"
             max-height="500">-->
             <el-table
-                    v-loading="listLoading"
+                    v-loading="loading"
                     :key="tableKey"
                     :data="list" stripe
                     border
@@ -166,6 +166,7 @@ export default {
                 page: 1,
                 limit: 20
             },
+            tableKey: 0,
             list: [],
             total: 0,
             loading: true,
@@ -202,6 +203,33 @@ export default {
         };
     },
     methods: {
+
+        sortChange: function (column) {
+            // console.log(column)
+            // console.log(prop)
+            // console.log(order)
+            const {prop, order} = column
+            if (prop === 'id') {
+                this.sortByID(order)
+            } else if (prop === 'username') {
+                this.sortByUserName(order)
+            } else if (prop === 'status') {
+                this.sortByStatus(order)
+            } else if (prop === 'last_login_time') {
+                this.sortByLastLoginTime(order)
+            } else if (prop === 'last_login_ip') {
+                this.sortByLastLoginIp(order)
+            }
+        },
+        sortByID(order) {
+            if (order === 'ascending') {
+                this.query.sort = '+id'
+            } else {
+                this.query.sort = '-id'
+            }
+            this.handleFilter()
+        },
+
         onSubmit() {
             this.getList();
         },
@@ -216,6 +244,10 @@ export default {
         handleCurrentChange(val) {
             this.query.page = val;
             this.getList();
+        },
+        handleFilter() {
+            this.query.page = 1
+            this.getList()
         },
         getList() {
             this.loading = true;

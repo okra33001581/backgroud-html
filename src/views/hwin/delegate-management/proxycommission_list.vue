@@ -22,7 +22,6 @@
                 fit
                 highlight-current-row
                 style="width: 100%;"
-                @sort-change="sortChange"
                 element-loading-text="拼命加载中"
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
@@ -71,8 +70,6 @@
                 <el-form-item label="代理层级" prop="delegate_level"><el-input v-model="formData.delegate_level" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="返点" prop="rebate"><el-input v-model="formData.rebate" auto-complete="off"></el-input></el-form-item>
                 <el-form-item label="默认配额" prop="default_quota"><el-input v-model="formData.default_quota" auto-complete="off"></el-input></el-form-item>
-
-
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideForm">取消</el-button>
@@ -107,22 +104,6 @@
                     limit: 20
                 },
                 tableKey: 0,
-                sortOptions: [{label: 'ID Ascending', key: '+id'}, {
-                    label: 'ID Descending',
-                    key: '-id'
-                }, {label: 'username Ascending', key: '+username'}, {
-                    label: 'username Descending',
-                    key: '-username'
-                }, {label: 'status Ascending', key: '+status'}, {
-                    label: 'status Descending',
-                    key: '-status'
-                }, {label: 'last_login_time Ascending', key: '+last_login_time'}, {
-                    label: 'last_login_time Descending',
-                    key: '-last_login_time'
-                }, {label: 'last_login_ip Ascending', key: '+last_login_ip'}, {
-                    label: 'last_login_ip Descending',
-                    key: '-last_login_ip'
-                }],
                 list: [],
                 total: 0,
                 loading: true,
@@ -177,23 +158,6 @@
                 this.query.page = 1
                 this.getList()
             },
-            sortChange: function (column) {
-                // console.log(column)
-                // console.log(prop)
-                // console.log(order)
-                const {prop, order} = column
-                if (prop === 'id') {
-                    this.sortByID(order)
-                } else if (prop === 'username') {
-                    this.sortByUserName(order)
-                } else if (prop === 'status') {
-                    this.sortByStatus(order)
-                } else if (prop === 'last_login_time') {
-                    this.sortByLastLoginTime(order)
-                } else if (prop === 'last_login_ip') {
-                    this.sortByLastLoginIp(order)
-                }
-            },
             getList() {
                 this.loading = true;
                 proxycommissionList(this.query)
@@ -208,56 +172,6 @@
                         this.total = 0;
                     });
             },
-            /*sortChange2(data) {
-                const { prop, order } = data
-                if (prop === 'id') {
-                    this.sortByID(order)
-                }
-            },*/
-
-            sortByID(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+id'
-                } else {
-                    this.query.sort = '-id'
-                }
-                this.handleFilter()
-            },
-
-
-            sortByUserName(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+username'
-                } else {
-                    this.query.sort = '-username'
-                }
-                this.handleFilter()
-            },
-            sortByStatus(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+status'
-                } else {
-                    this.query.sort = '-status'
-                }
-                this.handleFilter()
-            },
-            sortByLastLoginTime(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+last_login_time'
-                } else {
-                    this.query.sort = '-last_login_time'
-                }
-                this.handleFilter()
-            },
-            sortByLastLoginIp(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+last_login_ip'
-                } else {
-                    this.query.sort = '-last_login_ip'
-                }
-                this.handleFilter()
-            },
-            
             // 隐藏表单
             hideForm() {
                 // 更改值

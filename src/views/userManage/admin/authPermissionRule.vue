@@ -137,7 +137,7 @@ export default {
     methods: {
         /*eslint-disable */
         renderContent (h, { node, data, store }) {
-            console.log(data);
+            //console.log(data);
 
             if (data.status === '启用') {
                 return (
