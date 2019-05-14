@@ -28,7 +28,7 @@ http://localhost:9200/company_base_info_2?pretty
 http://localhost:9200/company_base_info_3/external/1?pretty
 
 https://juejin.im/post/5cb81bf4e51d4578c35e727d
-
+F:\es\elasticsearch-7.0.1\config
 GET /product_index/product/_search
 {
   "query": {
