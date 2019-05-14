@@ -7,9 +7,9 @@
 
                     <el-option
                       v-for="item in typesList"
-                      :key="item.name"
-                      :label="item.name"
-                      :value="item.name">
+                      :key="item.type"
+                      :label="item.type"
+                      :value="item.type">
                     </el-option>
 
                 </el-select>
@@ -94,26 +94,16 @@
                 width="40%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm"  label-width="110px">
-                <el-form-item label="属性模版" prop="plat_id">
-                    <el-select v-model="formData.module_id" placeholder="状态" @change="addDomain">
+                <el-form-item label="属性模版" prop="set_id">
+                    <el-select v-model="formData.set_id" placeholder="状态" @change="addDomain">
                         <el-option
                           v-for="item in typesList"
-                          :key="item.name"
-                          :label="item.name"
-                          :value="item.name">
+                          :key="item.type"
+                          :label="item.type"
+                          :value="item.id">
                         </el-option>
                     </el-select>
                 </el-form-item>
-
-                <!--:rules="{required: true, message: '内容不能为空', trigger: 'blur'}"-->
-                <template v-for="(domain, index) in formAddData.domains">
-                    <el-form-item
-                            :label="domain.val1"
-                            :key="domain.key"
-                            >
-                        <el-input v-if="index != 0" style="width:550px;max-width:100%;" :v-model="'domains.' + index + '.value'"></el-input>
-                    </el-form-item>
-                </template>
 
                 <el-form-item label="平台id" prop="plat_id">
                     <el-input style="width:550px;max-width:100%;" v-model="formData.plat_id" auto-complete="off"></el-input>
@@ -137,6 +127,18 @@
                 <el-form-item label="描述" prop="desc">
                     <el-input style="width:550px;max-width:100%;" v-model="formData.desc" auto-complete="off"></el-input>
                 </el-form-item>
+
+                <!--:rules="{required: true, message: '内容不能为空', trigger: 'blur'}"-->
+                <template v-for="(domain, index) in formAddData.domains">
+                    <el-form-item
+                            :label="domain.val1"
+                            :key="domain.key"
+                            >
+                        <el-input v-if="index != 0" @change="inputValue(index,$event)"  style="width:550px;max-width:100%;" :v-model="'domains.' + index + '.value'"></el-input>
+                    </el-form-item>
+                </template>
+
+
                 <el-form-item v-show="formData.ext_column1 != '' && formData.ext_column1 !=null" :label="formData.ext_column1" prop="ext_field1">
                     <el-input style="width:550px;max-width:100%;" v-model="formData.ext_field1" auto-complete="off"></el-input>
                 </el-form-item>
@@ -225,26 +227,26 @@
         name: "",
         icon: "",
         desc: "",
-        ext_column1: "",
-        ext_column2: "",
-        ext_column3: "",
-        ext_column4: "",
-        ext_column5: "",
-        ext_column6: "",
-        ext_column7: "",
-        ext_column8: "",
-        ext_column9: "",
-        ext_column10: "",
-        ext_column11: "",
-        ext_column12: "",
-        ext_column13: "",
-        ext_column14: "",
-        ext_column15: "",
-        ext_column16: "",
-        ext_column17: "",
-        ext_column18: "",
-        ext_column19: "",
-        ext_column20: "",
+        ext_field1: "",
+        ext_field2: "",
+        ext_field3: "",
+        ext_field4: "",
+        ext_field5: "",
+        ext_field6: "",
+        ext_field7: "",
+        ext_field8: "",
+        ext_field9: "",
+        ext_field10: "",
+        ext_field11: "",
+        ext_field12: "",
+        ext_field13: "",
+        ext_field14: "",
+        ext_field15: "",
+        ext_field16: "",
+        ext_field17: "",
+        ext_field18: "",
+        ext_field19: "",
+        ext_field20: "",
         status: ""
     };
     export default {
@@ -278,16 +280,28 @@
                 formRules: {},
                 addRules: {
                     name: [
-                        {required: true, message: "请输入姓名", trigger: "blur"}
+                        {required: true, message: "请输入名称", trigger: "blur"}
                     ],
-                    status: [
-                        {required: true, message: "请选择状态", trigger: "change"}
-                    ]
+                    plat_name: [
+                        {required: true, message: "请输入平台名", trigger: "blur"}
+                    ],
+                    plat_id: [
+                        {required: true, message: "请输入平台id", trigger: "change"}
+                    ],
+                    set_id: [
+                        {required: true, message: "请选择模板", trigger: "change"}
+                    ],
+                    
                 },
                 deleteLoading: false
             };
         },
         methods: {
+            inputValue(index,value){
+                var ext_field = 'this.formData.ext_field'+index;
+                eval(ext_field+'='+value)
+                console.log(this.formData)
+            },
             onSubmit() {
                 this.$router.push({
                     path: "",
@@ -467,9 +481,19 @@
             },
             /*增加表单项*/
             addDomain(val) {
-                // val 选中值
-                // this.formAddData.domains={}
-                let param = {type:val}
+                if(this.formName=='edit'){
+                    for(var x in this.formData) {
+                        if(x.indexOf("ext_column")>-1){
+                            delete this.formData[x];                          
+                        }
+
+                        if(x.indexOf("ext_field")>-1){
+                            delete this.formData[x];                          
+                        }
+                    }
+                    console.log(this.formData)
+                }
+                let param = {id:val}
                 var data = [];
                 gameTypeSetList(param)
                     .then(response => {
@@ -516,7 +540,7 @@
                 if (row !== null) {
                     this.formData = Object.assign({}, row);
                 }
-                this.formData.status += ""; // 转为字符串（解决默认选中的时候字符串和数字不能比较的问题）
+                //this.formData.status += ""; // 转为字符串（解决默认选中的时候字符串和数字不能比较的问题）
                 this.formName = "add";
                 this.formRules = this.addRules;
                 if (index !== null) {
@@ -548,12 +572,13 @@
                                 // 向头部添加数据
                                 // this.list.unshift(res)
                                 // 刷新表单
-                                this.$refs["dataForm"].resetFields();
+                                //this.$refs["dataForm"].resetFields();
                                 this.formVisible = false;
                                 if (this.formName === "add") {
                                     // 向头部添加数据
-                                    let resData = response.data || {};
-                                    this.list.unshift(resData);
+                                    //let resData = response.data || {};
+                                    //this.list.unshift(resData);
+                                    this.getList();
                                 } else {
                                     this.list.splice(this.index, 1, data);
                                 }
