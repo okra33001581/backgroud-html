@@ -3,11 +3,11 @@
     <div>
         <el-form :inline="true" :model="query" class="query-form" size="mini">
             <el-form-item class="query-form-item">
-                <el-input v-model="query.merchant_name" placeholder="表名称"></el-input>
+                <el-input v-model="query.table_name" placeholder="表名称"></el-input>
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-input v-model="query.merchant_name" placeholder="ES表名称"></el-input>
+                <el-input v-model="query.es_name" placeholder="ES表名称"></el-input>
             </el-form-item>
 
             <el-form-item>
@@ -33,18 +33,18 @@
                 :header-cell-style="getRowClass">
 
             <el-table-column label="id" prop="id" fixed></el-table-column>
-            <el-table-column label="表名称" prop="fund_flow_id" fixed></el-table-column>
-            <el-table-column label="内容" prop="status" fixed></el-table-column>
-            <el-table-column label="记录数量" prop="description" fixed></el-table-column>
-            <el-table-column label="ES表名称" prop="cn_title" fixed></el-table-column>
-            <el-table-column label="内容" prop="balance" fixed></el-table-column>
-            <el-table-column label="记录数量" prop="available" fixed></el-table-column>
+            <el-table-column label="表名称" prop="table_name" fixed></el-table-column>
+            <el-table-column label="内容" prop="table_desc" fixed></el-table-column>
+            <el-table-column label="记录数量" prop="table_record_count" fixed></el-table-column>
+            <el-table-column label="ES表名称" prop="es_name" fixed></el-table-column>
+            <el-table-column label="内容" prop="es_desc" fixed></el-table-column>
+            <el-table-column label="记录数量" prop="es_record_count" fixed></el-table-column>
 
             <el-table-column
                     label="操作" width="100"
                     fixed="right">
                 <template slot-scope="scope">
-                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">清楚ES
+                    <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">清除ES
                     </el-button>
                 </template>
             </el-table-column>
@@ -67,23 +67,13 @@
                 width="40%"
                 top="5vh">
             <el-form :model="formData" label-width="14%" :rules="formRules" ref="dataForm">
-
-                <el-form-item label="资金流" prop="fund_flow_id" fixed><el-input v-model="formData.fund_flow_id" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="账变类型" prop="description" fixed><el-input v-model="formData.description" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="中文标题" prop="cn_title" fixed><el-input v-model="formData.cn_title" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="余额" prop="balance" fixed><el-input v-model="formData.balance" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="可用余额" prop="available" fixed><el-input v-model="formData.available" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="冻结金额" prop="frozen" fixed><el-input v-model="formData.frozen" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="可提现余额" prop="withdrawable" fixed><el-input v-model="formData.withdrawable" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="不可提现金额" prop="prohibit_amount" fixed><el-input v-model="formData.prohibit_amount" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="收入" prop="credit" fixed><el-input v-model="formData.credit" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="支出" prop="debit" fixed><el-input v-model="formData.debit" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="关联注单" prop="project_linked" fixed><el-input v-model="formData.project_linked" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="关联追号" prop="trace_linked" fixed><el-input v-model="formData.trace_linked" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="反向类型" prop="reverse_type" fixed><el-input v-model="formData.reverse_type" auto-complete="off"></el-input></el-form-item>
-                <!--<el-form-item label="创建时间" prop="created_at" fixed><el-input v-model="formData.created_at" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="更新时间" prop="updated_at" fixed><el-input v-model="formData.updated_at" auto-complete="off"></el-input></el-form-item>-->
-
+                <el-form-item label="id" prop="id" fixed><el-input v-model="formData.id" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="表名称" prop="table_name" fixed><el-input v-model="formData.table_name" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="内容" prop="table_desc" fixed><el-input v-model="formData.table_desc" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="记录数量" prop="table_record_count" fixed><el-input v-model="formData.table_record_count" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="ES表名称" prop="es_name" fixed><el-input v-model="formData.es_name" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="内容" prop="es_desc" fixed><el-input v-model="formData.es_desc" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="记录数量" prop="es_record_count" fixed><el-input v-model="formData.es_record_count" auto-complete="off"></el-input></el-form-item>
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideForm">取消</el-button>
@@ -96,68 +86,31 @@
 
 <script>
     import {
-        transactionTypeList,
-        authAdminRoleList,
-        transactionTypeSave,
+        systemMonitorList,
+        systemMonitorClear,
         transactionTypeStatusSave,
         transactionTypeDel
-    } from "../../../api/site-management";
+    } from "../../../api/system-management";
 
     const formJson = {
         id: "",
         password: "",
         username: "",
         checkPassword: "",
-        status: "1",
-        roles: []
+        status: "1"
     };
     export default {
         data() {
-            let validatePass = (rule, value, callback) => {
-                if (value === "") {
-                    callback(new Error("请输入密码"));
-                } else {
-                    callback();
-                }
-            };
-            let validatePass2 = (rule, value, callback) => {
-                if (value === "") {
-                    callback(new Error("请再次输入密码"));
-                } else if (value !== this.formData.password) {
-                    callback(new Error("两次输入密码不一致!"));
-                } else {
-                    callback();
-                }
-            };
             return {
-                roles: [],
                 query: {
-                    username: "",
-                    status: "",
+                    table_name: "",
+                    es_name: "",
                     page: 1,
-                    limit: 20,
-                    role_id: "",
-                    sort: '+id'
+                    limit: 20
                 },
                 tableKey: 0,
                 pc_pic:'',
                 mobile_pic:'',
-                sortOptions: [{label: 'ID Ascending', key: '+id'}, {
-                    label: 'ID Descending',
-                    key: '-id'
-                }, {label: 'username Ascending', key: '+username'}, {
-                    label: 'username Descending',
-                    key: '-username'
-                }, {label: 'status Ascending', key: '+status'}, {
-                    label: 'status Descending',
-                    key: '-status'
-                }, {label: 'last_login_time Ascending', key: '+last_login_time'}, {
-                    label: 'last_login_time Descending',
-                    key: '-last_login_time'
-                }, {label: 'last_login_ip Ascending', key: '+last_login_ip'}, {
-                    label: 'last_login_ip Descending',
-                    key: '-last_login_ip'
-                }],
                 list: [],
                 total: 0,
                 loading: true,
@@ -172,30 +125,10 @@
                 formData: formJson,
                 formRules: {},
                 addRules: {
-                    username: [
+                    table_name: [
                         {required: true, message: "请输入姓名", trigger: "blur"}
                     ],
-                    password: [
-                        {required: true, message: "请输入密码", trigger: "blur"},
-                        {validator: validatePass, trigger: "blur"}
-                    ],
-                    checkPassword: [
-                        {
-                            required: true,
-                            message: "请再次输入密码",
-                            trigger: "blur"
-                        },
-                        {validator: validatePass2, trigger: "blur"}
-                    ],
-                    status: [
-                        {required: true, message: "请选择状态", trigger: "change"}
-                    ]
-                },
-                editRules: {
-                    username: [
-                        {required: true, message: "请输入姓名", trigger: "blur"}
-                    ],
-                    status: [
+                    es_name: [
                         {required: true, message: "请选择状态", trigger: "change"}
                     ]
                 },
@@ -270,7 +203,7 @@
             },
             getList() {
                 this.loading = true;
-                transactionTypeList(this.query)
+                systemMonitorList(this.query)
                     .then(response => {
                         this.loading = false;
                         this.list = response.data.list.data || [];
@@ -280,7 +213,6 @@
                         this.loading = false;
                         this.list = [];
                         this.total = 0;
-                        this.roles = [];
                     });
             },
             /*sortChange2(data) {
@@ -385,16 +317,6 @@
                 }
                 this.handleFilter()
             },
-            getRoleList() {
-                authAdminRoleList(this.query)
-                    .then(response => {
-                        this.roles = response.list || [];
-                    })
-                    .catch((e) => {
-                        console.log(e)
-                        this.roles = [];
-                    });
-            },
             // 隐藏表单
             hideForm() {
                 // 更改值
@@ -416,7 +338,6 @@
                 if (index !== null) {
                     this.index = index;
                     this.formName = "edit";
-                    this.formRules = this.editRules;
                 }
                 // 清空验证信息表单
                 if (this.$refs["dataForm"]) {
@@ -460,26 +381,26 @@
             // 删除
             handleDel(index, row) {
                 if (row.id) {
-                    this.$confirm("确认删除该记录吗?", "提示", {
+                    this.$confirm("确认清除该记录吗?", "提示", {
                         type: "warning"
                     })
                         .then(() => {
                             let para = {id: row.id};
-                            transactionTypeDel(para)
+                            systemMonitorClear(para)
                                 .then(response => {
                                     this.deleteLoading = false;
-                                    if (response.code) {
+                                    // debugger
+                                    if(response.code === 1){
                                         this.$message({
                                             message: response.message,
-                                            type: "error"
-                                        });
-                                    } else {
+                                            type: 'success'
+                                        })
+                                        this.getList();
+                                    }else{
                                         this.$message({
-                                            message: "删除成功",
-                                            type: "success"
+                                            message: '错误信息：'+response.message,
+                                            type: 'error'
                                         });
-                                        // 刷新数据
-                                        this.list.splice(index, 1);
                                     }
                                 })
                                 .catch(() => {
@@ -522,8 +443,6 @@
             this.query.limit = parseInt(this.query.limit);
             // 加载表格数据
             this.getList();
-            // 加载角色列表
-            // this.getRoleList();
         }
     };
 </script>
