@@ -32,6 +32,15 @@ export function gameTypeDetailList(query) {
     });
 }
 
+// 获取类型列表
+export function gameTypesList(query) {
+    return axios({
+        url: "event/gameTypesList",
+        method: "get",
+        params: query
+    });
+}
+
 
 // 获取列表
 export function basketballList(query) {

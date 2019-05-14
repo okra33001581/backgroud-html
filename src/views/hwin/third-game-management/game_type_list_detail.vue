@@ -4,31 +4,14 @@
 
             <el-form-item class="query-form-item">
                 <el-select v-model="query.plat_name" placeholder="分类">
-                    <el-option label="AG" value="AG"></el-option>
-                    <el-option label="GA" value="GA"></el-option>
-                    <el-option label="竞彩" value="竞彩"></el-option>
-                    <el-option label="开元棋牌 " value="开元棋牌"></el-option>
-                    <el-option label="爱棋牌" value="爱棋牌"></el-option>
-                    <el-option label="龙城棋牌 " value="龙城棋牌"></el-option>
-                    <el-option label="FG棋牌" value="FG棋牌"></el-option>
-                    <el-option label="JDB棋牌" value="JDB棋牌"></el-option>
-                    <el-option label="CQ9棋牌" value="CQ9棋牌"></el-option>
-                    <el-option label="FG捕鱼" value="FG捕鱼"></el-option>
-                    <el-option label="JDB捕鱼" value="JDB捕鱼"></el-option>
-                    <el-option label="AG捕鱼王 " value="AG捕鱼王"></el-option>
-                    <el-option label="CQ9捕鱼" value="CQ9捕鱼"></el-option>
-                    <el-option label="AQP捕鱼" value="AQP捕鱼"></el-option>
-                    <el-option label="JDB老虎机" value="JDB老虎机 "></el-option>
-                    <el-option label="CQ9电子" value="CQ9电子"></el-option>
-                    <el-option label="MG电子" value="MG电子"></el-option>
-                    <el-option label="FG老虎机 " value="FG老虎机"></el-option>
-                    <el-option label="AG电子" value="AG电子"></el-option>
-                    <el-option label="JDB街机游戏" value="JDB街机游戏"></el-option>
-                    <el-option label="CQ9街机游戏" value="CQ9街机游戏"></el-option>
-                    <el-option label="FG街机游戏" value="FG街机游戏"></el-option>
-                    <el-option label="JDB电子彩票" value="JDB电子彩票"></el-option>
-                    <el-option label="视讯" value="视讯"></el-option>
-                    <el-option label="泛亚电竞 " value="泛亚电竞"></el-option>
+
+                    <el-option
+                      v-for="item in typesList"
+                      :key="item.name"
+                      :label="item.name"
+                      :value="item.name">
+                    </el-option>
+
                 </el-select>
             </el-form-item>
 
@@ -113,39 +96,21 @@
             <el-form :model="formData" :rules="formRules" ref="dataForm"  label-width="110px">
                 <el-form-item label="属性模版" prop="plat_id">
                     <el-select v-model="formData.module_id" placeholder="状态" @change="addDomain">
-                            <el-option label="AG" value="AG"></el-option>
-                            <el-option label="GA" value="GA"></el-option>
-                            <el-option label="竞彩" value="竞彩"></el-option>
-                            <el-option label="开元棋牌 " value="开元棋牌"></el-option>
-                            <el-option label="爱棋牌" value="爱棋牌"></el-option>
-                            <el-option label="龙城棋牌 " value="龙城棋牌"></el-option>
-                            <el-option label="FG棋牌" value="FG棋牌"></el-option>
-                            <el-option label="JDB棋牌" value="JDB棋牌"></el-option>
-                            <el-option label="CQ9棋牌" value="CQ9棋牌"></el-option>
-                            <el-option label="FG捕鱼" value="FG捕鱼"></el-option>
-                            <el-option label="JDB捕鱼" value="JDB捕鱼"></el-option>
-                            <el-option label="AG捕鱼王 " value="AG捕鱼王"></el-option>
-                            <el-option label="CQ9捕鱼" value="CQ9捕鱼"></el-option>
-                            <el-option label="AQP捕鱼" value="AQP捕鱼"></el-option>
-                            <el-option label="JDB老虎机" value="JDB老虎机 "></el-option>
-                            <el-option label="CQ9电子" value="CQ9电子"></el-option>
-                            <el-option label="MG电子" value="MG电子"></el-option>
-                            <el-option label="FG老虎机 " value="FG老虎机"></el-option>
-                            <el-option label="AG电子" value="AG电子"></el-option>
-                            <el-option label="JDB街机游戏" value="JDB街机游戏"></el-option>
-                            <el-option label="CQ9街机游戏" value="CQ9街机游戏"></el-option>
-                            <el-option label="FG街机游戏" value="FG街机游戏"></el-option>
-                            <el-option label="JDB电子彩票" value="JDB电子彩票"></el-option>
-                            <el-option label="视讯" value="视讯"></el-option>
-                            <el-option label="泛亚电竞 " value="泛亚电竞"></el-option>
+                        <el-option
+                          v-for="item in typesList"
+                          :key="item.name"
+                          :label="item.name"
+                          :value="item.name">
+                        </el-option>
                     </el-select>
                 </el-form-item>
 
+                <!--:rules="{required: true, message: '内容不能为空', trigger: 'blur'}"-->
                 <template v-for="(domain, index) in formAddData.domains">
                     <el-form-item
                             :label="domain.val1"
                             :key="domain.key"
-                            :rules="{required: true, message: '内容不能为空', trigger: 'blur'}">
+                            >
                         <el-input v-if="index != 0" style="width:550px;max-width:100%;" :v-model="'domains.' + index + '.value'"></el-input>
                     </el-form-item>
                 </template>
@@ -244,6 +209,8 @@
 <script>
     import {
         gameTypeDetailList,
+        gameTypeSetList,
+        gameTypesList,
         thirdGameTypesSubStatusSave,
         thirdGameTypesDetailSave,
         thirdBallSequence,
@@ -296,6 +263,7 @@
                 tableKey: 0,
                 icon:'',
                 list: [],
+                typesList: [],
                 total: 0,
                 loading: true,
                 index: null,
@@ -309,14 +277,6 @@
                 formData: formJson,
                 formRules: {},
                 addRules: {
-                    name: [
-                        {required: true, message: "请输入姓名", trigger: "blur"}
-                    ],
-                    status: [
-                        {required: true, message: "请选择状态", trigger: "change"}
-                    ]
-                },
-                editRules: {
                     name: [
                         {required: true, message: "请输入姓名", trigger: "blur"}
                     ],
@@ -463,6 +423,19 @@
                         this.total = 0;
                     });
             },
+            getTypesList(){
+                this.loading = true;
+                gameTypesList({})
+                    .then(response => {
+                        this.loading = false;
+                        // haicheng
+                        this.typesList = response.data.list || [];
+                    })
+                    .catch(() => {
+                        this.loading = false;
+                        this.typesList = [];
+                    });
+            },
             thirdBallSequence(index, row) {
                 var params = {
                     id: row.id,
@@ -493,35 +466,32 @@
                 )
             },
             /*增加表单项*/
-            addDomain() {
-                // anshan
+            addDomain(val) {
+                // val 选中值
                 // this.formAddData.domains={}
-               /* for(var key in this.formAddData.domains){
-                    delete this.formAddData.domains[key];
-                }*/
-                this.formAddData.domains = [{}];
-                this.formAddData.domains.push({
-                    val1: 'a1',
-                });
-                this.formAddData.domains.push({
-                    val1: 'a2',
-                });
-                this.formAddData.domains.push({
-                    val1: 'a3',
-                });
-                this.formAddData.domains.push({
-                    val1: 'a4',
-                });
-                this.formAddData.domains.push({
-                    val1: 'a5',
-                });
-                this.formAddData.domains.push({
-                    val1: 'a6',
-                });
-                this.formAddData.domains.push({
-                    val1: 'a7',
-                });
-                console.log(this.formAddData.domains);
+                let param = {type:val}
+                var data = [];
+                gameTypeSetList(param)
+                    .then(response => {
+                        this.loading = false;
+                        // haicheng
+                        data = response.data.list.data[0] || [];
+                        var index = 0;
+                        var temp = [];
+                        for(var x in data) {
+                            if(x.indexOf("ext_column")>-1 && data[x]!=''){
+                                temp[index] = {val1:data[x]};
+                                index++;
+                            }
+                        }
+                        this.formAddData.domains = temp;
+                        this.formAddData.domains.unshift({});
+                    })
+                    .catch(() => {
+                        this.loading = false;
+                        data = [];
+                    });
+                
             },
             /*删除表单项*/
             removeDomain(item) {
@@ -536,6 +506,7 @@
                 this.formVisible = !this.formVisible;
                 // 清空表单
                 //this.$refs["dataForm"].resetFields();
+                this.formAddData.domains=[];
                 return true;
             },
             // 显示表单
@@ -551,7 +522,6 @@
                 if (index !== null) {
                     this.index = index;
                     this.formName = "edit";
-                    this.formRules = this.editRules;
                 }
                 // 清空验证信息表单
                 if (this.$refs["dataForm"]) {
@@ -687,6 +657,8 @@
             this.query.limit = parseInt(this.query.limit);
             // 加载表格数据
             this.getList();
+            //加载类型数据
+            this.getTypesList();
         }
     };
 </script>
