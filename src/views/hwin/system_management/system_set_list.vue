@@ -232,8 +232,8 @@
                 formRules: {},
                 formSubRules: {},
                 addRules: {
-                    parent: [
-                        {required: true, message: "请输入祖先", trigger: "blur"}
+                    value: [
+                        {required: true, message: "请输入值", trigger: "blur"}
                     ],
                     item: [
                         {required: true, message: "请输入项目", trigger: "blur"}
@@ -456,9 +456,11 @@
                                     }
                                 } else {
                                     if(this.operation){
-                                        this.tableData.splice(this.index, 1, data);
+                                        this.getSubList();
+                                        //this.tableData.splice(this.index, 1, data);
                                     }else{
-                                        this.list.splice(this.index, 1, data);
+                                        this.getList();
+                                        //this.list.splice(this.index, 1, data);
                                     }
                                 }
                             }
