@@ -103,7 +103,7 @@
             </el-form-item>-->
             <el-form-item class="query-form-item">
                 <el-switch
-                        v-model="value2"
+                        v-model="query.search_type"
                         active-text="ES"
                         inactive-text="MYSQL">
                 </el-switch>
