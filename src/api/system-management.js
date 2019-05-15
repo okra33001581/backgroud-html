@@ -3,7 +3,8 @@
  */
 import axios from "../utils/axios";
 
-
+//------------------- 系统参数相关----------------
+//获取列表数据
 export function sysConfigsList(query) {
     return axios({
         url: "event/sysConfigsList",
@@ -43,6 +44,25 @@ export function sysConfigsStatusSave(data) {
 export function sysConfigsDel(data) {
     return axios({
         url: "event/sysConfigsDel",
+        method: "post",
+        data: data
+    });
+}
+
+//------------------- 系统监控相关----------------
+//获取列表数据
+export function systemMonitorList(query) {
+    return axios({
+        url: "event/systemMonitorList",
+        method: "get",
+        params: query
+    });
+}
+
+// 列表数据es清除修改
+export function systemMonitorClear(data) {
+    return axios({
+        url: "event/systemMonitorClear",
         method: "post",
         data: data
     });

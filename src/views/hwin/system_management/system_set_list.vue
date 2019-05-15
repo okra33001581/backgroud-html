@@ -56,10 +56,12 @@
 
 
             <el-table-column
-                    label="操作" width="300"
+                    label="操作" width="360"
                     fixed="right">
                 <template slot-scope="scope">
                     <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row)">编辑
+                    </el-button>
+                    <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleSubForm(scope.$index, scope.row)">明细
                     </el-button>
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">删除
                     </el-button>
@@ -109,6 +111,74 @@
                 <el-button type="primary" @click.native="formSubmit()" :loading="formLoading">提交</el-button>
             </div>
         </el-dialog>
+
+
+        <!--表单-->
+        <el-dialog
+                :title="formMap[formName]"
+                :visible.sync="formSubVisible"
+                :before-close="hideSubForm"
+                width="90%"
+                top="5vh">
+            <el-form :model="formSubData" :rules="formSubRules" ref="dataSubForm">
+                <template>
+                    <el-table
+                            :data="tableData"
+                            style="width: 100%">
+                        <el-table-column label="id" prop="id" fixed></el-table-column>
+                    <el-table-column label="排序值" prop="sequence" fixed>
+
+                    <template scope="scope">
+                        <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="sysConfigsSequenceSave(scope.row)"
+                        ></el-input>
+                    </template>
+                    </el-table-column>
+
+                    <el-table-column label="祖先ID" prop="parent_id" fixed></el-table-column>
+                    <el-table-column label="祖先" prop="parent" fixed></el-table-column>
+                    <el-table-column label="项目" prop="item" fixed></el-table-column>
+                    <el-table-column label="值" prop="value" fixed></el-table-column>
+                    <el-table-column label="默认值" prop="default_value" fixed></el-table-column>
+                    <el-table-column label="标题" prop="title" fixed></el-table-column>
+                    <el-table-column label="描述" prop="description" fixed></el-table-column>
+                    <el-table-column label="状态" prop="status" fixed></el-table-column>
+                    <el-table-column label="修改时间" prop="updated_at" fixed></el-table-column>
+
+
+                    <el-table-column
+                            label="操作" width="300"
+                            fixed="right">
+                        <template slot-scope="scope">
+                            <el-button type="primary" size="small" icon="el-icon-edit" @click.native="handleForm(scope.$index, scope.row,'sub')">编辑
+                            </el-button>
+                            <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row,'sub')">删除
+                            </el-button>
+                            <el-button v-if="scope.row.status === '启用'" type="danger" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'禁用','sub')">禁用
+                            </el-button>
+                            <el-button v-else type="primary" size="small" icon="el-icon-edit" @click.native="auditItemServer(scope.row,'启用','sub')">启用
+                            </el-button>
+                            
+                        </template>
+                    </el-table-column>
+                        </el-table>
+
+                        <el-pagination
+                                :page-size="query.limit"
+                                @current-change="handleCurrentSubChange"
+                                layout="prev, pager, next"
+                                :total="totalSub">
+                        </el-pagination>
+
+                    </template>
+
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+                <el-button @click.native="hideSubForm">关闭</el-button>
+            </div>
+        </el-dialog>
+
+
+
     </div>
 
 </template>
@@ -138,11 +208,15 @@
                     page: 1,
                     limit: 20
                 },
+                operation:false,
+                parent_id:0,
                 tableKey: 0,
+                tableData: [],
                 pc_pic:'',
                 mobile_pic:'',
                 list: [],
                 total: 0,
+                totalSub: 0,
                 loading: true,
                 index: null,
                 formName: null,
@@ -152,14 +226,14 @@
                 },
                 formLoading: false,
                 formVisible: false,
+                formSubVisible: false,
                 formData: formJson,
+                formSubData: formJson,
                 formRules: {},
+                formSubRules: {},
                 addRules: {
-                    parent_id: [
-                        {required: true, message: "请输入祖先id", trigger: "blur"}
-                    ],
-                    parent: [
-                        {required: true, message: "请输入祖先", trigger: "blur"}
+                    value: [
+                        {required: true, message: "请输入值", trigger: "blur"}
                     ],
                     item: [
                         {required: true, message: "请输入项目", trigger: "blur"}
@@ -191,11 +265,21 @@
                 this.query.page = val;
                 this.getList();
             },
+            handleCurrentSubChange(val) {
+                this.query.page = val;
+                this.getSubList();
+            },
             handleFilter() {
                 this.query.page = 1
                 this.getList()
             },
-            auditItemServer(row,flag) {
+            auditItemServer(row,flag,sub) {
+                if(sub){
+                    this.operation = true;
+                }else{
+                    this.operation = false;
+                }
+
                 var params = {
                     id: row.id,
                     flag: flag
@@ -216,7 +300,11 @@
                                 type: 'error'
                             });
                         }
-                        this.getList();
+                        if(this.operation){
+                            this.getSubList();
+                        }else{
+                            this.getList();
+                        }
                     }.bind(this)
                 )
             },
@@ -232,6 +320,18 @@
                         this.loading = false;
                         this.list = [];
                         this.total = 0;
+                    });
+            },
+            getSubList() {
+                // this.loading = true;
+                let params = Object.assign({}, this.query);
+                params.parent_id = this.parent_id;
+                sysConfigsList(params)
+                    .then(response => {
+                        this.tableData = response.data.list.data || [];
+                        this.totalSub = response.data.list.total || 0;
+                    })
+                    .catch(() => {
                     });
             },
             sysConfigsSequenceSave(row) {
@@ -267,8 +367,21 @@
                 this.$refs["dataForm"].resetFields();
                 return true;
             },
+            // 隐藏表单
+            hideSubForm() {
+                // 更改值
+                this.formSubVisible = !this.formSubVisible;
+                // 清空表单
+                this.$refs["dataSubForm"].resetFields();
+                return true;
+            },
             // 显示表单
-            handleForm(index, row) {
+            handleForm(index, row,sub) {
+                if(sub){
+                    this.operation = true;
+                }else{
+                    this.operation = false;
+                }
                 this.formVisible = true;
                 this.formData = Object.assign({}, formJson);
                 if (row !== null) {
@@ -284,6 +397,33 @@
                 // 清空验证信息表单
                 if (this.$refs["dataForm"]) {
                     this.$refs["dataForm"].clearValidate();
+                }
+            },
+            handleSubForm(index, row) {
+                let params = Object.assign({}, this.query);
+                this.parent_id = params.parent_id = row.id
+                sysConfigsList(params)
+                    .then(response => {
+                        this.tableData = response.data.list.data || [];
+                        this.totalSub = response.data.list.total || 0;
+                    })
+                    .catch(() => {
+                    });
+                this.formSubVisible = true;
+                this.formSubData = Object.assign({}, formJson);
+                if (row !== null) {
+                    this.formSubData = Object.assign({}, row);
+                }
+                this.formSubName = "add";
+                this.formSubRules = this.addRules;
+                if (index !== null) {
+                    this.index = index;
+                    this.formSubName = "edit";
+                    this.formSubRules = this.editRules;
+                }
+                // 清空验证信息表单
+                if (this.$refs["dataSubForm"]) {
+                    this.$refs["dataSubForm"].clearValidate();
                 }
             },
             formSubmit() {
@@ -311,9 +451,17 @@
                                 if (this.formName === "add") {
                                     // 向头部添加数据
                                     let resData = response.data || {};
-                                    this.list.unshift(resData);
+                                    if(resData.parent_id == '' || resData.parent_id == null){
+                                        this.list.unshift(resData);
+                                    }
                                 } else {
-                                    this.list.splice(this.index, 1, data);
+                                    if(this.operation){
+                                        this.getSubList();
+                                        //this.tableData.splice(this.index, 1, data);
+                                    }else{
+                                        this.getList();
+                                        //this.list.splice(this.index, 1, data);
+                                    }
                                 }
                             }
                         });
@@ -321,7 +469,12 @@
                 });
             },
             // 删除
-            handleDel(index, row) {
+            handleDel(index, row,sub) {
+                if(sub){
+                    this.operation = true;
+                }else{
+                    this.operation = false;
+                }
                 if (row.id) {
                     this.$confirm("确认删除该记录吗?", "提示", {
                         type: "warning"
@@ -342,7 +495,11 @@
                                             type: "success"
                                         });
                                         // 刷新数据
-                                        this.list.splice(index, 1);
+                                        if(this.operation){
+                                            this.tableData.splice(index, 1);
+                                        }else{
+                                            this.list.splice(index, 1);
+                                        }
                                     }
                                 })
                                 .catch(() => {
