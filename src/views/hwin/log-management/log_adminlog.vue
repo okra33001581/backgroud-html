@@ -101,6 +101,13 @@
             <!--<el-form-item class="query-form-item">
                 <el-input v-model="query.content" placeholder="日志内容(模糊)"></el-input>
             </el-form-item>-->
+            <el-form-item class="query-form-item">
+                <el-switch
+                        v-model="query.search_type"
+                        active-text="ES"
+                        inactive-text="MYSQL">
+                </el-switch>
+            </el-form-item>
 
             <el-form-item>
                 <el-button-group>
@@ -245,6 +252,8 @@
                     key: '-last_login_ip'
                 }],
                 list: [],
+                value1: true,
+                value2: true,
                 total: 0,
                 loading: true,
                 index: null,
