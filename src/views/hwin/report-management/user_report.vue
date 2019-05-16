@@ -57,7 +57,12 @@
                     <el-option label="乐游棋牌" value="乐游棋牌"></el-option>
                 </el-select>
             </el-form-item>
-
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.search_type" placeholder="数据来源">
+                    <el-option label="ES" value="ES"></el-option>
+                    <el-option label="MYSQL" value="MYSQL"></el-option>
+                </el-select>
+            </el-form-item>
             <el-form-item>
                 <el-button-group>
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
@@ -76,25 +81,24 @@
                 fit
                 highlight-current-row
                 style="width: 100%;"
-                @sort-change="sortChange"
                 element-loading-text="拼命加载中"
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
 
-            <el-table-column label="					ID		" prop="id" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
-            <el-table-column label="					日期		" prop="date" fixed></el-table-column>
-            <el-table-column label="					平台		" prop="platform" fixed></el-table-column>
-            <el-table-column label="					模式		" prop="model" fixed></el-table-column>
-            <el-table-column label="					ip量		" prop="ip_count" fixed></el-table-column>
-            <el-table-column label="					注册人数		" prop="register_count" fixed></el-table-column>
-            <el-table-column label="					活跃数		" prop="active_count" fixed></el-table-column>
-            <el-table-column label="					首存人数		" prop="first_deposit_count" fixed></el-table-column>
-            <el-table-column label="					首存金额		" prop="first_deposit_amount" fixed></el-table-column>
-            <el-table-column label="					入款人数		" prop="in_people_count" fixed></el-table-column>
-            <el-table-column label="					入款次数		" prop="in_times" fixed></el-table-column>
-            <el-table-column label="					出款次数		" prop="out_times" fixed></el-table-column>
+            <el-table-column label="ID" prop="id" fixed></el-table-column>
+            <el-table-column label="商户名称" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="日期" prop="date" fixed></el-table-column>
+            <el-table-column label="平台" prop="platform" fixed></el-table-column>
+            <el-table-column label="模式" prop="model" fixed></el-table-column>
+            <el-table-column label="ip量" prop="ip_count" fixed></el-table-column>
+            <el-table-column label="注册人数" prop="register_count" fixed></el-table-column>
+            <el-table-column label="活跃数" prop="active_count" fixed></el-table-column>
+            <el-table-column label="首存人数" prop="first_deposit_count" fixed></el-table-column>
+            <el-table-column label="首存金额" prop="first_deposit_amount" fixed></el-table-column>
+            <el-table-column label="入款人数" prop="in_people_count" fixed></el-table-column>
+            <el-table-column label="入款次数" prop="in_times" fixed></el-table-column>
+            <el-table-column label="出款次数" prop="out_times" fixed></el-table-column>
 
             <!--<el-table-column
                     label="操作" width="260"
@@ -125,16 +129,16 @@
                 width="35%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
-                <el-form-item label="			ID 		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			日期 		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			ip量    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			注册人数		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			活跃数    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			首存人数		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			首存金额		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			入款人数		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			入款次数		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			出款次数		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="ID" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="日期" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="ip量" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="注册人数" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="活跃数" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="首存人数" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="首存金额" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="入款人数" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="入款次数" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="出款次数" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideForm">关闭</el-button>
@@ -148,64 +152,25 @@
 <script>
     import {
         userReport,
-        authAdminRoleList,
         authAdminSave,
         authAdminDelete
     } from "../../../api/report-management";
 
     const formJson = {
         id: "",
-        password: "",
         username: "",
-        checkPassword: "",
-        status: "1",
-        roles: []
+        status: "1"
     };
     export default {
         data() {
-            let validatePass = (rule, value, callback) => {
-                if (value === "") {
-                    callback(new Error("请输入密码"));
-                } else {
-                    callback();
-                }
-            };
-            let validatePass2 = (rule, value, callback) => {
-                if (value === "") {
-                    callback(new Error("请再次输入密码"));
-                } else if (value !== this.formData.password) {
-                    callback(new Error("两次输入密码不一致!"));
-                } else {
-                    callback();
-                }
-            };
             return {
-                roles: [],
                 query: {
                     username: "",
                     status: "",
                     page: 1,
-                    limit: 20,
-                    role_id: "",
-                    sort: '+id'
+                    limit: 20
                 },
                 tableKey: 0,
-                sortOptions: [{label: 'ID Ascending', key: '+id'}, {
-                    label: 'ID Descending',
-                    key: '-id'
-                }, {label: 'username Ascending', key: '+username'}, {
-                    label: 'username Descending',
-                    key: '-username'
-                }, {label: 'status Ascending', key: '+status'}, {
-                    label: 'status Descending',
-                    key: '-status'
-                }, {label: 'last_login_time Ascending', key: '+last_login_time'}, {
-                    label: 'last_login_time Descending',
-                    key: '-last_login_time'
-                }, {label: 'last_login_ip Ascending', key: '+last_login_ip'}, {
-                    label: 'last_login_ip Descending',
-                    key: '-last_login_ip'
-                }],
                 list: [],
                 excelList: [],
                 total: 0,
@@ -223,18 +188,6 @@
                 addRules: {
                     username: [
                         {required: true, message: "请输入姓名", trigger: "blur"}
-                    ],
-                    password: [
-                        {required: true, message: "请输入密码", trigger: "blur"},
-                        {validator: validatePass, trigger: "blur"}
-                    ],
-                    checkPassword: [
-                        {
-                            required: true,
-                            message: "请再次输入密码",
-                            trigger: "blur"
-                        },
-                        {validator: validatePass2, trigger: "blur"}
                     ],
                     status: [
                         {required: true, message: "请选择状态", trigger: "change"}
@@ -310,99 +263,22 @@
                     }
                 }))
             },
-            sortChange: function (column) {
-                // console.log(column)
-                // console.log(prop)
-                // console.log(order)
-                const {prop, order} = column
-                if (prop === 'id') {
-                    this.sortByID(order)
-                } else if (prop === 'username') {
-                    this.sortByUserName(order)
-                } else if (prop === 'status') {
-                    this.sortByStatus(order)
-                } else if (prop === 'last_login_time') {
-                    this.sortByLastLoginTime(order)
-                } else if (prop === 'last_login_ip') {
-                    this.sortByLastLoginIp(order)
-                }
-            },
             getList() {
                 this.loading = true;
                 userReport(this.query)
                     .then(response => {
                         this.loading = false;
-                        this.list = response.data.list.data || [];
-                        this.total = response.data.list.total || 0;
+                        this.list = response.data.list.data || response.data.list;
+                        this.total = response.data.list.total || response.data.total;
                     })
                     .catch(() => {
                         this.loading = false;
                         this.list = [];
                         this.total = 0;
-                        this.roles = [];
                     });
-            },
-            /*sortChange2(data) {
-                const { prop, order } = data
-                if (prop === 'id') {
-                    this.sortByID(order)
-                }
-            },*/
-
-            sortByID(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+id'
-                } else {
-                    this.query.sort = '-id'
-                }
-                this.handleFilter()
-            },
-
-
-            sortByUserName(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+username'
-                } else {
-                    this.query.sort = '-username'
-                }
-                this.handleFilter()
-            },
-            sortByStatus(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+status'
-                } else {
-                    this.query.sort = '-status'
-                }
-                this.handleFilter()
-            },
-            sortByLastLoginTime(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+last_login_time'
-                } else {
-                    this.query.sort = '-last_login_time'
-                }
-                this.handleFilter()
             },
             getDayBetween(flag) {
                 this.query.datePeriod = flag;
-            },
-            sortByLastLoginIp(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+last_login_ip'
-                } else {
-                    this.query.sort = '-last_login_ip'
-                }
-                this.handleFilter()
-            },
-            getRoleList() {
-                authAdminRoleList(this.query)
-                    .then(response => {
-                        this.roles = response.list || [];
-                    })
-                    .catch((e) => {
-                        console.log(e)
-                        this.roles = [];
-                    });
             },
             // 隐藏表单
             hideForm() {
@@ -531,8 +407,6 @@
             this.query.limit = parseInt(this.query.limit);
             // 加载表格数据
             this.getList();
-            // 加载角色列表
-            // this.getRoleList();
         }
     };
 </script>

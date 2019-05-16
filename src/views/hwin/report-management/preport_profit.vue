@@ -43,17 +43,12 @@
             <el-form-item class="query-form-item">
                 <el-input v-model="query.username" placeholder="查询账号"></el-input>
             </el-form-item>
-
-            <!--<el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleFilter">
-                <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key"/>
-            </el-select>-->
-            <!--<el-form-item class="query-form-item">
-                <el-select v-model="query.role_id" placeholder="角色">
-                    <el-option label="全部角色" value=""></el-option>
-                    <el-option v-for="item in roles" :key="item.id" :label="item.name" :value="item.id"></el-option>
+            <el-form-item class="query-form-item">
+                <el-select v-model="query.search_type" placeholder="数据来源">
+                    <el-option label="ES" value="ES"></el-option>
+                    <el-option label="MYSQL" value="MYSQL"></el-option>
                 </el-select>
-            </el-form-item>-->
-
+            </el-form-item>
             <el-form-item>
                 <el-button-group>
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
@@ -63,20 +58,6 @@
                 </el-button-group>
             </el-form-item>
         </el-form>
-        <!--<el-table
-            v-loading="loading"
-            :data="list" stripe
-            style="width: 100%;"
-            max-height="500">-->
-        <!--<el-table
-                v-loading="loading"
-                :key="tableKey"
-                :data="list" stripe
-                border
-                fit
-                highlight-current-row
-                style="width: 100%;"
-                @sort-change="sortChange">-->
         <el-table
                 v-loading="loading"
                 :key="tableKey"
@@ -85,24 +66,23 @@
                 fit
                 highlight-current-row
                 style="width: 100%;"
-                @sort-change="sortChange"
                 element-loading-text="拼命加载中"
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
-            <el-table-column label="					ID		" prop="id" fixed></el-table-column>
-            <el-table-column label="			商户名称				" prop="merchant_name" fixed></el-table-column>
-            <el-table-column label="					用户名		" prop="username" fixed></el-table-column>
-            <el-table-column label="					时间		" prop="date" fixed></el-table-column>
-            <el-table-column label="					所属组		" prop="group" fixed></el-table-column>
-            <el-table-column label="					投注总额		" prop="total_project" fixed></el-table-column>
-            <el-table-column label="					有效投注		" prop="valid_project" fixed></el-table-column>
-            <el-table-column label="					中奖总额		" prop="prize_total_amount" fixed></el-table-column>
-            <el-table-column label="					返点总额		" prop="rebate_amount" fixed></el-table-column>
-            <el-table-column label="					游戏盈亏		" prop="game_profit_loss" fixed></el-table-column>
-            <el-table-column label="					盈利率		" prop="profit_ratio" fixed></el-table-column>
-            <el-table-column label="					注单量		" prop="project_count" fixed></el-table-column>
-            <el-table-column label="					活跃数		" prop="active_count" fixed></el-table-column>
+            <el-table-column label="ID" prop="id" fixed></el-table-column>
+            <el-table-column label="商户名称" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="用户名" prop="username" fixed></el-table-column>
+            <el-table-column label="时间" prop="date" fixed></el-table-column>
+            <el-table-column label="所属组" prop="group" fixed></el-table-column>
+            <el-table-column label="投注总额" prop="total_project" fixed></el-table-column>
+            <el-table-column label="有效投注" prop="valid_project" fixed></el-table-column>
+            <el-table-column label="中奖总额" prop="prize_total_amount" fixed></el-table-column>
+            <el-table-column label="返点总额" prop="rebate_amount" fixed></el-table-column>
+            <el-table-column label="游戏盈亏" prop="game_profit_loss" fixed></el-table-column>
+            <el-table-column label="盈利率" prop="profit_ratio" fixed></el-table-column>
+            <el-table-column label="注单量" prop="project_count" fixed></el-table-column>
+            <el-table-column label="活跃数" prop="active_count" fixed></el-table-column>
 
             <!--<el-table-column
                     label="操作" width="260"
@@ -133,18 +113,18 @@
                 width="35%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
-                <el-form-item label="					" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			ID 		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			用户名    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			所属组    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			投注总额		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			有效投注		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			中奖总额		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			返点总额		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			游戏盈亏		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			盈利率    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			注单量    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			活跃数    		" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="ID " prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="用户名" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="所属组" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="投注总额" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="有效投注" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="中奖总额" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="返点总额" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="游戏盈亏" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="盈利率" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="注单量" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="活跃数" prop="username"><el-input v-model="formData.username" auto-complete="off"></el-input></el-form-item>
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="hideForm">关闭</el-button>
@@ -158,7 +138,6 @@
 <script>
     import {
         preportProfit,
-        authAdminRoleList,
         authAdminSave,
         authAdminDelete
     } from "../../../api/report-management";
@@ -167,9 +146,7 @@
         id: "",
         password: "",
         username: "",
-        checkPassword: "",
-        status: "1",
-        roles: []
+        status: "1"
     };
     export default {
         data() {
@@ -190,32 +167,13 @@
                 }
             };
             return {
-                roles: [],
                 query: {
                     username: "",
                     status: "",
                     page: 1,
-                    limit: 20,
-                    role_id: "",
-                    sort: '+id'
+                    limit: 20
                 },
                 tableKey: 0,
-                sortOptions: [{label: 'ID Ascending', key: '+id'}, {
-                    label: 'ID Descending',
-                    key: '-id'
-                }, {label: 'username Ascending', key: '+username'}, {
-                    label: 'username Descending',
-                    key: '-username'
-                }, {label: 'status Ascending', key: '+status'}, {
-                    label: 'status Descending',
-                    key: '-status'
-                }, {label: 'last_login_time Ascending', key: '+last_login_time'}, {
-                    label: 'last_login_time Descending',
-                    key: '-last_login_time'
-                }, {label: 'last_login_ip Ascending', key: '+last_login_ip'}, {
-                    label: 'last_login_ip Descending',
-                    key: '-last_login_ip'
-                }],
                 list: [],
                 excelList: [],
                 total: 0,
@@ -324,100 +282,22 @@
                     }
                 }))
             },
-
-            sortChange: function (column) {
-                // console.log(column)
-                // console.log(prop)
-                // console.log(order)
-                const {prop, order} = column
-                if (prop === 'id') {
-                    this.sortByID(order)
-                } else if (prop === 'username') {
-                    this.sortByUserName(order)
-                } else if (prop === 'status') {
-                    this.sortByStatus(order)
-                } else if (prop === 'last_login_time') {
-                    this.sortByLastLoginTime(order)
-                } else if (prop === 'last_login_ip') {
-                    this.sortByLastLoginIp(order)
-                }
-            },
             getList() {
                 this.loading = true;
                 preportProfit(this.query)
                     .then(response => {
                         this.loading = false;
-                        this.list = response.data.list.data || [];
-                        this.total = response.data.list.total || 0;
+                        this.list = response.data.list.data || response.data.list;
+                        this.total = response.data.list.total || response.data.total;
                     })
                     .catch(() => {
                         this.loading = false;
                         this.list = [];
                         this.total = 0;
-                        this.roles = [];
                     });
             },
             getDayBetween(flag) {
                 this.query.datePeriod = flag;
-            },
-            /*sortChange2(data) {
-                const { prop, order } = data
-                if (prop === 'id') {
-                    this.sortByID(order)
-                }
-            },*/
-
-            sortByID(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+id'
-                } else {
-                    this.query.sort = '-id'
-                }
-                this.handleFilter()
-            },
-
-
-            sortByUserName(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+username'
-                } else {
-                    this.query.sort = '-username'
-                }
-                this.handleFilter()
-            },
-            sortByStatus(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+status'
-                } else {
-                    this.query.sort = '-status'
-                }
-                this.handleFilter()
-            },
-            sortByLastLoginTime(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+last_login_time'
-                } else {
-                    this.query.sort = '-last_login_time'
-                }
-                this.handleFilter()
-            },
-            sortByLastLoginIp(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+last_login_ip'
-                } else {
-                    this.query.sort = '-last_login_ip'
-                }
-                this.handleFilter()
-            },
-            getRoleList() {
-                authAdminRoleList(this.query)
-                    .then(response => {
-                        this.roles = response.list || [];
-                    })
-                    .catch((e) => {
-                        console.log(e)
-                        this.roles = [];
-                    });
             },
             // 隐藏表单
             hideForm() {
@@ -546,8 +426,6 @@
             this.query.limit = parseInt(this.query.limit);
             // 加载表格数据
             this.getList();
-            // 加载角色列表
-            // this.getRoleList();
         }
     };
 </script>

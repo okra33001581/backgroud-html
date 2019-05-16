@@ -125,23 +125,22 @@
                 fit
                 highlight-current-row
                 style="width: 100%;"
-                @sort-change="sortChange"
                 element-loading-text="拼命加载中"
                 element-loading-spinner="el-icon-loading"
                 element-loading-background="rgba(0, 0, 0, 0.8)"
                 :header-cell-style="getRowClass">
 
-            <el-table-column label="					编号		" prop="id" fixed></el-table-column>
-            <el-table-column label="					子账号		" prop="sub_account" fixed></el-table-column>
-            <el-table-column label="					商户名称		" prop="merchant_name" fixed></el-table-column>
-            <el-table-column label="					操作名称		" prop="operate_name" fixed></el-table-column>
-            <el-table-column label="					日志内容		" prop="log_content" fixed></el-table-column>
-            <el-table-column label="					IP		" prop="ip" fixed></el-table-column>
-            <el-table-column label="					cookies		" prop="cookies" fixed></el-table-column>
-            <el-table-column label="					origin		" prop="origin" fixed></el-table-column>
-            <el-table-column label="					referer		" prop="referer" fixed></el-table-column>
-            <el-table-column label="					user_agent		" prop="user_agent" fixed></el-table-column>
-            <el-table-column label="					时间		" prop="date" fixed></el-table-column>
+            <el-table-column label="编号" prop="id" fixed></el-table-column>
+            <el-table-column label="子账号" prop="sub_account" fixed></el-table-column>
+            <el-table-column label="商户名称" prop="merchant_name" fixed></el-table-column>
+            <el-table-column label="操作名称" prop="operate_name" fixed></el-table-column>
+            <el-table-column label="日志内容" prop="log_content" fixed></el-table-column>
+            <el-table-column label="IP" prop="ip" fixed></el-table-column>
+            <el-table-column label="cookies" prop="cookies" fixed></el-table-column>
+            <el-table-column label="origin" prop="origin" fixed></el-table-column>
+            <el-table-column label="referer" prop="referer" fixed></el-table-column>
+            <el-table-column label="user_agent" prop="user_agent" fixed></el-table-column>
+            <el-table-column label="时间" prop="date" fixed></el-table-column>
            <!-- <el-table-column
                     label="操作" width="260"
                     fixed="right">
@@ -169,17 +168,17 @@
                 width="35%"
                 top="5vh">
             <el-form :model="formData" :rules="formRules" ref="dataForm">
-                <el-form-item label="			编号  		" prop="id"><el-input v-model="formData.id" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			子账号    		" prop="sub_account"><el-input v-model="formData.sub_account" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			商户    		" prop="merchant_name"><el-input v-model="formData.merchant_name" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			操作名称		" prop="operate_name"><el-input v-model="formData.operate_name" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			日志内容		" prop="log_content"><el-input v-model="formData.log_content" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			IP 		" prop="ip"><el-input v-model="formData.ip" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			Cook		" prop="cookies"><el-input v-model="formData.cookies" type="textarea" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			origin		" prop="origin"><el-input v-model="formData.origin" type="textarea" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			referer		" prop="cookies"><el-input v-model="formData.referer" type="textarea" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			user_agent		" prop="user_agent"><el-input v-model="formData.user_agent" type="textarea" auto-complete="off"></el-input></el-form-item>
-                <el-form-item label="			时间 		" prop="date"><el-input v-model="formData.date" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="编号" prop="id"><el-input v-model="formData.id" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="子账号" prop="sub_account"><el-input v-model="formData.sub_account" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="商户" prop="merchant_name"><el-input v-model="formData.merchant_name" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="操作名称" prop="operate_name"><el-input v-model="formData.operate_name" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="日志内容" prop="log_content"><el-input v-model="formData.log_content" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="IP" prop="ip"><el-input v-model="formData.ip" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="Cook" prop="cookies"><el-input v-model="formData.cookies" type="textarea" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="origin" prop="origin"><el-input v-model="formData.origin" type="textarea" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="referer" prop="cookies"><el-input v-model="formData.referer" type="textarea" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="user_agent" prop="user_agent"><el-input v-model="formData.user_agent" type="textarea" auto-complete="off"></el-input></el-form-item>
+                <el-form-item label="时间" prop="date"><el-input v-model="formData.date" auto-complete="off"></el-input></el-form-item>
 
             </el-form>
             <div slot="footer" class="dialog-footer">
@@ -193,64 +192,25 @@
 <script>
     import {
         logAdminlog,
-        authAdminRoleList,
         authAdminSave,
         authAdminDelete
     } from "../../../api/log-management";
 
     const formJson = {
         id: "",
-        password: "",
         username: "",
-        checkPassword: "",
-        status: "1",
-        roles: []
+        status: "1"
     };
     export default {
         data() {
-            let validatePass = (rule, value, callback) => {
-                if (value === "") {
-                    callback(new Error("请输入密码"));
-                } else {
-                    callback();
-                }
-            };
-            let validatePass2 = (rule, value, callback) => {
-                if (value === "") {
-                    callback(new Error("请再次输入密码"));
-                } else if (value !== this.formData.password) {
-                    callback(new Error("两次输入密码不一致!"));
-                } else {
-                    callback();
-                }
-            };
             return {
-                roles: [],
                 query: {
                     username: "",
                     status: "",
                     page: 1,
-                    limit: 20,
-                    role_id: "",
-                    sort: '+id'
+                    limit: 20
                 },
                 tableKey: 0,
-                sortOptions: [{label: 'ID Ascending', key: '+id'}, {
-                    label: 'ID Descending',
-                    key: '-id'
-                }, {label: 'username Ascending', key: '+username'}, {
-                    label: 'username Descending',
-                    key: '-username'
-                }, {label: 'status Ascending', key: '+status'}, {
-                    label: 'status Descending',
-                    key: '-status'
-                }, {label: 'last_login_time Ascending', key: '+last_login_time'}, {
-                    label: 'last_login_time Descending',
-                    key: '-last_login_time'
-                }, {label: 'last_login_ip Ascending', key: '+last_login_ip'}, {
-                    label: 'last_login_ip Descending',
-                    key: '-last_login_ip'
-                }],
                 list: [],
                 search_type: '',
                 total: 0,
@@ -268,18 +228,6 @@
                 addRules: {
                     username: [
                         {required: true, message: "请输入姓名", trigger: "blur"}
-                    ],
-                    password: [
-                        {required: true, message: "请输入密码", trigger: "blur"},
-                        {validator: validatePass, trigger: "blur"}
-                    ],
-                    checkPassword: [
-                        {
-                            required: true,
-                            message: "请再次输入密码",
-                            trigger: "blur"
-                        },
-                        {validator: validatePass2, trigger: "blur"}
                     ],
                     status: [
                         {required: true, message: "请选择状态", trigger: "change"}
@@ -320,95 +268,18 @@
                 this.query.page = 1
                 this.getList()
             },
-            sortChange: function (column) {
-                // console.log(column)
-                // console.log(prop)
-                // console.log(order)
-                const {prop, order} = column
-                if (prop === 'id') {
-                    this.sortByID(order)
-                } else if (prop === 'username') {
-                    this.sortByUserName(order)
-                } else if (prop === 'status') {
-                    this.sortByStatus(order)
-                } else if (prop === 'last_login_time') {
-                    this.sortByLastLoginTime(order)
-                } else if (prop === 'last_login_ip') {
-                    this.sortByLastLoginIp(order)
-                }
-            },
             getList() {
                 this.loading = true;
                 logAdminlog(this.query)
                     .then(response => {
                         this.loading = false;
-                        this.list = response.data.list.data || [];
-                        this.total = response.data.list.total || 0;
+                        this.list = response.data.list.data || response.data.list;
+                        this.total = response.data.list.total || response.data.total;
                     })
                     .catch(() => {
                         this.loading = false;
                         this.list = [];
                         this.total = 0;
-                        this.roles = [];
-                    });
-            },
-            /*sortChange2(data) {
-                const { prop, order } = data
-                if (prop === 'id') {
-                    this.sortByID(order)
-                }
-            },*/
-
-            sortByID(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+id'
-                } else {
-                    this.query.sort = '-id'
-                }
-                this.handleFilter()
-            },
-
-
-            sortByUserName(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+username'
-                } else {
-                    this.query.sort = '-username'
-                }
-                this.handleFilter()
-            },
-            sortByStatus(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+status'
-                } else {
-                    this.query.sort = '-status'
-                }
-                this.handleFilter()
-            },
-            sortByLastLoginTime(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+last_login_time'
-                } else {
-                    this.query.sort = '-last_login_time'
-                }
-                this.handleFilter()
-            },
-            sortByLastLoginIp(order) {
-                if (order === 'ascending') {
-                    this.query.sort = '+last_login_ip'
-                } else {
-                    this.query.sort = '-last_login_ip'
-                }
-                this.handleFilter()
-            },
-            getRoleList() {
-                authAdminRoleList(this.query)
-                    .then(response => {
-                        this.roles = response.list || [];
-                    })
-                    .catch((e) => {
-                        console.log(e)
-                        this.roles = [];
                     });
             },
             // 隐藏表单
@@ -538,8 +409,6 @@
             this.query.limit = parseInt(this.query.limit);
             // 加载表格数据
             this.getList();
-            // 加载角色列表
-            // this.getRoleList();
         }
     };
 </script>
