@@ -366,7 +366,7 @@
                 let params = Object.assign({}, this.query, {'limit': 9999});
                 pgamePlaylist(params)
                     .then(response => {
-                        this.excelList = response.data.list.data || [];
+                        this.excelList = response.data.list.data || response.data.list;
                         import('@/vendor/Export2Excel').then(excel => {
                             const tHeader = ['ID','商户名称', '注单', '用户名', '时间', '彩种', '期数', '开奖结果','玩法','动态奖金','投注内容','倍数','投注总金额','模式','返点金额','中奖金额','中奖状态','状态']
                             const filterVal = ['id','merchant_name', 'project', 'uername', 'date', 'lottery', 'issue_count', 'prize_number', 'way', 'dynamic_prize', 'project_content', 'multiple', 'total_amount', 'mode', 'rebate_amount','prize_amount','prize_status','status']

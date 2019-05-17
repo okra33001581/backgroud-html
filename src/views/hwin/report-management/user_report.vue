@@ -234,7 +234,7 @@
                 let params = Object.assign({}, this.query, {'limit': 9999});
                 userReport(params)
                     .then(response => {
-                        this.excelList = response.data.list.data || [];
+                        this.excelList = response.data.list.data || response.data.list;
                             import('@/vendor/Export2Excel').then(excel => {
                                 const tHeader = ['ID','商户名称', '日期', '平台', '模式', 'ip量', '注册人数', '活跃数','首存人数','首存金额','入款人数','入款次数','出款次数']
                                 const filterVal = ['id','merchant_name', 'date', 'platform', 'model', 'ip_count', 'register_count', 'active_count', 'first_deposit_count', 'first_deposit_amount', 'in_people_count', 'in_times', 'out_times']

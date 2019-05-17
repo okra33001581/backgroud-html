@@ -202,7 +202,7 @@
                 let params = Object.assign({}, this.query, {'limit': 9999});
                 financeIndex(params)
                     .then(response => {
-                        this.excelList = response.data.list.data || [];
+                        this.excelList = response.data.list.data || response.data.list;
                         import('@/vendor/Export2Excel').then(excel => {
                             const tHeader = ['ID','商户名称', '公司入款', '第三方存入', '存款存入', '普通存入', '给予优惠', '总返点','银行卡出款','三方出款','会员出款被扣除金额','人工取款','小计']
                             const filterVal = ['id','merchant_name', 'company_in', 'third_in', 'deposit', 'common_deposit', 'benefit', 'total_rebate', 'bankcard_out', 'third_out', 'user_subtraction', 'artifical_withdraw', 'total']

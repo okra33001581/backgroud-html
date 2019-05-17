@@ -218,7 +218,7 @@
                 let params = Object.assign({}, this.query, {'limit': 9999});
                 operationProfit(params)
                     .then(response => {
-                        this.excelList = response.data.list.data || [];
+                        this.excelList = response.data.list.data || response.data.list;
 
                         import('@/vendor/Export2Excel').then(excel => {
                             const tHeader = ['ID','商户名称', '用户名', '平台', '模式', '所属组', '总入款', '总取款','有效盈利','投注总额','中奖金额','返点总额','游戏盈亏','优惠总额','系统扣减','余额']
