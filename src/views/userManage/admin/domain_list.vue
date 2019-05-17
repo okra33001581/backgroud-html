@@ -76,16 +76,30 @@
                 top="5vh">
             <el-form :model="formData" label-width="12%" :rules="formRules" ref="dataForm">
                 <el-form-item label="商户" prop="merchant_id">
-                    <el-input v-model="formData.merchant_id" auto-complete="off"></el-input>
+                    <el-select v-model="formData.merchant_id" placeholder="商户">
+                        <el-option label="商户A00001" value="商户A00001"></el-option>
+                        <el-option label="商户A00002" value="商户A00002"></el-option>
+                        <el-option label="商户A00003" value="商户A00003"></el-option>
+                    </el-select>
                 </el-form-item>
 
-
                 <el-form-item label="域名" prop="domain">
-                    <el-input v-model="formData.domain" auto-complete="off"></el-input>
+                    <el-input type="textarea" v-model="formData.domain" auto-complete="off" placeholder="【,分割】"></el-input>
+                </el-form-item>
+
+                <el-form-item label="所属总代" prop="top_agent">
+                    <el-select v-model="formData.top_agent" placeholder="所属总代">
+                        <el-option label="top_agent0001" value="top_agent0001"></el-option>
+                        <el-option label="top_agent0002" value="top_agent0002"></el-option>
+                    </el-select>
                 </el-form-item>
 
                 <el-form-item label="状态" prop="status">
-                    <el-input v-model="formData.status" auto-complete="off"></el-input>
+                    <el-select v-model="formData.status" placeholder="状态">
+                        <el-option label="全部" value=""></el-option>
+                        <el-option label="启用" value="启用"></el-option>
+                        <el-option label="禁用" value="禁用"></el-option>
+                    </el-select>
                 </el-form-item>
 
                 <!--<el-form-item label="created_at" prop="created_at">
