@@ -40,14 +40,14 @@
             <el-table-column label="内容" prop="es_desc" fixed></el-table-column>
             <el-table-column label="记录数量" prop="es_record_count" fixed></el-table-column>
 
-            <el-table-column
+            <!--<el-table-column
                     label="操作" width="100"
                     fixed="right">
                 <template slot-scope="scope">
                     <el-button type="danger" size="small" icon="el-icon-delete" @click.native="handleDel(scope.$index, scope.row)">清除ES
                     </el-button>
                 </template>
-            </el-table-column>
+            </el-table-column>-->
         </el-table>
 
         <el-pagination

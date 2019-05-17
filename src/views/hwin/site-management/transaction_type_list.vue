@@ -17,7 +17,7 @@
                 <el-button-group>
                     <el-button type="primary" icon="el-icon-refresh" @click="getList"></el-button>
                     <el-button type="primary" icon="el-icon-search" @click="onSubmit">查询</el-button>
-                    <el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">新增</el-button>
+                    <!--<el-button type="primary" icon="el-icon-plus" @click.native="handleForm(null,null)">新增</el-button>-->
                 </el-button-group>
             </el-form-item>
         </el-form>
@@ -37,24 +37,13 @@
                 :header-cell-style="getRowClass">
 
             <el-table-column label="id" prop="id" fixed></el-table-column>
-
-
-            <el-table-column label="排序值" prop="sequence" fixed>
-
-                <template scope="scope">
-                    <el-input size="small" v-model="scope.row.sequence" placeholder="请输入排序值" @keyup.enter.native="transactionTypeStatusSave(scope.row)"
-                    ></el-input>
-                </template>
-
-            </el-table-column>
-
-
             <!--<el-table-column label="merchant_id" prop="merchant_id" fixed></el-table-column>
             <el-table-column label="merchant_name" prop="merchant_name" fixed></el-table-column>
             <el-table-column label="parent_id" prop="parent_id" fixed></el-table-column>
             <el-table-column label="parent" prop="parent" fixed></el-table-column>-->
             <el-table-column label="资金流" prop="fund_flow_id" fixed></el-table-column>
             <el-table-column label="状态" prop="status" fixed></el-table-column>
+            <el-table-column label="分类" prop="type" fixed></el-table-column>
             <el-table-column label="账变类型" prop="description" fixed></el-table-column>
             <el-table-column label="中文标题" prop="cn_title" fixed></el-table-column>
             <el-table-column label="余额" prop="balance" fixed></el-table-column>
@@ -71,7 +60,7 @@
             <el-table-column label="更新时间" prop="updated_at" fixed></el-table-column>
 
 
-            <el-table-column
+           <!-- <el-table-column
                     label="操作" width="300"
                     fixed="right">
                 <template slot-scope="scope">
@@ -88,7 +77,7 @@
 
 
                 </template>
-            </el-table-column>
+            </el-table-column>-->
         </el-table>
 
         <el-pagination
