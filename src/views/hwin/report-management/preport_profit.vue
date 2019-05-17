@@ -41,7 +41,7 @@
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-input v-model="query.username" placeholder="查询账号"></el-input>
+                <el-input v-model="query.username" placeholder="用户名"></el-input>
             </el-form-item>
             <el-form-item class="query-form-item">
                 <el-select v-model="query.search_type" placeholder="数据来源">

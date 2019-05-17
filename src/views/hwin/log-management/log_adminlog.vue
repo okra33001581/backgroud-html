@@ -95,7 +95,7 @@
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-input v-model="query.cookies" placeholder="Cookies"></el-input>
+                <el-input v-model="query.cookie_content" placeholder="Cookies"></el-input>
             </el-form-item>
 
             <!--<el-form-item class="query-form-item">

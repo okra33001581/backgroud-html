@@ -50,7 +50,7 @@
             </el-form-item>
 
             <el-form-item class="query-form-item">
-                <el-select v-model="query.platform" placeholder="活跃数">
+                <el-select v-model="query.platform" placeholder="游戏平台">
                     <el-option label="全部" value=""></el-option>
                     <el-option label="彩票" value="彩票"></el-option>
                     <el-option label="开元棋牌" value="开元棋牌"></el-option>
